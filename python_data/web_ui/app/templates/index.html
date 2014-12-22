@@ -1,0 +1,351 @@
+
+ <html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Autograding for Style</title>
+  
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+  
+        <link rel="stylesheet" type="text/css" href={{home|string() + "static/contrib/codemirror/lib/codemirror.css" }} />
+      <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    
+
+    
+      <!-- <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> -->
+    
+    
+      <script type="text/javascript" src="http://areaaperta.com/nicescroll/js/jquery.nicescroll.min.js"></script>
+    
+
+
+    <link rel="stylesheet" href={{home|string() + "static/css/slider.css"}} >
+    <script src={{home|string() + "static/less/slider.less"}}></script>
+     <script src={{home|string() + "static/js/bootstrap-slider.js"}}></script>
+
+  
+  <style type="text/css">
+    /* Sticky footer styles  */
+ html, body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+/* Wrapper for page content to push down footer */
+ #wrap {
+    min-height: 100%;
+    height: auto;
+    /* Negative indent footer by its height */
+    margin: 0 auto -60px;
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;
+}
+/* Set the fixed height of the footer here */
+ #footer {
+    height: 60px;
+    background-color: #f5f5f5;
+}
+/* Custom page CSS
+-------------------------------------------------- */
+
+/* Not required for template or sticky footer method. */
+ #wrap > .container {
+    padding: 60px 50px 0;
+}
+
+@media (min-width:768px) {
+.container {
+width:100%;
+}
+#main-content{
+     min-height: 100%;
+    /*height: auto; */
+   
+}
+#main-content > .row {
+ overflow-x:scroll;
+     overflow-y:hidden;
+    white-space:nowrap;
+    height: 60%;
+
+}    
+#main-content > .row [class*="col-lg"], #main-content > .row [class*="col-md"], #main-content > .row [class*="col-sm"] {
+    float:none;
+    display:inline-block;
+    width: 35%;
+    overflow-y:scroll;
+}
+
+/*div#secondrow.row{
+  height: 100px;
+}*/
+div#thirdrow.row{
+  height: 150px;
+}
+#one {
+    padding-top: 40px;
+    width: 50%;
+    float: left;
+}
+#two {
+    width: 50%;
+    padding-top: 40px;
+    float: left;
+}
+
+.col-xs-12{
+  vertical-align: top;
+}
+
+/*#ast_slider {
+      float:left;
+    position:relative;
+    left:50%;
+}
+
+#flog_slider {
+      float:left;
+    position:relative;
+    left:50%;
+}*/
+
+
+  </style>
+  
+
+
+<script type="text/javascript">//<![CDATA[ 
+$(window).load(function(){
+$(function() { 
+
+    $("#main-content > .row").niceScroll();
+
+  }
+
+);
+});//]]>  
+
+</script>
+
+
+<style type="text/css"></style></head>
+<body style="position: relative;">
+  <!-- Wrap all page content here -->
+<div id="wrap">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+
+                </button> <a class="navbar-brand" href="#">Autograding for Style</a>
+
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+    <!-- Begin page content -->
+    <div class="container" id="main-content">
+          <div class="row" id= "thirdrow">
+       <form method="post" action="{{ url_for('submit_form') }}">
+         <form>
+            <fieldset>
+              <label>Starting solution:</label>
+                   <div class="input-group" >
+                     <input type="text" class="form-control" name="start" id="start" placeholder="Enter starting submission" value={{start}} style="width: 200 px !important";>
+                
+     
+                  <button type="submit" class="btn btn-info" id = "subbtn" style="margin-left: 10px;
+                  background-image: linear-gradient(to bottom, #149bdf, #0480be);box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,                  .05);
+                  opacity: 0.8;
+                  border: 0px solid transparent;
+                  ">Submit</button>
+                  </div>
+            <div class="col" id="one">
+            <div style="margin-left: 25%;">
+            <label for="ast_slider" class="control-label" style="margin-right: 10px;"">AST edit distance:</label>
+            <input id="ast_sld" value="{{ast_dist}}" name="ast_slider" data-slider-id='ast_slider' type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="{{ast_dist}}" data-slider-tooltip="show"/>
+            <code style="color: #258AC7;background-color: #F2F2F9;" id="ast_val">{{ast_dist}}</code>
+            </div>
+
+            </div>
+            <div class="col" id=two>
+              <div style="margin-right: 25%;">
+                <label for="flog_slider" class="control-label" style="margin-right: 10px;">Flog score difference:</label>
+                <input id="flog_sld" value="{{flog_diff}}" name="flog_slider"  data-slider-id='flog_slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="{{flog_diff}}" data-slider-tooltip="show"/>
+                <code style="color: #258AC7;background-color: #F2F2F9;" id="flog_val">{{flog_diff}}</code>
+                </div>
+            </div>
+
+            <input name="feedback" id="feedback" type="hidden" value="">
+
+            </fieldset>
+          </form>
+      </div>
+     <div class="row" tabindex="5000" style="overflow: hidden; outline: none;">
+     <div class="row">
+          {% for post in posts %}
+          
+         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+             <textarea id="{{'code' + loop.index|string()}}">{{ post.code }}</textarea><div style="color: white; line-height: 0.1;">.</div>
+         </div>
+         
+     {% endfor %}
+     </div>
+     <div class ="row" style="position: relative;left:17.5%; top: 10px">
+     {% for post in posts %}
+      {% set outer_loop = loop.index|string()%}
+      {% if loop.index < posts|length %}
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <code style="color: #3c763d;background-color: #dff0d8;">To improve your style, you might want to consider...</code>
+              {% for hint in post.positive_hint %}
+                <div class="input-group">
+                   <span class="input-group-addon">
+                     <input id="{{'positive' + outer_loop + loop.index|string()}}" type="checkbox">
+                   </span>
+                   <input readonly value="{{hint}}" style="width: 100%">
+                 </div>
+              {% endfor %}
+              {% if post.positive_hint|length == 0 %}
+                <div></div>
+              {% endif %}
+          <code style="color: #a94442;background-color: #f2dede;">You might also want to consider...</code>
+          {% for hint in post.negative_hint %}
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input id="{{'negative' + outer_loop + loop.index|string()}}" type="checkbox">
+                </span>
+                <input readonly value="{{hint}}" style="width: 100%">
+              </div>
+              {% endfor %}
+         </div>
+        {% endif %}
+         {% endfor %}
+
+     </div>
+
+
+      </div>
+
+</div>
+ </div>
+
+
+
+
+
+<script type="text/javascript">
+var ast_slider = $('#ast_sld').slider({
+  formatter: function(value) {
+    return 'AST edit distance ' + value;
+  }
+});  
+var flog_slider = $('#flog_sld').slider({
+  formatter: function(value) {
+    return 'Flog score difference ' + value;
+  }
+});  
+
+flog_slider.on("slide",
+  function (slideEvt) {
+                
+                $('#flog_val').text(slideEvt.value);
+
+                }
+              );
+
+
+ast_slider.on("slide",
+  function (slideEvt) {
+                
+                $('#ast_val').text(slideEvt.value);
+                }
+              );
+
+
+
+var submit_btn = $('#subbtn');
+submit_btn.on('click',  
+  function (ev) {
+                {% for post in posts %}
+                  {% set outer_loop = loop.index|string()%}
+                  {% for hint in post.positive_hint %}
+                       document.getElementById("feedback").value += "('{{'positive' + outer_loop + loop.index|string()}}'" + "," + 
+                        +$('#{{"positive" + outer_loop + loop.index|string()}}').is(':checked') + ")";
+                  {% endfor %}
+                  {% for hint in post.negative_hint %}
+                       document.getElementById("feedback").value += "('{{'negative' + outer_loop + loop.index|string()}}'" + "," + 
+                        +$('#{{"negative" + outer_loop + loop.index|string()}}').is(':checked') + ")";
+                  {% endfor %}
+               
+                {% endfor %}
+  });
+
+
+
+
+
+</script>      
+
+
+
+
+
+<div id="footer">
+    <div class="container">
+        <p class="text-muted credit">Autograding for Style (Ruby, Python)</p>
+    </div>
+</div>
+  
+
+
+
+
+
+<div id="ascrail2000" class="nicescroll-rails" style="width: 7px; z-index: auto; cursor: default; position: absolute; top: 60px; left: 1271px; height: 69px; display: none; opacity: 1;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 69px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;"></div></div>
+
+
+<script src={{home|string() + "static/contrib/codemirror/lib/codemirror.js"}}></script>
+<script src={{home|string() + "static/contrib/codemirror/mode/properties/properties.js"}}></script>
+<script src={{home|string() + "static/contrib/codemirror/mode/python/python.js"}}></script>
+
+<script type="text/javascript">
+
+         {% for post in posts %}
+        //Set up code mirror
+        CodeMirror.fromTextArea(document.getElementById("code"+{{loop.index}}), {
+            lineNumbers: false,
+            mode: "python",
+            lineWrapping: false,
+        });
+        {% endfor %}
+
+</script>
+
+
+  <style type="text/css">
+.CodeMirror {
+  border: 1px solid #eee;
+  height: 50%;
+  width: 100%;
+}
+.CodeMirror-scroll {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+#ast_slider .slider-selection {
+  background: #BABABA;
+}  
+</style>
+
+
+</body></html>
+

@@ -1,0 +1,1 @@
+{"[:each]":1,"[:downcase, 2]":1,"[:chars, 2]":1,"[:sort, 2]":1,"[:join, 2]":1,"[:has_key?, 1, 2]":1,"[:values]":1}

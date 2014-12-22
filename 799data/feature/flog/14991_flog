@@ -1,0 +1,6 @@
+    30.1: flog total
+    10.0: flog/method average
+
+    13.9: main#are_anagrams?               799/src//14991.rb:1
+    12.3: main#create_anagram_hash         799/src//14991.rb:5
+     3.9: main#combine_anagrams            799/src//14991.rb:31

@@ -1,0 +1,16 @@
+*.np
+*.pyc
+*.swp
+*~
+*.aux
+*.log
+.DS_Store
+data
+data2
+clustering/elki_out/*
+data.dat
+/python_data/test_chains/AutogradeStyle/nbproject/private/
+/python_data/test_chains/AutogradeStyle/build/
+/python_data/test_chains/AutogradeStyle/dist/799data/
+count_words_data/
+count_words_latest

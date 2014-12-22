@@ -1,0 +1,8 @@
+Call to get_list
+Call to append
+Use of a double nested loop
+Use of a single loop
+Use of 3 loop(s) in total.
+Use of an augmented assignment
+Use of a list
+Use of an if statement

@@ -1,0 +1,6 @@
+    31.4: flog total
+    10.5: flog/method average
+
+    15.3: main#combine_anagrams            800//source795/19560.rb:21
+    11.1: main#count_words                 800//source795/19560.rb:8
+     5.0: main#palindrome?                 800//source795/19560.rb:1

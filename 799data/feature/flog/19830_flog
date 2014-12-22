@@ -1,0 +1,6 @@
+    22.8: flog total
+     7.6: flog/method average
+
+    12.2: main#anagram?                    799/src//19830.rb:6
+     5.6: main#anagram_arr?                799/src//19830.rb:12
+     5.0: main#combine_anagrams            799/src//19830.rb:22

@@ -1,0 +1,5 @@
+    23.8: flog total
+    11.9: flog/method average
+
+    14.3: main#makeHash                    800/source795//23165.rb:17
+     9.5: main#combine_anagrams            800/source795//23165.rb:2

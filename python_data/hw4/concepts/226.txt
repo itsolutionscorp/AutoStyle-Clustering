@@ -1,0 +1,4 @@
+Use of a triple nested loop
+Use of 3 loop(s) in total.
+Use of an augmented assignment
+Use of an if statement

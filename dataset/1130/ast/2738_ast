@@ -1,0 +1,1 @@
+s(:defn, :combine_anagrams, s(:args, :words), s(:return, s(:call, s(:iter, s(:call, s(:lvar, :words), :group_by), s(:args, :a), s(:iter, s(:call, s(:call, s(:call, s(:call, s(:lvar, :a), :downcase), :split, s(:lit, //)), :sort), :reduce, s(:str, "")), s(:args, :a, :s), s(:call, s(:lvar, :a), :+, s(:lvar, :s)))), :values)))
