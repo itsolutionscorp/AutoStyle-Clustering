@@ -44,12 +44,12 @@ class Chain():
         self.weights_file = 'weights.np' #TODO: don't hard code
         self.feedback_file = 'feedback.np'
         
-        self.create_chain(start_index, 0, 0)
-        self.initialize_weights()
-        
         self.ast_distance_weight = ast_distance_weight
         self.style_score_weight = style_score_weight
-        
+        self.JUMP_THRESHOLD = self.style_score_weight
+
+        self.create_chain(start_index, 0, 0)
+        self.initialize_weights()
         
     def create_chain(self, start_index, slider1, slider2, feedback=None):
         '''
@@ -160,7 +160,6 @@ class ChainLink:
             prev_link.next = self
         self.index = index
         self.chain = chain
-        self.flog_score = self.chain.style_scores[self.index, 0] #TODO: flog isn't necessarily 0...
         self.next = None
         self.positive_hint = None
         self.negative_hint = None
@@ -253,10 +252,11 @@ class ChainLink:
                     selected_scores.append(score)
         sorted_selected_hints = [x for (y,x) in sorted(zip(selected_scores, selected_hints), key=lambda pair: -1*pair[0])]
         names = self.chain.feature_names[sorted_selected_hints]
+        # return names,[]
         lines = []
-        print self.chain.libcall_linenums[self.next.index]
         for name in names:
             name = name[2:-2]
+            name = name.strip("()") #added name.strip here, otherwise i get a KeyError  - this seems like a hacky fix though
             if name.startswith('->'):
                 all_lines= []
                 calls = self.chain.calls_that_produce(name[3:])
@@ -267,9 +267,15 @@ class ChainLink:
                         all_lines += self.chain.libcall_linenums[self.next.index][call]
                 lines.append(all_lines)
             elif is_not_hint:
-                lines.append(self.chain.libcall_linenums[self.index][name])
+                try:
+                    lines.append(self.chain.libcall_linenums[self.index][name])  
+                except Exception:
+                    lines.append([0])
             else:
-                lines.append(self.chain.libcall_linenums[self.next.index][name])
+                try:
+                    lines.append(self.chain.libcall_linenums[self.next.index][name])  #rohan: added name.strip here - but seems like a hacky fix
+                except Exception:
+                    lines.append([0])
         return names, lines
     
     
@@ -297,7 +303,7 @@ def interpret_list_of_hints(features, is_not_hint):
                 all_advice += 'es.\n'
             else:
                 all_advice += 's.\n'
-        elif len(feature) > 0 and feature[0] == '(':
+        elif feature[0] == '(':
             methods = ' '.join(feature.split('(')).split(')')
 
             method_advice = ''
@@ -371,7 +377,7 @@ def sparse_subtract_out_of(sparse_vector, vector):
     '''
     vector[sparse_vector] -= 1
 
-def generate_chain(start_index, ast_distance_weight, style_score_weight, home_dir,
+def generate_chain(start_index, ast_distance_weight, style_score_weight, home_dir = "./",
                    feedback=None, 
                    style_scores='data/feature/inherent_style_features.np', 
                    style_features='data/feature/instrumental_style_features.np', 
@@ -381,8 +387,6 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
                    distances='data/gen/ast_dist_matrix.np',
                    libcall_linenums='featurization/libcalls_and_linenums.json',
                    libcall_dict='util/lib_call_dict.pkl'):
-
-
     distances = np.loadtxt(home_dir + distances)
     style_scores = np.loadtxt(home_dir + style_scores)
     feature_names = np.genfromtxt(home_dir + feature_names, dtype='str', delimiter='\n')
@@ -392,6 +396,7 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
     style_features = np.loadtxt(home_dir + style_features)
     with open(home_dir + libcall_linenums, 'r') as json_data:
         libcall_linenums = json.load(json_data)
+        libcall_linenums = unicode_to_str(libcall_linenums)
     with open(home_dir + libcall_dict, 'r') as f:
         libcall_dict = pickle.load(f)
     c = Chain(home_dir+source, distances, style_scores, style_features, feature_names, score_names, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight)
@@ -412,6 +417,12 @@ def main():
     args = parser.parse_args()
     start_index = args.start_index
     source = args.source
+#     distances = args.distances
+#     style_scores = args.style_scores
+#     feature_names = args.feature_names
+#     score_names = args.score_names
+#     style_features = args.style_features
+#     c = generate_chain(start_index, .05, 0,"../", None, style_scores, style_features, score_names, feature_names, source, distances)
     distances = np.loadtxt(args.distances)
     style_scores = np.loadtxt(args.style_scores)
     feature_names = np.genfromtxt(args.feature_names, dtype='str', delimiter='\n')
@@ -445,3 +456,13 @@ def main():
     
 if __name__ == '__main__':
     main()
+
+def unicode_to_str(input):
+    if isinstance(input, dict):
+        return {unicode_to_str(key):unicode_to_str(value) for key,value in input.iteritems()}
+    elif isinstance(input, list):
+        return [unicode_to_str(element) for element in input]
+    elif isinstance(input, unicode):
+        return input.encode('utf-8')
+    else:
+        return input
