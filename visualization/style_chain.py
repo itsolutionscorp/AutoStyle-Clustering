@@ -160,6 +160,7 @@ class ChainLink:
             prev_link.next = self
         self.index = index
         self.chain = chain
+        self.flog_score = self.chain.style_scores[self.index, 0] #TODO: flog isn't necessarily 0...
         self.next = None
         self.positive_hint = None
         self.negative_hint = None
@@ -296,7 +297,7 @@ def interpret_list_of_hints(features, is_not_hint):
                 all_advice += 'es.\n'
             else:
                 all_advice += 's.\n'
-        elif feature[0] == '(':
+        elif len(feature) > 0 and feature[0] == '(':
             methods = ' '.join(feature.split('(')).split(')')
 
             method_advice = ''
@@ -389,9 +390,9 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
     if len(style_scores.shape)==1:
         style_scores = style_scores[:, np.newaxis]
     style_features = np.loadtxt(home_dir + style_features)
-    with open(libcall_linenums, 'r') as json_data:
+    with open(home_dir + libcall_linenums, 'r') as json_data:
         libcall_linenums = json.load(json_data)
-    with open(libcall_dict, 'r') as f:
+    with open(home_dir + libcall_dict, 'r') as f:
         libcall_dict = pickle.load(f)
     c = Chain(home_dir+source, distances, style_scores, style_features, feature_names, score_names, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight)
     return c

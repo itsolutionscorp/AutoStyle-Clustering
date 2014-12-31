@@ -106,7 +106,12 @@ div#thirdrow.row{
     left:50%;
 }*/
 
-
+.CodeMirror-activeline-background-pos {
+  background-color: #dff0d8;
+}
+.CodeMirror-activeline-background-neg {
+  background-color: #f2dede;
+}
   </style>
   
 
@@ -179,7 +184,7 @@ $(function() {
             <div class="col" id=two>
               <div style="margin-right: 25%;">
                 <label for="flog_slider" class="control-label" style="margin-right: 10px;">Flog score difference:</label>
-                <input id="flog_sld" value="{{flog_diff}}" name="flog_slider"  data-slider-id='flog_slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="{{flog_diff}}" data-slider-tooltip="show"/>
+                <input id="flog_sld" value="{{flog_diff}}" name="flog_slider"  data-slider-id='flog_slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="0.1" data-slider-tooltip="show" />
                 <code style="color: #258AC7;background-color: #F2F2F9;" id="flog_val">{{flog_diff}}</code>
                 </div>
             </div>
@@ -210,7 +215,7 @@ $(function() {
                    <span class="input-group-addon">
                      <input id="{{'positive' + outer_loop + loop.index|string()}}" type="checkbox">
                    </span>
-                   <input readonly value="{{hint}}" style="width: 100%">
+                   <input id="{{'positivehint' + outer_loop + loop.index|string()}}" readonly value="{{hint}}" style="width: 100%">
                  </div>
               {% endfor %}
               {% if post.positive_hint|length == 0 %}
@@ -222,7 +227,7 @@ $(function() {
                 <span class="input-group-addon">
                   <input id="{{'negative' + outer_loop + loop.index|string()}}" type="checkbox">
                 </span>
-                <input readonly value="{{hint}}" style="width: 100%">
+                <input id="{{'negativehint' + outer_loop + loop.index|string()}}" readonly value="{{hint}}" style="width: 100%">
               </div>
               {% endfor %}
          </div>
@@ -242,15 +247,22 @@ $(function() {
 
 
 <script type="text/javascript">
+
+
+
+
 var ast_slider = $('#ast_sld').slider({
   formatter: function(value) {
     return 'AST edit distance ' + value;
-  }
+  },
+  value: {{ast_dist}}
 });  
+ 
 var flog_slider = $('#flog_sld').slider({
   formatter: function(value) {
     return 'Flog score difference ' + value;
-  }
+  },
+  value: {{flog_diff}}
 });  
 
 flog_slider.on("slide",
@@ -289,7 +301,40 @@ submit_btn.on('click',
   });
 
 
+{% for post in posts %}
+  {% set outer_loop = loop.index|string()%}
+  {% for hint in post.positive_hint %}
+        var {{'positiveline' + outer_loop + loop.index|string()}} = $('#{{'positivehint' + outer_loop + loop.index|string()}}');
+        {{'positiveline' + outer_loop + loop.index|string()}}.on('mouseover',
+          function(ev){
+            var editor = $('.CodeMirror')[{{outer_loop}}].CodeMirror;
+            editor.addLineClass({{post['positive_lines'][loop.index-1][0]}}-1, "background", 'CodeMirror-activeline-background-pos');
+          });
+        var {{'positiveline' + outer_loop + loop.index|string()}} = $('#{{'positivehint' + outer_loop + loop.index|string()}}');
+        {{'positiveline' + outer_loop + loop.index|string()}}.on('mouseout',
+          function(ev){
+            var editor = $('.CodeMirror')[{{outer_loop}}].CodeMirror;
+            editor.removeLineClass({{post['positive_lines'][loop.index-1][0]}}-1, "background", 'CodeMirror-activeline-background-pos');
+          });
+  {% endfor %}
+  {% for hint in post.negative_hint %}
+       var {{'negativeline' + outer_loop + loop.index|string()}} = $('#{{'negativehint' + outer_loop + loop.index|string()}}');
+          {{'negativeline' + outer_loop + loop.index|string()}}.on('mouseover',
+          function(ev){
+           var editor = $('.CodeMirror')[{{outer_loop}}-1].CodeMirror;
+           editor.addLineClass({{post['negative_lines'][loop.index-1][0]}}-1, "background", 'CodeMirror-activeline-background-neg');
 
+          });
+             var {{'negativeline' + outer_loop + loop.index|string()}} = $('#{{'negativehint' + outer_loop + loop.index|string()}}');
+          {{'negativeline' + outer_loop + loop.index|string()}}.on('mouseout',
+          function(ev){
+           var editor = $('.CodeMirror')[{{outer_loop}}-1].CodeMirror;
+           editor.removeLineClass({{post['negative_lines'][loop.index-1][0]}}-1, "background", 'CodeMirror-activeline-background-neg');
+
+          });
+  {% endfor %}
+
+{% endfor %}
 
 
 </script>      
@@ -323,7 +368,7 @@ submit_btn.on('click',
         CodeMirror.fromTextArea(document.getElementById("code"+{{loop.index}}), {
             lineNumbers: false,
             mode: "python",
-            lineWrapping: false,
+            lineWrapping: false
         });
         {% endfor %}
 

@@ -21,14 +21,19 @@ def index():
 def submit_form():
     start_index=int(request.form['start'])
     ast=float(request.form['ast_slider'])
-    flog=int(request.form['flog_slider'])
+    print request.form['flog_slider']
+    flog=float(request.form['flog_slider'])
+
     feedback = request.form['feedback']
+    # print feedback
     chain = generate_chain(start_index,ast,flog,os.path.abspath('../../')+"/")
     posts = []
     cl = chain.head
     while cl:
       if cl.next:
-        posts.append({'code': cl.source_code, 'positive_hint': interpret_list_of_hints(cl.get_positive_hint(), False).split("\n")[1:-1], 'negative_hint':interpret_list_of_hints(cl.get_negative_hint(), True).split("\n")[1:-1]})
+        pos_hints= cl.get_positive_hint()
+        neg_hints = cl.get_negative_hint()
+        posts.append({'code': cl.source_code, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1],'negative_lines': neg_hints[1], 'negative_hint':interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1]})
       else:
         posts.append({'code': cl.source_code, 'positive_hint': "", 'negative_hint': ''})
       cl = cl.next
