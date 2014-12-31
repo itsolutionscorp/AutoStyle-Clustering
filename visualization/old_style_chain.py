@@ -6,7 +6,7 @@ import numpy as np
 
 class Chain():
     NUM_CHANGES = 15
-    JUMP_THRESHOLD = 0.05
+    jump_threshold = 0.05
 
     def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names):
         self.source_dir = source_dir
@@ -32,7 +32,7 @@ class Chain():
         invalid_features[:] = False 
         for feature in xrange(self.style_scores.shape[1]):
             invalid_features = np.logical_or(invalid_features, self.style_scores[:,feature]>=self.style_scores[submission_index, feature])
-            invalid_features = np.logical_or(invalid_features, np.abs(self.style_scores[:,feature] - self.style_scores[submission_index, feature]) < self.JUMP_THRESHOLD)
+            invalid_features = np.logical_or(invalid_features, np.abs(self.style_scores[:,feature] - self.style_scores[submission_index, feature]) < self.jump_threshold)
             maxed_dist_matrix = np.copy(self.dist_matrix)
             maxed_dist_matrix.T[invalid_features] = float('inf')
             if np.min(maxed_dist_matrix[submission_index,:]) == float('inf'):

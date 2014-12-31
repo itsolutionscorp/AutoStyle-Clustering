@@ -21,12 +21,10 @@ def index():
 def submit_form():
     start_index=int(request.form['start'])
     ast=float(request.form['ast_slider'])
-    print request.form['flog_slider']
     flog=float(request.form['flog_slider'])
 
     feedback = request.form['feedback']
-    # print feedback
-    chain = generate_chain(start_index,ast,flog,os.path.abspath('../../')+"/")
+    chain = generate_chain(start_index,ast,flog,os.path.abspath('../../')+"/", feedback)
     posts = []
     cl = chain.head
     while cl:
@@ -37,8 +35,6 @@ def submit_form():
       else:
         posts.append({'code': cl.source_code, 'positive_hint': "", 'negative_hint': ''})
       cl = cl.next
-    print posts
-    print "------",feedback
     return render_template("index.html",
                             ast_dist=ast,
                             flog_diff=flog,

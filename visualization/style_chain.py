@@ -23,10 +23,8 @@ class Chain():
     Data structure that holds chain links and contains data
     relevant to all links in the chain.
     '''
-    NUM_CHANGES = 5
-    JUMP_THRESHOLD = 0.05
 
-    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight):
+    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback):
         '''
         Initialize a chain starting at start_index.
         '''
@@ -46,12 +44,14 @@ class Chain():
         
         self.ast_distance_weight = ast_distance_weight
         self.style_score_weight = style_score_weight
-        self.JUMP_THRESHOLD = self.style_score_weight
+        self.jump_threshold = self.style_score_weight
+        self.num_hints= 2 #TODO: A slider for this?
 
-        self.create_chain(start_index, 0, 0)
         self.initialize_weights()
+        #self.add_feedback(feedback) TODO: put back
+        self.create_chain(start_index)
         
-    def create_chain(self, start_index, slider1, slider2, feedback=None):
+    def create_chain(self, start_index):
         '''
         Build a chain object from start_index.
         It will be built according to the parameters in the sliders.
@@ -60,7 +60,6 @@ class Chain():
         feed back is a tuple of tuples.
         Inner tuples are of the form ('hint_name', index its a hint for, boolean if it was a useful hint).
         '''
-        self.add_feedback(feedback)
         cl = ChainLink(start_index, None, self)
         self.head = cl
         self.length = 1
@@ -78,9 +77,10 @@ class Chain():
         Update weights if necessary according to the received feedback.
         Also add the feedback to list of all feedback received.
         '''
-        self.update_weights(feedback)
-        with open(self.feedback_file, 'a') as f:
-            f.write(str(feedback))
+        if feedback:
+            self.update_weights(feedback)
+            with open(self.feedback_file, 'a') as f:
+                f.write(str(feedback) + '\n')
             
         
     def update_weights(self, feedback):
@@ -90,17 +90,18 @@ class Chain():
         If the feedback is good, add in the feature vector associated with the hint to the weights
         If the feedback is bad, subtract off the feature vector associated with the hint from the weights
         '''
-        if feedback is not None:
-            for (hint_name, index_from, is_good) in feedback:
-                cl = self.head 
-                while (index_from > 0): #TODO: inefficient
-                    cl = cl.next
-                    index_from -= 1
-                sparse_hint_vector = cl.extract_sparse_hint_features(np.where(self.feature_names==hint_name)[0][0])
-                if is_good:
-                    sparse_add_into(sparse_hint_vector, self.weights)
-                else:
-                    sparse_subtract_out_of(sparse_hint_vector, self.weights)
+        for f in feedback:
+            if f is not None:
+                for (hint_name, index_from, is_bad) in f:
+                    cl = self.head 
+                    while (index_from > 0): #TODO: inefficient
+                        cl = cl.next
+                        index_from -= 1
+                    sparse_hint_vector = cl.extract_sparse_hint_features(np.where(self.feature_names==hint_name)[0][0])
+                    if is_bad==0:
+                        sparse_add_into(sparse_hint_vector, self.weights)
+                    else: #is_bad==1
+                        sparse_subtract_out_of(sparse_hint_vector, self.weights)
     
     def initialize_weights(self):
         '''
@@ -113,12 +114,6 @@ class Chain():
             np.savetxt(self.weights_file, self.weights)
         else:
             self.weights = np.loadtxt(self.weights_file)
-            if os.path.isfile(self.feedback_file):
-                feedback = np.genfromtxt(self.feedback_file, dtype='str', delimiter='\n')
-                if feedback.shape:
-                    for i in xrange(feedback.shape):
-                        feed = feedback[i]
-                        self.add_feedback(feed)
         
     def initialize_weights_manually(self):
         '''
@@ -160,6 +155,7 @@ class ChainLink:
             prev_link.next = self
         self.index = index
         self.chain = chain
+        self.flog_score = self.chain.style_scores[self.index, 0] #TODO: flog score isn't necessarily 0...
         self.next = None
         self.positive_hint = None
         self.negative_hint = None
@@ -192,7 +188,7 @@ class ChainLink:
         invalid_features[:] = False 
         for feature in xrange(self.chain.style_scores.shape[1]):
             invalid_features = np.logical_or(invalid_features, self.chain.style_scores[:,feature]>=self.chain.style_scores[self.index, feature])
-            invalid_features = np.logical_or(invalid_features, np.abs(self.chain.style_scores[:,feature] - self.chain.style_scores[self.index, feature]) < self.chain.JUMP_THRESHOLD)
+            invalid_features = np.logical_or(invalid_features, np.abs(self.chain.style_scores[:,feature] - self.chain.style_scores[self.index, feature]) < self.chain.jump_threshold)
             maxed_dist_matrix = np.copy(self.chain.dist_matrix)
             maxed_dist_matrix.T[invalid_features] = float('inf')
             if np.min(maxed_dist_matrix[self.index,:]) == float('inf'):
@@ -252,7 +248,6 @@ class ChainLink:
                     selected_scores.append(score)
         sorted_selected_hints = [x for (y,x) in sorted(zip(selected_scores, selected_hints), key=lambda pair: -1*pair[0])]
         names = self.chain.feature_names[sorted_selected_hints]
-        # return names,[]
         lines = []
         for name in names:
             name = name[2:-2]
@@ -276,7 +271,7 @@ class ChainLink:
                     lines.append(self.chain.libcall_linenums[self.next.index][name])  #rohan: added name.strip here - but seems like a hacky fix
                 except Exception:
                     lines.append([0])
-        return names, lines
+        return names[:self.chain.num_hints], lines[:self.chain.num_hints]
     
     
 def interpret_list_of_hints(features, is_not_hint):
@@ -399,7 +394,7 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
         libcall_linenums = unicode_to_str(libcall_linenums)
     with open(home_dir + libcall_dict, 'r') as f:
         libcall_dict = pickle.load(f)
-    c = Chain(home_dir+source, distances, style_scores, style_features, feature_names, score_names, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight)
+    c = Chain(home_dir+source, distances, style_scores, style_features, feature_names, score_names, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback)
     return c
 
 def main():

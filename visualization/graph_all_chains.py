@@ -21,7 +21,7 @@ def add_chain_to_graph(chain, graph, sets):
 
 def main():
     G = nx.DiGraph()
-    c = style_chain.generate_chain(0, 1, 1, '', style_scores='data/feature/flog_feature.np',  
+    c = style_chain.generate_chain(0, 1, 1.1, '', style_scores='data/feature/flog_feature.np',  
                    score_names='data/feature/flog_names.np')
     n = len(c.files)
     sets = []
