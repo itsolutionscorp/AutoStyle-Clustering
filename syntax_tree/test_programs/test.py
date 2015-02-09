@@ -36,7 +36,7 @@ math.ceil(5)
 
 class MyClass:
 	x = 3
-	def hello(inrrw):
+	def hello(self, inrrw):
 		inrrw+=1
 
 
