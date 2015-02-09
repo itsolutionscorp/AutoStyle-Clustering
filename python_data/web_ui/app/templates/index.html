@@ -184,7 +184,7 @@ $(function() {
             <div class="col" id=two>
               <div style="margin-right: 25%;">
                 <label for="flog_slider" class="control-label" style="margin-right: 10px;">Flog score difference:</label>
-                <input id="flog_sld" value="{{flog_diff}}" name="flog_slider"  data-slider-id='flog_slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="0.1" data-slider-tooltip="show" />
+                <input id="flog_sld" value="{{flog_diff}}" name="flog_slider"  data-slider-id='flog_slider' type="text" data-slider-min="0" data-slider-max="2" data-slider-step="0.01" data-slider-tooltip="show" />
                 <code style="color: #258AC7;background-color: #F2F2F9;" id="flog_val">{{flog_diff}}</code>
                 </div>
             </div>
@@ -289,12 +289,12 @@ submit_btn.on('click',
                 {% for post in posts %}
                   {% set outer_loop = loop.index|string()%}
                   {% for hint in post.positive_hint %}
-                       document.getElementById("feedback").value += "('{{'positive' + outer_loop + loop.index|string()}}'" + "," + 
-                        +$('#{{"positive" + outer_loop + loop.index|string()}}').is(':checked') + ")";
+                       document.getElementById("feedback").value += "{{'p,' + outer_loop + ',' +loop.index|string()}}" + "," + 
+                        +$('#{{"positive" + outer_loop + loop.index|string()}}').is(':checked')+ " ";
                   {% endfor %}
                   {% for hint in post.negative_hint %}
-                       document.getElementById("feedback").value += "('{{'negative' + outer_loop + loop.index|string()}}'" + "," + 
-                        +$('#{{"negative" + outer_loop + loop.index|string()}}').is(':checked') + ")";
+                       document.getElementById("feedback").value += "{{'n,' + outer_loop + ',' + loop.index|string()}}" + "," + 
+                        +$('#{{"negative" + outer_loop + loop.index|string()}}').is(':checked')+ " ";
                   {% endfor %}
                
                 {% endfor %}

@@ -24,7 +24,7 @@ class Chain():
     relevant to all links in the chain.
     '''
 
-    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback):
+    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain):
         '''
         Initialize a chain starting at start_index.
         '''
@@ -44,11 +44,14 @@ class Chain():
         self.ast_distance_weight = ast_distance_weight
         self.style_score_weight = style_score_weight
         self.jump_threshold = self.style_score_weight
+        
         self.num_hints= 2 #TODO: A slider for this?
+        self.positive_feedback_scale = 0
+        self.negative_feedback_scale = -10000
 
         self.initialize_weights()
         if feedback:
-            self.update_weights(feedback) #TODO: fix
+            self.update_weights(feedback, old_chain) #FIXME
         self.grow_chain(start_index)
         
     def grow_chain(self, start_index):
@@ -68,25 +71,25 @@ class Chain():
                 self.length += 1
         self.tail= cl
         
-    def update_weights(self, feedback):
+    def update_weights(self, feedback, old_chain):
         '''
         Change weights according to the feedback.
         This is a perceptron. Subject to change, of course!
         If the feedback is good, add in the feature vector associated with the hint to the weights
         If the feedback is bad, subtract off the feature vector associated with the hint from the weights
         '''
-        for f in feedback:
-            if f is not None:
-                for (hint_name, index_from, is_bad) in f:
-                    cl = self.head 
-                    while (index_from > 0): #TODO: inefficient
-                        cl = cl.next
-                        index_from -= 1
-                    sparse_hint_vector = cl.extract_sparse_hint_features(np.where(self.feature_names==hint_name)[0][0])
-                    if is_bad==0:
-                        sparse_add_into(sparse_hint_vector, self.weights)
-                    else: #is_bad==1
-                        sparse_subtract_out_of(sparse_hint_vector, self.weights)
+        if not feedback or not old_chain:
+            return
+        for (hint_name, index_from, is_bad, sign) in feedback:
+            cl = old_chain.head 
+            while (index_from > 0): #TODO: inefficient
+                cl = cl.next
+                index_from -= 1
+            sparse_hint_vector = cl.extract_sparse_hint_features(np.where(self.feature_names==hint_name)[0][0])[0] #TODO 0 only takes hint identity
+            if is_bad==0:
+                sparse_add_into(sparse_hint_vector, self.weights, self.positive_feedback_scale)
+            else: #is_bad==1
+                sparse_add_into(sparse_hint_vector, self.weights, self.negative_feedback_scale)
         np.savetxt(self.weights_file, self.weights)
     
     def initialize_weights(self):
@@ -275,7 +278,7 @@ class ChainLink:
     
 def interpret_list_of_hints(features, is_not_hint):
     '''
-    Takes a set of features and constructs natural language hints about them.
+    Take a set of features and constructs natural language hints about them.
     
     Disclaimer: This code assumes features have a very particular structure.
     It may need to be modified to be more robust.
@@ -326,27 +329,20 @@ def sparse_dot(sparse_vector, vector):
     '''
     return np.sum(vector[sparse_vector])
 
-def sparse_add_into(sparse_vector, vector):
+def sparse_add_into(sparse_vector, vector, scale):
     '''
     Modify vector to be the sum of vector and a sparse vector.
     The sparse vector is a list of true indices of a binary vector.
     '''
-    vector[sparse_vector] += 1
-    
-def sparse_subtract_out_of(sparse_vector, vector):
-    '''
-    Modify vector to be the vector - a sparse vector.
-    The sparse vector is a list of true indices of a binary vector.
-    '''
-    vector[sparse_vector] -= 1
+    vector[sparse_vector] += scale
 
 def generate_chain(start_index, ast_distance_weight, style_score_weight, home_dir = "./",
-                   feedback=None, data_dir='data/', weights_file='weights.np',
+                   feedback=None, old_chain=None, data_dir='data/', weights_file='weights.np',
                    libcall_linenums='featurization/libcalls_and_linenums.json',
                    libcall_dict='util/lib_call_dict.pkl'):
     '''
     Create a new chain object. This is the interface with the web app.
-    Warning: assumes data_dir has a particular structure.
+    Disclaimer: Assumes data_dir has a particular structure.
     '''
     feature_dir = home_dir + data_dir + 'feature/'
     source_dir = home_dir + data_dir + 'src/'
@@ -362,7 +358,7 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
         libcall_linenums = unicode_to_str(libcall_linenums)
     with open(home_dir + libcall_dict, 'r') as f:
         libcall_dict = pickle.load(f)
-    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict,  start_index, ast_distance_weight, style_score_weight, feedback)
+    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict,  start_index, ast_distance_weight, style_score_weight, feedback, old_chain)
     return c
 
 def unicode_to_str(input_u):
