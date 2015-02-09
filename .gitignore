@@ -8,8 +8,6 @@
 .metadata/
 .project
 .pydevproject
-data
-data2
 clustering/elki_out/*
 data.dat
 /python_data/test_chains/AutogradeStyle/nbproject/private/
