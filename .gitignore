@@ -5,6 +5,9 @@
 *.aux
 *.log
 .DS_Store
+.metadata/
+.project
+.pydevproject
 data
 data2
 clustering/elki_out/*
