@@ -3,16 +3,8 @@ def combine_anagrams(words)
   result = []
   words.each do |word|
     sorted = word.downcase.chars.sort.to_s
-    if( hash[sorted] == nil)
-       hash[sorted] = [word]
-    else
-       hash[sorted].push(word)
-    end
+    (hash[sorted] == nil) ? (hash[sorted] = [word]) : (hash[sorted].push(word))
   end
-  
-  hash.keys.each do |key|
-    result << hash[key]
-  end
-  
+  hash.keys.each { |key| (result << hash[key]) }
   result
 end

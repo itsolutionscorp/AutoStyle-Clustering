@@ -1,11 +1,9 @@
 def combine_anagrams(words)
-  anagrams = {} # Hash.new([])
+  anagrams = {}
   words.each do |word|
-    key = word.split(%r{\s*}).sort.join
+    key = word.split(/\s*/).sort.join
     anagrams[key] ||= []
-    anagrams[key] << word
+    (anagrams[key] << word)
   end
   anagrams.values
 end
- 
-combine_anagrams(['cars', 'for', 'potatoes', 'racs', 'four','scar', 'creams', 'scream'])

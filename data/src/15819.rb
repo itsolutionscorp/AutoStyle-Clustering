@@ -1,7 +1,7 @@
 def combine_anagrams(words)
   anagrams = Hash.new
   words.each do |word|
-    if anagrams[word.downcase.chars.sort.join].nil?
+    if anagrams[word.downcase.chars.sort.join].nil? then
       anagrams[word.downcase.chars.sort.join] = [word]
     else
       anagrams[word.downcase.chars.sort.join] += [word]
@@ -9,6 +9,3 @@ def combine_anagrams(words)
   end
   anagrams.values.to_a
 end
-
-p combine_anagrams(['cars', 'for', 'potatoes', 'racs', 'four','scar', 'creams', 'scream']
-                  )

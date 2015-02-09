@@ -7,33 +7,21 @@ def combine_anagrams(words)
     temp_list.sort!
     sorted_list.push(temp_list)
   end
-
-  for i in 0..(sorted_list.size - 1)
-    exist = false
+  for i in (0..(sorted_list.size - 1)) do
+    (exist = false
     ana_list.each do |item|
-      if item.include?(words[i])
+      if item.include?(words[i]) then
         exist = true
         break
       end
     end
-
-    if not exist
+    if (not exist) then
       temp_list = []
-      for j in i..(sorted_list.size - 1)
-        if sorted_list[i] == sorted_list[j]
-          temp_list.push(words[j])
-        end
+      for j in (i..(sorted_list.size - 1)) do
+        temp_list.push(words[j]) if (sorted_list[i] == sorted_list[j])
       end
       ana_list.push(temp_list)
-    end
+    end)
   end
-
   return ana_list
 end
-
-=begin
-words = ["cars", "for" ,"potatoes", "racs",
-         "four", "scar", "creams", "scream"]
-
-p combine_anagrams(words)
-=end

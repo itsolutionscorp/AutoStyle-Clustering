@@ -1,6 +1,7 @@
 def combine_anagrams(words)
-  groups = Hash.new{|h,k| h[k]=[]}
-  words.inject(groups) {|h,k| h[k.upcase.chars.sort.join]<<k; h}.values
+  groups = Hash.new { |h, k| h[k] = [] }
+  words.inject(groups) do |h, k|
+    (h[k.upcase.chars.sort.join] << k)
+    h
+  end.values
 end
-
-#a=combine_anagrams(['cars', 'for', 'potatoes', 'racs', 'four','scar', 'creams','scream'])

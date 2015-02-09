@@ -1,20 +1,11 @@
-# Data structure: A hash, key containing sorted letters, and value consisting of an arrarray of the words
-
 def combine_anagrams(words)
   dict = {}
-  words.each { |word|
+  words.each do |word|
     key = word.downcase.chars.sort.join
     dict[key] ||= []
-    dict[key] << word
-    #puts "Word: " + word + "; key: " + key + "; dict: " + dict[key].inspect
-  }
+    (dict[key] << word)
+  end
   output = []
-  dict.each { |key, value|
-    output << value
-  }
+  dict.each { |key, value| (output << value) }
   output
 end
-
-input = ['cars', 'four', 'poTaToes', 'RACS', 'four','scar', 'creams', 'scream']
-
-combine_anagrams(input).inspect

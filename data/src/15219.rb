@@ -1,12 +1,12 @@
 def combine_anagrams(words)
-    groups = Hash.new
-    words.each do |word| 
-        anagram = word.downcase.split('').sort.join
-        if (groups.include?(anagram))
-            groups[anagram] << word
-        else
-            groups[anagram] = [word]
-        end
+  groups = Hash.new
+  words.each do |word|
+    anagram = word.downcase.split("").sort.join
+    if groups.include?(anagram) then
+      (groups[anagram] << word)
+    else
+      groups[anagram] = [word]
     end
-    groups.values
+  end
+  groups.values
 end

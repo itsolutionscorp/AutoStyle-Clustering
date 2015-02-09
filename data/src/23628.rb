@@ -1,19 +1,10 @@
-# Part 3: anagrams
-class NoElementsInArrayError < StandardError ; end
-
-
 def combine_anagrams(words)
-  raise NoElementsInArrayError unless words.length > 0
-  
+  raise(NoElementsInArrayError) unless (words.length > 0)
   groups = {}
-
   words.each do |word|
     chars = word.downcase.chars.sort.join
     groups[chars] ||= []
-    groups[chars] << word
+    (groups[chars] << word)
   end
-
   groups.values
-
 end
-

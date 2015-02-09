@@ -3,14 +3,9 @@ def combine_anagrams(words)
   words.each do |w1|
     temp = []
     words.each do |w2|
-      if (w2.downcase.split(//).sort == w1.downcase.split(//).sort)
-        temp.push(w2)
-      end
+      temp.push(w2) if (w2.downcase.split(//).sort == w1.downcase.split(//).sort)
     end
     out_array.push(temp)
   end
   return out_array.uniq
 end
-
-print combine_anagrams(['cars', 'for', 'potatoes', 'racs', 'four','scar', 'creams', 'scream']) 
- 

@@ -3,17 +3,17 @@ def combine_anagrams(words)
   hash = Hash.new
   words.each do |word|
     charsSorted = word.downcase.chars.sort.join
-    if( hash.has_key?(charsSorted) )
-      hash[charsSorted] = hash.fetch(charsSorted) << word
-    else 
+    if hash.has_key?(charsSorted) then
+      hash[charsSorted] = (hash.fetch(charsSorted) << word)
+    else
       hash[charsSorted] = [word]
     end
   end
   hash.keys.each do |key|
-    if( output == nil )
-      output = [ hash.fetch(key) ]
+    if (output == nil) then
+      output = [hash.fetch(key)]
     else
-      output << hash.fetch(key)
+      (output << hash.fetch(key))
     end
   end
   return output

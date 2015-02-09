@@ -3,17 +3,9 @@ def combine_anagrams(words)
   words.each do |w1|
     anagram = []
     words.each do |w2|
-      if (w2.downcase.chars.sort == w1.downcase.chars.sort)
-        anagram << w2
-      end
+      (anagram << w2) if (w2.downcase.chars.sort == w1.downcase.chars.sort)
     end
-    result << anagram
+    (result << anagram)
   end
   return result.uniq
 end
-
-input = ['cars', 'for', 'potatoes', 'racs', 'four','scar', 'creams', 'scream']
-
-output = combine_anagrams(input)
-
-print output,"\n"

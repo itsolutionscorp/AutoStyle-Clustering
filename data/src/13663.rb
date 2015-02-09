@@ -2,16 +2,9 @@ def combine_anagrams(words)
   hash = Hash.new
   words.each do |word|
     key = word.downcase.chars.sort.join
-    if(hash.key? key)
-    hash[key] << word
-    else
-      hash[key] = [word]
-    end
+    hash.key?(key) ? ((hash[key] << word)) : (hash[key] = [word])
   end
-
   array = Array.new
-  hash.each do |k, v|
-    array << v;
-  end
-  return array;
+  hash.each { |k, v| (array << v) }
+  return array
 end

@@ -3,7 +3,7 @@ def combine_anagrams(words)
   words.each do |word|
     anagram = Array.new(0)
     words.each do |w|
-      if (w.downcase.split(//).sort == word.downcase.split(//).sort)
+      if (w.downcase.split(//).sort == word.downcase.split(//).sort) then
         anagram.push(w)
       end
     end

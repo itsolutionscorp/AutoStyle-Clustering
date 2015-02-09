@@ -1,10 +1,10 @@
 def combine_anagrams(words)
-  a = Hash.new # anagramm hash
+  a = Hash.new
   words.each do |word|
-    done = false;
+    done = false
     a.each_key do |key|
-      if (word.chars.sort.join.downcase == key)
-        a[key] = a[key] + [word]
+      if (word.chars.sort.join.downcase == key) then
+        a[key] = (a[key] + [word])
         done = true
       end
     end
@@ -15,9 +15,7 @@ def combine_anagrams(words)
   counter = 0
   a.each_value do |value|
     result[counter] = value
-    counter += 1
+    counter = (counter + 1)
   end
   return result
 end
-
-print combine_anagrams(['A','a','cars','for','potatoes','racs','four','scar','creams','scream'])

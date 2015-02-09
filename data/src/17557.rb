@@ -1,22 +1,10 @@
 def combine_anagrams(words)
-  buckets = {};
-  
+  buckets = {}
   words.each do |word|
     key = word.downcase.chars.sort.join
-    if buckets.has_key?(key)
-      buckets[key] << word
-    else
-      buckets[key] = [word]
-    end
+    buckets.has_key?(key) ? ((buckets[key] << word)) : (buckets[key] = [word])
   end
-  
-  output = [];
-  buckets.each_value do |value|
-    output << value
-  end
-  
+  output = []
+  buckets.each_value { |value| (output << value) }
   return output
 end
-
-#combine_anagrams(input)
-

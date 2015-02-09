@@ -1,15 +1,12 @@
 def combine_anagrams(words)
   result = Array.new
-  while !words.empty? do
+  while (not words.empty?) do
     out = Array.new
-    words.each do |word| 
-      if words[0].downcase.chars.sort == word.downcase.chars.sort
-        out << word
-      end
+    words.each do |word|
+      (out << word) if (words[0].downcase.chars.sort == word.downcase.chars.sort)
     end
-    words -= out
-    result << out
+    words = (words - out)
+    (result << out)
   end
   return result
 end
-

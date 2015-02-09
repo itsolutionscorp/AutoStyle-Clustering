@@ -24,7 +24,7 @@ class Chain():
     relevant to all links in the chain.
     '''
 
-    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback):
+    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback):
         '''
         Initialize a chain starting at start_index.
         '''
@@ -39,8 +39,7 @@ class Chain():
         self.libcall_linenums = libcall_linenums
         self.libcall_dict = libcall_dict
         
-        self.weights_file = 'weights.np' #TODO: don't hard code
-        self.feedback_file = 'feedback.np'
+        self.weights_file = weights_file
         
         self.ast_distance_weight = ast_distance_weight
         self.style_score_weight = style_score_weight
@@ -48,17 +47,14 @@ class Chain():
         self.num_hints= 2 #TODO: A slider for this?
 
         self.initialize_weights()
-        #self.add_feedback(feedback) TODO: put back
-        self.create_chain(start_index)
+        if feedback:
+            self.update_weights(feedback) #TODO: fix
+        self.grow_chain(start_index)
         
-    def create_chain(self, start_index):
+    def grow_chain(self, start_index):
         '''
         Build a chain object from start_index.
         It will be built according to the parameters in the sliders.
-        It will incorporate feedback into a list of feedback received so far.
-        Then it will build the chain using all of the received feedback.
-        feed back is a tuple of tuples.
-        Inner tuples are of the form ('hint_name', index its a hint for, boolean if it was a useful hint).
         '''
         cl = ChainLink(start_index, None, self)
         self.head = cl
@@ -71,17 +67,6 @@ class Chain():
                 cl = succ
                 self.length += 1
         self.tail= cl
-        
-    def add_feedback(self, feedback):
-        '''
-        Update weights if necessary according to the received feedback.
-        Also add the feedback to list of all feedback received.
-        '''
-        if feedback:
-            self.update_weights(feedback)
-            with open(self.feedback_file, 'a') as f:
-                f.write(str(feedback) + '\n')
-            
         
     def update_weights(self, feedback):
         '''
@@ -102,12 +87,12 @@ class Chain():
                         sparse_add_into(sparse_hint_vector, self.weights)
                     else: #is_bad==1
                         sparse_subtract_out_of(sparse_hint_vector, self.weights)
+        np.savetxt(self.weights_file, self.weights)
     
     def initialize_weights(self):
         '''
         If there is already a file with weights, use that.
         If there isn't, initialize weights manually.
-        Then update weights according to feedback, if there is already a feedback file.
         '''
         if not os.path.isfile(self.weights_file):
             self.initialize_weights_manually()
@@ -165,7 +150,7 @@ class ChainLink:
     def generate_successor(self):
         '''
         Return a chain link corresponding to the next link in the chain.
-        Recall that the next chain link should be the closest submission
+        The next chain link should be the closest submission
         that is lower in some score.
         
         Returns None if there is no such submission.
@@ -179,16 +164,17 @@ class ChainLink:
     def find_closest_with_lower_value(self):
         """
         Given distances between points and feature values for each point,
-        return the index of the closest point with at least one lesser feature value.
-        
+        return the index of the closest point with at least one better score.
+        That score must be better by at least Chain.jump_threshold.
         Return -1 if there is no such point.
         """
-        #TODO: also return the why?
         invalid_features = np.empty(self.chain.style_scores.shape[0], dtype=bool)
         invalid_features[:] = False 
         for feature in xrange(self.chain.style_scores.shape[1]):
-            invalid_features = np.logical_or(invalid_features, self.chain.style_scores[:,feature]>=self.chain.style_scores[self.index, feature])
-            invalid_features = np.logical_or(invalid_features, np.abs(self.chain.style_scores[:,feature] - self.chain.style_scores[self.index, feature]) < self.chain.jump_threshold)
+            invalid_features = np.logical_or(invalid_features, 
+                                             self.chain.style_scores[:,feature] >= self.chain.style_scores[self.index, feature])
+            invalid_features = np.logical_or(invalid_features, 
+                                             np.abs(self.chain.style_scores[:,feature] - self.chain.style_scores[self.index, feature]) < self.chain.jump_threshold)
             maxed_dist_matrix = np.copy(self.chain.dist_matrix)
             maxed_dist_matrix.T[invalid_features] = float('inf')
             if np.min(maxed_dist_matrix[self.index,:]) == float('inf'):
@@ -226,12 +212,13 @@ class ChainLink:
             self.negative_hint, self.negative_hint_lines = self.generate_hint(True)
         return self.negative_hint, self.negative_hint_lines
             
-    def generate_hint(self, is_not_hint):
+
+    def get_sorted_selected_hints(self, is_not_hint):
         '''
-        Return a list of hints about how to improve to get to the next chain link.
-        Also return the line numbers that each hint is referencing.
-        is_not_hint is a boolean that says whether this is a negative hint, i.e.
-        a hint that suggests "Don't do this.", instead of "You should do this."
+        Return the best possible hints sorted by score.
+        A hint is only possible if it corresponds to a feature
+        that doesn't appear in this chain link but does appear
+        in the next one, or vice-versa for not hints.
         '''
         if is_not_hint:
             invalid_hints = self.chain.style_features[self.index,:] <= self.chain.style_features[self.next.index, :]
@@ -246,7 +233,19 @@ class ChainLink:
                 if score >= 0:
                     selected_hints.append(i)
                     selected_scores.append(score)
-        sorted_selected_hints = [x for (y,x) in sorted(zip(selected_scores, selected_hints), key=lambda pair: -1*pair[0])]
+        
+        sorted_selected_hints = [x for y, x in sorted(zip(selected_scores, selected_hints), key=lambda pair:-1 * pair[0])]
+        return sorted_selected_hints
+
+    def generate_hint(self, is_not_hint):
+        '''
+        Return a list of hints about how to improve to get to the next chain link.
+        Also return the line numbers that each hint is referencing.
+        is_not_hint is a boolean that says whether this is a negative hint, i.e.
+        a hint that suggests "Don't do this.", instead of "You should do this."
+        '''
+        
+        sorted_selected_hints = self.get_sorted_selected_hints(is_not_hint)
         names = self.chain.feature_names[sorted_selected_hints]
         lines = []
         for name in names:
@@ -268,7 +267,7 @@ class ChainLink:
                     lines.append([0])
             else:
                 try:
-                    lines.append(self.chain.libcall_linenums[self.next.index][name])  #rohan: added name.strip here - but seems like a hacky fix
+                    lines.append(self.chain.libcall_linenums[self.next.index][name])
                 except Exception:
                     lines.append([0])
         return names[:self.chain.num_hints], lines[:self.chain.num_hints]
@@ -319,37 +318,6 @@ def interpret_list_of_hints(features, is_not_hint):
     if create_new:
         all_advice += '...' + use_not + 'explicitly instantiating data structures.\n'
     return all_advice
-        
-def interpret_hint(feature):
-    interpretation = ''
-    feature = feature[2:-2] #all features are in the form ['...']
-    if feature[0:2] == '->':
-        interpretation = 'use a method that produces ' + feature[3:]
-        if feature[3:].endswith('s') or feature[3:].endswith('sh'):
-            interpretation += 'es.'
-        else:
-            interpretation += 's.'
-    if feature[0] == '(':
-        create_new = False
-        methods = ' '.join(feature.split('(')).split(')')
-        method_advice = ''
-        ngram = 0
-        for method in methods:
-            method = method.strip()
-            if method == 'new':
-                create_new = True
-            elif len(method) > 0:
-                method_advice += method
-                ngram += 1
-        if ngram == 1:
-            interpretation = 'use a call to ' + method_advice + '.'
-        elif ngram > 1:
-            interpretation = 'use a call to the following together: ' + method_advice + '.' 
-        if create_new:
-            interpretation = 'explicitly instantiate data structures.'
-    else:
-        interpretation = 'use a call to ' + feature + '.'
-    return interpretation
 
 def sparse_dot(sparse_vector, vector):
     '''
@@ -373,64 +341,49 @@ def sparse_subtract_out_of(sparse_vector, vector):
     vector[sparse_vector] -= 1
 
 def generate_chain(start_index, ast_distance_weight, style_score_weight, home_dir = "./",
-                   feedback=None, 
-                   style_scores='data/feature/inherent_style_features.np', 
-                   style_features='data/feature/instrumental_style_features.np', 
-                   score_names='data/feature/inherent_style_names.np', 
-                   feature_names='data/feature/instrumental_style_names.np', 
-                   source='data/feature/method_source', 
-                   distances='data/gen/ast_dist_matrix.np',
+                   feedback=None, data_dir='data/', weights_file='weights.np',
                    libcall_linenums='featurization/libcalls_and_linenums.json',
                    libcall_dict='util/lib_call_dict.pkl'):
-    distances = np.loadtxt(home_dir + distances)
-    style_scores = np.loadtxt(home_dir + style_scores)
-    feature_names = np.genfromtxt(home_dir + feature_names, dtype='str', delimiter='\n')
-    score_names = np.genfromtxt(home_dir + score_names, dtype='str', delimiter='\n')
+    '''
+    Create a new chain object. This is the interface with the web app.
+    Warning: assumes data_dir has a particular structure.
+    '''
+    feature_dir = home_dir + data_dir + 'feature/'
+    source_dir = home_dir + data_dir + 'src/'
+    distances = np.loadtxt(home_dir + data_dir + 'gen/ast_dist_matrix.np')
+    style_scores = np.loadtxt(feature_dir + 'inherent_style_features.np')
+    style_features = np.loadtxt(feature_dir + 'instrumental_style_features.np')
+    feature_names = np.genfromtxt(feature_dir + 'instrumental_style_names.np', dtype='str', delimiter='\n')
+    score_names = np.genfromtxt(feature_dir + 'inherent_style_names.np', dtype='str', delimiter='\n')
     if len(style_scores.shape)==1:
         style_scores = style_scores[:, np.newaxis]
-    style_features = np.loadtxt(home_dir + style_features)
     with open(home_dir + libcall_linenums, 'r') as json_data:
         libcall_linenums = json.load(json_data)
         libcall_linenums = unicode_to_str(libcall_linenums)
     with open(home_dir + libcall_dict, 'r') as f:
         libcall_dict = pickle.load(f)
-    c = Chain(home_dir+source, distances, style_scores, style_features, feature_names, score_names, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback)
+    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict,  start_index, ast_distance_weight, style_score_weight, feedback)
     return c
+
+def unicode_to_str(input_u):
+    if isinstance(input_u, dict):
+        return {unicode_to_str(key):unicode_to_str(value) for key,value in input_u.iteritems()}
+    elif isinstance(input_u, list):
+        return [unicode_to_str(element) for element in input_u]
+    elif isinstance(input_u, unicode):
+        return input_u.encode('utf-8')
+    else:
+        return input_u
 
 def main():
     parser = argparse.ArgumentParser(description='Find paths from submissions with high style scores to submissions with low ones.')
     parser.add_argument('start_index', type=int, help='Index of the start submission in the index file')
-    parser.add_argument('style_scores', nargs='?', default='data/feature/inherent_style_features.np', help='Location of file that contains style score vectors')
-    parser.add_argument('style_features', nargs='?', default='data/feature/instrumental_style_features.np', help='Location of file that contains explanatory style features.')
-    parser.add_argument('score_names', nargs='?', default='data/feature/inherent_style_names.np', help='Location of file that contains names for each style score feature')
-    parser.add_argument('feature_names', nargs='?', default='data/feature/instrumental_style_names.np', help='Location of file that contains names for each feature')
-    parser.add_argument('source', nargs='?', default='data/feature/method_source', help='Source folder of submissions')
-    parser.add_argument('distances', nargs='?', default='data/gen/ast_dist_matrix.np', help='Location of file that contains distances between submissions')
-    parser.add_argument('libcall_linenums', nargs='?', default='featurization/libcalls_and_linenums.json', help='Location of file that contains line numbers associated with each library call')
+    parser.add_argument('data_dir', nargs='?', default='data/', help='Location of directory that contains features, method source, and asts.')
     parser.add_argument('libcall_dict', nargs='?', default='util/lib_call_dict.pkl', help='Location of file that contains a mapping from lib calls to object types they produce')
+    parser.add_argument('libcall_linenums', nargs='?', default='featurization/libcalls_and_linenums.json', help='Location of file that contains line numbers associated with each library call')
 
     args = parser.parse_args()
-    start_index = args.start_index
-    source = args.source
-#     distances = args.distances
-#     style_scores = args.style_scores
-#     feature_names = args.feature_names
-#     score_names = args.score_names
-#     style_features = args.style_features
-#     c = generate_chain(start_index, .05, 0,"../", None, style_scores, style_features, score_names, feature_names, source, distances)
-    distances = np.loadtxt(args.distances)
-    style_scores = np.loadtxt(args.style_scores)
-    feature_names = np.genfromtxt(args.feature_names, dtype='str', delimiter='\n')
-    score_names = np.genfromtxt(args.score_names, dtype='str', delimiter='\n')
-    with open(args.libcall_linenums, 'r') as json_data:
-        libcall_linenums = json.load(json_data)
-    if len(style_scores.shape)==1:
-        style_scores = style_scores[:, np.newaxis]
-    style_features = np.loadtxt(args.style_features)
-    with open(args.libcall_dict , 'r') as pickle_data:
-        libcall_dict = pickle.load(pickle_data)
-    #c = generate_chain(start_index, .05, 0, None, style_scores, style_features, score_names, feature_names, source, distances, libcall_linenums, libcall_dict)
-    c = Chain(source, distances, style_scores, style_features, feature_names, score_names, libcall_linenums, libcall_dict, start_index, 0, .05)
+    c = generate_chain(args.start_index, 0, .1, data_dir=args.data_dir, libcall_dict=args.libcall_dict, libcall_linenums=args.libcall_linenums)
     cl = c.head
     i = 0
     while cl:
@@ -448,16 +401,5 @@ def main():
         cl = cl.next
         i+=1
     
-    
 if __name__ == '__main__':
     main()
-
-def unicode_to_str(input):
-    if isinstance(input, dict):
-        return {unicode_to_str(key):unicode_to_str(value) for key,value in input.iteritems()}
-    elif isinstance(input, list):
-        return [unicode_to_str(element) for element in input]
-    elif isinstance(input, unicode):
-        return input.encode('utf-8')
-    else:
-        return input

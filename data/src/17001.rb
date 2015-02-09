@@ -1,15 +1,13 @@
 def combine_anagrams(words)
   groups = Hash.new
-  words.each do | word |
+  words.each do |word|
     group_id = word.downcase.chars.sort.join
     group = groups[group_id]
-    if (!group)
+    if (not group) then
       group = Array.new
       groups[group_id] = group
     end
-
-    group << word
+    (group << word)
   end
-
   return groups.values
 end

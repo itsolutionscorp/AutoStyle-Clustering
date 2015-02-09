@@ -3,14 +3,12 @@ def combine_anagrams(words)
   words.each do |word|
     inserted = false
     sorted.each do |sort|
-      if sort[0].downcase.chars.sort.join == word.downcase.chars.sort.join
-        sort << word
+      if (sort[0].downcase.chars.sort.join == word.downcase.chars.sort.join) then
+        (sort << word)
         inserted = true
       end
     end
-    unless inserted
-     sorted << [word]
-    end
+    (sorted << [word]) unless inserted
   end
   sorted
 end

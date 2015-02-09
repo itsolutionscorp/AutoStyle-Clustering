@@ -1,27 +1,14 @@
-#!/usr/bin/ruby
-
-require 'pp'
-
-tst = ['cars', 'for', 'potatoes', 'racs', 
-       'four', 'scar', 'creams', 'scream'] 
-
 def combine_anagrams(words)
-   rtn = []
-   words.each { |w|
-      added = false
-      rtn.each { |a|
-         if(w.downcase.chars.sort.join ==
-            a[0].downcase.chars.sort.join)
-            a << w
-            added = true
-         end
-      }
-      if !added 
-        rtn << [w]
+  rtn = []
+  words.each do |w|
+    added = false
+    rtn.each do |a|
+      if (w.downcase.chars.sort.join == a[0].downcase.chars.sort.join) then
+        (a << w)
+        added = true
       end
-   }
-   return rtn               
+    end
+    (rtn << [w]) if (not added)
+  end
+  return rtn
 end
-
-pp combine_anagrams(tst)
-

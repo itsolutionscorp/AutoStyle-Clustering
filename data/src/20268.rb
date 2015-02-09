@@ -1,14 +1,13 @@
 def combine_anagrams(words)
   ret = Hash.new
-  #ret.default_proc = Array.new
   words.each do |word|
     key = word.downcase.chars.sort
     list = ret[key]
-    if list.nil?  
+    if list.nil? then
       list = []
-      ret[key] = list 
+      ret[key] = list
     end
-    list << word
+    (list << word)
   end
   ret.values
 end

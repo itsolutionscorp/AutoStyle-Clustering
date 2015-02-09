@@ -1,5 +1,8 @@
 def combine_anagrams(words)
   result = {}
-  words.collect {|w| key = w.downcase.chars.sort.join; result.has_key?(key) ?  result[key] << w : result[key] = [w] }
+  words.collect do |w|
+    key = w.downcase.chars.sort.join
+    result.has_key?(key) ? ((result[key] << w)) : (result[key] = [w])
+  end
   return result.values
 end

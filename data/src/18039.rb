@@ -1,12 +1,7 @@
-def combine_anagrams(words) 
+def combine_anagrams(words)
   words_hash = Hash.new([])
-  words.each do |word|
-    words_hash[word.downcase.chars.sort] += [word]
-  end
+  words.each { |word| words_hash[word.downcase.chars.sort] += [word] }
   words_array = []
-  words_hash.each do |key, value| 
-    words_array << value
-  end  
+  words_hash.each { |key, value| (words_array << value) }
   words_array
 end
-

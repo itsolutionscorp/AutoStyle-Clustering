@@ -1,18 +1,11 @@
 def combine_anagrams(words)
   anagrams = Hash.new
-  words.each do
-    |word|
+  words.each do |word|
     key = word.downcase.chars.sort.join
-    if ! anagrams.has_key? key
-    then
-      anagrams[key] = Array.new
-    end
-    anagrams[key].push(word)      
+    anagrams[key] = Array.new if (not anagrams.has_key?(key))
+    anagrams[key].push(word)
   end
   result = Array.new
-  anagrams.each do
-    |group|
-    result.push(group[1])
-  end
+  anagrams.each { |group| result.push(group[1]) }
   return result
 end

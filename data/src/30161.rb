@@ -1,63 +1,28 @@
 def combine_anagrams(words)
   hk = []
-  words.each do |i|
-    hk.push(i.downcase.chars.sort.join)
-  end
-  #print hk
+  words.each { |i| hk.push(i.downcase.chars.sort.join) }
   ret = []
   num = []
   words.length.times do |i|
-    if ret.length == 0
+    if (ret.length == 0) then
       num.push(ret.length)
       ret.push([words[i]])
       next
     end
     find = 0
     words.length.times do |j|
-      if j == i 
-        break
-      end
-      if num[j] != -1 && hk[j] == hk[i]
+      break if (j == i)
+      if (num[j] != -1) and (hk[j] == hk[i]) then
         find = 1
         ret[num[j]].push(words[i])
         num.push(-1)
         break
       end
     end
-    if find == 0
+    if (find == 0) then
       num.push(ret.length)
       ret.push([words[i]])
     end
   end
   return ret
 end
-
-hk = [[1,2],[3,4]]
-hk.push([1,2])
-hk[0].push(3)
-#print hk
-input = ['cars', 'for', 'potatoes', 'racs', 'four', 'scar', 'creams', 'scream']
-
-print combine_anagrams(input)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

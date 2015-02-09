@@ -1,20 +1,7 @@
-=begin
-HW1 Part1
-	anagrams
-=end
-
 def combine_anagrams(words)
-	hash_ana = Hash.new([])
-	words.each do |w| hash_ana[w.downcase.split(//).sort] += [w]
-	end
-	
-	arr_ana = []
-
-	hash_ana.each_pair do |k,v|
-		arr_ana += [v]
-	end
-	
-	arr_ana
+  hash_ana = Hash.new([])
+  words.each { |w| hash_ana[w.downcase.split(//).sort] += [w] }
+  arr_ana = []
+  hash_ana.each_pair { |k, v| arr_ana = (arr_ana + [v]) }
+  arr_ana
 end
-
-combine_anagrams(['cars', 'for', 'potatoes', 'racs', 'four','scar', 'creams', 'scream'])

@@ -1,21 +1,13 @@
-
 def combine_anagrams(words)
-  include Enumerable
+  include(Enumerable)
   @words = words
-  @temp 
+  @temp
   @wordlist = Hash.new(0)
   @newwordlist
   @words.each do |word|
     @temp = word.chars.sort_by(&:downcase).join
-    @wordlist[@temp] +=1
+    @wordlist[@temp] += 1
   end
- 
-  
-     
-
   wordlist = @wordlist
-  puts @wordlist
+  puts(@wordlist)
 end
-
-words = ["scar", "cars", "scream", "creams"]
-combine_anagrams(words)
