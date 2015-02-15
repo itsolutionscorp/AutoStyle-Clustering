@@ -45,7 +45,7 @@ class Chain():
         self.style_score_weight = style_score_weight
         self.jump_threshold = self.style_score_weight
         
-        self.num_hints= 2 #TODO: A slider for this?
+        self.num_hints= 3 #TODO: A slider for this?
         self.positive_feedback_scale = 0
         self.negative_feedback_scale = -10000
 
@@ -119,7 +119,7 @@ class Chain():
         Return a list of library calls that can produce this data structure,
         according to self.libcall_dict.
         '''
-        #TODO: create a reversed version of libcall_dict for faster access
+        #TODO: this is inefficient. Should create a reversed version of libcall_dict for faster access
         calls = []
         for call in self.libcall_dict:
             if data_structure in self.libcall_dict[call]:
@@ -316,6 +316,15 @@ def interpret_list_of_hints(features, is_not_hint):
                 all_advice += '...' + use_not + 'using a call to ' + method_advice + '.\n'
             elif ngram > 1:
                 all_advice += '...' + use_not + 'using a call to the following together: ' + method_advice + '.\n'
+        #['conditional', 'nested conditionals', 'explicit iteration', 'nested explicit iteration']
+        elif feature == 'conditional':
+            all_advice += '...' + use_not + 'using an explicit conditional' + '.\n'
+        elif feature == 'nested conditionals':
+            all_advice += '...' + use_not + 'using explicit nested conditionals' + '.\n'
+        elif feature == 'explicit iteration':
+            all_advice += '...' + use_not + 'using explicit iteration' + '.\n'
+        elif feature == 'nested explicit iteration':
+            all_advice += '...' + use_not + 'using nested iteration' + '.\n'
         else:
             all_advice += '...' + use_not + 'using a call to ' + feature + '.\n' 
     if create_new:
