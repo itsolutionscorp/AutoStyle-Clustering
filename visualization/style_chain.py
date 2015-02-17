@@ -388,7 +388,7 @@ def main():
     parser.add_argument('libcall_linenums', nargs='?', default='featurization/libcalls_and_linenums.json', help='Location of file that contains line numbers associated with each library call')
 
     args = parser.parse_args()
-    c = generate_chain(args.start_index, 0, .1, data_dir=args.data_dir, libcall_dict=args.libcall_dict, libcall_linenums=args.libcall_linenums)
+    c = generate_chain(args.start_index, 0, 1, data_dir=args.data_dir, libcall_dict=args.libcall_dict, libcall_linenums=args.libcall_linenums)
     cl = c.head
     i = 0
     while cl:
