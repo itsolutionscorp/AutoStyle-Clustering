@@ -9,6 +9,7 @@
 .pydevproject
 clustering/elki_out/*
 data.dat
+*weights.np
 /python_data/test_chains/AutogradeStyle/nbproject/private/
 /python_data/test_chains/AutogradeStyle/build/
 /python_data/test_chains/AutogradeStyle/dist/799data/
