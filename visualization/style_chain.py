@@ -174,8 +174,10 @@ class ChainLink:
         invalid_features = np.empty(self.chain.style_scores.shape[0], dtype=bool)
         invalid_features[:] = False 
         for feature in xrange(self.chain.style_scores.shape[1]):
+            # invalid if its score is worse than our own 
             invalid_features = np.logical_or(invalid_features, 
                                              self.chain.style_scores[:,feature] >= self.chain.style_scores[self.index, feature])
+            # invalid if its score differs from our own by less than  jump threshold
             invalid_features = np.logical_or(invalid_features, 
                                              np.abs(self.chain.style_scores[:,feature] - self.chain.style_scores[self.index, feature]) < self.chain.jump_threshold)
             maxed_dist_matrix = np.copy(self.chain.dist_matrix)
