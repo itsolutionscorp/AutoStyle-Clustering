@@ -158,11 +158,43 @@ class ChainLink:
         
         Returns None if there is no such submission.
         '''
-        successor_index = self.find_closest_with_lower_value()
+        successor_index = self.find_closest_with_good_diffs()
         if successor_index == -1:
             return None
         else:
             return ChainLink(successor_index, self, self.chain)
+        
+    def find_closest_with_good_diffs(self):
+        """
+        Return the index of the closest submission with at least one better score
+        and at least one persistent diff. Return -1 if there is no such point.
+        """
+        invalid_features = np.empty(self.chain.style_scores.shape[0], dtype=bool)
+        invalid_features[:] = False 
+        for feature in xrange(self.chain.style_scores.shape[1]):
+            # invalid if its score is worse than our own 
+            invalid_features = np.logical_or(invalid_features, 
+                                             self.chain.style_scores[:,feature] >= self.chain.style_scores[self.index, feature])
+        invalid_features = np.logical_or(invalid_features,
+                                         self.has_no_good_diffs())
+        maxed_dist_matrix = np.copy(self.chain.dist_matrix)
+        maxed_dist_matrix.T[invalid_features] = float('inf')
+        if np.min(maxed_dist_matrix[self.index,:]) == float('inf'):
+            return -1
+        else:
+            index = np.argmin(maxed_dist_matrix[self.index,:])
+            return index
+        
+    def has_no_good_diffs(self):
+        """
+        Return a vector of booleans if there are no diffs between each submission and self.index submission
+        """
+        no_diffs = np.empty(self.chain.style_features.shape[0], dtype=bool)
+        # TODO: some way to do this without a for loop?
+        for i in xrange(no_diffs.shape[0]):
+            # TODO: don't hard code, maybe enforce positive diffs?
+            no_diffs[i] = np.sum(np.abs(self.chain.style_features[i,:] - self.chain.style_features[self.index,:])) < 5
+        return no_diffs
     
     def find_closest_with_lower_value(self):
         """
@@ -180,13 +212,13 @@ class ChainLink:
             # invalid if its score differs from our own by less than  jump threshold
             invalid_features = np.logical_or(invalid_features, 
                                              np.abs(self.chain.style_scores[:,feature] - self.chain.style_scores[self.index, feature]) < self.chain.jump_threshold)
-            maxed_dist_matrix = np.copy(self.chain.dist_matrix)
-            maxed_dist_matrix.T[invalid_features] = float('inf')
-            if np.min(maxed_dist_matrix[self.index,:]) == float('inf'):
-                return -1
-            else:
-                index = np.argmin(maxed_dist_matrix[self.index,:])
-                return index
+        maxed_dist_matrix = np.copy(self.chain.dist_matrix)
+        maxed_dist_matrix.T[invalid_features] = float('inf')
+        if np.min(maxed_dist_matrix[self.index,:]) == float('inf'):
+            return -1
+        else:
+            index = np.argmin(maxed_dist_matrix[self.index,:])
+            return index
             
     def extract_sparse_hint_features(self, i):
         '''
