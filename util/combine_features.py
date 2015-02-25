@@ -36,6 +36,8 @@ def string_concatenate(feature_vectors, out_file):
         all_features = all_features[:, np.newaxis]
     for feature_file in feature_vectors[1:]:
         vector = np.genfromtxt(feature_file, dtype='str', delimiter='\n')
+        if len(vector.shape) == 0:
+            vector = np.reshape(vector, (1,1))
         if len(vector.shape) == 1:
             vector = vector[:, np.newaxis]
         all_features = np.concatenate((all_features, vector), 0)
