@@ -244,7 +244,7 @@ class ChainLink:
         unused_hints = self.chain.num_hints - len(sorted_selected_hints)
         if unused_hints > 0 and next.next is not None:
             sorted_selected_hints += self.get_sorted_selected_hints(next.next, unused_hints, is_not_hint)
-        return sorted_selected_hints[:num_hints]
+        return list(set(sorted_selected_hints[:num_hints]))
 
     def generate_hint(self, is_not_hint):
         '''
