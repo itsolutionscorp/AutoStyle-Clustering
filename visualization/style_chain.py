@@ -350,15 +350,18 @@ def interpret_list_of_hints(features, is_not_hint):
                 all_advice += '...' + use_not + 'using a call to ' + method_advice + '.\n'
             elif ngram > 1:
                 all_advice += '...' + use_not + 'using a call to the following together: ' + method_advice + '.\n'
+        elif feature == 'duplicate_treegrams':
+            if is_not_hint:
+                all_advice += '...' + 'restructuring your program to eliminate redundant code' + '.\n'
         #['conditional', 'nested conditionals', 'explicit iteration', 'nested explicit iteration']
         elif feature == 'conditional':
-            all_advice += '...' + use_not + 'using an explicit conditional' + '.\n'
+            all_advice += '...' + 'restructuring your program to ' + use_not + 'use an explicit conditional' + '.\n'
         elif feature == 'nested conditionals':
-            all_advice += '...' + use_not + 'using explicit nested conditionals' + '.\n'
+            all_advice += '...' + 'restructuring your program to ' + use_not + 'use nested conditionals' + '.\n'
         elif feature == 'explicit iteration':
-            all_advice += '...' + use_not + 'using explicit iteration' + '.\n'
+            all_advice += '...' + 'restructuring your program to ' + use_not + 'use explicit iteration' + '.\n'
         elif feature == 'nested explicit iteration':
-            all_advice += '...' + use_not + 'using nested iteration' + '.\n'
+            all_advice += '...' + 'restructuring your program to ' + use_not + 'use nested iteration' + '.\n'
         else:
             all_advice += '...' + use_not + 'using a call to ' + feature + '.\n' 
     if create_new:

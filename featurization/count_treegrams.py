@@ -8,7 +8,7 @@ Created on Sep 19, 2014
 import argparse
 import numpy as np
 import glob
-from cs169_clustering.syntax_tree.tree import control_flow_and_library_tree, printTree, Node
+from syntax_tree.tree import control_flow_and_library_tree, printTree, Node
 from collections import OrderedDict
 
 def count_treegrams(source, depth, make_indicator):
