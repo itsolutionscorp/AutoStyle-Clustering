@@ -17,6 +17,7 @@ import numpy as np
 import os
 import json
 import pickle
+from numpy.f2py.crackfortran import get_sorted_names
 
 class Chain():
     '''
@@ -43,7 +44,7 @@ class Chain():
         
         self.ast_distance_weight = ast_distance_weight
         self.style_score_weight = style_score_weight
-        self.jump_threshold = self.style_score_weight
+        self.jump_threshold = self.style_score_weight * 5  # TODO: undo this
         
         self.num_hints= 3 #TODO: A slider for this?
         self.positive_feedback_scale = 0
@@ -51,7 +52,7 @@ class Chain():
 
         self.initialize_weights()
         if feedback:
-            self.update_weights(feedback, old_chain) #FIXME
+            self.update_weights(feedback, old_chain)
         self.grow_chain(start_index)
         
     def grow_chain(self, start_index):
@@ -218,7 +219,7 @@ class ChainLink:
         return self.negative_hint, self.negative_hint_lines
             
 
-    def get_sorted_selected_hints(self, is_not_hint):
+    def get_sorted_selected_hints(self, next, num_hints, is_not_hint):
         '''
         Return the best possible hints sorted by score.
         A hint is only possible if it corresponds to a feature
@@ -226,9 +227,9 @@ class ChainLink:
         in the next one, or vice-versa for not hints.
         '''
         if is_not_hint:
-            invalid_hints = self.chain.style_features[self.index,:] <= self.chain.style_features[self.next.index, :]
+            invalid_hints = self.chain.style_features[self.index, :] <= self.chain.style_features[next.index, :]
         else:
-            invalid_hints = self.chain.style_features[self.index,:] >= self.chain.style_features[self.next.index, :]
+            invalid_hints = self.chain.style_features[self.index, :] >= self.chain.style_features[next.index, :]
         selected_hints = []
         selected_scores = []
         for i in xrange(invalid_hints.shape[0]):
@@ -240,7 +241,10 @@ class ChainLink:
                     selected_scores.append(score)
         
         sorted_selected_hints = [x for y, x in sorted(zip(selected_scores, selected_hints), key=lambda pair:-1 * pair[0])]
-        return sorted_selected_hints
+        unused_hints = self.chain.num_hints - len(sorted_selected_hints)
+        if unused_hints > 0 and next.next is not None:
+            sorted_selected_hints += self.get_sorted_selected_hints(next.next, unused_hints, is_not_hint)
+        return sorted_selected_hints[:num_hints]
 
     def generate_hint(self, is_not_hint):
         '''
@@ -250,7 +254,7 @@ class ChainLink:
         a hint that suggests "Don't do this.", instead of "You should do this."
         '''
         
-        sorted_selected_hints = self.get_sorted_selected_hints(is_not_hint)
+        sorted_selected_hints = self.get_sorted_selected_hints(self.next, self.chain.num_hints, is_not_hint)
         names = self.chain.feature_names[sorted_selected_hints]
         lines = []
         for name in names:
@@ -272,10 +276,10 @@ class ChainLink:
                     lines.append([0])
             else:
                 try:
-                    lines.append(self.chain.libcall_linenums[self.next.index][name])
+                    lines.append(self.chain.libcall_linenums[self.next.index][name])  # FIXME: this is now broken
                 except Exception:
                     lines.append([0])
-        return names[:self.chain.num_hints], lines[:self.chain.num_hints]
+        return names, lines[:self.chain.num_hints]
     
     
 def interpret_list_of_hints(features, is_not_hint):
@@ -323,7 +327,7 @@ def interpret_list_of_hints(features, is_not_hint):
                 all_advice += '...' + 'restructuring your program to eliminate redundant code' + '.\n'
         #['conditional', 'nested conditionals', 'explicit iteration', 'nested explicit iteration']
         elif feature == 'conditional':
-            all_advice += '...' + 'restructuring your program to ' + use_not + 'use an explicit conditional' + '.\n'
+            all_advice += '...' + 'restructuring your program to ' + use_not + 'use a conditional' + '.\n'
         elif feature == 'nested conditionals':
             all_advice += '...' + 'restructuring your program to ' + use_not + 'use nested conditionals' + '.\n'
         elif feature == 'explicit iteration':
