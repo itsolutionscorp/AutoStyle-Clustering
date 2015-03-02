@@ -6,7 +6,7 @@ Created on Feb 25, 2015
 import glob
 import numpy as np
 from count_treegrams import get_treegrams
-from syntax_tree.tree import control_flow_and_library_tree
+from syntax_tree.tree import control_flow_and_library_tree, Node
 
 def contains_duplicates(l):
     return len(l) != len(set(l))

@@ -325,7 +325,7 @@ def interpret_list_of_hints(features, is_not_hint):
         elif feature == 'duplicate_treegrams':
             if is_not_hint:
                 all_advice += '...' + 'restructuring your program to eliminate redundant code' + '.\n'
-        #['conditional', 'nested conditionals', 'explicit iteration', 'nested explicit iteration']
+        # ['conditional', 'nested conditionals', 'explicit iteration', 'nested explicit iteration', 'sequential iteration', 'sequential conditional']
         elif feature == 'conditional':
             all_advice += '...' + 'restructuring your program to ' + use_not + 'use a conditional' + '.\n'
         elif feature == 'nested conditionals':
@@ -334,6 +334,10 @@ def interpret_list_of_hints(features, is_not_hint):
             all_advice += '...' + 'restructuring your program to ' + use_not + 'use explicit iteration' + '.\n'
         elif feature == 'nested explicit iteration':
             all_advice += '...' + 'restructuring your program to ' + use_not + 'use nested iteration' + '.\n'
+        elif feature == 'sequential conditional':
+            all_advice += '...' + 'restructuring your program to ' + use_not + 'use sequential conditional blocks' + '.\n'
+        elif feature == 'sequential iteration':
+            all_advice += '...' + 'restructuring your program to ' + use_not + 'use sequential iteration blocks' + '.\n'
         else:
             all_advice += '...' + use_not + 'using a call to ' + feature + '.\n' 
     if create_new:

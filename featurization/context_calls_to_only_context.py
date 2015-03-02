@@ -37,6 +37,7 @@ def context_calls_to_only_context(context_calls_vector, context_calls_names):
                 only_context_vector[i, :] = only_context_vector[i, :] + translation_vector[j]
     only_context_vector[only_context_vector > 0] = 1
     return only_context_vector
+    
             
     
 def main():

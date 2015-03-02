@@ -122,4 +122,6 @@
 ['nested conditionals']
 ['explicit iteration']
 ['nested explicit iteration']
+['sequential conditional']
+['sequential iteration']
 ['duplicate_treegrams']
