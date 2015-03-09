@@ -53,7 +53,7 @@ def treegram_string(node, depth):
                 if not t_string:
                     return None
                 else:
-                    s+=', ' + treegram_string(child, depth-1)
+                    s += ', ' + treegram_string(child, depth - 1)
     return s + ')'
 
 def get_treegrams(ast, depth):
@@ -94,11 +94,12 @@ def main():
     
     
     
-    np.savetxt(output_counts, treegram_counts)
-    np.savetxt(output_features, treegram_features)
+    # np.savetxt(output_counts, treegram_counts)
+    # np.savetxt(output_features, treegram_features)
     with open(output_names, 'w') as out_file:
         for treegram_name in treegram_names:
-            out_file.write('%s\n'%treegram_name)
+            # out_file.write('%s\n'%treegram_name)
+            pass
     
     
 

@@ -46,9 +46,10 @@ class Chain():
         self.style_score_weight = style_score_weight
         self.jump_threshold = self.style_score_weight * 5  # TODO: undo this
         
-        self.num_hints= 3 #TODO: A slider for this?
+        self.num_hints = 3  # TODO: A slider for this? 
         self.positive_feedback_scale = 0
         self.negative_feedback_scale = -10000
+        self.num_structural_features = 7  # TODO: hardcoded
 
         self.initialize_weights()
         if feedback:
@@ -109,9 +110,11 @@ class Chain():
         These weight settings represent our best human guess
         as to what the weights should be.
         '''
-        self.weights = np.zeros(self.style_features.shape[1] + 20) #TODO: only accounts for chains of up to length 20!
-        self.weights[0:self.style_features.shape[1]] = 1 #Hint identity features
-        self.weights[self.style_features.shape[1]] = -1000 #Does the hint appear in the current submission? (If so, don't suggest it)
+        num_features = self.style_features.shape[1]
+        self.weights = np.zeros(num_features + 20)  # TODO: only accounts for chains of up to length 20!
+        self.weights[0:num_features] = 1  # Hint identity features
+        self.weights[num_features - 7:num_features] = 1000  # Make structural features take priority over others
+        self.weights[num_features] = -1000  # Does the hint appear in the current submission? (If so, don't suggest it)
         for i in xrange(0, 20): #Does the feature appear in next submission? In next next submission?
             self.weights[self.style_features.shape[1] + i] = (i+1)**3 #Higher weight if it appears later!
             
@@ -144,7 +147,7 @@ class ChainLink:
             prev_link.next = self
         self.index = index
         self.chain = chain
-        self.flog_score = self.chain.style_scores[self.index, 0] #TODO: flog score isn't necessarily 0...
+        self.flog_score = self.chain.style_scores[self.index, 0]  # TODO: flog score isn't necessarily at position 0...
         self.next = None
         self.positive_hint = None
         self.negative_hint = None
@@ -325,7 +328,7 @@ def interpret_list_of_hints(features, is_not_hint):
         elif feature == 'duplicate_treegrams':
             if is_not_hint:
                 all_advice += '...' + 'restructuring your program to eliminate redundant code' + '.\n'
-        #['conditional', 'nested conditionals', 'explicit iteration', 'nested explicit iteration']
+        # ['conditional', 'nested conditionals', 'explicit iteration', 'nested explicit iteration', 'sequential iteration', 'sequential conditional']
         elif feature == 'conditional':
             all_advice += '...' + 'restructuring your program to ' + use_not + 'use a conditional' + '.\n'
         elif feature == 'nested conditionals':
@@ -334,6 +337,10 @@ def interpret_list_of_hints(features, is_not_hint):
             all_advice += '...' + 'restructuring your program to ' + use_not + 'use explicit iteration' + '.\n'
         elif feature == 'nested explicit iteration':
             all_advice += '...' + 'restructuring your program to ' + use_not + 'use nested iteration' + '.\n'
+        elif feature == 'sequential conditional':
+            all_advice += '...' + 'restructuring your program to ' + use_not + 'use sequential conditional blocks' + '.\n'
+        elif feature == 'sequential iteration':
+            all_advice += '...' + 'restructuring your program to ' + use_not + 'use sequential iteration blocks' + '.\n'
         else:
             all_advice += '...' + use_not + 'using a call to ' + feature + '.\n' 
     if create_new:
