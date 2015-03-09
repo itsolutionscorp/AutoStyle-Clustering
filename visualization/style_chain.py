@@ -45,7 +45,8 @@ class Chain():
         
         self.ast_distance_weight = ast_distance_weight
         self.style_score_weight = style_score_weight
-        self.jump_threshold = self.style_score_weight * 5  # TODO: undo this
+        self.max_jump_threshold = self.style_score_weight * 10  # TODO: undo this
+        self.min_jump_threshold = 1
         
         self.num_hints = 3  # TODO: A slider for this? 
         self.positive_feedback_scale = 0
@@ -66,7 +67,11 @@ class Chain():
         self.head = cl
         self.length = 1
         while True:
-            succ = cl.generate_successor()
+            threshold = self.max_jump_threshold
+            succ = cl.generate_successor(threshold)
+            while not succ and threshold > self.min_jump_threshold:
+                threshold -= 1
+                succ = cl.generate_successor(threshold)
             if not succ:
                 break
             else:
@@ -155,7 +160,7 @@ class ChainLink:
         with open(self.chain.files[self.index], 'r') as f:
             self.source_code = f.read()
         
-    def generate_successor(self):
+    def generate_successor(self, threshold):
         '''
         Return a chain link corresponding to the next link in the chain.
         The next chain link should be the closest submission
@@ -163,17 +168,17 @@ class ChainLink:
         
         Returns None if there is no such submission.
         '''
-        successor_index = self.find_closest_with_lower_value()
+        successor_index = self.find_closest_with_lower_value_under_threshold(threshold)
         if successor_index == -1:
             return None
         else:
             return ChainLink(successor_index, self, self.chain)
     
-    def find_closest_with_lower_value(self):
+    def find_closest_with_lower_value_under_threshold(self, threshold):
         """
         Given distances between points and feature values for each point,
         return the index of the closest point with at least one better score.
-        That score must be better by at least Chain.jump_threshold.
+        That score must be better by at least Chain.max_jump_threshold.
         Return -1 if there is no such point.
         """
         invalid_features = np.empty(self.chain.style_scores.shape[0], dtype=bool)
@@ -182,9 +187,9 @@ class ChainLink:
             # invalid if its score is worse than our own 
             invalid_features = np.logical_or(invalid_features, 
                                              self.chain.style_scores[:,feature] >= self.chain.style_scores[self.index, feature])
-            # invalid if its score differs from our own by less than  jump threshold
+            # invalid if its score differs from our own by less than jump threshold
             invalid_features = np.logical_or(invalid_features, 
-                                             np.abs(self.chain.style_scores[:,feature] - self.chain.style_scores[self.index, feature]) < self.chain.jump_threshold)
+                                             np.abs(self.chain.style_scores[:, feature] - self.chain.style_scores[self.index, feature]) < threshold)
             maxed_dist_matrix = np.copy(self.chain.dist_matrix)
             maxed_dist_matrix.T[invalid_features] = float('inf')
             if np.min(maxed_dist_matrix[self.index,:]) == float('inf'):
