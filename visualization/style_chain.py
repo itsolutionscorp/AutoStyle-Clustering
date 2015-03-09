@@ -17,6 +17,7 @@ import numpy as np
 import os
 import json
 import pickle
+from collections import OrderedDict
 from numpy.f2py.crackfortran import get_sorted_names
 
 class Chain():
@@ -113,7 +114,7 @@ class Chain():
         num_features = self.style_features.shape[1]
         self.weights = np.zeros(num_features + 20)  # TODO: only accounts for chains of up to length 20!
         self.weights[0:num_features] = 1  # Hint identity features
-        self.weights[num_features - 7:num_features] = 1000  # Make structural features take priority over others
+        self.weights[num_features - self.num_structural_features:num_features] = 1000  # Make structural features take priority over others
         self.weights[num_features] = -1000  # Does the hint appear in the current submission? (If so, don't suggest it)
         for i in xrange(0, 20): #Does the feature appear in next submission? In next next submission?
             self.weights[self.style_features.shape[1] + i] = (i+1)**3 #Higher weight if it appears later!
@@ -222,7 +223,7 @@ class ChainLink:
         return self.negative_hint, self.negative_hint_lines
             
 
-    def get_sorted_selected_hints(self, next, num_hints, is_not_hint):
+    def get_sorted_selected_hints(self, next, num_hints, is_not_hint, must_be_structural, used_hints):
         '''
         Return the best possible hints sorted by score.
         A hint is only possible if it corresponds to a feature
@@ -233,6 +234,14 @@ class ChainLink:
             invalid_hints = self.chain.style_features[self.index, :] <= self.chain.style_features[next.index, :]
         else:
             invalid_hints = self.chain.style_features[self.index, :] >= self.chain.style_features[next.index, :]
+            
+        if must_be_structural:
+            num_features = self.chain.style_features.shape[1]
+            structural = np.empty(num_features, dtype=bool)
+            structural[:] = True
+            structural[num_features - self.chain.num_structural_features:num_features] = False
+            invalid_hints = np.logical_or(invalid_hints, structural)
+            
         selected_hints = []
         selected_scores = []
         for i in xrange(invalid_hints.shape[0]):
@@ -243,11 +252,13 @@ class ChainLink:
                     selected_hints.append(i)
                     selected_scores.append(score)
         
-        sorted_selected_hints = [x for y, x in sorted(zip(selected_scores, selected_hints), key=lambda pair:-1 * pair[0])]
+        sorted_selected_hints = [x for (y, x) in sorted(zip(selected_scores, selected_hints), key=lambda pair:-1 * pair[0])]
+        sorted_selected_hints = [x for x in sorted_selected_hints if x not in used_hints]
+        sorted_selected_hints = list(OrderedDict.fromkeys(sorted_selected_hints))
         unused_hints = self.chain.num_hints - len(sorted_selected_hints)
         if unused_hints > 0 and next.next is not None:
-            sorted_selected_hints += self.get_sorted_selected_hints(next.next, unused_hints, is_not_hint)
-        return list(set(sorted_selected_hints[:num_hints]))
+            sorted_selected_hints += self.get_sorted_selected_hints(next.next, unused_hints, is_not_hint, must_be_structural, sorted_selected_hints)
+        return list(OrderedDict.fromkeys(sorted_selected_hints[:num_hints]))
 
     def generate_hint(self, is_not_hint):
         '''
@@ -257,7 +268,11 @@ class ChainLink:
         a hint that suggests "Don't do this.", instead of "You should do this."
         '''
         
-        sorted_selected_hints = self.get_sorted_selected_hints(self.next, self.chain.num_hints, is_not_hint)
+        sorted_selected_hints = self.get_sorted_selected_hints(self.next, self.chain.num_hints, is_not_hint, True, [])
+        unused_hints = self.chain.num_hints - len(sorted_selected_hints)
+        if unused_hints > 0:
+            sorted_selected_hints += self.get_sorted_selected_hints(self.next, unused_hints, is_not_hint, False, sorted_selected_hints)
+            sorted_selected_hints = list(OrderedDict.fromkeys(sorted_selected_hints))
         names = self.chain.feature_names[sorted_selected_hints]
         lines = []
         for name in names:
