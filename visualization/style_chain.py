@@ -18,7 +18,6 @@ import os
 import json
 import pickle
 from collections import OrderedDict
-from numpy.f2py.crackfortran import get_sorted_names
 
 class Chain():
     '''
@@ -29,6 +28,7 @@ class Chain():
     def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain):
         '''
         Initialize a chain starting at start_index.
+        This also initializes all of the constants.
         '''
         self.source_dir = source_dir
         self.dist_matrix = distances
@@ -61,7 +61,6 @@ class Chain():
     def grow_chain(self, start_index):
         '''
         Build a chain object from start_index.
-        It will be built according to the parameters in the sliders.
         '''
         cl = ChainLink(start_index, None, self)
         self.head = cl
@@ -82,7 +81,7 @@ class Chain():
     def update_weights(self, feedback, old_chain):
         '''
         Change weights according to the feedback.
-        This is a perceptron. Subject to change, of course!
+        This is a perceptron, subject to change.
         If the feedback is good, add in the feature vector associated with the hint to the weights
         If the feedback is bad, subtract off the feature vector associated with the hint from the weights
         '''
@@ -168,17 +167,17 @@ class ChainLink:
         
         Returns None if there is no such submission.
         '''
-        successor_index = self.find_closest_with_lower_value_under_threshold(threshold)
+        successor_index = self.find_closest_with_lower_value(threshold)
         if successor_index == -1:
             return None
         else:
             return ChainLink(successor_index, self, self.chain)
     
-    def find_closest_with_lower_value_under_threshold(self, threshold):
+    def find_closest_with_lower_value(self, threshold):
         """
         Given distances between points and feature values for each point,
         return the index of the closest point with at least one better score.
-        That score must be better by at least Chain.max_jump_threshold.
+        That score must be better by at least threshold.
         Return -1 if there is no such point.
         """
         invalid_features = np.empty(self.chain.style_scores.shape[0], dtype=bool)
@@ -234,6 +233,12 @@ class ChainLink:
         A hint is only possible if it corresponds to a feature
         that doesn't appear in this chain link but does appear
         in the next one, or vice-versa for not hints.
+        
+        must_be_structural limits this call to only returning hints
+        that count as structural, which are hardcoded.
+        
+        Will not return any hints from used_hints, since these are
+        considered already used.
         '''
         if is_not_hint:
             invalid_hints = self.chain.style_features[self.index, :] <= self.chain.style_features[next.index, :]
@@ -417,6 +422,17 @@ def unicode_to_str(input_u):
         return input_u
 
 def main():
+    '''
+    Runs a text version (rather than a gui version)
+    of the code. Cannot receive feedback or adjust
+    parameters in this mode.
+    
+    To use, run from the top level of the repo. Just run
+    
+        python visualization/style_chain.py [num]
+        
+    All other parameters should have their default values working.
+    '''
     parser = argparse.ArgumentParser(description='Find paths from submissions with high style scores to submissions with low ones.')
     parser.add_argument('start_index', type=int, help='Index of the start submission in the index file')
     parser.add_argument('data_dir', nargs='?', default='data/', help='Location of directory that contains features, method source, and asts.')
@@ -424,7 +440,7 @@ def main():
     parser.add_argument('libcall_linenums', nargs='?', default='featurization/libcalls_and_linenums.json', help='Location of file that contains line numbers associated with each library call')
 
     args = parser.parse_args()
-    c = generate_chain(args.start_index, 0, 1, data_dir=args.data_dir, libcall_dict=args.libcall_dict, libcall_linenums=args.libcall_linenums)
+    c = generate_chain(args.start_index, 0, 2, data_dir=args.data_dir, libcall_dict=args.libcall_dict, libcall_linenums=args.libcall_linenums)
     cl = c.head
     i = 0
     while cl:
