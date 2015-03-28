@@ -17,7 +17,7 @@ import numpy as np
 import os
 import json
 import pickle
-from numpy.f2py.crackfortran import get_sorted_names
+from collections import OrderedDict
 
 class Chain():
     '''
@@ -28,6 +28,7 @@ class Chain():
     def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain):
         '''
         Initialize a chain starting at start_index.
+        This also initializes all of the constants.
         '''
         self.source_dir = source_dir
         self.dist_matrix = distances
@@ -44,7 +45,8 @@ class Chain():
         
         self.ast_distance_weight = ast_distance_weight
         self.style_score_weight = style_score_weight
-        self.jump_threshold = self.style_score_weight * 5  # TODO: undo this
+        self.max_jump_threshold = self.style_score_weight * 10  # TODO: undo this
+        self.min_jump_threshold = 1
         
         self.num_hints = 3  # TODO: A slider for this? 
         self.positive_feedback_scale = 0
@@ -59,13 +61,16 @@ class Chain():
     def grow_chain(self, start_index):
         '''
         Build a chain object from start_index.
-        It will be built according to the parameters in the sliders.
         '''
         cl = ChainLink(start_index, None, self)
         self.head = cl
         self.length = 1
         while True:
-            succ = cl.generate_successor()
+            threshold = self.max_jump_threshold
+            succ = cl.generate_successor(threshold)
+            while not succ and threshold > self.min_jump_threshold:
+                threshold -= 1
+                succ = cl.generate_successor(threshold)
             if not succ:
                 break
             else:
@@ -76,7 +81,7 @@ class Chain():
     def update_weights(self, feedback, old_chain):
         '''
         Change weights according to the feedback.
-        This is a perceptron. Subject to change, of course!
+        This is a perceptron, subject to change.
         If the feedback is good, add in the feature vector associated with the hint to the weights
         If the feedback is bad, subtract off the feature vector associated with the hint from the weights
         '''
@@ -113,7 +118,7 @@ class Chain():
         num_features = self.style_features.shape[1]
         self.weights = np.zeros(num_features + 20)  # TODO: only accounts for chains of up to length 20!
         self.weights[0:num_features] = 1  # Hint identity features
-        self.weights[num_features - 7:num_features] = 1000  # Make structural features take priority over others
+        self.weights[num_features - self.num_structural_features:num_features] = 1000  # Make structural features take priority over others
         self.weights[num_features] = -1000  # Does the hint appear in the current submission? (If so, don't suggest it)
         for i in xrange(0, 20): #Does the feature appear in next submission? In next next submission?
             self.weights[self.style_features.shape[1] + i] = (i+1)**3 #Higher weight if it appears later!
@@ -154,7 +159,7 @@ class ChainLink:
         with open(self.chain.files[self.index], 'r') as f:
             self.source_code = f.read()
         
-    def generate_successor(self):
+    def generate_successor(self, threshold):
         '''
         Return a chain link corresponding to the next link in the chain.
         The next chain link should be the closest submission
@@ -162,17 +167,17 @@ class ChainLink:
         
         Returns None if there is no such submission.
         '''
-        successor_index = self.find_closest_with_lower_value()
+        successor_index = self.find_closest_with_lower_value(threshold)
         if successor_index == -1:
             return None
         else:
             return ChainLink(successor_index, self, self.chain)
     
-    def find_closest_with_lower_value(self):
+    def find_closest_with_lower_value(self, threshold):
         """
         Given distances between points and feature values for each point,
         return the index of the closest point with at least one better score.
-        That score must be better by at least Chain.jump_threshold.
+        That score must be better by at least threshold.
         Return -1 if there is no such point.
         """
         invalid_features = np.empty(self.chain.style_scores.shape[0], dtype=bool)
@@ -181,9 +186,9 @@ class ChainLink:
             # invalid if its score is worse than our own 
             invalid_features = np.logical_or(invalid_features, 
                                              self.chain.style_scores[:,feature] >= self.chain.style_scores[self.index, feature])
-            # invalid if its score differs from our own by less than  jump threshold
+            # invalid if its score differs from our own by less than jump threshold
             invalid_features = np.logical_or(invalid_features, 
-                                             np.abs(self.chain.style_scores[:,feature] - self.chain.style_scores[self.index, feature]) < self.chain.jump_threshold)
+                                             np.abs(self.chain.style_scores[:, feature] - self.chain.style_scores[self.index, feature]) < threshold)
             maxed_dist_matrix = np.copy(self.chain.dist_matrix)
             maxed_dist_matrix.T[invalid_features] = float('inf')
             if np.min(maxed_dist_matrix[self.index,:]) == float('inf'):
@@ -222,17 +227,31 @@ class ChainLink:
         return self.negative_hint, self.negative_hint_lines
             
 
-    def get_sorted_selected_hints(self, next, num_hints, is_not_hint):
+    def get_sorted_selected_hints(self, next, num_hints, is_not_hint, must_be_structural, used_hints):
         '''
         Return the best possible hints sorted by score.
         A hint is only possible if it corresponds to a feature
         that doesn't appear in this chain link but does appear
         in the next one, or vice-versa for not hints.
+        
+        must_be_structural limits this call to only returning hints
+        that count as structural, which are hardcoded.
+        
+        Will not return any hints from used_hints, since these are
+        considered already used.
         '''
         if is_not_hint:
             invalid_hints = self.chain.style_features[self.index, :] <= self.chain.style_features[next.index, :]
         else:
             invalid_hints = self.chain.style_features[self.index, :] >= self.chain.style_features[next.index, :]
+            
+        if must_be_structural:
+            num_features = self.chain.style_features.shape[1]
+            structural = np.empty(num_features, dtype=bool)
+            structural[:] = True
+            structural[num_features - self.chain.num_structural_features:num_features] = False
+            invalid_hints = np.logical_or(invalid_hints, structural)
+            
         selected_hints = []
         selected_scores = []
         for i in xrange(invalid_hints.shape[0]):
@@ -243,11 +262,13 @@ class ChainLink:
                     selected_hints.append(i)
                     selected_scores.append(score)
         
-        sorted_selected_hints = [x for y, x in sorted(zip(selected_scores, selected_hints), key=lambda pair:-1 * pair[0])]
+        sorted_selected_hints = [x for (y, x) in sorted(zip(selected_scores, selected_hints), key=lambda pair:-1 * pair[0])]
+        sorted_selected_hints = [x for x in sorted_selected_hints if x not in used_hints]
+        sorted_selected_hints = list(OrderedDict.fromkeys(sorted_selected_hints))
         unused_hints = self.chain.num_hints - len(sorted_selected_hints)
         if unused_hints > 0 and next.next is not None:
-            sorted_selected_hints += self.get_sorted_selected_hints(next.next, unused_hints, is_not_hint)
-        return list(set(sorted_selected_hints[:num_hints]))
+            sorted_selected_hints += self.get_sorted_selected_hints(next.next, unused_hints, is_not_hint, must_be_structural, sorted_selected_hints)
+        return list(OrderedDict.fromkeys(sorted_selected_hints[:num_hints]))
 
     def generate_hint(self, is_not_hint):
         '''
@@ -257,7 +278,11 @@ class ChainLink:
         a hint that suggests "Don't do this.", instead of "You should do this."
         '''
         
-        sorted_selected_hints = self.get_sorted_selected_hints(self.next, self.chain.num_hints, is_not_hint)
+        sorted_selected_hints = self.get_sorted_selected_hints(self.next, self.chain.num_hints, is_not_hint, True, [])
+        unused_hints = self.chain.num_hints - len(sorted_selected_hints)
+        if unused_hints > 0:
+            sorted_selected_hints += self.get_sorted_selected_hints(self.next, unused_hints, is_not_hint, False, sorted_selected_hints)
+            sorted_selected_hints = list(OrderedDict.fromkeys(sorted_selected_hints))
         names = self.chain.feature_names[sorted_selected_hints]
         lines = []
         for name in names:
@@ -397,6 +422,17 @@ def unicode_to_str(input_u):
         return input_u
 
 def main():
+    '''
+    Runs a text version (rather than a gui version)
+    of the code. Cannot receive feedback or adjust
+    parameters in this mode.
+    
+    To use, run from the top level of the repo. Just run
+    
+        python visualization/style_chain.py [num]
+        
+    All other parameters should have their default values working.
+    '''
     parser = argparse.ArgumentParser(description='Find paths from submissions with high style scores to submissions with low ones.')
     parser.add_argument('start_index', type=int, help='Index of the start submission in the index file')
     parser.add_argument('data_dir', nargs='?', default='data/', help='Location of directory that contains features, method source, and asts.')
@@ -404,7 +440,7 @@ def main():
     parser.add_argument('libcall_linenums', nargs='?', default='featurization/libcalls_and_linenums.json', help='Location of file that contains line numbers associated with each library call')
 
     args = parser.parse_args()
-    c = generate_chain(args.start_index, 0, 1, data_dir=args.data_dir, libcall_dict=args.libcall_dict, libcall_linenums=args.libcall_linenums)
+    c = generate_chain(args.start_index, 0, 2, data_dir=args.data_dir, libcall_dict=args.libcall_dict, libcall_linenums=args.libcall_linenums)
     cl = c.head
     i = 0
     while cl:
