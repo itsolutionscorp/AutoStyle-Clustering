@@ -50,6 +50,10 @@ def submit_form():
           hints.append(ph)
         for nh in neg_hints[0]:
           hints.append(nh)
+        print pos_hints[0]
+        'here'
+        print pos_hints[1]
+        'here2'
         posts.append({'code': cl.source_code, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint':interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1]})
       else:
         posts.append({'code': cl.source_code, 'positive_hint': "", 'negative_hint': ''})
