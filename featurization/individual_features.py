@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 '''
 Created on Mar 30, 2015
-Generate all the features corresponding to a particular submission.
+Generates all the features corresponding to a particular submission.
 @author: jmoghadam
 '''
 import argparse
@@ -238,7 +238,7 @@ def handle_feature(function_name, index, feature):
     elif feature == 'duplicate_treegram':
         return duplicate_treegrams(index)
 
-def generate_features(function_name, index, features):
+def generate_individual_features(function_name, index, features):
     '''
     Returns nx1 feature vector with all the features corresponding
     to the submission with index i.
@@ -265,7 +265,8 @@ def main():
     submission_index = args.submission_index
     features = args.features
     output_file = args.output_file
-    feature_vector = generate_features(function_name, submission_index, features)
+    
+    feature_vector = generate_individual_features(function_name, submission_index, features)
     
     if not os.path.exists(output_file):
         all_features = feature_vector.T
