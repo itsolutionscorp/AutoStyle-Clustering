@@ -5,6 +5,7 @@ import re
 import sexpdata # Install: pip install sexpdata
 from zss import * # Install: pip install zss
 import pdb
+import traceback
 
 class MyNode(object):
     
@@ -33,35 +34,21 @@ class MyNode(object):
         return self
 
 def main():
-    #root1 = control_flow_tree("/Users/Beaver/CS169_Clustering/800/ast/33225_ast", "combine_anagrams")
-    #root2 = weighted_syntax_tree("/Users/Beaver/CS169_Clustering/200/ast/1021_ast", "combine_anagrams")
-    #root3 = abstract_syntax_tree("/Users/Beaver/CS169_Clustering/800/ast_with_helper/16827_ast", "combine_anagrams")
-    #root4 = abstract_syntax_tree("/Users/Beaver/CS169_Clustering/800/ast_with_helper/13600_ast", "combine_anagrams")
-    
-    #printTree(root1)
-    #print "------------"
-    #printWST(root2)
-    #print simple_distance(root1, root2)
-    #printTree(root3)
-    #print "------------"
-    #printTree(root4)
-    #print "------------"
-    #print simple_distance(root3, root4)
-    #root5 = control_flow_and_library_tree('799/ast/31177_ast', 'combine_anagrams', 'library_functions.np')
-    #root5 = control_flow_tree('/home/joe/workspace/Education/cs169_clustering/799/ast/31177_ast', 'combine_anagrams')
-    root5 = control_flow_and_library_tree('/home/joe/workspace/Education/cs169_clustering/799/ast/31177_ast', 'combine_anagrams')
-    printTree(root5)
+    pass
 
 def build_sexp(filename, method=""):
     f = open(filename, 'r')
     try:
-        sexp = sexpdata.loads(preprocess(f.read()))
-    except Exception:
+        s = f.read()
+        sexp = sexpdata.loads(preprocess(s))
+    except AssertionError as e:
+        _, _, tb = sys.exc_info()
+        traceback.print_tb(tb)  # Fixed format
+        tb_info = traceback.extract_tb(tb)
+        filename, line, func, text = tb_info[-1]
         print "LoadError (build_sexp in tree.py): " + filename
         return
     else:
-#if method != "":
-#sexp = extract_method(sexp, method)
         return sexp
     finally:
         f.close

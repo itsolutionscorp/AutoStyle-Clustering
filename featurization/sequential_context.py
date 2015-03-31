@@ -19,6 +19,7 @@ def has_sequential(ast, node_type):
         children_types = [Node.get_label(child) for child in children]
         if children_types.count(node_type) > 1:
             return True
+        stack += children
     return False
         
 
