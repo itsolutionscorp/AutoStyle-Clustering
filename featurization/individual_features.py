@@ -26,6 +26,10 @@ def terminal_ouput(*args):
     return out
 
 def treegram_string(node, depth):
+    '''
+    Returns a sexp string that is a treegram of the node down to
+    the given depth.
+    '''
     s = '('
     s += Node.get_label(node)
     if depth != 1:
@@ -41,6 +45,10 @@ def treegram_string(node, depth):
     return s + ')'
 
 def get_treegrams(ast, depth):
+    '''
+    Returns a list of all treegrams
+    of the ast of size depth.
+    '''
     treegrams = []
     stack = []
     stack.append(ast)
@@ -53,7 +61,8 @@ def get_treegrams(ast, depth):
     return treegrams
 
 def count_libcalls(index):
-    '''Returns a list of library calls in this submission.
+    '''
+    Returns a list of library calls in this submission.
     '''
     ast = control_flow_and_library_tree(AST_FILES[index], 'combine_anagrams')
     calls = get_treegrams(ast, 1)
@@ -62,8 +71,56 @@ def count_libcalls(index):
         stripped_calls.append(call.strip('()'))
     return stripped_calls
 
+def has_sequential(ast, node_type):
+    '''
+    Returns True if the ast has sister nodes of the given
+    node_type anywhere in the ast.
+    ''' 
+    stack = []
+    stack.append(ast)
+    printTree(ast)
+    while stack:
+        current = stack.pop()
+        children = Node.get_children(current)
+        children_types = [Node.get_label(child) for child in children]
+        if children_types.count(node_type) > 1:
+            return True
+    return False
+        
+
+def sequential_context(index):
+    '''
+    Returns a list of size 1 indicating whether submission index
+    contains sequential conditionals or iterations.
+    '''
+    filename = SOURCE_FILES[index]
+    ast = control_flow_and_library_tree(filename, 'combine_anagrams')
+    feature_vector = [0 , 0]
+    if has_sequential(ast, 'cond'):
+        feature_vector[0] = 1
+    if has_sequential(ast, 'iter'):
+        feature_vector[1] = 1
+    return feature_vector
+
+def contains_duplicates(l):
+    return len(l) != len(set(l))
+
+def duplicate_treegrams(index):
+    '''
+    Returns a list of length 1 indicating if submission
+    index contains any duplicate treegrams of depth 3.
+    '''
+    filename = SOURCE_FILES[index]
+    ast = control_flow_and_library_tree(filename, 'combine_anagrams')
+    treegrams = get_treegrams(ast, 3)
+    if contains_duplicates(treegrams):
+        return [1, ]
+    else:
+        return [0, ]
+
 def flog_score(index):
-    '''Returns the flog score of submission index 
+    '''
+    Returns the flog score of submission index 
     as a list of length 1.
     '''
     flog_output = terminal_ouput('flog', '-am', SOURCE_FILES[index])
@@ -71,7 +128,8 @@ def flog_score(index):
     return [float(flog_score), ]
 
 def libcalls(index):
-    '''Returns a list of 0s and 1s indicating
+    '''
+    Returns a list of 0s and 1s indicating
     whether submission index contains the corresponding
     library call.
     '''
@@ -100,23 +158,26 @@ def handle_feature(index, feature):
     elif feature == 'only_context':
         return []
     elif feature == 'sequential_context':
-        return []
+        return sequential_context(index)
     elif feature == 'duplicate_treegram':
-        return []
+        return duplicate_treegrams(index)
 
 def generate_features(index, features):
     '''
     Returns nx1 feature vector with all the features corresponding
     to the submission with index i.
     '''
-    n = len(features)
     feature_vector = []
-    for i, feature in enumerate(features):
+    for feature in features:
         feature_values = handle_feature(index, feature)
         feature_vector += feature_values
     return np.reshape(np.array(feature_vector), (len(feature_vector), 1))
 
 def main():
+    '''
+    Parse command line arguments, pass them to generate_features,
+    and append the given feature vector to an output file.
+    '''
     parser = argparse.ArgumentParser(description='Generate a feature vector for a particular submission.')
     parser.add_argument('submission_index', type=int, help='Index of the submission.')
     parser.add_argument('output_file', help='File to append the generated horizontal feature vector to.')
@@ -126,7 +187,7 @@ def main():
     submission_index = args.submission_index
     features = args.features
     output_file = args.output_file
-    feature_vector = generate_features(args.submission_index, args.features)
+    feature_vector = generate_features(submission_index, features)
     
     if not os.path.exists(output_file):
         all_features = feature_vector.T
