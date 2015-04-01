@@ -2,6 +2,10 @@
 '''
 Created on Mar 30, 2015
 Generates all the features corresponding to a particular submission.
+In order to run this file, you must have:
+    * A directory containing all the source files.
+    * A directory containing the ast of each source file.
+    * A list of all library calls.
 @author: jmoghadam
 '''
 import argparse
@@ -112,7 +116,7 @@ def has_node(ast, node_type):
     stack.append(ast)
     while stack:
         current = stack.pop()
-        if current.get_label == node_type:
+        if Node.get_label(current) == node_type:
             return True
         children = Node.get_children(current)
         stack += children
@@ -209,16 +213,24 @@ def libcalls(function_name, index):
     whether submission index contains the corresponding
     library call.
     '''
+    all_libcalls = []
     with open(ALL_LIBCALLS, 'r') as f:
-        all_libcalls = f.readlines()
+        for line in f:
+            all_libcalls.append(line.strip())
     n = len(all_libcalls)
     feature_vector = np.zeros((n, 1))
     libcall_names = count_libcalls(function_name, index)
     for libcall in libcall_names:
-        if libcall in all_libcalls:
+        if libcall.strip() in all_libcalls:
             i = all_libcalls.index(libcall)
             feature_vector[i, 0] = 1
     return feature_vector.flatten().tolist()
+
+def append_at_index(all_features, feature_vector, index):
+    while (all_features.shape[0] <= index):
+        all_features = np.append(all_features, np.zeros((1, all_features.shape[1])), 0)
+    all_features[index, :] = feature_vector.T
+    return all_features
         
 
 def handle_feature(function_name, index, feature):
@@ -274,7 +286,7 @@ def main():
         all_features = np.loadtxt(output_file)
         if len(all_features.shape) == 1:
             all_features = np.reshape(all_features, (1, all_features.shape[0]))
-        all_features = np.append(all_features, feature_vector.T, 0)
+        all_features = append_at_index(all_features, feature_vector, submission_index)
     np.savetxt(output_file, all_features)
 
 if __name__ == '__main__':

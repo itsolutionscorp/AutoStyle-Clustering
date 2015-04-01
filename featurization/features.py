@@ -13,7 +13,7 @@ import os
 import pickle
 import subprocess
 import json
-from cs169_clustering.util.ruby_doc_parser import RubyDocPageParser
+from util.ruby_doc_parser import RubyDocPageParser
 from count_treegrams import count_treegrams
 
 def style_score(style_features):
