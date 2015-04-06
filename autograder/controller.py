@@ -17,7 +17,7 @@ def controller(src_dir_path, autograde_src_path, min_submissions, ast_dif, flog_
 			index_id = len(os.listdir(autograde_src_path))
 			mapfile.write(submission_id,index_id)
 			shutil.copyfile(src_dir_path +"/"+filename , autograde_src_path + "/"+index_id)
-			#call autograd_featurize.py function with index_id
+			#call autograde_featurize.py function with index_id
 			queue.append(index_id)
 			if len(existing) > min_submissions:
 				hints = hint_generator.generate_hint(index_id, ast_dif, flog_diff)
@@ -28,6 +28,6 @@ def controller(src_dir_path, autograde_src_path, min_submissions, ast_dif, flog_
 
 if __name__ == '__main__':
 	if len(sys.argv) != 5:
-		controller("../data/src/", 200, 0, 2)
+		controller("../data/src/", "./data/",200, 0, 2)
 	else:
 		controller(sys.argv[1].rstrip("/"), sys.argv[2].rstrip("/"),sys.argv[3],sys.argv[4], sys.argv[5])

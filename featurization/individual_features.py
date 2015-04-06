@@ -11,6 +11,7 @@ In order to run this file, you must have:
 import argparse
 import subprocess
 import glob
+import os
 import os.path
 import betterast
 import ast
@@ -363,15 +364,25 @@ def main():
     parser.add_argument('submission_index', type=int, help='Index of the submission.')
     parser.add_argument('language', help='ruby or python')
     parser.add_argument('output_file', help='File to append the generated horizontal feature vector to.')
+    parser.add_argument('home_directory', help = 'Path to data directory')
     parser.add_argument('features', nargs='+', help='Names of features to generate.')
+
+    global HOME_DIR
+    global ALL_LIBCALLS
+    global SOURCE_FILES
+    global AST_FILES
 
     args = parser.parse_args()
     function_name = args.function_name
     submission_index = args.submission_index
     features = args.features
     language = args.language
+    HOME_DIR = args.home_directory.rstrip("/") + "/"
+    ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
+    SOURCE_FILES = sorted(glob.glob(HOME_DIR +'src/*'))
+    AST_FILES = sorted(glob.glob(HOME_DIR + 'ast/*_ast'))
     output_file = args.output_file
-    
+
     feature_vector = generate_individual_features(language, function_name, submission_index, features)
     
     if not os.path.exists(output_file):
