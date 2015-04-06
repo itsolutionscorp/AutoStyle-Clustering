@@ -4,7 +4,7 @@ Created on Mar 30, 2015
 Generates all the features corresponding to a particular submission.
 In order to run this file, you must have:
     * A directory containing all the source files.
-    * A directory containing the ast of each source file.
+    * A directory containing the ast of each source file (for ruby).
     * A list of all library calls.
 @author: jmoghadam
 '''
@@ -18,8 +18,8 @@ import math
 import numpy as np
 from syntax_tree.tree import control_flow_and_library_tree, printTree, Node
 
-# HOME_DIR = './data/'
-HOME_DIR = './python_data/hw4/'
+HOME_DIR = './data/'
+# HOME_DIR = './python_data/hw4/'
 ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
 SOURCE_FILES = sorted(glob.glob(HOME_DIR + 'src/*'))
 AST_FILES = sorted(glob.glob(HOME_DIR + 'ast/*_ast'))
