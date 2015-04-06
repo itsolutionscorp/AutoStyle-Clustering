@@ -25,6 +25,10 @@ SOURCE_FILES = sorted(glob.glob(HOME_DIR + 'src/*'))
 AST_FILES = sorted(glob.glob(HOME_DIR + 'ast/*_ast'))
 
 def abc_score(language, function_name, index):
+    '''
+    Return the abc score of submission index.
+    Abc score counts assignments, branches, and conditionals
+    '''
     ast = generate_python_ast(SOURCE_FILES[index])
     assign, branch, cond, calls, cpts = 0, 0, 0, 0, 0
     stack = []
@@ -46,9 +50,15 @@ def abc_score(language, function_name, index):
     
 
 def get_node_label(node):
+    '''
+    Get the label of a python ast object.
+    '''
     return str(type(node)).replace("<class '_ast.","").replace("'>","")
 
 def build_tree(node, ast_node, functions):
+    '''
+    Recursively construct a Node object out of a python ast object.
+    '''
     if isinstance(ast_node, str) or isinstance(ast_node, int) or (ast_node == None):
         return node
     n = [i for i in ast.iter_child_nodes(ast_node)]
@@ -67,6 +77,9 @@ def build_tree(node, ast_node, functions):
     return node
 
 def generate_python_ast(filename):
+    '''Generate an Node object representing an
+    ast for a python file.
+    '''
     try:
         ast_node = ast.parse(open(filename, 'r').read(), mode='exec')
     except Exception as e:
@@ -78,6 +91,9 @@ def generate_python_ast(filename):
     return tree
 
 def generate_ast(language, index, function_name):
+    '''Get the ast for submission index.
+    TODO: generate ruby ast on the fly.
+    '''
     if language == 'ruby':
         ast = control_flow_and_library_tree(AST_FILES[index], function_name)
     elif language == 'python':
@@ -238,6 +254,9 @@ def uses_recursion(ast, function_name):
     return False
 
 def recursion(language, function_name, index):
+    '''Return whether submission index contains any calls to
+    function_name (indicating recursion).
+    '''
     ast = generate_ast(language, index, function_name)
     if uses_recursion(ast, function_name):
         return [1, ]
@@ -245,6 +264,9 @@ def recursion(language, function_name, index):
         return [0, ]
 
 def contains_duplicates(l):
+    '''
+    Return whether the list contains duplicates.
+    '''
     return len(l) != len(set(l))
 
 def duplicate_treegrams(language, function_name, index):
@@ -289,6 +311,10 @@ def libcalls(language, function_name, index):
     return feature_vector.flatten().tolist()
 
 def append_at_index(all_features, feature_vector, index):
+    '''
+    Place the feature vector into the matrix all_features, at row index.
+    If there aren't enough rows, fill the rows before with zeroes.
+    '''
     while (all_features.shape[0] <= index):
         all_features = np.append(all_features, np.zeros((1, all_features.shape[1])), 0)
     all_features[index, :] = feature_vector.T
