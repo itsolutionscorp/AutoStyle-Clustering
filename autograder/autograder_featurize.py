@@ -51,7 +51,7 @@ def compute_ast_and_dist_matrix(autograde_src_path, submission_id):
 
 
 	#getting error, no module named syntax_tree in the individual_features file
-	subprocess.call(['python', '../featurization/individual_features.py', 'combine_anagrams', 'submission_id', 'individual_features_test.np', 'flog', 'libcall', 'control_flow', 'duplicate_treegram'])
+	subprocess.call(['python', '../featurization/individual_features.py', 'combine_anagrams', str(submission_id), 'ruby', 'individual_features_test.np', 'flog', 'libcall', 'control_flow', 'duplicate_treegram'])
  	
  	
 def getKey(item):
@@ -68,7 +68,6 @@ def tree_distance(tree1, tree2):
 
 
 if __name__ == '__main__':
-	
 	for i in range(0,10):
 		compute_ast_and_dist_matrix("./data/src/", i)
 
