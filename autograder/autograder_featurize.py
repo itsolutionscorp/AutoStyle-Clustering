@@ -26,7 +26,7 @@ def compute_ast_and_dist_matrix(autograde_src_path, submission_id):
 
  	#construct trees for all submissions so far from their ast's
   	list_of_submissions = range(0, submission_id+1)
-  	ast_folder = "../autograder/" + data_dir + "ast/"
+  	ast_folder = "../autograder/" + data_dir + "ast"
   	trees = construct_trees(ast_folder, list_of_submissions)
   	#TODO: STORE THE TREES TO AVOID RECOMPUTATION
   	

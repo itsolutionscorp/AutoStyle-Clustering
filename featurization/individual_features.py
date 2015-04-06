@@ -16,7 +16,9 @@ import betterast
 import ast
 import math
 import numpy as np
-from syntax_tree.tree import control_flow_and_library_tree, printTree, Node
+import sys
+sys.path.insert(0, os.path.abspath('../syntax_tree'))
+from tree import control_flow_and_library_tree, printTree, Node
 
 HOME_DIR = './data/'
 # HOME_DIR = './python_data/hw4/'
