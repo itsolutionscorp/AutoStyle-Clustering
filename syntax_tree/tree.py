@@ -199,12 +199,12 @@ def construct_cft_and_library_level(parent, sub_sexp):
         if level_node.__class__.__name__ == "Symbol":
             level_label = level_node._val
             
-            if level_label in set(["until", "for", "while", "iter"]):
+            if level_label in set(["until", "for", "while", "iter", "For"]):
                 new_node = Node("iter")
                 parent.addkid(new_node)
                 for e in sub_sexp:
                     construct_cft_and_library_level(new_node, e)    
-            elif level_label == "if":
+            elif level_label == "if" or level_label == "If":
                 new_node = Node("cond")
                 parent.addkid(new_node)
                 for e in sub_sexp:
