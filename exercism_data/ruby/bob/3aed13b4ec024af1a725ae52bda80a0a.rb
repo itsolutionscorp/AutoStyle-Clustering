@@ -1,0 +1,14 @@
+class Bob
+
+  def hey(word)
+    if word.empty?
+      "Fine. Be that way."
+    elsif word.include?("?")
+      "Sure."
+    elsif word == word.upcase
+      "Woah, chill out!"
+    else
+      "Whatever."
+    end
+  end
+end

@@ -1,0 +1,21 @@
+class Year
+  attr_reader :year
+
+  def self.leap? year
+    @@year = year
+    by_4? && not_by_100_unless_400?
+  end
+
+  def self.by_4?
+    @@year % 4 == 0
+  end
+
+  def self.not_by_100_unless_400?
+    by_400? ? true : @@year % 100 != 0
+  end
+
+  def self.by_400?
+    @@year % 400 == 0
+  end
+
+end

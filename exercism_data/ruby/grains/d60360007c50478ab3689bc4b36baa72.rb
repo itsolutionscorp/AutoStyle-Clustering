@@ -1,0 +1,11 @@
+class Grains
+  def square n
+    2 ** (n-1)
+  end
+
+  def total
+    (1..64).to_a.inject(0){ |a, i| a + square(i) }
+  end
+end
+
+puts Grains.new.total

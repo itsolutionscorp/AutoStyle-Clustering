@@ -1,0 +1,31 @@
+class PhoneNumber
+  PHONE_REGEX = /\A 1? \(?(\d{3})\)? [\s.-]? (\d{3}) [-.]? (\d{4}) \Z/x
+  NUMBER_FOR_FAILED_MATCH = "0" * 10
+
+  def initialize(raw_number)
+    @raw_number = raw_number
+  end
+
+  def number
+    @number ||= format_number(@raw_number)
+  end
+
+  def area_code
+    @area_code ||= number[0..2]
+  end
+
+  def subscriber_number
+    @subscriber_number ||= "#{number[3..5]}-#{number[6..10]}"
+  end
+
+  def to_s
+    "(#{area_code}) #{subscriber_number}"
+  end
+
+  private
+
+  def format_number(raw_number)
+    match = raw_number.match(PHONE_REGEX)
+    match ? match.captures.join : NUMBER_FOR_FAILED_MATCH
+  end
+end

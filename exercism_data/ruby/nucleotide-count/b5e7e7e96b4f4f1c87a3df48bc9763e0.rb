@@ -1,0 +1,46 @@
+class DEOXYRIBONECLEIC
+  attr_reader :nucleotide_counts
+
+  def initialize(strand)
+    @strands = strand.chars
+    @molecules = %w{A C G T U}
+
+    @strands.each do |s|
+      valid_strand s, "Invalid nucleotide argument with #{@strands}", @exclude
+    end
+
+    @nucleotide_counts = @molecules.each_with_object(Hash.new(0)) do |m, values|
+      if m != @exclude
+        values[m] += @strands.count(m)
+      end
+    end
+  end
+
+  def count(strand)
+    valid_strand strand, "Checking invalid strand #{strand}"
+
+    # return strand count or if not valid strand for acid type return 0
+    @nucleotide_counts[strand] || 0
+  end
+
+  def valid_strand(molecule, error = "Invalid strand", exclude = "")
+    unless @molecules.include?(molecule) && molecule != exclude
+      raise ArgumentError, error
+    end
+  end
+end
+
+class DNA < DEOXYRIBONECLEIC
+  def initialize(strand)
+    @exclude = "U"
+    super
+  end
+
+end
+
+class RNA < DEOXYRIBONECLEIC
+  def initialize(strand)
+    @exclude = "T"
+    super
+  end
+end

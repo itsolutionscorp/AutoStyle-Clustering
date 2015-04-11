@@ -1,0 +1,9 @@
+class Gigasecond
+
+  DAYS_IN_GIGASECOND = 11574
+
+  def self.from(date)
+    date += DAYS_IN_GIGASECOND
+  end
+
+end

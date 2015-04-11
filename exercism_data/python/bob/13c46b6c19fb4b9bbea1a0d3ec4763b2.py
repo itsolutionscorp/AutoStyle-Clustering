@@ -1,0 +1,15 @@
+def hey(what):
+    """
+    This is as compact as I could get it.
+    """
+
+    what = what.strip()
+    
+    if what.isupper():
+        return "Whoa, chill out!"
+    if what.endswith('?'):
+        return "Sure."
+    if not what:
+        return "Fine. Be that way!"
+    
+    return "Whatever."

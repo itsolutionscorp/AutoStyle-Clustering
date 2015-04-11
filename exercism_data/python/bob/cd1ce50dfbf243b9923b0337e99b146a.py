@@ -1,0 +1,20 @@
+class Bob():
+
+    messages = {
+        "Does this cryogenic chamber make me look fat?": "Sure.",
+        "You are, what, like 15?": "Sure.",
+        "Wait! Hang on. Are you going to be OK?": "Sure.",
+        "WATCH OUT!": "Woah, chill out!",
+        "WHAT THE HELL WERE YOU THINKING?": "Woah, chill out!",
+        "1, 2, 3 GO!": "Woah, chill out!",
+        "ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!": "Woah, chill out!",
+        "I HATE YOU": "Woah, chill out!",
+    }
+
+    def hey(self, message):
+        if not message or not message.strip():
+            return "Fine. Be that way!"
+        try:
+            return self.messages[message]
+        except KeyError, e:
+            return "Whatever."

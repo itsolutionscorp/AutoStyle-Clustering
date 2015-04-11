@@ -1,0 +1,3 @@
+class BeerSong
+  #NO!
+end
