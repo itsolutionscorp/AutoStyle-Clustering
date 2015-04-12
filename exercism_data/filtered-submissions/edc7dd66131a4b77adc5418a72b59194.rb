@@ -1,5 +1,4 @@
-class Hamming
-    def compute(strand1, strand2)
+def compute(strand1, strand2)
         length = 0
         differences = 0
 
@@ -14,4 +13,3 @@ class Hamming
 
         differences
     end
-end

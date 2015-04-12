@@ -1,5 +1,4 @@
-module Hamming
-  def compute(source, mutation)
+def compute(source, mutation)
     distance = 0
     min_length = [source.length, mutation.length].min - 1
 

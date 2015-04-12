@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
     length1 = arg1.length
     count = 0
 
@@ -13,4 +12,3 @@ class Hamming
     end # length1.times
     count
   end # self.compute
-end

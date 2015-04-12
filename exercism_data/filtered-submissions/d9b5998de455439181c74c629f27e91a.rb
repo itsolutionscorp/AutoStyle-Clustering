@@ -1,5 +1,4 @@
-class Hamming
-  def compute(left, right)
+def compute(left, right)
 
     ln = [left.length, right.length].min
 
@@ -10,4 +9,3 @@ class Hamming
            .select { |l,r| l != r }
            .count
   end
-end

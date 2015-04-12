@@ -1,14 +1,11 @@
-class Hamming
-  def compute(arg1, arg2)
-    unless arg1.length == arg2.length
-      puts "DNA strands are not of equal length."
-      0
-    else
-      hammDis = 0
-      for i in 0...arg1.length
-	hammDis+=1 unless arg1[i] == arg2[i]
-      end
-      hammDis
+def compute(strand_a, strand_b)
+    # Compare the strands only up to the 
+    # length of the shortest strand
+    diff = 0
+    strand_a.chars.each_with_index do |c, index|
+      # Break out if strand_b is shorter than strand_a
+      break if strand_b[index].nil?
+      diff += 1 unless c == strand_b[index]
     end
+    diff
   end
-end

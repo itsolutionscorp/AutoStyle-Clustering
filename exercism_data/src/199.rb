@@ -1,20 +1,26 @@
-class Hamming
-  def compute(a,b)
+def compute(arg1, arg2)
+    sum = 0
+
+    arg1_len = arg1.length
+    arg2_len = arg2.length
+
+    if arg1_len < arg2_len
+      len = arg1_len
+    elsif arg1_len > arg2_len
+      len = arg2_len
+    else
+      len = arg2_len
+    end
+        
+      
     i = 0
 
-    if (a <=> b) == 1
-      a = a.chars.take(b.length)
-    else
-      a = a.chars
-    end
-
-    b = b.chars
-
-    a.zip(b).each do |first, second|
-      if first != second
-        i += 1
+  	while i <= len-1
+    	if arg1[i] != arg2[i]
+    		sum += 1
       end
+      i+=1
     end
-    return i
+
+    return sum
   end
-end

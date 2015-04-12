@@ -1,9 +1,13 @@
-class Hamming
-    def compute a, b
-        (shorter, longer) = [a,b].collect { |x| x.split('') }.sort_by(&:length)
+def compute(inputA, inputB)
 
-        shorter.zip(longer).count do |current| 
-            current[0] != current[1]
-        end
+    difference_counter = 0
+    
+    [inputA.length, inputB.length].min.times do |i|
+      if (inputA[i] != inputB[i])
+        difference_counter+=1
+      end
     end
-end
+
+    difference_counter   
+
+  end

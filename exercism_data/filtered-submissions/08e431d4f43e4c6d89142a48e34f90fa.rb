@@ -1,6 +1,4 @@
-class Hamming 
-
-	def compute(strand1,strand2)
+def compute(strand1,strand2)
 		numDifferences = 0
 		i = 0
 		[strand1.length,strand2.length].min.times do					
@@ -9,5 +7,3 @@ class Hamming
 		end
 		return numDifferences
 	end
-	
-end

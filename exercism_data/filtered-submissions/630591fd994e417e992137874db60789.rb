@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
 
     arr1 = arg1.split("")
     arr2 = arg2.split("")
@@ -32,4 +30,4 @@ end
 #   2
 # else
 #   0
-# end
+#

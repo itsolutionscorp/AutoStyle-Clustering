@@ -1,8 +1,8 @@
-class Hamming
-  def compute(strand1, strand2)
-    return nil if strand1.length != strand2.length
-    strand1.chars.zip(strand2.chars).count do |symbol1, symbol2|
-      symbol1 != symbol2
+def compute(a, b)
+    min_length = a.length > b.length ? b.length : a.length
+    hamming = 0
+    min_length.times do |i|
+      hamming +=1 if a[i] != b[i]
     end
+    hamming
   end
-end

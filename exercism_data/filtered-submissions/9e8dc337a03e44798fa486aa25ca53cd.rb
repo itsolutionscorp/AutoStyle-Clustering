@@ -1,5 +1,4 @@
-class Hamming
-	def compute seq_a, seq_b
+def compute seq_a, seq_b
     count = 0
     n = [seq_a.size,seq_b.size].min
     (0...n).each do |i|
@@ -7,4 +6,3 @@ class Hamming
     end
     count
   end
-end

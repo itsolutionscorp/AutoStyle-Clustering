@@ -1,8 +1,8 @@
-class Hamming
-	def compute(str_a, str_b)
-    sequence_a = str_a.chars
-    sequence_b = str_b.chars
-    sequence_range = sequence_b.length
-    sequence_a.zip(sequence_b).first(sequence_range).count { |a,b| a != b }
-	end
-end
+def compute(strand_a, strand_b)
+    diff = 0
+    length = strand_a.length < strand_b.length ? strand_a.length : strand_b.length
+    (0...length).each do |index|
+      diff+= 1 if (strand_a[index] != strand_b[index])
+    end
+    diff
+  end

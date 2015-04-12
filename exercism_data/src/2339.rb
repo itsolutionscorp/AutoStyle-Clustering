@@ -1,7 +1,7 @@
-class Hamming
-  def compute(s1, s2)
-    [s1.split(//), s2.split(//)].transpose.count{|x, y|
-      x != y
-    }
+def compute(arg1, arg2)
+    differences = 0
+    (0...arg1.length).each do |index|
+      differences += 1 unless arg1[index] == arg2[index]
+    end
+    differences
   end
-end

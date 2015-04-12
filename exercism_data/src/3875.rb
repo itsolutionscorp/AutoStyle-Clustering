@@ -1,9 +1,8 @@
-class Hamming
-  def compute(strand1, strand2)
-    hamming = 0
-    for x in 0...[strand1,strand2].min.length
-      hamming += 1 if strand1[x] != strand2[x]
-    end
-    hamming
+def compute(x, y)
+    count = 0
+    x_array, y_array = x.chars, y.chars
+
+    x_array.size.times { |i| count += 1 unless x_array[i] == y_array[i] }
+
+    count
   end
-end

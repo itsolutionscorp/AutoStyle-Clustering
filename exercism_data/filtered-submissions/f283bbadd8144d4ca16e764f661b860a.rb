@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(x, y)
+def compute(x, y)
 
 		x = x.chars
 		y = y.chars
@@ -12,5 +10,3 @@ class Hamming
 		count
 
 	end
-
-end

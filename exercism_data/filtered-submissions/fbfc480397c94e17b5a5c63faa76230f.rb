@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     pairs = first.codepoints.zip(second.codepoints)
 
     pairs.reduce(0) do |acc, pair|
@@ -12,4 +11,3 @@ class Hamming
       end
     end
   end
-end

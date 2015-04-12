@@ -1,5 +1,4 @@
-class Hamming
-	def compute(string1,string2)
+def compute(string1,string2)
 		strand1 = string1.upcase()
 		strand2 = string2.upcase()
 		if ((strand1 == strand2)|| (strand1.length != strand2.length))
@@ -12,4 +11,3 @@ class Hamming
 			return hamming_distance
 		end
 	end
-end

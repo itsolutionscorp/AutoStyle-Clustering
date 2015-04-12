@@ -1,10 +1,13 @@
-class Hamming
-  def compute(x,y)
-    dist=0
-    (0...[x.length, y.length].min).count do |i|
-      if x[i]!=y[i]
-        dist+=1
-      end
+def compute(strand_one, strand_two)
+    hamming_distance = 0
+
+    while true
+      strand_one_val = strand_one.slice!(0)
+      strand_two_val = strand_two.slice!(0)
+
+      return hamming_distance if strand_one_val.nil? or strand_two_val.nil?
+
+      hamming_distance += 1 if strand_one_val != strand_two_val
     end
   end
 end

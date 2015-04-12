@@ -1,16 +1,9 @@
-class Hamming
-  def compute(a, b)
-    count = 0
-    a = a.split("")
-    b = b.split("")
-    if a.length > b.length
-        strandLen = b.length
-    elsif a.length < b.length
-        strandLen = a.length
-    elsif a.length == b.length
-        strandLen = a.length
-    end
-    strandLen.times{|x| count += 1 if a[x] != b[x]}
-    count
-  end
-end
+def compute(baseStrand, newStrand)
+		hammingValue = 0
+		maxLength = [baseStrand.length, newStrand.length].min - 1
+
+		(0..maxLength).each do 
+			|i| hammingValue+= 1 if baseStrand[i] != newStrand[i] end
+
+		hammingValue
+	end

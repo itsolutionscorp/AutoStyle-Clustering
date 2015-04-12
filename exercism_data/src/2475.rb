@@ -1,5 +1,11 @@
-class Hamming
-  def compute a,b
-    a.chars.zip(b.chars).select{|anchors| !(anchors[0] <=> anchors[1]).to_i.zero?}.count
+def compute(a, b)
+
+    diff ||= 0
+
+    (a.length).times do |x|
+      diff +=1 unless a[x] == b[x]
+    end
+
+    diff
+
   end
-end

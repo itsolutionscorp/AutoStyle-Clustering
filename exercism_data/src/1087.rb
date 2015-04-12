@@ -1,17 +1,10 @@
-class Hamming
-  def compute(a, b)
+def compute strand1, strand2
+    return "Size mismatch" if (strand1.size != strand2.size)
 
-    size = (a.size <= b.size) ? a.size : b.size
-
-    hamming_distance = 0
-
-    (0..size-1).each do |i|
-      if a[i]!=b[i]
-        hamming_distance += 1
-      end
+    diff = 0
+    strand1.size.times do |position|
+      diff += 1 unless strand1[position] == strand2[position]
     end
 
-    return hamming_distance
+    return diff
   end
-
-end

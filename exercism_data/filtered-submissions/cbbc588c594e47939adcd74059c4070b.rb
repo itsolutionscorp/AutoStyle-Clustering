@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(left, right)
+def compute(left, right)
     count, index = 0, 0
     
     shortest_length = left.length < right.length ? 
@@ -15,5 +13,3 @@ class Hamming
     
     return count
   end
-  
-end

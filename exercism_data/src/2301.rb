@@ -1,6 +1,5 @@
-class Hamming
-  def compute(a, b)
-    pairs = a.chars.zip(b.chars)
-    pairs.count {|pair| pair[0] != pair[1]}
+def compute(a, b)
+    a.chars.each_index.inject(0) do |distance, i|
+      a[i] == b[i] ? distance : distance + 1
+    end
   end
-end

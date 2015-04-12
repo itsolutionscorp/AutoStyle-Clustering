@@ -1,8 +1,9 @@
-class Hamming
-  
-  def compute(a,b)
-    pairs = a.split('').zip b.split('')
-    pairs.select {| a, b| a != b}.size
+def compute(arga, argb)
+    diff_acum = 0
+    for i in 0 .. arga.length
+      if arga[i]  != argb[i]
+        diff_acum = diff_acum + 1
+      end
+    end
+    diff_acum
   end
-  
-end

@@ -1,9 +1,5 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    min_length = [strand_1, strand_2].map(&:length).min
-    strand_1.chars.first(min_length).each_with_index
-      .inject(0) do |difference, (element, current_index)|
-      element != strand_2[current_index] ? difference + 1 : difference
-    end
+def compute(a, b)
+    min = [a.length, b.length].min
+    c = a.chars.first(min).zip(b.chars.first(min))
+    c.inject(0) {|diff, i| diff += 1 if i.uniq.size == 2; diff }
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute (adn1, adn2)
+def compute (adn1, adn2)
 		distance = 0
 		if adn1.length != adn2.length
 	    	return 0
@@ -11,4 +10,3 @@ class Hamming
     	end
     	return distance
 	end
-end

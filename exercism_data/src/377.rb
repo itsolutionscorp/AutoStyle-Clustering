@@ -1,15 +1,5 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    hamming_distance = 0
-    first_strand = first_strand.split(//)
-    second_strand = second_strand.split(//)
-    while (!first_strand.empty?) && (!second_strand.empty?)
-      first_strand_letter = first_strand.shift
-      second_strand_letter = second_strand.shift
-      if first_strand_letter != second_strand_letter
-        hamming_distance += 1
-      end
+def compute(s1, s2)
+        l = [s1.length, s2.length].min
+        s1[0..l-1].each_char.zip(s2[0..l-1].each_char).select { |a,b| a != b }.size
     end
-    return hamming_distance
-  end
 end

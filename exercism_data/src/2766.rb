@@ -1,7 +1,5 @@
-class Hamming
-  def compute(string1, string2)
-    count = 0
-    string1.each_char.with_index {|char, index| count += 1 if char != string2[index]}
-    count
-  end 
-end
+def compute(str1, str2)
+    str1.chars.zip(str2.chars).select do |ch1, ch2| 
+      ch1 and ch2 and ch1 != ch2
+    end.count
+  end

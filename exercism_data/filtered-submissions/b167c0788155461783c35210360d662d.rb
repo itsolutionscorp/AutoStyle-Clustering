@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     if str1.length != str2.length
       return 0
     end
@@ -14,4 +13,3 @@ class Hamming
 
     return count
   end
-end

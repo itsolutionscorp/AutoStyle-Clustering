@@ -1,12 +1,4 @@
-##
-# The Hamming class computes simple Hamming distances.
-
-class Hamming
-
-  ##
-  # Compute the Hamming score of the given two strings.
-
-  def compute(left, right)
+def compute(left, right)
 
     # return score of 0 when both strands are identical
     if left == right
@@ -27,7 +19,3 @@ class Hamming
       end
     }
     score
-
-  end
-  
-end

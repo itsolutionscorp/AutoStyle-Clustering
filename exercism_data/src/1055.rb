@@ -1,15 +1,5 @@
-class Hamming
-  def compute strand_one, strand_two
-    distance = 0
-
-    comparison_length = strand_one.length < strand_two.length ? strand_one.length : strand_two.length
-
-    comparison_length.times do |index|
-      if strand_one[index] != strand_two[index]
-        distance += 1
-      end
+def compute(a, b)
+    a.chars.each_with_index.reduce(0) do |sum, (char, i)|
+      char != b[i] ? sum + 1 : sum
     end
-
-    distance
   end
-end

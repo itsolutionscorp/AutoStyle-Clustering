@@ -1,9 +1,4 @@
-class Hamming
-  def compute(first, second)
-    diff = 0
-    (0..first.length - 1).each do |idx|
-      diff += 1 if first[idx] != second[idx]
-    end
-    diff
+def compute(sequence1, sequence2)
+    shortest = [sequence1.length, sequence2.length].min
+    (0...shortest).count { |i| sequence1[i] != sequence2[i] }
   end
-end

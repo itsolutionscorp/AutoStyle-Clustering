@@ -1,19 +1,9 @@
-class Hamming
+def compute(strandA, strandB)
+    hammingCount = 0
 
-def compute (dna1, dna2)
-	dna1a = dna1.split('')	
-	dna2a = dna2.split('')
+    strandA.chars.each_with_index do |char, i|
+      hammingCount += 1 if char != strandB[i]
+    end
 
-	zippedarray = dna1a.zip dna2a
-	count = 0
-
-	dna1a.each do |i|
-		if i[0] == i[1]
-			count += 1
-		else
-			count == count
-		end
-	end
-end
-
-end
+    hammingCount
+  end

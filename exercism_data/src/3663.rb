@@ -1,18 +1,9 @@
-class Hamming
-  def compute dna1, dna2
-    dna1_chars = dna1.chars  
-    dna2_chars = dna2.chars
+def compute(str0, str1)
+    dist = 0
 
-    if dna1_chars.size <= dna2_chars.size
-      shorter = dna1_chars
-      longer  = dna2_chars
-    else
-      shorter = dna2_chars
-      longer  = dna1_chars
+    for i in 0..(str0.size)
+      dist += 1 if str0[i] != str1[i]
     end
 
-    result = shorter.each_with_index.map {|x,i| x == longer[i] ? 0 : 1 } 
-    result.reduce {|x, y| x + y} || 0
-
+    dist
   end
-end

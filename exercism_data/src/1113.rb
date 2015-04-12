@@ -1,14 +1,21 @@
-class Hamming
-  def compute(arg1, arg2)
-    return 0 if arg1 == arg2
+def compute(strand1,strand2)
+        # variables
+        @diff_count = 0 #count differences between strands
 
-    hd = 0
-    for idx in 0..arg1.length - 1
-      if arg1[idx] != arg2[idx]
-        hd += 1
-      end
+        # only compare if strands are same length
+        if strand1.length === strand2.length
+
+            [strand1.chars,strand2.chars].transpose.each do |char1,char2|
+                #compare characters from strand1 to strand2
+                if char1 != char2
+                    #increase difference counter when characters aren't equal
+                    @diff_count += 1
+                end
+            end
+
+        end
+
+        #return diff_count
+        @diff_count
+
     end
-
-    hd
-  end
-end

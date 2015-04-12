@@ -1,7 +1,19 @@
-class Hamming
+def compute(source, dest)
+    @count = 0
+    @source = source
+    @dest = dest
 
-  def compute(a,b)
-    (0...([a.length,b.length].min)).reduce(0) { |sum, i| sum + (a[i] != b[i] ? 1 : 0) }
+    if @source.length < @dest.length
+      @lesser_length = @source.length
+    else
+      @lesser_length = @dest.length
+    end
+
+    0.upto(@lesser_length-1) do |x|
+      if @source[x] != @dest[x]
+        @count = @count + 1
+      end
+    end
+
+    return @count
   end
-
-end

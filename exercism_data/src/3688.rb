@@ -1,13 +1,13 @@
-class Hamming
-  def compute(dna1, dna2)
-    total = 0
-    dna1.each_char.with_index do |char, index|
-      if char == dna2[index]
-      	total += 0
-      else
-      	total += 1
+def compute(str1, str2)
+    string_count = 0
+    iterator = 0
+    if str1.size == str2.size
+      while iterator < str1.size  do
+        if str1[iterator] != str2[iterator]
+          string_count += 1
+        end
+        iterator +=1
       end
     end
-    total
+    return string_count
   end
-end

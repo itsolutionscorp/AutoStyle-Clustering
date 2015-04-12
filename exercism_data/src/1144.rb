@@ -1,13 +1,8 @@
-module Hamming
-	def Hamming.compute(norm, mut)
-		dist = 0
-		if norm.length > mut.length then shorter = mut else shorter = norm end
-		if norm.length <= mut.length then  longer = mut else longer = norm end
-		shorter.split("").each_with_index do |n,i|
-			if n!= longer[i]
-				dist+=1
-			end
+def compute(a, b)
+		diff = 0
+		diff_length = [a.length, b.length].min
+		for i in (0 .. diff_length - 1)
+			diff += 1 if a[i] != b[i]
 		end
-		return dist
+		return diff
 	end
-end

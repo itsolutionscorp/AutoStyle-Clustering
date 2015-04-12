@@ -1,13 +1,12 @@
-class Hamming
-  class << self
-    def compute(strand_1, strand_2)
-      hamming_distance = 0
-
-      strand_1.each_char.with_index do |nucleotide, index|
-        hamming_distance += (nucleotide == strand_2[index] ? 0 : 1)
+def compute( seq1, seq2 )
+    count = [ seq1.length, seq2.length ].min
+    distance = 0
+    
+    for i in 0...count
+      if( seq1[i] != seq2[i] )
+        distance += 1
       end
-
-      hamming_distance
     end
+    
+    distance
   end
-end

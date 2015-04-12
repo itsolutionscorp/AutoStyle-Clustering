@@ -1,21 +1,11 @@
-class Hamming
+def compute(strand_a, strand_b)
+    distance = 0
+    nucleotides_a = strand_a.split("")
+    nucleotides_b = strand_b.split("")
 
-  def compute(strand1, strand2)
-    strand1 = strand1.chars
-    strand2 = strand2.chars
-    counter = 0
-
-    zipped = strand1.zip(strand2)
-
-    zipped.each do |x,y|
-      if x == nil || y == nil
-        nil
-      elsif [x] != [y]
-        counter += 1
-      else
-        counter
-      end
+    nucleotides_a.each_with_index do |nucleotide_a, i|
+      distance += 1 unless nucleotide_a == nucleotides_b[i]
     end
-    counter
+
+    distance
   end
-end

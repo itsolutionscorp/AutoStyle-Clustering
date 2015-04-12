@@ -1,8 +1,4 @@
-require 'awesome_print'
-
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     return 0 if a == b # performance!
     
     max_length = [a.length, b.length].min
@@ -14,5 +10,3 @@ class Hamming
     end
     diffs
   end
-
-end

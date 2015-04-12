@@ -1,11 +1,12 @@
-class Hamming
-	def compute(thing1, thing2)
-		count = 0
-		index = 0
-		thing1.each_char do |char|
-			count += 1 unless char == thing2[index]
-			index += 1
+def compute(dna_one, dna_two)
+
+		errors = 0
+
+		dna_one.chars.zip(dna_two.chars).each do |chr1, chr2|
+
+			errors += 1 if chr1 != chr2
+
 		end
-		count
+
+		errors
 	end
-end

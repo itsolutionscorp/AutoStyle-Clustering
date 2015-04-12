@@ -1,10 +1,5 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    point = 0
-    first_strand, second_strand = second_strand, first_strand if first_strand.length > second_strand.length
-    first_strand.split('').each_with_index do |item, index|
-      point += 1 if item != second_strand[index]
+def compute(first_strand, second_strand)
+    first_strand.each_char.with_index.count do |_char, index|
+      first_strand[index] != second_strand[index]
     end
-    return point
   end
-end

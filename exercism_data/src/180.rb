@@ -1,21 +1,10 @@
-class Hamming
-  def compute(first, second)
-    first = first.chars
-    second = second.chars
-    index = 0
-    hamming_count = 0
+def compute(str1, str2)
+    dist = 0
 
-    while index < first.count && index < second.count do
-      if first[index] == second[index]
-        index += 1
-      else
-        hamming_count += 1
-        index += 1
-      end
+    until str1.empty? || str2.empty?
+      break if str1 == str2
+      dist += 1 if str1.slice!(0) != str2.slice!(0)
     end
-    hamming_count
-  end
-end
 
-test = Hamming.new
-puts test.compute('a', 'a')
+    dist
+  end

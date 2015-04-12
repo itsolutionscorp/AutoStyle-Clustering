@@ -1,15 +1,9 @@
-class Hamming
+def compute(strand1, strand2)
+    strand1 = strand1.chars
+    strand2 = strand2.chars
+    zipped_strands = strand1.zip(strand2)
 
-  def compute(original, current)
-    o = original.split ''
-    c = current.split ''
-    hamming_counter = 0
-    o.each_with_index do |letter, index|
-      if letter != c[index]
-        hamming_counter += 1
-      end
+    zipped_strands.count do |x,y|
+      x != y && y
     end
-    hamming_counter
   end
-
-end

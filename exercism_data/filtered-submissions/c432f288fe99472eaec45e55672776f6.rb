@@ -1,6 +1,4 @@
-module Hamming
-
-  def compute(one, other)
+def compute(one, other)
     count = 0
     length = [one.length, other.length].min
     (0...length).each do |i|

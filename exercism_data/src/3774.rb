@@ -1,8 +1,3 @@
-class Hamming
-  def compute(first, second)
-    distance = first.chars.zip(second.chars).count do |a, b|
-      a != b
-    end
-    distance
+def compute(a, b)
+    0
   end
-end

@@ -1,17 +1,6 @@
-class Hamming
-  
-  def compute(x,y)
-    
-    diffs = 0    
-    i=0
-    
-    while i < x.length && i <y.length do
-      diffs +=1 if x[i] != y[i]
-      i += 1
-    end
-    
-    return diffs
-    
+def compute (a, b)
+    diff = 0
+    value = [a.length(),b.length()].min
+    (0...value).each { |index| diff += 1 if a[index] != b[index] }
+    diff
   end
-  
-end

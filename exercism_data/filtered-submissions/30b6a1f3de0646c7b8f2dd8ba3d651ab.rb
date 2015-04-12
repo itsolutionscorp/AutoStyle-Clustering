@@ -1,7 +1,3 @@
-class Hamming
-  class << self
-    def compute(a, b)
+def compute(a, b)
       a.each_char.with_index.count { |c, i| c && b[i] && (c != b[i]) }
     end
-  end
-end

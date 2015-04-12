@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a, b)
+def compute(a, b)
 		velocity = 0
 		for i in 0..a.length
 			if(a[i] != b[i])
@@ -8,4 +7,3 @@ class Hamming
 		end
 		return velocity
 	end
-end

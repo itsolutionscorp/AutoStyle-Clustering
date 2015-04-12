@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     @strand1array = strand1.split("")
     @strand2array = strand2.split("")
     iterator = 0
@@ -14,4 +13,3 @@ class Hamming
     end
     return count
   end
-end

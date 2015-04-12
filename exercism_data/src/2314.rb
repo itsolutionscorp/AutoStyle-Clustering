@@ -1,7 +1,9 @@
-class Hamming
-  def compute(base, mutant)
-    base.chars.each_with_index.count do |base_char, index|
-      mutant[index] != base_char
+def compute(first_strand, second_strand)
+    hamming_distance = 0
+
+    first_strand.each_char.with_index do |char, index|
+      hamming_distance += 1 if second_strand[index] != char
     end
+
+    hamming_distance
   end
-end

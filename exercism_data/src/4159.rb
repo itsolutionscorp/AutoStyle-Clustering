@@ -1,14 +1,4 @@
-class Hamming
-  def compute str_a, str_b
-    if !str_a || !str_b || str_a.size != str_b.size
-      raise ArgumentError "Can compare only two strings of same length"  
+def compute( s1, s2 )
+        raise ArgumentError, 'Strings must be the same length' unless s1.length == s2.length
+        (0..s1.length-1).count{ |x| s1[x] != s2[x] }
     end
-    
-    diffs = 0
-    arr_a = str_a.split ''
-    arr_a.each.with_index do |ele, index|
-      diffs += 1 if ele != str_b[index]
-    end
-    diffs
-  end
-end

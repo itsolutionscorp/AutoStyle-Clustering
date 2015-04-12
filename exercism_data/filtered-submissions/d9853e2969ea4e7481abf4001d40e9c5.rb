@@ -1,9 +1,4 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
-
-class Hamming 
-    def compute(string_a, string_b)
+def compute(string_a, string_b)
     up_string_a, up_string_b  = string_a.upcase, string_b.upcase
       array_1 = up_string_a.split(//) #converting the String to an array
       array_2 = up_string_b.split(//)
@@ -19,8 +14,4 @@ class Hamming
            index += 1 #move forward
       end
     return hamming_distance
-    end   
-end   
-
-    
-    
+    end

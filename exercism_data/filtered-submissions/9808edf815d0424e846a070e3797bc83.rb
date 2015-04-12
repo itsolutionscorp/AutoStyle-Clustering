@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute left, right
+def compute left, right
     distance = 0
     left.chars.each_with_index do |char, i|
       if right[i]
@@ -9,5 +7,3 @@ class Hamming
     end
     distance
   end
-
-end

@@ -1,12 +1,8 @@
-class Hamming
-  def compute(strand, compare_to_strand)
-    units_of_strand = strand.chars.take(compare_to_strand.length)
-    units_of_compare_to_strand = compare_to_strand.chars
-
-    pairs_to_compare = units_of_strand.zip(units_of_compare_to_strand)
-
-    pairs_to_compare.count do |left, right|
-      left != right
+def compute(strand1, strand2)
+    diff = 0
+    strand1.chars.each_with_index do |char1, index|
+      char2 = strand2[index]
+      diff += 1 if char2 && char1 != char2
     end
+    diff
   end
-end

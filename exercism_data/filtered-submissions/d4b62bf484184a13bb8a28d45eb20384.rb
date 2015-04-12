@@ -1,7 +1,4 @@
-# Calculate the Hamming difference between two DNA strands
-class Hamming
-
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     # Compare the strands only up to the 
     # length of the shortest strand
     diff = 0
@@ -12,4 +9,3 @@ class Hamming
     end
     diff
   end
-end

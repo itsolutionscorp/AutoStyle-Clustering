@@ -1,11 +1,6 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    both = [strand_a.chars, strand_b.chars]
-    short = both.min
-    long = both.max
-
-    short.zip(long).count { |letter_a, letter_b| 
-      letter_a != letter_b 
-    }
+def compute(strand1, strand2)
+    min = [strand1.length, strand2.length].min
+    (0...min).count do |i|
+      strand1[i] != strand2[i]
+    end
   end
-end

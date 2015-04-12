@@ -1,28 +1,12 @@
-class Hamming
+def compute(strand1, strand2)
+    hamming_distance = 0
 
-def compute(string1,string2)
-  first_array = string1.split(//)
-  second_array = string2.split(//)
+    smallest_strand_length = [strand1.length, strand2.length].min
 
-  if first_array.length > second_array.length
-  first_array = first_array.slice(0..-2)
-  elsif second_array.length > first_array.length
-    second_array = second_array.slice(0..2)
-end
-  first_array
-  second_array
-
-  zipped_array = first_array.zip second_array
-
-  distance = 0
-
-  zipped_array.each do |x|
-    if x[0] != x[1]
-      distance += 1
+    smallest_strand_length.times do |i|
+      if strand1[i] != strand2[i]
+        hamming_distance += 1
+      end
     end
-
+    hamming_distance
   end
-  distance
-
-end
-end

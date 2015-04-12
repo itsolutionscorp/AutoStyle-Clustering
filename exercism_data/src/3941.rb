@@ -1,15 +1,5 @@
-class Hamming
-
-  def compute(a, b)
-
-    diff = 0
-    a.each_char.with_index do |char, i|
-      break if b[i].nil?
-      diff += 1 unless char == b[i]
-    end
-
-    return diff
-
+def compute(a, b)
+    count = 0
+    a.chars.each_index {|i| count += 1 if (a[i] != b[i]) && !a[i].nil? && !b[i].nil?}
+    count
   end
-
-end

@@ -1,14 +1,8 @@
-class Hamming
-  def compute(strand, different_strand)
-    a = strand.split("")
-    b = different_strand.split("")
-    count = 0
-
-    a.zip(b).first( a.length && b.length).each do |c, d|
-      if c != d
-        count += 1
-      end
-    end
-    count
-  end
-end
+def compute(x,y)
+		hamming_counter = 0
+		size_control = x.size unless y.size < x.size ? size_control = y.size : size_control
+		(0...size_control).each do |var|
+			hamming_counter += 1 unless x[var] == y[var]
+		end
+		return hamming_counter
+	end

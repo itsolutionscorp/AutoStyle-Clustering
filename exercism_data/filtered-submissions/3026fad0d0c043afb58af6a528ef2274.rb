@@ -1,8 +1,4 @@
-class Hamming
-  # Method to count the number of differences between 2 strings char by char
-  # originally intended for the calculation of the 'Hamming distance'.
-  # Will stop at the shortest string length and ignore the rest
-  def compute(a,b)
+def compute(a,b)
     # create arrays of both strings to allow stepping through each char
     aa = a.split('')
     ba = b.split('')
@@ -25,4 +21,3 @@ class Hamming
     # Return the hamming distance
     return h
   end
-end

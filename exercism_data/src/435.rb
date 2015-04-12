@@ -1,12 +1,7 @@
-class Hamming
-  def compute(x, y)
-    length = [x.length, y.length].max
-    diff = 0
-    (0...length).each do |i|
-      if x[i] != y[i]
-        diff += 1
-      end
+def compute(strand1, strand2)
+    count = 0
+    if strand1.length == strand2.length
+    strand1.length.times { |x| count += 1 unless strand1[x] == strand2[x]}
     end
-    diff
+    count
   end
-end

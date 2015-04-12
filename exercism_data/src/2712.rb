@@ -1,5 +1,15 @@
-class Hamming
-    def compute(a, b)
-        [a.length, b.length].min.times.count { |i| a[i] != b[i] }
+def compute(a,b)
+    # Make both strings into arrays
+    a = a.scan(/./)
+    b = b.scan(/./)
+
+    hamming_distance = 0
+
+    a.zip(b).each do |base1, base2|
+      break if base2.nil?
+      hamming_distance += 1 if base1 != base2
     end
-end
+
+    return hamming_distance
+
+  end

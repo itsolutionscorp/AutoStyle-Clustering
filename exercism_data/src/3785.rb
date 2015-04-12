@@ -1,12 +1,4 @@
-# Hamming class
-class Hamming
-  def compute(str1, str2)
-    dist = 0
-    i = 0
-    while i < str1.length && i < str2.length
-      dist += 1 unless str1[i].eql? str2[i]
-      i += 1
-    end
-    dist
+def compute(s,t)
+    s.chars.zip(t.chars).map(&:compact).map(&:uniq).count { |p| p.size == 2 }
   end
 end

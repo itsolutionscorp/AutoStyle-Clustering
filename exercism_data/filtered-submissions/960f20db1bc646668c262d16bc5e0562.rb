@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     
     c = "";
     hamming_count = 0;
@@ -21,4 +20,3 @@ class Hamming
     
     return hamming_count;
   end
-end

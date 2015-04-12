@@ -1,7 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
-    hamming = 0
-    (dna1.size).times { |x| hamming += 1 unless dna1[x] == dna2[x] }
-    hamming
+def compute(first, second)
+    f1, f2 = first.chars,second.chars
+    (0..[f1.count, f2.count].min-1).count {|_|  f1[_] != f2[_]}
   end
-end

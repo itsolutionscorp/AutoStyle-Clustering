@@ -1,6 +1,4 @@
-class Hamming
-	
-	def compute first, second
+def compute first, second
 		longestString = first.length > second.length ? first : second
 		shortestString = first.length > second.length ? second : first
 		difference = 0
@@ -9,6 +7,3 @@ class Hamming
 		end
 		difference
 	end
-
-
-end

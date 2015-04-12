@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_strand_1, dna_strand_2)
+def compute(dna_strand_1, dna_strand_2)
     i = 0
     hamming_distance = 0
     dna_strand_1.each_char do |x|
@@ -9,4 +8,3 @@ class Hamming
 
     hamming_distance
   end
-end

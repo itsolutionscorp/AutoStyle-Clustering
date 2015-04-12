@@ -1,5 +1,4 @@
-class Hamming
-  def compute(gene_a, gene_b)
+def compute(gene_a, gene_b)
     hamming_distance = 0
 
     array_a = gene_a.split("")
@@ -13,4 +12,3 @@ class Hamming
     end
     hamming_distance
   end
-end

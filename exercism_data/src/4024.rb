@@ -1,9 +1,8 @@
-class Hamming
-  def compute(strand1, strand2)
-    hamming_dist = 0
-    for i in 0..strand1.length
-      hamming_dist += 1 if strand1[i] != strand2[i]
+def compute(str1, str2)
+    hamming_distance = 0
+    return 0 if str1.nil? | str2.nil?
+    0.upto([str1.length, str2.length].min - 1) do |index|
+      hamming_distance += 1 if str1[index] != str2[index]
     end
-    hamming_dist
+    hamming_distance
   end
-end

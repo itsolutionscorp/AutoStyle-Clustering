@@ -1,12 +1,3 @@
-class Hamming
-
-  def compute(original, mutation)
-    score = 0
-    (0..[original.length, mutation.length].min - 1).each do |index|
-      if original[index] != mutation[index]
-        score+=1
-      end
-    end
-    score
+def compute(str1, str2)
+    str1.chars.zip(str2.chars).count { |char1, char2| char1 != char2 }
   end
-end

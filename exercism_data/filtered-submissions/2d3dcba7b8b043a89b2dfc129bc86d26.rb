@@ -1,5 +1,4 @@
-class Hamming
-	def compute(input1, input2)
+def compute(input1, input2)
 		raise ArgumentError, "Inputs are not of equal length" unless input1.length == input2.length
 		hamming_distance = 0
 		for i in 0..input1.length
@@ -9,4 +8,3 @@ class Hamming
 		end
 		return hamming_distance
 	end
-end

@@ -1,5 +1,9 @@
-module Hamming
-  def compute(a, b)
-    a.chars.zip(b.chars).count { |x| x[0] != x[1] && x[1] != nil }
+def compute(first, second)
+    distance = 0
+    length = [first.size, second.size].min
+    length.times do |i|
+      distance += 1 if first[i] != second[i]
+    end
+    distance
   end
 end

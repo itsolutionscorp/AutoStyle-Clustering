@@ -1,9 +1,3 @@
-class Hamming
-  def compute(str1, str2)
-    hamming_number = 0
-    str1.chars.each_with_index.each do |ch, idx|
-      hamming_number = hamming_number + 1 if ch != str2[idx]
-    end
-    hamming_number
+def compute(strand1, strand2)
+    [strand1.size, strand2.size].min.times.count { |i| strand1[i] != strand2[i] }
   end
-end

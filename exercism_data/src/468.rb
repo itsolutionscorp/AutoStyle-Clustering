@@ -1,6 +1,16 @@
-class Hamming
-  def compute(array1='', array2='')
-    bytes1, bytes2, index = array1.bytes, array2.bytes, -1
-    bytes1.count{|entry| index+=1; entry != bytes2[index] }
-  end
-end
+def compute(str1, str2)
+		
+		min = [str1.length, str2.length].min
+
+		count = 0
+		i = 0
+
+		while i < min 
+			if str1[i] != str2[i]
+				count += 1
+			end
+			i+=1
+		end
+
+		count
+	end

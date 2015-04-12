@@ -1,7 +1,11 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.empty? && strand2.empty? ? 0 : strand1.split('').each_with_index.map { |letter,i|
-        strand2.split('')[i].nil? || letter == strand2[i] ? 0 : 1
-      }.inject{|sum, x| sum + x}
+def compute(dna1, dna2)
+    total = 0
+    dna1.each_char.with_index do |char, index|
+      if char == dna2[index]
+      	total += 0
+      else
+      	total += 1
+      end
+    end
+    total
   end
-end

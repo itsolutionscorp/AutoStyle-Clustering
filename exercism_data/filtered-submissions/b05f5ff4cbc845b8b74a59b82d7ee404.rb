@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(dna_a, dna_b)
+def compute(dna_a, dna_b)
     hamming = 0
     dna_a.each_char do |a|
       break if a.nil?
@@ -14,5 +12,3 @@ class Hamming
     end
     hamming
   end
-
-end

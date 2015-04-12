@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     # we felt this corner case should be caught
     raise "Strands are different lengths!" if strand_a.length != strand_b.length
 
@@ -16,5 +14,3 @@ class Hamming
 
     hamming_distance
   end
-
-end

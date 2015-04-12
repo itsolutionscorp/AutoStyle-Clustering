@@ -1,5 +1,4 @@
-class Hamming
-	def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
 		#convert strings to arrays
 		sequence_one = first_strand.chars
 		sequence_two = second_strand.chars
@@ -16,4 +15,3 @@ class Hamming
 		#return Hamming distance
 		return h_dist
 	end
-end

@@ -1,12 +1,10 @@
-class Hamming
-    def compute(s1, s2)
-        a1 = s1.split('')
-        a2 = s2.split('')
+def compute(strandA, strandB)
 
-        return 0 if a1.eql?(a2)
+    length = [strandA, strandB].min.length - 1
+    data = strandA.split('')[0..length].zip(strandB.split('')[0..length])
 
-        a1.each_with_index.reduce(0) do |base, (curr, index)|
-            a2[index].eql?(curr) ? base : base + 1
-        end
+    data.count do |(pointA, pointB)|
+      pointA != pointB
     end
-end
+
+  end

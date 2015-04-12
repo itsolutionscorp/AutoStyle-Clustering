@@ -1,8 +1,5 @@
-module Hamming
-  class << self
-    def compute string1, string2
-      min_length = [string1.length, string2.length].min
-      hamming_distance = string1.chars.take(min_length).zip(string2.chars).count { |a, b| a != b }
+def compute(strand1, strand2)
+    (0...[strand1.length, strand2.length].min).count do |i|
+      strand1[i] != strand2[i]
     end
   end
-end 

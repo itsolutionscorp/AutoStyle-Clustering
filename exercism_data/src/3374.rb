@@ -1,21 +1,9 @@
-class Hamming
-    def compute(string1, string2)
-        counter = 0
-        array1 = string1.split('')
-        array2 = string2.split('')
-        if array1.length > array2.length 
-            array1.pop 
-        elsif 
-            array1.length < array2.length 
-            array2.pop
-        else
-            paired = array1.zip(array2).map { |x, y| x == y }
-            paired.each do |check|
-                if check == false
-                    counter += 1
-                end 
-        end 
-        end
-        counter
-    end 
-end 
+def compute(word1, word2)
+		dist = 0
+		0.upto( ([word1.size, word2.size].min - 1)) do |i|
+			if word1[i] != word2[i]
+				dist = dist + 1 
+			end
+		end
+		dist
+	end

@@ -1,14 +1,10 @@
-class Hamming
-  def compute(str1, str2)
-    nuclearDistance = 0
-    # counter = 0
-    strandLength = str1.length - 1
+def compute(dna1, dna2)
 
-    (0..strandLength).each do | char |
-      difference = str1[char] <=> str2[char]
-
-      nuclearDistance += difference.abs
-    end
-    return nuclearDistance
-  end
-end
+		dna1 = dna1.split(//)
+		dna2 = dna2.split(//)
+		count = 0
+		(0..dna1.length).to_a.each do |index|
+			count += 1 if dna1[index] != dna2[index]
+		end
+		count
+	end

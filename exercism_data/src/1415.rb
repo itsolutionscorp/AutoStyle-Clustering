@@ -1,22 +1,13 @@
-class Hamming
+def compute (arg1, arg2)
+    arr1 = arg1.split("")
+    arr2 = arg2.split("")
 
-  def compute(x,y)
-    # if x == y
-    #   0
-    # end
-    if x.length < y.length
-      length = x.length
-    else
-      length = y.length
-    end
-    count = 0
-    (0..length-1).each do |i|
-      if x[i] != y[i]
-        puts count += 1
+    counter = 0
+    arr1.each_with_index do |x, i|
+      if x !=arr2[i]
+        counter += 1
       end
     end
-    count
-  end
-end
+    return counter
 
-# Hamming.compute('AG','AT')
+  end

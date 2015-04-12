@@ -1,10 +1,10 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    strand_b = strand_b.chars
-    strand_a.chars.each_with_index.inject(0) do |sum, (value, i)|
-      return sum if !strand_b[i]
-      sum += 1 if value != strand_b[i]
-      sum
+def compute(seq1, seq2)
+    length = [seq1.to_s.length, seq2.to_s.length].min
+    sum = 0
+
+    (0..length - 1).each do |i|
+      sum += 1 unless seq1.to_s[i] == seq2.to_s[i]
     end
+
+    sum
   end
-end

@@ -1,9 +1,6 @@
-class Hamming
-    def compute(a, b)
-        diff = 0;
-        for i in 0..a.size-1 do
-            diff += 1 if a[i] != b[i]
-        end
-        diff
+def compute(strand0, strand1)
+    return 0 if strand0 == strand1
+    strand0.chars.zip(strand1.chars).count do |char0, char1|
+      !char1.nil? && char0 != char1
     end
-end
+  end

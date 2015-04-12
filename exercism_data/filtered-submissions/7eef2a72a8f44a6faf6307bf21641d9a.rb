@@ -1,5 +1,4 @@
-class Hamming	
-	def compute(str1,str2)
+def compute(str1,str2)
 		iter = str1.length()<str2.length() ? str1.length() : str2.length()
 		diff = 0
 		iter.times do |i|
@@ -7,4 +6,3 @@ class Hamming
 			end
 		return diff	
 	end
-end

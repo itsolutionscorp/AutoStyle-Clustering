@@ -1,8 +1,17 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    short, long = [strand_a, strand_b].map { |s| s.chars }
-                                      .sort { |a, b| a.size <=> b.size }
-    short.zip(long)
-         .count { |m, n| m != n }
-  end
-end
+def compute(seqone, seqtwo)
+		oneSplit = seqone.scan(/./)
+		twoSplit = seqtwo.scan(/./)
+		count = 0
+		errors = 0
+		if oneSplit.respond_to?("each")
+			oneSplit.each do |oneDNA|				
+				if count < seqone.length && count < seqtwo.length
+					if oneDNA != twoSplit[count]
+						errors = errors + 1		
+					end
+					count = count + 1					
+				end
+			end
+		end
+		return errors
+	end

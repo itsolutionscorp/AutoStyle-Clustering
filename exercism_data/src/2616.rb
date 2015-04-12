@@ -1,9 +1,15 @@
-class Hamming
-  def compute (a, b)
-    distance = 0
+def compute(strand1, strand2)
+      distance = 0
 
-    matches =  a.chars.zip(b.chars).map { |x, y| x == y || x.nil? || y.nil? }
-    
-    return matches.select {|x| !x}.count
-  end
-end
+      return distance if strand1 == strand2
+
+      aminoacids1 = strand1.split('')
+      aminoacids2 = strand2.split('')
+
+      aminoacids1.each do |a1|
+        distance += 1 if a1 != aminoacids2.shift
+        break if aminoacids2.size == 0
+      end
+
+      distance
+    end

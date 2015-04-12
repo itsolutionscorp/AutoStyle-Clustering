@@ -1,11 +1,23 @@
-class Hamming
-  def compute(first_dna, second_dna)
-    shorter_dna_length = (first_dna.length < second_dna.length) ? first_dna.length : second_dna.length
-    nucleotides_range = 0..(shorter_dna_length - 1)
-    hamming_distance = 0
-    for single_nucleotide in nucleotides_range
-      hamming_distance += 1 if first_dna[single_nucleotide] != second_dna[single_nucleotide]
+def compute(dna1, dna2)
+
+    # Convert strings to array
+    dna1array = dna1.split(//)
+    dna2array = dna2.split(//)
+
+    # For Scoping
+    result = []
+
+    # For each in the array compare to same index in other array
+    # if they are not equal add to result
+
+    dna1array.map.with_index do |x, i|
+      if i < dna2array.count and x != dna2array[i]
+        result << dna2array[i]
+        p result
+      end
     end
-    hamming_distance
+
+    # returns the total of the different values at each index
+    result.count
+
   end
-end

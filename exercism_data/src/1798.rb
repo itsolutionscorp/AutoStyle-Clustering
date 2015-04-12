@@ -1,11 +1,11 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    @hamming_distance = 0
-    [first_strand.chars, second_strand.chars].transpose.each do |first_base, second_base|
-      if !first_base.eql?(second_base)
-        @hamming_distance += 1 
-      end
-    end
-    return @hamming_distance
-  end
-end
+def compute(input, reference)
+		arr_input = input.split("")
+		arrr_ref = reference.split("")
+		counter_diff = 0
+		for i in 0...[arr_input.length,arrr_ref.length].min
+			if arr_input[i] != arrr_ref[i]
+				counter_diff += 1
+			end
+		end
+		return counter_diff
+	end

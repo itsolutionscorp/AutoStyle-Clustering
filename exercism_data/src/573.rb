@@ -1,7 +1,7 @@
-class Hamming
-  def compute(str1, str2)
-    str1.chars.each.with_index.count do |char, index|
-      str2[index] && str2[index] != char
-    end
+def compute(strand_a, strand_b)
+    a = strand_a.chars
+    b = strand_b.chars
+    h = a.zip(b)
+         .take_while { |a,b| a && b != nil}
+         .count      { |a,b| a != b }
   end
-end

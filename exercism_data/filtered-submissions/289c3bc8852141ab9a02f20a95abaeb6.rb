@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str_a, str_b)
+def compute(str_a, str_b)
     mismatch = 0
 
     str_a.size.times do |n| str_a[n]
@@ -7,4 +6,3 @@ class Hamming
     end
   mismatch
   end
-end

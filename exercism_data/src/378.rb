@@ -1,27 +1,3 @@
-#!/usr/bin/env ruby
-
-class Hamming
-  attr_reader :s1, :s2
-
-  def compute(s1, s2)
-    @count = 0
-    @s1 = s1
-    @s2 = s2
-
-    @s1.length < @s2.length ? @shorter = @s1.length : @shorter = @s2.length
-
-    if @s1.length < @s2.length
-      @shorter = @s1.length
-    else
-      @shorter = @s2.length
-    end
-
-    0.upto(@shorter-1) do |x|
-      if @s1[x] != @s2[x]
-        @count = @count + 1
-      end
-    end
-
-    return @count
+def compute(stand_a, stand_b)
+    (0...[stand_a.length, stand_b.length].min).count { |num| stand_a[num] != stand_b[num] }
   end
-end

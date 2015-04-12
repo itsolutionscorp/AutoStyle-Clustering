@@ -1,16 +1,15 @@
-#!/usr/bin/env ruby
+def compute(str1, str2)
+    hamming_distance = 0
 
-# Exercism 1
-# Hamming Test
+    if str1.length < str2.length
+      count = str1.length
+    else
+      count = str2.length
+    end
 
-class Hamming
+    count.times do |point|
+      hamming_distance += 1 if str1[point] != str2[point]
+    end
 
-  def compute(str_1, str_2)
-
-    return -1 unless str_1.length == str_2.length
-
-    str_1.length.times.count { |x| str_1[x] != str_2[x] }
-    
+    hamming_distance
   end
-
-end

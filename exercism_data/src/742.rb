@@ -1,7 +1,10 @@
-class Hamming
-  def compute(a, b)
-    pairs = [a.chars.to_a,b.chars.to_a].sort_by(&:length).reduce(&:zip) # larger zipped into smaller means we always have the right number of pairs.
+def compute(input1, input2)
+    diff = 0
+    min_length = [input1.length, input2.length].min - 1
 
-    pairs.count {|pair_a,pair_b| pair_a != pair_b }
-  end
-end
+    for i in 0..min_length do
+      diff += 1 unless input1[i] == input2[i]
+    end
+
+		diff
+	end

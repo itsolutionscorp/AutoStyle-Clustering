@@ -1,8 +1,11 @@
-class Hamming
+def compute(a, b)
+    hamming_distance = 0
+    counter = 0
 
-	def compute(a,b)
-		raise "lengths do not match" if a.length != b.length 				
-		zipped = a.chars.zip(b.chars)		
-		return  zipped.select{ |(a,b)| a != b }.count				
-	end
-end
+    a.each_char do |s|
+      hamming_distance += 1 unless s == b[counter]
+      counter += 1
+      break if b.length == counter
+    end
+    return hamming_distance
+  end

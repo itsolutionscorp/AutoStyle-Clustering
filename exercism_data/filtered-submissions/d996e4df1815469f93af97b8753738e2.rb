@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
     array1 = arg1.split(//)
     array2 = arg2.split(//)
 
@@ -16,4 +15,3 @@ class Hamming
       hamming_distance
     end
   end
-end

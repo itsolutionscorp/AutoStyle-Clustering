@@ -1,8 +1,4 @@
-class Hamming
-  def compute(first,second)
-    len = first.length < second.length ? first.length : second.length
-    (0..(len-1)).map { |i|
-      first[i] == second[i] ? 0 : 1
-    }.reduce(0) {|memo,item| memo += item}
-  end
-end
+def compute(first,second)
+      first,second=[first,second].sort_by(&:size)
+      first.bytes.zip(second.bytes).map{|x| true if x.first!=x.last}.compact.size
+    end

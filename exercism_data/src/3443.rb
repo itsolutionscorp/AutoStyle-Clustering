@@ -1,17 +1,7 @@
-class Hamming
+def compute(first_string, second_string)
+    first_string, second_string = first_string.split(""), second_string.split("")
 
-  # Computes the Hamming distance between two arbitrary strings.
-  #
-  # first - First string to compare
-  # second - Second string to compare
-  #
-  # Returns integer of the hamming distance.
-  def compute(first, second)
-    dist = 0
-    first.chars.each_index do |i|
-      dist += first[i] == second[i] ? 0 : 1
-    end
-    return dist
+    sequences = first_string.zip(second_string).reject {|sequence| sequence.include?(nil)}
+
+    sequences.inject(0) {|sum, sequence| (sequence[0] != sequence[1])? sum += 1 : sum }
   end
-
-end

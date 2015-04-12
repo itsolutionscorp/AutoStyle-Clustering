@@ -1,5 +1,4 @@
-	class Hamming
-		def compute (dnaStrand1,dnaStrand2)
+def compute (dnaStrand1,dnaStrand2)
 			return unless dnaStrand1.length == dnaStrand2.length
 			$counter=0;
 			hamming_distance=0;
@@ -11,5 +10,3 @@
 			end
 			return hamming_distance
 		end
-	end
-	puts Hamming.compute('a','b')

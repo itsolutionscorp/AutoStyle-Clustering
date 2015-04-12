@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     @hamming_distance = 0
     if a.length == b.length
       a.length.times do |i|
@@ -10,4 +9,3 @@ class Hamming
     end
     @hamming_distance
   end
-end

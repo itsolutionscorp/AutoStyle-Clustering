@@ -1,15 +1,6 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    raise 'Uneven strands!' if first_strand.length != second_strand.length
-
-    distance = 0
-
-    first_strand.length.times do |i|
-      if first_strand[i] != second_strand[i]
-        distance += 1 
-      end
+def compute(strand1, strand2)
+    base_pairs = strand1.chars.take(strand2.length).zip(strand2.chars)
+    base_pairs.count do |base1, base2|
+      base1 != base2
     end
-
-    distance
   end
-end

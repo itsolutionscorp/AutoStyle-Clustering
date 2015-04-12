@@ -1,6 +1,8 @@
-module Hamming
-  def compute(a, b)
-    a, b = b, a if a.length > b.length
-    a.chars.zip(b.chars).count { |char_a, char_b| char_a != char_b }
-  end
-end
+def compute(str1, str2)
+		str1 = str1.scan(/\w/)
+		str2 = str2.scan(/\w/)
+
+		cont = 0
+		str1.size.times { |i| if str1[i] != str2[i] then cont += 1 end }
+		return cont
+	end

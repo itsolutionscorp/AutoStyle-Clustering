@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     x = a.upcase.split(//)
     y = b.upcase.split(//)
     sum = 0
@@ -12,4 +11,3 @@ class Hamming
     end
     return sum
   end
-end

@@ -1,12 +1,8 @@
-class Hamming
-    def compute(a, b)
-        stringA = a.split("")
-        stringB = b.split("")
-        c = stringA.length < stringB.length ? stringA.length : stringB.length
-        result = 0
-        c.times do |i|
-            result += stringA[i] != stringB[i] ? 1 : 0
-        end
-        result
-    end
-end
+def compute(s1, s2)
+      length = [s1.length, s2.length].min
+      distance = 0
+      (0...length).each do |i|
+         if s1[i] != s2[i] then distance += 1 end
+      end
+      distance
+   end

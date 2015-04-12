@@ -1,8 +1,33 @@
-class Hamming
-  def compute(first, second)
-    first_strand_adjusted_to_min_length = first.chars.take(second.chars.length)
-    first_strand_adjusted_to_min_length.zip(second.chars)
-                  .reject {|points| points.first == points.last}
-                  .length
-  end
-end
+def compute(a,b)
+#  	i = 0
+  	hammingScore = 0
+#  	testLength = 0
+# 	strand1List = a.split("")
+# 	strand2List = b.split("")
+  	biggerList = []
+  	smallerList = []
+
+
+  	if a.length > b.length
+  		biggerList = a.split("")
+  		smallerList = b.split("")
+  	else
+  		biggerList = b.split("")
+  		smallerList = a.split("")
+  	end
+
+  	smallerList.each_with_index do |nucleotide, i|
+  		if nucleotide != biggerList[i]
+  			hammingScore += 1
+  		end
+  	end
+
+
+#  	for nucleotide in smallerList
+# 			if nucleotide != biggerList[i]
+# 				hammingScore += 1
+# 			end
+# 			i +=1
+# 		end
+  	return hammingScore
+ 	end

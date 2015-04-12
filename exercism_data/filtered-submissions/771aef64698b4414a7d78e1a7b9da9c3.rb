@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     strand1 = dna1.chars
     strand2 = dna2.chars
     distance = 0
@@ -10,4 +9,3 @@ class Hamming
     end
     distance
   end
-end

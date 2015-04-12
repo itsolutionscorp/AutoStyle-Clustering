@@ -1,19 +1,10 @@
-module Hamming
+def compute(aa, bb)
+    raise ArgumentError if aa.length != bb.length
 
-	def compute(seq1, seq2)
+    count = 0
+    (0 ... aa.length).each do |i|
+      count += 1 if aa[i] != bb[i]
+    end
 
-		nucleotide_to_check = [seq1.length, seq2.length].min
-
-		hamming_dist = 0
-
-		(0...nucleotide_to_check).each do |index|
-			if seq1[index] != seq2[index]
-				hamming_dist += 1
-			end
-		end
-
-		hamming_dist
-
-	end
-
-end
+    count
+  end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     return nil if (dna1.length != dna2.length)
 
     total = 0
@@ -8,4 +7,3 @@ class Hamming
     end
     total
   end
-end

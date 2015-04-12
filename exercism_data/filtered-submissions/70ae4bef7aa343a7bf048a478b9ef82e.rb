@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first_dna_strand, second_dna_strand)
+def compute(first_dna_strand, second_dna_strand)
     hamming_distance = 0
 
     first_dna_strand.split(//).each_with_index do |nucleotide, index|
@@ -11,5 +9,3 @@ class Hamming
 
     hamming_distance
   end
-
-end

@@ -1,9 +1,6 @@
-class Hamming
-  class << self
-    def compute(str1, str2)
-      count = 0
-      str1.size.times {|i| count+=1 if str1[i] != str2[i]}
-      count
-    end
+def compute primary_strand, secondary_strand
+    [primary_strand.length, secondary_strand.length]
+    .min
+    .times
+    .count { |i|  primary_strand[i] != secondary_strand[i] }
   end
-end

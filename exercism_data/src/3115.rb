@@ -1,10 +1,3 @@
-module Hamming
-  class << self
-    def compute dna1, dna2
-      minLength = [dna1, dna2].min { |a, b| a.length <=> b.length }.length
-
-      #Calculating the difference between two strings
-      dna1[0...minLength].each_char.zip(dna2.each_char).count { |a, b| a != b }
-    end
- end
-end 
+def compute(first_dna_strand, second_dna_strand)
+    first_dna_strand.each_char.with_index.inject(0) { |occurences, (value, index)| second_dna_strand[index].nil? || second_dna_strand[index] == value ? occurences : occurences + 1 }
+  end

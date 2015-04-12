@@ -1,10 +1,9 @@
-class Hamming
-  def compute sampleA, sampleB
-    limit = [sampleA.length, sampleB.length].min
-    result = 0
-    (0...limit).each do |i|
-      result += 1 unless sampleA[i] == sampleB[i]
-    end
-    return result
-  end
-end
+def compute a, b
+		return nil if(a.size != b.size)
+		return 0 if(a == b)
+		total = 0
+		a.each_char.with_index do |char, index|
+			total += 1 if(char != b[index])
+		end
+		total
+	end

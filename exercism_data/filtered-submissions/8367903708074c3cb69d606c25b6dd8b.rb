@@ -1,5 +1,4 @@
-module Hamming
-  def compute(x,y)
+def compute(x,y)
     zipped = x.split('').zip(y.split(''))
     zipped.reduce(0) do |acc, pair|
       x, y = pair

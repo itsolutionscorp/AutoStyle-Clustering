@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
 
     ary1 = str1.split("")
     ary2 = str2.split("")
@@ -16,4 +15,3 @@ class Hamming
 
     hamming_number
   end
-end

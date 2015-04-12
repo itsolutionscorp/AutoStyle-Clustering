@@ -1,12 +1,9 @@
-# encoding: utf-8
+def compute(strand_1, strand_2)
+    difference = 0
+    strand_1 = strand_1.chars.take(strand_2.length)
 
-# Hamming distance calculator
-module Hamming
-  def compute(str1, str2)
-    shorter_length = [str1.length, str2.length].min
-
-    (0...shorter_length).reduce(0) do |d, i|
-      str1[i] == str2[i] ? d : d + 1
+    strand_1.each_with_index do |nucleotide, index|
+      difference += 1 if nucleotide != strand_2[index]
     end
+    return difference
   end
-end

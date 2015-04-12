@@ -1,17 +1,7 @@
-class Hamming
-
-	def compute(strand1, strand2)
-		strand1 = strand1.split('')
-		strand2 = strand2.split('')
-		difference = 0
-		i = 0
-		while (i < strand1.length && i < strand2.length)
-			if strand1[i] != strand2[i]
-				difference += 1
-			end
-			i += 1
-		end
-		difference
-	end
-
-end
+def compute(strand1, strand2)
+    counter = 0
+    for position in 0..strand1.length - 1
+      counter += (strand2[position].nil? || strand1[position] == strand2[position]) ? 0 : 1
+    end
+    counter
+  end

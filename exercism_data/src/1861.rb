@@ -1,8 +1,11 @@
-class Hamming
-  def compute(str1, str2)
-    count = 0
-    str_len = [str1, str2].min_by(&:size).size
-    str_len.times { |i| count += 1 if str1[i] != str2[i] }
-    count
+def compute(strand1, strand2)
+    @hamming_distance = 0
+    @strand1 = strand1.split("")
+    @strand2 = strand2.split("")
+    while @strand1.length != 0 && @strand2.length != 0
+      acid_tester1 = @strand1.shift
+      acid_tester2 = @strand2.shift
+      @hamming_distance += 1 if acid_tester1 != acid_tester2
+    end
+    @hamming_distance
   end
-end

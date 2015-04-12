@@ -1,14 +1,6 @@
-module Hamming
-  def compute(a, b)
-    a_chars = a.chars
-    b_chars = b.chars
+def compute(a, b)
+    a = a[0...b.length].chars
+    b = b[0...a.length].chars
 
-    a_chars.each_with_index.inject(0) do |distance, (char, index)|
-      if char != b_chars[index]
-        distance += 1
-      end
-
-      distance
-    end
+    a.zip(b).delete_if {|x,y| x == y}.length
   end
-end

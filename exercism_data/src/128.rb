@@ -1,5 +1,7 @@
-class Hamming
-  def compute(strand_a,strand_b)
-    strand_a.chars.zip(strand_b.chars).count{ |a , b| (a != b) && (!a == !b)  }
+def compute(a, b)
+    errors = 0
+    [a.length, b.length].min.times do |n|
+      errors += 1 unless a[n] == b[n]
+    end
+    errors
   end
-end

@@ -1,12 +1,9 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    diff = 0
-    strand1.chars.each_with_index do |char1, index|
-      char2 = strand2[index]
-      diff += 1 if char2 && char1 != char2
+def compute(first_strand, second_strand)
+    point = 0
+    shorter_strand = first_strand.length < second_strand.length ? first_strand : second_strand
+    longer_strand = shorter_strand == first_strand ? second_strand : first_strand
+    shorter_strand.split('').each_with_index do |item, index|
+      point += 1 if item != longer_strand[index]
     end
-    diff
+    return point
   end
-
-end

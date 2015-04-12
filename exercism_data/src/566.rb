@@ -1,12 +1,6 @@
-#!/usr/bin/ruby
-
-class Hamming
-    def compute(a, b)
-        distance = 0
-        size = [a.length, b.length].min
-        size.times do |i|
-            distance += (a[i] == b[i])?0:1
-        end
+def compute(strand_a, strand_b)
+      strand_a.chars.each.with_index.reduce(0) do |distance, (nucleotide, index)|
+        distance += 1 if nucleotide != strand_b[index]
         distance
+      end
     end
-end

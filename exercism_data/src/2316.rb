@@ -1,10 +1,4 @@
-class Hamming
-  def compute(strandA, strandB)
-    strandANucleids = strandA.chars
-    strandBNucleids = strandB.chars
-    diff = strandANucleids.zip(strandBNucleids).select do |(a, b)|
-      a and b and a != b
-    end
-    diff.length
+def compute(strand1, strand2)
+    strand1.chars.each_with_index.count {|char, index| char != strand2[index]}
   end
 end

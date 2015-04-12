@@ -1,13 +1,9 @@
-class Hamming
-  def compute(x, y)
-    xs = x.split(//)
-    ys = y.split(//)
-    ham = 0
-    xs.count.times do |num|
-      if xs.count <= ys.count && xs[num] != ys[num]
-        ham += 1
-      end
+def compute(dna1, dna2)
+    diff = 0
+    min_length = (dna1.size > dna2.size) ? dna2.size : dna1.size
+    min_length.times do |i|
+      diff += 1 if dna1[i] != dna2[i]
     end
-    ham
+    diff
   end
 end

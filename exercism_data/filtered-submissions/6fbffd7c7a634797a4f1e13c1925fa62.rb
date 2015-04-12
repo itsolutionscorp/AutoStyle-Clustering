@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     if first.size == second.size
       count = 0
       first.size.times do |index|
@@ -9,4 +8,3 @@ class Hamming
       return count
     end
   end
-end

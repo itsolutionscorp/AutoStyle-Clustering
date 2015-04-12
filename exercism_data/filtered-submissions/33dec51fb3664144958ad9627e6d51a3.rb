@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strandA, strandB)
+def compute(strandA, strandB)
     strandA = strandA.split('')
     strandB = strandB.split('')
     distance = 0
@@ -11,4 +10,3 @@ class Hamming
 
     distance
   end
-end

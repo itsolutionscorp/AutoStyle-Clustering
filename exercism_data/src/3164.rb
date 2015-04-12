@@ -1,9 +1,12 @@
-class Hamming
-	def compute(strand1, strand2)
-		distance = 0
-		strand1.each_char.with_index{|c, i|
-			distance+=1 if strand2[i] && strand2[i] != c
-		}
-		return distance
-	end
-end
+def compute dna_a, dna_b
+    differences = 0
+    index = 0
+
+    loop do
+      break if dna_a[index].nil? || dna_b[index].nil?
+      differences += 1 unless dna_a[index] == dna_b[index]
+      index += 1
+    end
+
+    differences
+  end

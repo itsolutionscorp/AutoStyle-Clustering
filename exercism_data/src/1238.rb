@@ -1,12 +1,11 @@
-class Hamming
-  def compute(sequence1, sequence2)
-    hamming_distance = 0
-    last_index = [sequence1.length, sequence2.length].min
-    (0...last_index).each do |index|
-      if sequence1[index] != sequence2[index]
-        hamming_distance += 1
-      end
-    end
-    hamming_distance
-  end
-end
+def compute(firstStr,secondStr)
+		i=0
+		sum=0
+		while i<firstStr.length
+			if firstStr[i]!=secondStr[i] 
+				sum=sum+1
+			end
+			i=i+1
+		end
+		return sum
+	end

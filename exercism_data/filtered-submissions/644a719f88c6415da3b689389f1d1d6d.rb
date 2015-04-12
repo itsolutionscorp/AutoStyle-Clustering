@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     nuclearDistance = 0
     # counter = 0
     strandLength = str1.length - 1
@@ -11,4 +10,3 @@ class Hamming
     end
     return nuclearDistance
   end
-end

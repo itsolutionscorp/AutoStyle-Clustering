@@ -1,12 +1,6 @@
-class Hamming
-  class << self
-    def compute(string_one, string_two)
-      return false if string_one.length != string_two.length
-      count = 0
-      string_one.split("").each_with_index do |one, index|
-        count += 1 if one != string_two[index]
-      end
-      count      
+def compute(strand1, strand2)
+    common_length = [strand1.length, strand2.length].min
+    (0...common_length).count do |i|
+      strand1[i] != strand2[i]
     end
   end
-end

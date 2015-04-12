@@ -1,11 +1,3 @@
-#!/usr/bin/env ruby
-
-class Hamming
-  def compute(one,two)
-    dist = 0
-    0.upto(one.length).each do |i|
-      dist += 1 if one[i] != two[i]
-    end
-    dist
+def compute(a,b)
+    (0...[a.size, b.size].min).reduce(0) {|t, i| a[i]==b[i] ? t : t + 1 }
   end
-end

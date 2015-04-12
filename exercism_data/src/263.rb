@@ -1,12 +1,7 @@
-class Hamming
-  class << self
-    def compute(first, other)
-      return compute(other, first) if first.length > other.length
-
-      first.length.times.map do |index|
-        next 0 if first[index] == other[index]
-        1
-      end.reduce(&:+)
+def compute(dna_first, dna_second)
+    count = 0
+    dna_first.chars.each_with_index do |symbol, index|
+      count += 1 if (symbol != dna_second[index]) && (dna_second[index] != nil)
     end
+    count
   end
-end

@@ -1,17 +1,11 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    first_strand = strand_1.split(//)
-    second_strand = strand_2.split(//)
-    hamming_distance = 0
-    i = 0
-    while i < first_strand.length
-      if first_strand[i] != second_strand[i]
-        hamming_distance += 1
-        i+=1
-      else
-        i+=1
+def compute(dna, dnb)
+    distance = 0
+
+    (0..dna.length).each do |i|
+      if (dna[i] != dnb[i]) && (!dna[i].nil?) && (!dnb[i].nil?)
+        distance = distance + 1
       end
     end
-    return hamming_distance
+
+    distance
   end
-end

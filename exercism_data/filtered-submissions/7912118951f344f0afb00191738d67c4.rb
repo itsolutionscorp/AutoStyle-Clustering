@@ -1,5 +1,4 @@
-class Hamming
-  def compute(seq1, seq2)
+def compute(seq1, seq2)
     @count = 0
     # Make sure the sequences are all capitalized.
     seq1, seq2 = seq1.upcase, seq2.upcase
@@ -15,4 +14,3 @@ class Hamming
     end
     return @count
   end
-end

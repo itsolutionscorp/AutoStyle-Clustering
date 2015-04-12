@@ -1,21 +1,13 @@
-class Hamming
-	public
-	def compute(str1, str2)
-		differences = 0
-		str1Array = str1.split("")
-		str2Array = str2.split("")
-		
-		shorter = str1.length < str2.length ? str1.length : str2.length
-		index = 0
-		while index < shorter do
-			if str1[index] != str2[index]
-				differences += 1
-			end
-			index += 1
-		end		
-		
-		
-		
-		return differences
-	end
-end
+def compute(strand1, strand2)
+    distance = 0
+    len = [strand1.length, strand2.length].min
+
+    (0...len).each do |i|
+    	puts i
+    	if strand1[i] != strand2[i]
+    		distance += 1
+    	end
+    end
+    
+    return distance 
+  end

@@ -1,12 +1,10 @@
-class Hamming
+def compute(s1, s2)
+    iterations = s1.length < s2.length ? s1.length : s2.length
 
-  def compute(a, b)
-    ac = a.chars
-    bc = b.chars
-    ac, bc = bc, ac if a.length > b.length # make a the shorter one
-    sum = 0
-    #ac.each_index { |i| sum += 1 if ac[i] != bc[i] }
-    ac.zip(bc) { |x, y| sum += 1 if x != y }
-    sum
+    hd = 0
+    for i in 0...iterations
+      hd += 1 if s1[i] != s2[i]
+    end
+
+    hd
   end
-end

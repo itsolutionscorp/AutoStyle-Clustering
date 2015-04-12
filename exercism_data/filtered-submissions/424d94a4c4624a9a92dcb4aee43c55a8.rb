@@ -1,5 +1,4 @@
-class Hamming
-  def compute first_strand, second_strand
+def compute first_strand, second_strand
     hamming_count = 0
 
     test_length = [first_strand.length, second_strand.length].min
@@ -10,4 +9,3 @@ class Hamming
 
     hamming_count
   end
-end

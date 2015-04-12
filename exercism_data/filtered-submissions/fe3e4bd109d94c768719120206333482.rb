@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     if a == b
       return 0
     elsif a != b
@@ -13,4 +11,3 @@ class Hamming
       count
     end
   end
-end

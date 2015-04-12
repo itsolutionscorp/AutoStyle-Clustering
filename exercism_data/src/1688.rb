@@ -1,10 +1,8 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    diff = 0
-    arr = strand1.split("").zip(strand2.split(""))
-    arr.each { |x| diff += 1 unless x[0] == x[1] }
-    diff
-  end
-
-end
+def compute(seq1, seq2)
+		total = 0
+		seq1.split('').each_with_index do |base, index|
+			break if index + 1 >= seq2.length
+			total+=1 if base != seq2[index] and index < seq2.length			
+		end
+		total
+	end

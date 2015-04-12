@@ -1,6 +1,3 @@
-class Hamming
-
-	def compute(strand_one, strand_two)
-		strand_one[0...strand_two.length].chars.each_with_index.count{|c,i| c != strand_two[i] }
-	end
-end
+def compute(dna1, dna2)
+    dna1.chars.zip(dna2.chars).select{ | base1, base2 | base1 != base2 }.count
+  end

@@ -1,11 +1,4 @@
-class Hamming
-    def compute(n1,n2)
-      counter = 0
-      n1.split(//).each_index do |x|
-        if n1[x] != n2[x]
-           counter+=1
-        end
-      end
-    counter
+def compute(first, second)
+    min_size = [first.size, second.size].min
+    (0...min_size).count {|i| first[i] != second[i] }
   end
-end

@@ -1,8 +1,6 @@
-module Hamming
-  module_function
-  def compute(strand1, strand2)
-    (0...[strand1.size, strand2.size].min).count do |i|
-      strand1[i] != strand2[i]
-    end
+def compute(str1, str2)
+    gataca_count = (str1.length <= str2.length) ? str1.length : str2.length
+    hamming = 0
+    gataca_count.times { |n| hamming += 1 unless str1[n] = str2[n] }
   end
-end
+  hamming

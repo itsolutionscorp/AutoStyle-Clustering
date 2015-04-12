@@ -1,8 +1,6 @@
-class Hamming
-  def compute(string_a, string_b)
-    [string_a.split(''), string_b.split('')].transpose
-                                            .map(&:uniq)
-                                            .map(&:count)
-                                            .count(2)
+def compute(strand1, strand2)
+    return 0 if strand1 == strand2
+    return -1 if strand1.length != strand2.length
+
+    strand1.length.times.count { |i| strand1[i] != strand2[i] }
   end
-end

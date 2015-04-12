@@ -1,10 +1,10 @@
-class Hamming
-  def compute(str1, str2)
-    hamming_distance = 0
-    return 0 if str1.nil? | str2.nil?
-    0.upto([str1.length, str2.length].min - 1) do |index|
-      hamming_distance += 1 if str1[index] != str2[index]
+def compute(st1, st2)
+        i = 0
+        hamming_distance = 0
+        length = (st1.length < st2.length) ? st1.length : st2.length
+	while i < length
+      	    hamming_distance += (st1[i] == st2[i]) ? 0 : 1
+            i += 1
+        end
+        return hamming_distance
     end
-    hamming_distance
-  end 
-end

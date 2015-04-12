@@ -1,13 +1,10 @@
-module Hamming
-  def compute(a, b)
-    return false if [a,b].include?(nil)
-    return 0 if a == b
+def compute(original, mutation)
+    i = 0
+    distance = 0
+    while i < original.length
+      distance += 1 if original[i] != mutation[i]
+      i += 1
+    end
 
-    max_compare_length = [a.length, b.length].min
-    hamming_values = [].tap do |out|
-      (0...max_compare_length).each do |idx|
-        out << (a[idx] == b[idx] ? 0 : 1)
-      end
-    end.reduce(:+)
+    distance
   end
-end

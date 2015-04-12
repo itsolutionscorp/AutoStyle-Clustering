@@ -1,5 +1,4 @@
-class Hamming
-  def compute(one, two)
+def compute(one, two)
     distance = 0
     one.split("").each_with_index do |item, i| 
       if (item != two[i]) then
@@ -8,4 +7,3 @@ class Hamming
     end
     return distance
   end
-end

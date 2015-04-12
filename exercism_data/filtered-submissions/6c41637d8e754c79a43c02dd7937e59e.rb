@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     diff = 0
 
     0.upto([strand1.size, strand2.size].min - 1) do |index|
@@ -8,4 +7,3 @@ class Hamming
 
     diff
   end
-end

@@ -1,6 +1,8 @@
-module Hamming
-
-  def compute(s1, s2)
-    s1.chars.zip(s2.chars).count { |(a,b)| b && a != b }
-  end
-end
+def compute(strandone, strandtwo)
+		distance = 0
+		strlen = strandone.length
+		for i in 0..strlen
+			distance = distance + 1 if strandone[i] != strandtwo[i]
+		end
+		return distance
+	end

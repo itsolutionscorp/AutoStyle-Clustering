@@ -1,5 +1,4 @@
-module Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     hamming_distance = 0
     index = 0
     # iterate over strings, compare values, increment Hamming distance if values are not equal

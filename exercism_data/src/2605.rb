@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a, b)
-		a.chars.zip(b.chars).count { |pair| pair[0] != pair[1] }
-	end
-end
+def compute(first, second)
+    return nil if first.length != second.length
+    first.chars.zip(second.chars).reduce(0) { |distance, column| column[0] == column[1] ? distance : distance + 1 }
+  end

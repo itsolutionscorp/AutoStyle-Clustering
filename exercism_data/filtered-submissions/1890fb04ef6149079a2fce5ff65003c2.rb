@@ -1,5 +1,3 @@
-class Hamming
-  def compute(left, right)
+def compute(left, right)
     left.chars.zip(right.chars).select{|e| e[0] != e[1]}.count
   end
-end

@@ -1,15 +1,11 @@
-# hamming.rb
-# Hamming distance between nucleotide strands
-
-class Hamming
-  def compute(s1, s2)
-    e1 = s1.chars()
-    e2 = s2.chars()
-    
-    distance = 0
-    loop do
-      distance+=1 if (e1.next != e2.next)
+def compute(base1, base2)
+    nucleotides1 = base1.split("")
+    nucleotides2 = base2.split("")
+    score = 0
+    nucleotides1.each_with_index do |n1_base, i|
+      if n1_base != nucleotides2[i]
+        score += 1
+      end
     end
-    distance
+    score
   end
-end

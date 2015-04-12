@@ -1,6 +1,3 @@
-module Hamming
-  def compute(*args)
-    pairs_a, pairs_b = args.sort_by(&:length).map(&:chars)
-    pairs_a.zip(pairs_b).count {|(a, b)| a != b }
+def compute(str1, str2)
+	str1.size.times.count { |i| str1[i] != str2[i]}
   end
-end

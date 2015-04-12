@@ -1,13 +1,12 @@
-class Hamming
-  def compute strand_a, strand_b
+def compute(x, y)
 
-    # prepare input
-    strand_a = strand_a.slice(0, strand_b.length).chars
-    strand_b = strand_b.chars
+		x = x.chars
+		y = y.chars
 
-    # combine and count differences
-    strand_a.zip(strand_b).count do |a, b|
-      a != b
-    end
-  end
-end
+		count = 0
+
+		x.zip(y).each { |x, y| x != y ? count += 1 : count}
+
+		count
+
+	end

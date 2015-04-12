@@ -1,18 +1,22 @@
-# passes all skipped tests as well
-class Hamming
-  def compute(first, second)
-    distance = 0
+def compute(strand1, strand2)
+		count = 0
+		
+		if strand1.length > strand2.length
+			shorter = strand2
+		else 
+			shorter = strand1
+		end
+		
+		if strand1 == strand2
+			return count
+		else
+			for c in 0..shorter.length - 1
+				if strand1[c] != strand2[c]
+					count +=1
+				end
+			end
+		end
+		
+		return count
 
-    if first.size <= second.size
-      max = first.size - 1
-    else
-      max = second.size - 1
-    end
-
-    0.upto(max) do |i|
-      distance +=1 if first[i] != second[i]
-    end
-
-    return distance
-  end
-end
+	end

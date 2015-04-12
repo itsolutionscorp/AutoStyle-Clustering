@@ -1,9 +1,23 @@
-class Hamming
-  def compute(x, y)
-    count = 0
-    x.chars.each_with_index do |el, i|
-      count+= 1 if y[i] && (y[i] != el)
+def compute(a,b)
+    # create arrays of both strings to allow stepping through each char
+    aa = a.split('')
+    ba = b.split('')
+
+    # running total for the hamming distance. Start off assuming none then add to it
+    h  = 0
+
+    # Step through each char to ru a comparison
+    (aa.length > ba.length ? ba.length : aa.length).times do |i|
+    
+      # If they are not the same...
+      if ba[i] != aa[i]
+        # increment our distance running total
+        h += 1
+      else
+        # no need to implement changes - skip to the next one
+        next
+      end
     end
-    count
+    # Return the hamming distance
+    return h
   end
-end

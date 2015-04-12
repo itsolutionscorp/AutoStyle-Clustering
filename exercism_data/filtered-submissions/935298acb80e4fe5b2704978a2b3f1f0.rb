@@ -1,5 +1,4 @@
-class Hamming
-	def compute(x, y)
+def compute(x, y)
 		l = x.length
 		if y.length < l then l = y.length end
 
@@ -11,4 +10,3 @@ class Hamming
 
 		return hamming
 	end
-end

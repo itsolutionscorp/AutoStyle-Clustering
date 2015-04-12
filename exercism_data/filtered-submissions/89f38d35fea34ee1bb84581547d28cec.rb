@@ -1,7 +1,4 @@
-# encoding: UTF-8
-# Clase Hamming
-class Hamming
-  def compute(string1, string2)
+def compute(string1, string2)
     sum = 0
     if string2.length == string1.length
       (0...[string1.length, string2.length].min).count do |i|
@@ -10,4 +7,3 @@ class Hamming
     end
     sum
   end
-end

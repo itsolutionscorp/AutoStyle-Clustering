@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first_chain, second_chain)		
+def compute(first_chain, second_chain)		
     hamming_distance = 0
 
     first_chain.chars.zip(second_chain.chars) do |x, y|
@@ -9,5 +7,3 @@ class Hamming
 
     return hamming_distance
   end
-  
-end

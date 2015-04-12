@@ -1,16 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    distance = 0
-    len = [strand1.length, strand2.length].min
-
-    (0...len).each do |i|
-    	if strand1[i] != strand2[i]
-    		distance += 1
-    	end
+def compute(dA, dB)
+        dA.each_char.zip(dB.each_char).map { |x| x[0] == nil or x[1] == nil or x[0] == x[1] }
+                                      .reduce(0) { |m,o| o == false ? m+1 : m+0 }
     end
-    
-    return distance 
-  end
-
-end

@@ -1,8 +1,9 @@
-class Hamming
-  def Hamming.compute(s1, s2)
-    raise "strings must have same length" unless s1.length == s2.length
-    diff = 0
-    s1.length.times { |i| diff += 1 unless s1[i] == s2[i] }
-    diff
-  end
-end
+def compute(actual, expected)
+      count = 0
+      for pos in 0..actual.length - 1
+         if actual[pos] != expected[pos]
+            count += 1
+         end
+      end
+      return count
+   end

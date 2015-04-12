@@ -1,5 +1,4 @@
-class Hamming
-    def compute(s1, s2)
+def compute(s1, s2)
         a1 = s1.split('')
         a2 = s2.split('')
 
@@ -9,4 +8,3 @@ class Hamming
             a2[index].eql?(curr) ? base : base + 1
         end
     end
-end

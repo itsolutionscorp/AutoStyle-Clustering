@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s, t)
+def compute(s, t)
     if s == t
       0
     else
@@ -14,4 +13,3 @@ class Hamming
       matches
     end
   end
-end

@@ -1,7 +1,10 @@
-module Hamming
-  def Hamming.compute(a, b)
-    (0...[a.length, b.length].min).inject(0) do |s, i|
-      a[i] == b[i] ? s : s + 1
+def compute a, b
+    dist = 0
+    len = [a.length, b.length].min
+
+    len.times do |i|
+      dist += if a[i] != b[i] then 1 else 0 end
     end
+
+    dist
   end
-end

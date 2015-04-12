@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string_one, string_two)
+def compute(string_one, string_two)
     hamming_distance = 0
 
     string_one.chars.zip(string_two.chars).each do |duo|
@@ -10,4 +9,3 @@ class Hamming
 
     hamming_distance
   end
-end

@@ -1,6 +1,4 @@
-module Hamming
-  class << self
-    def compute(str1, str2)
+def compute(str1, str2)
       hammingd = 0
       min = [str1, str2].min
       max = [str1, str2].max
@@ -13,4 +11,3 @@ module Hamming
       return hammingd
     end
   end
-end

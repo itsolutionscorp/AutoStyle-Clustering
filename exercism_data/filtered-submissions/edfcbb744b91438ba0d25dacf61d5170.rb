@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a_string, b_string)
+def compute(a_string, b_string)
     error_count = 0
     index_counter = 0
     while index_counter < a_string.length
@@ -13,5 +11,3 @@ class Hamming
     end
     return error_count 
   end
-
-end

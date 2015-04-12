@@ -1,13 +1,11 @@
-class Hamming
-
-	def compute(string_one, string_two)
-		count = 0
-		([string_one.length, string_two.length].min).times do |i|
-			if string_one[i] != string_two[i] 
-				count += 1
-			end
-		end
-		count
-	end
-	
-end
+def compute(strand1, strand2) #Hamming.compute('AG', 'CT')
+        @diff = 0
+        
+        strand1.chars.each_with_index do |v, i|
+            if v != strand2[i]
+                @diff += 1
+            end
+        end
+        
+        return @diff
+    end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a_strand, another_strand)
+def compute(a_strand, another_strand)
     if a_strand.length > another_strand.length
       diff = another_strand.length - a_strand.length
       a_strand.slice!(diff..-1)
@@ -14,4 +13,3 @@ class Hamming
     end
     result
   end
-end

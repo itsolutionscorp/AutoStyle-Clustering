@@ -1,11 +1,7 @@
-class Hamming
-  def compute(w1, w2)
-    counter = 0
-    w1.length.times do |i|
-      if (w1[i] != w2[i])
-        counter += 1
-      end
+def compute(a,b)
+    limit = [a.size,b.size].min
+    a,b = a.chars.take(limit),b.chars.take(limit)
+    a.each_with_index.count do |letter,index|
+      letter != b[index]
     end
-    counter
   end
-end

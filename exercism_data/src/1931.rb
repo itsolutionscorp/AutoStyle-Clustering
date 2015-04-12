@@ -1,15 +1,5 @@
-class Hamming
-  def compute(s, t)
-    s_array = s.split(//)
-    t_array = t.split(//)
-    index = 0
-    new_array = []
-    s_array.each do |i| 
-      if (i != t_array[index] || nil ) && (t_array[index] != nil)
-        new_array << i
-      end
-      index += 1
+def compute(strand1, strand2)
+        count = 0
+        strand1.split('').each_with_index{|a, i| count += 1 if a != strand2[i] && strand2[i] }
+        count
     end
-    new_array.count
-  end
-end

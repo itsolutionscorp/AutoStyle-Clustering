@@ -1,13 +1,10 @@
-class Hamming
-  class << self
-    def compute(s1, s2)
-      s1.chars.zip(s2.chars).inject(0) do |sum, (x, y)|
-        if y && x != y
-          sum + 1
-        else
-          sum
-        end
-      end
+def compute(strandA, strandB)
+
+    length = [strandA, strandB].min.length - 1
+    data = strandA.split('')[0..length].zip(strandB.split('')[0..length])
+
+    data.count do |point|
+      point[0] != point[1]
     end
+
   end
-end

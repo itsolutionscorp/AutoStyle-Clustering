@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     count  = 0
     a_enum = a.each_char
     b_enum = b.each_char
@@ -11,4 +10,3 @@ class Hamming
   ensure
     return count  # We'll reach this with StopIteration
   end
-end

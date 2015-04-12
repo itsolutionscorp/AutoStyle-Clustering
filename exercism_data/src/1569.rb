@@ -1,28 +1,12 @@
-class Hamming
+def compute(first_strand, second_strand)
+    hamming_distance = 0
 
-  def compute(strand1, strand2)
-    strand1_a = strand1.split("")
-    strand2_a = strand2.split("")
-    counter = 0
-    i = 0
-
-    while strand1_a.size > strand2_a.size
-      strand1_a.pop
-    end
-
-    while strand2_a.size > strand1_a.size
-      strand2_a.pop
-    end
-
-    strand1_a.each do |s1|
-      if s1 != strand2_a[i]
-        counter += 1
+    first_strand.length.times do |count|
+      if first_strand[count] != second_strand[count]
+        unless (first_strand[count] && second_strand[count]).nil?
+          hamming_distance += 1
+        end
       end
-      i += 1
     end
-
-    return counter
-
+    hamming_distance
   end
-
-end

@@ -1,6 +1,3 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    strand_length = [strand_1.length, strand_2.length].min
-    (0...strand_length).count { |i| strand_1[i] != strand_2[i] }
+def compute(strandA,strandB)
+    strandA.chars.zip(strandB.chars).select{|a,b| a!=b && (a.nil? || b.nil?) ==false }.count
   end
-end

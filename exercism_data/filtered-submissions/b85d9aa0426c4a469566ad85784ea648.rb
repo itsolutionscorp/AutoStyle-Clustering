@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1,dna2)
+def compute(dna1,dna2)
     
     #setup to ignore trailing extra chars
     if dna1.length > dna2.length 
@@ -20,4 +19,3 @@ class Hamming
     
     count
   end
-end

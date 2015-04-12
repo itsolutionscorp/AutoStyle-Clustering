@@ -1,5 +1,3 @@
-class Hamming
-  def compute(a, b)
-    a.chars.zip(b.chars).map{ |x,y| (x <=> y).abs }.reduce(&:+)
+def compute s1, s2
+    s1.each_char.with_index.count { |char, idx| s2[idx] && char != s2[idx] }
   end
-end

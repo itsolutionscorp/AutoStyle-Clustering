@@ -1,7 +1,4 @@
-#!/usr/bin/ruby
-
-class Hamming
-	def compute(first, second)
+def compute(first, second)
 		#Make the strings the same length
 		if first.length > second.length then
 			first = first.slice(0..(second.length - 1))
@@ -19,4 +16,3 @@ class Hamming
 
 		return hamming_count
 	end
-end

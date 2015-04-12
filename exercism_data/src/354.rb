@@ -1,9 +1,16 @@
-class Hamming
-  def compute(a, b)
-    total = 0
-    a.each_char.with_index do |char, index|
-      total += 1 if char != b[index]
-    end
-    total
-  end
-end
+def compute(string1,string2)
+		one = string1.split('')
+		two = string2.split('')
+		num = one.count
+		count = 0
+		total = 0
+		while count <= num
+			if one[count] && two[count]
+				if one[count] != two[count]
+					total += 1
+				end				
+			end	
+			count += 1		
+		end
+		total
+	end

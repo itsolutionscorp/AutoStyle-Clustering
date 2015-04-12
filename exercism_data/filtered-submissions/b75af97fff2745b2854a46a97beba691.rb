@@ -1,5 +1,3 @@
-class Hamming
-      def compute(donut, poo)
+def compute(donut, poo)
     return 0
      end
-    end

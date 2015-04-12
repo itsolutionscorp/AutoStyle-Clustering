@@ -1,11 +1,4 @@
-=begin
-  File: hamming.rb
-  Author: sherinom
-=end
-
-class Hamming
-
-	def compute(s, t)
+def compute(s, t)
 		
 		s = s.upcase
 		t = t.upcase
@@ -29,5 +22,3 @@ class Hamming
 		return count
 		
 	end
-
-end

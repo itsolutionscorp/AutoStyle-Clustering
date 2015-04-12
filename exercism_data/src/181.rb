@@ -1,17 +1,4 @@
-class Hamming
-  def compute(first, second)
-    if first.length != second.length
-      raise "Different length!"
-    end
-
-    count = 0
-
-    for i in 0...first.length
-      if first[i] != second[i]
-        count += 1
-      end
-    end
-
-    return count
+def compute(strand1, strand2)
+    comparison = strand1.chars.zip(strand2.chars)
+    comparison.count {|position| position[0] != position[1] if position[1]}
   end
-end

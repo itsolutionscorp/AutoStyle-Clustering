@@ -1,5 +1,4 @@
-class Hamming
-	def compute(base_str, compare_str)
+def compute(base_str, compare_str)
 		hamming_counter = 0
 		base_str_array = base_str.split(//)
 		compare_str_array = compare_str.split(//)
@@ -14,4 +13,3 @@ class Hamming
 
 		return hamming_counter
 	end
-end

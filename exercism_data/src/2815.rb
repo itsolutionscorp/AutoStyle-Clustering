@@ -1,7 +1,6 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    first_strand.chars.each_with_index.map do |char, index|
-      first_strand[index] == second_strand[index]
-    end.count(false)
+def compute(seq1, seq2)
+    return 0 if seq1.length != seq2.length
+    sum = 0
+    seq1.split('').each_index {|index| sum += (seq1[index] != seq2[index] ? 1 : 0)}
+    sum
   end
-end

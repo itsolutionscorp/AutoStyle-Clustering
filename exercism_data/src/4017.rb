@@ -1,7 +1,8 @@
-class Hamming
-	def compute(first_dna_strand, second_dna_strand)
-		distance = 0;
-		first_dna_strand, second_dna_strand = [first_dna_strand.chars, second_dna_strand.chars].sort_by { |x| x.length }
-		first_dna_strand.count { |code_of_dna_nucleotide| code_of_dna_nucleotide != second_dna_strand.shift}
-	end
-end
+def compute(strand1, strand2)
+    min_strand_length = [strand1.length, strand2.length].min
+    hamming_distance = 0
+    min_strand_length.times do |i|
+      hamming_distance += 1 if strand1[i] != strand2[i]
+    end
+    hamming_distance
+  end

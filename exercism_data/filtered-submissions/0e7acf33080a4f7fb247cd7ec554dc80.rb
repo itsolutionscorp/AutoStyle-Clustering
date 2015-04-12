@@ -1,5 +1,4 @@
-class Hamming
-  def compute str1, str2
+def compute str1, str2
     return nil if str1.size != str2.size
     distance = 0
     arr1 = str1.split ''
@@ -9,4 +8,3 @@ class Hamming
     end
     distance
   end
-end

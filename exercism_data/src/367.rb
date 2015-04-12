@@ -1,14 +1,11 @@
-class Hamming
-	def compute(strand1, strand2)
-		hamming_sum = 0
-		i = 0
-		length = [strand1.length, strand2.length].min
-		while i < length
-			if strand1[i] != strand2[i]
-				hamming_sum += 1
-			end
-			i += 1
-		end
-		hamming_sum
-	end
-end
+def compute(seq_a, seq_b)
+    raise ArgumentError unless seq_a.length == seq_b.length
+
+    hamming_distance = 0
+
+    seq_a.chars.zip(seq_b.chars) do |char_pair|
+      hamming_distance += 1 unless char_pair.first == char_pair.last
+    end
+
+    hamming_distance
+  end

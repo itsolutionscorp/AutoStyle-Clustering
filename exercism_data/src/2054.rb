@@ -1,10 +1,21 @@
-class Hamming
-  def compute(a, b)
-    return 0 if a.size == 0 || b.size == 0
+def compute(s, t)
+    # a -> shortest string
+    # b -> longest string
 
-    count = [a.size, b.size].min - 1
-    (0..count).inject(0) do |sum, i|
-      a[i] != b[i] ? sum + 1 : sum
+    if (s.length < t.length)
+      a_str = s
+      b_str = t
+    else
+      a_str = t
+      b_str = s
     end
+
+    hamming = 0
+    a_str.each_char.with_index do |a_char, i|
+      b_char = b_str[i]
+      # increment hamming only if characters differ
+      hamming += 1 if (a_char != b_char)
+    end
+
+    hamming
   end
-end

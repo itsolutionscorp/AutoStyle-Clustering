@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(a,b)
+def compute(a,b)
 		a,b = [a,b].sort { a.length <=> b.length }
 		a.chars.zip(b.chars).reduce(0) do |dist, a|
 			if a[0] != a[1]
@@ -8,5 +6,3 @@ class Hamming
 			end
 		dist
 	end
-
-end

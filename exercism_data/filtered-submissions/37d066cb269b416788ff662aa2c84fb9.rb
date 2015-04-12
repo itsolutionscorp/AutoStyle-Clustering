@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute strand_1, strand_2
+def compute strand_1, strand_2
     hamming_distance = 0
 
     if strand_1.size > strand_2.size
@@ -15,4 +13,3 @@ class Hamming
 
     hamming_distance
   end
-end

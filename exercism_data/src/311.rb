@@ -1,19 +1,11 @@
-class Hamming
-
-  def compute(inputA, inputB)
-
-    difference_counter = 0
-    # position_counter = 0 
+def compute strand_one, strand_two
     
-    [inputA.length, inputB.length].min.times do |position_counter|
-      if (inputA[position_counter] != inputB[position_counter])
-        difference_counter+=1
-      end
-      position_counter +=1
+    return if strand_one.nil? || strand_two.nil?
+    difference = 0
+
+    0.upto([strand_one.size, strand_two.size].min - 1) do |i|
+      difference += 1 if strand_one[i] != strand_two[i]
     end
 
-    difference_counter   
-
+    difference
   end
-
-end

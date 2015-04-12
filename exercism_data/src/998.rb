@@ -1,12 +1,4 @@
-module Hamming
-
-  def compute(lstrand, rstrand)
-    rstrand.chars.
-      zip(lstrand.chars).
-      reject{|(a,b)| not a or not b }.
-      reject{|(a,b)| a == b }.
-      length
+def compute(strand1, strand2)
+    pairs = strand1.chars.zip(strand2.chars)
+    pairs.count { |c1, c2| c1 != c2 }
   end
-  module_function :compute
-
-end

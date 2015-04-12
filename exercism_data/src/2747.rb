@@ -1,9 +1,6 @@
-class Hamming
-  def compute(strand1, strand2)
-    count = 0
-    0.upto([strand1.length, strand2.length].min - 1) do |i|
-      count += 1 if strand1[i] != strand2[i]
-    end
-    count
+def compute(character_one, character_two)
+    distance = 0
+    zip = character_one.chars.zip character_two.chars
+    zip.each{ |arr| distance+=1 unless arr.first==arr.last }
+    return distance
   end
-end

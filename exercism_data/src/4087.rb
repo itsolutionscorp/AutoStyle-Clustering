@@ -1,7 +1,14 @@
-class Hamming
-	def compute(dna1, dna2)
-		return 0 if dna1 == dna2 # save some computation time if equal
-		d1 = dna1.chars
-		dna2.chars.map { |c| (c == d1.next) ? 0 : 1 }.reduce(&:+)
+def compute (x,y)
+	a = 0;
+	if x.length > y.length
+		min = y.length
+	else
+	  min = x.length
 	end
+	for i in 0...min 
+		if x[i]!=y[i]
+			a += 1
+		end
+	end
+	return a
 end

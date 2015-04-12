@@ -1,7 +1,4 @@
-class Hamming
-  require 'debugger'
-
-  def compute(str1, str2)
+def compute(str1, str2)
     iterations = str1.length <= str2.length ? str1.length : str2.length
 
     total = 0
@@ -11,8 +8,3 @@ class Hamming
     total
 
   end
-
-end
-
-
-Hamming.compute("AC","ABC")

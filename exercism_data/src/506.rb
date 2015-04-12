@@ -1,10 +1,3 @@
-class Hamming
-  def compute(a, b)
-    diffs = i = 0
-    while i < a.length and i < b.length
-      diffs += 1 if a[i] != b[i]
-      i += 1
-    end
-    diffs
+def compute(a,b)
+    [a.chars.length, b.chars.length].min.times.count{ |i|  a[i] != b[i] }
   end
-end

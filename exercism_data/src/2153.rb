@@ -1,5 +1,5 @@
-class Hamming
-  def compute(s1, s2)
-    s1.chars.map.with_index { |char, index| char == s2[index] ? 0 : 1 }.inject(:+)
+def compute(strand1, strand2)
+    [strand1.length, strand2.length].min.times.count { |i|
+      strand1[i] != strand2[i]
+    }
   end
-end

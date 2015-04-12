@@ -1,11 +1,9 @@
-class Hamming   
-  
-  def compute(strand_1, strand_2)
-    differences = 0
-    strand_1.each_char.with_index do | nucleotide, position |
-      differences +=1 if nucleotide != strand_2[position] && strand_2[position] != nil
+def compute(string_a, string_b)
+    stra = string_a.split("")
+    strb = string_b.split("")
+    diff = 0
+    stra.each_with_index do |letter, index|
+      diff += 1 if strb[index] != letter
     end
-    differences
+    diff
   end
-
-end

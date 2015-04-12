@@ -1,20 +1,6 @@
-class Hamming
-
-  def compute(strain_a, strain_b)
-
-    if strain_a.length > strain_b.length
-      strain_a = strain_a[0..strain_b.length-1]
-    end
-
-    count = 0
-
-    strain_a.length.times do |i|
-      if strain_b[i] != strain_a[i]
-        count += 1
-      end
-    end
-
-    count
+def compute(first,second)
+    len = first.length < second.length ? first.length : second.length
+    (0..(len-1)).map { |i|
+      first[i] == second[i] ? 0 : 1
+    }.reduce(0) {|memo,item| memo += item}
   end
-
-end

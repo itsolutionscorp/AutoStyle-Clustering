@@ -1,21 +1,12 @@
-class Hamming
-    def compute(strand1, strand2)
+def compute(a,b)
+    i = 0
+    a = a <=> b ? a.chars.take(b.length) : a.chars
+    b = b.chars
 
-        ham_dif = 0
-
-        shorterString = strand1
-        if (strand1.length > strand2.length)
-            shorterString = strand2
-        end
-
-        for i in 0..shorterString.length-1
-            unless strand1[i] == strand2[i]
-                ham_dif+=1
-            end
-
-        end
-        ham_dif
+    a.zip(b).each do |first, second|
+      if first != second
+        i += 1
+      end
     end
-end
-
-puts Hamming.compute("ABCAAA","ABBA")
+    return i
+  end

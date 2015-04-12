@@ -1,13 +1,11 @@
-class Hamming
-
-  def compute(strain_a, strain_b)
-    if strain_a.length > strain_b.length
-      strain_a = strain_a[0..strain_b.length-1]
+def compute(string_a, string_b)
+    stra = string_a.split("")
+    strb = string_b.split("")
+    diff = 0
+    for i in 0..stra.length
+      if stra[i] != strb[i]
+        diff += 1
+      end
     end
-
-    strain_a.chars.select.with_index do |c, i|
-      strain_b[i] != strain_a[i]
-    end.count
+    diff
   end
-
-end

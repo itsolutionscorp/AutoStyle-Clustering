@@ -1,5 +1,4 @@
-class Hamming 
-    def compute(h1,h2)
+def compute(h1,h2)
         perfect = h1.split("")
         broken = h2.split("")
         if perfect.count > broken.count
@@ -18,4 +17,3 @@ class Hamming
         end
         total
     end
-end

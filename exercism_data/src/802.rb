@@ -1,10 +1,7 @@
-module Hamming
-  def compute(strand_a, strand_b)
-    res = 0
-    stand_b = strand_b.chars
-    strand_a.chars.each_with_index do |char, i|
-      res += 1 unless char == strand_b[i] || strand_b[i].nil?
+def compute(strand1, strand2)
+    distance = 0
+    strand1.length.times do |i|
+      distance += 1 if strand1[i] != strand2[i]
     end
-    res
+    distance
   end
-end

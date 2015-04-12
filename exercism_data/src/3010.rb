@@ -1,18 +1,9 @@
-class Hamming
-
-  def compute(dna_a, dna_b)
-    hamming = 0
-    dna_a.each_char do |a|
-      break if a.nil?
-      dna_b.each_char do |b|
-        if a != b
-          hamming += 1
-        end
-        dna_b[dna_b.index(b)] = ""
-        break
-      end
-    end
-    hamming
-  end
-
-end
+def compute(thing1, thing2)
+		count = 0
+		index = 0
+		thing1.each_char do |char|
+			count += 1 unless char == thing2[index]
+			index += 1
+		end
+		count
+	end

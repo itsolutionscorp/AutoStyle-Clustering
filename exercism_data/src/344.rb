@@ -1,15 +1,9 @@
-class Hamming
-	def compute(first_string, second_string)
-		letter_array_one = first_string.split("")
-		letter_array_two = second_string.split("")
-		final_array      = letter_array_one.zip(letter_array_two)
-
-		results = final_array.select do |first_num, second_num|
-			if first_num && second_num
-				first_num != second_num 
-			end
-		end
-
-		results.length
-	end
-end
+def compute(strand_one, strand_two)
+    strand_one.split(//).each_with_index.map do |base, index|
+      if base == strand_two[index] || index >= strand_two.length
+        0
+      else
+        1
+      end
+    end.reduce(:+)
+  end

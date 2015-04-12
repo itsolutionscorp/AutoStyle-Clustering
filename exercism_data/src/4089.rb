@@ -1,10 +1,8 @@
-class Hamming
-  def compute(strand_one, strand_two)
-    n = [strand_one.length,  strand_two.length].min
-    counter = 0
-    (0..n-1).each do |n|
-      counter += 1 unless strand_one[i] == strand_two[i]
+def compute(first_strand, second_strand)
+    point = 0
+    first_strand, second_strand = second_strand, first_strand if first_strand.length > second_strand.length
+    first_strand.split('').each_with_index do |item, index|
+      point += 1 if item != second_strand[index]
     end
-    counter
+    return point
   end
-end

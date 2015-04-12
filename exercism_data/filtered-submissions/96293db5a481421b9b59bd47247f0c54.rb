@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(first, second)
+def compute(first, second)
       count       = 0
       first_enum  = first.each_char
       second_enum = second.each_char
@@ -14,5 +12,3 @@ class Hamming
 
       count
     end
-  end
-end

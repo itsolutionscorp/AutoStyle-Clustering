@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     mutations = 0
 
     strand_1_array = strand_1.split("")
@@ -10,4 +9,3 @@ class Hamming
     end
     mutations
   end
-end

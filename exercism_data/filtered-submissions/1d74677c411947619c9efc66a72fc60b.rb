@@ -1,5 +1,4 @@
-class Hamming
-    def compute(strandA,strandB)
+def compute(strandA,strandB)
 		if strandA.length != strandB.length
 		end
 	compares = 0
@@ -11,4 +10,3 @@ class Hamming
 		end
 		return compares
     end
- end

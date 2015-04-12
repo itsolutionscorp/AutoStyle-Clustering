@@ -1,10 +1,19 @@
-class Hamming
-  def compute s1, s2
-    gap = 0
-    shortest = [s1.length, s2.length].min 
-    shortest.times do |i|
-      gap += 1 if s1[i] != s2[i]
+def compute dna, dna2
+    if dna.length <= dna2.length 
+      short = dna
+      long = dna2
+    else
+      short = dna2
+      long = dna
     end
-    gap
+
+    index = 0
+    hamming = 0
+
+    short.each_char do |char|
+      if char != long[index] then hamming += 1 end
+      index += 1
+    end
+
+    hamming
   end
-end

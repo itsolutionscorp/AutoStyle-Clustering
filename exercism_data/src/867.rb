@@ -1,15 +1,7 @@
-class Hamming
-  def compute(one, two)
-    # Difference between boths strands is 0 initially
-    difference = 0
-
-    0.upto(one.length) do |position|
-      # Compare current position for both strands and increment the
-      # difference by one if both strands differ here
-      difference += 1 if one[position] != two[position]
+def compute(a,b)
+    diff = 0
+    a.split("").zip(b.split("")).each do |x,y|
+      diff +=1 if x != y
     end
-
-    # Return the computed difference
-    difference
+    diff
   end
-end

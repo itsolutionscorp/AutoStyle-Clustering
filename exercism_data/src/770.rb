@@ -1,21 +1,16 @@
-# Hamming Computer
-# Demannu 9/29/2014
-class Hamming
-	def compute(seqone, seqtwo)
-		oneSplit = seqone.scan(/./)
-		twoSplit = seqtwo.scan(/./)
-		count = 0
-		errors = 0
-		if oneSplit.respond_to?("each")
-			oneSplit.each do |oneDNA|				
-				if count < seqone.length && count < seqtwo.length
-					if oneDNA != twoSplit[count]
-						errors = errors + 1		
-					end
-					count = count + 1					
-				end
-			end
-		end
-		return errors
-	end
-end
+def compute(string, other_string)
+    string = string.scan(/\w/)
+    other_string = other_string.scan(/\w/)
+
+    if string.length > other_string.length
+      string = string.slice(0, other_string.length)
+    elsif other_string.length > string.length
+      other_string = other_string.slice(0, string.length)
+    end
+
+    distance = string.zip(other_string).map do |a, b|
+      a != b ? 1 : 0
+    end.inject(:+)
+
+    distance
+  end

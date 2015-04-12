@@ -1,15 +1,5 @@
-class Hamming
-  def compute(a1, a2)
-    res = 0	
-    if a1==a2
-      res	   
-    else
-      for pos in 0..a1.length-1
-        if a1[pos]!= a2[pos]
-          res = res +1 
-        end
-      end
-      res
+def compute(str1, str2)
+    (0...[str1.length, str2.length].min).count do |index|
+      str1[index] != str2[index]
     end
   end
-end

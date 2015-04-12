@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     difference = 0
 
     strand_a = strand_a[0, strand_b.length] if strand_a.length > strand_b.length
@@ -10,4 +9,3 @@ class Hamming
 
     difference
   end
-end

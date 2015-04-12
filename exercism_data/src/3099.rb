@@ -1,13 +1,5 @@
-class Hamming
-
-  def compute(strand_a, strand_b)
-    strand_a = strand_a.split('')
-    strand_b = strand_b.split('')
-    strand_a.zip(strand_b).count do |x,y| 
-      unless x == nil || y == nil
-        x != y
-      end
-    end
+def compute(sequence1, sequence2)
+    sequence1, sequence2 = [sequence1, sequence2].sort_by(&:length)
+    pairs = sequence1.chars.zip(sequence2.chars)
+    pairs.count{ |base1, base2| base1 != base2 }
   end
-
-end

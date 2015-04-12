@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     place_holder = 0
     differences = 0
 
@@ -14,4 +12,3 @@ class Hamming
 
     return differences
   end
-end

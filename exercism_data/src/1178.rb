@@ -1,5 +1,8 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    strand_1.length.times.count { |i| strand_1[i] != strand_2[i] }
-  end
-end
+def compute(x, y)
+
+		x = x.chars
+		y = y.chars
+
+		x.zip(y).each.count { |x, y| x != y }
+
+	end

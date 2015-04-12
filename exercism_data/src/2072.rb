@@ -1,19 +1,9 @@
-class Hamming
-
-	# Computes the Hamming distance between two strands
-	def compute(strand1, strand2)
-		raise ArgumentError unless (strand1.is_a?(String) && strand1.is_a?(String))
-
-		distance = 0
-		chars1 = strand1.chars
-		chars2 = strand2.chars
-
-		smaller_strand_size = [strand1.size, strand2.size].min
-		smaller_strand_size.times do |i|
-			distance += 1 unless chars1[i] == chars2[i]
-		end
-
-		distance
-	end
-
-end
+def compute(string1, string2)
+    distance = 0
+    (0..string1.length-1).each do |i|
+      if string1[i] != string2[i]
+        distance += 1
+      end
+    end
+    return distance
+  end

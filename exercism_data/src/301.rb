@@ -1,7 +1,10 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    strand_1.chars
-            .zip(strand_2.chars)
-            .count{ |v| v[0] != v[1] }
+def compute(strand_a,strand_b)
+    dist = nil
+    if strand_a.length == strand_b.length
+      dist = 0
+      (0..strand_b.length).each do |i|
+        dist += 1 if strand_a[i] != strand_b[i]
+      end
+    end
+    dist
   end
-end

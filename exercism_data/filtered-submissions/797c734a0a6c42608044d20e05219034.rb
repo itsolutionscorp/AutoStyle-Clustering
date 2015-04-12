@@ -1,5 +1,4 @@
-class Hamming
-    def compute(uno, dos)
+def compute(uno, dos)
         cont=0
         for i in 0..uno.length-1
             if dos[i] 
@@ -10,4 +9,3 @@ class Hamming
         end
         return cont
     end
-end 

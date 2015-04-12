@@ -1,12 +1,3 @@
-class Hamming
-  def compute(original, mutant)
-    result = 0
-    if original.length > mutant.length
-      original = original[0, mutant.length]
-    end
-    original.split("").each_with_index do |letter, index|
-        result+=1 if letter!=mutant[index]
-    end
-        return result
+def compute(a, b)
+    a.split('').zip(b.split('')).select{ |a1, b1| a1 && b1 && a1 != b1 }.size
   end
-end

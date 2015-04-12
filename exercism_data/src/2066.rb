@@ -1,5 +1,5 @@
-class Hamming
-  def compute(strand1,strand2)
-    strand1.length.times.count { |index| strand1[index] != strand2[index] }
+def compute(source, target)
+    return Hamming.compute(target, source) if source.size > target.size
+
+    (0...source.size).count {|i| source[i] != target[i] }
   end
-end

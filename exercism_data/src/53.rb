@@ -1,17 +1,12 @@
-class Hamming
-
-  def compute(reference_dna, comparing_dna)
-    difference_nucleic_acid = 0
-
-    # Start with shorten
-    source_dna = reference_dna.length > comparing_dna.length ? comparing_dna : reference_dna
-    target_dna = reference_dna.length > comparing_dna.length ? reference_dna : comparing_dna
-
-    source_dna.each_char.to_a.each_with_index do |nucleic_acid, index|
-      difference_nucleic_acid += 1 unless source_dna.each_char.to_a[index] == target_dna.each_char.to_a[index]
+def compute (s1, s2)
+    counter = 0
+    s1.upcase
+    s2.upcase
+    arr1 = s1.scan /\w/
+    arr2 = s2.scan /\w/
+    iterate = s1.length > s2.length ? s2.length : s1.length
+    iterate.times do |i|
+      counter += arr1[i] == arr2[i] ? 0 : 1
     end
-
-    difference_nucleic_acid
+    return counter
   end
-
-end

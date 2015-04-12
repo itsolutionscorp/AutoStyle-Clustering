@@ -1,6 +1,4 @@
-class Hamming
-	
-	def compute(strand1, strand2)
+def compute(strand1, strand2)
 		strand_lengths = [strand1.length, strand2.length]
 		strand_differences = []
 		0.upto(strand_lengths.min - 1) do |i|
@@ -9,4 +7,3 @@ class Hamming
 
 	strand_differences.count(false)
 	end
-end

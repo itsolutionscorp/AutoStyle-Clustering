@@ -1,8 +1,4 @@
-# dna1 = "GAGCCTACTAACGGGAT"
-# dna2 = "CATCGTAATGACGGCCT"
-
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     dna1 = dna1.split("")
     dna2 = dna2.split("")
     if dna1.length > dna2.length
@@ -34,4 +30,3 @@ class Hamming
     return hamming_dist
 
   end
-end

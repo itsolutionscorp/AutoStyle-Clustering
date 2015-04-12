@@ -1,10 +1,7 @@
-class Hamming
-  def compute (a, b)
-    a = a.chars
-    b = b.chars
-    a = a.slice(0, b.count)
-    distance = 0
-    a.zip(b).each { |x, y| distance += 1 if x != y }
-    return distance
+def compute(first, second)
+    dist = 0
+    for i in 0..first.length
+      dist += first[i] == second[i] ? 0 : 1
+    end
+    return dist
   end
-end

@@ -1,8 +1,5 @@
-class Hamming
-  def compute str1, str2
-    tmp = str1.length > str2.length ? str2 : str1
-    (1..tmp.length).map do |i|
-      str1[i-1] == str2[i-1] ? 0 : 1
-    end.inject(0, :+)
+def compute(strand_1, strand_2)
+    strand_1.chars.each_with_index.count do |nucleotide, index| 
+      nucleotide != strand_2[index] unless strand_2[index] == nil
+    end
   end
-end

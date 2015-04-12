@@ -1,27 +1,7 @@
-class Hamming
-
-  def compute(a,b)
-  	hammingScore = 0
-  	biggerList = []
-  	smallerList = []
-
-  	#detect which string is longer and split into arrays.
-  	if a.length > b.length
-  		biggerList = a.split("")
-  		smallerList = b.split("")
-  	else
-  		biggerList = b.split("")
-  		smallerList = a.split("")
-  	end
-
-  	#iterate over smaller array and check against larger array
-  	smallerList.each_with_index do |nucleotide, i|
-  		if nucleotide != biggerList[i]
-  			hammingScore += 1
-  		end
-  	end
-
-  	return hammingScore
-
- 	end
-end
+def compute(s,t)
+        distance = 0
+        (0..s.length).each do |index|
+            distance += 1 if s[index] != t[index] 
+        end
+        distance
+    end

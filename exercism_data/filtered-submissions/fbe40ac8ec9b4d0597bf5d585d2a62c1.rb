@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     l = a.length > b.length ? a.length : b.length
     d = 0
 
@@ -9,4 +8,3 @@ class Hamming
 
     d
   end
-end

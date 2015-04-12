@@ -1,5 +1,10 @@
-module Hamming
-  def compute(one_strand, other_strand)
-    one_strand.chars.zip(other_strand.chars).count { |one_char, other_char| one_char != other_char }
+def compute(a, b)
+    total = 0
+    for x in 0..[a.length,b.length].min-1
+      if a[x] != b[x]
+        total = total + 1
+      end
+    end
+
+    return total
   end
-end

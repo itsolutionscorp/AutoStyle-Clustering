@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, last)
+def compute(first, last)
     short, long = [first,last].sort_by!(&:size)
     short.chars.zip(long.chars).map do |a,b|
       if a == b
@@ -9,4 +8,3 @@ class Hamming
       end
     end.inject(:+)
   end
-end

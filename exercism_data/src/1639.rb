@@ -1,20 +1,17 @@
-class Hamming
-  def compute(s1, s2)
+def compute(strand1, strand2)
+
+    # Initialize the distance variable
     distance = 0
 
-    s1 = s1.split(//)
-    s2 = s2.split(//)
+    # Step through each character in the two strings and compare them
+    for i in 0...[strand1.length, strand2.length].min
 
-    if s1.size > s2.size
-      s1 = s1.slice(0, s2.size)
-    end
-
-    s1.zip(s2) do |strand1, strand2|
-      if strand1 != strand2
+      # If the characters do not match, increment the distance variable
+      if strand1[i] != strand2[i]
         distance += 1
       end
     end
 
-    distance
+    # Return the number of differences found between the two strings
+    return distance
   end
-end

@@ -1,11 +1,7 @@
-class Hamming
-  def compute(strand_one, strand_two)
-    strand_one.split(//).each_with_index.map do |base, index|
-      if base == strand_two[index] || index >= strand_two.length
-        0
-      else
-        1
-      end
-    end.reduce(:+)
+def compute(first, second)
+    length = [first.size, second.size].min
+    length.times.count do |i|
+      first[i] != second[i]
+    end
   end
 end

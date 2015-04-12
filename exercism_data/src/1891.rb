@@ -1,11 +1,13 @@
-class Hamming
-  def compute(sequence_a, sequence_b)
-    a = sequence_a.split(//)
-    b = sequence_b.split(//)
-    distance = 0
-    a.each_with_index do |acid, i|
-      distance += 1 if a[i] != b[i]
+def compute(s, t)
+    s_array = s.split(//)
+    t_array = t.split(//)
+    index = 0
+    new_array = []
+    s_array.each do |i| 
+      if (i != t_array[index] || nil ) && (t_array[index] != nil)
+        new_array << i
+      end
+      index += 1
     end
-    distance
+    new_array.count
   end
-end

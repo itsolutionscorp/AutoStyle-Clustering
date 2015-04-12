@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
     hamming = 0
     first_strand_array = first_strand.split('')
     second_strand_array = second_strand.split('')
@@ -12,4 +11,3 @@ class Hamming
     end
     hamming
   end
-end

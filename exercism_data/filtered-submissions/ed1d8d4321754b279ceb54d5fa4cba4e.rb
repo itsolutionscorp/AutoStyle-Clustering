@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     distance = 0
 
     strand_a.split('').each_with_index do |nucleotide, index|
@@ -8,4 +7,3 @@ class Hamming
 
     distance
   end
-end

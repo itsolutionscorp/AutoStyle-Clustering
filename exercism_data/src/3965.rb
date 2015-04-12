@@ -1,14 +1,10 @@
-class Hamming
-  def compute(first, second)
-    distance = 0
-
-    first.each_char.with_index do |c, i|
-      distance += 1 if c != second[i]
+def compute(a, b)
+        stringA = a.split("")
+        stringB = b.split("")
+        c = stringA.length < stringB.length ? stringA.length : stringB.length
+        result = 0
+        c.times do |i|
+            result += stringA[i] != stringB[i] ? 1 : 0
+        end
+        result
     end
-
-    distance
-
-    # One-liner
-    # first.chars.map.with_index { |c, i| c == second[i] ? 0 : 1 }.reduce(&:+)
-  end
-end

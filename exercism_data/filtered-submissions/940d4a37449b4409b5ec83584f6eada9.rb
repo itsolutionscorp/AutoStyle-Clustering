@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(s1, s2)
+def compute(s1, s2)
     difference = 0
     if s1.length >= s2.length
       s2.length.times do |index|
@@ -13,4 +11,3 @@ class Hamming
     end
     difference
   end
-end

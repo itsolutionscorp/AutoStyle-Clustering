@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(reference_dna, comparing_dna)
+def compute(reference_dna, comparing_dna)
     difference_nucleic_acid = 0
 
     # Start with shorten
@@ -13,5 +11,3 @@ class Hamming
 
     difference_nucleic_acid
   end
-
-end

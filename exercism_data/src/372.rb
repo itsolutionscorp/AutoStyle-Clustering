@@ -1,12 +1,7 @@
-class Hamming
-
-  def compute (strand_a, strand_b)
-    differences=0
-    genes=strand_a.split("")
-    genes.each_with_index do |gene, index| 
-      differences +=1 unless gene==strand_b[index]
+def compute(string1, string2)
+    count = 0
+    string1.size.times do |pos|
+      count += 1 if string1[pos] != string2[pos]
     end
-    differences
+    count
   end
-
-end

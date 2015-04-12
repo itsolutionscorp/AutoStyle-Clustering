@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute dna, dna2
+def compute dna, dna2
     if dna.length <= dna2.length 
       short = dna
       long = dna2
@@ -19,4 +17,3 @@ class Hamming
 
     hamming
   end
-end

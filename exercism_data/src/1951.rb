@@ -1,10 +1,4 @@
-class Hamming
-
-  def compute(a, b)
-    a.each_char.each_with_index.inject(0) do |hamming, (value, index)|
-      hamming += 1 unless value == b[index]
-      hamming
-    end
+def compute(strand_a, strand_b)
+    nucleotide_pairs = strand_a.chars.zip(strand_b.chars)
+    nucleotide_pairs.count {|a,b| a != b}
   end
-
-end

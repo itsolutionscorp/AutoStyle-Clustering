@@ -1,14 +1,5 @@
-class Hamming
-	
-	def compute (string_a, string_b)
-		distance = 0
-		min_length = [string_a.length, string_b.length].min
-		min_length.times do |i|
-			distance += 1 if string_a[i] != string_b[i]
-		end
-		distance
-	end
-end
-
-	
-		
+def compute(string1, string2)
+      distance = string1.split("").zip(string2.split("")).inject(0) do |result, element|
+         element.first == element.last ? result += 0 : result += 1
+      end
+   end

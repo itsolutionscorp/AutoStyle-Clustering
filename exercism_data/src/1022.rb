@@ -1,5 +1,5 @@
-class Hamming
-  def compute(a, b)
-    a.chars.zip(b.chars).select { |pair| pair.first != pair.last }.count
-  end
-end
+def compute(dna1, dna2)
+		dna1.split("").each_with_index.map.select {|d, index| 
+			d != dna2[index]
+		}.size
+	end

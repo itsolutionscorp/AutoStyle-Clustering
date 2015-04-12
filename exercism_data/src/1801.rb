@@ -1,14 +1,22 @@
-class Hamming
-  def Hamming.compute (strand1, strand2)
-    strand1 = strand1.split('')
-    strand2 = strand2.split('')
-    hamdist = 0
+def compute(dna1, dna2)
+    # init counter for dna differences
+    cnt = 0
 
-    strand1.each_with_index do |val, ind|
-      if val != strand2[ind] && strand2[ind] != nil
-        hamdist += 1
+    # loop over dna strand 1
+    for i in 0..dna1.length-1 do
+
+      # break execution if dna strand 1 is longer than
+      # dna strand 2 (when the first position longer
+      # than dna strand 2 has been reached)
+      if(i>=dna2.length)
+        break
+      end
+
+      # for each position, compare with dna strand 2.
+      # increase counter if they are not equal
+      if(dna1[i] != dna2[i]) then cnt += 1
       end
     end
-    hamdist
+
+    cnt
   end
-end

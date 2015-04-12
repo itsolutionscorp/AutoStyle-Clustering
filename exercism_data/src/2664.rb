@@ -1,15 +1,17 @@
-class Hamming
-  def compute(word_one, word_two)
-    if word_one.size == word_two.size
-      sum = 0
-      position = 0
-      word_one.each_char do |a_letter|
-        sum += 1 if a_letter != word_two[position]
-        position += 1
+def compute(first, second)
+    # Store both strands in separate arrays
+    first = first.chars.to_a
+    second = second.chars.to_a
+    # Compare both arrays and return the difference
+    difference = 0
+    increment = 0
+    first.each do |f|
+      s = second[increment]
+      increment += 1
+      if f != s
+        difference += 1
+      else
       end
-      sum
-    else
-      puts "Error string needs to be the same length"
     end
+    return difference
   end
-end

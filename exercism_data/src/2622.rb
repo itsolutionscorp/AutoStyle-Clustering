@@ -1,7 +1,8 @@
-module Hamming
-  def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).select do |(c1, c2)|
-      c1 != c2
-    end.size
+def compute(strand_1, strand_2)
+    combined_strand = strand_1.chars.zip(strand_2.chars)
+
+    combined_strand.count do |this_nucleotide, other_nucleotide|
+      this_nucleotide != other_nucleotide
+    end
   end
 end

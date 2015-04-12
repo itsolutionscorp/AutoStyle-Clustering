@@ -1,9 +1,3 @@
-class Hamming
-		
-  def compute(strand_1, strand_2)
-    strand_1.chars.each_with_index.count do |nucleotide, index| 
-      nucleotide != strand_2[index] unless strand_2[index] == nil
-    end
-  end
-
-end
+def compute(strand_one, strand_two)
+		strand_one[0...strand_two.length].chars.each_with_index.count{|c,i| c != strand_two[i] }
+	end

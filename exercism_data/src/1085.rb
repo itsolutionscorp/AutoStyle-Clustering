@@ -1,18 +1,19 @@
-class Hamming
-
-  def compute(first, second)
-    return 0 if first == second
-    if second.length > first.length
-      self.compute(second, first)
+def compute(strand_a, strand_b)
+    difference_count = 0
+    strand_a_array = strand_a.split('')
+    strand_b_array = strand_b.split('')
+    smaller_array = strand_a_array
+    comparison_array = strand_b_array
+    if strand_b_array.size < strand_a_array.size
+      smaller_array = strand_b_array
+      comparison_array = strand_a_array
     end
-    hamz = 0
-    first.chars.each_with_index do |character, index|
-      break if second[index].nil?
-      unless first[index].eql? second[index]
-        hamz += 1
+    iteration_count = 0
+    smaller_array.each do |base|
+      if base != comparison_array[iteration_count]
+        difference_count += 1
       end
+      iteration_count += 1
     end
-    return hamz
+    difference_count
   end
-
-end

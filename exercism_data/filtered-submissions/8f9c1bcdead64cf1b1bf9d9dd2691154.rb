@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     params = [a, b]
     case params
     when ['A', 'A']
@@ -14,4 +13,3 @@ class Hamming
       1
     end
   end
-end

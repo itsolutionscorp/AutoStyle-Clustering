@@ -1,18 +1,8 @@
-class Hamming
-  def compute(gene_1,gene_2)
-    hamming_number = 0
-    if gene_1 == gene_2
-      return hamming_number
-    elsif gene_1.length != gene_2.length
-      return -1
-    else
-      # determine hamming difference
-      for i in 0..gene_1.length
-        if gene_1[i] != gene_2[i] then
-          hamming_number += 1
-        end
-      end
-      return hamming_number
+def compute(strand_one, strand_two)
+    if strand_two.length < strand_one.length
+      strand_one,strand_two = strand_two,strand_one
+    end
+    strand_one.chars.each_with_index.count do |c, index|
+      c != strand_two[index]
     end
   end
-end

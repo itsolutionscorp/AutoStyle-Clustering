@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1,strand2)
+def compute(strand1,strand2)
     # short circuit if they are exact copies
     return 0 if (strand1 == strand2)
 
@@ -19,5 +17,3 @@ class Hamming
 
     return distance
   end
-
-end

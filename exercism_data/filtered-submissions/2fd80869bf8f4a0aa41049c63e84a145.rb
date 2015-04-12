@@ -1,5 +1,4 @@
-class Hamming
-  def compute (stra, strb)
+def compute (stra, strb)
     # don't waste time comparing if everything is equal!
     # check if strings are a match - return 0
     if stra == strb 
@@ -22,4 +21,3 @@ class Hamming
     return hamming_score
     
   end
-end

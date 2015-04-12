@@ -1,5 +1,4 @@
-class Hamming
-    def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
         hamming_difference = 0
         i = 0
         
@@ -12,4 +11,3 @@ class Hamming
         
         return hamming_difference
     end
-end

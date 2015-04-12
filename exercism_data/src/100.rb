@@ -1,16 +1,7 @@
-class Hamming
-	def compute(str1,str2)
-		arr_str1 = str1.split(//)
-		arr_str2 = str2.split(//)
-		
-		arr_str2, arr_str1 = arr_str1, arr_str2 if arr_str1.length > arr_str2.length
-
-		ham_distance = 0
-		arr_str1.each_index do |i|
-			ham_distance +=1 if arr_str1[i] != arr_str2[i]
-		end
-		return ham_distance
-
-
-	end
-end
+def compute(a,b)
+    arr_a = a.split("")
+    arr_b = b.split("")
+    arr_a, arr_b = arr_b, arr_a if arr_a.size < arr_b.size
+    arr_a = arr_a[0, arr_b.size]
+    arr_a.zip(arr_b).reduce(0) { |memo, (ea,eb)|  memo + (ea == eb ? 0 : 1) }
+  end

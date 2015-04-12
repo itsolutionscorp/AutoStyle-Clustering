@@ -1,5 +1,4 @@
-class Hamming	
-  def compute(*args)
+def compute(*args)
   	total = 0
     x, y = args
     x = x.scan /\w/
@@ -11,5 +10,4 @@ class Hamming
     	end
 	  }
 	return total
-  end  
-end
+  end

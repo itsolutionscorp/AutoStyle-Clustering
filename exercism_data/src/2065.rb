@@ -1,19 +1,11 @@
-class Hamming
-  def compute(x, y)
-    x, y = x.split(''), y.split('')
-
-    # trim longer to length of other
-    if x.length > y.length
-      x = x.slice(0..-(x.length - y.length + 1))
-    elsif x.length < y.length
-      y = y.slice(0..-(y.length - y.length + 1))
+def compute(first_var, second_var)
+    first_var = first_var.split("")
+    second_var = second_var.split("")
+    diff_counter = 0
+    first_var.each_with_index do |x, i|
+      if x != second_var[i]
+        diff_counter += 1
+      end
     end
-
-    # count differences
-    differences_count = 0
-    (0..(x.length - 1)).each do |i|
-      differences_count += 1 if x[i] != y[i]
-    end
-    differences_count
+    return diff_counter
   end
-end

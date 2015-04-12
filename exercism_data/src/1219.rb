@@ -1,5 +1,10 @@
-class Hamming
-	def compute(str_a, str_b)
-    str_a.chars.zip(str_b.chars).first(str_b.chars.length).count { |a,b| (a != b && !b.nil?) }
-	end
-end
+def compute(s1, s2)
+    e1 = s1.chars()
+    e2 = s2.chars()
+    
+    distance = 0
+    loop do
+      distance+=1 if (e1.next != e2.next)
+    end
+    distance
+  end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
-    a.chars.zip(b.chars).select { |a,b| a && b }.count { |a,b| a != b }
+def compute(a,b)
+    raise ArgumentError if a.length != b.length
+    [a.length,b.length].max.times.count {|index| a[index] != b[index]}
   end
-end

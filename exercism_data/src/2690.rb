@@ -1,15 +1,7 @@
-class Hamming
-
-  def compute(a, b)
-    first, second = a.chars, b.chars
-    difference = 0
-
-    first.each_with_index do |c, index|
-      if c != second[index]
-        difference += 1 unless second[index].nil?
-      end
+def compute(stringA, stringB)
+    maxlen = [stringA.length, stringB.length].min
+    diff = maxlen.times.reduce(0) do |differences, i|
+      differences += 1 if stringA[i] != stringB[i]
+      differences
     end
-
-    return difference
   end
-end

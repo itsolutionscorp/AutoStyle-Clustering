@@ -1,12 +1,9 @@
-class Hamming
-
-	def compute(a,b)
-		a,b = [a,b].sort { a.length <=> b.length }
-		a.chars.zip(b.chars).reduce(0) do |dist, a|
-			if a[0] != a[1]
-				dist = dist + 1
-			end
-		dist
-	end
-
-end
+def compute(seq_string, seq2_string)
+    seq_array  =  seq_string.rjust(seq2_string.size).chars
+    seq2_array =  seq2_string.ljust(seq_string.size).chars
+    if seq_string.size == seq2_string.size
+      seq_array.select.with_index { |aa, index| seq2_array[index] != aa }.size
+    else
+      seq_array.select.with_index { |aa, index| seq2_array[index] == aa }.size - 1
+    end  
+  end

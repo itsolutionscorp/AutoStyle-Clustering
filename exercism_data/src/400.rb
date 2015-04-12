@@ -1,7 +1,16 @@
-class Hamming
-  def compute a, b
-     (0 .. [a.length-1, b.length-1].min).
-         map {|i| a[i]==b[i] ? 0 : 1}.
-         reduce :+
-  end 
-end
+def compute(first, second)
+    distance = 0
+    max = -1
+
+    if first.size <= second.size
+      max = first.size - 1
+    else
+      max = second.size - 1
+    end
+
+    0.upto(max) do |i|
+      distance +=1 if first[i] != second[i]
+    end
+
+    return distance
+  end

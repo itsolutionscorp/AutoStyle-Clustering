@@ -1,13 +1,3 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    difference = 0
-
-    strand_a = strand_a[0, strand_b.length] if strand_a.length > strand_b.length
-
-    strand_a.split("").zip(strand_b.split("")).each do |left, right|
-      difference +=1 unless left == right
-    end
-
-    difference
+def compute(strand1, strand2)
+    return (0...[strand1.length, strand2.length].min).inject(0){|c, i| strand1[i] == strand2[i] ? c : c + 1}
   end
-end

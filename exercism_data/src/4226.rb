@@ -1,7 +1,3 @@
-class Hamming
-  def compute(a, b)
-    a.chars.zip(b.chars).count do |aa, bb|
-      !(aa.nil? || bb.nil? || aa == bb)
-    end
-  end
-end
+def compute(p1, p2)
+			p1.split('').zip(p2.split('')).map{|x| (x[0] == x[1]) ? 0 : 1}.reduce(:+)
+		end

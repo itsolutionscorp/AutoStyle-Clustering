@@ -1,10 +1,11 @@
-# class to compute Hamming difference in 2 DNA strands
-class Hamming
-  def compute(strand_one, strand_two)
-    differences = 0
-    strand_one.chars.each_with_index do |symbol, idx|
-      differences += 1 unless symbol == strand_two[idx]
+def compute shorter, longer
+        if (shorter.length > longer.length)
+            return self.compute longer, shorter
+        end
+
+        shorter, longer = [shorter, longer].collect(&:chars)
+
+        shorter.zip(longer).count do |char1, char2|
+            char1 != char2
+        end
     end
-    differences
-  end
-end

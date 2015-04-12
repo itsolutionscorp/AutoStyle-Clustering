@@ -1,8 +1,4 @@
-#!/usr/bin/env ruby
-
-class Hamming
-
-  def compute(x, y)
+def compute(x, y)
     @count = 0
 
     @limit = x.length < y.length ? x.length : y.length
@@ -16,5 +12,3 @@ class Hamming
     return @count
 
   end
-
-end

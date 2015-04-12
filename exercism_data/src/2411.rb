@@ -1,13 +1,9 @@
-class Hamming
-  def compute (dna_1, dna_2)
-    longest = dna_1.length > dna_2.length ? dna_1 : dna_2
-    shortest = dna_1.length <= dna_2.length ? dna_1 : dna_2
-
-    distance = 0
-    shortest.length.times do |i|
-      distance += 1 if longest[i] !=  shortest[i]
+def compute(set1, set2)
+    sum = 0
+    set1.chars.each_with_index do |char, index|
+      next if set2[index] == nil
+      sum += 1 if char != set2[index]
     end
-    return distance
+    sum
   end
-
 end

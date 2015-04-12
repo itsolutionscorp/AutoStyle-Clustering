@@ -1,21 +1,5 @@
-class Hamming
-
-
-def compute(strand1,strand2)
- 
- ctr=0
-
-  
- strand1.size>=strand2.size ? n=strand2.size : n=strand1.size
- 
- (0..n-1).each{|x| ctr+=1 if strand1[x]!=strand2[x]}
- 
- ctr
-
-end
-end
-  
-
-
-
- 
+def compute(strand1, strand2)
+    strand1.chars.each.with_index.count do |char, index|
+      strand2[index] && strand2[index] != char
+    end
+  end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
       distance = 0
 
       (0..strand1.length).each do |index|
@@ -10,5 +8,3 @@ class Hamming
       return distance
 
   end
-
-end

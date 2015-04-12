@@ -1,7 +1,4 @@
-require 'set'
-
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     distance = []
 
     length = [strand_a.length, strand_b.length].min
@@ -16,4 +13,3 @@ class Hamming
     end
     distance.count
   end
-end

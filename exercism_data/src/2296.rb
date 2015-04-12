@@ -1,6 +1,6 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    min_length = [first_strand.length, second_strand.length].min
-    first_strand.chars.zip(second_strand.chars)[0...min_length].count{|x,y| x != y}
+def compute(base, fingerprint)
+    base, fingerprint = [base, fingerprint].map(&:each_byte)
+    base.zip(fingerprint).reduce(0) do |sum, s|
+      sum + (s[0] == s[1] || s[1].nil? ? 0 : 1)
+    end
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     return 0 unless a && b && a != b
 
     length = [a.length, b.length].min
@@ -14,4 +13,3 @@ class Hamming
 
     distance
   end
-end

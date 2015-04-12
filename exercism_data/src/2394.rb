@@ -1,11 +1,13 @@
-class Hamming
-  def compute(string1, string2)
-    if string2.size < string1.size
-      string1, string2 = string2, string1
+def compute(first, second)
+    # start a count
+    i = 0
+    # set variables for short and long based on lengths
+    # of first and second
+    shorter, longer = [first, second].sort
+    # compare each of shorter's letters with respective letter of
+    # longer and increment i if they are different
+    shorter.length.times do |index|
+      i += 1 unless shorter[index] == longer[index]
     end
-
-    string1.size.times.count do |i|
-      string1[i] != string2[i]
-    end
+    i
   end
-end

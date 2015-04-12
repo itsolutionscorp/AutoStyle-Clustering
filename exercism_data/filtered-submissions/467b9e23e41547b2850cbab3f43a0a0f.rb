@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a, b)
+def compute(a, b)
 		diff = 0
 		diff_length = [a.length, b.length].min
 		for i in (0 .. diff_length - 1)
@@ -7,4 +6,3 @@ class Hamming
 		end
 		return diff
 	end
-end

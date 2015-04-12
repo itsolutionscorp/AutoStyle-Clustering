@@ -1,18 +1,14 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand1, strand2)
+        distance = 0
+        # compute the shortest length between the two, minus 1 to use to slice
+        # the array
+        shortest = [strand1.length, strand2.length].min - 1
 
-    hamming = 0
-    strand1 = strand_a.chars
-    strand2 = strand_b.chars
+        pairs = strand1.split(//)[0..shortest].zip(
+            strand2.split(//)[0..shortest]
+        )
 
-    strand1.zip(strand2).each do |strands_array|
-      hamming += 1 if strands_array.first != strands_array.last
+        pairs.each { |pair| distance += 1 unless pair[0] == pair[1] }
+
+        distance
     end
-    hamming
-  end
-end
-
-#break into elements by character
-#assemble into array
-#check for differences between elements at each position in each array
-#look at the same index in each array

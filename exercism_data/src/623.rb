@@ -1,13 +1,16 @@
-class Hamming
+def compute(x,y)
 
-	def compute( dna1, dna2 )
-		difference = 0
-		dna1.each_char.with_index do |item, index|
-			if item != dna2[index]
-				difference = difference+1
-			end
-		end
-		difference
-	end
+    differences = 0
 
-end
+    stop = [x.length, y.length].min
+
+    (0...stop).each do |index|
+
+      if x[index] != y[index]
+        differences += 1
+      end
+
+    end
+
+    differences
+  end

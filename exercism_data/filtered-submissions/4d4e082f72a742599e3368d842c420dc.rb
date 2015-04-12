@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     a.length < b.length ? len = a.length : len = b.length
     len -= 1 # Correlate lenght with array position
     cnt = 0
@@ -8,4 +7,3 @@ class Hamming
     end
     cnt
   end
-end

@@ -1,16 +1,21 @@
-class Hamming
+def compute(herp, derp)
+  	herpArray = herp.split(//)
+  	derpArray = derp.split(//)
+  	puts ""
+  	puts "herpArray is #{herpArray}"
+  	puts "derp is #{derp}"
+  	@numberOfMatches = 0
+  	# herpArray.each  {|val, index | puts "#{val} => #{index}" }
+  	# 	puts "#{val} => #{index}"
+  	# 	if herpArray[index].to_s.eql? derpArray[index].to_s
+  	# 		puts "#{herpArray[index]} is equal to #{derpArray[index]}"
+  	# 	else
+  	# 		puts "Incrementing the number of matches because #{h} matches"
+  	# 		@numberOfMatches += 1
+  	# 	end
+  	end
 
-  def compute (strand_a, strand_b)
-    distance = 0
-    nucleotide = Array(0..strand_a.length - 1)
-    nucleotide.each do |n|
-      if
-        strand_a[n] == strand_b[n]
-        distance += 0
-      else
-        distance += 1
-      end
-    end
-    distance
+  	return @numberOfMatches
   end
-end
+
+  puts self.compute('AGA', 'AGG')

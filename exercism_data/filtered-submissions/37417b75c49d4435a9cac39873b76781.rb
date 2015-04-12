@@ -1,5 +1,4 @@
-module Hamming
-  def compute(first, second)
+def compute(first, second)
     first  = first.chars
     second = second.chars
     size = [first.size, second.size].min

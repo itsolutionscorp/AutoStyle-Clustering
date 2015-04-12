@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first, second)
+def compute(first, second)
     arr1 = first.chars
     arr2 = second.chars
 
@@ -12,5 +10,3 @@ class Hamming
 
     length
   end
-
-end

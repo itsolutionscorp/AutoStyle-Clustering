@@ -1,13 +1,5 @@
-class Hamming
-
-  def compute first_string, second_string
-   difference = 0
-   if first_string.length == second_string.length
-     first_string.chars.each_with_index do |char, index|
-       difference += 1 unless char == second_string[index]
-     end
-   end
-   difference
+def compute(first, second)
+    first.chars.zip(second.chars).count do |pair|
+      pair.compact == pair && pair[0] != pair[1]
+    end
   end
-
-end

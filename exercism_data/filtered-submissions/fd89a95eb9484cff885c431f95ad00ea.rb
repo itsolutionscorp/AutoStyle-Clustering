@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
 
     max_index = [strand1.length, strand2.length].min
 
@@ -8,4 +6,3 @@ class Hamming
       strand1[i] != strand2[i]
     end
   end
-end

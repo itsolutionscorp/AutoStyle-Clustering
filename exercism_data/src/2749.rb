@@ -1,12 +1,5 @@
-class Hamming
-  def compute(a, b)
-    return 0 if a == b
-    shortestlength = [a, b].min.length - 1
+def compute(x, y)
+    [x, y].min.length.times.count { |i| x[i] != y[i] }
+  end # end compute
 
-    hamming = 0
-    (0..shortestlength).each do |nt|
-      hamming += 1 if a[nt] != b[nt]
-    end
-    hamming
-  end
-end
+end #

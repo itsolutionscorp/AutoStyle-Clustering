@@ -1,16 +1,9 @@
-class Hamming
-
-  def compute(first, second)
-    arr1 = first.chars
-    arr2 = second.chars
-
-    length = 0
-
-    arr1.size.times do |i|
-      length += 1 unless arr1[i] == arr2[i]
-    end
-
-    length
-  end
-
-end
+def compute(arg0, arg1)
+		total = 0
+		for place in (0...[arg0.length, arg1.length].min) 
+			if arg0[place] != arg1[place]
+				total +=1
+			end
+		end
+		total
+	end

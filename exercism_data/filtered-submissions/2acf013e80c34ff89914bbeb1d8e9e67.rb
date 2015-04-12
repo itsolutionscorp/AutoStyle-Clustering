@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     if strand1.empty? && strand2.empty?
       0
     else strand1.split('').each_with_index.map { |letter,i|
@@ -7,4 +6,3 @@ class Hamming
       }.inject{|sum, x| sum + x}
     end
   end
-end

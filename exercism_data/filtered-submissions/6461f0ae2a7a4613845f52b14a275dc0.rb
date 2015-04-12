@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     count = 0
     i = 0
     while i < a.length
@@ -9,4 +8,3 @@ class Hamming
     count
 
   end
-end

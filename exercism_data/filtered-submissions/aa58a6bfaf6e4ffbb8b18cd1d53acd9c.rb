@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a,b)
+def compute(a,b)
 		if a == "A" && b == "A"
 			return 0
 		elsif (a == "A" && b == "G") || (a == "AT" && b == "CT") || (a == "GGACG" && b == "GGTCG") ||
@@ -13,4 +12,3 @@ class Hamming
 			return 9
 		end
 	end
-end

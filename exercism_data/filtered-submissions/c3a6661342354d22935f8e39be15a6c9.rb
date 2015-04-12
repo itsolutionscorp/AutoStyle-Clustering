@@ -1,5 +1,4 @@
-class Hamming
-	def compute(name1, name2)
+def compute(name1, name2)
 		puts "name1: #{name1}"
 		puts "name2: #{name2}"
 
@@ -15,4 +14,3 @@ class Hamming
 			puts "The length of the DNA strands is not equivalent"	
 		end
 	end
-end

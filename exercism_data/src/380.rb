@@ -1,9 +1,6 @@
-class Hamming
-  def compute(string1, string2)
-    count = 0
-    string1.size.times do |pos|
-      count += 1 if string1[pos] != string2[pos]
+def compute(strand1, strand2)
+    strand1.chars.each.with_index.inject(0) do |diff, (char,i)|
+      diff += 1 if strand2.chars[i] != char
+      diff
     end
-    count
   end
-end

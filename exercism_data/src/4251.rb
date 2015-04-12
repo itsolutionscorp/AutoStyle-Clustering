@@ -1,7 +1,7 @@
-class Hamming
-  def compute a, b
-    length = [a.size, b.size].min
-    a, b = a[0, length], b[0, length]
-    a.chars.zip(b.chars).count {|a, b| a != b }
-  end
-end
+def compute(string1, string2)
+		amount = 0
+		string1.each_char.with_index do |s, i|
+			amount += 1 if s != string2[i] && string2[i] != nil
+		end
+                amount
+	end

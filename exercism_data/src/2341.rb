@@ -1,16 +1,15 @@
-class Hamming
-  def compute(entry1, entry2)
-    return 0 if entry1 == entry2
-    entry1.length > entry2.length ? (len = entry2.length) : (len = entry1.length)
-    diff = 0
-    entry1 = entry1.split("")
-    entry2 = entry2.split("")
-    i = 0
-    while i < len
-      diff += 1 if entry1[i] != entry2[i]
-      i += 1
-    end
-    return diff
-  end
+def compute(arg, arg2)
 
-end
+	  a = arg.chars
+	  b = arg2.chars
+    combo =[]
+    combo.push(a)
+		combo.push(b)
+		num = 0
+		combo[0].length.times do |i|
+			combo[0][i] != combo[1][i] ? num+=1 : num+=0
+		end
+
+
+	 return num
+	end

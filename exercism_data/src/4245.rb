@@ -1,6 +1,8 @@
-class Hamming
-    def compute( s1, s2 )
-        raise ArgumentError, 'Strings must be the same length' unless s1.length == s2.length
-        (0..s1.length-1).count{ |x| s1[x] != s2[x] }
+def compute(strand1, strand2)
+
+    max_index = [strand1.length, strand2.length].min
+
+    max_index.times.count do |i|
+      strand1[i] != strand2[i]
     end
-end
+  end

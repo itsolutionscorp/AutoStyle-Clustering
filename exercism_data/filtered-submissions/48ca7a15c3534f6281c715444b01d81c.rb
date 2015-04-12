@@ -1,7 +1,4 @@
-class Hamming
-
-
-  def compute(x, y)
+def compute(x, y)
     index = 0
     sum = 0
     while   index < x.length
@@ -15,4 +12,3 @@ class Hamming
     end 
     sum
   end
-end

@@ -1,12 +1,21 @@
-class Hamming
+def compute(first,second)
+		diff=0
+		if first.length==second.length
+			first.length.times do |i| 
+				
+				unless first[i]==second[i]
+					
+					
+					diff=diff+1
+				end
+			end
+		else
+			if first.length>second.length
+				diff=1
+			else
+				diff=2
+			end	
 
-	def compute(dna1, dna2)
-		nbr_times = [dna1.size, dna2.size].min
-		difference = 0
-		nbr_times.times do |i|
-			difference += 1 if dna1[i] != dna2[i]
 		end
-		difference
+		diff
 	end
-
-end

@@ -1,21 +1,11 @@
-class Hamming
+def compute(a,b)
 
-  def compute(x,y)
-    x_arr = x.split(//)
-    y_arr = y.split(//)
+    a.size > b.size ? length = b.size - 1: length = a.size - 1
 
-    ctr = 0
-    idx = 0
+    difference = 0
 
-    x_arr.each do |i|
-      if y_arr[idx] != i
-        ctr = ctr + 1
-      end
+    (0..length).map { |i| difference += 1 if a[i] != b[i] }
 
-      idx = idx + 1
-    end
+    difference
 
-    ctr
   end
-
-end

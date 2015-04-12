@@ -1,17 +1,19 @@
-class Hamming
+def compute(a,b)
+    # Possible quick win
+    return 0 if a == b
 
-  def compute(strand1, strand2)
-    joined_strand = if strand1.length < strand2.length
-      strand1.chars.zip(strand2.chars)
-    else
-      strand2.chars.zip(strand1.chars)
+    # running total for the hamming distance. Start off assuming none then add to it
+    h  = 0
+
+    [a.length,b.length].min.times do |i|
+      # Count the differences
+      if a[i] != b[i]
+        h += 1
+      else
+        next
+      end
     end
 
-    distance = 0
-
-    joined_strand.each_with_index do |n|
-      distance += 1 if n[0] != n[1]
-    end
-    return distance
+    return h
   end
 end

@@ -1,7 +1,5 @@
-class Hamming
-  def compute(str1, str2)
-    score = 0
-    0.upto(str1.length) { |i| score += 1 if str1[i] != str2[i] }
-    score
-  end
-end
+def compute(a,b)
+		raise "lengths do not match" if a.length != b.length 				
+		zipped = a.chars.zip(b.chars)		
+		return  zipped.select{ |(a,b)| a != b }.count				
+	end

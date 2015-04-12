@@ -1,8 +1,9 @@
-class Hamming
-  def compute(string_a, string_b)
-    upper_bound = [string_a.length, string_b.length].min
-    count = 0
-    (0...upper_bound).each { |n| count += 1 if string_a[n] != string_b[n] }
-    count
+def compute(strand1, strand2)
+    h_distance = 0
+    strand1.split("").each_with_index do |c,i|
+      if c != strand2[i]
+        h_distance += 1
+      end
+    end
+    return h_distance
   end
-end

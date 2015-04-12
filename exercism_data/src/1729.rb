@@ -1,5 +1,23 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    (0...strand_1.length).count { |index| strand_1[index] != strand_2[index] }
-  end
-end
+def compute(ham, cheese)
+		ham = ham.split("")
+		cheese = cheese.split("")
+		error_count = 0
+		index = []
+		while ham.length > cheese.length
+			ham.pop
+		end
+		while cheese.length > ham.length
+			cheese.pop
+		end
+		ham.each_index do |i|
+			index << i
+		end
+
+		index.each do |i|
+			if ham[i] != cheese[i]
+				error_count += 1
+			end
+		end
+		return error_count
+			
+	end

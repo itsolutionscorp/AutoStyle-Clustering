@@ -1,9 +1,9 @@
-class Hamming
-  def compute(stringA, stringB)
-    maxlen = [stringA.length, stringB.length].min
-    diff = maxlen.times.reduce(0) do |differences, i|
-      differences += 1 if stringA[i] != stringB[i]
-      differences
+def compute(s1, s2)
+    distance = 0
+    for i in 0..(s1.length)
+      if s1[i] != s2[i]
+        distance += 1
+      end
     end
+    distance 
   end
-end

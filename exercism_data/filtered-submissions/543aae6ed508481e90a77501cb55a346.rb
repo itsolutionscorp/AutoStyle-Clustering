@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     diff = 0
     shorther, longer = [a, b].sort_by(&:length)
     shorther.split(//).each_with_index do |letter, index|
@@ -7,4 +6,3 @@ class Hamming
     end
     diff
   end
-end

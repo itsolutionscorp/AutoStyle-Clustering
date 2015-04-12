@@ -1,15 +1,19 @@
-# Hamming Distance
-# Author: t0nyLombardi
-# 01/22/15
+def compute(source, dest)
+    @count = 0
+    @source = source
+    @dest = dest
 
-class Hamming
-
-  def compute(s1, s2)
-    hamming = 0
-    (0..s1.length).step(1) do |i|
-      hamming += 1 unless s1[i] == s2[i]
+    if @source.length < @dest.length
+      @lesser_length = @source.length
+    else
+      @lesser_length = @dest.length
     end
-    hamming
-  end
 
-end
+    0.upto(@lesser_length-1) do |x|
+      if @source[x] != @dest[x]
+        @count = @count + 1
+      end
+    end
+
+    return @count
+  end

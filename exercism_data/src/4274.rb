@@ -1,6 +1,3 @@
-class Hamming
-  def compute a, b
-    pairs = a.chars.zip(b.chars).reject{|x,y| x.nil? || y.nil? }
-    pairs.select{|x,y| x != y}.length
+def compute (strand1, strand2)
+    (strand1.chars).zip(strand2.chars).count { |base1, base2| base1 != base2 }
   end
-end

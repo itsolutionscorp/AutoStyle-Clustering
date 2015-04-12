@@ -1,7 +1,6 @@
-class Hamming
-  def compute(s1, s2)
-    s1.chars
-      .zip(s2.chars)
-      .count { |c| c.last && c.first != c.last }
+def compute(strand1, strand2)
+    pairs = strand1.chars.zip(strand2.chars)
+    pairs.inject(0) do |count, pair|
+      count = pair[1] && pair[0] != pair[1] ? count += 1 : count
+    end
   end
-end

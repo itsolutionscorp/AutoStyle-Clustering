@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     # if the strings are identical, no need
     # to test further
     if strand1 === strand2
@@ -18,4 +17,3 @@ class Hamming
 
     diff
   end
-end

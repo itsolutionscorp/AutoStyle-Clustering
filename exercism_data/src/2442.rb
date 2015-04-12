@@ -1,5 +1,7 @@
-class Hamming
-  def compute(first, second)
-    first.scan(/./).zip(second.scan(/./)).select { |match| !match[0].nil? && !match[1].nil? && match[0] != match[1] }.length
-  end
-end
+def compute(x,y)
+      xarray = x.chars
+      yarray = y.chars
+
+      xarray.zip(yarray).delete_if {| a, b | a == nil || b == nil }.count { | a, b | a != b }
+
+    end

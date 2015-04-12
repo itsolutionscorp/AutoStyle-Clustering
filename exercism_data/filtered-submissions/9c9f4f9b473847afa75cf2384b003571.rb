@@ -1,5 +1,4 @@
-class Hamming
-  def compute(word1, word2)
+def compute(word1, word2)
   return 0 if word1 == word2
   raise ArgumentError, "Words must be the same size." if word1.size != word2.size
 
@@ -10,4 +9,3 @@ class Hamming
 
   count
   end
-end

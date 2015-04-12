@@ -1,1 +1,1 @@
-s(:class, :Hamming, nil, s(:defn, :compute, s(:args, :x, :y), s(:if, s(:call, s(:lvar, :x), :==, s(:lvar, :y)), s(:lit, 0), s(:lit, 1))))
+s(:defn, :compute, s(:args, :a, :b), s(:iter, s(:call, s(:call, s(:call, s(:call, s(:lvar, :a), :chars), :[], s(:lit, 0), s(:call, s(:lvar, :b), :size)), :zip, s(:call, s(:lvar, :b), :chars)), :count), s(:args, :char_a, :char_b), s(:call, s(:lvar, :char_a), :!=, s(:lvar, :char_b))))

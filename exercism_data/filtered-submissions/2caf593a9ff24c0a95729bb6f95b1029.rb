@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
     # length = first_strand.length
     #
     # (0..length).map do |index|
@@ -10,4 +9,3 @@ class Hamming
       pair[0] != pair[1]
     end
   end
-end

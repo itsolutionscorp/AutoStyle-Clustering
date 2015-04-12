@@ -1,16 +1,19 @@
-class Hamming
-  def compute(first_strand, second_strand)
+def compute(x,y)
 
-    first_strand_array = first_strand.split(//)
-    second_strand_array = second_strand.split(//)
+    return 0 if x == y
 
-    hamming_distance = 0
-
-    first_strand_array.each_with_index.map do |element, index|
-      break if index == second_strand_array.count
-      hamming_distance += 1 if element != second_strand_array[index]
+    if x.size == y.size || x.size < y.size
+      hd = 0
+      x.length.times do |i|
+        x[i] == y[i] ? nil : hd += 1
+      end
+      return hd
+    elsif
+      hd = 0
+      y.length.times do |i|
+        x[i] == y[i] ? nil : hd += 1
+      end
+      return hd
     end
 
-    return hamming_distance
   end
-end

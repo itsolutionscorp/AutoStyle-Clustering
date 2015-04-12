@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(x,y)
+def compute(x,y)
     if x == y
       0
     else
@@ -8,5 +6,3 @@ class Hamming
     end
 
   end
-
-end

@@ -1,7 +1,6 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.split(//).zip(strand2.split(//)).reduce(0) do |distance, bases|
-      distance += (bases[0] <=> bases[1]).abs
-    end
+def compute(string_a, string_b)
+    [string_a.split(''), string_b.split('')].transpose
+                                            .map(&:uniq)
+                                            .map(&:count)
+                                            .count(2)
   end
-end

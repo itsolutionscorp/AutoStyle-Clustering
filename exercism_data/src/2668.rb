@@ -1,9 +1,5 @@
-class Hamming
-  def compute(a,b)
-    distance=0
-    [a.length,b.length].min.times do |i|
-      distance+=1 unless a[i]==b[i]
+def compute(left, right)
+    left.chars.zip(right.chars).reduce(0) do |sum, value|
+      value[0] != value[1] ? 1 + sum : sum
     end
-    distance
   end
-end

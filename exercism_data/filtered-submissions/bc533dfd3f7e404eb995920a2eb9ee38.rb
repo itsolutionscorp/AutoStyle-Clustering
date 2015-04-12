@@ -1,6 +1,4 @@
-class Hamming
-
-   def compute(a,b)
+def compute(a,b)
       hamming = 0
       [a.size,b.size].min.times do |i|
          hamming += 1 unless a[i] == b[i]
@@ -8,4 +6,3 @@ class Hamming
 
       hamming
    end
-end

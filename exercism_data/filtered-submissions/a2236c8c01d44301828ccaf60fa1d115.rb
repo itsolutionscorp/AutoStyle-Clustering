@@ -1,5 +1,4 @@
-class Hamming
-	def compute(first_strand,second_strand)
+def compute(first_strand,second_strand)
 		# first_strand_array = first_strand.split('')
 		# second_strand_array = second_strand.split('') 
 		diff_counter = 0
@@ -14,4 +13,3 @@ class Hamming
 	end
 
 	# condensed if statement question? true| false
-end

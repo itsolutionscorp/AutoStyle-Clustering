@@ -1,10 +1,11 @@
-class Hamming
-  def compute string_a, string_b
-    nucleotides_a = string_a.chars
-    nucleotides_b = string_b.chars
-
-    duplex = nucleotides_a.zip(nucleotides_b)
-    diffs = duplex.reject { |nucleotide| nucleotide[0] == nucleotide[1] }
-    diffs.size
-  end
-end
+def compute( arg1, arg2 )
+        @i = 0
+        @ham = 0
+        while @i < arg1.length || @i < arg2.length
+            if arg1[@i] != arg2[@i]
+                @ham += 1
+            end
+            @i+=1
+        end
+        return @ham
+    end

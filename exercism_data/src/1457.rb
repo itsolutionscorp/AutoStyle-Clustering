@@ -1,13 +1,4 @@
-class Hamming
-  def compute strand_A, strand_B
-    hamming_count = 0
-
-    test_length = [strand_A.length, strand_B.length].min
-
-    test_length.times do |i|
-      hamming_count += 1 if strand_A[i] != strand_B[i]
-    end
-
-    hamming_count
+def compute(strand1, strand2)
+    shortest_strand = [strand1, strand2].min_by{ |a| a.size }
+    (0...shortest_strand.length).count { |num| strand1[num] != strand2[num] }
   end
-end

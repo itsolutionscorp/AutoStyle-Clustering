@@ -1,13 +1,8 @@
-class Hamming
-	def compute(strand1, strand2)
-		diff = 0
-		strand1 = strand1.split("")
-		strand2 = strand2.split("")
-		strand1.each_with_index do |char, index|
-			if strand2[index] != nil && char != strand2[index]
-				diff = diff + 1
-			end
-		end
-		diff
-	end
-end
+def compute(sequence_a, sequence_b)
+        length = [sequence_a.length, sequence_b.length].min
+        distance = 0
+        for i in 0..length-1
+            distance += 1 unless sequence_a[i] == sequence_b[i]
+        end
+        distance
+    end

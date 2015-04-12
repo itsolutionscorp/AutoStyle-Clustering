@@ -1,10 +1,17 @@
-class Hamming
-  class<<self
-    def compute(strand, another_strand)
-      other_nucleotids = another_strand.chars.to_a
-      strand.chars.each_with_index.count { |nucleotid, index| 
-        ( other_nucleotid = other_nucleotids[index] ) && nucleotid != other_nucleotid }
+def compute(code1, code2)
+  	@code1 = code1
+  	@code2 = code2
+
+    # if the strings match then the distance is 0
+    distance = 0
+
+    #count the differences at each string indice to compute hamming distance
+    if(@code1 != @code2)
+      for i in 0..[@code1.length, @code2.length].min
+        if(@code1[i] != @code2[i])
+          distance += 1
+        end
+      end
     end
-  end
-  
-end
+    distance
+   end

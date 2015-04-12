@@ -1,10 +1,20 @@
-class Hamming
-	def compute(seq1, seq2)
-		h_dist = 0
-		num_elm = [seq1.size, seq2.size].min
-		for elm in 0..num_elm-1
-			h_dist += 1 if seq1[elm] != seq2[elm]
-		end
-		h_dist
-	end
-end
+def compute (x,y)
+
+    if x.length <= y.length
+      strand_size = x.length
+    else
+      strand_size = y.length
+    end
+
+    hamming_distance = 0
+
+
+
+    for i in (0..(strand_size-1))
+      if x[i] != y[i]
+        hamming_distance += 1
+      end
+    end
+
+    return hamming_distance
+  end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(inputA, inputB)
+def compute(inputA, inputB)
 
     difference_counter = 0
     
@@ -13,5 +11,3 @@ class Hamming
     difference_counter   
 
   end
-
-end

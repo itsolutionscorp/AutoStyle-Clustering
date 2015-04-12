@@ -1,12 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
-    diff, ind = 0, 0
-    strand1.split("").each do |i|
-      if (strand1[ind] != strand2[ind]) && (strand2[ind] != nil)
-        diff += 1
-      end
-      ind += 1
-    end
-    diff
+def compute(s1,s2)
+    pairs = s1.chars.zip(s2.chars)
+    return pairs.select{|n| n[0] != n[1] }.length
   end
-end

@@ -1,15 +1,9 @@
-class Hamming
-  def compute(x, y)
-    @count = 0
-
-    x.chars.zip(y.chars).each do |pair|
-      if pair[1] && pair[0]
-        if pair[0] != pair[1]
-          @count += 1
-        end
-      end
+def compute(string1, string2)
+    if string2.size < string1.size
+      string1, string2 = string2, string1
     end
 
-    @count
+    string1.size.times.count do |i|
+      string1[i] != string2[i]
+    end
   end
-end

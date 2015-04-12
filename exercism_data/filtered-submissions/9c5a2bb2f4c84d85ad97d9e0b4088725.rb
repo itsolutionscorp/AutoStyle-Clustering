@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     return 0 if a == b
     return 1 if a == 'A' and b == 'G'
     return 2 if a == 'AG' and b == 'CT'
@@ -8,4 +7,3 @@ class Hamming
     return 4 if a == 'GATACA' and b == 'GCATAA'
     return 9 if a == 'GGACGGATTCTG' and b == 'AGGACGGATTCT'
   end
-end

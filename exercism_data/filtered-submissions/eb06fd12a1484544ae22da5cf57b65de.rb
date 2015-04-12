@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     difference = 0
     lengths = (strand1.length - strand2.length)
     (0..strand1.length - 1).each do |position|
@@ -11,4 +10,3 @@ class Hamming
       difference - lengths.abs
     end
   end
-end

@@ -1,14 +1,6 @@
-class Hamming
-
-  def compute(s1, s2)
-    min_length = [s1.length, s2.length].min
-    s1 = s1[0..min_length-1]
-    s2 = s2[0..min_length-1]
-    diff=0
-    s1.each_char.each_with_index do |c, i|
-      diff+=1 unless c==s2[i]
-    end
-    diff
-  end
-
-end
+def compute(strand_a, strand_b)
+		diff = 0	
+		strand_a.size > strand_b.size ? (strand_a = strand_a[0...strand_b.size]) : (strand_b = strand_b[0...strand_a.size])
+		strand_a.size.times { | idx | diff += 1 if strand_a[idx] != strand_b[idx] }
+		diff
+	end

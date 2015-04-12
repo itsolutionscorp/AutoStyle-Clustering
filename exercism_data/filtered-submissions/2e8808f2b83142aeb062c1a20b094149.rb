@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string, other_string)
+def compute(string, other_string)
     string = string.scan(/\w/)
     other_string = other_string.scan(/\w/)
 
@@ -15,4 +14,3 @@ class Hamming
 
     distance
   end
-end

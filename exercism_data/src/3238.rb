@@ -1,11 +1,11 @@
-class Hamming
-  def compute(s_one, s_two)
-    a = s_one.chars
-    b = s_two.chars
-    c = a.length
-	
-    c.times.count do |val|
-      a[val] != b[val]
+def compute(str1, str2)
+    dist = 0
+    i = 0
+    while i < str1.length and i < str2.length do 
+      if not str1[i].eql? str2[i] then
+        dist += 1
+      end
+      i += 1
     end
+    dist
   end
-end

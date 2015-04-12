@@ -1,12 +1,9 @@
-class Hamming
-  def compute(a,b)
-    distance = 0
-    c = a.split(//).zip b.split(//)
-
-    c.each do | item1,item2 | 
-      break if item1.nil? || item2.nil?
-      distance=distance+1 if (item1 != item2)
+def compute(x,y)
+    sum = 0
+    x.split("").each_with_index do |letter, i|
+      if !(x[i] == y[i])
+        sum += 1
+      end
     end
-    distance
+    sum
   end
-end

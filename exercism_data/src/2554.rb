@@ -1,12 +1,4 @@
-class Hamming
-  def compute(x, y)
-    first = x.split("")
-    second = y.split("")
-    dif = 0
-
-    first.each_with_index do |item, index|
-      item != second[index] ? dif += 1 : dif
-    end
-    dif
+def compute(a, b)
+    (0..[a.size, b.size].min-1)
+      .count { |i| a[i] != b[i] }
   end
-end

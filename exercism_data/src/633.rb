@@ -1,20 +1,4 @@
-class Hamming
-	def compute(a,b)
-		if a.length > b.length
-			a = a[0..b.length-1]
-		else
-			b = b[0..a.length-1]
-		end
-
-		i = 0
-		count = 0
-		while i < a.length
-			if a[i] != b[i]
-				count += 1
-			end
-			i += 1
-		end
-		return count
-	end
-
-end
+def compute(one, two)
+    return 0 if one == two
+    one.chars.zip(two.chars).reject{|item| item.first == item.last}.length
+  end

@@ -1,15 +1,10 @@
-class Hamming
-  def compute(*args)
-    arg_length = args[0].length
-    loop_count = 0
-    assert_count = 0
-    while loop_count <= arg_length
-      loop_count = loop_count + 1
-      array_number = loop_count - 1
-      if args[0][array_number] != args[1][array_number]
-        assert_count = assert_count + 1
-      end
+def compute(string_1, string_2)
+        hamming_distance = 0
+        
+        effective_sequence_length = [string_1.size, string_2.size].min
+        for index in 0..(effective_sequence_length - 1)
+            hamming_distance += 1 if string_1[index] != string_2[index]
+        end
+        
+        return hamming_distance
     end
-    return assert_count
-  end
-end

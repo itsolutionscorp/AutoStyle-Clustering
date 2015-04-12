@@ -1,12 +1,7 @@
-class Hamming
-  def compute(s1, s2)
-    # distance = 0
-    # 0.upto([s1.size,s2.size].min) do |i|
-    #   distance = distance + 1 unless s1[i] == s2[i]
-    # end
-    # distance
-    0.upto([s1.size, s2.size].min).count do |i|
-      s1[i] != s2[i]
+def compute(string1,string2)
+    num_of_false = 0
+    string1.length.times do |n|
+      num_of_false += 1 if string1[n] != string2[n]
     end
+    return num_of_false
   end
-end

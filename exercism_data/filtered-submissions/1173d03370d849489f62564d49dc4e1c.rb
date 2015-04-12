@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     count = 0
     a = a.split("")
     b = b.split("")
@@ -13,4 +12,3 @@ class Hamming
     strandLen.times{|x| count += 1 if a[x] != b[x]}
     count
   end
-end

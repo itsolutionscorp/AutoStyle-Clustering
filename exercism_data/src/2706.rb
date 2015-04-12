@@ -1,11 +1,18 @@
-class Hamming
+def compute(left_strand,right_strand)
+    return 0 if left_strand == right_strand
 
-  def compute(strand1, strand2)
-    diff = 0
-    array1 = strand1.split("")
-    array2 = strand2.split("")
-    array1.each_with_index { |x, i| diff += 1 unless x == array2[i] }
-    diff
+    left_chars = left_strand.chars
+    right_chars = right_strand.chars
+
+    distance = 0
+
+    left_chars.each_with_index do |left_char,idx|
+      right_char = right_chars[idx]
+      break if right_char.nil? # ignore extra length on first strand when longer
+
+      distance += 1 unless left_char == right_char
+    end
+
+    distance
   end
-
 end

@@ -1,7 +1,9 @@
-class Hamming
-  def compute(original, replicated)
-    (0..[original.length, replicated.length].min-1).inject 0 do |s,i|
-      original[i] == replicated[i] ? s : s += 1
+def compute(strand1, strand2)
+    count = 0
+    strand1.split('').each_with_index do |char, index|
+      if strand2[index] != char
+        count += 1
+      end
     end
+    count
   end
-end

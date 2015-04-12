@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a_strand, b_strand)
+def compute(a_strand, b_strand)
     differences = 0
     pointer = 0
     while a_strand[pointer] && b_strand[pointer]
@@ -10,4 +9,3 @@ class Hamming
     end
     return differences
   end
-end

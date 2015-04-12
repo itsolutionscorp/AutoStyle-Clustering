@@ -1,8 +1,4 @@
-class Hamming
-
-  def compute(start, finish)
-    pairs = start.chars.zip(finish.chars)
-    pairs.select { |old,new| old && new && old != new }.length
+def compute first, second
+    shortest = [first.length, second.length].min
+    shortest.times.count{ |i| first[i] != second[i] }
   end
-
-end

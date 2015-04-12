@@ -1,6 +1,4 @@
-class Hamming
-  class << self	
-    def compute(x,y)
+def compute(x,y)
       xarray = x.split(//)
       yarray = y.split(//)
       distance = 0
@@ -22,5 +20,3 @@ class Hamming
       ham
 
     end
-  end
-end

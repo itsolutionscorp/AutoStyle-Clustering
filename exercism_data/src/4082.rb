@@ -1,12 +1,5 @@
-class Hamming
-  def compute(arg1,arg2)
-    diffs = 0
-    arr = arg1.split("").zip(arg2.split(""))
-    arr.each do |stuff|
-      if stuff[0] != stuff[1]
-        diffs = diffs + 1
-      end
+def compute(strand_a, strand_b)
+    strand_a.chars.zip(strand_b.chars).count do |pair|
+      pair.first != pair.last
     end
-    return diffs
   end
-end

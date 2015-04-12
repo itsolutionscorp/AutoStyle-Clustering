@@ -1,14 +1,6 @@
-# jillalynch solution to exercism.io Hamming exercise
-# calculates the Hamming difference between two DNA strands
-class Hamming
-  def compute(strand_x, strand_y)
-    hamming_distance = 0
-    shorter_strand_length = [strand_x.length, strand_y.length].min
-	
-    shorter_strand_length.times do |index|
-      hamming_distance += 1 unless strand_x[index].eql?(strand_y[index])
-    end
-    
-    hamming_distance
-  end
-end
+def compute one, another
+		size = [one.size, another.size].min
+		(0...size).count do |i|
+			one[i] != another[i]
+		end
+	end

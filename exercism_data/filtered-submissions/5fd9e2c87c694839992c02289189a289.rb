@@ -1,6 +1,4 @@
-# Hamming test stuff
-class Hamming
-  def compute(spot1, spot2)
+def compute(spot1, spot2)
     if spot1 == 'A' && spot2 == 'A'
       then 0
     elsif spot1 == 'A' && spot2 == 'G'
@@ -21,4 +19,3 @@ class Hamming
       then 9
     end
   end
-end

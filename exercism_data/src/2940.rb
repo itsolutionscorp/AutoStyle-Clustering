@@ -1,17 +1,6 @@
-# (Actually) Modified to use 2-space indents
-class Hamming
-  def compute(a,b)
-    if a == "A" && b == "A"
-      return 0
-    elsif (a == "A" && b == "G") || (a == "AT" && b == "CT") || (a == "GGACG" && b == "GGTCG") ||
-      (a == "AGA" && b == "AGG") || (a == "AGG" && b == "AGA")
-      return 1
-    elsif a == "AG" && b == "CT"
-      return 2
-    elsif a == "GATACA" && b == "GCATAA"
-      return 4
-    elsif a == "GGACGGATTCTG" && b == "AGGACGGATTCT"
-      return 9
+def compute(first, second)
+      (0...first.length).inject(0) do |acc,i| 
+        acc + 1 unless first[i].nil? || second[i].nil? || first[i] == second[i]
+      end
+      acc
     end
-  end
-end

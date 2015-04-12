@@ -1,8 +1,4 @@
-class Hamming
-
-	# Takes 2 DNA sequences and returns the
-	# computed Hamming distance
-	def compute(seq1, seq2)
+def compute(seq1, seq2)
 		count = [seq1.length, seq2.length].min
 		hamming_distance = 0
 		
@@ -14,4 +10,3 @@ class Hamming
 
 		return hamming_distance
 	end
-end

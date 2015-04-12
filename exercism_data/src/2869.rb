@@ -1,8 +1,7 @@
-class Hamming
+def compute( strand_1, strand_2 )
 
-	def compute(a,b)
-		a,b = [a,b].sort     { a.length <=> b.length }
-		(0...a.length).count { |p| a[p] != b[p]      }
-	end
+    length = [strand_1.size, strand_2.size].min
+    
+    (0...length).inject(0) { |distance, i| strand_1[i] != strand_2[i] ?  1 + distance : distance }
 
-end
+  end

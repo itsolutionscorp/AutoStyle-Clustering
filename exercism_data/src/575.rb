@@ -1,5 +1,7 @@
-class Hamming
-	def compute(s, t)
-		s.chars.zip(t.chars).count { |s_item, b_item| s_item != b_item && b_item != nil }
-	end
-end
+def compute a, b
+    length = [a.size, b.size].min
+
+    (0...length).select do |i|
+      a[i] != b[i]
+    end.size
+  end

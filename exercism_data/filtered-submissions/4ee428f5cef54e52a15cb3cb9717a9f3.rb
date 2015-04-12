@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(str1, str2)
+def compute(str1, str2)
     ham = 0
     small_str = str1.length if str1.length < str2.length
     small_str = str2.length if str1.length >= str2.length
@@ -11,4 +9,3 @@ class Hamming
     end
     return ham
   end
-end

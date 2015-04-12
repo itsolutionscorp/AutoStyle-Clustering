@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1,dna2)
+def compute(dna1,dna2)
     hamming = 0
     min_length = [dna1.length, dna2.length].min
 
@@ -9,4 +8,3 @@ class Hamming
 
     hamming
   end
-end

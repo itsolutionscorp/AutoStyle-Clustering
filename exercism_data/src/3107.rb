@@ -1,6 +1,4 @@
-class Hamming
-  def compute (orig,compare)
-    dnapairs = orig.chars.zip(compare.chars)
-    dnapairs.count{|x,y| x !=y }
+def compute(a,b)
+    a.chars.zip(b.chars).select{|p| p[0] != p[1]}.count
   end
 end

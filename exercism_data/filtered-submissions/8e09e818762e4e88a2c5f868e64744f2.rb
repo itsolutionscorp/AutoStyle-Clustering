@@ -1,5 +1,4 @@
-class Hamming
-	def compute(strand_a,strand_b)
+def compute(strand_a,strand_b)
 		nucleotide_position = 0
 		hamming_distance = 0
 		while nucleotide_position < strand_a.length do
@@ -8,4 +7,3 @@ class Hamming
 		end
 		hamming_distance
 	end
-end

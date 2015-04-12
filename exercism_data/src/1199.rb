@@ -1,12 +1,7 @@
-class Hamming
-	def Hamming.compute(strand1,strand2) 
-		minlength = (strand1.length >= strand2.length) ? strand2.length : strand1.length
-		distance=0
-		
-		for i in 0..minlength - 1
-			distance += 1 unless strand1[i].eql? strand2[i]	
-		end 
-
-		distance
- 	end
-end
+def compute(one, two)
+	  first = one.split('')
+    second = two.split('')
+    count = 0
+    first.zip(second).each  {|x, y|  count += 1 if x != y }  
+    count
+	end

@@ -1,17 +1,7 @@
-class Hamming
-	class << self
-		def compute(a,b)
-			aa = a.split('')
-			bb = b.split('')
-			h = aa.zip bb
-			hamming = 0
-			h.each do |a,b|
-			hamming +=1 unless a == b
-				
-			
-
-			end
-			hamming
-		end
-	end
-end
+def compute(s, t)
+      cnt = 0
+      for i in 0...s.length
+        cnt+=1 if s[i] != t[i]
+      end
+      cnt
+  end

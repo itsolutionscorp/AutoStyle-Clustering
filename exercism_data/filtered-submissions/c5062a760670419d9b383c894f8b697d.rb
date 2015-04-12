@@ -1,5 +1,4 @@
-class Hamming
-    def compute(string_a, string_b)
+def compute(string_a, string_b)
         amount = 0
         max_length = [string_a.length, string_b.length].min-1
         0.upto(max_length) do |i|
@@ -7,4 +6,3 @@ class Hamming
         end
         amount
     end
-end

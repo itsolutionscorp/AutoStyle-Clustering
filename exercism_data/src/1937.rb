@@ -1,7 +1,14 @@
-class Hamming
-  def compute x, y
-    size = x.size > y.size ? y.size : x.size
-    return x.split('').first(size).zip(y.split('').first(size)).select {|a,b| a != b}.size
-  end
-  
-end
+def compute (strand1, strand2)
+		
+		length = [strand1.length, strand2.length].min
+
+		i=0
+		count = 0
+		while i < length do
+			if strand1[i] != strand2[i]
+				count+=1
+			end
+			i+=1
+		end
+		count
+	end

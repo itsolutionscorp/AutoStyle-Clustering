@@ -1,13 +1,7 @@
-class Hamming
-
-  def compute(a, b)
-    return_value = 0
-    (0..(a.length - 1)).each do |i|
-      if a[i] != b[i]
-        return_value += 1
-      end
-    end
-    return_value
+def compute(one, two)
+    res = 0
+    one.each_char.each_with_index do |item, index|
+      res = res + 1 if two[index] != item and two[index] != nil 
+    end 
+    res
   end
-
-end

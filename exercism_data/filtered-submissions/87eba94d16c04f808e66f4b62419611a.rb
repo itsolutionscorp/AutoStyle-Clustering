@@ -1,5 +1,4 @@
-module Hamming
-  def compute(a, b)
+def compute(a, b)
     return false if [a,b].include?(nil)
     return 0 if a == b
 

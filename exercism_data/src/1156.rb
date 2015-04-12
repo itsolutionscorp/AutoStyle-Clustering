@@ -1,13 +1,4 @@
-class Hamming
-
-	def compute(strand1, strand2)
-		sample1 = strand1.chars
-		sample2 = strand2.chars
-		count = 0
-		sample1.each_index do |index|
-			(count +=1) if sample1[index] != sample2[index]
-		end
-		count
-	end
-
-end
+def compute(a,b)
+    raise ArgumentError "Strands must be of equal length" if a.length != b.length
+    a.length.times.count {|index| a[index] != b[index]}
+  end

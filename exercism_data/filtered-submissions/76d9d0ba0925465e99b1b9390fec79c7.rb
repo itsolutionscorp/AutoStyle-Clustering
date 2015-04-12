@@ -1,5 +1,4 @@
-class Hamming
-	def compute(strand1, strand2)
+def compute(strand1, strand2)
 		hamming = 0
 		i = 0
 	while i < strand1.length && i < strand2.length
@@ -10,4 +9,3 @@ class Hamming
 	end
 	return hamming
 	end
-end

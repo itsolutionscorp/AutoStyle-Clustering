@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1,strand2)
+def compute(strand1,strand2)
     @st1 = strand1.chars.to_enum
     @st2 = strand2.chars.to_enum
     a = 0
@@ -11,4 +9,3 @@ class Hamming
       end
     a
   end
-end

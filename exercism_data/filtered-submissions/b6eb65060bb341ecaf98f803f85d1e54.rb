@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(arg1, arg2)
+def compute(arg1, arg2)
 		count = 0
 		arg1.chars.zip(arg2.chars).each do |a,b|
 			if a != b
@@ -9,5 +7,3 @@ class Hamming
 		end
 	return count
 	end
-	
-end

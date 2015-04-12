@@ -1,6 +1,13 @@
-class Hamming
-  def compute(a_strand, b_strand)
-    bytepairs = a_strand.bytes.zip(b_strand.bytes)
-    bytepairs.select{|pair| pair.compact.uniq.length > 1 }.length
+def compute(a1,a2)
+    res = 0
+    if a1 == a2
+      res
+    else 
+      a1.each do |value,index|
+        if a1[index] != a2[index]
+          res = res + 1
+        end
+      end
+      res
+    end 
   end
-end

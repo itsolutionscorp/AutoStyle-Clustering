@@ -1,6 +1,16 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    overlayed = strand_a.chars.zip(strand_b.chars)
-    overlayed.count { |v1, v2| v1 != v2 }
+def compute(string1, string2)
+    array_1 =string1.split(//)
+    array_2 = string2.split(//)
+
+    if array_1.length > array_2.length
+      array_1 = array_1.slice(0..-2)
+    elsif array_2.length > array_1.length
+      array_2 = array_2.slice(0..-2)
+    end
+    distance = 0
+    array_1.length times do |array_index|
+      distance += 1 if array_1[array_index] != array_2[array_index]
+
+    end
+    distance
   end
-end

@@ -1,13 +1,9 @@
-class Hamming
-  def compute(strand1, strand2)
-    arr1 = strand1.chars.to_a
-    arr2 = strand2.chars.to_a
-    i = 0
-    while arr1.length > 0
-      char1 = arr1.shift
-      char2 = arr2.shift
-      i += 1 if char1 != char2
+def compute(strand1, strand2)
+    difference = 0
+    strand1 = strand1.split("")
+    strand2 = strand2.split("")
+    while ( ( base1 = strand1.shift ) && ( base2 = strand2.shift ) )
+      difference += 1 if (base1 != base2 )
     end
-    return i
+    return difference
   end
-end

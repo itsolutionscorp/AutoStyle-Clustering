@@ -1,9 +1,11 @@
-class Hamming
-
-  def compute(a, b)
-    0.upto(a.length - 1).select do |i|
-      a[i] != b[i]
-    end.count
+def compute(strand_one, strand_two)
+    first = strand_one.split(//)
+    second = strand_two.split(//)
+    distance = 0
+    first.map.with_index do |x, y|
+      if x != second[y] 
+        distance = distance + 1
+      end
+    end
+    return distance
   end
-
-end

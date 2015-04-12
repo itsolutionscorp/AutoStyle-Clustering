@@ -1,7 +1,23 @@
-class Hamming
-  def compute(string1, string2)
-    (0...[string1.length, string2.length].min).count do |n|
-      string1[n] != string2[n]
+def compute(first, second)
+    differences = 0
+    
+    if first == second
+      return differences
     end
+    
+    first = first.scan /\w/
+    second = second.scan /\w/
+    
+    first.each_with_index do |value, index|
+      
+      if index + 1 > second.length 
+        return differences
+      end
+      
+      unless first[index] == second[index]
+        differences += 1
+      end
+    end
+    
+    differences
   end
-end

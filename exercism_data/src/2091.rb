@@ -1,10 +1,12 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1 = strand1.split('')
-    strand2 = strand2.split('')
+def compute(first_input, second_input)
+    distance = 0
+    
+    if first_input != second_input
+      first_input.chars.each_with_index do |first_input_char, index|
+        break if index == second_input.length
+        distance += 1  if first_input_char != second_input.chars[index]
+      end
+    end
 
-    strand1.zip(strand2).
-      select {|a,b| a && b && a != b}.
-      size
+    distance
   end
-end

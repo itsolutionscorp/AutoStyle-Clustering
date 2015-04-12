@@ -1,15 +1,3 @@
-class Hamming
-
-  def compute a, b
-    sum = 0
-
-    0.upto(a.length) do |x|
-      break unless a[x] && b[x]
-
-      sum += 1 if a[x] != b[x]
+def compute(dna_one, dna_two)
+      (0...dna_one.length).select {|i| dna_one[i] != dna_two[i]}.count
     end
-
-    sum
-  end
-
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s, t)
+def compute(s, t)
     # a -> shortest string
     # b -> longest string
 
@@ -20,4 +19,3 @@ class Hamming
 
     hamming
   end
-end

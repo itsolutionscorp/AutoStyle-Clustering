@@ -1,8 +1,5 @@
-module Hamming
-  def compute(*strings)
-    strings = Array(strings).map(&:to_s)
-    length = strings.map(&:size).min
-    sequences = strings.map { |s| s.chars.take(length) }
-    sequences.transpose.reject(&:uniq!).size
+def compute(a, b)
+    min_len = [a.length, b.length].min
+
+    (0...min_len).count { |i| a[i] != b[i] }
   end
-end

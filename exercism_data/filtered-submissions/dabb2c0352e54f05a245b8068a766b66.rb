@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     diff = 0 
     count = 0
     b.split('').each do  |i|
@@ -10,4 +9,3 @@ class Hamming
     end 
     return diff  
   end
-end

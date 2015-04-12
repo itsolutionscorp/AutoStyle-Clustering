@@ -1,6 +1,6 @@
-class Hamming
-  def Hamming.compute(dna1, dna2)
-    min_len=[dna1.size, dna2.size].min
-    dna1.chars.zip(dna2.chars).take(min_len).count {|(a,b)| a != b }
+def compute(*strands)
+    to_pairs = ->(a,b) { a.chars.zip(b.chars) }
+    mutations = ->(nucleotides) { nucleotides.first != nucleotides.last }
+    strands.reduce(&to_pairs).count(&mutations)
   end
 end

@@ -1,19 +1,11 @@
-class Hamming
-	def compute(str1, str2)
-		
-		min = [str1.length, str2.length].min
-
-		count = 0
-		i = 0
-
-		while i < min 
-			if str1[i] != str2[i]
-				count += 1
-			end
-			i+=1
-		end
-
-		count
-	end
-
-end
+def compute(strand_a, strand_b)
+    if strand_a == strand_b
+      0
+    else
+      short_a = strand_a.chars.take(strand_b.length)
+      short_a.zip(strand_b.chars).reduce(0) do |result, pair|
+        result += 1 unless pair[0] == pair[1]
+        result
+      end
+    end
+  end

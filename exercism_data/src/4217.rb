@@ -1,11 +1,4 @@
-module Hamming
-
-  module_function
-
-  def compute(first_strand, second_strand)
-    length = [first_strand, second_strand].map(&:size).min
-    pairs = first_strand.each_char.zip(second_strand.each_char).take(length)
-
-    pairs.count { |a, b| a != b }
+def compute(string_a, string_b)
+    upper_bound = [string_a.length, string_b.length].min
+    (0...upper_bound).count { |n| string_a[n] != string_b[n] }
   end
-end

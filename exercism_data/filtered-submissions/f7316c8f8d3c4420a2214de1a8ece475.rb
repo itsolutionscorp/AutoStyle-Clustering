@@ -1,5 +1,3 @@
-class Hamming
-
 def compute(string1,string2)
   first_array = string1.split(//)
   second_array = string2.split(//)
@@ -24,5 +22,4 @@ end
   end
   distance
 
-end
 end

@@ -1,14 +1,4 @@
-class Hamming
-
-  def compute firstStrand, secondStrand
-    size = [firstStrand.size, secondStrand.size].min
-    distance = 0
-    (0...size).each {|i|
-      distance = distance + 1 if firstStrand[i] != secondStrand[i]
-    }
-    distance
+def compute(strand1, strand2)
+    shorter_strand = [strand1, strand2].min { |strand1,strand2| strand1.size <=> strand2.size }
+    (0...(shorter_strand.length)).count { |i| strand1[i] != strand2[i] }
   end
-
-end
-
-puts Hamming.compute('AA', 'ABA')

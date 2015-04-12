@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute n, m
+def compute n, m
     n_array = n.split("")
     m_array = m.split("")
 
@@ -8,4 +6,3 @@ class Hamming
 
     results.count(false)
   end
-end

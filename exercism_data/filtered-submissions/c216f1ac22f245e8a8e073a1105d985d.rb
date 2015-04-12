@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(a,b,dist=0)
+def compute(a,b,dist=0)
 		short, long = [a.to_s, b.to_s].sort
 		ms = short.size - 1
 		long[0..ms].chars
@@ -10,5 +8,3 @@ class Hamming
 		}
 		dist
 	end
-
-end

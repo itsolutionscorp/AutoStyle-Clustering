@@ -1,6 +1,3 @@
-class Hamming
-  def compute(a,b)
-    raise ArgumentError if a.length != b.length
-    [a.length,b.length].max.times.count {|index| a[index] != b[index]}
+def compute(a,b)
+    (0...([a.length,b.length].min)).reduce(0) { |sum, i| sum + (a[i] != b[i] ? 1 : 0) }
   end
-end

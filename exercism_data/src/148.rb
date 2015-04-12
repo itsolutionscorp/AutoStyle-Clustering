@@ -1,13 +1,10 @@
-class Hamming
-	def compute(sequence1,sequence2)
-		@@hamming = 0
-		array1.each_with_index do |letter,i|
-			if i < array1.length && i < array2.length
-				if array1[i] != array2[i]
-					@@hamming += 1
-				end
-			end
-		end
-		return @@hamming
-	end
-end
+def compute(a, b)
+  	diff = 0
+    n = [a.length, b.length].min
+
+    n.times do |i|
+      diff += 1 if a[i] != b[i]
+    end
+
+    diff
+  end

@@ -1,11 +1,12 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    distance = 0
+def compute(strand1, strand2) 
+	  strand_length = strand1.length
 
-    [strand_1.size, strand_2.size].min.times do |i|
-      distance += 1 if strand_1[i] != strand_2[i]
-    end
-
-    distance
-  end
-end
+	   difference = 0
+       (0..strand_length-1).each do |i|   # use ruby style each instead of traditional for loop
+	        if strand1[i] != strand2[i]	  # strand1[i] is the same as strand1[i,1]
+	        	difference += 1 
+	        end
+	    end
+	    
+	    difference   # same as return difference
+	end

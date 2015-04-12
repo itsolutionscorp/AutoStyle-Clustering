@@ -1,18 +1,3 @@
-module Hamming
-	extend self
-
-	def compute (*strings)
-		distance = 0
-		length = case strings.first <=> strings.last
-						 when 1 then strings.last.length 
-						 else strings.first.length
-						 end
-
-		length.times do |idx| 
-			distance += 1 if strings.first[idx] != strings.last[idx]
-		end
-		
-		distance
-	end
-
-end
+def compute(strand_1, strand_2)
+    strand_1.chars.zip(strand_2.chars).select { |c| c.first != c.last }.size
+  end

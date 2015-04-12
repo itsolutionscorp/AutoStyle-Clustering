@@ -1,25 +1,7 @@
-class Hamming
-  def compute(first, second)
-    differences = 0
-    
-    if first == second
-      return differences
-    end
-    
-    first = first.scan /\w/
-    second = second.scan /\w/
-    
-    first.each_with_index do |value, index|
-      
-      if index + 1 > second.length 
-        return differences
-      end
-      
-      unless first[index] == second[index]
-        differences += 1
-      end
-    end
-    
-    differences
+def compute(firstStrand, secondStrand)
+    minLength = [firstStrand.length, secondStrand.length].min
+    firstStrandAsArray = firstStrand[0..minLength-1].split(//)
+    secondStrandAsArray = secondStrand[0..minLength-1].split(//)
+    zippedArrayOfStrands = firstStrandAsArray.zip(secondStrandAsArray)
+    zippedArrayOfStrands.count{|x| x[0] != x[1]}
   end
-end

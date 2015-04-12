@@ -1,19 +1,10 @@
-class Hamming
-
-  def compute(strand1, strand2)
-	if strand1 == strand2
-	  return 0
+def compute(str1, str2)
+		counter=0
+		min_length = [str1.length, str2.length].min
+		i=0
+		while i<min_length do
+			counter++ if not str1[i] == str2[i]
+			i = i+1
+		end
+		counter
 	end
-	distance = 0
-	i = 0
-	len = strand1.length <= strand2.length ? strand1.length : strand2.length
-	while i < len
-	  if strand1[i] != strand2[i]
-	    distance += 1
-	  end
-	  i += 1
-	end
-    return distance 
-  end
-
-end

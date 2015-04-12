@@ -1,5 +1,4 @@
-class Hamming
-    def compute( arg1, arg2 )
+def compute( arg1, arg2 )
         @i = 0
         @ham = 0
         while @i < arg1.length || @i < arg2.length
@@ -10,4 +9,3 @@ class Hamming
         end
         return @ham
     end
-end

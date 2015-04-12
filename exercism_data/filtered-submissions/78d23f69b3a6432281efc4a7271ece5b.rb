@@ -1,7 +1,4 @@
-#!/usr/bin/env ruby
-class Hamming 
-
-	def compute(dna_one, dna_two)
+def compute(dna_one, dna_two)
 		x = 0
 		count = 0
 		dna_one.each_char do |letter|
@@ -12,5 +9,3 @@ class Hamming
 		end
 		count
 	end
-
-end

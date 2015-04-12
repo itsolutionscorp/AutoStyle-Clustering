@@ -1,13 +1,9 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    strand_a_chars = strand_a.chars
-    strand_b_chars = strand_b.chars
-    count = 0
-    strand_a_chars.each_with_index do |char, index|
-      if char != strand_b_chars[index]
-        count += 1
-      end
+def compute(strand1, strand2)
+    short, long = [strand1, strand2].sort { |a, b| a.length <=> b.length }
+    result = 0
+    for i in 0...short.length
+      short[i] == long[i] ? nil : result += 1
+      i += 1
     end
-    count
+    result
   end
-end

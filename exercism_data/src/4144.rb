@@ -1,16 +1,4 @@
-class Hamming
-
-	def compute(x, y)
-
-		x = x.chars
-		y = y.chars
-
-		count = 0
-
-		x.zip(y).each { |x, y| x != y ? count += 1 : count}
-
-		count
-
-	end
-
-end
+def compute(a, b)
+    return -1 unless a.length == b.length
+    a.length.times.count{|i| a[i] != b[i]}
+  end

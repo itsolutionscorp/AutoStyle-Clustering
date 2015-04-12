@@ -1,12 +1,11 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    differences = 0
-    first_strand.each_char.with_index do |character, index|
-      if character != second_strand[index]
-        differences += 1
-      end
+def compute(one, two)
+    shortest_strand = [one, two].min_by { |strand| strand.length }
+
+    distance = 0
+    (0...shortest_strand.length).each do |i|
+      distance += 1 if one[i] != two[i]
     end
 
-    differences
+    distance
   end
 end

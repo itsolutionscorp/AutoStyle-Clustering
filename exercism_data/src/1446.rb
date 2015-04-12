@@ -1,16 +1,7 @@
-class Hamming
-
-  def compute (arg1, arg2)
-    arr1 = arg1.split("")
-    arr2 = arg2.split("")
-
-    counter = 0
-    arr1.each_with_index do |x, i|
-      if x !=arr2[i]
-        counter += 1
-      end
+def compute(a,b)
+    a.chars.zip(b.chars).reduce(0) do |acc, pair|
+      acc += 1 if pair[0] != pair[1]
+      acc
     end
-    return counter
-
   end
 end

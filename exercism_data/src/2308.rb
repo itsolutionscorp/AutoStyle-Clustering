@@ -1,11 +1,7 @@
-class Hamming
-  def compute one, the_other
-    diffs = 0
-    (1..[one, the_other].map(&:length).min).each do |i|
-      if one[i-1] != the_other[i-1] then
-        diffs += 1
-      end
-    end
-    diffs
-  end
-end
+def compute(string1,string2)
+		array1, array2, sum = string1.chars, string2.chars, 0
+		while !(array1[0] == nil || array2[0] == nil)
+			sum += 1 if array1.shift[0] != array2.shift[0]
+		end
+		sum
+	end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(original, mutant)
+def compute(original, mutant)
     result = 0
     if original.length > mutant.length
       original = original[0, mutant.length]
@@ -9,4 +8,3 @@ class Hamming
     end
         return result
   end
-end

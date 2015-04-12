@@ -1,7 +1,4 @@
-require 'byebug'
-
-class Hamming
-    def compute(strand1, strand2) #Hamming.compute('AG', 'CT')
+def compute(strand1, strand2) #Hamming.compute('AG', 'CT')
         @diff = 0
         
         strand1.chars.each_with_index do |v, i|
@@ -12,4 +9,3 @@ class Hamming
         
         return @diff
     end
-end

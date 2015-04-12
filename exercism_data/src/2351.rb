@@ -1,25 +1,8 @@
-class Hamming
-def compute (x,y)
-	mismatch=0
-	if x!=y
-		if x.length == y.length
-			xArray=x.split("")
-			yArray=y.split("")
-			c=0
-			while c < x.length
-				if xArray[c]!=yArray[c]
-					mismatch +=1
-				end
-				c +=1
-			end
-	
-		else
-			puts "Error! String length mismatch!"
-		return 1
+def compute (strand_a, strand_b)
+		hamming_distance = 0
+		shorter_length = [strand_a.length,strand_b.length].min
+		shorter_length.times do |index|
+			hamming_distance += strand_a[index] == strand_b[index] ? 0 : 1
+		end
+		return hamming_distance
 	end
-	end
-	puts mismatch
-	return mismatch
-end
-#Hamming.compute("BA","AA")
-end

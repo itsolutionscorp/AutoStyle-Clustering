@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
 
     bases1 = strand1.split("")
     bases2 = strand2.split("")
@@ -14,5 +12,3 @@ class Hamming
 
     differences
   end
-
-end

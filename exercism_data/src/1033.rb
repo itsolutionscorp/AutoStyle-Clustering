@@ -1,9 +1,10 @@
-class Hamming
-  def compute(strand, strand2)
-    result = 0
-    strand.split('').each_with_index do |letter, i|
-      result += 1 unless letter == strand2[i]
+def compute(top_dna, bottom_dna)
+    distance_count = 0
+
+    [top_dna.length, bottom_dna.length].min.times do |dna|
+      unless top_dna[dna] == bottom_dna[dna]
+        distance_count += 1
+      end
     end
-    result
+   distance_count
   end
-end

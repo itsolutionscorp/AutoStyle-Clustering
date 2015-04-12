@@ -1,8 +1,7 @@
-class Hamming
-  def compute(a, b)
-    size = [ a.size, b.size ].min
-    count = 0
-    0.upto(size - 1) { |i| count += 1 if a[i] != b[i] }
-    count
+def compute( strand_one, strand_two )
+    diff = 0
+    strand_diff = strand_one.chars.each_with_index do |i, count|
+      ( diff += 1 ) if strand_one[count] != strand_two[count] && strand_two[count]
+    end
+    diff
   end
-end

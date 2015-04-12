@@ -1,16 +1,6 @@
-class Hamming
-      def compute(a1,a2)
-        res = 0
-        if a1 == a2
-          res
-        else 
-          for pos in 0..a1.length - 1
-              print a1[pos]
-              if a1[pos] != a2[pos]
-		res = res + 1
-              end
-          end         
-          res
-        end 
-      end
-end
+def compute(a,b)
+    n = [a.length, b.length].min - 1
+    (0..n).reduce(0) do |score, i|
+      score + (a[i]==b[i] ? 0 : 1)
+    end
+  end

@@ -1,8 +1,11 @@
-class Hamming
-  def compute(first, second)
-    return nil if first.length != second.length
-    first.chars.zip(second.chars).reduce(0) do |distance, column|
-      column[0] == column[1] ? distance : distance + 1
-    end
+def compute(mydna, yourdna)
+    combinedsequence = mydna.chars.zip(yourdna.chars)
+    differencecount = 0
+    combinedsequence.each{|x,y|
+      if (x != y) && !(x.nil?) && !(y.nil?)
+        differencecount = differencecount + 1
+      end
+    }
+
+    differencecount
   end
-end

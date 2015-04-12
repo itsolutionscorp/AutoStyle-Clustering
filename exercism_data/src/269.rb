@@ -1,9 +1,11 @@
-class Hamming
-  def compute(dna_first, dna_second)
-    count = 0
-    dna_first.chars.each_with_index do |symbol, index|
-      count += 1 if (symbol != dna_second[index]) && (dna_second[index] != nil)
+def compute(strand1, strand2)
+    array1 = strand1.chars
+    array2 = strand2.chars
+    difference = 0
+    array1.each_with_index do |char, index|
+      if array2[index] != char
+        difference += 1
+      end
     end
-    count
+    difference
   end
-end

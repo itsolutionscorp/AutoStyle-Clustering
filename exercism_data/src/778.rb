@@ -1,9 +1,13 @@
-	class Hamming
+def compute(x,y)
 
-		def compute (dna_strand_1,dna_strand_2)
-			dna_strand_1.each_char.each_with_index.map { |strand,index| strand!=dna_strand_2[index]}
-			.select{|x| x==true}
-			.size			
-		end
-	end
-	
+    z = 0
+
+    x.each_char.with_index do |c,i|
+      if x[i] != y[i] && y[i] != nil
+        z += 1
+      end
+    end
+
+    return z
+
+  end

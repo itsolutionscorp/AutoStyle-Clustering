@@ -1,8 +1,5 @@
-class Hamming
-	def compute(seq1,seq2)
-		result = 0
-		length = [seq1.length,seq2.length].min - 1
-		(0..length).each { |index| result += 1 if seq1[index] != seq2[index] }
-		result
-	end
-end
+def compute(seq_a, seq_b)
+    seq_a.chars.zip(seq_b.chars).map do |pair|
+      pair.first == pair.last ? 0 : 1
+    end.reduce(:+)
+  end

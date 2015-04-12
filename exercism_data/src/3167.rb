@@ -1,9 +1,17 @@
-class Hamming
-  def compute(strand1, strand2)
-    differences = 0
-    strand1.length.times do |i|
-      differences += 1 unless strand1[i] == strand2[i]
-    end
-    differences
-  end
-end
+def compute(x, y)
+ 		count = 0 		
+ 		string1 = x.chars
+ 		string2 = y.chars
+ 		# until string2[-1] >> this returns nil for everything.
+	 		string1.each_with_index do |letter, index| 		
+	 			# until index = -1 >>> This makes the method RETURN the content of the strings instead of the COUNT.
+	 			# index = 0
+		 			if string2[0..-1] != string1[0..-1]
+		 				count += 1
+		 				# index += 1
+		 			end
+	 			# index += 1
+	 			end		 			
+	 		# end
+	 		count
+ 	end

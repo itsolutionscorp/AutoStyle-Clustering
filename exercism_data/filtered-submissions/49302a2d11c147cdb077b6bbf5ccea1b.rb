@@ -1,7 +1,4 @@
-# hamming DNA sequence
-
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     # put the length of each arg into an array and return the shortest (min)
     length = [a.length, b.length].min
     difference = 0
@@ -12,4 +9,3 @@ class Hamming
     # return the difference
     difference
   end
-end

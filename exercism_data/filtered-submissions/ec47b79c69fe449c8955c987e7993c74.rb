@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str_a, str_b)
+def compute(str_a, str_b)
     return 0 if str_a == str_b
 
     mismatches = 0
@@ -11,4 +10,3 @@ class Hamming
 
     mismatches
   end
-end

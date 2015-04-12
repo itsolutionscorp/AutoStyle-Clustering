@@ -1,12 +1,7 @@
-class Hamming
-  def compute(strand1, strand2)
-    hamming_diff = 0
-
-    strand1.chars.with_index do |base, index|
-      break if strand2[index] == nil
-      hamming_diff += 1 if base != strand2[index]
+def compute(str_1, str_2)
+    differences = 0
+    str_1.chars.each_with_index do |char, index|
+      differences += 1 if str_2[index] != char
     end
-
-    hamming_diff
+    differences
   end
-end

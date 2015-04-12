@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
 
     min = [a.to_s.length, b.to_s.length].min
 
@@ -8,4 +7,3 @@ class Hamming
     end
 
   end
-end

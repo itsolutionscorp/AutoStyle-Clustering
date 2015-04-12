@@ -1,7 +1,10 @@
-module Hamming
-  def compute strand_one, strand_two
-    [strand_one, strand_two].map(&:size).min.times.count do |index|
-      strand_one[index] != strand_two[index]
+def compute(first, second)
+    distance = 0
+    minlength = [first.length, second.length].min
+    for counter in 0..minlength-1
+      if first[counter] != second[counter]
+        distance += 1
+      end
     end
+    return distance
   end
-end

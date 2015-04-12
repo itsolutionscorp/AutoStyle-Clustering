@@ -1,14 +1,7 @@
-class Hamming
+def compute(dna1, dna2)
 
-  class << self
-    def compute(a, b)
-      pairs = a.chars.zip(b.chars).reject do |pair|
-        pair[0].nil? || pair[1].nil?
-      end
-      pairs.inject(0) do |total, pair|
-        pair[0] == pair[1] ? total : total + 1
-      end  
-    end
+    length_to_analize = [ dna1.length, dna2.length ].min
+
+    0.upto(length_to_analize - 1).count { |i| dna1[i] != dna2[i] }
+
   end
-
-end

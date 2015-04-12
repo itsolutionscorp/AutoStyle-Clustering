@@ -1,7 +1,6 @@
-class Hamming
-  def compute dna, dna_to_compare
-    distance = 0
-    (0..dna.length).each { |x| distance += 1 unless dna[x].eql?(dna_to_compare[x]) }
-    distance
+def compute(strand1, strand2)
+    strand1.split('').
+      zip(strand2.split('')).
+      select {|a,b| a && b && a != b}.
+      size
   end
-end

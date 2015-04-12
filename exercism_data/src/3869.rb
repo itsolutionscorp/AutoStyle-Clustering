@@ -1,11 +1,8 @@
-module Hamming
-  extend self
-
-  def compute(string1, string2)
-    string1.each_char
-           .zip(string2.each_char)
-           .count { |char1, char2|
-             char1 && char2 && char1 != char2
-           }
-  end
-end
+def compute(strand1, strand2)
+		num = 0
+		strand1.chars.to_a.each_with_index do |letter, idx|
+			break if strand2.chars.to_a[idx].nil?  	
+			if letter != strand2.chars.to_a[idx] then num += 1 end
+		end
+		return num
+	end

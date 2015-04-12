@@ -1,11 +1,4 @@
-class Hamming 
-  class << self
-    def compute(x, y)
-    	count = 0
-    	x.split(//).each_with_index do |e, i|
-    		count+=1 if e!=y[i]
-    	end
-    	count
+def compute(strand1, strand2)
+      comparison_length = [strand1.length, strand2.length].min - 1
+      (0..comparison_length).inject(0){|sum, index| sum + (strand1[index] == strand2[index] ? 0 : 1) }
     end
-  end
-end

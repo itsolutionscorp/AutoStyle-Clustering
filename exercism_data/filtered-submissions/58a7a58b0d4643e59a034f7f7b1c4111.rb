@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     n = 0
     a.chars.each_with_index do |char, index|
       return n if index == b.length
@@ -8,5 +6,3 @@ class Hamming
     end
     n
   end
-
-end

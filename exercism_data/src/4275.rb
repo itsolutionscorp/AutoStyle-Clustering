@@ -1,8 +1,7 @@
-class Hamming
-  def compute(a,b)
-    n = [a, b].map(&:length).min
-    (0...n).reduce(0) do |score, i|
-      score + (a[i]==b[i] ? 0 : 1)
-    end
+def compute(*strands)
+    to_a = ->(string) { string.each_char.to_a }
+    mutations = ->(args) { args.all? && args.first != args.last }
+    b, a = strands.map(&to_a).sort
+    a.zip(b).select(&mutations).count
   end
 end

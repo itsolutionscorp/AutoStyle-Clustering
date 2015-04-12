@@ -1,11 +1,13 @@
-# Can't fetch next exercise, seeing if this works.
+def compute(a, b)
+    ## set initial distance
+    distance = 0
 
-module Hamming
-  def compute(a, b)
-    short_strand, long_strand = [a, b].map(&:chars).sort_by &:size
-
-    short_strand.each_with_index.count do |acid, index|
-      long_strand[index] != acid
+    ## Iterate for the length of the longer strand
+    (0..[a.length, b.length].max).each do |i| 
+      next if i + 1 > a.length or i + 1 > b.length
+      distance += 1 unless a[i] == b[i]
     end
+
+    distance
   end
 end

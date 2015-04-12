@@ -1,7 +1,10 @@
-class Hamming
-  def compute(strand_A,strand_B)
-    strand_A.chars.zip(strand_B.chars).count do |eigen0, eigen1| 
-      eigen0 != eigen1
+def compute(strandA, strandB)
+    sum=0
+    strandAB = [strandA, strandB].sort_by(&:length)
+    short, long = strandAB.first, strandAB.last
+
+    short.each_char.with_index do |c,i|
+      sum += 1 if long[i] != c
     end
+    return sum
   end
-end

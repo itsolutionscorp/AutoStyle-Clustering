@@ -1,7 +1,5 @@
-class Hamming
-  def compute(x, y)
-    x.chars.zip(y.chars).count do |a, b|
-      a != b
-    end
+def compute(s1, s2)
+    count = 0
+    s1.chars.each_with_index { |char, i| count += 1 if char != s2[i] }
+    return count
   end
-end

@@ -1,13 +1,14 @@
-class Hamming
+def compute(a,b)
 
-  def compute(first, second)
-    first = first.scan /\w/
-    second = second.scan /\w/
-    max_size = [first.length, second.length].min
-    total = 0
+		test_length = a.length < b.length ? a.length : b.length
 
-    first.take(max_size).zip(second.take(max_size)).map { |x, y| total += (x <=> y).abs }
-    total
-  end
+		distance = 0
+		i = 0
 
-end
+		while i < test_length
+			distance += 1 if a[i] != b[i]
+			i += 1
+		end
+		
+		distance
+	end

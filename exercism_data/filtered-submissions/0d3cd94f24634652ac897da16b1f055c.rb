@@ -1,5 +1,4 @@
-module Hamming
-  def compute(x, y)
+def compute(x, y)
     strand1, strand2 = x.chars, y.chars
     counter, diff = 0, 0
     length = x.size > y.size ? y.size : x.size

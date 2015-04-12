@@ -1,5 +1,4 @@
-class Hamming
-  def compute(lhs, rhs)
+def compute(lhs, rhs)
     return nil if lhs.length != rhs.length
     diff = 0
     for i in 0..lhs.length-1 do
@@ -7,4 +6,3 @@ class Hamming
     end
     return diff
   end
-end

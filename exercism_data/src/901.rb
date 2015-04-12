@@ -1,18 +1,9 @@
-class Hamming
-  def compute(strand1, strand2)
-    s1 = strand1.length
-    s2 = strand2.length
-    
-    return nil if s1 != s2
+def compute(arg1,arg2)
+		ham = 0
+		a=*(0..arg1.length-1)
+		a.each do |i|
+			ham += 1 if arg1[i] != arg2[i]
+		end
+		return ham
 
-    count = 0
-
-    s1.times do |i|
-      if strand1[i] != strand2[i]
-        count += 1
-      end
-    end
-
-    return count
-  end
-end
+	end

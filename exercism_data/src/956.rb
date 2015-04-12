@@ -1,8 +1,7 @@
-class Hamming
-	def compute(dna_strand1, dna_strand2)
-		dna_strand2 = dna_strand2.each_char
-		dna_strand1.each_char.count do |nucleotide|
-			nucleotide != dna_strand2.next
+def compute(seq1, seq2)
+		total = 0
+		seq1.split('').each_with_index do |base, index|
+			total+=1 if base != seq2[index] and index < seq2.length
 		end
+		total
 	end
-end

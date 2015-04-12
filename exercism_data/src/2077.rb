@@ -1,17 +1,11 @@
-class Hamming
-
-  def compute(arg1, arg2)
-    arr1 = arg1.split("")
-    arr2 = arg2.split("")
-
-    counter = 0
-    arr1.each_with_index do |x, i|
-      if x != arr2[i]
-        counter += 1
+def compute(first_var, second_var)
+    first_var = first_var.split("")
+    second_var = second_var.split("")
+    diff_counter = 0
+    first_var.each_with_index do |x, i|
+      if x != second_var[i]
+        diff_counter += 1
       end
     end
-    return counter
-
+    return diff_counter
   end
-
-end

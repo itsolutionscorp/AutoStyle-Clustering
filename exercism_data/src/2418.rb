@@ -1,17 +1,9 @@
-class Hamming
-
-  def compute(first, second)
-    one        = first.split(//)
-    one_length = one.count
-
-    two        = second.split(//)
-    two_lenght = two[0..one_length-1]
-
-    count      = 0
-
-    two_lenght.each_with_index do |letter, index|
-    count += 1 if letter != one[index]
-    end
-    count
-  end
-end
+def compute (dna1, dna2)
+		result = 0
+		(0..dna1.length).each do |i|
+			if dna1[i] != dna2[i]
+			result += 1
+			end
+		end
+		result
+	end

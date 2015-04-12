@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(a, b)
+def compute(a, b)
       a = a.split(//)
       b = b.split(//)
       count = 0
@@ -9,5 +7,3 @@ class Hamming
       end
       count
     end
-  end
-end

@@ -1,9 +1,4 @@
-class Hamming
-  def compute(fst, snd)
-    fst.split(//)
-      .zip(snd.split(//))
-        .delete_if {|_pair| _pair.last.nil?}
-          .keep_if {|_pair| _pair.first != _pair.last}
-          .count
+def compute(a,b)
+    pairs = a.split('').zip b.split('')
+    pairs.inject(0) {|distance, pair| distance += pair.uniq.size > 1 ? 1 : 0}
   end
-end

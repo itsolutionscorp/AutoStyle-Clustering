@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     a,b = [a.chars,b.chars]
     (longest,shortest) = [a.size,b.size].max == a.size ? [a,b] : [b,a]
     hamming_count = 0
@@ -8,4 +7,3 @@ class Hamming
     end
     hamming_count
   end
-end

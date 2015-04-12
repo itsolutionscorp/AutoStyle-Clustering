@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
 
     a = a[0, b.size]
 
@@ -7,5 +6,3 @@ class Hamming
       char != b[index]
     end
   end
-
-end

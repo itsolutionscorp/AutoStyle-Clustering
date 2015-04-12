@@ -1,11 +1,7 @@
-class Hamming
-  def compute(firstVal, secondVal)
-    differences = 0
-    firstVal.each_char.with_index do |char, i|
-      if char != secondVal[i]
-        differences += 1
-      end
-    end
-    differences
-  end
-end
+def compute(a, b)
+		@count = 0
+		for x in 0..a.length-1
+			@count += 1 if a[x] != b[x]
+		end
+		return @count
+	end

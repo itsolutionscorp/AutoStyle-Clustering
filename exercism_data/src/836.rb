@@ -1,10 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
-    diff = 0
-    strand1.chars.each_with_index do |char, i|
-      diff += 1 if strand1[i] != strand2[i]
-    end
-    diff
+def compute left, right
+    shorter, longer = [left.chars, right.chars].sort_by(&:size)
+    shorter.zip(longer).count { |pair| pair.first != pair.last } 
   end
-
-end

@@ -1,13 +1,8 @@
-class Hamming
-  class << self
-    def compute(a, b)
-      hamming_diff = 0
-      a, b = a.split(""), b.split("")
-      a.length.times do |i|
-        break if a[i].nil? || b[i].nil?
-        hamming_diff += 1 unless a[i] == b[i]
-      end
-      hamming_diff
-    end
-  end
+def compute(strand1, strand2)
+    count = 0
+		[strand1.size, strand2.size].min.times do |i|
+			count += 1 unless strand1[i] == strand2[i]
+		end
+    count
+	end
 end

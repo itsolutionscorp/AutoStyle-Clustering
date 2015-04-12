@@ -1,12 +1,6 @@
-#hamming distance
-
-class Hamming
-  def compute sequence1, sequence2
-    length = sequence1.length < sequence2.length ? sequence1.length : sequence2.length
-    ham = 0
-    for i in 0..length-1
-      ham += 1 unless sequence1[i] == sequence2[i]
-    end                                     
-    ham
+def compute(str1, str2)
+    str1.split('').each.with_index.reduce(0) do |diff, (v,i)|
+      diff += 1 if v != str2[i] && str2[i]
+      diff
+    end
   end
-end

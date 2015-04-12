@@ -1,5 +1,4 @@
-module Hamming
-  def compute first, other
+def compute first, other
     count = 0
     minimum = [first.size, other.size].min
 

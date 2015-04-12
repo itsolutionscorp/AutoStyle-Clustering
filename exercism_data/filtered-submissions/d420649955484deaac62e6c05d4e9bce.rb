@@ -1,5 +1,4 @@
-module Hamming
-  def compute(shorter, longer)
+def compute(shorter, longer)
     if shorter.size > longer.size
       self.compute(longer, shorter)
     else

@@ -1,9 +1,5 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    hamming_distance = 0
-    [strand_a.length, strand_b.length].min.times do |index|
-      hamming_distance += 1 unless strand_a[index] == strand_b[index]
+def compute(reference, mutation)
+    reference.chars.zip(mutation.chars).count do |pair|
+      pair[0] != pair[1]
     end
-    hamming_distance
   end
-end

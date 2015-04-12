@@ -1,5 +1,4 @@
-class Hamming
-  def compute mine, yours
+def compute mine, yours
     min_length = [mine.length, yours.length].min
 
     # truncate input
@@ -14,4 +13,3 @@ class Hamming
       memo
     end
   end
-end

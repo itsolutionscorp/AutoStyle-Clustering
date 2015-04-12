@@ -1,7 +1,4 @@
-class Hamming
-
-
-	def compute(first, second)
+def compute(first, second)
 		i = 0
 		first.each_char do |a|
 			if first[a] != second[a]
@@ -10,4 +7,3 @@ class Hamming
 		end
 		i
 	end
-end

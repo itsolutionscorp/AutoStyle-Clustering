@@ -1,20 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    i = 0
-    difference_count = 0
-    point1, point2 = []
-    strand1 = strand1.split(//)
-    strand2 = strand2.split(//)
-
-    strand1.each do |point|
-      if point != strand2[i]
-        difference_count += 1
-      end
-      i += 1
-    end
-
-    return difference_count
+def compute(seq1, seq2)
+    seq2 = seq2.split('').reverse
+    seq1.split('').reduce(0) {|dif, cur| dif + ((!seq2.empty? && cur != seq2.pop) ? 1 : 0)}
   end
-
-end

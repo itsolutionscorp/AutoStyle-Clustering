@@ -1,5 +1,4 @@
-class Hamming 
-  def compute(x,y) 
+def compute(x,y) 
     failures = 0 
     success = 0 
     array_1 = x.split(//) 
@@ -12,5 +11,4 @@ class Hamming
         end 
       end 
       return failures
-    end 
-end
+    end

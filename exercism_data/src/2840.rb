@@ -1,7 +1,18 @@
-class Hamming
-    def Hamming.compute(a, b)
-        a.chars.zip(b.chars).count do |string_a, string_b|
-            string_b != nil && string_a != string_b
-        end
+def compute(a,b)
+    # we Must ignore any extra nucleotides in a longer nucleic_acid
+    # so first we find which nucleic_acid is the shortest setting
+    # nucleic_acid a to shortest if they are equal.
+    if a.length > b.length
+      shortest_nucleic_acid = b
+      longest_nucleic_acid = a
+    else 
+      shortest_nucleic_acid = a
+      longest_nucleic_acid = b
     end
-end
+    hamming_distance = 0
+    longest_nucleic_acid = longest_nucleic_acid.split(//)
+    shortest_nucleic_acid.each_char.with_index do |char, index|
+      hamming_distance += 1 if longest_nucleic_acid[index] != char
+    end
+    hamming_distance
+  end

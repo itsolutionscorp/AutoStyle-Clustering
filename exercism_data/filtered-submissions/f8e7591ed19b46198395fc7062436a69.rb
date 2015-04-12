@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     a_chars = a.chars
     b_chars = b.chars
     diff = 0
@@ -9,4 +8,3 @@ class Hamming
     end
     diff
   end
-end

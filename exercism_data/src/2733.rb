@@ -1,10 +1,5 @@
-class Hamming
-  def compute(str1, str2)
-    count = 0
-    str1.split("").each_with_index do |s, i|
-      break if str2[i].nil? || s.nil?
-      count= count+1 if s != str2[i]
+def compute(first, second)
+    first.chars.zip(second.chars).count do |set|
+      set[0] != set[1]
     end
-    count
   end
-end

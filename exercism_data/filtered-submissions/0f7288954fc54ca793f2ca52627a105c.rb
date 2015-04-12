@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a,strand_b)
+def compute(strand_a,strand_b)
     distance = 0
     nucleotides_a = strand_a.split("")
     nucleotides_b = strand_b.split("")
@@ -10,4 +9,3 @@ class Hamming
 
     distance
   end
-end

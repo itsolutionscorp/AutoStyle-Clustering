@@ -1,12 +1,7 @@
-class Hamming
-
-  def compute(str1, str2)
-    score = 0
-
-    str1.chars.each_with_index do |char, idx|
-      score += 1 unless char.eql? str2.chars[idx]
+def compute(dna_a, dna_b)
+    result = 0
+    [dna_a.length,dna_b.length].min.times do |i|
+      result += dna_a[i] != dna_b[i] ? 1 : 0
     end
-    score
-
+    return result
   end
-end

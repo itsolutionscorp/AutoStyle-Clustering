@@ -1,13 +1,13 @@
-class Hamming
-  def Hamming.compute(strand1, strand2)
-    strand_ary_1 = strand1.chars
-    strand_ary_2 = strand2.chars
-    min_strand_length = [strand_ary_1.length, strand_ary_2.length].min
-    hamming_distance = 0
-    strand_ary_1.each_with_index do |c, i|
-      break if i >= min_strand_length
-      hamming_distance += 1 if c != strand_ary_2[i]
-    end
-    hamming_distance
-  end
-end
+def compute x, y
+		return 0 if x == y
+
+		s1 = x.split("")
+		s2 = y.split("")
+		hammingDistance = 0
+
+		s1.each_with_index { | val, index |
+			break if index >= s2.length
+			hammingDistance += 1 if val != s2[index]
+		}
+		return hammingDistance
+	end

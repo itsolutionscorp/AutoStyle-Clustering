@@ -1,13 +1,7 @@
-class Hamming
+def compute(dA, dB)
+        dAs = dA.split('')
+        dBs = dB.split('')
 
-  def compute(one, two)
-    two = two.split('')
-    one.split('').reduce(0) do |memo, letter|
-      if letter_two = two.shift and letter != letter_two
-        memo = memo + 1
-      end
-      memo
+        dAs.zip(dBs).map { |x| x[0] == nil or x[1] == nil or x[0] == x[1] }
+                    .reduce(0) { |m,o| o == false ? m+1 : m+0 }
     end
-  end
-
-end

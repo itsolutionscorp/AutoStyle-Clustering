@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first_nucleotide_strand, second_nucleotide_strand)
+def compute(first_nucleotide_strand, second_nucleotide_strand)
     first_set = first_nucleotide_strand.chars
     second_set = second_nucleotide_strand.chars
 
@@ -16,5 +14,3 @@ class Hamming
 
     difference_count
   end
-
-end

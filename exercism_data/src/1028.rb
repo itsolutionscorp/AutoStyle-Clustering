@@ -1,7 +1,4 @@
-module Hamming
-    def Hamming.compute strand_a, strand_b
-        strand_a.each_char.zip(strand_b.each_char).count do |x, y|
-            y && x != y
-        end
-    end
-end
+def compute(strand_1, strand_2)
+    min_strand_length = [strand_1.length, strand_2.length].min
+    min_strand_length.times.count { |i| strand_1[i] != strand_2[i] }
+  end

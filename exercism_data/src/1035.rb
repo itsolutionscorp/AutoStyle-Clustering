@@ -1,13 +1,5 @@
-# Hamming Distance
-# Author: t0nyLombardi
-# 01/22/15
-
-class Hamming
-
-  def compute(s1, s2)
-    hamming = []
-    s1.length.times{|i| hamming << 1 unless s1[i] == s2[i]}
-   	hamming.count
-  end
-
-end
+def compute(strand1, strand2)
+      (strand1.chars.zip(strand2.chars)).count do |nucleotide_a, nucleotide_b|
+        nucleotide_a != nucleotide_b
+      end
+    end

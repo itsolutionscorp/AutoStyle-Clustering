@@ -1,5 +1,4 @@
-class Hamming
-   def compute(string1, string2)
+def compute(string1, string2)
       $id = 0
 	  if string1.length > 0 && string2.length > 0
 		  for pos in 0..string1.length - 1
@@ -14,4 +13,3 @@ class Hamming
 	  end  
 	  return $id
    end
-end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(first, second)
+def compute(first, second)
 		buf = 0
 		first.split('').each_index do |i|
 			if second[i]!=first[i]
@@ -8,4 +7,3 @@ class Hamming
 		end
 		buf
 	end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     distance = 0
     length = [ first.length, second.length ].min
     length -= 1
@@ -8,4 +7,3 @@ class Hamming
     end
     return distance
   end
-end

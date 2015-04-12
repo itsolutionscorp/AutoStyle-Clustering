@@ -1,11 +1,8 @@
-class Hamming
-  def compute(source, guess)
-    incorrect_guesses = 0
-    source.each_char.with_index do |source_letter, index|
-      unless source_letter == guess[index]
-        incorrect_guesses += 1
-      end
+def compute(dna1, dna2)
+        distance = 0
+
+        [dna1.length, dna2.length].min.times do |i|
+            distance += 1 unless dna1[i] == dna2[i]
+        end
+        distance
     end
-    incorrect_guesses
-  end
-end

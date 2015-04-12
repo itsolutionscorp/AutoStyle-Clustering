@@ -1,15 +1,11 @@
-class Hamming
-  
-  def compute strand_1, strand_2
-
-    distance = 0
-    
-    (0...[strand_1.size(), strand_2.size()].min()).each() do |i|
-      distance += 1 if strand_1[i] != strand_2[i]
-      i += 1
+def compute(el_1, el_2)
+    difference = 0
+    comp_arr_1 = el_1.split("")
+    comp_arr_2 = el_2.split("")
+    comp_arr_1.each_with_index do |el, i|
+      if el != comp_arr_2[i]
+        difference += 1
+      end
     end
-
-    return distance
+    return difference
   end
-
-end

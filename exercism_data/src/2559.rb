@@ -1,7 +1,10 @@
-class Hamming
-  def compute(first_input, second_input)
-    first_input.chars.zip(second_input.chars).count do |(first, last)|
-      first != last unless last == nil
-    end
-  end
-end
+def compute(strandOne, strandTwo)
+		sum = 0
+
+    strandOne.chars.each_with_index do |c,i|
+      (sum += 1) unless c == strandTwo[i]
+		  #sum += c != strandTwo[i] ? 1 : 0
+		end
+
+		sum
+	end

@@ -1,20 +1,12 @@
-class Hamming
-    def compute(a, b)
-       
-       if a == b
-           return 0
-       end
+def compute(seq1, seq2)
+		arr1 = seq1.split("")
+		arr2 = seq2.split("")
+		hamming_distance = 0
+		length = [arr1.length, arr2.length].min - 1
 
-       count = 0
+		(0..length).each do |x|
+			hamming_distance += 1 if arr1[x] != arr2[x]
+		end
 
-       array_a = a.split("")
-       array_b = b.split("")
-
-       array_a.zip(array_b).each do |first, second|
-           if first && second && first != second
-               count += 1
-           end
-       end
-       return count
-    end
-end
+	hamming_distance
+	end

@@ -1,16 +1,9 @@
-class Hamming
+def compute(str_1, str_2)
+    total = 0
 
-  def compute(s1, s2)
-    difference = 0
-    if s1.length >= s2.length
-      s2.length.times do |index|
-        difference += 1 if s1[index] != s2[index]
-      end
-    else
-      s1.length.times do |index|
-        difference += 1 if s2[index] != s1[index]
-      end
+    [str_1.length, str_2.length].min.times.each do |index|
+      total += 1 if str_1[index] != str_2[index]
     end
-    difference
+
+    total
   end
-end

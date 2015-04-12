@@ -1,20 +1,5 @@
-module Hamming
-  
-  class << self
-    
-    def compute(a, b)
-      return 0 if a == b
-
-      a = a[0..b.length-1] if a.length > b.length
-      result = 0
-
-      a.split('').each_with_index do |e, i|
-        result += 1 if e != b[i]
-      end
-
-      result
+def compute(first_strand, second_strand)
+    (0...second_strand.length).count do |index|
+      second_strand[index] != first_strand[index]
     end
-
   end
-
-end

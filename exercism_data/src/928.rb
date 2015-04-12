@@ -1,5 +1,7 @@
-class Hamming
-	def compute(adn_1, adn_2)
-    adn_1.chars.zip(adn_2.chars).count{|x| x[0] != x[1]}
+def compute(a,b)
+		diffs = 0
+		a.split('').each_with_index do |strand, index|
+			diffs += 1 if b[index] && strand != b[index]
+		end
+		diffs
 	end
-end

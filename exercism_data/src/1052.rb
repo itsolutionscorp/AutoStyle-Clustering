@@ -1,8 +1,10 @@
-class Hamming
+def compute(first, second)
+    distance = 0
+    max = [ first.size, second.size ].min - 1
 
-  def compute(strand_1, strand_2)
-    min_strand_length = [strand_1.length, strand_2.length].min
-    min_strand_length.times.count { |i| strand_1[i] != strand_2[i] }
+    0.upto(max) do |i|
+      distance +=1 if first[i] != second[i]
+    end
+
+    return distance
   end
-
-end

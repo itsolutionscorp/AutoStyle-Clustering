@@ -1,10 +1,8 @@
-class Hamming
-  def compute(string1, string2)
+def compute(first_string, second_string)
     distance = 0
-    iter = string1.size > string2.size ? string2.size : string1.size
-    0.upto(iter-1) do |index|
-      distance += 1 if string1[index] != string2[index]
+
+    first_string.length.times do |letter|
+      distance += 1 if first_string[letter] != second_string[letter]
     end
     distance
   end
-end

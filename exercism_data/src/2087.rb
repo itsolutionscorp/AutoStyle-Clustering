@@ -1,5 +1,6 @@
-class Hamming
-  def compute(strand1, strand2)
-    return (0...[strand1.length, strand2.length].min).inject(0){|c, i| strand1[i] == strand2[i] ? c : c + 1}
+def compute(a, b)
+    a.each_char
+      .zip(b.each_char)
+      .map { |a, b| b && a == b }
+      .count(false)
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(adn_1, adn_2)
-    adn_1.chars.zip(adn_2.chars).count{|x, i| x != i}
-	end
-end
+def compute(a, b)
+    min = [a.length, b.length].min
+    (0...min).count { |i| a[i] != b[i] }
+  end

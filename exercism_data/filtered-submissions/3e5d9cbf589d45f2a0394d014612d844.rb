@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(one, two)
+def compute(one, two)
     raise "Strands must be same size" if one.length != two.length
     score = 0
     one.chars.each_with_index do |char, index|
@@ -8,4 +6,3 @@ class Hamming
     end
     score
   end
-end

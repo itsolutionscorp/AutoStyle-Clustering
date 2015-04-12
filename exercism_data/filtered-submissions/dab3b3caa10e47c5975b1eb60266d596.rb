@@ -1,6 +1,4 @@
-class Hamming
-	# Returns the Hamming distance between to DNA strands as an integer
-	def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
 
 		first_strand_arr = first_strand.upcase.chars 
 		second_strand_arr = second_strand.upcase.chars 
@@ -17,4 +15,3 @@ class Hamming
 		return hamming_distance
 	
 	end
-end

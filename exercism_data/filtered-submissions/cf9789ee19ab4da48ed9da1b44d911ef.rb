@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(string1, string2)
+def compute(string1, string2)
 
     counter = 0
 
@@ -19,5 +17,3 @@ class Hamming
     counter
 
   end
-
-end

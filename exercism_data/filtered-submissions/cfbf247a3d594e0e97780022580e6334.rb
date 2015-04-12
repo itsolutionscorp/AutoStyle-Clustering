@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     a = a.split("")
     b = b.split("")
     cntr = [a.length, b.length].min 
@@ -8,4 +6,3 @@ class Hamming
     b = b[0..cntr - 1]
     return (0..cntr -1).inject(0) { |enum, i| (a[i] != b[i]) ? enum + 1 : enum }
   end
-end

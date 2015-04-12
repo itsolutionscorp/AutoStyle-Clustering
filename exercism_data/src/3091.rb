@@ -1,11 +1,14 @@
-class Hamming
-  def compute(s1, s2)
-    return 0 if s1.length != s2.length
-    chars1 = s1.split(//)
-    chars2 = s2.split(//)
-    filtered = chars1.zip(chars2).select { |arr|
-     arr[0] != arr[1]
-    } 
-    filtered.length
+def compute(dna_1, dna_2)
+    if dna_1.length == dna_2.length
+      length = dna_1.length
+      distance, counter = 0, 0
+
+      while counter != length
+        if dna_1[counter] != dna_2[counter]
+          distance += 1
+        end
+        counter += 1
+      end
+    end
+    distance
   end
-end

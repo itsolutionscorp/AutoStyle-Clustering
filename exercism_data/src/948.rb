@@ -1,12 +1,7 @@
-class Hamming
-  def compute (a,b)
-    firstStrand = Array.new(a.split(//))
-    secondStrand = Array.new(b.split(//))
-    i = 0
-    x = 0
-    for i in i..a.length
-      x += 1  if firstStrand[i] != secondStrand[i]
+def compute(first, second)
+    distance = 0
+    first.chars.zip(second.chars).each do |a, b|
+      distance = distance + 1 unless a == b
     end
-    x
+    distance
   end
-end

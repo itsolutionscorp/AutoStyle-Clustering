@@ -1,9 +1,11 @@
-class Hamming
-	def compute(s1, s2)
-		result = 0
-		[s1.length, s2.length].min.times do |i|
-			result += 1 unless s1[i] == s2[i]
-		end
-		result
-	end
-end
+def compute(a,b)
+    ham_no =0
+    i= [a,b].min.size 
+    while (i >= 0) 
+      if a[i] != b[i]
+        hamming +=1 unless (a[i] ==nil || b[i] ==nil) 
+      end
+      i+= -1 
+    end
+    return ham_no  
+  end

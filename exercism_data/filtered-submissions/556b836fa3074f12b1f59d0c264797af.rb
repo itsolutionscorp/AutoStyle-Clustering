@@ -1,7 +1,4 @@
-#!/usr/bin/env ruby
-
-class Hamming
-  def compute(dna, dnb)
+def compute(dna, dnb)
     distance = 0
 
     min = [dna.length, dnb.length].min
@@ -13,4 +10,3 @@ class Hamming
 
     distance
   end
-end

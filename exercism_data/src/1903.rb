@@ -1,14 +1,10 @@
-class Hamming
+def compute(strand_1, strand_2)
+    len = [strand_1.size, strand_2.size].min
+    point_mutations = 0
 
-  def compute(first, second)
-    ham_length = 0
-    max_strand_length = [first, second].sort_by(&:length)[0].length
-    i = 0
-    while i < max_strand_length
-      ham_length += 1 if first[i] != second[i]
-      i += 1
+    for i in 0..(len-1)
+      point_mutations += 1 unless strand_1[i] == strand_2[i]
     end
-    ham_length
-  end
 
-end
+    point_mutations
+  end

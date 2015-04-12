@@ -1,11 +1,6 @@
-class Hamming
-	def compute(arg1,arg2)
-		ham = 0
-		a=*(0..arg1.length-1)
-		a.each do |i|
-			ham += 1 if arg1[i] != arg2[i]
-		end
-		return ham
-
-	end
-end
+def compute(strand_1, strand_2)
+    return strand_1.chars.zip(strand_2.chars)
+      .count do |nucleotide_1, nucleotide_2|
+        nucleotide_1 != nucleotide_2
+      end
+  end

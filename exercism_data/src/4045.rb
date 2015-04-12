@@ -1,9 +1,12 @@
-class Hamming
-  def compute(strand1, strand2)
-    count = 0
-    strand1.chars.each_index do |i|
-      count += 1  if strand1[i] != strand2[i] 
-    end   
-    count
-  end
-end
+def compute(arg1, arg2)
+        chars1 = arg1.split("")
+        chars2 = arg2.split("")
+        len = chars1.length
+        anw = 0
+        for i in 0..len
+            if chars1[i] != chars2[i] then
+                anw += 1
+            end
+        end
+        return anw
+    end

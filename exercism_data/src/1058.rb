@@ -1,9 +1,5 @@
-class Hamming
-	def compute(strand1, strand2)
-		zips = strand1.chars.zip strand2.chars
-
-		zips.select! { |item| item[0] != item[1] }
-
-		zips.length
-	end
-end
+def compute(strand_1, strand_2)
+    strand_1.length.times.inject(0) do |hamming_distance, index|
+      hamming_distance + (strand_1[index] == strand_2[index] ? 0 : 1)
+    end
+  end

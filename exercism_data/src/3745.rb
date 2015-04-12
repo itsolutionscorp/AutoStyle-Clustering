@@ -1,21 +1,7 @@
-class Hamming
-  def compute(s1, s2)
-    # Version 1
-    counter = 0
-    [s1.length, s2.length].min.times { |i| counter += 1 if s1[i] != s2[i] }
-    counter
-
-    # Version 2
-    # counter = 0
-    # if s1.length <= s2.length
-    #   s1.split('').each_with_index do |c, i|
-    #     counter += 1 if c != s2[i]
-    #   end
-    # else
-    #   s2.split('').each_with_index do |c, i|
-    #     counter += 1 if c != s1[i]
-    #   end
-    # end
-    # counter
+def compute(dna_strand_1, dna_strand_2)
+    hamming_distance = 0
+    dna_strand_1.each_char.with_index do |nucleic_acid, index|
+      hamming_distance += 1 if nucleic_acid != dna_strand_2[index]
+    end
+    hamming_distance
   end
-end

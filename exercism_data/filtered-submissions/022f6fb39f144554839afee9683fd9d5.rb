@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_sequence, second_sequence)
+def compute(first_sequence, second_sequence)
     hamming_counter = 0
     if first_sequence === second_sequence
       hamming_counter
@@ -18,4 +17,3 @@ class Hamming
        hamming_counter
     end
   end
-end

@@ -1,14 +1,12 @@
-class Hamming
-  def compute(a,b)
-    i = 0
-    a = (a <=> b) == 1 ? a.chars.take(b.length) : a.chars
-    b = b.chars
+def compute(a,b)
+    distance = 0
 
-    a.zip(b).each do |first, second|
-      if first != second
-        i += 1
-      end
+    short, long = [a, b].sort
+    
+    long.chars[0..(short.length - 1)].zip(short.chars).each do |ac, bc|
+      distance += 1 if ac != bc
     end
-    return i
+    
+    distance
   end
 end

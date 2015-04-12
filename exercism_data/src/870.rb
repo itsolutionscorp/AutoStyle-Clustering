@@ -1,9 +1,5 @@
-class Hamming
-  def compute(first, second)
-    count = 0
-    first.scan(/./).zip(second.scan(/./)).each do |match|
-      count += 1 if !match[0].nil? && !match[1].nil? && match[0] != match[1]
+def compute(a, b)
+    a.chars.zip(b.chars).inject(0) do |sum, i|
+      (i[0] != i[1]) ? sum += 1 : sum
     end
-   count
   end
-end

@@ -1,10 +1,10 @@
-class Hamming
-
-  def compute(s1, s2)
-    s1.chars.zip(s2.chars)
-            .reject { |a, b| b.nil? }
-            .map { |a, b| a == b ? 0 : 1 }
-            .reduce(:+)
+def compute(sequence_1, sequence_2)
+    strand_error = 0
+    min_length = [sequence_1.length, sequence_2.length].min
+    min_length.times do |index|
+      if sequence_1[index] != sequence_2[index]
+        strand_error += 1
+      end
+    end
+    strand_error
   end
-
-end

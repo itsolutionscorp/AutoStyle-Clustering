@@ -1,5 +1,17 @@
-class Hamming
-  def compute(str1, str2)
-    str1.length.times.inject(0) { |sum, e| sum += (str1[e]<=>str2[e]).abs }
+def compute(left, right)
+    count = 0
+    index = 0
+    shortest_length = left.length < right.length ? left.length : right.length
+    
+    while(index < shortest_length) do
+      different_letters = (left[index] != right[index])
+      index += 1
+      
+      if different_letters
+        count += 1
+      end
+      
+    end
+    
+    return count
   end
-end

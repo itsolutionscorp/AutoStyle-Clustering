@@ -1,11 +1,11 @@
-def hamming (s1, s2)
-  i = 0
-  ham = 0
-  while i < s1.length
-     if s1[i] != s2[i]
-       ham += 1
-     end
-     i += 1
+def compute(*strands)
+    short, long = strands.sort_by(&:length)
+
+    difference = 0
+    short.split('').each_with_index do |character, index|
+      if character != long[index]
+        difference += 1
+      end
+    end
+    difference
   end
-  ham
-end

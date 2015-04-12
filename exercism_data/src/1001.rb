@@ -1,7 +1,5 @@
-class Hamming
-  def compute(first_set, second_set)
-    first_set.chars.each_with_index.count do |letter, index|
-      letter != second_set[index]
+def compute(str1, str2)
+      count = 0
+      str1.size.times {|i| count+=1 if str1[i] != str2[i]}
+      count
     end
-  end
-end

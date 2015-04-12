@@ -1,13 +1,12 @@
-class Hamming
-	def compute arg1, arg2
-		hamming_distance = 0
-		arg1.split('').each_with_index do |char, i|
-			if char != arg2[i]
-				hamming_distance += 1
-			end
-		end
-		hamming_distance
-	end
-end
+def compute(*args)
+    raise ArgumentError if args.length != 2
 
-# puts Hamming.compute("a", "a")
+    string1,string2 = args
+    unmatched = 0
+
+    until string1.length == 0 && string2.length == 0
+      unmatched += 1 unless string1.slice!(0) == string2.slice!(0)
+    end
+
+    unmatched
+  end

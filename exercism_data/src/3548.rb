@@ -1,10 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
-    strands = [strand1, strand2]
-    shorter_strand, longer_strand = strands.min, strands.max
-    zipped = shorter_strand.chars.zip(longer_strand.chars)
-
-    mutations_ary = zipped.map {|strand_chars| strand_chars.first == strand_chars.last ? 0 : 1}
-    mutations_ary.inject(&:+)
+def compute(str1, str2)
+    side_by_side_letters = str1.chars.zip(str2.chars)
+    side_by_side_letters.reduce(0) { |x| x[0] == x[1]? 0 : 1 }
   end
-end

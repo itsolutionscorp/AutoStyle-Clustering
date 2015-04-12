@@ -1,9 +1,4 @@
-# Hamming Distance
-# Seth Yanow - Sept 2014
-
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
 
     @length = [strand1.length, strand2.length].min - 1
     @distance = 0
@@ -14,4 +9,3 @@ class Hamming
 
     @distance
   end
-end

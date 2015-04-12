@@ -1,5 +1,4 @@
-class Hamming
-  def compute(sequence_a, sequence_b)
+def compute(sequence_a, sequence_b)
     a = sequence_a.split(//)
     b = sequence_b.split(//)
     distance = 0
@@ -8,4 +7,3 @@ class Hamming
     end
     distance
   end
-end

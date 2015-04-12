@@ -1,11 +1,11 @@
-class Hamming
-  def compute(a, b)
-    @count = 0
-    for index in 0...(a.chars.length > b.chars.length ? b.chars.length : a.chars.length) do
-      if a.chars[index] != b.chars[index]
-        @count += 1
-      end 
+def compute(source, destination)
+    distance    = 0
+    source      = source.split('')
+    destination = destination.split('')
+    
+    source.zip(destination).each do |src, dst|
+      distance += 1 unless src == dst 
     end
-    return @count
+    
+    distance
   end
-end

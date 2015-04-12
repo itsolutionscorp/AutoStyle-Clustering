@@ -1,7 +1,4 @@
-# The module holds functions for hamming distance calculation.
-module Hamming
-    # The function to compute the hamming distance of two strings.
-    def compute(dna1, dna2)
+def compute(dna1, dna2)
         result = 0
 
         dna1.chars.zip(dna2.chars) do |char1, char2|

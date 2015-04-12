@@ -1,10 +1,7 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    count = 0
-    strand1.chars.each_with_index do |x, index|
-      count +=1 if strand2[index] && x != strand2[index]
+def compute(a, b)
+    length = [a.length, b.length].min
+    c = [a[0, length].chars, b[0, length].chars].transpose
+    c.inject(0) do |sum, set| 
+      sum + (set.first == set.last ? 0 : 1)
     end
-    count
   end
-end

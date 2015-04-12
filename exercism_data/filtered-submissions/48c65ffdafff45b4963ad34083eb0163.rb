@@ -1,8 +1,4 @@
-#!/usr/bin/ruby
-#
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     count = 0
     matches_count = Hash.new(0)
     list1 = strand1.chars
@@ -17,4 +13,3 @@ class Hamming
   count = matches_count[false]
   return count
   end
-end

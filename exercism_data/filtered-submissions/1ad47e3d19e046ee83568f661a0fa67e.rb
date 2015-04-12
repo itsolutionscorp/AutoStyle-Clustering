@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
     if arg1.length != arg2.length
       abort (message='Sequences must be of equal length')
     else
@@ -13,4 +11,3 @@ class Hamming
     end
     return distance
   end
-end

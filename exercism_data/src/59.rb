@@ -1,13 +1,5 @@
-class Hamming
-
-	def compute(a,b)
-		a,b = [a,b].sort { a.length <=> b.length }
-		a.chars.zip(b.chars).reduce(0) do |dist, a|
-			if a[0] != a[1]
-				dist = dist + 1
-			end
-			dist
-		end
-	end
-
-end
+def compute(s1,s2)
+    (0..s1.length).inject(0) do |sum,i|
+      s1[i] == s2[i] ? sum : sum + 1
+    end
+  end

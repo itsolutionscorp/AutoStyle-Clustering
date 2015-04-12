@@ -1,8 +1,7 @@
-class Hamming
-  def compute(first, second)
-    min = [first.length, second.length].min
-    first[0, min].chars.zip(second[0, min].chars)
-                  .reject {|points| points.first == points.last}
-                  .length
-  end
-end
+def compute(x, y)
+		count = 0
+		(0..(x.length - 1)).each do |i|
+			count += 1 if x[i] != y[i]
+		end
+		count
+	end

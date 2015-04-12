@@ -1,15 +1,16 @@
-# Hamming code class?
-class Hamming
-  def compute( left, right )
-    return 0 if left == right
-
-    mutations = 0
-
-    left.each_char.with_index do |lc, idx|
-      break if idx == right.size
-      mutations += 1 if lc != right[idx]
-    end
-
-    mutations
-  end
-end
+def compute arg1, arg2
+		# for every letter thats different add one to the value.
+		arg1_array = arg1.split('')
+		arg2_array = arg2.split('')
+		hamming_distance = 0
+		arg1_array.each_with_index do |char, i|
+			if char != arg2_array[i]
+				# puts "test cases"
+				# puts char
+				# puts arg2_array[i]
+				hamming_distance += 1
+				# puts hamming_distance
+			end
+		end
+		return hamming_distance
+	end

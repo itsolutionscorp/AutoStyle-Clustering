@@ -1,13 +1,9 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    strand1 = strand1.scan(/./)
-    strand2 = strand2.scan(/./)
-    count ||= 0
-
-    strand1.each_with_index do |char, i|
-      count += 1 unless char == strand2[i] unless strand2[i] == nil
+def compute(strand_a, strand_b)
+    i = 0
+    distance = 0
+    while i < strand_a.length
+      distance += 1 unless strand_a[i] == strand_b[i]
+      i += 1
     end
-      count
+    distance
   end
-end

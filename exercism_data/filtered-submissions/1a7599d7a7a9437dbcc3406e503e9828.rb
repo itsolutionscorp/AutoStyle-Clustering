@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     diff_count = 0
     return diff_count if strand_1 == strand_2
 
@@ -10,5 +8,3 @@ class Hamming
 
     diff_count
   end
-
-end

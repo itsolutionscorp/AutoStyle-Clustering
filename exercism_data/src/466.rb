@@ -1,14 +1,7 @@
-module Hamming
-  def compute(strand_one, strand_two)
-    hamming_distance = 0
-
-    while true
-      strand_one_val = strand_one.slice!(0)
-      strand_two_val = strand_two.slice!(0)
-
-      return hamming_distance if strand_one_val.nil? or strand_two_val.nil?
-
-      hamming_distance += 1 if strand_one_val != strand_two_val
+def compute (strand_a, strand_b, begin_distance:0)
+      min_length = [strand_a.length, strand_b.length].min
+      min_length.times do |position|
+        begin_distance = begin_distance + 1 unless strand_a[position] == strand_b[position]
+      end
+      return begin_distance
     end
-  end
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(s1, s2)
+def compute(s1, s2)
     split_1 = s1.split('')
     split_2 = s2.split('')
     counter = 0
@@ -14,12 +12,3 @@ class Hamming
     end
     hamming
   end
-
-end
-
-# strain1 = 'GAGCCTACTAACGGGAT'
-# strain2 = 'CATCGTAATGACGGCCT'
-#
-# hamming = Hamming.new(strain1, strain2)
-#
-# puts hamming.compute

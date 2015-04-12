@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
-    (0..([a.length, b.length].min - 1)).inject(0) { |sum, i| a[i] != b[i] ? sum + 1 : sum }
+def compute(first, last)
+    short, long = [first.chars, last.chars].sort_by!(&:size)
+    short.zip(long).count { |a,b| a != b }
   end
-end

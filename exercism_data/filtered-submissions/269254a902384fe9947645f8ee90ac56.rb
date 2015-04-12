@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(x, y)
+def compute(x, y)
     compare = [x.length, y.length].min
     distance = 0
     compare.times do |check|
@@ -10,5 +8,3 @@ class Hamming
     end
     distance
   end
-
-end

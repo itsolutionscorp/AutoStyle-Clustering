@@ -1,5 +1,3 @@
-class Hamming
-  def compute
+def compute
     
   end
-end

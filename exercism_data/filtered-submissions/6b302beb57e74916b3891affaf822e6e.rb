@@ -1,5 +1,4 @@
-class Hamming
-	def compute(input, reference)
+def compute(input, reference)
 		arr_input = input.split("")
 		arrr_ref = reference.split("")
 		counter_diff = 0
@@ -10,4 +9,3 @@ class Hamming
 		end
 		return counter_diff
 	end
-end

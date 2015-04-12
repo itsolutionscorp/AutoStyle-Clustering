@@ -1,7 +1,4 @@
-#naive - iterate through each character in each string
-
-class Hamming
-	def compute(strand1,strand2)
+def compute(strand1,strand2)
 		result = 0
 		if strand1 == strand2 then 0			
 		elsif strand1.length != strand2.length then -1
@@ -15,13 +12,3 @@ class Hamming
 		result
 		end
 	end
-end
-
-#puts "test 1 (result = 0)****\n"
-#puts Hamming.compute('ABCDEF','ABCDEF')
-#puts "test 2 (result = 1)****\n"
-#puts Hamming.compute('ABCDEF','ABC1EF')
-#puts "test 3 (result = 3)****\n"
-#puts Hamming.compute('ABCDEF','AB123F')
-#puts "test 4 (result = -1)****\n"
-#puts Hamming.compute('ABCDEF','ABCD')

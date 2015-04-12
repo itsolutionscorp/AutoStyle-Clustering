@@ -1,5 +1,4 @@
-class Hamming
-  def compute(reference, examinee)
+def compute(reference, examinee)
     
     pairs_to_count = [reference.length, examinee.length].min
 
@@ -8,4 +7,3 @@ class Hamming
     end
 
   end
-end

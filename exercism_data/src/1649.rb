@@ -1,12 +1,12 @@
-class Hamming
+def compute(strandA, strandB)
+			distance = 0
 
-  def compute(strand, compare)
-    count = 0
-    bases = strand.split("")
-    bases.each_with_index do |base, i|
-      break unless compare[i]
-      count += 1 unless base == compare[i]
-    end
-    count
-  end
-end
+			#get length of smallest strand
+			length = strandA.length <= strandB.length ? strandA.length : strandB.length
+
+			#calculate distance
+			0.upto(length-1) do |i|
+				distance += 1 unless strandA[i] == strandB[i]
+			end
+			
+			distance

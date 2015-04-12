@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     # Which strand is the shortest?
     short = a.length <= b.length ? a : b
     long = short == a ? b : a
@@ -19,4 +18,3 @@ class Hamming
     return hamming_distance
 
   end
-end

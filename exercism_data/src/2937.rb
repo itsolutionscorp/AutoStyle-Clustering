@@ -1,5 +1,6 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    [strand_a, strand_b].map(&:chars).transpose.reject{|(a,b)| a == b }.count
+def compute(first, second)
+    distance = 0
+    second = second.split('')
+    first.split('').each_with_index { |char, idx| distance += 1 if char == second[idx] }
+    first.size - distance
   end
-end

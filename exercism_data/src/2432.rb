@@ -1,9 +1,12 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    count = 0
-    strand_1.split("").each_with_index do |chr, index|
-      count += 1 if chr != strand_2[index]
+def compute(a, b)
+    a = a.split('')
+    b = b.split('')
+
+    counter = 0
+    a.each_with_index do |x, i|
+      if x != b[i]
+        counter += 1
+      end
     end
-    count
+  return counter
   end
-end

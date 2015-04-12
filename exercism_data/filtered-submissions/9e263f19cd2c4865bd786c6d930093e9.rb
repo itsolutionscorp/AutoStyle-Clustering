@@ -1,14 +1,4 @@
-module Hamming
-
-  module_function
-
-  # Given two strings, count the number of characters
-  # that are different
-  # params:
-  #   String strand_1
-  #   String strand_2
-  # returns Integer
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
 
     # Convert both strings to arrays, noting which one is shorter
     # (If they're both the same length, it doesn't matter)

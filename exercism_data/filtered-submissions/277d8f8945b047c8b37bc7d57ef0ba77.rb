@@ -1,6 +1,4 @@
-class Hamming
-  
-  def compute(string1, string2)
+def compute(string1, string2)
     differences = 0
     
     string1.length >= string2.length ?  long_string = string1 : long_string = string2
@@ -14,5 +12,3 @@ class Hamming
     
     differences
   end
-
-end

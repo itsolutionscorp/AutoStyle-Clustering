@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strandOne, strandTwo)
+def compute(strandOne, strandTwo)
     hammingDist = 0
     if(strandOne.eql?(strandTwo)) then return 0 end # The two strands are equal
     until(strandOne.empty? or strandTwo.empty?) do #Keep slicing nucleotides off until there are no more
@@ -7,6 +6,3 @@ class Hamming
     end
     hammingDist
   end
-end
-
-#http://exercism.io/submissions/d15ce0e68edf41d9b91a12ca17cb6387

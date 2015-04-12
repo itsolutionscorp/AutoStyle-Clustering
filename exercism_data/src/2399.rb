@@ -1,9 +1,9 @@
-class Hamming
-  def compute(a, b)
+def compute(baseStrand, newStrand)
+		hammingValue = 0
+		maxLength = [baseStrand.length, newStrand.length].min
 
-    shortest_length = [a.to_s.length, b.to_s.length].min
+		(0...maxLength).each do 
+			|i| hammingValue+= 1 if baseStrand[i] != newStrand[i] end
 
-    (0...shortest_length).count { |i| a[i] != b[i] }
-
-  end
-end
+		hammingValue
+	end

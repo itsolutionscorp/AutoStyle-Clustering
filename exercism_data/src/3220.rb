@@ -1,5 +1,7 @@
-class Hamming
-  def compute(a, b)
-   (0..a.length - 1).map{ |n| a[n] == b[n] ? 0 : 1 }.reduce(:+)
+def compute(str1,str2)
+    count = 0
+    [str1.length, str2.length].min.times do |i|
+      count +=1 if ( str1[i] != str2[i] )
+    end
+    count
   end
-end

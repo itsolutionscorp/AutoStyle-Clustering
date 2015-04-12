@@ -1,18 +1,5 @@
-class Hamming
-
-	def compute(left, right)
-	
-		diff = 0
-		#for i in 0..left.length
-		i = 0
-		while (i < left.length && i < right.length) 
-			if(left[i] != right[i])
-				diff+=1
-			end
-			i += 1
-		end
-		
-		diff
-	end
-
-end
+def compute(strand1, strand2)
+    strand1.split('').zip(strand2.split(''))
+          .map { |base1, base2| base1 != base2 }
+          .count { |mutated| mutated == true }
+  end

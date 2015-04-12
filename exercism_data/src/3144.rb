@@ -1,7 +1,9 @@
-# does exercism allow you to submit solutions that do not work?
-
-class Hamming
-    def compute( s1, s2 )
-        s1 == s2 ? 0 : s1.length
-    end
-end
+def compute(strand1,strand2)
+		_strand1 = strand1.split("")
+		_strand2 = strand2.split("")
+		hams = 0
+		_strand1.each_with_index do |s1, i|
+			hams += 1 unless s1 == _strand2[i]
+		end
+		hams
+	end

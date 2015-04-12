@@ -1,11 +1,6 @@
-class Hamming
-  def compute(first, second)
-    result = 0
-    first.chars.zip(second.chars).each do |f, s|
-      if (f != nil && s != nil && f != s)
-        result += 1
-      end
+def compute(str1, str2)
+      distance = 0
+      len = [str1.length, str2.length].min
+      (0..len-1).each {|i| distance += 1 unless str1[i] == str2[i] }
+      distance
     end
-    return result
-  end
-end

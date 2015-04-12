@@ -1,5 +1,14 @@
-module Hamming
-	def compute(strand1, strand2)
-		strand1.each_char.zip(strand2.each_char).count { |g| g[1] and g[0] != g[1] }
-	end
-end
+def compute(a, b)
+        diff_count = 0
+        
+        a = a[0, b.length-1] if a.length > b.length
+        b = b[0, a.length-1] if a.length < b.length
+
+        a = a.split(//)
+        b = b.split(//)
+
+        a.zip(b) do |x, y|
+            diff_count += 1 unless x == y
+        end
+        diff_count
+    end

@@ -1,9 +1,15 @@
-class Hamming
-    def compute(a, b)
-        # Count each pair of characters that are not equal
-        # except if one is nil (happens when a is longer than b)
-        a.each_char.zip(b.each_char).count { |pair|
-            pair[1] != nil and pair[0] != pair[1]
-        }
+def compute(dna_seq_1, dna_seq_2)
+    hamming_distance = 0
+    # min_length holds the size of the smaller sequence in case the sequences have different sizes
+    min_length = dna_seq_1.length <= dna_seq_2.length ? dna_seq_1.length : dna_seq_2.length
+    for pos in 0..min_length - 1
+      if not dna_seq_1[pos].chr == dna_seq_2[pos].chr
+        hamming_distance += 1
+      end
     end
-end
+      return hamming_distance
+  end
+
+  if __FILE__ == $0  
+    puts Hamming.compute('AG', 'A')
+  end

@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(string1, string2)
+def compute(string1, string2)
 		seq1 = string1.chars.to_a
 		seq2 = string2.chars.to_a
 		hamming_distance = 0
@@ -22,4 +20,3 @@ class Hamming
 		end
 		return hamming_distance
 	end
-end

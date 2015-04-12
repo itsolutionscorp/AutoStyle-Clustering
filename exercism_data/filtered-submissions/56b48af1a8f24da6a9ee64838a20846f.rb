@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     hamming_difference = 0
     strand1.split('').zip(strand2.split('')).each do |a1,a2|
       break if a1.nil? or a2.nil?
@@ -8,4 +6,3 @@ class Hamming
     end
     hamming_difference
   end
-end

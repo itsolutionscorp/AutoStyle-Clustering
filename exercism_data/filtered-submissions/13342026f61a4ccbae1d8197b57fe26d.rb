@@ -1,5 +1,4 @@
-class Hamming
-    def compute *args
+def compute *args
         (a,b) = args.collect { |x| x.split('') }.sort_by(&:length)
 
         a.zip(b).inject(0) do |agg, current| 
@@ -10,4 +9,3 @@ class Hamming
             end
         end
     end
-end

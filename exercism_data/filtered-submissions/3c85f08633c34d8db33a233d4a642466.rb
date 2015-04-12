@@ -1,5 +1,4 @@
-class Hamming
-  def compute(original_dna, copied_dna)
+def compute(original_dna, copied_dna)
     diff_accumulator = 0
 
     original_dna.each_char.with_index do |nucleotide, index|
@@ -12,4 +11,3 @@ class Hamming
 
     diff_accumulator
   end
-end

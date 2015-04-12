@@ -1,19 +1,10 @@
-class Hamming
-  def compute(first_input, second_input)
-    distance = 0
-    
-    if first_input != second_input
-      first_input.chars.each_with_index do |first_input_char, index|
-        if index == second_input.length
-          break
-        else
-          if first_input_char != second_input.chars[index]
-            distance += 1
-          end
-        end
-      end
-    end
-
-    distance
-  end
+def compute(a, b)
+	hamming = 0
+	if (a == b) then
+		return hamming	# Optimisation
+	end
+	(0..[a.length, b.length].min-1).each do |i|
+		hamming+=1 if a[i] != b[i]
+	end
+	return hamming
 end

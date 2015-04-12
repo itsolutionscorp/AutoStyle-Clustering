@@ -1,12 +1,11 @@
-class Hamming
-  def compute(str1, str2)
-    len = [str1.length, str2.length].min
-    answer = 0
-    len.times do |i|
-      if str1[i] != str2[i] 
-        answer += 1
-      end
+def compute(left, right)
+    count = 0
+
+    left.split("").zip(right.split("")).each do |l_char, r_char|
+      break unless l_char && r_char
+
+      count += 1 if l_char != r_char
     end
-    answer
+
+    count
   end
-end

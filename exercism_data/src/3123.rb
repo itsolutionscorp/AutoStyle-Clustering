@@ -1,9 +1,3 @@
-class Hamming
-  def compute(x,y)
-    differences = 0
-    x.each_char.with_index do |character, index|
-      differences += 1 if character != y[index]
-    end
-    return differences
+def compute(dna_strand_a, dna_strand_b)
+    dna_strand_a.chars.zip(dna_strand_b.chars).count { |nuc_a, nuc_b| nuc_a != nuc_b }
   end
-end

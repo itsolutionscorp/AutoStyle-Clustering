@@ -1,5 +1,9 @@
-class Hamming
-  def compute(strand1, strand2)
-    (0...[strand1.length, strand2.length].min).count { |i| strand1[i] != strand2[i] }
+def compute(string1,string2)
+    score = 0
+    string1.chars.each_with_index do |char, i|
+      if char != string2[i]
+        score += 1
+      end
+    end
+    score
   end
-end

@@ -1,21 +1,20 @@
-class Hamming
-	def compute (strand1, strand2)
-		
-		if strand1.length < strand2.length 
-			length = strand1.length
-		else
-			length = strand2.length
+def compute(starting_strand, strand_to_be_checked)
+
+		starting = starting_strand.each_char.to_a
+		to_be_checked = strand_to_be_checked.each_char.to_a
+		hamming_number = 0
+
+		while starting.size > to_be_checked.size
+		starting.pop
 		end
+		while to_be_checked.size > starting.size
+		to_be_checked.pop
+		end 
 
-
-		count = 0
-		i=0
-		while i < length do
-			if strand1[i] != strand2[i]
-				count+=1
+		for i in 0..starting.size
+			if starting[i] != to_be_checked[i]
+				hamming_number += 1
 			end
-			i+=1
 		end
-		count
+		return hamming_number
 	end
-end

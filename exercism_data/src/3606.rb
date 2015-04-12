@@ -1,16 +1,5 @@
-class Hamming
-  attr_reader :counter
-
-  def compute(strand1, strand2)
-    @counter = 0
-    one = strand1.split('')
-    two = strand2.split('')
-
-    one.take(two.length).each_with_index do |_, index|
-      @counter += 1 unless one[index] == two[index]
-    end
-
-    return @counter
+def compute(a, b)
+    max = [a.length, b.length].max
+    c = a.chars.first(max).zip(b.chars.first(max))
+    c.inject(0) {|diff, i| diff += 1 if i.uniq.size == 2; diff }
   end
-
-end

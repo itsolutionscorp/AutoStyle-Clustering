@@ -1,17 +1,11 @@
-class Hamming
+def compute(a, b)
+    as = a.split("")
+    bs = b.split("")
+    as_and_bs = as.zip(bs)
 
-  def compute(arg1, arg2)
-    arr1 = arg1.split("")
-    arr2 = arg2.split("")
-
-    counter = 0
-    arr1.each_with_index do |x, i|
-      if x != arr2[i]
-        counter += 1
-      end
-    end
-    return counter
-
+    as_and_bs.reduce(0) { |sum, cpl|
+      n = cpl.all? && cpl[0] != cpl[1] ? 1 : 0
+      sum + n
+    }
   end
-
 end

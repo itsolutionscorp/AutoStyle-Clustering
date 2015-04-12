@@ -1,9 +1,4 @@
-#
-# Utility class to calculate hamming length
-#
-
-class Hamming
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     raise TypeError unless (strand_1.is_a? String) && (strand_2.is_a? String)
     
     hamming = 0
@@ -17,5 +12,3 @@ class Hamming
     end
 
     hamming
-  end
-end

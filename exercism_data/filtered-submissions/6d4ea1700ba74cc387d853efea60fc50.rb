@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(string1, string2)
+def compute(string1, string2)
     chars1 = string1.chars
     chars2 = string2.chars
 
@@ -8,4 +6,3 @@ class Hamming
 
     merge.select { |nucleotide1, nucleotide2| nucleotide1 != nucleotide2 }.count
   end
-end

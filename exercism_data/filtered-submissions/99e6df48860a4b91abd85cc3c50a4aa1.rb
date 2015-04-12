@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
 
     total = 0
 
@@ -13,5 +11,3 @@ class Hamming
     return total
 
   end
-
-end

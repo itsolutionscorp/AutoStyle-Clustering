@@ -1,19 +1,9 @@
-class Hamming
-
-  def compute(strandOne, strandTwo)
-
-    d = 0
-
-    i = 0
-
-    strandOne.split('').each do |s1| 
-      if s1 != strandTwo[i]
-        d += 1
-      end
-      i += 1
+def compute(dna1, dna2)
+    return 0 if dna1 == dna2
+    return 0 unless dna1.length == dna2.length
+    difference = 0
+    dna1.chars.each_with_index do |item, index|
+      difference += 1 if dna2[index] != item
     end
-
-    d
-			
+    return difference
   end
-end

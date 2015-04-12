@@ -1,11 +1,10 @@
-class Hamming
-  def compute(string1, string2)
-    h = 0
-    0.upto(string1.size - 1) do |index|
-      if string1[index] != string2[index]
-        h +=1
-      end
+def compute(str1, str2)
+    case str1.length <=> str2.length
+    when -1
+      str2 = str2[0, str1.length]
+    when 1
+      str1 = str1[0, str2.length]
     end
-    h
+
+    str1.chars.zip(str2.chars).keep_if { |x| x.first != x.last}.length
   end
-end

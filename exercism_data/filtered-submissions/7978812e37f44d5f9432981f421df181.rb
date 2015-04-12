@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     hamming_difference = 0
     character_index = 0
     a.each_char do |a_char|
@@ -9,4 +8,3 @@ class Hamming
 
     hamming_difference
   end
-end

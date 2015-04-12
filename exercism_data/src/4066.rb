@@ -1,11 +1,15 @@
-class Hamming
+def compute(first_strand, second_strand)
 
-  def compute(str1, str2)
-    count = 0
-    length = [str1.length, str2.length].min
-    length.times do |i|
-      count += 1 if str1.chars[i] != str2.chars[i]
+    first_split = first_strand.split("")
+    second_split = second_strand.split("")
+
+    strand_length = first_split.length
+    hamming_count = 0
+
+    (0..(strand_length-1)).each do |index|
+      if (first_split[index] != second_split[index])
+      hamming_count += 1
+      end
     end
-    count
+    hamming_count
   end
-end

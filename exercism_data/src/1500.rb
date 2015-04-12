@@ -1,9 +1,5 @@
-module Hamming
-  def compute(seq1, seq2)
-    [].tap { |arr|
-      seq1.bytes.zip(seq2.bytes) { |a, b|
-        arr << (a ^ b) if a && b 
-      }
-    }.count(&:nonzero?)
+def compute(string, other_string)
+    string.length.times.inject(0) do |acc, i|
+      acc + (string[i] == other_string[i] ? 0 : 1)
+    end
   end
-end

@@ -1,12 +1,7 @@
-require 'pry'
-class Hamming
-  def compute(a,b)
-    counter = 0
-    (0..(a.length-1)).each do |index|
-      if a[index] != b[index]
-        counter += 1
+def compute(first_string, second_string)
+    hamming_distance = 0
+    first_string.split("").each_with_index do |value, index|
+      hamming_distance += 1 if value != second_string[index]
       end
-    end
-    counter
+    hamming_distance
   end
-end

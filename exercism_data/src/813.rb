@@ -1,25 +1,10 @@
-class Hamming
-  def compute (stra, strb)
-    # don't waste time comparing if everything is equal!
-    # check if strings are a match - return 0
-    if stra == strb 
-      return 0
-    end
-    
-    # main interator
-    # split both inputs into arrays and then zip them together
+def compute(strand_1, strand_2)
+    distance = 0
+    size = [strand_1.size, strand_2.size].min
 
-    hamming_score = 0
-    stra_arr, strb_arr = stra.split(""), strb.split("")
-    iter_arr = stra_arr.zip(strb_arr)
-    
-    # compare each pair of letter for a match    
-    iter_arr.each do |x, y|
-        hamming_score += 1 if x != y
+    (0...size).each do |i|
+      distance += 1 if strand_1[i] != strand_2[i]
     end
-    
-    # spit out our result
-    return hamming_score
-    
+
+    distance
   end
-end

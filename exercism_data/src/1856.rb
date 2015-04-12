@@ -1,7 +1,6 @@
-class Hamming
-  def compute(strand1, strand2)
-    (0...[strand1.length, strand2.length].min).count do |i|
-      strand1[i] != strand2[i]
+def compute(first, second)
+    shortest_length = [first.length, second.length].min
+    (0...shortest_length).inject(0) do |distance, index|
+      distance += (first[index] == second[index]) ? 0 : 1
     end
   end
-end

@@ -1,9 +1,8 @@
-class Hamming
+def compute(string1, string2)
+    chars1 = string1.chars
+    chars2 = string2.chars
 
-  def compute(str1, str2)
-    str1.chars.zip(str2.chars).count do |v| 
-      v[0] != v[1] && v[1]
-    end
+    merge = string1 <= string2 ? chars1.zip(chars2) : chars2.zip(chars1)
+
+    merge.count { |char1, char2| char1 != char2 }
   end
-  
-end

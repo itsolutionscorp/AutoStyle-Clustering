@@ -1,9 +1,5 @@
-module Hamming
-  extend self
-
-  def compute(*strands)
-    to_arrays = ->(a,b) { a.chars.zip(b.chars) }
-    mutations = ->(points) { points.all? and not points.uniq.one? }
-    strands.reduce(&to_arrays).count(&mutations)
+def compute(a,b)
+    [a.length, b.length].min.times.map do |i|
+      a[i] != b[i]
+    end.select {|el| el}.count
   end
-end

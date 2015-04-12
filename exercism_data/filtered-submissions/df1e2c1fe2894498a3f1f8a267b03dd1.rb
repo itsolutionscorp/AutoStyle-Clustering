@@ -1,5 +1,4 @@
-class Hamming
-	def compute(firstStrand, secondStrand)
+def compute(firstStrand, secondStrand)
 		hammingDistance = 0
 		lengthMinStrand = 0
 		counter = 0
@@ -16,4 +15,3 @@ class Hamming
 		end
 		return hammingDistance
 	end
-end

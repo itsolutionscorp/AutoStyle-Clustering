@@ -1,12 +1,5 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    case
-    when strand1.length != strand2.length then 0
-    when strand1 = strand2 then 0
-    else
-      strand1.count("AGCT") - strand2.count("AGCT")
+def compute(strand1, strand2)
+    0.upto(strand1.length).count do |i|
+      strand1[i] != strand2[i]
     end
   end
-
-end

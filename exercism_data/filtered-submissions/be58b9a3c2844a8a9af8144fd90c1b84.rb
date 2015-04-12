@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     strand_a = strand_a.split('')
     strand_b = strand_b.split('')
 
@@ -11,4 +10,3 @@ class Hamming
 
     hamming_difference = mutations
   end
-end

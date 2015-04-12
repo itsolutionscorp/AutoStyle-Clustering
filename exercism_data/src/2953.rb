@@ -1,10 +1,3 @@
-module Hamming
-  extend self
-
-  def compute(*strands)
-    to_a = ->(string) { string.each_char.to_a }
-    mutations = ->(args) { args.all? && args.uniq.one? }
-    b, a = strands.map(&to_a).sort
-    a.zip(b).select(&mutations).count
+def compute(a, b)
+    a.chars.zip(b.chars).reject { |l,r| (l && r).nil? || l == r }.length
   end
-end

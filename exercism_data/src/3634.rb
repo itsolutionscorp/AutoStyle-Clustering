@@ -1,10 +1,4 @@
-class Hamming
-   def compute(genetic_code1, genetic_code2)
-      shorter_code_length = [genetic_code1.length, genetic_code2.length].min
-      hamming_distance = 0
-      (0...shorter_code_length).each do |i|
-         if genetic_code1[i] != genetic_code2[i] then hamming_distance += 1 end
-      end
-      hamming_distance
-   end
-end
+def compute strand_a, strand_b
+    short, long = [strand_a, strand_b].sort { |a, b| a.length <=> b.length }
+    short.each_char.count.with_index { |c, i| c != long[i] }
+  end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(strand1, strand2)
+def compute(strand1, strand2)
 		hamming_count,count = 0,0
 		strand1.each_char do |c|
 			break if strand2[count].nil?
@@ -8,4 +7,3 @@ class Hamming
 		end
 		hamming_count
 	end
-end

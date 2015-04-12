@@ -1,11 +1,5 @@
-class Hamming
-
-  def compute(gene_1, gene_2)
-
-    gene_1.chars.zip(gene_2.chars)
-      .count do |nucleotide_1, nucleotide_2|
-      nucleotide_1 != nucleotide_2 && nucleotide_2
+def compute(left, right)
+    left.bytes.zip(right.bytes).count do |item|
+      item.all? && item[0] != item[1]
     end
-
   end
-end

@@ -1,5 +1,4 @@
-module Hamming
-  def compute(original, mutated)
+def compute(original, mutated)
     difference = 0
     original.chars.each_with_index do |orig_chr, index|
       break unless mutated[index]

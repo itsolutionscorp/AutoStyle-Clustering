@@ -1,5 +1,4 @@
-class Hamming
-  def compute(input1, input2)
+def compute(input1, input2)
     minlength = [input1.length, input2.length].min
     i = 0
     result = 0
@@ -12,4 +11,3 @@ class Hamming
     end
     return result
   end
-end

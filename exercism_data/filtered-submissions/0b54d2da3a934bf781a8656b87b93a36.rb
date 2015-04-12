@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     mutations = 0
 
     comparable_size = [a.size, b.size].min
@@ -10,4 +9,3 @@ class Hamming
 
     mutations
   end
-end

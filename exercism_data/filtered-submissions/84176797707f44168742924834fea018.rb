@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
     a = arg1.split(%r{\s*})
     b = arg2.split(%r{\s*})
     counter = a.count
@@ -15,4 +14,3 @@ class Hamming
     end
     hamm
   end
-end

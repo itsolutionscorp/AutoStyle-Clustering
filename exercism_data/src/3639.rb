@@ -1,14 +1,5 @@
-class Hamming
-  def compute(sequence1,sequence2)
-    if sequence1.length != sequence2.length
-      puts "ValueError, cannot calculate hamming distance for sequences of different length!"
-    else
-      @distance = 0
-      hamming_pairs = sequence1.split('').zip(sequence2.split(''))
-      hamming_pairs.each do |pair|
-        @distance += 1 if pair[0] != pair[1]
-      end
-        @distance
-    end
+def compute(x, y)
+    res = 0
+    x.chars.each_with_index { |xi, i| res += 1 if xi != y[i] }
+    res
   end
-end

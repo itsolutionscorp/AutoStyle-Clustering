@@ -1,6 +1,3 @@
-module Hamming
-  def Hamming.compute(left_strand, right_strand)
-    shorter, longer = [left_strand, right_strand].sort_by &:length
-    shorter.chars.zip(longer.chars).count {|a, b| a != b }
+def compute(a, b)
+    a.chars.map.with_index{ |c,i|1 unless (b.chars[i] == c || b.chars[i] == nil)}.compact.reduce(0, :+)
   end
-end

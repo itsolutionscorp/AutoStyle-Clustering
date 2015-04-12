@@ -1,7 +1,9 @@
-module Hamming
-  def compute(a, b)
-    ## Iterate for the length of the longer strand
-    differences = (0...[a.length, b.length].min).collect { |i| "Difference!" unless a[i] == b[i] }
-    differences.count("Difference!")
+def compute(a, b)
+    count = 0
+    range = 0..a.length-1
+    range.each do |i|
+      count += 1 if a[i] != b[i]
+      i += 1
+    end
+    count
   end
-end

@@ -1,11 +1,10 @@
-module Hamming
-  class << self
-    def compute dna1, dna2
-      if dan1.length > dna2.length
-        dna1, dna2 = dna2, dna1
-      end
+def compute(orig, copy)
+		counter = 0
 
-      dna1.each_char.zip(dna2.each_char).select { |a, b| a != b }.size
-    end
-  end
-end
+		orig.split("").each_with_index do |char, index|
+			charAt = copy[index]
+			counter += 1 if charAt != char and index < copy.size
+		end
+
+		counter
+	end

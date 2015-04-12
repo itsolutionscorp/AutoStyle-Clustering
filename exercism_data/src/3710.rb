@@ -1,11 +1,8 @@
-class Hamming
-  def compute(strand1, strand2)
-    diff = 0
-
-    [strand1.length, strand2.length].min.times do |i|
-      diff +=1 unless strand1[i] == strand2[i]
+def compute(str1, str2)
+    dist = 0
+    i = 0
+    while i < str1.length && i < str2.length
+      dist += 1 unless str1[i].eql? str2[i]
+      i += 1
     end
-
-    diff
-  end
-end
+    dist

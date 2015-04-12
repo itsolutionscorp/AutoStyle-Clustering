@@ -1,5 +1,4 @@
-class Hamming
-	def compute(baseStrand, newStrand)
+def compute(baseStrand, newStrand)
 		maxLengthToCheck = [baseStrand.length, newStrand.length].min
 		hamming = 0
 
@@ -11,4 +10,3 @@ class Hamming
 
 		hamming
 	end
-end

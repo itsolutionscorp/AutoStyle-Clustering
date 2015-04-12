@@ -1,5 +1,4 @@
-class Hamming
-  def compute(seq_a, seq_b)
+def compute(seq_a, seq_b)
     raise ArgumentError unless seq_a.length == seq_b.length
 
     hamming_distance = 0
@@ -10,4 +9,3 @@ class Hamming
 
     hamming_distance
   end
-end

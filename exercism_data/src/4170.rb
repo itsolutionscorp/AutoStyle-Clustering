@@ -1,11 +1,3 @@
-class Hamming
-  def compute(original, replicated)
-    difference = 0
-
-    original.split('').each_with_index do |v, i|
-      difference += 1 if replicated[i] unless v == replicated[i]
-    end
-
-    difference
+def compute(s1, s2)
+    s1.chars.zip(s2.chars).count {|c1, c2| c1 != c2 }
   end
-end

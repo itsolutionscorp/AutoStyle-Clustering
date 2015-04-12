@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
      diff_catcher = 0
 
      a = [strand1.length, strand2.length].min
@@ -18,5 +16,3 @@ class Hamming
      diff_catcher
 
   end
-
-end

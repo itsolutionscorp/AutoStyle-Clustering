@@ -1,6 +1,10 @@
-class Hamming
-  def compute(a, b)
-    c = a.chars.zip(b.chars).map { |nuc| nuc[0] == nuc[1] ? 0 : 1 }
-    c.reduce(:+)
+def compute(str1, str2)
+    len = [str1.length, str2.length].min
+    answer = 0
+    len.times do |i|
+      if str1[i] != str2[i] 
+        answer += 1
+      end
+    end
+    answer
   end
-end

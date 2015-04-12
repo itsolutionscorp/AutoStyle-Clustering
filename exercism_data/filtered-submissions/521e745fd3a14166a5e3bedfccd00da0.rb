@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     raise ArgumentError, 'Arguments must be present' if a.nil? || b.nil?
     raise ArgumentError, 'Arguments should be the same length' if a.length != b.length
 
@@ -11,4 +10,3 @@ class Hamming
 
     hamming_difference
   end
-end

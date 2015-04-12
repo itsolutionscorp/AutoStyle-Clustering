@@ -1,9 +1,16 @@
-class Hamming
-  def compute(first_sequence, second_sequence)
-    unless first_sequence.length != second_sequence.length
-      first_sequence_to_array = first_sequence.chars
-      second_sequence_to_array = second_sequence.chars
-      (first_sequence_to_array.select.with_index{ |base, index| base != second_sequence_to_array[index] }).length
-    end
-  end
-end
+def compute(first, second)
+		# Simply return 0 if there are no differences in the strands
+		distance = 0
+		return distance if first == second
+		
+		# Split the strings into arrays of chars
+		first = first.split(//)
+		second = second.split(//)
+
+		# Loop through both arrays, 
+		while !first.empty? && !second.empty?
+			distance += 1 if first.shift != second.shift
+		end
+		distance
+	end
+end  # end Module Hamming

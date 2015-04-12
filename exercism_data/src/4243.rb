@@ -1,8 +1,8 @@
-# dna.map{|d| d.split('')}[0].zip(d2[1]).map(&:uniq).select{|d|d.count > 1}.count
-
-class Hamming
-  def compute a, b
-    seqs = [a,b].map{|d| d.split('')}
-    seqs[0].zip(seqs[1]).delete_if{|s| s.include?(nil)}.map(&:uniq).select{|d|d.count > 1}.count
+def compute(a, b)
+    a,b = b,a if b.length < a.length
+    distance = 0
+    a.chars.each_with_index do |l, i|
+      distance += 1 if b[i] != l
+    end
+    distance
   end
-end

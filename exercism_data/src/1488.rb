@@ -1,12 +1,5 @@
-class Hamming
-  def compute(strand, other_strand)
-    strand       = strand.chars
-    other_strand = other_strand.chars
-
-    pairs        = strand.zip(other_strand).first(other_strand.length)
-
-    pairs.count do |left, right|
-      left != right
-    end
-  end
-end
+def compute(a, b)
+		count = 0
+		a.each_char.with_index {|x, i| count += 1 if x != b[i]}
+		count
+	end

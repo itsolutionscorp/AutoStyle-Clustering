@@ -1,11 +1,7 @@
-class Hamming
-  def compute(strand1, strand2)
-    errors = 0
-    strand1.length.times do |i|
-      if (strand1[i] != strand2[i])
-        errors += 1
-      end
+def compute(a,b)
+    count = 0
+    (0..a.length-1).each do |i|
+      count +=1 unless a[i].eql? b[i] or b[i] == nil
     end
-    return errors
+    return count
   end
-end

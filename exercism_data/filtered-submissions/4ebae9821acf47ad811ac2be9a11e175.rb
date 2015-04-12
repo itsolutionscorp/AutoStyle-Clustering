@@ -1,6 +1,4 @@
-module Hamming
-
-	def compute(seq1, seq2)
+def compute(seq1, seq2)
 
 		nucleotide_to_check = [seq1.length, seq2.length].min
 

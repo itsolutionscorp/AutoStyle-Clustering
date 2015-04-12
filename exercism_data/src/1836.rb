@@ -1,12 +1,6 @@
-class Hamming
-	class << self
-		def compute(dna_one, dna_two)
-			count = 0
-			dna_two_arr = dna_two.split('')
-		    dna_one.split('').each_with_index do |c, index|
-				count += 1 unless c == dna_two_arr[index]
-			end
-			count
-		end
-	end
-end
+def compute(str1, str2)
+    return 0 if str1 == str2
+
+    [str1.length, str2.length].min.times
+      .count { |i| str1[i] != str2[i] }
+  end

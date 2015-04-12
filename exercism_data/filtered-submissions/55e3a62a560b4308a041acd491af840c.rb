@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     count = 0
     strand1.length.times do |index|
       count += 1 if strand1[index] != strand2[index]
@@ -7,4 +6,3 @@ class Hamming
 
     count
   end
-end

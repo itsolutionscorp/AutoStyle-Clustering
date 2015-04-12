@@ -1,14 +1,4 @@
-# Hamming.rb
-# Developed by: iaserrat
-# 09/25/2014
-# This file and all of its contents are under public domain.
-
-class Hamming
-  # Call this method (Hamming.compute) to calculate the hamming difference between two DNA strands. 
-  # Params:
-  # +strand1+:: DNA Strand as string.
-  # +strand2+:: DNA Strand as string.
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     distance = 0
     # Trivial case
     if strand1 == strand2
@@ -23,5 +13,3 @@ class Hamming
     end
     return distance
   end
-
-end

@@ -1,5 +1,9 @@
-class Hamming
-  def compute a, b
-    a.chars.zip(b.chars).count { |a, b| a != b }
-  end
-end
+def compute(original, mutated)
+        hamming_distance = 0
+        strand_length = [original.length, mutated.length].min
+        (0...strand_length).each do |nucleotide|
+            hamming_distance += 1 unless original[nucleotide] == mutated[nucleotide]
+        end
+
+        hamming_distance
+    end

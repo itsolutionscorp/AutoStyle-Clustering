@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(strand1, strand2)
+def compute(strand1, strand2)
 		match_count = 0
 		limit = [strand1.length, strand2.length].min
 		strand1.chars.each_with_index do |letter, index|
@@ -10,5 +8,3 @@ class Hamming
 		end
 		match_count
 	end
-
-end

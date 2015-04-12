@@ -1,12 +1,13 @@
-class Hamming
-  def compute(xs, ys)
-    (xs.split '').zip(ys.split '').reduce(0) do |count, (x, y)|
-      return nil unless x && y
-      if x != y
-        count + 1
-      else
-        count
+def compute(strand_a, strand_b)
+      # first make it pass, now I need to refactor :)
+      a = strand_a.chars
+      b = strand_b.chars
+
+      if a.size < b.size
+        b = b.drop(b.size - a.size + 1)
+      elsif a.size > b.size
+        a = a.drop(a.size - b.size + 1)
       end
+
+      a.zip(b).reject { |x, y| x == y }.size
     end
-  end
-end

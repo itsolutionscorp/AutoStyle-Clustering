@@ -1,13 +1,13 @@
-class Hamming
-
-  def compute(first, second)
-    min_length = [first.length, second.length].min
-    first = first.slice(0...min_length)
-    second = second.slice(0...min_length)
-
-    first_split, second_split = first.chars, second.chars
-
-    first_split.zip(second_split).count { |pair| pair[0] != pair[1] }
+def compute(code1, code2)
+    diff = 0
+    if code1.length == code2.length
+      for i in 0..code1.length
+        if code1[i] != code2[i]
+          diff += 1
+        end
+      end
+      return diff
+    else
+      return code1.length > code2.length ? 1 : 2
+    end
   end
-
-end

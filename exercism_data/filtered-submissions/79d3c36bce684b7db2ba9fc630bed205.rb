@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string1, string2)
+def compute(string1, string2)
     count = 0
     i = 0
     while string1[i] && string2[i]
@@ -8,4 +7,3 @@ class Hamming
     end
     count
   end
-end

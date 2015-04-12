@@ -1,11 +1,9 @@
-class Hamming
-  class << self
-    def compute(first_strand, second_strand)
-      distance = 0
-      [first_strand.size, second_strand.size].min.times do |i|
-        distance +=1 unless first_strand[i] == second_strand[i]
-      end
-      distance
+def compute(strand_a, strand_b)
+    i = 0
+    mutations = 0
+    while i < [strand_a, strand_b].min.length
+      mutations += 1 if strand_a[i] != strand_b[i]
+      i += 1
     end
+    mutations
   end
-end

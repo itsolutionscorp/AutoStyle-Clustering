@@ -1,22 +1,12 @@
-#!/usr/bin/ruby
-
-class Hamming
-  def compute(onez,twoz)
-
-    arr1 = onez.scan /\w/
-    arr2 = twoz.scan /\w/
-
-    # are the two arrays the same length
-    if arr1.size == arr2.size
-      z = 0
-      arr1.each_with_index\
-        {|str,iterator|
-        z += 1 if arr1[iterator] != arr2[iterator]
-      }
-      z
-      exit 0
-    else
-      exit 1
-    end
+def compute (strand1, strand2)
+    hamming_difference = 0
+    # Loop through every character in the first array
+    strand1.split("").each_with_index{|character, index|
+      if strand2.length > index
+      	# Add the absolute value of the difference between the
+      	# two characters (-1, 0, or 1)
+      	hamming_difference += (character <=> strand2[index]).abs
+  	  end
+    }
+    return hamming_difference
   end
-end

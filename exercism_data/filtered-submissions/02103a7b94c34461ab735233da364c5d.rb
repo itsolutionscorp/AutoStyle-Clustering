@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     diff = 0
 
     str1.split('').size.times do |index|
@@ -9,4 +8,3 @@ class Hamming
 
     diff
   end
-end

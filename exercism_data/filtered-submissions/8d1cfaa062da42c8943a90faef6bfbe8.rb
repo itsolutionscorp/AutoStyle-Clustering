@@ -1,5 +1,4 @@
-class Hamming
-	def compute (dna1, dna2)
+def compute (dna1, dna2)
 		nucleobases1 = dna1.split("")
 		nucleobases2 = dna2.split("")
 		result = 0
@@ -12,4 +11,3 @@ class Hamming
 
 		result
 	end
-end

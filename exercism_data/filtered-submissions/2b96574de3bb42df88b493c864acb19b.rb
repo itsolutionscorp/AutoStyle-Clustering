@@ -1,6 +1,4 @@
-# Clase diferencia Hamming
-class Hamming
-  def compute(primerCodigo , segundoCodigo)
+def compute(primerCodigo , segundoCodigo)
     if primerCodigo.length == segundoCodigo.length
     # Recorres ambas cadenas y comparar caracter por caracter, y si hay
     # diferencia sumarla al atributo distancia.
@@ -10,4 +8,3 @@ class Hamming
     end
     @distancia = 0 if @distancia.nil?
   end
-end

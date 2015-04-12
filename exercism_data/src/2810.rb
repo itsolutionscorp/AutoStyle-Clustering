@@ -1,7 +1,5 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.each_char.with_index.map do |char, i|
-      char == strand2[i] ? 0 : 1
-    end.reduce(:+)
+def compute(dna_fiber, other_dna_fiber)
+    dna_fiber.chars.zip(other_dna_fiber.chars).select { |nucleotide_pair|
+      nucleotide_pair.first != nucleotide_pair.last
+    }.size
   end
-end

@@ -1,9 +1,17 @@
-class Hamming
-	def compute(val1, val2)
-		distance = 0
-    val1.each_char.with_index do |n,i|
-      distance += 1 if n != val2[i]
+def compute(strand1, strand2)
+    test_length = [strand1.length, strand2.length].min
+
+    sr1 = strand1.split("") 
+    sr2 = strand2.split("") 
+
+    dist = 0
+    i = 0
+    while i < test_length  do
+     if(sr1[i] != sr2[i])
+       dist = dist + 1
+     end
+     i = i + 1
     end
-    distance
-	end
-end
+
+    return dist
+  end

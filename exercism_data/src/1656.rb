@@ -1,6 +1,5 @@
-class Hamming
-  def compute(dna1, dna2)
-    dist = dna1.chars.zip(dna2.chars)
-    dist.count{|i| i[0] != i[1] }
+def compute(s1, s2)
+    hamming = 0
+    (0..s1.length).step(1) {|i| hamming += 1 unless s1[i] == s2[i] }
+    hamming
   end
-end

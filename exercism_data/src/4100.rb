@@ -1,12 +1,6 @@
-#!/usr/bin/ruby
-
-class Hamming
-    def compute(a, b)
-        distance = 0
-        size = [a.length, b.length].min
-        size.times do |i|
-            distance += 1 if (a[i] != b[i])
-        end
-        distance
-    end
-end
+def compute(left, right)
+    left.chars.each_with_index.map do |char, index|
+      rchar = right.chars.at(index)
+      ((char == rchar) || rchar.nil?) ? 0 : 1
+    end.reduce(&:+)
+  end

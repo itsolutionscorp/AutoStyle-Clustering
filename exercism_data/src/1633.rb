@@ -1,13 +1,8 @@
-class Hamming
-	
-	def compute (string_a, string_b)
-		distance = 0
-		[string_a.length, string_b.length].min.times do |i|
-			distance += 1 if string_a[i] != string_b[i]
-		end
-		distance
-	end
-end
-
-	
-		
+def compute(strand1, strand2)
+    mutations = 0
+    min_size = [strand1.size, strand2.size].min
+    min_size.times do |i|
+      mutations += 1 if strand1[i] != strand2[i]
+    end
+    mutations
+  end

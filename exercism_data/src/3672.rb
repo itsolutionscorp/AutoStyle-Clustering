@@ -1,14 +1,11 @@
-class Hamming
-  def compute(left_strand, right_strand)
-    left_array = left_strand.split("")
-    right_array = right_strand.split("")
-
-    # count = 0
-    left_array.each_with_index do |value, index|
-      if value != right_array[index] && index < right_array.count
-        count += 1
+def compute(arg1, arg2)
+    # Counts the number of positions where arg1 and arg2 differ.
+    # Assumes they are of equal length.
+    ham = 0
+    arg1.length.times do |index|
+      if arg1[index] != arg2[index]
+        ham += 1
       end
     end
-    count
+    return ham
   end
-end

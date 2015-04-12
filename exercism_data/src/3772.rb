@@ -1,17 +1,4 @@
-class Hamming
-
-  def compute(arg1, arg2)
-    arr1 = arg1.split("")
-    arr2 = arg2.split("")
-
-    counter = 0
-    arr1.each_with_index do |x, i|
-      if x != arr2[i]
-        counter += 1
-      end
-    end
-    return counter
-
+def compute(a, b)
+    length = [a.length, b.length].min
+    (0...length).count { |index| a[index] != b[index] }
   end
-
-end

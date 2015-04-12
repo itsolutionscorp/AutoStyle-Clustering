@@ -1,7 +1,11 @@
-class Hamming
-  def compute(str1 = "", str2 = "")
-    sequences, distance = str1.chars.zip(str2.chars), 0
+def compute(mydna, yourdna)
+    combinedsequence = mydna.chars.zip(yourdna.chars)
+    differencecount = 0
+    combinedsequence.each{|x,y|
+      if (x != y) && !(x.nil?) && !(y.nil?)
+        differencecount = differencecount + 1
+      end
+    }
 
-    sequences.keep_if { |n| n.at(0) and n.at(1) and n.uniq.length == 2 }.count
+    differencecount
   end
-end

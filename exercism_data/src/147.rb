@@ -1,12 +1,9 @@
-class Hamming
-	def Hamming.compute(a,b)
-		len = a.length <= b.length ? a.length : b.length
-		for i in 0...len
-			if a[i] == b[i]
-				len-=1
-			end
+def compute(strand1,strand2)
+		numDifferences = 0
+		i = 0
+		[strand1.length,strand2.length].min.times do					
+			numDifferences += 1 if strand1[i] != strand2[i]
+			i += 1
 		end
-		return len
+		return numDifferences
 	end
-end
-puts Hamming.compute('A','G')

@@ -1,12 +1,12 @@
-class Hamming
-  def compute(strand_1 ,strand_2)
-    length = [strand_1.length, strand_2.length].min
-    diff_count = 0
-    
-    0.upto(length - 1) do |i|
-      diff_count += 1 if strand_1[i] != strand_2[i]
-    end
-    
-    diff_count
-  end
-end
+def compute(str1, str2)
+		str1.upcase!
+		str2.upcase!
+		len = [str1.length, str2.length].min
+		answer = 0
+		for i in 0...len
+			if str1[i] != str2[i] 
+				answer += 1
+			end
+		end
+		answer
+	end

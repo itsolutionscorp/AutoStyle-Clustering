@@ -1,5 +1,4 @@
-class Hamming
-  def compute(*strings)
+def compute(*strings)
     sequences = []
     # split strings into single-char arrays and append to array
     strings.each do |string|
@@ -17,4 +16,3 @@ class Hamming
 
     distance
   end
-end

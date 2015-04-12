@@ -1,10 +1,14 @@
-class Hamming
-  def compute(ancestor, genome)
-    # get the shortest code to compare 
-    common = (ancestor.length < genome.length ? ancestor : genome).length - 1
-    # check the common parts of the codes looking for differences, plus 1 if it's a mutation 
-    (0..common).inject(0) do |r, pos|
-      ancestor[pos].eql?(genome[pos]) ? r : r + 1
+def compute(x,y) 
+    failures = 0 
+    success = 0 
+    array_1 = x.split(//) 
+    array_2 = y.split(//)
+      (0..(array_1.size - 1)).each do |item| 
+        if (array_1[item] == array_2[item]) then 
+          success += 1 
+        else 
+          failures += 1
+        end 
+      end 
+      return failures
     end
-  end
-end

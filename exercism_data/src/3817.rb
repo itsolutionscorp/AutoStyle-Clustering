@@ -1,8 +1,10 @@
-class Hamming
-  def compute(earlier_strand, later_strand)
-    maximum_comparison_length = [earlier_strand.size, later_strand.size].min
-    (0...maximum_comparison_length).select { |index|
-      earlier_strand[index] != later_strand[index]
-    }.count
+def compute(a, b)
+    distance = 0
+
+    # Thanks deanlxvii!
+    [a.length, b.length].min.times do |i|
+      distance += 1 if a[i] != b[i]
+    end
+
+    distance
   end
-end

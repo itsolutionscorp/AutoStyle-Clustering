@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strandA, strandB)
+def compute(strandA, strandB)
     hammingCount = 0
 
     strandA.chars.each_with_index do |char, i|
@@ -8,4 +7,3 @@ class Hamming
 
     hammingCount
   end
-end

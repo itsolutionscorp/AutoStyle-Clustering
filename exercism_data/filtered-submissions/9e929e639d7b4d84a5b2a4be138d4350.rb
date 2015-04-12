@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     hamming_count = 0
     strand1.split('').each_with_index do |strand, i|
       hamming_count += 1 if strand != strand2.split('')[i]
@@ -7,4 +6,3 @@ class Hamming
     end
     hamming_count
   end
-end

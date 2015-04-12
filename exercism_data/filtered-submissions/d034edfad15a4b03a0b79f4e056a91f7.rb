@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute (dna1, dna2)
+def compute (dna1, dna2)
     # if dna strings have different length, end
     if dna1.length != dna2.length
       raise "strands need to be the same length!"
@@ -19,5 +17,3 @@ class Hamming
     return dist
 
   end
-
-end

@@ -1,7 +1,8 @@
-class Hamming
-
-  def compute(first_sequence, second_sequence)
-    first_sequence.chars.zip(second_sequence.chars).reject{|a| a[0] == a[1]}.count
-  end
-
-end
+def compute(string1, string2)
+		string1.length == string2.length or raise "Input Strings should be the same length."
+		distance = 0
+		(0..string1.length-1).each do |i|
+			distance += 1 if string1[i] != string2[i]
+		end
+		distance
+	end

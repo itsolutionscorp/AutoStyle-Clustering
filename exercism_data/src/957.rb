@@ -1,7 +1,14 @@
-class Hamming
-  def compute(strand1, strand2)
-    (0..[strand1.length, strand2.length].min).count do |i|
-      strand1[i] != strand2[i]
+def compute(dna1, dna2)
+    if dna1.length <= dna2.length
+      short = dna1
+      long = dna2
+    else
+      short = dna2
+      long = dna1
     end
+
+    short.chars
+      .zip(long.chars)
+      .count { |c1, c2| c1 != c2 }
   end
 end

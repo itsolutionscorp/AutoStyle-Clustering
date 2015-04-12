@@ -1,8 +1,6 @@
-class Hamming
-  def compute(strand1, strand2)
-    return unless strand1.length == strand2.length
-    strand1.chars.zip(strand2.chars).count do |symbol1, symbol2|
-      symbol1 != symbol2
-    end
-  end
-end
+def compute(string1, string2)
+		string1.length >= string2.length ? string1 = string1[0...string2.length] : string2 = string2[0...string1.length]
+		sum, y = 0, 0
+		string1.chars.each { |char|	char == string2.chars[y] ? (sum += 1; y += 1): y += 1 }
+		string1.length - sum
+	end

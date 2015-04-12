@@ -1,7 +1,4 @@
-#!/usr/bin/env ruby
-
-class Hamming
-	def compute(string1, string2)
+def compute(string1, string2)
 		str1arr = string1.split ""
 		str2arr = string2.split ""
 		retval = 0
@@ -14,4 +11,3 @@ class Hamming
 
 		return retval
 	end
-end

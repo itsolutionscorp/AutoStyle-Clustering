@@ -1,5 +1,4 @@
-class Hamming
-	def compute(sequence1, sequence2)
+def compute(sequence1, sequence2)
 		
 		# Get the length of the smaller of the two arrays
 		minlength = [sequence1.length, sequence2.length].min
@@ -15,4 +14,3 @@ class Hamming
 		# Return the result
 		return differential
 	end
-end

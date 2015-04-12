@@ -1,20 +1,4 @@
-# Determine the hamming distance between two strings
-
-module Hamming
-  def Hamming.compute(strand1,strand2)
-
-    # length of the shortest strand. No need to compare past that.
-    length=(strand1.length<strand2.length ? strand1.length : strand2.length)-1
-
-    # hamming distance
-    distance=0
-    
-    for x in 0..length
-      if strand1[x] != strand2[x]
-        distance += 1
-      end
-    end
-
-    return distance
+def compute(strand1, strand2)
+    smallest_strand = [strand1.size, strand2.size].min
+    smallest_strand.times.count { |i| strand1[i] != strand2[i] }
   end
-end

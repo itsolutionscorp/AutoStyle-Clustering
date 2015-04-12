@@ -1,15 +1,5 @@
-class Hamming
-  def compute(str1, str2)
-    if str1.length > str2.length
-      str1, str2 = str2, str1
-    end
-    hamming = 0
-    (0..(str1.length - 1)).each do |index|
-      if str1[index] != str2[index]
-        hamming += 1
-      end
-    end
-
-    hamming
+def compute(a, b)
+    a = a.size > b.size ? a[0...-1] : a
+    new_a = a.scan(/\w/).zip b.scan(/\w/)
+    new_a.map(&:uniq).delete_if {|a| a.count == 1 }.count
   end
-end

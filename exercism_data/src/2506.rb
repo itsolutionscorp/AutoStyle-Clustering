@@ -1,11 +1,14 @@
-class Hamming
-  def compute(strandA, strandB)
-    hammingCount = 0
+def compute(first_chain, second_chain)
+    first_chain.chars.zip(second_chain.chars).reduce(0) do |sum, (x, y)|      
+      if !x || !y
+      	break sum
+      end
 
-    strandA.chars.each_with_index do |char, i|
-      hammingCount += 1 if char != strandB[i]
-    end
-
-    hammingCount
+      if x != y
+        sum + 1
+      else 
+      	sum
+      end 
+         
+    end    
   end
-end

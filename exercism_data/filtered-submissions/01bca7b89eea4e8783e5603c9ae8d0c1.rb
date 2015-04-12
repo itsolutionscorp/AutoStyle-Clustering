@@ -1,5 +1,3 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     a.chars.zip(b.chars).take_while { |i| i.last != nil }.count { |(f, l)| f != l }
   end
-end

@@ -1,9 +1,4 @@
-module Hamming
-  def compute(x,y)
-    zipped = x.split('').zip(y.split(''))
-    zipped.reduce(0) do |acc, pair|
-      x, y = pair
-      x == y ? acc : acc + 1
-    end
+def compute(strand_uno, strand_dos)
+    strand_uno.each_char.each_with_index.count { |yup, abc|
+      nope= strand_dos[abc] ; nope && yup != nope }
   end
-end

@@ -1,7 +1,4 @@
-class Hamming
-
-  class << self
-    def compute(a, b)
+def compute(a, b)
       a = a.split('')
       b = b.split('')
       accm = 0
@@ -10,5 +7,3 @@ class Hamming
       end
       accm
     end
-  end
-end

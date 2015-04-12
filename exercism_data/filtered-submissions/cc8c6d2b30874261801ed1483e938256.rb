@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute (strand1, strand2)
+def compute (strand1, strand2)
     hamming_difference = 0
     # Loop through every character in the first array
     strand1.split("").each_with_index{|character, index|
@@ -12,5 +10,3 @@ class Hamming
     }
     return hamming_difference
   end
-
-end

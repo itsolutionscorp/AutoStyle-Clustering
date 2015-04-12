@@ -1,5 +1,4 @@
-module Hamming
-    def compute(a, b)
+def compute(a, b)
         if a == b
             0
         end

@@ -1,5 +1,4 @@
-module Hamming
-  def compute(a, b)
+def compute(a, b)
     return 0 if a == b
     y = b.split('')
     x = a.split('').take(y.size)

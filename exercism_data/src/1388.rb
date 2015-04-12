@@ -1,11 +1,15 @@
-class Hamming
-  def compute (a, b)
-    a = a.chars
-    b = b.chars
-    a = a.slice(0, b.count) if a.count > b.count
-    b = b.slice(0, a.count) if b.count > a.count
-    distance = 0
-    a.zip(b).map { |x, y| distance += 1 if x != y }
-    return distance
-  end
-end
+def compute(first_strand, second_strand)
+        @pom = 0
+        @first_length = first_strand.length
+        @second_length = second_strand.length
+        if @first_length >= @second_length
+            for i in 0..(@second_length-1)
+                (@pom += 1) unless first_strand.chars[i] == second_strand.chars[i]
+            end
+        else
+            for i in 0..(@first_length-1)
+                (@pom += 1) unless first_strand.chars[i] == second_strand.chars[i]
+            end
+        end
+        return @pom
+    end

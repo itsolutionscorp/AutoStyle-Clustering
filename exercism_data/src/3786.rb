@@ -1,9 +1,7 @@
-class Hamming
-  def compute(strandA, strandB)
-    nucleids_a = strandA.chars
-    nucleids_b = strandB.chars
-    nucleids_a.zip(nucleids_b).count do |(a, b)|
-      a && b && a != b
+def compute(dna1, dna2)
+    diff = 0
+    for i in (0...[dna1.length, dna2.length].min)
+      diff += 1 if dna1[i] != dna2[i]
     end
+    diff
   end
-end

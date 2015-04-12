@@ -1,9 +1,4 @@
-# Computer hamm difference between two DNA strands
-# Author::    Bryan Paxton  (mailto:starbelly@pobox.com)
-
-# Hamming class
-class Hamming
-  def compute(seq_a, seq_b)
+def compute(seq_a, seq_b)
     hamm = 0
     # Covert each strand into an array of chars and merge
     # both into an array of arrays.
@@ -13,5 +8,3 @@ class Hamming
       hamm += 1 if a != b
     end
     hamm
-  end
-end

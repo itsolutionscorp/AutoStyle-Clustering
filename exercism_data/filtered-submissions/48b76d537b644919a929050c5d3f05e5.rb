@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     hamming = 0
 
     for i in 0...a.length
@@ -8,4 +7,3 @@ class Hamming
 
     return hamming
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(x, y)
+def compute(x, y)
 
     # initialize arrays
     first_string = Array.new
@@ -35,4 +34,3 @@ class Hamming
 
     return @hamming_distance
   end
-end

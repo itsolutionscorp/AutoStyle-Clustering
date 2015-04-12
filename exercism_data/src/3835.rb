@@ -1,15 +1,6 @@
-class Hamming
-    def compute(first_strand, second_strand) # static method, not instance method
-        first_strand_arr = first_strand.split('')
-        second_strand_arr = second_strand.split('')
-
-        num_mutations = 0
-        first_strand_arr.each_index do |i|
-          if (i < second_strand_arr.size && first_strand_arr[i] != second_strand_arr[i])
-            num_mutations += 1
-          end
-        end
-
-        num_mutations
-    end
-end
+def compute(str1, str2)
+    ary1  = str1.split("");    ary2  = str2.split("");
+    dist1 = (ary1-ary2).count; dist2 = (ary2-ary1).count
+    # if 2 of args' length are different, return the larger
+    return dist1 > dist2 ? dist1 : dist2
+  end

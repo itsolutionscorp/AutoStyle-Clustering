@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute (first, second)
+def compute (first, second)
 
 	if first == second
 		return 0
@@ -21,5 +19,3 @@ class Hamming
 
 	return tally
 	end
-
-end

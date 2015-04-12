@@ -1,13 +1,10 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    difference = 0
-    
-    strand1.chars.each_with_index do |item, index|
-      difference += 1 unless strand2[index] == item
-    end    
-
-    difference
-  end
-
-end
+def compute( strand_1, strand_2 )
+    hamming = 0
+    index = 0
+    strand_1.each_char do |molecule|
+      break unless strand_2[index]
+      hamming += 1 if molecule != strand_2[index]
+      index += 1
+    end
+    hamming
+	end

@@ -1,9 +1,4 @@
-class Hamming
-  def compute(a, b)
-    return 0 if a == b
-
-    positions = a.chars.zip(b.chars)
-
-    positions.count { |(x, y)| y && x != y }
-  end
-end
+def compute(first, second)
+		short_string, long_string = [first, second].sort_by{ |s| s.length }
+		short_string.chars.reject.with_index{ |char, i| char == long_string[i]}.length
+	end

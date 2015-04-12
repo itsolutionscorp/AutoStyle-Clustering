@@ -1,11 +1,3 @@
-class Hamming
-  def compute(a, b)
-    res = 0
-    [a.length, b.length].min.times do |i|
-      if a[i] != b[i]
-        res += 1
-      end
-    end
-    return res
+def compute(a, b)
+    a.chars.zip(b.chars).count {|e| e[0] != e[1]}
   end
-end

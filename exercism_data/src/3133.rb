@@ -1,10 +1,7 @@
-class Hamming
-  
-  def compute(sequence1, sequence2)
-    sequence1.chars.zip(sequence2.chars).count do |symbol1, symbol2|
-       symbol1 != symbol2 && symbol2 && symbol1
+def compute(strand_a, strand_b)
+    distance = 0
+    strand_a.chars.each_with_index do |nuc, index|
+      distance += 1 unless nuc == strand_b[index]
     end
+    distance
   end
-  
-  
-end

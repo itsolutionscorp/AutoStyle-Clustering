@@ -1,8 +1,12 @@
-module Hamming
+def compute(a,b)
+    i = 0
+    a = (a <=> b) == 1 ? a.chars.take(b.length) : a.chars
+    b = b.chars
 
-  def compute(a, b)
-    if b.length > a.length then b = b[0, a.length] end
-    b.split("").zip(a.split("")).inject(0) { |sum, pair| if pair.first != pair.last then sum + 1 else sum end }
-  end     
-
-end
+    a.zip(b).each do |first, second|
+      if first != second
+        i += 1
+      end
+    end
+    return i
+  end

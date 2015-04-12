@@ -1,19 +1,12 @@
-class Hamming
-
-  def compute(origin_strand,other_strand)
-    i = 0
-    counts = 0
-    other_strand_arr = other_strand.chars
-    origin_strand.chars.each do |x|
-      # checking nil for ignores_extra_length_on_original_strand_when_longer
-      if other_strand_arr[i].nil?
-        break
-      elsif other_strand_arr[i] != x
-        counts += 1
+def compute(strand1, strand2)
+    ham_dist = 0
+    if strand1.length == strand2.length
+      strand1.length.times do |x|
+        if strand1[x] != strand2[x]
+          ham_dist += 1
+        end
+        x += 1
       end
-      i += 1
-    end 
-    counts
+    end
+    ham_dist
   end
-
-end

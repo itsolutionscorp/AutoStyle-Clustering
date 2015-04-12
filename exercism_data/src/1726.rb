@@ -1,16 +1,16 @@
-class Hamming
+def compute(a, b)
+    if a.length <= b.length
+      aa = a
+      a = b
+      b = aa
+    end
 
-	def compute test1, test2
-		return 0 if test1 == test2 
-		split_test1 = test1.split("")
-		split_test2 = test2.split("")
-		counter = 0
-		split_test1.each_with_index do |item, index| 
-			if item != nil && split_test2[index] != nil
-				counter += 1 if item != split_test2[index] 
-			end
-		end
-		counter
-	end
-	
-end
+    a_strand = a.split('')[0..b.length-1]
+    b_strand = b.split('')
+
+    diff = []
+    a_strand.map.with_index do |str, i|
+      diff << str unless b_strand[i] == str
+    end
+    diff.length
+  end

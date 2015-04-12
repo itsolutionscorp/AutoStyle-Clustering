@@ -1,23 +1,12 @@
-class Hamming
-
-	def compute(x,y)
-		if x.length == y.length
-			i = 0
-			sum = 0
-			for i in (0..x.length)
-				if x[i] == y[i]
-					sum += 0
-					i += 1
-				else
-					sum += 1
-					i += 1
-				end
-			end
-			return sum
-		else
-			puts "strings are not equal length"
-			exit
+def compute(strandA,strandB)
+		if strandA.length != strandB.length
 		end
-	end
-
-end
+	compares = 0
+	
+	for i in 0..strandA.length
+		if strandA.getbyte(i) != strandB.getbyte(i) then
+			compares+=1
+			end
+		end
+		return compares
+    end

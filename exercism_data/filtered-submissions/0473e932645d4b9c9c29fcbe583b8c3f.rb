@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
 
     # Convert strings to array
     dna1array = dna1.split(//)
@@ -22,5 +20,3 @@ class Hamming
     result.count
 
   end
-
-end

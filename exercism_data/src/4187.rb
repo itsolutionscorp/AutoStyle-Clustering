@@ -1,13 +1,4 @@
-class Hamming
-  def compute(n1, n2)
-    diff_count  = 0
-    strand_count   = 0
-
-    while strand_count < n1.length  
-      diff_count += 1 if n1[strand_count] != n2[strand_count]
-      strand_count += 1
-    end
-    
-    diff_count
+def compute a, b
+    pairs = a.chars.zip(b.chars).reject{|x,y| x.nil? || y.nil? }
+    pairs.select{|x,y| x != y}.length
   end
-end

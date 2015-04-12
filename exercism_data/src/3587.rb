@@ -1,17 +1,3 @@
-class Hamming
-
-  def compute(val1, val2)
-    acum = 0
-    
-    for i in 0..val1.length
-
-      if val1[i] != val2[i]
-        acum = acum + 1
-      end
-
-    end
-
-    return acum
-
-  end
-end
+def compute(s1,s2)
+		(0...[s1.length,s2.length].min).select { |i| s1[i] != s2[i] }.length
+	end

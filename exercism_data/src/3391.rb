@@ -1,10 +1,6 @@
-class Hamming
-  def compute(strand1, strand2)
-    smallest, biggest = if strand1.length<strand2.length
-                          [strand1, strand2]
-                        else
-                          [strand2, strand1]
-                        end
-    smallest.chars.zip(biggest.chars).select{|x, y| x!=y}.length
-  end
+def compute(a, b)
+    if b.length > a.length then b = b[0, a.length] end
+    b.split("").zip(a.split("")).inject(0) { |sum, pair| if pair.first != pair.last then sum + 1 else sum end }
+  end     
+
 end

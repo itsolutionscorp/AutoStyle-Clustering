@@ -1,10 +1,10 @@
-class Hamming
-  def compute(arg1,arg2)
-    ham = 0
-	a=*(0..arg1.length-1)
-	  a.each do |i|
-	    ham += 1 if arg1[i] != arg2[i]
-	  end
-	return ham
+def compute(input1, input2)
+    strand1 = input1.split(/w*/)
+    strand2 = input2.split(/w*/)
+    
+    length = [strand1.length, strand2.length].max
+    
+    length.times.map do |n|
+      strand1[n] == strand2[n] ? 0 : 1
+    end.inject(&:+)
   end
-end

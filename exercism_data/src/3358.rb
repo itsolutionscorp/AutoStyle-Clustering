@@ -1,9 +1,5 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1 = strand1.chars.to_a
-    strand2 = strand2.chars.to_a
-
-    pairs = strand1.zip(strand2)
-    pairs.count { |base1, base2| base1 != base2 }
+def compute(dna1, dna2)
+    hamming_distance = 0
+    dna1.size.times { |i| hamming_distance += 1 if (dna1[i] != dna2[i]) }
+    hamming_distance
   end
-end

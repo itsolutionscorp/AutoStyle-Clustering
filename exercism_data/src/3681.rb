@@ -1,7 +1,12 @@
-class Hamming
-  class << self
-    def compute(dna_one, dna_two)
-      (0..dna_one.length - 1).select {|i| dna_one[i] != dna_two[i]}.count
-		end
-	end
-end
+def compute(a, b)
+        minLength = [a.length, b.length].min;
+        differences = 0;
+
+        for i in 0..minLength-1
+            if a[i] != b[i]
+                differences += 1
+            end
+        end
+
+        return differences;
+    end

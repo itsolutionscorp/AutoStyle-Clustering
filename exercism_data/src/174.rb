@@ -1,10 +1,5 @@
-class Hamming
-  def compute(string_1, string_2)
-
-    zipped_strings = string_1.chars.zip(string_2.chars)
-
-    zipped_strings.inject(0) do |hamming_distance , (character_1, character_2)|
-      character_1 == character_2 ? hamming_distance : hamming_distance += 1
-    end
+def compute(s1, s2)
+    ary = [s1.chars, s2.chars].sort_by { |s| s.count }
+    ary_zipped = ary[0].zip(ary[1])
+    ary_zipped.count { |e| e.first != e.last }
   end
-end

@@ -1,13 +1,14 @@
-require 'ostruct'
-
-class Hamming
-  def compute(strand_1, strand_2)
-    strand_diff = OpenStruct.new(count: 0)
-    strand_diff.tap do |diff|
-      strand_1.split(//).each_with_index do |letter, index|
-        diff.count += 1 if strand_1[index] != strand_2[index]
-      end
+def compute(strand1, strand2)
+    return 0 if strand1 == strand2
+    if strand1.length != strand2.length
+      # There was not a test for this condition, but there probably should have been
+      puts "Hamming cannot be computed on strands of different lengths"
+      return -1
     end
-    strand_diff.count
+
+    hamming = 0
+    strand1.length.times do |position|
+      hamming += 1 unless strand1[position] == strand2[position]
+    end
+    hamming
   end
-end

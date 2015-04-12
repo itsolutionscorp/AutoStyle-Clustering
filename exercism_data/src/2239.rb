@@ -1,10 +1,8 @@
-class Hamming
-  def compute(a, b)
-    a = a.split('')
-    b = b.split('')
-
-    a, b = b, a if b.size < a.size
-
-    a.zip(b).count { |x, y| x != y }
-  end
-end
+def compute(seq1, seq2)
+        dist = 0
+        l = seq1.length < seq2.length ? seq1.length : seq2.length
+        0.upto (l - 1) do |x|
+            dist += 1 if seq1[x].chr != seq2[x].chr
+        end
+        dist
+    end

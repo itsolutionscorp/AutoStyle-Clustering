@@ -1,5 +1,4 @@
-class Hamming
-	def compute (a,b)
+def compute (a,b)
 		total_differences = 0
 		if a.length >= b.length 
 			counter = b.length
@@ -28,4 +27,3 @@ class Hamming
 		# 	return 1
 		# end	
 	end
-end

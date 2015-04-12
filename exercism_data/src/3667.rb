@@ -1,14 +1,6 @@
-class Hamming
-  def compute (s1, s2)
-    counter = 0
-    s1.upcase
-    s2.upcase
-    arr1 = s1.split("")
-    arr2 = s2.split("")
-    iterate = s1.length > s2.length ? s2.length : s1.length
-    iterate.times do |i|
-      counter += 1 if arr1[i] != arr2[i]
-    end
-    return counter
+def compute original, mutated
+    pairs = original.split('').zip mutated.split('')
+    pairs.delete_if do |pair|
+      pair.first.nil? or pair.last.nil? or pair.first == pair.last
+    end.count
   end
-end

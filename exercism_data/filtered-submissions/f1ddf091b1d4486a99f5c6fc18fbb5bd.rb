@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string1,string2)
+def compute(string1,string2)
     counter = 0
     string1.split('').each_with_index do |char,index|
       return counter if index >= string2.length
@@ -7,4 +6,3 @@ class Hamming
     end
     counter
   end
-end

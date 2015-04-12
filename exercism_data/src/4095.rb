@@ -1,5 +1,16 @@
-class Hamming
-  def compute(a, b)
-    a.chars.zip(b.chars).count { |x, y| x != y }
-  end
+def compute(a, b)
+		if a.length < b.length
+			max = a.length
+		else 
+			max = b.length
+		end
+		distance = 0
+		for i in 0..max-1
+			if a[i] != b[i]
+				distance += 1
+			end
+		end
+		return distance
+	end
+	
 end

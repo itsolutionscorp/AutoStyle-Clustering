@@ -1,5 +1,4 @@
-class Hamming
-	def compute(strandA, strandB)
+def compute(strandA, strandB)
 		strandA.split(//).zip(strandB.split(//)).count do |a, b|
 			if !a || !b
 				false
@@ -8,4 +7,3 @@ class Hamming
 			end
 		end
 	end
-end

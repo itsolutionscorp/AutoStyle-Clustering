@@ -1,6 +1,4 @@
-class Hamming
-  
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     strand_one.upcase!
     strand_two.upcase!
 
@@ -21,4 +19,3 @@ class Hamming
 
     return difference
   end
-end

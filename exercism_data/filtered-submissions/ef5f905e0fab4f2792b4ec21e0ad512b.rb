@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     distance = 0
     stacked = first.split("").zip(second.split(""))
 
@@ -13,4 +12,3 @@ class Hamming
 
     distance
   end
-end

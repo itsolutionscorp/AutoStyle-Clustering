@@ -1,5 +1,4 @@
-module Hamming
-  def compute(original, copy)
+def compute(original, copy)
     count = 0
 
     original.chars.each_with_index do |strand, idx|

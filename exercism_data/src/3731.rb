@@ -1,6 +1,7 @@
-class Hamming
-  def compute(strand1, strand2)
-    return 0 if strand1.empty? || strand2.empty?
-    (strand1.chr != strand2.chr ? 1 : 0) + compute(strand1[1..-1], strand2[1..-1])
+def compute(seq1, seq2)
+    count = 0
+    seq1.chars.each_with_index do |elem, index|
+      count += 1 unless elem.eql?(seq2.chars[index])
+    end
+    count
   end
-end

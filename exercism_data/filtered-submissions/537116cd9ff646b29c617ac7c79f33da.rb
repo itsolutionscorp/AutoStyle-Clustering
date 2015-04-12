@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     distance = 0
     i = 0
     while(strand1[i] && strand2[i]) do
@@ -8,4 +7,3 @@ class Hamming
     end
     distance
   end
-end

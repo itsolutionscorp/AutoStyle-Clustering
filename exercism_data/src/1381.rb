@@ -1,15 +1,10 @@
-class Hamming
-  def compute(a, b)
-    a_len = a.length
-    b_len = b.length
-    hamming = 0
-    common_len = a_len > b_len ? b_len : a_len
-    common_len -= 1
+def compute(a, b)
+    distance = 0
+    min_len = [a.length, b.length].min
 
-    for i in 0..common_len do
-      hamming += 1 if a[i] != b[i]
+    (0...min_len).each do |i|
+      distance += 1 if a[i] != b[i]
     end
 
-    hamming
+    distance
   end
-end

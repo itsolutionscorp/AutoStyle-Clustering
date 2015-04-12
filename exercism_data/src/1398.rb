@@ -1,20 +1,17 @@
-class Hamming
-	def compute(a, b)
-	  a_array = a.split('')
-		b_array = b.split('')
-		sum = 0
+def compute(a,b)
+  	biggerList = []
+  	smallerList = []
 
-		if a_array.length > b_array.length
-			a_array.pop
-		end
+  	#detect which string is longer and split into arrays.
+  	if a.length > b.length
+  		bigger_list = a.chars
+  		smaller_list = b.chars
+  	else
+  		bigger_list = b.chars
+  		smaller_list = a.chars
+  	end
 
-		result = a_array.zip(b_array).map! { |x, y| x == y }
+  	#iterate over smaller array and check against larger array
+    smaller_list.zip(bigger_list).count {|y, z| y != z }
 
-	  result.each do |val|
-	 		if val == false
-    		sum += 1
-    	end
-    end
-   sum
-	end
-end
+ 	end

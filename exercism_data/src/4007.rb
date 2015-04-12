@@ -1,14 +1,8 @@
-class Hamming
-
-  def compute(a_strand, other_strand)
-    repetition = 0
-    other_strand = other_strand.chars
-
-    a_strand.chars.each_with_index do |c, i|
-      repetition += 1 if other_strand.at(i) != c
+def compute(strand_one, strand_two)
+    n = [strand_one.length,  strand_two.length].min
+    counter = 0
+    (0..n-1).each do |n|
+      counter += 1 unless strand_one[i] == strand_two[i]
     end
-
-    repetition
+    counter
   end
-
-end

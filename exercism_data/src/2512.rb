@@ -1,13 +1,11 @@
-class Hamming
-	def compute(strand1, strand2)
-		difference_counter = 0
+def compute(strand1, strand2)
+    distance = 0
 
-		strand1.length.times do |i|
-			if strand1[i] != strand2[i]
-				difference_counter += 1
-			end
-		end
+    size = [strand1.size, strand2.size].min
 
-		difference_counter
-	end
-end
+    strand1.chars.take(size).each_with_index { |char, index|
+      distance += 1 if char != strand2[index]
+    }
+
+    distance
+  end

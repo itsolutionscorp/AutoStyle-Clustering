@@ -1,10 +1,12 @@
-class Hamming
-
-  def compute(a, b)
-    c = [a.chars, b.chars].transpose
-    c.inject(0) do |sum, set| 
-      sum + (set.first == set.last ? 0 : 1)
+def compute(base, other)
+    baseList  = base.split("")
+    otherList = other.split("")
+    i = res = 0
+    for value in baseList
+      if value != otherList[i]
+        res = res + 1
+      end
+      i = i + 1
     end
+    return res
   end
-
-end

@@ -1,8 +1,5 @@
-class Hamming
-  def compute original, mutated
-    pairs = original.chars.zip mutated.chars
-    pairs.delete_if do |pair|
-      pair.first.nil? or pair.last.nil? or pair.first == pair.last
-    end.count
-  end
-end
+def compute(seq1, seq2)
+        nb_diffs = 0
+        (0..seq1.length).each { |idx| nb_diffs += 1 unless seq1[idx] == seq2[idx] }
+        nb_diffs
+    end

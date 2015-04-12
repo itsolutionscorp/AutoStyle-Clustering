@@ -1,14 +1,9 @@
-class Hamming
-  def compute(string1, string2)
-    result = 0
-    if string1.size <= string2.size
-      @short = string1.split(//)
-      @long = string2.split(//)
-    else
-      @short = string2.split(//)
-      @long = string1.split(//)
-    end
-    @short.each_index{|i| result += 1 if @short[i] != @long[i]}
-    result
+def compute(first, second)
+    h = 0
+    first_array = first.split('')
+    second_array = second.split('')
+
+    first_array.map.with_index{ |l, i| h += 1 if second_array[i] != l unless i >= second_array.length }
+
+    return h
   end
-end

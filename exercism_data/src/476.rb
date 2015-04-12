@@ -1,14 +1,15 @@
-class Hamming
+def compute (*strings)
+		distance = 0
+		length = case strings.first <=> strings.last
+						 when 1 then strings.last.length 
+						 else strings.first.length
+						 end
 
-  class << self
-    def compute(s1, s2)
-      total = 0
-      min_length = s1.length > s2.length ? s2.length : s1.length
-      (0...min_length).each do |index|
-        total += 1 if s1[index] != s2[index]
-      end
-      total
-    end
+		length.times do |idx| 
+			distance += 1 if strings.first[idx] != strings.last[idx]
+		end
+		
+		distance
+	end
 
-  end
 end

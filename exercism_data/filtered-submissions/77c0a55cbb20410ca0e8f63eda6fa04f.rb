@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     hamming_code = 0
 
     last_index = (strand_a.length > strand_b.length ? strand_b.length : strand_a.length) - 1
@@ -12,4 +11,3 @@ class Hamming
 
     hamming_code
   end
-end

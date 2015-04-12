@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
       count = 0
       score = 0
     while (count < arg1.length) do
@@ -8,4 +7,3 @@ class Hamming
     end
     score
   end
-end

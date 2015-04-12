@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     strand_1_array = strand_1.split('')
     strand_2_array = strand_2.split('')
 
@@ -18,4 +16,3 @@ class Hamming
 
     score
   end
-end

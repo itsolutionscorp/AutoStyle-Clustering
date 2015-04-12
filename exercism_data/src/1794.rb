@@ -1,11 +1,9 @@
-class Hamming
-  def compute(a, b)
-    a, b = [a, b].sort_by(&:length)
-
-    a = a.split('')
-    b = b.split('')
-
-    difference = a.select.with_index { |x, i| x != b[i] }
-    difference.size
+def compute(a,b)
+    counter = 0
+    (0..(a.length-1)).each do |index|
+      if a[index] != b[index]
+        counter += 1
+      end
+    end
+    counter
   end
-end

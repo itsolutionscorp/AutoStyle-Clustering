@@ -1,5 +1,3 @@
-module Hamming
-  def compute(a, b)
-    a.chars.zip(b.chars).count { |a, b| a && b && a != b }
+def compute(str1, str2)
+    str1.chars.zip(str2.chars).count { |a, b| a != b }
   end
-end

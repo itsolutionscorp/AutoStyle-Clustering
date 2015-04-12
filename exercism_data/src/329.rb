@@ -1,11 +1,8 @@
-class Hamming
-  def compute(reference, examinee)
-    
-    pairs_to_count = [reference.length, examinee.length].min
-
-    (0...pairs_to_count).count do |string_index|
-      examinee[string_index] != reference[string_index]
+def compute strand_1, strand_2
+    distance = 0
+    strand_length = strand_1.length
+    strand_length.times do |i|
+      distance += strand_1[i] == strand_2[i] ? 0 : 1
     end
-
+    distance
   end
-end

@@ -1,15 +1,5 @@
-class Hamming
-
-  def compute(x, y)
-    count = 0
-    x.length.times do |i|
-      if !(x[i] == y[i])
-        count += 1
-      end
+def compute(arg1, arg2)
+    arg1.chars.zip(arg2.chars).count do |a, b|
+      a != b
     end
-    count
   end
-
-end
-
-Hamming.compute('A','B')

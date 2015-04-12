@@ -1,15 +1,7 @@
-class Hamming
-    def compute(a, b)
-	distance = 0
-
-	if a > b then
-	    a.length
-	else
-	    b.length
-	end.times { |i|
-	    distance += 1 unless a[i] == b[i]
-	}
-
-	return distance
+def compute(strand1, strand2)
+    hamming_dist = 0
+    for i in 0..strand1.length
+      hamming_dist += 1 if strand1[i] != strand2[i]
     end
-end
+    hamming_dist
+  end

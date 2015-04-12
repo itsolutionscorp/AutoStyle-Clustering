@@ -1,12 +1,8 @@
-class Hamming
-    def compute(original, mutated)
-        hamming_distance = 0
-        strand_length = [original.length, mutated.length].min
-        (0...strand_length).each do |nucleotide|
-            hamming_distance += 1 if original[nucleotide] != mutated[nucleotide]
-        end
+def compute(str_a, str_b)
+    mismatch = 0
 
-        hamming_distance
+    str_a.size.times do |n| str_a[n]
+     mismatch += 1 if str_a[n] != str_b[n]
     end
-
-end
+  mismatch
+  end

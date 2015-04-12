@@ -1,11 +1,7 @@
-class Hamming
-
-  def compute (strand1, strand2)
-    range = (0...[strand1.length, strand2.length].min)
-
-    range.count do |i|
-      strand1[i] != strand2[i]
-    end
+def compute(*strands)
+    smallest_strand_length = strands.min.size.to_i
+    strands.map! { |strand| strand.split('').slice(0..smallest_strand_length) }
+    zipped_strands = strands[0].zip(strands[1])
+    zipped_strands.delete_if { |strand| strand[0] == strand[1] || strand.include?(nil)}
+    zipped_strands.size
   end
-
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1 ,str2)
+def compute(str1 ,str2)
     index, diff_count = 0, 0
 
     # ignore extra length on first strand
@@ -12,4 +11,3 @@ class Hamming
 
     diff_count
   end
-end

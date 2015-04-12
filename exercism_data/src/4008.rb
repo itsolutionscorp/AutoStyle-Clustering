@@ -1,7 +1,10 @@
-class Hamming
-	def compute(seq1,seq2)
-		result = 0
-		(seq1.chars).zip(seq2.chars) { |arr|  result += (arr[0] == arr[1] ? 0 : 1) }
-		result
-	end
-end
+def compute(strand, compare_to_strand)
+    units_of_strand = strand.chars.take(compare_to_strand.length)
+    units_of_compare_to_strand = compare_to_strand.chars
+
+    pairs_to_compare = units_of_strand.zip(units_of_compare_to_strand)
+
+    pairs_to_compare.count do |left, right|
+      left != right
+    end
+  end

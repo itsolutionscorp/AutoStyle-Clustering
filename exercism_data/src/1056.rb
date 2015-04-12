@@ -1,9 +1,13 @@
-class Hamming
-  def compute(strand1, strand2)
-    count = 0
-    for i in 0...strand1.size
-      count += 1 if strand1[i] != strand2[i]
+def compute(strand1, strand2)
+    mismatch = 0
+
+    strand1_chars = strand1.split""
+    strand2_chars = strand2.split""
+
+    while one = strand1_chars.shift
+      break if strand2_chars.empty?
+      mismatch += 1 if one != strand2_chars.shift
     end
-    count
+
+    mismatch
   end
-end

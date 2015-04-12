@@ -1,9 +1,14 @@
-class Hamming
+def compute(first, second)
+    distance = 0
+    stacked = first.split("").zip(second.split(""))
 
-  def compute(strand1, strand2)
-    first_strand = strand1.split('')
-    second_strand = strand2.split('')
-    difference = first_strand.zip(second_strand).find_all { |i, j| i != j }.count
+    stacked.each do |stack|
+      if stack[0].nil? or stack[1].nil?
+        break
+      end
+
+      distance += 1 if stack[0] != stack[1]
+    end
+
+    distance
   end
-
-end

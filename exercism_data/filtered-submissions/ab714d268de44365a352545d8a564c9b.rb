@@ -1,10 +1,4 @@
-# require 'minitest/autorun'
-# require_relative 'hamming'
-
-
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     index = 0
     hamming_dist = 0
 
@@ -26,5 +20,3 @@ class Hamming
 
     hamming_dist
   end
-
-end

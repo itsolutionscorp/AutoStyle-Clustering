@@ -1,7 +1,4 @@
-require 'byebug'
-
-class Hamming
-	def compute(strandA, strandB)
+def compute(strandA, strandB)
 		hammingDistance = 0
 
 		strandA.each_char.with_index do|i, index|
@@ -12,4 +9,3 @@ class Hamming
 
 		hammingDistance
 	end
-end

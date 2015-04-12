@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     strand1.length < strand2.length ? comp = strand1.length : comp = strand2.length
     counter = 0
     comp.times do |i|
@@ -8,5 +6,3 @@ class Hamming
     end
     counter
   end
-
-end

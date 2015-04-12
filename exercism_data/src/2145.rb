@@ -1,5 +1,6 @@
-class Hamming
-	def compute(s1, s2)
-		return s1.split("").zip(s2.split("")).map{ |a,b| a == b}.count(false)
-	end
-end
+def compute(a,b)
+    n = [a, b].map(&:length).min
+    n.times.reduce(0) do |score, i|
+      score + (a[i]==b[i] ? 0 : 1)
+    end
+  end

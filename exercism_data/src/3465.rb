@@ -1,13 +1,11 @@
-class Hamming
+def compute str1, str2
+    distance = 0
 
-  def compute first, second
-    return 0 if first == second
-    count, length, fl, sl = 0, first.length, first.split(//), second.split(//)
-    (0...length).each do |i|
-      if fl[i] != sl[i]
-        count += 1
-      end
+    str1.split(//).each_with_index do |c,i|
+      next if str2[i].nil?
+      distance += 1 unless c == str2[i]
     end
-    count
+
+    distance
   end
 end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(str1, str2)
+def compute(str1, str2)
 		result = 0
 		len_diff = (str1.length - str2.length).abs
 		iter = [str1.length, str2.length].min
@@ -10,4 +9,3 @@ class Hamming
 		end
 		return result + len_diff
 	end
-end

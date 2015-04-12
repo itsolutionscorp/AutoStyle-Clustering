@@ -1,11 +1,10 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    hamming_distance = 0
+def compute (dna_1, dna_2)
+    longest = dna_1.length > dna_2.length ? dna_1 : dna_2
+    shortest = dna_1.length <= dna_2.length ? dna_1 : dna_2
 
-    first_strand.each_char.with_index do |char, index|
-      hamming_distance += 1 if second_strand[index] != char
+    distance = 0
+    shortest.length.times do |i|
+      distance += 1 if longest[i] !=  shortest[i]
     end
-
-    hamming_distance
+    return distance
   end
-end

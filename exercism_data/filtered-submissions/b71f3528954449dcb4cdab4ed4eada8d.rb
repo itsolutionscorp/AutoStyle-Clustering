@@ -1,5 +1,4 @@
-class Hamming
-	def compute(v1,v2)
+def compute(v1,v2)
 		if v1.length = v2.length
 			return 0
 		end
@@ -16,5 +15,3 @@ class Hamming
 			return acc
 		end
 	end
-
-end

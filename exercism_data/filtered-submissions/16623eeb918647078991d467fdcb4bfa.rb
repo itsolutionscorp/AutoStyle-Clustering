@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     count = 0
     a.split('').each_with_index do |x, i|
       if x != b[i]
@@ -8,4 +7,3 @@ class Hamming
     end
     count
   end
-end

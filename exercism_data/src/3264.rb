@@ -1,7 +1,3 @@
-class Hamming
-  
-  def compute(str1, str2)
-	str1.size.times.count { |i| str1[i] != str2[i]}
+def compute strand_a, strand_b
+    (0...strand_a.length).count { |i| strand_a[i] != strand_b[i] }
   end
-
-end

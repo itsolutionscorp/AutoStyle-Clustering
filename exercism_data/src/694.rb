@@ -1,7 +1,8 @@
-class Hamming
-  def compute(seq1, seq2)
-    length = [seq1.length, seq2.length].min
-    pairs = seq1.chars.zip(seq2.chars).take(length)
-    pairs.count { |first, second| first!= second }
+def compute(s1, s2)
+    pairs = s1.chars.zip(s2.chars)
+
+    pairs
+      .reject { |a, b| a.nil? || b.nil? }
+      .count { |a, b| a != b }
   end
 end

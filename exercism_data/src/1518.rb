@@ -1,11 +1,3 @@
-module Hamming
-  class << self
-    def compute dna1, dna2
-      if dna1.length > dna2.length
-        dna1, dna2 = dna2, dna1
-      end
-
-      dna1.each_char.zip(dna2.each_char).select { |a, b| a != b }.size
-    end
+def compute(strand_1, strand_2)
+    strand_1.chars.zip(strand_2.chars).count { |c| c.first != c.last }
   end
-end

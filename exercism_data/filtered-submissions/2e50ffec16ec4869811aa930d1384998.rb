@@ -1,5 +1,4 @@
-class Hamming
-	def compute(data1, data2)
+def compute(data1, data2)
 		if data1.length != data2.length
 			raise 'data1 must be the same length as data2 to compute Hamming distance'
 		end
@@ -14,4 +13,3 @@ class Hamming
 
 		return $distance
 	end
-end

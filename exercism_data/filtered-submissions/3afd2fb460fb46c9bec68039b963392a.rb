@@ -1,7 +1,4 @@
-require 'pry'
-
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     point_mutations = 0
 
     nucleotides2 = strand2.chars
@@ -14,4 +11,3 @@ class Hamming
 
     point_mutations
   end
-end

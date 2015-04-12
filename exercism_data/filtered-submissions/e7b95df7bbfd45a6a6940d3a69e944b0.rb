@@ -1,5 +1,4 @@
-class Hamming
-  def compute(x, y)
+def compute(x, y)
     count = 0
     x_array, y_array = x.chars, y.chars
 
@@ -7,4 +6,3 @@ class Hamming
 
     count
   end
-end

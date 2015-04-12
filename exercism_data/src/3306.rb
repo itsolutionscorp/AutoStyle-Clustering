@@ -1,11 +1,11 @@
-class Hamming
-  def compute(a, b)
-    count = 0
-    i = 0
-    while i < a.length do
-      count += 1 if a[i] != b[i]
-      i += 1
+def compute(left = "", right = "")
+    sequence_a, sequence_b, distance = left.chars, right.chars, 0
+
+    sequence_a.zip(sequence_b).each do |a_nucleotide, b_nucleotide|
+      unless a_nucleotide.nil? || b_nucleotide.nil?
+        (distance += 1) unless a_nucleotide == b_nucleotide
+      end
     end
-    return count
+
+    distance
   end
-end

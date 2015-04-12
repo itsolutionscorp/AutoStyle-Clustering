@@ -1,14 +1,7 @@
-class Hamming
-  def compute(strand_one, strand_two)
-    return 0 if strand_one == strand_two
+def compute input1, input2
+    short,long = input1,input2 unless input1.length > input2.length
+    short,long = input2,input1 if short.nil?
 
-    shortest_length = [strand_one.size, strand_two.size].min
-    hamming_dist = 0
-
-    shortest_length.times do |i|
-      hamming_dist += 1 if strand_one[i] != strand_two[i]
-    end
-
-    hamming_dist
+    short.split('').each_with_index.map{|x, i| short[i]==long[i]}.reject{|j| j==true}.count
   end
 end

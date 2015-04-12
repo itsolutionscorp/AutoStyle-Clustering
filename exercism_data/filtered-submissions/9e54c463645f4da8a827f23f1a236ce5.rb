@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     # Store both strands in separate arrays
     first = first.chars.to_a
     second = second.chars.to_a
@@ -16,4 +15,3 @@ class Hamming
     end
     return difference
   end
-end

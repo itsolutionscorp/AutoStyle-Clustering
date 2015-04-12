@@ -1,10 +1,20 @@
-class Hamming
-  def compute(first_string, second_string)
-    length = [first_string, second_string].min.length
-    differences = 0
-    (0...length).each do |i|
-      differences += 1 if first_string[i] != second_string[i]
-    end
-    return differences
-  end
-end
+def compute(string1,string2)
+		#make sure they are uppercase
+		string1.upcase!
+		string2.upcase!
+		if string2.length < string1.length
+			short_sequence = string2
+			long_sequence = string1
+		else
+			short_sequence = string1
+			long_sequence = string2
+		end
+
+		total = 0
+		short_sequence.chars.each_with_index do |char,index|
+			if char != long_sequence[index]
+				total = total + 1
+			end
+		end
+		total
+	end

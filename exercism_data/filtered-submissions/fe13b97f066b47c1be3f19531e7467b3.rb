@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
   	a = str1.to_s.split('').zip(str2.to_s.split(''))
   	b = 0
 
@@ -10,4 +9,3 @@ class Hamming
    	end
     return b
 	end
-end

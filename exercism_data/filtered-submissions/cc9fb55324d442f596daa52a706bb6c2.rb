@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     diff = 0
     [s1.length, s2.length].min.times do |i|
       if s1[i] != s2[i]
@@ -8,4 +7,3 @@ class Hamming
     end
     diff
   end
-end

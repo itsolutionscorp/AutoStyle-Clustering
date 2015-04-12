@@ -1,10 +1,9 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    distance=0
-    first_strand.scan(/./).each_with_index do |character,index|
-      distance+=1 if character!=second_strand[index]
-    end
-    distance
-  end
+def compute(strand1, strand2)
+    difference = 0
 
-end
+    strand1.each_char.with_index do |char, index|
+      difference += 1 if strand2[index] != char
+    end
+
+    difference
+  end

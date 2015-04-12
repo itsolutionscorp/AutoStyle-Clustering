@@ -1,7 +1,18 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1, strand2 = strand2, strand1 if strand1.size > strand2.size
+def compute(first, second)
+		#Make the strings the same length
+		if first.length > second.length then
+			first = first.slice(0..(second.length - 1))
+		else
+			second = second.slice(0..(first.length - 1))
+		end
 
-    strand1.chars.each.with_index.count { |char, i| strand2[i] != char }
-  end
-end
+		#Check each character in the strings and count mismatches
+		hamming_count = 0
+		(0..(first.length - 1)).each do |i|
+			if first.slice(i) != second.slice(i) then
+				hamming_count = hamming_count + 1
+			end
+		end
+
+		return hamming_count
+	end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     str1 = str1.split('')
     str2 = str2.split('')
 
@@ -22,4 +21,3 @@ class Hamming
     end
     difference
   end
-end

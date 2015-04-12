@@ -1,10 +1,7 @@
-class Hamming
+def compute( strand_1, strand_2 )
 
-  def compute base, target
-    base.chars.each_with_index.inject(0) do |differences, (char, i)|
-      break differences unless target[i]
-      char == target[i] ? differences : differences += 1
-    end
+    length = [strand_1.size, strand_2.size].min
+    
+    (0...length).count { |i| strand_1[i] != strand_2[i] }
+
   end
-
-end

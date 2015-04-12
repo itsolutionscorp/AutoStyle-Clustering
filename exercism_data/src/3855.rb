@@ -1,7 +1,4 @@
-class Hamming
-  def compute(a, b)
-    mismatches = 0
-    [a.length, b.length].min.times { |i| mismatches += 1 if a[i] != b[i] }
-    mismatches
+def compute(dna_1, dna_2)
+    dna_enum = dna_2.chars.each
+    dna_1.chars.count { |c| c != dna_enum.next }
   end
-end

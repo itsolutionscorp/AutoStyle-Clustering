@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a,b)
+def compute(a,b)
 
     aa = a.scan(/./)
     bb = b.scan(/./)
@@ -15,5 +13,3 @@ class Hamming
     end
     return ham
   end
-
-end

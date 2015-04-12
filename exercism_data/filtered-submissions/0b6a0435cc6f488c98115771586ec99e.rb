@@ -1,8 +1,4 @@
-class Hamming
-
-	
-	
-	def compute(strand1,strand2)
+def compute(strand1,strand2)
 	  ham_count = 0
 		if strand1.length > strand2.length
 	 		for i in 0...strand2.length do
@@ -24,7 +20,3 @@ class Hamming
 	 	
 		
 	end
-
-	
-
-end

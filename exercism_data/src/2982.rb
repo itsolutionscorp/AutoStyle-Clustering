@@ -1,20 +1,6 @@
-class Hamming
+def compute(a, b)
+    # larger zipped into smaller means we always have the right number of pairs.
+    pairs = [a.chars,b.chars].sort_by(&:count).reduce(&:zip)
 
-	def compute(strand1,strand2)
-		
-		array = (strand1.split("")).zip(strand2.split(""))
-
-		distance = 0
-		array.each do |compare|
-			if compare[0] == compare[1] or compare[1] == nil
-				distance = distance + 0
-			elsif compare[0] != compare[1]
-				distance = distance + 1
-			end
-		end
-
-		return distance
-
-	end
-
-end
+    pairs.count {|character_a,character_b| character_a != character_b }
+  end

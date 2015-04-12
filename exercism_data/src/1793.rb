@@ -1,6 +1,4 @@
-class Hamming
-  def compute(string1, string2)
-    min_string_size = [string1.size, string2.size].min 
-    min_string_size.times.count{|i| string1[i] != string2[i]}
+def compute(strand1, strand2)
+    smaller_strand_size = [strand1.size, strand2.size].min
+    (0...smaller_strand_size).count { |i| strand1[i] != strand2[i] }
   end
-end

@@ -1,8 +1,4 @@
-#!/usr/bin/env ruby
-
-
-class Hamming
-    def compute(sequence_a, sequence_b)
+def compute(sequence_a, sequence_b)
         length = [sequence_a.length, sequence_b.length].min
         distance = 0
         for i in 0..length-1
@@ -10,4 +6,3 @@ class Hamming
         end
         distance
     end
-end

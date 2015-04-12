@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute (dna1, dna2)
+def compute (dna1, dna2)
     if dna1.length != dna2.length
       raise "unequal length! #{dna1.length} chars to #{dna2.length} chars"
     end
@@ -16,5 +14,3 @@ class Hamming
 
     return dist
   end
-
-end

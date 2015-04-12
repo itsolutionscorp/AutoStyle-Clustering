@@ -1,5 +1,11 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    strand_1.chars.zip(strand_2.chars).reduce(0) { |count, pair| count + (pair[0] != pair[1] ? 1 : 0) }
+def compute(strand_one, strand_two)
+    strand_one = strand_one.split(//)
+    strand_two = strand_two.split(//)
+    hamming_distance = 0
+
+    strand_one.each_with_index do |symbol, i|
+      hamming_distance += 1 if symbol != strand_two[i]
+    end
+
+    hamming_distance
   end
-end

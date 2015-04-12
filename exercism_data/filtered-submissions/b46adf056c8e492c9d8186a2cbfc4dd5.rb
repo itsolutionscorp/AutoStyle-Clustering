@@ -1,5 +1,4 @@
-class Hamming
-	def compute strand1, strand2
+def compute strand1, strand2
     iterations = [strand1.length, strand2.length].min
 
     distance = 0
@@ -10,4 +9,3 @@ class Hamming
 
     distance
 	end
-end

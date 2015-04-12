@@ -1,9 +1,5 @@
-module Hamming
-
-  def Hamming.compute(a, b, c=0)
-    return c if a.length == 0 or b.length == 0
-    return compute(a[1..-1], b[1..-1], c) if a[0] == b[0]
-    return compute(a[1..-1], b[1..-1], c+1)
+def compute(str1, str2)
+    str1.chars.zip(str2.chars).select do |ch1, ch2| 
+      (ch1 != ch2) && ch1 && ch2
+    end.count
   end
-
-end

@@ -1,16 +1,20 @@
-class Hamming
-  def compute(strand1, strand2)
-    return 0 if strand1 == strand2
-    if strand1.length != strand2.length
-      # There was not a test for this condition, but there probably should have been
-      puts "Hamming cannot be computed on strands of different lengths"
-      return -1
+def compute(first_input, second_input)
+    distance = 0
+    
+    if first_input != second_input
+      first_input_array = first_input.split("")
+      second_input_array = second_input.split("")
+
+      first_input_array.each_with_index do |first_input_char, index|
+        if index == second_input.length
+          break
+        else
+          if first_input_char != second_input_array[index]
+            distance += 1
+          end
+        end
+      end
     end
 
-    hamming = 0
-    strand1.length.times do |position|
-      hamming += 1 unless strand1[position] == strand2[position]
-    end
-    hamming
+    distance
   end
-end

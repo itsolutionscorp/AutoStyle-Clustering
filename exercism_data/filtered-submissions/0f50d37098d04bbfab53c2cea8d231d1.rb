@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(first, other)
+def compute(first, other)
       return compute(other, first) if first.length > other.length
 
       first.length.times.map do |index|
@@ -8,5 +6,3 @@ class Hamming
         1
       end.reduce(&:+)
     end
-  end
-end

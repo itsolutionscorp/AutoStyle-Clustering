@@ -1,9 +1,5 @@
-class Hamming
-  def compute(first, second)
-    count = 0
-    first.chars.each_with_index do |first_i, i|
-      if first_i != second[i] then count += 1; end
-    end
-    count
+def compute(first, second)
+    char_pairs = first.chars[0...second.length].zip(second.chars)
+    char_pairs.count { |pair| pair.first != pair.last }
   end
 end

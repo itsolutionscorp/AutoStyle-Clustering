@@ -1,10 +1,4 @@
-class Hamming
-
-  if self == Hamming
-    puts "it's me"
-  end
-
-  def compute(x,y)
+def compute(x,y)
 
     differences = 0
 
@@ -20,5 +14,3 @@ class Hamming
 
     differences
   end
-
-end

@@ -1,9 +1,12 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(first_input, second_input)
     distance = 0
-    for i in 0...[strand1.length, strand2.length].min
-	 if strand1[i] != strand2[i] then distance +=1 end 
-    end 
-    return distance
+    
+    return distance if first_input == second_input
+
+    first_input.chars.each_with_index do |first_input_char, index|
+      break if index == second_input.length
+      distance += 1  if first_input_char != second_input.chars[index]
+    end
+
+    distance
   end
-end

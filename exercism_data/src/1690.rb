@@ -1,6 +1,3 @@
-class Hamming
-  def compute(first, second)
-    zipped_point_pairs = first[0..second.length - 1].chars.zip(second.chars)
-    zipped_point_pairs.count {|first_point, second_point| first_point != second_point }
+def compute(original, comparison)
+    original.chars.zip(comparison.chars).count { |a, b| a != b and a and b }
   end
-end

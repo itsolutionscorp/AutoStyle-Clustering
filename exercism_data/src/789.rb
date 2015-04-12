@@ -1,17 +1,3 @@
-class Hamming
-    def compute shorter, longer
-        if (shorter.length > longer.length)
-            self.compute longer, shorter
-        end
-
-        str_to_char_array = Proc.new do |x|
-            x.chars.to_a
-        end
-
-        (shorter, longer) = [shorter, longer].collect(&str_to_char_array)
-
-        shorter.zip(longer).count do |current|
-            current[0] != current[1]
-        end
-    end
-end
+def compute(s1, s2)
+		[s1, s2].map(&:length).min.times.count { |i| s1[i] != s2[i] }
+	end

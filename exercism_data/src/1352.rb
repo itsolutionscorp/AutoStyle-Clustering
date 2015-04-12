@@ -1,9 +1,9 @@
-module Hamming
-  def compute(strand1, strand2)
-    shortest_strand = [strand1.size, strand2.size].min
-
-    (0...shortest_strand).reduce(0) do |ham, point|
-      ham + (strand1[point] <=> strand2[point]).abs
-    end
+def compute(a, b)
+      mutations = 0
+      asplit = a.split('')
+      bsplit = b.split('')
+      asplit.each_with_index do |value, index|
+        mutations +=1 unless asplit[index] == bsplit[index]
+      end
+      mutations
   end
-end

@@ -1,11 +1,11 @@
-class Hamming
-
-  def compute(x, y)
-  	distance = 0
-    x.length.times do 
-      distance += 1 if letter != y[index]
+def compute(first, second)
+    first_array = first.split(//)
+    second_array = second.split(//)
+    counter_equals = 0
+    for i in 0...[first_array.length, second_array.length].min
+      if(first_array[i] != second_array[i])
+	counter_equals +=1
+      end
     end
-    distance 
+    return counter_equals
   end
-
-end

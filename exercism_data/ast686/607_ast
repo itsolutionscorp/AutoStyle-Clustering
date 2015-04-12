@@ -1,1 +1,1 @@
-s(:module, :Hamming, s(:defn, :compute, s(:args, :strand1, :strand2), s(:lasgn, :pairs, s(:call, s(:call, s(:lvar, :strand1), :each_char), :zip, s(:call, s(:lvar, :strand2), :each_char))), s(:iter, s(:call, s(:lvar, :pairs), :count), s(:args, :c1, :c2), s(:call, s(:lvar, :c1), :!=, s(:lvar, :c2)))))
+s(:defn, :compute, s(:args, :strand1, :strand2), s(:iter, s(:call, s(:call, s(:call, s(:lvar, :strand1), :chars), :zip, s(:call, s(:lvar, :strand2), :chars)), :count), s(:args, :nucleotide_a, :nucleotide_b), s(:call, s(:lvar, :nucleotide_a), :!=, s(:lvar, :nucleotide_b))))

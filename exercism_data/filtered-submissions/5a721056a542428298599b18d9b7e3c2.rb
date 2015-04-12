@@ -1,5 +1,4 @@
-module Hamming
-  def compute(src, dest)
+def compute(src, dest)
     length = [src, dest].map(&:length).min
 
     (0...length).map.count do |i|

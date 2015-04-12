@@ -1,14 +1,8 @@
-class Hamming
-
-  def compute(strand_one, strand_two)
-    distance = 0
-
-    strand_one.split("").each_with_index do |code, index|
-      break unless strand_two[index] != nil 
-      distance += (code == strand_two[index] ? 0 : 1)
+def compute(strand1, strand2)
+    hamming_distance = 0
+    strand1.chars.each_with_index do |char, i|
+      break if i == strand2.length
+      hamming_distance += 1 unless char == strand2.chars[i]
     end
-
-    distance
+    hamming_distance
   end
-
-end

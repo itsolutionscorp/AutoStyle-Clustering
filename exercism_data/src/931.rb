@@ -1,17 +1,10 @@
-# Modified to use 2-space indents
-class Hamming
-	def compute(a,b)
-		if a == "A" && b == "A"
-			return 0
-		elsif (a == "A" && b == "G") || (a == "AT" && b == "CT") || (a == "GGACG" && b == "GGTCG") ||
-			(a == "AGA" && b == "AGG") || (a == "AGG" && b == "AGA")
-			return 1
-		elsif a == "AG" && b == "CT"
-			return 2
-		elsif a == "GATACA" && b == "GCATAA"
-			return 4
-		elsif a == "GGACGGATTCTG" && b == "AGGACGGATTCT"
-			return 9
-		end
-	end
-end
+def compute(s1, s2)
+    min_length = [s1.length, s2.length].min
+    s1 = s1[0..min_length-1]
+    s2 = s2[0..min_length-1]
+    diff=0
+    s1.each_char.each_with_index do |c, i|
+      diff+=1 unless c==s2[i]
+    end
+    diff
+  end

@@ -1,11 +1,12 @@
-class Hamming
-	def compute(strand1,strand2)
-		count = 0
-		strand1.chars.zip(strand2.chars).each do |first, second|
-			if first != second	 	
-			count = count + 1
-			end
-		end
-		count
-	end
-end
+def compute(string1, string2)
+    hamming = 0 
+    dna1 = string1.split("")
+    dna2 = string2.split("")
+
+    dna1.each_with_index do |dna , index|
+      if dna != dna2[index]
+        hamming += 1
+      end
+    end
+    return hamming
+  end

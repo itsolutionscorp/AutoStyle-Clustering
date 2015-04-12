@@ -1,14 +1,8 @@
-class Hamming
-  def compute(a, b)
-    a = a.split("")
-    b = b.split("")
-    
-    a.each_with_index.inject(0) { |result, (element, idx)|
-      if b[idx] != element
-        result = result + 1 
-      else 
-        result
+def compute(genetic_code1, genetic_code2)
+      shorter_code_length = [genetic_code1.length, genetic_code2.length].min
+      hamming_distance = 0
+      (0...shorter_code_length).each do |i|
+         hamming_distance += 1 if genetic_code1[i] != genetic_code2[i]
       end
-    }
-  end
-end
+      hamming_distance
+   end

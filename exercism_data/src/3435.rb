@@ -1,8 +1,7 @@
-class Hamming
-  def compute(strand1, strand2)
-    min = [strand1.length, strand2.length].min
-    (0...min).count do |i|
-      strand1[i] != strand2[i]
+def compute(sequence1, sequence2)
+    shorter, longer = [sequence1, sequence2].sort_by(&:length)
+    comparisons = shorter.chars.zip(longer.chars)
+    comparisons.count do |comparison|
+      comparison.first != comparison.last
     end
   end
-end

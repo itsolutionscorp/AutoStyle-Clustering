@@ -1,8 +1,8 @@
-class Hamming
-	def compute(strand_a, strand_b)
-		diff = 0	
-		strand_a.size > strand_b.size ? (strand_a = strand_a[0...strand_b.size]) : (strand_b = strand_b[0...strand_a.size])
-		strand_a.size.times { | idx | diff += 1 if (strand_a[idx-1] != strand_b[idx-1]) }
-		diff
-	end
-end
+def compute(s1, s2)
+    s1_ary = s1.each_char.to_a
+    s2_ary = s2.each_char.to_a
+
+    ary = [s1_ary, s2_ary].sort_by { |s| s.count }
+
+    ary[0].zip(ary[1]).count { |e| e.first != e.last }
+  end

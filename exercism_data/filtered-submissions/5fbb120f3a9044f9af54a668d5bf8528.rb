@@ -1,7 +1,4 @@
-class Hamming
-
-  # Computes the Hamming distance for two given DNA strands
-  def compute(strA, strB) 
+def compute(strA, strB) 
     # Treat the given strings as sequences of characters instead
     seqA = strA.split('')
     seqB = strB.split('')
@@ -11,4 +8,3 @@ class Hamming
 
     individual_distances.inject(0) { |sum, i| sum + i }
   end
-end

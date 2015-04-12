@@ -1,6 +1,4 @@
-module Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
 
     array1 = strand1.split('')
     array2 = strand2.split('')

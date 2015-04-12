@@ -1,7 +1,4 @@
-require 'pry-nav'
-
-class Hamming
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     return 0 if strand_1 == strand_2
 
     length = strand_1.length
@@ -13,4 +10,3 @@ class Hamming
 
     return distance
   end
-end

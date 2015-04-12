@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(dna, copy)
+def compute(dna, copy)
     count = 0
     newdna = dna.split("")
     (0..dna.length-1).each do |index|
@@ -11,5 +9,3 @@ class Hamming
     end
     count
   end
-
-end

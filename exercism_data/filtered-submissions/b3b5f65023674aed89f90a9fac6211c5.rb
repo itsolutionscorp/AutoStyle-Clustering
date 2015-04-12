@@ -1,6 +1,4 @@
-require 'pry'
-class Hamming
-	def compute(strand1, strand2)
+def compute(strand1, strand2)
 		array1= strand1.chars
 		array2= strand2.chars
 		sum= 0
@@ -22,4 +20,3 @@ class Hamming
 		end
 		return sum
 	end
-end

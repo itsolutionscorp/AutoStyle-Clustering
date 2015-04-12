@@ -1,12 +1,6 @@
-class Hamming
-  def compute(a, b)
-    hamming_count = 0
-
-    a.split('').each_with_index do |char, index|
-      break if index == (a.length) || index == (b.length)
-      hamming_count += 1 unless b[index] == char
+def compute(strand1, strand2)
+    comparison_array = strand1.chars.zip(strand2.chars)
+    comparison_array.reduce(0) do |distance, comparison_pair|
+      comparison_pair.first != comparison_pair.last ? distance += 1 : distance
     end
-
-    hamming_count
   end
-end

@@ -1,20 +1,9 @@
-class Hamming
+def compute(strand1, strand2)
+		distance = 0
 
-  def compute(a,b)
-  	biggerList = []
-  	smallerList = []
+		[strand1.length, strand2.length].min.times do |i|
+			distance += 1 if strand1[i] != strand2[i]
+		end
 
-  	#detect which string is longer and split into arrays.
-  	if a.length > b.length
-  		bigger_list = a.chars
-  		smaller_list = b.chars
-  	else
-  		bigger_list = b.chars
-  		smaller_list = a.chars
-  	end
-
-  	#iterate over smaller array and check against larger array
-    smaller_list.zip(bigger_list).count {|y, z| y != z }
-
- 	end
-end
+		distance
+	end

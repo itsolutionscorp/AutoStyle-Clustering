@@ -1,15 +1,20 @@
-module Hamming
-	extend self
+def compute(n1, n2)
 
-	def compute(strand_1, strand_2)
-		shorter_strand, longer_strand = [strand_1.chars, strand_2.chars].sort
+    n1_array = n1.split("")
+    n2_array = n2.split("")
 
-		distance = 0
+    distance = 0
 
-		shorter_strand.each_with_index do |n, i|
-			distance += 1 if longer_strand[i] != n
-		end
+    n1_array.length.times do |check|
 
-		return distance
-	end
-end
+      index = check - 1
+
+      if n1_array[index] != n2_array[index]
+        distance += 1
+      end
+
+    end
+
+    return distance
+
+  end

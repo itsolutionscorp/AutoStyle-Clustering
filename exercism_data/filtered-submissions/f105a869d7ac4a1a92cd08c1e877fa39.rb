@@ -1,5 +1,4 @@
-class Hamming
-  def compute(sequence_a, sequence_b)
+def compute(sequence_a, sequence_b)
     length = [sequence_a.length, sequence_b.length].min
     distance = 0
     0.upto(length - 1) do |i|
@@ -7,4 +6,3 @@ class Hamming
     end
     distance
   end
-end

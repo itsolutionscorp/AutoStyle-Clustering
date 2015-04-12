@@ -1,12 +1,12 @@
-class Hamming
-  def compute(base_dna_strand, comparison_dna_strand)
-    base_dna = base_dna_strand.chars
-    comparison_dna = comparison_dna_strand.chars
+def compute(string1, string2)
+    string_1_array = []
+    string_2_array = []
 
-    differences = base_dna.zip(comparison_dna).select do |base, comparison|
-      base != comparison
-    end
+    string1.each_char{|a| string_1_array << a}
+    compare1 = string_1_array.map.with_index{|value, index| [index, value] }
 
-    differences.count
+    string2.each_char{|a| string_2_array << a}
+    compare2 = string_2_array.map.with_index{|value, index| [index, value] }
+
+    string1.length - ((compare1 & compare2).count)
   end
-end

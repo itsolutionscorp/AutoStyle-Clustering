@@ -1,18 +1,15 @@
-class Hamming
-
-  def compute(strand, other)
-    other_chars = other.each_char
-
-    differences =
-      strand.each_char.map do |char|
-        begin
-          char != other_chars.next ? 1 : 0
-        rescue StopIteration
-          0
-        end
+def compute(itemA, itemB)
+      # if we are the same length, run the test
+      if itemA.length == itemB.length
+         count = 0
+         0.upto(itemA.length) { |i|
+            #compare and tick
+            if itemA[i] != itemB[i]
+               count = count + 1
+            end
+         }   
+         return count
       end
-
-    differences.reduce :+
-  end
-
-end
+      #all else fails, return error
+      return -1
+   end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     hamming = 0
 
     if (strand_1.is_a? String) && (strand_2.is_a? String)
@@ -19,4 +17,3 @@ class Hamming
     end
     return hamming
   end
-end

@@ -1,12 +1,9 @@
-class Hamming
-  def compute(dna1, dna2)
-    distance = 0
-    dna1.length.times do |i|
-      if dna1[i] != dna2[i]
-        distance += 1
-      end
+def compute(strand_one, strand_two)
+    strands = [strand_one, strand_two].sort! {|l,r| l.length <=> r.length}
+    dif = 0
+    (0..strands.first.length-1).each do |c|
+      return dif if strands.last.length < c
+      dif += 1 if strands.first[c] != strands.last[c]
     end
-
-    distance
+    dif
   end
-end

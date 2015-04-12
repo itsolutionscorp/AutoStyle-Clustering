@@ -1,7 +1,21 @@
-class Hamming
-  def compute(seg1, seg2)
-    return 0 unless seg1.length == seg2.length
-    strands = seg1.chars.zip(seg2.chars)
-    strands.collect{ |first, second| 'diff' if first != second }.count('diff')
+def compute(string1, string2)
+    i=0
+    counter = 0
+    if string1.length <= string2.length
+      while i<= string1.length-1
+        if string1[i] !=string2[i]
+          counter+=1
+        end
+        i+=1
+      end
+      counter
+    else
+      while i<= string2.length-1
+        if string2[i] !=string1[i]
+          counter+=1
+        end
+        i+=1
+      end
+      counter
+    end
   end
-end

@@ -1,9 +1,8 @@
-class DifferingArgumentLength < StandardError
-end
-
-class Hamming
-  def compute(a, b)
-    raise DifferingArgumentLength unless a.length == b.length
-    (0..a.chars.length - 1).inject(0) { |r, i| r += 1 if a[i] != b[i]; r }
+def compute(lhs, rhs)
+    return nil if lhs.length != rhs.length
+    diff = 0
+    lhs.length.times do |i|
+      diff += lhs[i] != rhs[i] ? 1 : 0
+    end
+    return diff
   end
-end

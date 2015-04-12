@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(x, y)
+def compute(x, y)
     difference = 0
     for i in 0..x.length-1
       unless x[i] == y[i]
@@ -9,5 +7,3 @@ class Hamming
     end
     difference
   end
-
-end

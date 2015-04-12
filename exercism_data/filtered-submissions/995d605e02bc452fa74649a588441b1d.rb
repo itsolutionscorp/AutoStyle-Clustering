@@ -1,8 +1,4 @@
-class Hamming
-  # @param [String] strand one strand
-  # @param [String] another_strand another strand
-  # @return [Fixnum]
-  def compute(strand, another_strand)
+def compute(strand, another_strand)
     if strand == another_strand
       0
     else
@@ -16,4 +12,3 @@ class Hamming
       end
     end
   end
-end

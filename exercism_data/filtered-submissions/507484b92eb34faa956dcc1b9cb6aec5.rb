@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute (dna1, dna2)
+def compute (dna1, dna2)
 		count = 0
 		f1 = Array.new
 		f2 = Array.new
@@ -16,5 +14,3 @@ class Hamming
 
 		return count
 	end
-
-end

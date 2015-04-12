@@ -1,5 +1,9 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    first_strand.chars.zip(second_strand.chars).count{ |x,y| x != y }
-  end
-end
+def compute(strand_1, strand_2)
+      hamming_distance = 0
+
+      strand_1.each_char.with_index do |nucleotide, index|
+        hamming_distance += (nucleotide == strand_2[index] ? 0 : 1)
+      end
+
+      hamming_distance
+    end

@@ -1,16 +1,12 @@
-class Hamming
+def compute(first_strand, second_strand)
+    assert_equal = 0
 
-  def compute(sequence1, sequence2)
-    count = 0
-    array1 = sequence1.chars
-    array2 = sequence2.chars
-    joined = array1.zip(array2)
-    joined.each do |key, value|
-      if key != value
-        count += 1
+    first_strand.length.times do |count|
+      if first_strand[count] != second_strand[count]
+        if (first_strand[count] && second_strand[count]) != nil
+          assert_equal += 1
+        end
       end
     end
-    count
+    assert_equal
   end
-
-end

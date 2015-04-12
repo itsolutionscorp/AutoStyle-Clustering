@@ -1,20 +1,5 @@
-require 'set'
-
-class Hamming
-  def compute(strand_a, strand_b)
-    distance = []
-
-    a = strand_a.split("")
-    b = strand_b.split("")
-
-    a1 = a.take(b.count)
-    b1 = b.take(a.count)
-
-    b1.each_with_index do |x, index|
-      if x != a1[index]
-        distance << x
-      end
+def compute(first_input, second_input)
+    first_input.chars.zip(second_input.chars).count do |(first, last)|
+      first != last unless last == nil
     end
-    distance.count
   end
-end

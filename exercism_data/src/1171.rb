@@ -1,15 +1,7 @@
-class Hamming
-  def compute(string_one, string_two)
-    if string_one == string_two
-      0
-    elsif string_one == 'AG' && string_two == 'CT'
-      2
-    elsif string_one == 'GATACA' && string_two == 'GCATAA'
-      4
-    elsif string_one == 'GGACGGATTCTG' && string_two == 'AGGACGGATTCT'
-      9
-    else
-      1
+def compute(first_strand, second_strand)
+    distance=0
+    first_strand.scan(/./).each_with_index do |character,index|
+      distance+=1 if character!=second_strand[index]
     end
+    distance
   end
-end

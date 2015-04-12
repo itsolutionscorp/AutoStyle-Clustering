@@ -1,13 +1,21 @@
-class Hamming
-
-  def compute(sequence_1, sequence_2)
-    strand_error = 0
-    min_length = [sequence_1.length, sequence_2.length].min
-    min_length.times do |index|
-      if sequence_1[index] != sequence_2[index]
-        strand_error += 1
+def compute(string1, string2)
+    i=0
+    counter = 0
+    if string1.length <= string2.length
+      while i<= string1.length-1
+        if string1[i] !=string2[i]
+          counter+=1
+        end
+        i+=1
       end
+      counter
+    else
+      while i<= string2.length-1
+        if string2[i] !=string1[i]
+          counter+=1
+        end
+        i+=1
+      end
+      counter
     end
-    strand_error
   end
-end

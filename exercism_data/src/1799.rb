@@ -1,5 +1,16 @@
-class Hamming
-  def compute a, b
-    a.each_char.zip(b.each_char).count { |arr| arr[0] != arr[1] }
+def compute(x, y)
+    hamming_dist = 0
+    i = 0
+
+    while i < x.length
+
+      if x[i] != y[i]
+        hamming_dist += 1
+      end
+
+    i += 1
+    end
+
+    hamming_dist
+
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     first = first.chars
     second = second.chars
     index = 0
@@ -15,7 +14,3 @@ class Hamming
     end
     hamming_count
   end
-end
-
-test = Hamming.new
-puts test.compute('a', 'a')

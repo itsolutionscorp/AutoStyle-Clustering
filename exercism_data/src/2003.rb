@@ -1,9 +1,5 @@
-class Hamming
-  def compute(first, second)
-    score = [0]
-    (0..first.length-1).each do |c|
-      first[c] == second[c] ? 0 : score << 1
+def compute(a, b)
+    a.chars.with_index.count do |char, index|
+      (b[index] || char) != char
     end
-    score.inject {|e,b| e + b }
   end
-end

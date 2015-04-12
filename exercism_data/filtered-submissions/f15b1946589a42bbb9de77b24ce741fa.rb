@@ -1,6 +1,4 @@
-module Hamming
-
-	def compute first, second
+def compute first, second
 		diff_counter = 0
 		first.each_char.with_index do |f, i|
 			break if second[i].nil?

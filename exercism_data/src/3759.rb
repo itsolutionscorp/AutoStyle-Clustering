@@ -1,12 +1,10 @@
-class Hamming
-
-	def compute(strand1, strand2)
-
-		if strand1.length != strand2.length
-			strand1 = strand1.slice(0..strand2.length-1)
-			strand1.chars.zip(strand2.chars).count { |a,b| a != b }
-		else
-			strand1.chars.zip(strand2.chars).count { |a,b| a != b }
-		end
-	end
+def compute (sample, target)
+    total = 0
+    s = sample.unpack("c*")
+    t = target.unpack("c*")
+    s.zip(t).each do |a, b|
+      total+= 1 if a!= b && a && b 
+    end
+    total
+  end
 end

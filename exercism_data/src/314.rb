@@ -1,16 +1,13 @@
-class Hamming
-  
-  def compute(input1, input2)
-    strand1 = input1.split(/w*/)
-    strand2 = input2.split(/w*/)
-    
-    length = [strand1.length, strand2.length].max
-    
-    length.times.map do |n|
-      strand1[n] == strand2[n] ? 0 : 1
-    end.inject(&:+)
+def compute(a, b)
+    a_chars = a.chars
+    b_chars = b.chars
+
+    a_chars.each_with_index.inject(0) do |distance, (char, index)|
+      if char != b_chars[index]
+        distance += 1
+      end
+
+      distance
+    end
   end
-  
-  
-  
 end

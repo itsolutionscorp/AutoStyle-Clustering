@@ -1,9 +1,9 @@
-class Hamming
-  def compute(str_1, str_2)
-    differences = 0
-    str_1.chars.each_with_index do |char, index|
-      differences += 1 if str_2[index] != char
+def compute(dna1, dna2)
+      hamm = 0
+      length = [dna1.length, dna2.length].min
+      length.times do |i|
+        hamm += 1 if dna1[i] != dna2[i]
+      end
+      hamm
     end
-    differences
   end
-end

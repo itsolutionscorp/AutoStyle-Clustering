@@ -1,13 +1,7 @@
-class Hamming
-	def compute string1, string2
-		count = 0
-		index = 0
-		while index != string1.length do
-			if not string1[index].chomp.eql? string2[index].chomp
-				count += 1
-			end
-			index += 1
-		end
-		count
-	end
+def compute(string1, string2)
+    min_length = [string1, string2].map(&:length).min
+    min_length.times.count do |i|
+      string1[i] != string2[i]
+    end
+  end
 end

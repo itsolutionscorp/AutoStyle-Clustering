@@ -1,9 +1,5 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    shortestlength = [strand_a.length, strand_b.length].min
-
-    (0...shortestlength).count do |i|
-      strand_a[i] != strand_b[i]
-    end
+def compute(a, b)
+    first_strand = a.split('')
+    second_strand = b.split('')
+    difference = first_strand.zip(second_strand).find_all { |i, j| i != j }.count
   end
-end

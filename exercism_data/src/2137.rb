@@ -1,6 +1,7 @@
-class Hamming
-  def compute(a, b)
-    short, long = [a, b].sort_by(&:length).map(&:chars)
-    short.zip(long).reject { |x, y| x == y }.count
+def compute(x,y)
+    distance = 0
+    x.length.times do |index|
+      distance+=1 if x[index] != y[index]
+    end
+    distance
   end
-end

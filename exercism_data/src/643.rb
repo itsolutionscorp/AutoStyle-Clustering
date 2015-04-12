@@ -1,7 +1,4 @@
-class Hamming
-
-  def compute(aString, bString)
-    aString.chars.zip(bString.chars).take_while{ |arr| !arr.include? nil}.count{ |arr| arr[0]!=arr[1] }
+def compute(a,b)
+    length = ([a.size , b.size].min) - 1
+    (0..length).inject(0) { |distance, i| distance += 1 if a[i] != b[i]; distance }
   end
-
-end

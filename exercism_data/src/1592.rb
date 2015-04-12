@@ -1,7 +1,14 @@
-module Hamming
-  def compute(left, right)
-    (0 .. [left.size, right.size].min - 1).inject(0) do |a, i| 
-      left[i] == right[i] ? a : a + 1
-    end
+def compute(strand, other_strand)
+    min_length = [strand.length, other_strand.length].min
+    strand = strand[0...min_length]
+    other_strand = other_strand[0...min_length]
+    
+    count = 0
+    min_length.times do |i|
+      strand_char = strand[i]
+      other_char = other_strand[i]
+      count += 1 unless strand_char == other_char
+    end 
+    
+    return count
   end
-end

@@ -1,23 +1,7 @@
-#####################
-#####################
-# Primer rubymierda #
-#####################
-#####################
-
-class Hamming
-    def compute(s1,s2)
-      contador = 0
-      s1 = s1.upcase
-      s2 = s2.upcase
-      if s1 != s2
-        s1.each_char.with_index { |c,i|
-          # si caracter distintos y los caracteres
-          # distintos de nulo (distintos tamaños)
-          if c != s2[i] && c != nil && s2[i] != nil
-            contador += 1
-          end
-        }
-      end  
-        return contador
-    end
-end
+def compute(dna, another_dna)
+    raise ArgumentError, 'different lengths' if dna.length != another_dna.length
+    count = 0
+    return count if dna == another_dna
+    (dna.split("").zip(another_dna.split(""))).each {|a,b| count+=1 if a != b}
+    count
+  end

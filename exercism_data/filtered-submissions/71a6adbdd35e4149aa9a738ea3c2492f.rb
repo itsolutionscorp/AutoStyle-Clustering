@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     len = [strand_1.size, strand_2.size].min
     point_mutations = 0
 
@@ -10,4 +8,3 @@ class Hamming
 
     point_mutations
   end
-end

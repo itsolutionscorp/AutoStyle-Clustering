@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str_a, str_b)
+def compute(str_a, str_b)
     str_a_array = str_a.split('')
     str_b_array = str_b.split('')
 
@@ -17,4 +16,3 @@ class Hamming
 
     return str_length - mismatches
   end
-end

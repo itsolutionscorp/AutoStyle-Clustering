@@ -1,7 +1,4 @@
-#! /usr/bin/env ruby
-
-class Hamming
-  def compute(chain1, chain2)
+def compute(chain1, chain2)
     # Initializes Counter
     hamming = 0
     # Trims both chains to equal length
@@ -18,4 +15,3 @@ class Hamming
     end
     return hamming
   end
-end

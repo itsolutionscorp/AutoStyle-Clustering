@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2, differences=0)
+def compute(strand1, strand2, differences=0)
     while strand1 != ""
       if strand1.slice!(0) != strand2.slice!(0)
         differences += 1
@@ -8,4 +7,3 @@ class Hamming
     end
     differences
   end
-end

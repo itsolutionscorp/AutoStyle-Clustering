@@ -1,5 +1,4 @@
-class Hamming
-  def compute(base_strand, descendent_strand)
+def compute(base_strand, descendent_strand)
     base_sequence = base_strand.chars
     descendent_sequence = descendent_strand.chars
     delta = 0
@@ -11,4 +10,3 @@ class Hamming
 
     return delta
   end
-end

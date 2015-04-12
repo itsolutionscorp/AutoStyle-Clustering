@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     errors = 0
     strand1.length.times do |i|
       if (strand1[i] != strand2[i])
@@ -8,4 +7,3 @@ class Hamming
     end
     return errors
   end
-end

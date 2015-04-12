@@ -1,5 +1,8 @@
-class Hamming
-   def compute(string1, string2)
-      string1.chars.zip(string2.chars).count {|(first,last)| first != last }
-   end
+def compute(str1, str2)
+
+    str1.chars.take(str2.length).each_with_index.inject(0) do |counter, string_index|
+      (str2[string_index[1]] != string_index[0]) ? (counter + 1) : counter
+    end
+
+  end
 end

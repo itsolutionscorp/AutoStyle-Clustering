@@ -1,6 +1,9 @@
-class Hamming
-    def compute(x, y)
-        x.split('').zip(y.split('')).count{ |z| z[0] != nil && z[1] != nil && z[0] != z[1] }
+def compute(original, mutation)
+    score = 0
+    (0..[original.length, mutation.length].min - 1).each do |index|
+      if original[index] != mutation[index]
+        score+=1
+      end
     end
-
-end
+    score
+  end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(str1, str2)
+def compute(str1, str2)
 		# set initial hamming distance variable
 		hamming_distance = 0
 
@@ -12,4 +11,3 @@ class Hamming
 		# output hamming distance
 		hamming_distance
 	end
-end

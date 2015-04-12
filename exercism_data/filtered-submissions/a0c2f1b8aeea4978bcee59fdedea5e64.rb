@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(x, y)
+def compute(x, y)
     hamdist = 0
     if x.length <= y.length
       nuc_length = x.length
@@ -18,4 +16,3 @@ class Hamming
     end
     hamdist
   end
-end

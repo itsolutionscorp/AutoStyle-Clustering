@@ -1,7 +1,12 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    strand_a.chars.zip(strand_b.chars).reduce(0) do |differences, arr|
-      arr[0] != arr[1] ? differences + 1 : differences
+def compute(a, b)
+
+    distance = 0
+
+    a.size.times do |index|
+      if a[index].nil? || b[index].nil? then return distance end
+      if a[index] != b[index] then distance += 1 end
     end
+
+    return distance
+
   end
-end

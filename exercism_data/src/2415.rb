@@ -1,11 +1,7 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
-    distance = 0
-    length = strand_1.length
-    (0..length).each do |i|
-      distance+= 1 if strand_1[i] != strand_2[i]
+def compute(strand_a, strand_b)
+      raise "Strands must be similar length" unless strand_a.length == strand_b.length
+      a = strand_a.bytes
+      b = strand_b.bytes
+      diff = a.select.with_index{|byte, index| byte != b[index]}
+      diff.count
     end
-    distance
-  end
-end

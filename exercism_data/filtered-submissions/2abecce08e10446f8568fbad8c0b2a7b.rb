@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(x,y)
+def compute(x,y)
     x_arr = x.split(//)
     y_arr = y.split(//)
 
@@ -17,5 +15,3 @@ class Hamming
 
     ctr
   end
-
-end

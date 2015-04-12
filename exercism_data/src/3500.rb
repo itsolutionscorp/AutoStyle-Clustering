@@ -1,11 +1,13 @@
-class Hamming
-  def compute(s1, s2)
-    diff = 0
-    [s1.length, s2.length].min.times do |i|
-      if s1[i] != s2[i]
-        diff += 1
-      end
+def compute(first, second)
+    distance = 0
+
+    first.each_char.with_index do |c, i|
+      distance += 1 if c != second[i]
     end
-    diff
+
+    distance
+
+    # One-liners
+    # first.chars.map.with_index { |c, i| c == second[i] ? 0 : 1 }.reduce(&:+)
+    # first.chars.select.with_index { |c, i| c != second[i] }.length
   end
-end

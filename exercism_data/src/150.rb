@@ -1,13 +1,8 @@
-class Hamming 
+def compute ham1, ham2
+    size = [ham1, ham2].map(&:size).min
 
-	def compute(strand1,strand2)
-		numDifferences = 0
-		i = 0
-		[strand1.length,strand2.length].min.times do					
-			numDifferences += 1 if strand1[i] != strand2[i]
-			i += 1
-		end
-		return numDifferences
-	end
-	
+    ham1.chars.first(size).zip(ham2.chars.first(size)).count do |(a,b)|
+      !a.eql?(b)
+    end
+  end
 end

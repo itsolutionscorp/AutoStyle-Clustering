@@ -1,13 +1,12 @@
-class Hamming
+def compute(first, second)
+    arr1 = first.chars.map(&:ord)
+    arr2 = second.chars.map(&:ord)
 
-	def compute(strandOne, strandTwo)
-		sum = 0
+    length = 0
 
-    strandOne.chars.each_with_index do |c,i|
-      (sum += 1) unless c == strandTwo[i]
-		  #sum += c != strandTwo[i] ? 1 : 0
-		end
+    arr1.size.times do |i|
+      length += 1 unless arr1[i] - arr2[i] == 0
+    end
 
-		sum
-	end
-end
+    length
+  end

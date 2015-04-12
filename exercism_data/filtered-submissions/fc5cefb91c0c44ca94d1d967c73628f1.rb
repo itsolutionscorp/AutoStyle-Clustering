@@ -1,5 +1,4 @@
-class Hamming
-  def compute(left, right)
+def compute(left, right)
     diff = 0
     0.upto([left.length, right.length].min - 1) do |i|
       if left[i] != right[i]
@@ -8,4 +7,3 @@ class Hamming
     end
     diff
   end
-end

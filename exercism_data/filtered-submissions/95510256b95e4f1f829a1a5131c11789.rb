@@ -1,5 +1,4 @@
-class Hamming
-  def compute(seq1, seq2)
+def compute(seq1, seq2)
 
     seq1Arr = seq1.split("")
     seq2Arr = seq2.split("")
@@ -14,4 +13,3 @@ class Hamming
     end
     hamming
   end
-end

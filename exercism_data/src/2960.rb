@@ -1,8 +1,14 @@
-class Hamming
-  def compute(dna_f, dna_s)
-	  index = 0
-          dna_f = dna_f[0, dna_s.size-1] unless dna_f.size == dna_s.size
-	  dna_f.each_char.select{|c| index += 1; dna_s[index-1] != c}.size
-  end
+def compute(strand1, strand2)
 
-end
+        ham_dif = 0
+
+        shorterString = (strand1.length > strand2.length) ? strand2 : strand1
+
+        shorterString.length.times do |i|
+            unless strand1[i] == strand2[i]
+                ham_dif+=1
+            end
+        end
+        
+        ham_dif
+    end

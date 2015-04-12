@@ -1,11 +1,4 @@
-#####################
-#####################
-# Primer rubymierda #
-#####################
-#####################
-
-class Hamming
-    def compute(s1,s2)
+def compute(s1,s2)
       contador = 0
       s1 = s1.upcase
       s2 = s2.upcase
@@ -20,4 +13,3 @@ class Hamming
       end  
         return contador
     end
-end

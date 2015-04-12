@@ -1,5 +1,4 @@
-class Hamming
-  def compute(x, y)
+def compute(x, y)
     hamming_dist = 0
     i = 0
 
@@ -17,4 +16,3 @@ class Hamming
     hamming_dist
 
   end
-end

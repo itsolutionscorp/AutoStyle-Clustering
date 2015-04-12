@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(array1, array2)
+def compute(array1, array2)
     difference = 0
     shortest_length = array1.length < array2.length ? array1.length : array2.length
     shortest_length.times do |i|
@@ -8,4 +6,3 @@ class Hamming
     end
     return difference
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-    def compute(a, b)
+def compute(a, b)
         pairs = a.chars.to_a.zip(b.chars.to_a)
 
         difference = 0
@@ -9,4 +8,3 @@ class Hamming
         end
         return difference
     end
-end

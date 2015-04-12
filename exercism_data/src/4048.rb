@@ -1,5 +1,8 @@
-class Hamming
-  def compute(s, t)
-      (0...s.length).count { |i| s[i] != t[i] }
+def compute(string1,string2)
+    counter = 0
+    string1.split('').each_with_index do |char,index|
+      return counter if index >= string2.length
+      counter += 1 unless string1[index] == string2[index]
+    end
+    counter
   end
-end

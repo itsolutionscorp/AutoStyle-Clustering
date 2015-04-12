@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     count = str1.length - 1
     score = 0
     0.upto(count) do |num|
@@ -7,4 +6,3 @@ class Hamming
     end
     score
   end
-end

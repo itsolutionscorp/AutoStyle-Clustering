@@ -1,22 +1,18 @@
-class Hamming
+def compute(a,b)
+    i = 0
 
-  def compute(arg1, arg2)
-
-
-    if (arg1 == 'AT' and arg2 == 'CT')
-      arr1 = arg1.split("")
-      arr2 = arg2.split("")
-
-      result = (arr1 + arr2).reject { |x| x == "T"}
-      return = result.size / 2
-    end
-    if (arg1 == 'A' && arg2 == 'G')
-      1
-    elsif (arg1 = 'AG' && arg2 == 'CT')
-      2
+    if (a <=> b) == 1
+      a = a.chars.take(b.length)
     else
-      0
+      a = a.chars
     end
-  end
 
-end
+    b = b.chars
+
+    a.zip(b).each do |first, second|
+      if first != second
+        i += 1
+      end
+    end
+    return i
+  end

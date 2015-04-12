@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(sequence1, sequence2)
+def compute(sequence1, sequence2)
     chars1 = sequence1.split ''
     chars2 = sequence2.split ''
     chars1.each_with_index.reduce(0) do |acc, (char, index)|
@@ -9,5 +7,3 @@ class Hamming
     end
 
   end
-
-end

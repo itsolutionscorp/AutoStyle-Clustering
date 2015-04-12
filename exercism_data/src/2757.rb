@@ -1,7 +1,5 @@
-class Hamming
-
-	def compute(strand1,strand2)
-		strand1.split("").each_with_index.select { |g, i| g != strand2[i] }.length
-	end
-
-end
+def compute(a, b)
+    a = a.size > b.size ? a[0...-1] : a
+    new_a = a.scan(/\w/).zip b.scan(/\w/)
+    new_a.map(&:uniq).delete_if {|a| a.count == 1 }.count
+  end

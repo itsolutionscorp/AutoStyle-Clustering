@@ -1,13 +1,7 @@
-class Hamming
-  def compute(first, second)
-    first_array = first.split(//)
-    second_array = second.split(//)
-    count = 0
-    for i in 0..first_array.count - 1
-      if first_array[i] != second_array[i]
-        count = count + 1
-      end
-    end 
-    return count
+def compute (a, b)
+    distance = 0
+
+    matches =  a.chars.zip(b.chars).map { |x, y| x == y || x.nil? || y.nil? }
+    
+    return matches.select {|x| !x}.count
   end
-end

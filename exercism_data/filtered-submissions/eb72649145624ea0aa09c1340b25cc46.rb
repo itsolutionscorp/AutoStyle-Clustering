@@ -1,5 +1,4 @@
-class Hamming
-	def compute(sequence_1, sequence_2)
+def compute(sequence_1, sequence_2)
 		array1 = sequence_1.split(//)
 		array2 = sequence_2.split(//)
 		differences = 0
@@ -15,4 +14,3 @@ class Hamming
 		end
 		differences		
 	end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     distance = 0
 
     strand1.chars.zip(strand2.chars).each do |char1, char2|
@@ -8,4 +7,3 @@ class Hamming
 
     return distance
   end
-end

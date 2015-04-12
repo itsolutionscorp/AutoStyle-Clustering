@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     x = strand_1.scan(/./)
     y = strand_2.scan(/./)
     value = 0
@@ -44,4 +43,3 @@ class Hamming
 
     end
   end
-end

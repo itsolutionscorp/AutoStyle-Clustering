@@ -1,7 +1,9 @@
-class Hamming
-  def compute(strand1, strand2) 
-    [strand1.length,strand2.length].min.times.count do |i|   
-      strand1[i] != strand2[i]
-    end
-  end
-end
+def compute(a, b)
+		velocity = 0
+		for i in 0..a.length
+			if(a[i] != b[i])
+				velocity += 1
+			end
+		end
+		return velocity
+	end

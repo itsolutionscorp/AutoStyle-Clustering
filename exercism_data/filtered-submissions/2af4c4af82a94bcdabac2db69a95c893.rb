@@ -1,5 +1,4 @@
-class Hamming
-	def compute(adn_1, adn_2)
+def compute(adn_1, adn_2)
 		diferencia = 0
 
 		adn_1.chars.each_with_index do |char, index|
@@ -8,4 +7,3 @@ class Hamming
 
 		diferencia
 	end
-end

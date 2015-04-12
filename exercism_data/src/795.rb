@@ -1,17 +1,10 @@
-class Hamming
+def compute(a, b)
+        pairs = a.chars.to_a.zip(b.chars.to_a)
 
-  def compute(x,y)
-
-    z = 0
-
-    x.each_char.with_index do |c,i|
-      if x[i] != y[i] && y[i] != nil
-        z += 1
-      end
+        difference = 0
+        pairs.each do |pair|
+            next unless pair[0] && pair[1]
+            difference += 1 unless pair[0].upcase == pair[1].upcase
+        end
+        return difference
     end
-
-    return z
-
-  end
-
-end

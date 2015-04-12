@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a_string, b_string)
+def compute(a_string, b_string)
     i = 0
     j = 0
     while j < a_string.length
@@ -13,5 +11,3 @@ class Hamming
     end
     i 
   end
-
-end

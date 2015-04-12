@@ -1,12 +1,23 @@
-class Hamming 
-	def compute(first_dna, second_dna)
-		acc = 0
-		first_arr = (first_dna.length > second_dna.length) ?  second_dna.split("") : first_dna.split("")
-		first_arr.each_with_index do |value, index|
-			if !(first_dna[index] == second_dna[index])
-				acc += 1
+def compute (x,y)
+	mismatch=0
+	if x!=y
+		if x.length == y.length
+			xArray=x.split("")
+			yArray=y.split("")
+			c=0
+			while c < x.length
+				if xArray[c]!=yArray[c]
+					mismatch +=1
+				end
+				c +=1
 			end
-		end
-		acc
+	
+		else
+			puts "Error! String length mismatch!"
+		return 1
 	end
+	end
+	puts mismatch
+	return mismatch
 end
+#Hamming.compute("BA","AA")

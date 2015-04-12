@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute s1, s2
+def compute s1, s2
 		 
 		return 0 if s1==s2
 		return 1 if s1.length == 1 and s2.length == 1 and s1 != s2
@@ -14,7 +12,3 @@ class Hamming
 		end
 		return difference
 	end
-
-
-	
-end

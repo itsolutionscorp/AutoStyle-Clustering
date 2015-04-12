@@ -1,14 +1,17 @@
-class Hamming
-  def compute(a, b)
-    return -1 if a.length != b.length
-    
-    count = 0
-    a.length.downto(1) do |i|
-      if a[i-1] != b[i-1]
-        count += 1
-      end
-    end
-    count
+def compute(original_dna, mutated_dna)
+    hamming_distance = 0
+    step = 1
+    original_dna.each_char do |c|
 
+      unless c == mutated_dna[step - 1]
+        hamming_distance = hamming_distance + 1
+      end
+      step = step + 1
+      
+      if step > original_dna.length or step > mutated_dna.length
+        return hamming_distance
+      end
+
+    end
+    return hamming_distance
   end
-end

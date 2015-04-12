@@ -1,6 +1,4 @@
-class Hamming
-  # returns the Hamming distance (# of point mutations) between two DNA strands
-  def compute( seq1, seq2 )
+def compute( seq1, seq2 )
     hamming_distance = 0
     max_length_comparable = [ seq1.length, seq2.length ].min
     
@@ -14,4 +12,3 @@ class Hamming
     
     return hamming_distance
   end
-end

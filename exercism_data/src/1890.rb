@@ -1,25 +1,16 @@
-class Hamming
+def compute(strandOne, strandTwo)
 
-  def compute(first_strand, second_strand)
-    # Ensure the DNA strand lengths are the same for
-    # comparison to occur
-    if first_strand.length  != second_strand.length
-      raise "The strand lengths are not the same."
-    end
+    d = 0
 
-    # Set distance to zero
-    distance = 0
+    i = 0
 
-    # Iterate over the two strand character arrays adding the 
-    # index from each to a key/value pair in the new array for 
-    # easier comparison. Each time the new key/value pair is not
-    # equal, add 1 to the hamming.distance
-    first_strand.chars.zip(second_strand.chars).each do |base_one, base_two|
-      if base_one != base_two
-        distance += 1
+    strandOne.split('').each do |s1| 
+      if s1 != strandTwo[i]
+        d += 1
       end
+      i += 1
     end
-    return distance
-  end
 
-end
+    d
+			
+  end

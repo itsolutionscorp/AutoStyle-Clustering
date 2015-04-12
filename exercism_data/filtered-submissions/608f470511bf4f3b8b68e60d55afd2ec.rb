@@ -1,9 +1,4 @@
-gem 'pry'
-
-class Hamming
-
-
-  def compute(string1, string2)
+def compute(string1, string2)
     string_1_array = []
     string_2_array = []
 
@@ -15,6 +10,3 @@ class Hamming
 
     string1.length - ((compare1 & compare2).count)
   end
-
-
-end

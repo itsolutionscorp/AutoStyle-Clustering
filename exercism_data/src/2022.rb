@@ -1,14 +1,11 @@
-class Hamming
-
-  def compute(s1, s2)
-    i, ham = 0, 0
-      while i < s1.length
-        if s1[i] != s2[i]
-          ham += 1
-        end
-        i += 1
-      end
-    ham
-  end
-
-end
+def compute(dna_one, dna_two)
+		x = 0
+		count = 0
+		dna_one.each_char do |letter|
+			if (letter != dna_two[x]) && dna_two[x]
+				count += 1 
+			end
+			x += 1
+		end
+		count
+	end

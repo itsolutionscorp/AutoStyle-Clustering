@@ -1,13 +1,4 @@
-class Hamming
-
-  def compute(value1, value2)
-    count = 0
-    value1.chars.each_index do |c| 
-      if (value1[c] != value2[c]) 
-        count += 1 
-      end
-    end
-    count
+def compute(dna1, dna2)
+    dist = dna1.chars.zip(dna2.chars)
+    dist.count{|i| i[0] != i[1] }
   end
-
-end

@@ -1,11 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
-    distance = 0
-    dna1.split("").zip(dna2.split("")).each do |nucleoid1, nucleoid2|
-        if nucleoid1 != nucleoid2
-            distance += 1
-        end
-    end
-    return distance
+def compute(sq1, sq2)
+    sq1 = sq1[0...sq2.size] if sq1.length > sq2.length
+    (0...sq1.size).select { |i| sq1[i] != sq2[i] }.count
   end
-end

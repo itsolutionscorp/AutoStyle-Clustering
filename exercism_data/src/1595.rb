@@ -1,9 +1,11 @@
-class Hamming
-  def compute(a, b)
-    a = a.chars
-    b = b.chars
+def compute(one, two)
+    count = 0
+    
+    length = [one.length, two.length].min 
 
-    a.zip(b).count { |x, y| x != y }
+    length.times do |i|  
+      count += 1 unless one[i] == two[i]
+    end
+    
+    count
   end
-
-end

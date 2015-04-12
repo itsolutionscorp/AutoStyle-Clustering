@@ -1,12 +1,10 @@
-class Hamming
-
-  def compute(string1, string2)
-    sum = 0
-    string1.length < string2.length ? shorter = string1 : shorter = string2
-    (0...shorter.length).each do |count|
-      sum += 1 if string1[count].eql?(string2[count]) == false
+def compute(s1, s2)
+    distance = 0
+    (0..(s1.length)).each do |i|
+      c1 = s1[i]
+      c2 = s2[i]
+      distance += 1 if c1 != c2
     end
-    sum
+    distance
   end
-
 end

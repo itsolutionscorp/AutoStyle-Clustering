@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     lists_as_pairs = a.chars.zip(b.chars)
 
     actual_pairs = lists_as_pairs.reject {|pair| pair.include?(nil)}
@@ -8,4 +7,3 @@ class Hamming
 
     distance = nonidentical_pairs.size
   end
-end

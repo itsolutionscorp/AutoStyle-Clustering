@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a_strand, other_strand)
+def compute(a_strand, other_strand)
     repetition = 0
     other_strand = other_strand.chars
 
@@ -10,5 +8,3 @@ class Hamming
 
     repetition
   end
-
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(source, destination)
+def compute(source, destination)
     distance    = 0
 
     if source.size == destination.size
@@ -11,5 +9,3 @@ class Hamming
     
     distance
   end
-
-end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute arg1, arg2
+def compute arg1, arg2
 		# for every letter thats different add one to the value.
 		arg1_array = arg1.split('')
 		arg2_array = arg2.split('')
@@ -15,6 +14,3 @@ class Hamming
 		end
 		return hamming_distance
 	end
-end
-
-# puts Hamming.compute("a", "a")

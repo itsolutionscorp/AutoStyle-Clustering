@@ -1,11 +1,9 @@
-class Hamming
-  class << self
-    def compute(dna1, dna2)
-      distance = 0
-      [dna1.length, dna2.length].min.times do |i|
-        distance += 1 unless dna1[i] == dna2[i]
-      end
-      distance
-    end
+def compute(a,b)
+    a = a.split('')
+    b = b.split('')
+    distance = 0
+    points = [a.length, b.length].min
+
+    points.times { a.shift == b.shift ? nil : distance += 1 }
+    distance
   end
-end

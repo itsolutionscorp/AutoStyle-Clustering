@@ -1,10 +1,14 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    return 0 if strand_1.length != strand_2.length
-    count = 0
-    for i in 0..strand_1.length
-      count += 1 if strand_1[i] != strand_2[i]
+def compute(first, second)
+    return 0 if first == second
+    if second.length > first.length
+      self.compute(second, first)
     end
-    count
+    hamz = 0
+    first.chars.each_with_index do |character, index|
+      break if second[index].nil?
+      unless first[index].eql? second[index]
+        hamz += 1
+      end
+    end
+    return hamz
   end
-end

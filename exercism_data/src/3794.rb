@@ -1,22 +1,8 @@
-class Hamming
-  def compute(string1, string2)
-    string1_array = string1.split(//)
-    string2_array = string2.split(//)
-
-    if string1_array.length < string2_array.length
-      shorter_strand = string1_array
-    else
-      shorter_strand = string2_array
+def compute(first, second)
+    shorter = [first.length, second.length].min
+    distance = 0
+    (0...shorter).each do |i|
+      distance += 1 unless first[i] == second[i]
     end
-
-    hamming_distance = 0
-    i = 0
-    while i < shorter_strand.length
-      if string1_array[i] != string2_array[i]
-        hamming_distance += 1
-      end
-      i += 1
-    end
-    hamming_distance
+    distance
   end
-end

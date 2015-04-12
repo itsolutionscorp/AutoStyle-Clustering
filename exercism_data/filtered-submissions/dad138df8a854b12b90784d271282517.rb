@@ -1,5 +1,4 @@
-class Hamming
-  def compute(one, two)
+def compute(one, two)
     difference = 0
 
     one.length.times do |position|
@@ -8,4 +7,3 @@ class Hamming
 
     difference
   end
-end

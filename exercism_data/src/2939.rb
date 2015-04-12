@@ -1,5 +1,7 @@
-module Hamming
-  def compute(a,b)
-    a.chars.zip(b.chars).count{|p| p[0] != p[1]}
+def compute(a,b)
+    distance = 0
+    a.split('').each_with_index do |val,i|
+      distance += 1 if b[i] && val != b[i]
+    end
+    distance
   end
-end

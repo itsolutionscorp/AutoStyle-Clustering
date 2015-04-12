@@ -1,6 +1,5 @@
-class Hamming
-  def compute(str1, str2)
-    short_chars, long_chars = [str1, str2].map(&:chars).sort_by(&:size)
-    short_chars.zip(long_chars).count { |char1, char2| char1 != char2 }
+def compute(first_strand, second_strand)
+    [first_strand.chars, second_strand.chars].transpose.count do |first_strand_base, second_strand_base|
+      first_strand_base != second_strand_base
+    end
   end
-end

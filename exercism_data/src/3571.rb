@@ -1,13 +1,7 @@
-class Hamming
-  def compute(x, y)
-    xs = x.split('')
-    ys = y.split('')
-    ham = 0
-    xs.count.times do |num|
-      if xs.count <= ys.count && xs[num] != ys[num]
-        ham +=1
-          end
-        end
-    ham
+def compute(strand, other_strand)
+    # From "ATGC" and "ATC" this
+    # creates [ ['A', 'A'], ['T', 'T'], ['G', 'C'], ['C', nil]]
+    # and we then count the ones that are different but not nil.
+    codepoints = strand.codepoints.zip(other_strand.codepoints)
+    codepoints.count { | a, b | a != b unless b.nil? }
   end
-end

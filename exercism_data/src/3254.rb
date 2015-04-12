@@ -1,11 +1,10 @@
-class Hamming
-  def compute(str1 = "", str2 = "")
-    sequence_1, sequence_2, distance = str1.chars, str2.chars, 0
+def compute(strand_one, strand_two)
+    distance = 0
 
-    sequence_1.zip(sequence_2).each do |n1, n2|
-      distance += 1 unless (n1 == n2) or n2.nil?
+    strand_one.chars.each_with_index do |code, index|
+      break unless strand_two[index] != nil 
+      distance += 1 if strand_two[index] != code
     end
 
     distance
   end
-end

@@ -1,10 +1,13 @@
-class Hamming
-    def compute(string_a, string_b)
-        amount = 0
-        max_length = [string_a.length, string_b.length].min-1
-        0.upto(max_length) do |i|
-            amount += 1 unless string_a[i] == string_b[i]
-        end
-        amount
+def compute(strand_a, strand_b)
+    difference = 0
+
+    if strand_a.length > strand_b.length
+      strand_a = strand_a[0, strand_b.length]
     end
-end
+
+    strand_a.split("").zip(strand_b.split("")).compact.each do |left, right|
+      difference +=1 unless left == right
+    end
+
+    difference
+  end

@@ -1,8 +1,5 @@
-class Hamming
-
-  def compute(original, mutation)
+def compute(original, mutation)
     original.chars.zip(mutation.chars).count do |parent, child|
       parent != child && !parent.nil? && !child.nil?
     end
   end
-end

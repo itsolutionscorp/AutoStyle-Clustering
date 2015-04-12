@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first,second)
+def compute(first,second)
 
     # wanted to use inject but it doesn't handle (0..0) the way I expected
     result = 0
@@ -10,4 +9,3 @@ class Hamming
     end
     return result
   end
-end

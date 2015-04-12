@@ -1,5 +1,4 @@
-class Hamming
-	def compute x, y
+def compute x, y
 		return 0 if x == y
 
 		s1 = x.split("")
@@ -12,4 +11,3 @@ class Hamming
 		}
 		return hammingDistance
 	end
-end

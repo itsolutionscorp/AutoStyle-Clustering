@@ -1,17 +1,9 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    strands = [first_strand, second_strand].sort { |a, b| a.length <=> b.length }
-
-    count = 0
-    i = 0
-
-    strands[0].each_char do |c|
-
-      count += 1 if strands[1][i] != c
-      i += 1
-
+def compute( first_string, second_string )
+    hamming_distance = 0
+    first_string.each_char.with_index do |char, index|
+      if second_string[index] != nil
+        hamming_distance += 1 unless char == second_string[index]
+      end
     end
-
-    count
+    return hamming_distance
   end
-end

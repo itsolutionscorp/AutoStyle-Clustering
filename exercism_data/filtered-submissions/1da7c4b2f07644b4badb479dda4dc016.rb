@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     count = 0
     
     if(strand1.length <= strand2.length)
@@ -17,4 +16,3 @@ class Hamming
     end
     return count   
   end
-end

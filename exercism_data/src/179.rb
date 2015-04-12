@@ -1,7 +1,13 @@
-class Hamming
-  def compute(s1, s2)
-    ary = [s1.chars, s2.chars].sort_by { |s| s.count }
-    ary_zipped = ary[0].zip(ary[1])
-    ary_zipped.count { |e| e.first != e.last }
+def compute(str1, str2)
+    if str1.length > str2.length
+      str1, str2 = str2, str1
+    end
+    hamming = 0
+    (0..(str1.length - 1)).each do |index|
+      if str1[index] != str2[index]
+        hamming += 1
+      end
+    end
+
+    hamming
   end
-end

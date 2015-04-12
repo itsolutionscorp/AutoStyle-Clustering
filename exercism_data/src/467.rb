@@ -1,11 +1,8 @@
-class Hamming
-  def compute(d1, d2)
-    hamming_distance = 0
-    strand1 = d1.split('')
-    strand2 = d2.split('')
-    strand1.each_with_index do |nucleo, index| 
-      hamming_distance += 1 unless(nucleo == strand2[index] || strand2[index].nil? ) 
+def compute(s1, s2)
+      total = 0
+      min_length = s1.length > s2.length ? s2.length : s1.length
+      (0...min_length).each do |index|
+        total += 1 if s1[index] != s2[index]
+      end
+      total
     end
-    hamming_distance
-  end
-end

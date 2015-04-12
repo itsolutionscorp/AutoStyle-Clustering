@@ -1,14 +1,14 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    strand_a_array = strand_a.chars
-    strand_b_array = strand_b.chars
-    non_matching_letter_count = 0
-    strand_a_array.each_with_index do |letter, index|
-      if strand_b_array[index] != letter
-        non_matching_letter_count += 1
+def compute first_strand, second_strand
+    hamming_count = 0
+
+    test_length = [first_strand.length, second_strand.length].min
+
+    test_length.times do |i|
+      if first_strand[i] != second_strand[i]
+        hamming_count += 1
       end
     end
-    
-    non_matching_letter_count    
+
+    hamming_count
+
   end
-end

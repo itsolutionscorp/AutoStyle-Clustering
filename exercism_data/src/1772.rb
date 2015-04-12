@@ -1,10 +1,8 @@
-class Hamming
-  def compute(string_1, string_2)
+def compute(a, b)
+        pairs = a.chars.to_a.zip(b.chars.to_a)
 
-    zipped_strings = string_1.chars.zip(string_2.chars)
-
-    zipped_strings.inject(0) do |hamming_distance , (character_1, character_2)|
-      character_1 == character_2 ? hamming_distance : hamming_distance +=1
+        pairs.count do |pair|
+            next unless pair[0] && pair[1]
+            pair[0].upcase != pair[1].upcase
+        end
     end
-  end
-end

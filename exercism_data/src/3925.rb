@@ -1,11 +1,17 @@
-module Hamming
-  extend self
-  def compute(strand, comparative_strand)
-    mutations = 0
-    strand.chars.each_with_index do |nucelotide, index|
-      comparative_nucelotide = comparative_strand[index]
-      mutations += 1 if comparative_nucelotide && nucelotide != comparative_nucelotide
+def compute(s,t)
+    s = s.split(//)
+    t = t.split(//)
+
+    if s.length == t.length
+      distance = 0
+      s.length.to_i.times do |i|
+        unless s[i] == t[i]
+          distance += 1
+        end
+      end
+    else
+      raise
     end
-    mutations
+
+    return distance
   end
-end

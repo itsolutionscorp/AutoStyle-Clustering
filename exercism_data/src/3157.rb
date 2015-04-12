@@ -1,14 +1,4 @@
-class Hamming
-
-  def compute(first_chain, second_chain)
-    first_chain.chars.zip(second_chain.chars).reduce(0) do |sum, (x, y)|    	
-      if (x && y && (x != y))
-      	sum += 1      
-      else
-      	sum
-      end
-
-    end    
-  end  
-
-end
+def compute(strand1, strand2)
+    # return count of differences
+    [strand1.chars, strand2.chars].transpose.select { |chars1, chars2| chars1 != chars2}.count
+  end

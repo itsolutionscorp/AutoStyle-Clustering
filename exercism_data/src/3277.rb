@@ -1,9 +1,7 @@
-class Hamming
-  def compute(str1, str2)
-    score = 0
-    a1 = str1.chars
-    a2 = str2.chars
-    a1.each_index {|i| if a1[i] != a2[i] then score += 1 end}
-    score
+def compute(strand1, strand2)
+    count = 0
+    strand1.size.times do |pos|
+      count += 1 if strand1[pos] != strand2[pos]
+    end
+    count
   end
-end

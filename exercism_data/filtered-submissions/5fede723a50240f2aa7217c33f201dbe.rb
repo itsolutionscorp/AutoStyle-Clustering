@@ -1,7 +1,4 @@
-#Add Hamming module
-class Hamming
-	#Add compute method
-	def compute (strand1, strand2)
+def compute (strand1, strand2)
 		#Init number of dissimilarities (dissim) and length of strand (length)
 		index = 0
 		dissim = 0
@@ -15,4 +12,3 @@ class Hamming
 		end
 		dissim
 	end
-end

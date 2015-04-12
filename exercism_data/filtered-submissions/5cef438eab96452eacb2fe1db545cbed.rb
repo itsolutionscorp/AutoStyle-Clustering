@@ -1,7 +1,4 @@
-#!/usr/bin/ruby
-
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     arr_one = first.split(//)
     arr_two = second.split(//)
     i = 0
@@ -17,4 +14,3 @@ class Hamming
     end
   return h
   end
-end

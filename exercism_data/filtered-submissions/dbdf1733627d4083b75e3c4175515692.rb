@@ -1,5 +1,4 @@
-class Hamming
-	def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
 		hamming = 0	
 		strand_length = [strand_1.length, strand_2.length].min - 1
 		(0..strand_length).each do |strand|
@@ -9,4 +8,3 @@ class Hamming
 		end
 		hamming
 	end
-end

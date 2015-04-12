@@ -1,5 +1,4 @@
-class Hamming
-	def compute(s1, s2)
-		s1.chars.zip(s2.chars).count{ |c1, c2| c1 && c2 && c1 != c2}
-	end
+def compute(s1, s2)
+    s1.chars.zip(s2.chars).count { |(a,b)| b && a != b }
+  end
 end

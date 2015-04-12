@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_1, dna_2)
+def compute(dna_1, dna_2)
     count = 0
 
     dna_1.each_char.with_index do |char, index|
@@ -14,4 +13,3 @@ class Hamming
 
     count
   end
-end

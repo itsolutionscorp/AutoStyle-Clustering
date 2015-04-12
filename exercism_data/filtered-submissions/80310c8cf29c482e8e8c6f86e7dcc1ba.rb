@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     len = [a.length, b.length].min
     ham = 0
     0.upto(len-1) do |i|
@@ -9,4 +8,3 @@ class Hamming
     end
     ham
   end
-end

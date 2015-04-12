@@ -1,13 +1,13 @@
-class Hamming
-  def compute(seq1, seq2)
-    count = 0
-    if seq1.length == seq2.length
-      seq1.split("").map!.with_index do |n, i|
-        if n != seq2[i]
+def compute(arg1,arg2)
+    if arg1 == arg2
+      0
+    else
+      count = 0
+      arg1.chars.each_with_index do |c, i|
+        if c != arg2[i]
           count += 1
         end
       end
+      count
     end
-    count
   end
-end

@@ -1,9 +1,11 @@
-module Hamming
-  def compute(a, b)
-    short, long = [a, b].map(&:chars).sort_by &:size
-
-    short.each_with_index.count do |substrand, index|
-      long[index] != substrand
+def compute(strand1, strand2)
+        @diff = 0
+        
+        strand1.chars.each_with_index do |v, i|
+            if v != strand2[i] && strand2[i] != nil
+                @diff += 1
+            end
+        end
+        
+        return @diff
     end
-  end
-end

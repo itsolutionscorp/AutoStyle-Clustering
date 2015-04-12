@@ -1,8 +1,6 @@
-class Hamming
-  def compute(a, b)
-    # larger zipped into smaller means we always have the right number of pairs.
-    pairs = [a.chars.to_a,b.chars.to_a].sort_by(&:length).reduce(&:zip)
+def compute(str1, str2)
+    str1_chars = str1.chars
+    str2_chars = str2.chars
 
-    pairs.count {|character_a,character_b| character_a != character_b }
+    str1_chars.each_with_index.count { |n,i| n != str2_chars[i] }
   end
-end

@@ -1,10 +1,3 @@
-class Hamming
-
-def compute(first,second)
-  first_array = first.chars
-  second_array = second.chars
-  zipped = first_array.zip(second_array)
-  zipped.select{|x| x[0] != x[1]}.count
-end
-
-end
+def compute a,b
+    a.chars.zip(b.chars).select{|anchors| !!anchors[0] && !!anchors[1] && anchors[0] != anchors[1]}.count
+  end

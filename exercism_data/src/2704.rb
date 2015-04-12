@@ -1,14 +1,13 @@
-class Hamming
-
-  def compute(strand_a, strand_B)
-    return 0 if strand_a.eql? strand_B
-
-    count = 0
-    checks_to_do = (strand_a.length < strand_B.length) ? strand_a.length : strand_B.length
-
-    checks_to_do.times do |i|
-      count += 1 if strand_a[i] != strand_B[i]
+def compute(a, b)
+    hamming_distance = 0
+    
+    if a != b
+      a.each_char.with_index(0) do |c, i|
+        if c != b[i]
+          hamming_distance += 1
+          end
+        end
     end
-    count
+    
+    hamming_distance
   end
-end

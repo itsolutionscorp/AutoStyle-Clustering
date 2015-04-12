@@ -1,10 +1,9 @@
-class Hamming
-
-	def compute(strand_one, strand_two)
-		hamming = 0
-		for i in 0...strand_one.length
-			hamming += 1 if (strand_two[i] && strand_one[i] != strand_two[i])
-		end
-		hamming
-	end
+def compute(strand_a, strand_b)
+    unless strand_a.length == strand_b.length
+      raise Exception.new 'Strands must be of equal length'
+    end
+    (0...strand_a.length).collect do |i|
+      strand_a[i] != strand_b[i] ? 1 : 0
+    end.inject(:+)
+  end
 end

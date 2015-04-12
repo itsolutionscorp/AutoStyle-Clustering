@@ -1,5 +1,8 @@
-class Hamming
-  def compute a,b
-    a.chars.zip(b.chars).select{|anchors| !!anchors[0] && !!anchors[1] && anchors[0] != anchors[1]}.count
-  end
-end
+def compute(seq_a, seq_b)
+    	len = [seq_a.size, seq_b.size].min
+    	diff = 0
+        (0...len).each do |i|
+        	diff += 1 unless seq_a[i] == seq_b[i]
+        end
+        diff
+    end

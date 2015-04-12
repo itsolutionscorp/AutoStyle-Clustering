@@ -1,12 +1,13 @@
-class Hamming
-	def compute(strand_one,strand_two)
-		count = [strand_one.length, strand_two.length].min
-		difference = 0
-		(0...count).each do |i|
-			difference += 1 unless strand_one[i] == strand_two[i]
+def compute(string1, string2)
+		hamming=0
+		arr1=string1.split('')
+		arr2=string2.split('')
+		arr1.each_with_index do |letter,i|
+			if arr1[i] != arr2[i]
+				if arr1[i]!=nil && arr2[i] !=nil
+				hamming +=1
+				end
+			end
 		end
-		
-		difference
+		hamming
 	end
-
-end

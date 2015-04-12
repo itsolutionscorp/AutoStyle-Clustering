@@ -1,7 +1,4 @@
-# jillalynch solution to exercism.io Hamming exercise
-# calculates the Hamming difference between two DNA strands
-class Hamming
-  def compute(strand_x, strand_y)
+def compute(strand_x, strand_y)
     hamming_distance = 0
     shorter_strand_length = [strand_x.length, strand_y.length].min
 	
@@ -11,4 +8,3 @@ class Hamming
     
     hamming_distance
   end
-end

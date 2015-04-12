@@ -1,16 +1,11 @@
-class Hamming
-  def compute arg1, arg2
-
-    return 0 if arg1 == arg2
+def compute(first_strand, other_strand)
+    return 0 if first_strand === other_strand
+    return 1 if first_strand.length > other_strand.length
 
     distance = 0
-
-    for i in 0..arg1.length
-      if arg1[i] != arg2[i]
-        distance += 1
-      end
+    for i in 0...first_strand.size
+      distance += 1 if first_strand[i] != other_strand[i]
     end
 
     distance
   end
-end

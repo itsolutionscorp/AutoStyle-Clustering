@@ -1,18 +1,10 @@
-class Hamming
-
-  def compute(string_1, string_2)
-    length_comparison = string_1.length <=> string_2.length
-
-    string_1 = string_1[0...string_2.length] if length_comparison == 1
-    string_2 = string_2[0...string_1.length] if length_comparison == -1
-
-    hamming_count = 0
-
-    (0..string_1.length).each do |n|
-      hamming_count += 1 if string_1[n] != string_2[n]
+def compute(s1, s2)
+    i = 0
+    count = 0
+    while i < s1.length do
+      count += 1 if s1[i] != s2[i]
+      i += 1
     end
 
-    hamming_count
+    count
   end
-
-end

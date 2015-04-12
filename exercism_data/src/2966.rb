@@ -1,10 +1,5 @@
-class Hamming
-	def compute(strand_a,strand_b)
-		number_of_differences = 0;
-		length_of_short_strand  = [strand_a.length,strand_b.length].min 
-		for i in (0...length_of_short_strand)
-			number_of_differences += 1 if (strand_a[i] != strand_b[i])
-		end
-		number_of_differences;
-	end
-end
+def compute(a, b)
+    return 0 if a.length.zero? or b.length.zero?
+    smallest_strand = a.length > b.length ? b : a
+    smallest_strand.length - a.each_char.with_index.count { |x, i| x.eql? b[i] }
+  end

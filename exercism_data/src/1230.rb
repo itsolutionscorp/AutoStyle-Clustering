@@ -1,24 +1,7 @@
-class Hamming
-
-  def compute(x,y)
-    mutations = 0
-
-    #find the shorter strand to determine how many iterations
-    if x.length != y.length && (x.length < y.length)
-      length = x.length
-    else
-      length = y.length
+def compute(first_strand, second_strand)
+    hamming_distance = 0
+    [first_strand.length, second_strand.length].min.times do |nucleobase|
+       hamming_distance += 1 if first_strand[nucleobase] != second_strand[nucleobase]
     end
-
-    #iterate over both strands and count the number of mutations
-    length.times do |i|
-      if x[i] != y[i]
-        mutations += 1
-      end
-    end
-
-    #return value
-    mutations
+    hamming_distance
   end
-
-end

@@ -1,8 +1,11 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    strand_length = [strand_a.length, strand_b.length].min
-    strand_length.times.count do |index|
-      strand_a[index] != strand_b[index]
+def compute(strand1, strand2)
+    i = 0
+    total = 0
+    strand1.each_char do |c|
+      if strand2[i] != nil
+        total += 1 if c != strand2[i]
+        i += 1
+      end
     end
+    return total
   end
-end

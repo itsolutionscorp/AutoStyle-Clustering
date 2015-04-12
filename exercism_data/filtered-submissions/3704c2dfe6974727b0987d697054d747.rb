@@ -1,5 +1,4 @@
-class Hamming
-	def compute(arg1,arg2)
+def compute(arg1,arg2)
 		ham = 0
 		a=*(0..arg1.length-1)
 		a.each do |i|
@@ -8,4 +7,3 @@ class Hamming
 		return ham
 
 	end
-end

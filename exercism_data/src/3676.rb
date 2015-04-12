@@ -1,17 +1,13 @@
-class Hamming
-
-  def compute(a,b)
-    pairs = a.split(//).zip(b.split(//))
-
-    pairs.map do |x|
-      if x[0].nil? || x[1].nil?
-        0
-      elsif x[0] == x[1]
-        0
-      else
-        1
-      end
-    end.reduce(:+)
+def compute(sequence1, sequence2)
+		
+    count = 0;
+		
+    for i in 0..sequence1.length
+			
+      if sequence1[i] != sequence2[i]
+	    count = count + 1
+	  end
+    end
+		
+    count
   end
-
-end

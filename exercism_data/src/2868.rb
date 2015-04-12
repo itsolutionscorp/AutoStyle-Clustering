@@ -1,7 +1,4 @@
-class Hamming
-  def compute(dna_fiber, other_dna_fiber)
-    dna_fiber.chars.zip(other_dna_fiber.chars).select { |nucleotide_pair|
-      nucleotide_pair.first != nucleotide_pair.last
-    }.size
+def compute(s1, s2)
+    min_size = [s1, s2].map(&:size).min
+    min_size.times.count { |i| s1[i] != s2[i] }
   end
-end

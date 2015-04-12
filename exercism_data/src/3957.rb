@@ -1,12 +1,10 @@
-class Hamming
-  def compute(seq1, seq2)
-    hamming_count = 0
-
-    # For each position, add one to the count if
-    # the two sequences are not equal at that position.
-    seq1.length.times do |index|
-      hamming_count += 1 if seq1[index] != seq2[index]
-    end
-    hamming_count
-  end
-end
+def compute(a, b)
+		if a.length != b.length
+			raise ArgumentError "Invalid strings"
+		end
+		c = 0
+		(0..a.length - 1).each do |i|
+			c += 1 if a[i] != b[i]
+		end
+		c
+	end

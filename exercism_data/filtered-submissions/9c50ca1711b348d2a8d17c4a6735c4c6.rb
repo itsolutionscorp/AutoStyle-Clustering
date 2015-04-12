@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(n1, n2)
+def compute(n1, n2)
 
     n1_array = n1.split("")
     n2_array = n2.split("")
@@ -20,5 +18,3 @@ class Hamming
     return distance
 
   end
-
-end

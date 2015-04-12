@@ -1,13 +1,5 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
-    index = 0
-    hamming_difference = 0
-    while index < ([strand_1.length, strand_2.length].min)
-      hamming_difference += 1 if strand_1[index] != strand_2[index]
-      index += 1
+def compute(first_strand, second_strand)
+    (0...[first_strand.length, second_strand.length].min).count do |i|
+      first_strand[i] != second_strand[i]
     end
-    return hamming_difference
   end
-
-end

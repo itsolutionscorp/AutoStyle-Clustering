@@ -1,14 +1,9 @@
-class Hamming
-  def compute(a,b)
-    diff = 0
-    counter = 0
-    min_length = [a.length, b.length].min
-    while counter <= min_length - 1
-      if a[counter] != b[counter]
-        diff +=1
-      end
-    counter +=1
+def compute(strand_1, strand_2)
+  	raise ArgumentError if strand_1.count != strand_2.count
+
+  	distance = 0
+    strand_1.each_char.with_index do |letter, index|
+      distance += 1 if letter != strand_2[index]
     end
-    diff
+    distance 
   end
-end

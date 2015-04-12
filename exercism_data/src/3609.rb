@@ -1,17 +1,3 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    difference = 0
-
-    if strand_a.length > strand_b.length
-      strand_a = strand_a[0, strand_b.length]
-    end
-
-    strand_a.split("").zip(strand_b.split("")).compact.each do |l, r|
-      unless l == r
-        difference += 1
-      end
-    end
-
-    difference
-  end
-end
+def compute(dna_one, dna_two)
+      (0..dna_one.length - 1).select {|i| dna_one[i] != dna_two[i]}.count
+		end

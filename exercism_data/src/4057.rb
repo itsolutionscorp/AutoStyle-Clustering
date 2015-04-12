@@ -1,14 +1,12 @@
-class Hamming
+def compute(first, second)
+		shorter = ([first,second].min_by { |x| x.length }).length
+		
+		hamming_count = 0
+		(0..(shorter-1)).each do |i|
+			if first.slice(i) != second.slice(i) then
+				hamming_count = hamming_count + 1
+			end
+		end
 
-  def compute(strand1, strand2)
-    if strand1.length == strand2.length
-      array_strand1 = strand1.chars
-      array_strand2 = strand2.chars
-      array_strand1.delete_if { |base| base == array_strand2.shift }
-      array_strand1.length
-    else
-      'Non matching length'
-    end
-  end
-
-end
+		hamming_count
+	end

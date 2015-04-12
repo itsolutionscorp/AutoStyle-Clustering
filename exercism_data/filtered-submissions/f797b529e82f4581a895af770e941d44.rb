@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
 
     arr1 = arg1.split("")
     arr2 = arg2.split("")
@@ -20,11 +18,4 @@ end
 #    arr2 = arg2.split("")
 #
 #    (arr1 + arr2).reject { |x| x == "T" }
-#  end
 #
-#  if (arg1 == 'A' and arg2 == 'G')
-#    1
-#  elsif (arg1 == 'AG' and arg2 == 'CT')
-#    2
-#  else
-#    0

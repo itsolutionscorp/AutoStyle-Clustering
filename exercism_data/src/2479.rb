@@ -1,26 +1,8 @@
-class Hamming
-
-	def compute(dna1, dna2)
-
-		array1 = dna1.split('')
-		array2 = dna2.split('')
-		count = 0
-
-		array1.each.with_index do |piece, i|
-			if piece != array2[i]
-				count += 1
-			else
-				count += 0
-			end
+def compute (string_a, string_b)
+		distance = 0
+		min_length = [string_a.length, string_b.length].min
+		for i in 0..(min_length - 1)
+			distance += 1 if string_a[i] != string_b[i]
 		end
-
-
-		diff = array1.length - array2.length
-
-		if array1.length > array2.length
-			count - diff.abs 
-		else
-			count
-		end
+		distance
 	end
-end

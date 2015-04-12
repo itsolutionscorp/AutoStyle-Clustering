@@ -1,20 +1,6 @@
-gem 'pry'
-
-class Hamming
-
-
-  def compute(string1, string2)
-    string_1_array = []
-    string_2_array = []
-
-    string1.each_char{|a| string_1_array << a}
-    compare1 = string_1_array.map.with_index{|value, index| [index, value] }
-
-    string2.each_char{|a| string_2_array << a}
-    compare2 = string_2_array.map.with_index{|value, index| [index, value] }
-
-    string1.length - ((compare1 & compare2).count)
+def compute(strand1, strand2)
+    diff = 0
+    arr = strand1.split("").zip(strand2.split(""))
+    arr.each { |x| diff += 1 unless x[0] == x[1] }
+    diff
   end
-
-
-end

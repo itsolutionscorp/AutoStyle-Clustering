@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string1, string2)
+def compute(string1, string2)
     mismatch = 0
     my_len = [string1.length,string2.length].min
     my_len.times do |index|
@@ -7,4 +6,3 @@ class Hamming
     end
     mismatch
   end
-end

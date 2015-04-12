@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_1_s, strand_2_s)
+def compute(strand_1_s, strand_2_s)
     strand_1_s ||= ''
     strand_2_s ||= ''
 
@@ -11,4 +9,3 @@ class Hamming
 
     paired_strands.count{|a, b| a!= b }
   end
-end

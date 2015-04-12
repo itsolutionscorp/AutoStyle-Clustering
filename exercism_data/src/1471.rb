@@ -1,25 +1,8 @@
-class Hamming
-	def compute(strandOne, strandTwo) #Finds the hamming distance
-	
-		##
-		# First make the strands equal length
-		#
-
-		shortenTo = [strandOne.length, strandTwo.length].min - 1 
-		strandOne = strandOne[0..shortenTo]
-		strandTwo = strandTwo[0..shortenTo]
-
-
-		##
-		# Then determine the length by looping through each string and
-		# comparing each pair of letters.
-
-		distance = 0;
-		(0..strandOne.length).each do |iii|
-			if strandOne[iii] != strandTwo[iii]
-				distance += 1
-			end
-		end
-		return distance
-	end
-end
+def compute(a, b)
+        if a.length > b.length
+            a = a[0, b.length]
+        elsif a.length < b.length
+            b = b[0, a.length]
+        end
+        return a.chars.zip(b.chars).count { |x, y| x != y }
+    end

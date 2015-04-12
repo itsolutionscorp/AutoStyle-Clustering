@@ -1,10 +1,5 @@
-class Hamming
-
-	def compute(seq1, seq2)
-		total = 0
-		seq1.split('').each_with_index do |base, index|
-			total+=1 if base != seq2[index] and index < seq2.length
-		end
-		total
-	end
-end
+def compute(strand1, strand2)
+    strand1.split(//).zip(strand2.split(//)).reduce(0) do |distance, bases|
+      distance += (bases[0] <=> bases[1]).abs
+    end
+  end

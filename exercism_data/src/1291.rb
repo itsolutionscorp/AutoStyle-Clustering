@@ -1,12 +1,19 @@
-class Hamming
-  def compute(str1, str2)
-    hamming_result = 0
-    compare_length = str1.size < str2.size ? str1.szie : str2.size
-    compare_length.times do |index| 
-      if str1[index] != str2[index]
-        hamming_result += 1
-      end
-    end
-    hamming_result 
-  end
-end
+def compute(string1, string2)
+		arr1 = string1.split
+		arr2 = string2.split
+
+		i = 0
+		tally = 0
+
+		arr1.each do |letter|
+			
+			if letter != arr2[i]
+				tally = tally + 1
+			end
+
+			i = i + 1
+
+		end
+
+		return tally
+	end

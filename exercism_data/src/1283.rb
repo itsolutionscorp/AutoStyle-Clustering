@@ -1,9 +1,4 @@
-module Hamming
-  class << self
-    def compute(strand1, strand2)
-      min_length = [strand1.length, strand2.length].min
-      strands_pair = strand1.chars.take(min_length).zip(strand2.chars)
-      strands_pair.count { |nucleotide1, nucleotide2| nucleotide1 != nucleotide2 }
-    end
+def compute(a, b)
+    min = [a.length, b.length].min
+    (0...min).inject(0) { |diff, i| diff + (a[i] <=> b[i]).abs }
   end
-end 

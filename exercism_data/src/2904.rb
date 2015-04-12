@@ -1,13 +1,13 @@
-class Hamming
-
-  def compute(strand_one, strand_two)
-    count = 0
-
-    strand_one.split("").each_with_index do |e,i|
-      count += 1 if strand_one[i] != strand_two[i]
+def compute(source, destination)
+    distance = 0
+    source = source.split('')
+    destination = destination.split('')
+    
+    source.zip(destination).each do |src, dst|
+      if src != dst 
+        distance += 1
+      end
     end
-
-    count
+    
+    distance
   end
-
-end

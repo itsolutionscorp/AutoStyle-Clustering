@@ -1,10 +1,8 @@
-class Hamming
-  def compute(strand, other_strand)
-    a, b = strand.chars, other_strand.chars
-    if a.length < b.length
-      a.zip(b).count { |x, y| x != y }
-    else
-      b.zip(a).count { |x, y| x != y }
-    end
-  end
-end
+def compute(str1, str2)
+		loop_length = str1.length > str2.length ? str2.length : str1.length 
+		difference = 0
+		for i in 0..loop_length-1
+			difference += 1 unless str1[i] == str2[i]	
+		end
+		difference
+	end

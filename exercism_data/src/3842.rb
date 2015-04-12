@@ -1,7 +1,8 @@
-class Hamming
-  def compute(dna_fiber, other_dna_fiber)
-    dna_fiber.chars.zip(other_dna_fiber.chars).count { |nucleotide_pair|
-      nucleotide_pair.first != nucleotide_pair.last
-    }
+def compute(old_dna, new_dna)
+    hamming_distance = 0
+    old_dna.split(//).each_with_index do | char , index |
+      break if new_dna.length == index
+      hamming_distance += 1 unless char == new_dna[index]
+    end
+    hamming_distance
   end
-end

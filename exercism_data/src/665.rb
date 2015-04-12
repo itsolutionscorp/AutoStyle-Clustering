@@ -1,6 +1,3 @@
-class Hamming
-
-  def compute(a, b)
-    [a,b].min.chars.keep_if.with_index { |x, i| x != [a,b].max.chars[i] }.length
+def compute(strand_1, strand_2)
+    strand_1.chars.zip(strand_2.chars).count { |one, another| one != another }
   end
-end

@@ -1,11 +1,3 @@
-class Hamming
-  def compute(dna_a, dna_b)
-    result = 0
-    [dna_a.length,dna_b.length].min.times do |i|
-      result += dna_a[i] != dna_b[i] ? 1 : 0
-    end
-    return result
+def compute(strand1, strand2)
+    strand1.chars.zip(strand2.chars).count {|pair| pair[0] != pair[1]}
   end
-end
-
-Hamming.compute('AGG', 'AAAACTGACCCACCCCAGG')

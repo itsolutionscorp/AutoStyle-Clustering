@@ -1,15 +1,8 @@
-class Hamming
-
-  def compute(a, b)
-    difference = 0
-    index = 0
-    a.each_char do |char|
-      if char != b[index]
-        difference += 1
-      end
-      index += 1
+def compute(a, b)
+    count = 0
+    b.split('').each_with_index do |letter, index|
+      count = count + letter.casecmp(a[index]).abs
     end
-    difference
-  end
 
-end
+    count
+  end

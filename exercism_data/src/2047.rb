@@ -1,10 +1,9 @@
-module Hamming
-  def compute a_str, b_str
-    dist = 0
-    a, b = a_str.split(''), b_str.split('')
-    for i in 0...a.length
-      dist += 1 if a[i] != b[i]
+def compute (source, copy)
+        distance = 0
+        source.length.times do |i|
+            if source[i] != copy[i] && copy[i] != nil
+                distance += 1
+            end
+        end
+        distance
     end
-    dist
-  end
-end

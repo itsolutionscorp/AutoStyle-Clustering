@@ -1,13 +1,7 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    difference = 0
-
-    strand_a = strand_a[0, strand_b.length] if strand_a.length > strand_b.length
-
-    strand_a.chars.zip(strand_b.chars).each do |left, right|
-      difference +=1 unless left == right
+def compute(strand1, strand2)
+    shortest_length = [strand1.length, strand2.length].min
+    (0...shortest_length).reduce(0) do |sum, i|
+      sum += 1 if strand1[i] != strand2[i]
+      sum
     end
-
-    difference
   end
-end

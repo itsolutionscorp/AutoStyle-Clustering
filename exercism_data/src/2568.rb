@@ -1,9 +1,5 @@
-class Hamming
-
-  def compute(base, compare)
-    raise ArgumentError if base.length != compare.length
-    
-    (0..(base.length-1)).reduce(0) { |diff, index| base[index] != compare[index] ? diff + 1: diff }
+def compute(first_strand, second_strand)
+    first_strand.chars.each_with_index.count do |char, index|
+      first_strand[index] != second_strand[index]
+    end
   end
-
-end

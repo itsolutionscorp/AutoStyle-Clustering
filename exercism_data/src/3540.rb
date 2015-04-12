@@ -1,11 +1,10 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    hamming_distance = 0
-    strand_1.length.times do |index|
-      nucleotide_1 = strand_1[index]
-      nucleotide_2 = strand_2[index]
-      hamming_distance = hamming_distance + 1 if nucleotide_1 != nucleotide_2
+def compute(stringA, stringB)
+    differences = 0
+    maxlen = [stringA.length, stringB.length].min
+    maxlen.times do |i|
+      if stringA[i] != stringB[i]
+        differences += 1
+      end
     end
-    return hamming_distance
+    return differences
   end
-end

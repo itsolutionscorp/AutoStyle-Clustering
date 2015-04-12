@@ -1,8 +1,8 @@
-class Hamming
+def compute(dna1, dna2)
+	count = 0	
+	dna1.split("").each_with_index do |str,i|
+	  count = count + 1 unless str == dna2[i] unless  i > dna2.length - 1
+	end
 
-  def compute(strand1, strand2)
-    pairs = strand1.chars.zip(strand2.chars)
-    pairs.count { |old_base,new_base| new_base && old_base != new_base }
+	count
   end
-
-end

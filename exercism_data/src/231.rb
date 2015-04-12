@@ -1,7 +1,8 @@
-class Hamming
-  def compute(strand1, strand2)
-    s1 = strand1.split("")
-    s2 = strand2.split("")
-    s1.zip(s2).reject {|pair| pair[0] == pair[1]}.count
+def compute(strand_a, strand_b)
+    return unless strand_a.length == strand_b.length
+    mutations = 0
+    strand_a.each_char.with_index do |nucleotide, index|
+      mutations += 1 if nucleotide != strand_b[index]
+    end
+    mutations
   end
-end

@@ -1,8 +1,7 @@
-module Hamming
-  def compute(fst_str, snd_str)
-    fst_str.each_char.lazy.zip(snd_str.each_char.lazy)
-      .take_while { |fst, snd| fst && snd }
-      .select { |fst, snd| fst != snd }
-      .count
+def compute(dna1,dna2) 
+    differences = 0 
+      (0..(dna1.size - 1)).each do |n| 
+        differences += 1 if ( dna1[n] != dna2[n] ) 
+      end 
+    return differences
   end
-end

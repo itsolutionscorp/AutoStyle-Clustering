@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     score = 0
     for i in 0...str1.size
       if str1[i] == str2[i]
@@ -10,4 +9,3 @@ class Hamming
     end
     score
   end
-end

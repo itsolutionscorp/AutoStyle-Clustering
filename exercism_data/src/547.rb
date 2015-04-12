@@ -1,14 +1,8 @@
-class Hamming
-  def compute(s1, s2)
-    hamming = 0
-    string_length = s1.length - 1
-    if s1 == s2
-      return hamming
-    else
-      (0..string_length).to_a.each do |n|
-        hamming += 1 if s1[n] != s2[n]
-      end
-    hamming
-    end
+def compute(str1, str2)
+    count = 0
+	return 0 if str1 == str2
+	for i in (0...str1.length)
+	  count += 1 if str1[i] != str2[i]
+	end
+	count
   end
-end

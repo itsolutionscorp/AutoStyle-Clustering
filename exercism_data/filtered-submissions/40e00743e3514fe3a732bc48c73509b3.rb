@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first, second)
+def compute(first, second)
     return 0 if first == second
     if second.length > first.length
       self.compute(second, first)
@@ -14,5 +12,3 @@ class Hamming
     end
     return hamz
   end
-
-end

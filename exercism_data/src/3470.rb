@@ -1,12 +1,13 @@
-class Hamming
-  def compute(strand_A, strand_B)
-    length = [strand_A.length, strand_B.length].min
-
-    # convert each strand to an array of characters of equal length
-    b_chars = strand_B.chars.first(length)
-    a_chars = strand_A.chars.first(length)
-
-    # compare chars in each strand and count the differences
-    a_chars.zip(b_chars).count { |(a, b)| a != b }
+def compute(strand1, strand2)
+    return 0 if strand1 == strand2
+    strand_arr1 = strand1.split("")
+    strand_arr2 = strand2.split("")
+    differences = 0
+    strand_arr1.each_index do |index|
+      nucleotide1 = strand_arr1[index]
+      nucleotide2 = strand_arr2[index]
+      return differences unless nucleotide1 && nucleotide2
+      differences += 1 if nucleotide2 != nucleotide1
+    end
+    differences
   end
-end

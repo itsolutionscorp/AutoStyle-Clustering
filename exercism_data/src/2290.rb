@@ -1,7 +1,10 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    min_length = [first_strand.length, second_strand.length].min-1
-    zipped_strands = first_strand.chars.zip(second_strand.chars)
-    zipped_strands[0..min_length].count{|x,y| x != y}
+def compute(a, b)
+    hamming_count = 0
+
+    a.split('').each_with_index do |char, index|
+      break if index == (a.length) || index == (b.length)
+      hamming_count += 1 unless b[index] == char
+    end
+
+    hamming_count
   end
-end

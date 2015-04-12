@@ -1,13 +1,12 @@
-class Hamming
-def compute(x,y)
- counter =0;
- i=0;
-   while i < x.length && i<y.length  
-     if x[i] != y[i]
-      counter +=1   
+def compute(arg1, arg2)
+    return 0 if arg1 == arg2
+
+    hd = 0
+    for idx in 0..arg1.length - 1
+      if arg1[idx] != arg2[idx]
+        hd += 1
       end
-    i+=1
- end
-return  counter
- end
-end
+    end
+
+    hd
+  end

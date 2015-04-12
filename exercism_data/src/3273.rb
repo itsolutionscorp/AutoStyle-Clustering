@@ -1,14 +1,6 @@
-class Hamming
-  def compute(a, b)
-    # Start with shortest strand
-    source, target = [a, b].sort_by { |c| c.length }
-
-    distance = 0
-
-    source.split('').each_with_index do |char, i|
-      distance += 1 if char != target[i]
-    end
-
-    distance
+def compute(a, b)
+    diff = 0
+    length = [a.length, b.length].min
+    (0..length-1).each { |i| diff += 1 if a[i] != b[i] }
+    diff
   end
-end

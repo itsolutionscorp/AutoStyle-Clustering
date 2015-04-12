@@ -1,11 +1,7 @@
-class Hamming
-	def compute(first_string, second_string)
-		distance = 0
-		first_string.split("").each_with_index do |char, index|
-			if char != second_string.split("")[index]
-				distance += 1
-			end
-		end
-		distance
-	end
-end
+def compute(strand1, strand2)
+    mutations = 0
+    strand1.chars.take(strand2.length).each_with_index do |point, index|
+      mutations += 1 unless point == strand2[index]
+    end
+    mutations
+  end

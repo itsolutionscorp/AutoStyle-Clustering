@@ -1,8 +1,4 @@
-#Complete rewrite after going through timestep's solution
-#http://exercism.io/submissions/85271038b735fe34c53e1ad3
-
-class Hamming
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     difference = 0
 
     strand_one.length.times do |index|
@@ -15,4 +11,3 @@ class Hamming
 
     return difference
   end
-end

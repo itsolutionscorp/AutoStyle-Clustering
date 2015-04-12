@@ -1,15 +1,9 @@
-class Hamming
-	def compute (dna1, dna2)
-		nucleobases1 = dna1.split("")
-		nucleobases2 = dna2.split("")
-		result = 0
-
-		(0..dna1.length).each do |i|
-			if nucleobases1[i] != nucleobases2[i]
-			result += 1
-			end
-		end
-
-		return result
-	end
-end
+def compute(first_strand, second_strand)
+    @hamming_distance = 0
+    [first_strand.chars, second_strand.chars].transpose.each do |first_strand_base, second_strand_base|
+      if !first_strand_base.eql?(second_strand_base)
+        @hamming_distance += 1 
+      end
+    end
+    return @hamming_distance
+  end

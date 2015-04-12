@@ -1,11 +1,14 @@
-class Hamming
-  def compute(s1, s2)
-    count = 0
+def compute(x,y)
+    x_arr = x.split(//)
+    y_arr = y.split(//)
 
-    0.upto(s1.length) do |index|
-      count += 1 if s1[index] != s2[index]
+    ctr = 0
+
+    x_arr.each_with_index do |i,j|
+      if y_arr[j] != i
+        ctr += 1
+      end
     end
 
-    return count
+    ctr
   end
-end

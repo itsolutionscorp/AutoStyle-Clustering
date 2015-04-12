@@ -1,13 +1,14 @@
-class Hamming
+def compute(first_strand, second_strand)
+    @first_strand = first_strand.split('')
+    @second_strand = second_strand.split('')
 
-  def compute(dna_1, dna_2)
-    result = 0
-    dna_1_sequence = dna_1.split('')
-    dna_2_sequence = dna_2.split('')
+    distance = 0
 
-    size = [dna_1_sequence.size, dna_2_sequence.size].min
-    0.upto(size - 1) { |index| result += 1 unless dna_1_sequence[index] == dna_2_sequence[index] }
-    result
+    @first_strand.each_with_index do |nucleotide, index|
+      if @second_strand[index] != nil && nucleotide != @second_strand[index]
+        distance += 1
+      end
+    end
+
+    distance
   end
-
-end

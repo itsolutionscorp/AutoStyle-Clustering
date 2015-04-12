@@ -1,17 +1,7 @@
-class Hamming
-
-	def compute(string1, string2)
-		hamming=0
-		arr1=string1.split('')
-		arr2=string2.split('')
-		arr1.each_with_index do |letter,i|
-			if arr1[i] != arr2[i]
-				if arr1[i]!=nil && arr2[i] !=nil
-				hamming +=1
-				end
-			end
-		end
-		hamming
-	end
-
-end
+def compute(s1, s2)
+    dist = 0
+    short, long = [s1, s2].sort
+    striped = long[0..(short.length-1)]
+    striped.chars.zip(short.chars).each { |a,b| dist += 1 if a != b }
+    return dist
+  end

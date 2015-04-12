@@ -1,15 +1,11 @@
-class Hamming
-  def compute(n1, n2)
-    arr1 = n1.split('')
-    arr2 = n2.split('')
-
-    diff_count  = 0
-    arr_count   = 0
-
-    while arr_count < arr1.length  
-      diff_count += 1 if arr1[arr_count] != arr2[arr_count]
-      arr_count += 1
+def compute(dna1, dna2)
+    strand1 = dna1.chars
+    strand2 = dna2.chars
+    distance = 0
+    count = 0
+    while count < strand1.length do
+      distance += 1 unless strand1[count] == strand2[count]
+      count += 1
     end
-    diff_count
+    distance
   end
-end

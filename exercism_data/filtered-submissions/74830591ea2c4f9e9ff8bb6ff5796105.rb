@@ -1,5 +1,4 @@
-class Hamming
-  def compute(n1, n2)
+def compute(n1, n2)
     arr1 = n1.split('')
     arr2 = n2.split('')
 
@@ -12,4 +11,3 @@ class Hamming
     end
     diff_count
   end
-end

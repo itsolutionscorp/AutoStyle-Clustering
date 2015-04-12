@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     mismatch = 0
 
     strand1_chars = strand1.split""
@@ -12,4 +11,3 @@ class Hamming
 
     mismatch
   end
-end

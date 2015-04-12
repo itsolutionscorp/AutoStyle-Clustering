@@ -1,6 +1,5 @@
-class Hamming
-  
-  def compute(strand_one, strand_two)
-    hamming_distance = strand_one.chars.map.with_index {|char, index| char != strand_two.chars[index] }.count(true)
-  end                                                                                                                # => :compute
-end                                                                                                                  # => :compute
+def compute(first_strand, second_strand)
+    first_strand.chars
+      .zip(second_strand.chars)
+      .count { |x,y| x != y }
+  end

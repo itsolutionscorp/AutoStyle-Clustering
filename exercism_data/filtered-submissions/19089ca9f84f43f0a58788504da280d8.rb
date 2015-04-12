@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     hamming_distance = 0
     # Count nonequal chars, char-by-char. 
     (0..first.size).each do |i|
@@ -7,4 +6,3 @@ class Hamming
     end
     hamming_distance
   end
-end

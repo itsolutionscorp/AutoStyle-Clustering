@@ -1,11 +1,7 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).reduce(0) do |sum, (x, y)|
-      if x && y && x != y
-      	sum + 1
-      else
-      	sum
-      end
+def compute(original, replicated)
+    min_of_original_replicated = [original.length, replicated.length].min-1
+
+    (0..min_of_original_replicated).count do |i|
+      original[i] != replicated[i]
     end
   end
-end

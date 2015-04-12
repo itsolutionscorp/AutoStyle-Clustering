@@ -1,5 +1,3 @@
-class Hamming
-    def compute(first_strand, second_strand)
-        return first_strand.chars.zip(second_strand.chars).count { |x, y| !x.nil? and !y.nil? and x != y }
-    end
-end
+def compute(a, b)
+    [a, b].map(&:size).min.times.count { |i| a[i] != b[i] }
+  end

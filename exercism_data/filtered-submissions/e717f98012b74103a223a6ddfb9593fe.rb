@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     distance = 0
     s1.chars.each_with_index do |char, idx|
       break         if char.nil? || s2[idx].nil?
@@ -7,4 +6,3 @@ class Hamming
     end
     return distance
   end
-end

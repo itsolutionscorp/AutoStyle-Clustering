@@ -1,17 +1,12 @@
-class Hamming
-
-  def compute(str_1, str_2)
-    array_1 = str_1.chars
-    array_2 = str_2.chars
-    count = 0
-
-    array_1.each_with_index do |letter, index|
-      if letter != array_2[index] && array_2[index] != nil
-        count += 1
-      end
-    end
-
-    count
-  end
-
+def compute (a, b)
+		count = 0
+		zipped = a.chars.zip(b.chars)
+		zipped.each do |a, b|
+			if a && b && a != b
+				count += 1
+			end
+		end
+		count
+	end
+	
 end

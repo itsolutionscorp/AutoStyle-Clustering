@@ -1,16 +1,9 @@
-class Hamming
-  def compute(a, b)
-    count = 0
+def compute(a, b)
+    a = a.chars
+    b = b.chars
 
-    a = a.split('')
-    b = b.split('')
+    a, b = b, a if b.size <a.size
 
-    a.each_with_index do |letter, i|
-      if letter != b[i] 
-        count += 1
-      end
-    end
-
-    count
+    a.zip(b).count { |x, y| x != y }
   end
 end

@@ -1,7 +1,3 @@
-class Hamming
-  def compute(strand1, strand2)
-    0.upto(strand1.length).count do |i|
-      strand1[i] != strand2[i]
-    end
+def compute(ntide_1, ntide_2)
+    0.upto(ntide_1.length).count { |i| ntide_1[i] != ntide_2[i] }
   end
-end

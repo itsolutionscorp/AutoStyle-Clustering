@@ -1,13 +1,16 @@
-class Hamming
-
-    def compute(string_a, string_b)
-        amount = 0
-		0.upto(string_a.length) do |i|
-			if string_a[i] && string_b[i]
-				amount += 1 unless string_a[i] == string_b[i]
-			end
-		end
-		amount
+def compute(arg1, arg2)
+    a = arg1.split(%r{\s*})
+    b = arg2.split(%r{\s*})
+    counter = a.count
+    i = 0
+    hamm = 0
+    while i <= counter
+      if a[i] != b[i]
+        hamm += 1
+      else
+        hamm
+      end
+      i += 1
     end
-
-end
+    hamm
+  end

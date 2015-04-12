@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand, other_strand)
+def compute(strand, other_strand)
     strand = strand.to_s.chars
     other_strand = other_strand.to_s.chars
 
@@ -9,4 +8,3 @@ class Hamming
       strand[index] != other_strand[index]
     end
   end
-end

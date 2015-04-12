@@ -1,10 +1,11 @@
-class Hamming
-  def compute(strand_one, strand_two)
-    n = [strand_one.length,  strand_two.length].min
-    counter = 0
-    for i in 0..n-1
-      counter += 1 unless strand_one[i] == strand_two[i]
-    end
-    counter
+def compute(x, y)
+    xs = x.split('')
+    ys = y.split('')
+    ham = 0
+    xs.count.times do |num|
+      if xs.count <= ys.count && xs[num] != ys[num]
+        ham +=1
+          end
+        end
+    ham
   end
-end

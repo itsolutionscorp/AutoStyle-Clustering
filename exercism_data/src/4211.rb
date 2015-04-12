@@ -1,9 +1,4 @@
-class Hamming
-  def compute(firstStrand, secondStrand)
-    minLength = [firstStrand.length, secondStrand.length].min
-    firstStrandAsArray = firstStrand[0..minLength-1].chars
-    secondStrandAsArray = secondStrand[0..minLength-1].chars
-    zippedArrayOfStrands = firstStrandAsArray.zip(secondStrandAsArray)
-    zippedArrayOfStrands.count{|x| x[0] != x[1]}
+def compute(a, b)
+    return -1 unless a.length == b.length
+    a.split('').each_with_index.collect{|c, indx| c == b[indx]}.count(false) 
   end
-end

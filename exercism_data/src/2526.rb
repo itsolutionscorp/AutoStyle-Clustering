@@ -1,17 +1,12 @@
-class Hamming
-
-    def compute(strand1, strand2)
-        i = 0
-        hamming_distance = 0
-        length = (strand1.length < strand2.length) ? strand1.length : strand2.length
-	while i < length
-      	    hamming_distance += (strand1[i] == strand2[i]) ? 0 : 1
-            i += 1
-        end
-        return hamming_distance
+def compute(strand_a, strand_b)
+    i = 0
+    distance = 0
+    
+    until ( i > strand_a.length)
+      unless strand_a[i] == strand_b[i] 
+        distance = distance + 1
+      end
+      i = i + 1
     end
-
-end
-
-
-# puts Hamming.compute('AT', 'AT')
+    distance
+  end

@@ -1,24 +1,10 @@
-class Hamming
-
-	def compute(dna1, dna2)
-
-		array1 = dna1.split('')
-		array2 = dna2.split('')
-		count = 0
-
-		array1.each.with_index do |piece, i|
-			if piece != array2[i]
-				count += 1
-			end
-		end
-
-
-		diff = array1.length - array2.length
-
-		if array1.length > array2.length
-			count - diff.abs 
-		else
-			count
-		end
-	end
-end
+def compute string1, string2
+    count = 0
+    string1.each_char.with_index(0) do |char, i|
+      return count if (string2[i].nil? || char.nil?)
+      if char != string2[i]
+        count += 1
+      end
+    end
+    count
+  end

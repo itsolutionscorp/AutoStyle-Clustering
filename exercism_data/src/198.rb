@@ -1,9 +1,4 @@
-module Hamming
-  def compute strand, other_strand
-    minimum_length = [strand.length, other_strand.length].min
-
-    minimum_length.times.count do |i|
-      strand[i] != other_strand[i]
-    end
-  end
-end
+def compute(seq1,seq2)
+		length = [seq1,seq2].map(&:length).min - 1
+		(0..length).count { |i| seq1[i] != seq2[i] }
+	end

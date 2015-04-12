@@ -1,15 +1,9 @@
-class Hamming
-  def compute( strand_a, strand_b )
-    enum_strand_a = strand_a.each_char
-    enum_strand_b = strand_b.each_char
-    hamming_distance = 0
+def compute(strand1, strand2)
+    strand1 = strand1.chars
+    strand2 = strand2.chars
+    zipped_strands = strand1.zip(strand2)
 
-    loop do
-      e1 = enum_strand_a.next
-      e2 = enum_strand_b.next
-
-      hamming_distance += 1 unless e1 == e2
+    zipped_strands.count do |x,y|
+      [x] != [y] && y
     end
-    hamming_distance
   end
-end

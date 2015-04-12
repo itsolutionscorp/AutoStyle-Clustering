@@ -1,8 +1,8 @@
-module Hamming
-  def compute(first_strand, second_strand)
-    shortest_length = [first_strand.length, second_strand.length].min
-    (0...shortest_length).count do |i|
-      first_strand[i] != second_strand[i]
+def compute(strand_a, strand_b)
+    strand_a = strand_a.chars
+    strand_b = strand_b.chars
+
+    strand_a.zip(strand_b).count do |nucleotide_a, nucleotid_b|
+      nucleotide_a != nucleotid_b
     end
   end
-end

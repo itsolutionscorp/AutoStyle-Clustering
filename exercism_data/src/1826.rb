@@ -1,12 +1,10 @@
-module Hamming
-  def compute(strand_one, strand_two)
-    differences = 0
-    strand_one.size.times do |i|
-      break if (strand_one[i].nil? or strand_two[i].nil?)
-      differences += 1 if strand_one[i] != strand_two[i]
-    end
-    differences
-  end
-end
-
-include Hamming
+def compute(strand1,strand2)
+		ham_count = 0	
+	  min_length_str = 	strand1.length > strand2.length ? strand2 : strand1
+		(0...min_length_str.length).each do |i|
+			if strand1[i]!= strand2[i]
+				 ham_count += 1 			
+ 			end
+ 		end	 		
+ 		ham_count	
+	end

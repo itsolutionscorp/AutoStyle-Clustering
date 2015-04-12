@@ -1,8 +1,13 @@
-#
-class Hamming
-  def compute(a,b)
-    # zip chars from a with b
-    # select from a and b, compare for match, return count
-    a.chars.zip(b.chars).select{|a, b| a!=b}.count
+def compute(arg1, arg2)
+    arr1 = arg1.split("")
+    arr2 = arg2.split("")
+
+    counter = 0
+    arr1.each_with_index do |x, i|
+      if x != arr2[i]
+        counter += 1
+      end
+    end
+    return counter
+
   end
-end

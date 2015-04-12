@@ -1,5 +1,4 @@
-class Hamming
-	def compute(value1, value2)
+def compute(value1, value2)
     @value1_array = value1.scan(/./)
     @value2_array = value2.scan(/./)
     @counter=0
@@ -23,4 +22,3 @@ class Hamming
 #display results
     @counter
   end
-end

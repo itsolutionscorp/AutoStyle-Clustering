@@ -1,5 +1,4 @@
-class Hamming
-    def compute(original, mutated)
+def compute(original, mutated)
         hamming_distance = 0
         strand_length = [original.length, mutated.length].min
         (0...strand_length).each do |nucleotide|
@@ -8,5 +7,3 @@ class Hamming
 
         hamming_distance
     end
-
-end

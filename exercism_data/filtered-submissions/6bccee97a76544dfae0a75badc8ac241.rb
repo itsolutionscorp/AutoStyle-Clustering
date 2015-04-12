@@ -1,5 +1,4 @@
-class Hamming
-  def compute(input1, input2)
+def compute(input1, input2)
     attr_accessor :hamming_distance, :max_length
     
     hamming_distance = 0
@@ -21,4 +20,3 @@ class Hamming
     end
     hamming_distance
   end
-end

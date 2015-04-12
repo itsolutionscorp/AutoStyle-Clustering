@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string1, string2)
+def compute(string1, string2)
     num_differences = 0
 
     shortest_length = [string1.length, string2.length].min
@@ -16,4 +15,3 @@ class Hamming
 
     num_differences
   end
-end

@@ -1,14 +1,5 @@
-class Hamming
-  def compute(first, second)
-    difference = 0
-    first  = first.split(//)
-    second = second.split(//)
-
-    length = first.length > second.length ? second.length : first.length
-
-    length.times do |index|
-        difference += 1 if first[index] != second[index]
+def compute(seq1, seq2)
+        nb_diffs = 0
+        seq1.split("").each_index { |idx| nb_diffs += 1 if seq1[idx] != seq2[idx] }
+        nb_diffs
     end
-    difference
-  end
-end

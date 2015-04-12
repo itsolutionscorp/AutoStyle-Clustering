@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute (base, mutation)
+def compute (base, mutation)
     base = base.split(//)
     mutation = mutation.split(//)
     hamming = 0
@@ -11,5 +9,3 @@ class Hamming
     end
     return hamming
   end
-
-end

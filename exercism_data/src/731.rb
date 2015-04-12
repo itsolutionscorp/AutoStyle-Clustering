@@ -1,13 +1,19 @@
-# Clase diferencia Hamming
-class Hamming
-  def compute(primerCodigo , segundoCodigo)
-    if primerCodigo.length == segundoCodigo.length
-    # Recorres ambas cadenas y comparar caracter por caracter, y si hay
-    # diferencia sumarla al atributo distancia.
-      (0..primerCodigo.length - 1).each do |i|
-        @distancia += 1 unless primerCodigo[i] == segundoCodigo[i]
+def compute(strand1, strand2)
+    return if (strand1.nil? or strand2.nil?)
+
+    result  = 0
+    length1 = strand1.length
+    length2 = strand2.length
+
+    if (length1 > 0) and (length2 > 0)
+      min_length = [length1, length2].min
+
+      (0...min_length).each do |index|
+        if (strand1[index] != strand2[index])
+          result += 1
+        end
       end
     end
-    @distancia = 0 if @distancia.nil?
+
+    result
   end
-end

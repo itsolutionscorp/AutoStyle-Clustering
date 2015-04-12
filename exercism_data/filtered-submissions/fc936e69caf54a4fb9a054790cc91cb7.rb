@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     return nil unless str1.size == str2.size
     distance = 0
     str1.size.times do |i|
@@ -7,4 +6,3 @@ class Hamming
     end
     distance
   end
-end

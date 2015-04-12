@@ -1,5 +1,4 @@
-class Hamming
-  def compute( strand_a, strand_b )
+def compute( strand_a, strand_b )
     enum_strand_a = strand_a.each_char
     enum_strand_b = strand_b.each_char
     hamming_distance = 0
@@ -12,4 +11,3 @@ class Hamming
     end
     hamming_distance
   end
-end

@@ -1,5 +1,5 @@
-class Hamming
-  def compute(a, b)
-    a.chars.map.with_index{|val, i| (val <=> b.chars[i]).abs }.inject(:+)
+def compute(strand_a, strand_b)
+    strand_a.chars.zip(strand_b.chars).count do |base_a, base_b|
+      base_b && base_a != base_b
+    end
   end
-end

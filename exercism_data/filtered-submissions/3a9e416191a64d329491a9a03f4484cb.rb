@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     distance = 0
     length_a, length_b = strand_a.size, strand_b.size
     nucleotides_to_check = [length_a, length_b].min
@@ -8,4 +7,3 @@ class Hamming
     end
     distance
   end
-end

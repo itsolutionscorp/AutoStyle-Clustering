@@ -1,5 +1,4 @@
-class Hamming
-  def compute one, two
+def compute one, two
     # one.size - (one.match(two) ? one.match(two).size :  0)
     # one.zip(two).each do |pair|
     #   pair[0] == pair[1]
@@ -9,4 +8,3 @@ class Hamming
     # end - (one.count)
     end
   end
-end

@@ -1,9 +1,4 @@
-class Hamming
-  def compute(arg1, arg2)
-    x = 0
-    arg1.chars.each_index {|i|
-      x += 1 if arg1.chars[i] != arg2.chars[i]
-    }
-    x
+def compute(string1, string2)
+    stringlength = string1.size
+    (0...stringlength).count { |x| string1[x] != string2[x] }
   end
-end

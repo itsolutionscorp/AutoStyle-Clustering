@@ -1,5 +1,4 @@
-class Hamming
-    def compute (source, copy)
+def compute (source, copy)
         distance = 0
 
         source.length.times do |i|
@@ -10,4 +9,3 @@ class Hamming
 
         distance
     end
-end

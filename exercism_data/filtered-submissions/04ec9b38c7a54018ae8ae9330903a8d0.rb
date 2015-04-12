@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute firstStrand, secondStrand
+def compute firstStrand, secondStrand
     size = [firstStrand.size, secondStrand.size].min
     distance = 0
     (0...size).each {|i|
@@ -8,7 +6,3 @@ class Hamming
     }
     distance
   end
-
-end
-
-puts Hamming.compute('AA', 'ABA')

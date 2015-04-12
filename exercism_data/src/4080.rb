@@ -1,10 +1,9 @@
-class Hamming
-  def compute(dna_one,dna_two)
-    total = 0
-    dna_one.split('').each_with_index do |value,index|
-      break if dna_two[index].nil?
-      total+=1 if value != dna_two[index]
+def compute(strand_one, strand_two)
+    d = 0 
+    strand_one.chars.each_with_index do |s1, i|
+      if s1 != strand_two[i]
+        d += 1
+      end
     end
-    total
+    d
   end
-end

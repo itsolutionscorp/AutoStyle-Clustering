@@ -1,5 +1,3 @@
-class Hamming
-  def compute(string1, string2)
-    string1.chars.zip(string2.chars).count { |char1, char2| char1 != char2 }
+def compute(aString, bString)
+    aString.chars.zip(bString.chars).count{ |arr| !arr.include?(nil) && arr[0]!=arr[1] }
   end
-end

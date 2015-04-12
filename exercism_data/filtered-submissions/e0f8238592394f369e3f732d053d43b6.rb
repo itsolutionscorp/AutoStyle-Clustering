@@ -1,5 +1,4 @@
-class Hamming
-    def compute(first_strand, second_strand) # static method, not instance method
+def compute(first_strand, second_strand) # static method, not instance method
         first_strand_arr = first_strand.split('')
         second_strand_arr = second_strand.split('')
 
@@ -12,4 +11,3 @@ class Hamming
 
         num_mutations
     end
-end

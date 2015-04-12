@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     hamming_distance = 0
     strand_1.length.times do |index|
         nucleotide_1 = strand_1[index]
@@ -8,4 +7,3 @@ class Hamming
     end
     return hamming_distance
   end
-end

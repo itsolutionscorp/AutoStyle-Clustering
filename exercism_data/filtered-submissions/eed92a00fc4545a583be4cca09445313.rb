@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string_1, string_2)
+def compute(string_1, string_2)
 
     hamming_distance = 0
     
@@ -9,4 +8,3 @@ class Hamming
 
     hamming_distance
   end
-end

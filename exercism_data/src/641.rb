@@ -1,13 +1,8 @@
-class Hamming
-
-	def compute(first_strand, sec_strand)
-	  difference = 0
-	  first_strand.length <= sec_strand.length ? shortest_length = first_strand.length
-                                             : shortest_length = sec_strand.length
-	  shortest_length.times do |n|
-      difference +=1 if first_strand[n] != sec_strand[n]
-	  end
-	  difference
-	end
-
-end
+def compute(s1, s2)
+    distance = 0
+    s1.each_char.with_index do |item, idx|
+      break unless idx < s2.length
+      distance += 1 if item != s2[idx]
+    end
+    distance
+  end

@@ -1,5 +1,10 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).count { |char1, char2| char1 != char2 }
+def compute(a, b)
+    raise ArgumentError if a.length != b.length
+
+    count = 0
+    (0 ... a.length).each do |i|
+      count += 1 if a[i] != b[i]
+    end
+
+    count
   end
-end

@@ -1,14 +1,3 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    strand1 = strand1.chars
-    strand2 = strand2.chars
-      count = 0
-      strand1.take(strand2.length).each_with_index do |base, i|
-    if base != strand2[i]
-      count += 1
-    end
+def compute dna1, dna2
+    dna1.split('').zip(dna2.split('')).count{|x, y| x != y && y != nil}
   end
-      count
-  end
-end

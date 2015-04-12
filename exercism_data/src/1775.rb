@@ -1,12 +1,11 @@
-class Hamming
-  def compute(a, b)
-    count = 0
-    b = b.split('')
-
-    a.split('').each_with_index do |s, i|
-      count = count + 1 if b[i] && s != b[i]
+def compute(x, y)
+    xs = x.split(//)
+    ys = y.split(//)
+    ham = 0
+    xs.count.times do |num|
+      if xs.count <= ys.count && xs[num] != ys[num]
+        ham += 1
+      end
     end
-
-    count
+    ham
   end
-end

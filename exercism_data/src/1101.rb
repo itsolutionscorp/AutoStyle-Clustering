@@ -1,12 +1,13 @@
-module Hamming
-  def compute(first, second)
-    # Let's make sure we have strings
-    first = first.to_s
-    second = second.to_s
-
-    len = [first.length, second.length].min
-    dist = 0
-    len.times {|i| dist += 1 unless first[i] == second[i]}
-    dist
-  end
-end
+def compute(sequence1,sequence2)
+		array1 = sequence1.split('')
+		array2 = sequence2.split('')
+		@@Hamming = 0
+		array1.each_with_index do |letter,i|
+			if i < array1.length && i < array2.length
+				if array1[i] != array2[i]
+					@@hamming += 1
+				end
+			end
+		end
+		return @@hamming
+	end

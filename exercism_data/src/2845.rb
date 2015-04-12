@@ -1,12 +1,9 @@
-class Hamming
+def compute(strand_one, strand_two)
+    count = 0
 
-  def compute(s1, s2)
-    unless s1.is_a? String and s2.is_a? String
-      raise ArgumentError, 'strands must be strings'
+    strand_one.split("").each_with_index do |e,i|
+      count += 1 if strand_one[i] != strand_two[i]
     end
-    [s1, s2].map(&:size).min.times.count do |n|
-      s1[n] != s2[n]
-    end
+
+    count
   end
-
-end

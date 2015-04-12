@@ -1,11 +1,8 @@
-class Hamming   
-
-  def compute(strand_1, strand_2)
-    differences = 0
-    strand_1.each_char.with_index do | strand, position |
-      differences +=1 if strand != strand_2[position] && strand_2[position] != nil
+def compute(strand_a, strand_b)
+    length = [strand_a.length, strand_b.length].min
+    count = 0
+    length.times do |i|
+      count += 1 unless strand_a[i] == strand_b[i]
     end
-    differences
+    count
   end
-
-end

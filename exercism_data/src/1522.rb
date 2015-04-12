@@ -1,6 +1,7 @@
-class Hamming
-  def compute(arg1,arg2)
-    arg1=0
-    arg2=1
-  end
-end
+def compute(a,b)
+        count=0
+        for pos in 0..a.length - 1
+            count += 1 if a[pos]!=b[pos]
+        end
+        count
+    end

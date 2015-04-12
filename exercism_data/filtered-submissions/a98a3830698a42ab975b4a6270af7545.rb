@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     # we Must ignore any extra nucleotides in a longer nucleic_acid
     # so first we find which nucleic_acid is the shortest setting
     # nucleic_acid a to shortest if they are equal.
@@ -17,4 +16,3 @@ class Hamming
     end
     hamming_distance
   end
-end

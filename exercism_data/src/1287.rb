@@ -1,17 +1,9 @@
-require 'pry'
-class Hamming
-  def compute(s1, s2)
-    short_strand = s1.size > s2.size ? s2 : s1
-    long_strand = s1.size > s2.size ? s1 : s2
+def compute(string1, string2)
+        raise "Input strings of unequal length." if string1.length != string2.length
 
-    count = 0
-    index = 0
-    short_strand.each_char do |c|
-      count += 1 if c != long_strand[index]
-      index += 1
+        result = 0
+        string1.chars.zip(string2.chars).each do |char1, char2|
+            result += 1 if char1 != char2
+        end
+        result
     end
-
-
-    count
-  end
-end

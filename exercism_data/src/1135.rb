@@ -1,17 +1,10 @@
-class Hamming
-	class << self
+def compute(source, target)
+    return 0 if source == target
+    return Hamming.compute(target, source) if source.size > target.size
 
-		def compute(a,b)
-			# if the strings are the same no need for further evaluation
-			return a <=> b if (a <=> b) == 0
-
-			h = 0
-			a.chars.each.with_index do | char, i |
-				h += 1 if char != b.split('')[i]
-			end
-
-			h
-		end
-
-	end
-end
+    distance = 0
+    for i in 0...source.size
+      distance += 1 unless source[i] == target[i]
+    end
+    distance
+  end

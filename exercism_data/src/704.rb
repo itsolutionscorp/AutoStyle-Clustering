@@ -1,9 +1,8 @@
-class Hamming
-  def compute(strand, other_strand)
-    strand = strand.scan(/\w/)
-    other_strand = other_strand.scan(/\w/)
-    strand.each.with_index.count do |char, index|
-      char != other_strand[index]
+def compute(strand1, strand2)
+    if strand1.empty? && strand2.empty?
+      0
+    else strand1.split('').each_with_index.map { |letter,i|
+        strand2.split('')[i].nil? || letter == strand2[i] ? 0 : 1
+      }.inject{|sum, x| sum + x}
     end
   end
-end

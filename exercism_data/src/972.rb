@@ -1,9 +1,8 @@
-class Hamming
-  def compute(dna1, dna2)
-    count = 0
-    dna1.chars.each_index do |index|
-      count += 1 unless dna1[index] == dna2[index]
+def compute(string1, string2)
+    mismatch = 0
+    my_len = [string1.length,string2.length].min
+    my_len.times do |index|
+      mismatch = mismatch + 1 if string1[index] != string2[index]
     end
-    count
+    mismatch
   end
-end

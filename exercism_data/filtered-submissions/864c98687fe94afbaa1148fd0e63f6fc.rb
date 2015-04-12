@@ -1,7 +1,4 @@
-require 'pry'
-
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     count = strand1.length - 1
     differences = 0
     if strand1 == strand2
@@ -14,4 +11,3 @@ class Hamming
       differences
     end
   end
-end

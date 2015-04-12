@@ -1,22 +1,2 @@
-class Hamming
-
-  def compute dna, dna2
-    if dna.length <= dna2.length 
-      short = dna
-      long = dna2
-    else
-      short = dna2
-      long = dna
-    end
-
-    index = 0
-    hamming = 0
-
-    short.each_char do |char|
-      if char != long[index] then hamming += 1 end
-      index += 1
-    end
-
-    hamming
-  end
-end
+def compute(strand_one, strand_two)
+    strand_one.chars.zip(strand_two.chars).reduce(0) { |matches, pair| pair[0] != pair[1] ? matches += 1 : matches }

@@ -1,7 +1,7 @@
-class Hamming
-  def compute(strand_one, strand_two)
-    shortest_length = [strand_one.size, strand_two.size].min
-
-    shortest_length.times.count { |i| strand_one[i] != strand_two[i] }
+def compute(fst, snd)
+    fst.chars
+      .zip(snd.chars)
+        .delete_if {|(_, r)| r.nil?}
+          .keep_if {|(l, r)| l != r}
+          .count
   end
-end

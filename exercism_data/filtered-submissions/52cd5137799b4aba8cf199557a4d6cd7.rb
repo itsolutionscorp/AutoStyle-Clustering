@@ -1,5 +1,4 @@
-class Hamming 
-  def compute strand, other_strand 
+def compute strand, other_strand 
     hamming_diff = 0
     char_index = 0 
     while (char_index < strand.length) do 
@@ -8,5 +7,4 @@ class Hamming
       char_index += 1 
     end 
     hamming_diff
-  end 
-end
+  end

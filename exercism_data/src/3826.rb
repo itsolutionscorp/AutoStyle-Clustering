@@ -1,9 +1,22 @@
-class Hamming
-    def compute( s1, s2 )
-        distance = 0
-        for i in 0..s1.length
-            distance = distance + 1 if ( s1[i] != s2[i] )
-        end
-        distance
+def compute(str1, str2)
+      join = [str1, str2]
+      shorter = join.min do |str1, str2|
+        str1.length <=> str2.length
+      end
+      
+      min = shorter.size
+
+      format_str1 = str1.split('').take(min)
+      format_str2 = str2.split('').take(min)
+
+      return 0 if format_str1 == format_str2
+      combo = format_str1.zip(format_str2)
+
+      no_duplicate = combo.map do |num|
+        num.uniq
+      end
+
+      no_duplicate.count do |word|
+        word.length == 2
+      end
     end
-end

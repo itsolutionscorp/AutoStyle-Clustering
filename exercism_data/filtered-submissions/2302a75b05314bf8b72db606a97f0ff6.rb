@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_seq_1, dna_seq_2)
+def compute(dna_seq_1, dna_seq_2)
     hamming_distance = 0
     # min_length holds the size of the smaller sequence in case the sequences have different sizes
     min_length = dna_seq_1.length <= dna_seq_2.length ? dna_seq_1.length : dna_seq_2.length
@@ -14,9 +13,3 @@ class Hamming
   if __FILE__ == $0  
     puts Hamming.compute('AG', 'A')
   end
-
-end
-
-
-
-

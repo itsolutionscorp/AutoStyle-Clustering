@@ -1,6 +1,4 @@
-class Hamming
-
-    def compute(strand1, strand2)
+def compute(strand1, strand2)
         i = 0
         hamming_distance = 0
         length = (strand1.length < strand2.length) ? strand1.length : strand2.length
@@ -10,8 +8,3 @@ class Hamming
         end
         return hamming_distance
     end
-
-end
-
-
-# puts Hamming.compute('AT', 'AT')

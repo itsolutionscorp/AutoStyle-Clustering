@@ -1,7 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.each_char.with_index.count do |char, i|
-      char != strand2[i]
-    end
+def compute(a, b)
+    a == b ? 0 : 1;
   end
 end

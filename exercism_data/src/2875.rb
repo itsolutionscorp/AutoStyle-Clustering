@@ -1,9 +1,8 @@
-class Hamming
+def compute(gene_1, gene_2)
 
-  def compute(a,b)
-     b = b.chars
-     l = a.length < b.length ? a.length : b.length
-     a.chars.take(l).map.with_index {|v,i| v != b[i] ? 1 : 0}.inject {|sum,x| sum + x}
+    gene_1.chars.zip(gene_2.chars)
+      .count do |nucleotide_1, nucleotide_2|
+      nucleotide_1 != nucleotide_2 && nucleotide_2
+    end
+
   end
-
-end

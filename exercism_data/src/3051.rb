@@ -1,7 +1,8 @@
-class Hamming
-    def compute(first, second)
-	first.each_char.with_index.count do |element, index|
-	    second[index] != element
-	end
+def compute s1, s2
+        [s1.size, s2.size]
+        .min
+        .times
+        .count{ |i| 
+            s1[i] != s2[i]
+        }
     end
-end

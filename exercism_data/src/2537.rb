@@ -1,8 +1,9 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    s1 = strand_1.split('');
-    s2 = strand_2.split('');
-
-    s1.zip(s2).count{ |v| v[0] != v[1] }
+def compute(first, second)
+    count = 0
+    s_limit = second.size
+    first.split('').each_with_index do |a,i|
+      break if s_limit == i
+      count += 1 if a != second[i]
+    end
+    count
   end
-end

@@ -1,11 +1,13 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    distance = 0
-
-    first_strand.size.times do |position|
-      distance += 1 unless first_strand[position] == second_strand[position]
+def compute(s1, s2)
+    if s1.length != s2.length
+      short = [s1, s2].min_by &:length
+      long  = [s1, s2].max_by &:length
+    else
+      short, long = s1, s2
     end
 
-    distance
+    short.scan(/\w/).each.with_index.count do |c1, i|
+      c2 = long[i]
+      c1 != c2
+    end
   end
-end

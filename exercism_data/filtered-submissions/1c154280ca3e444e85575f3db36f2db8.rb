@@ -1,5 +1,4 @@
-class Hamming
-	def compute(str1, str2)
+def compute(str1, str2)
 		
 		min = [str1.length, str2.length].min
 
@@ -15,5 +14,3 @@ class Hamming
 
 		count
 	end
-
-end

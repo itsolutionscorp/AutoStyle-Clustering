@@ -1,11 +1,3 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    dna_strands = strand1.chars.zip(strand2.chars)
-    
-    dna_strands.count do |element|
-      !(element[0]==element[1])
-    end
+def compute(string1, string2)
+    string1.length.times.count { |index| string1[index] != string2[index] }
   end
-
-end

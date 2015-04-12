@@ -1,10 +1,4 @@
-class Hamming
-
-  def compute(a, b)
-    diff = 0
-    length = [a.length, b.length].min
-    (0..length-1).each { |i| diff += 1 if a[i] != b[i] }
-    diff
+def compute(a,b)
+    n = [a.length,b.length].min
+    (0...n).map{ |i| a[i] != b[i] }.count(true)
   end
-
-end

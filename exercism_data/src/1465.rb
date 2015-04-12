@@ -1,11 +1,12 @@
-class Hamming
+def compute(s,t)
+    @@count = 0
+    s_enum = s.to_s.each_char
+    t_enum = t.to_s.each_char
 
-  def compute(strand1, strand2)
-    hamming_difference = 0
-    strand1.split('').zip(strand2.split('')).each do |a1,a2|
-      break if a1.nil? or a2.nil?
-      hamming_difference += 1 if a1 != a2
+    loop do
+      s_char = s_enum.next
+      t_char = t_enum.next
+      @@count += 1 if s_char != t_char
     end
-    hamming_difference
+    @@count
   end
-end

@@ -1,8 +1,10 @@
-class Hamming
+def compute(a,b)
+    distance = 0
+    c = a.split(//).zip b.split(//)
 
-  def compute(strand, strand2)
-    pairs = strand.chars.zip(strand2.chars).first(strand2.length)
-    pairs.count {|x,y| x != y }
+    c.each do | item1,item2 | 
+      break if item1.nil? || item2.nil?
+      distance=distance+1 if (item1 != item2)
+    end
+    distance
   end
-
-end

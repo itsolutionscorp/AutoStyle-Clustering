@@ -1,5 +1,4 @@
-class Hamming
-	def compute(str_a, str_b)
+def compute(str_a, str_b)
 		result = 0
 		min_length = [str_a.length, str_b.length].min
 
@@ -9,4 +8,3 @@ class Hamming
 
 		result
 	end
-end

@@ -1,10 +1,5 @@
-class Hamming
-  def compute(strand_one, strand_two)
-    if strand_two.length < strand_one.length
-      strand_one,strand_two = strand_two,strand_one
-    end
-    strand_one.chars.each_with_index.count do |c, index|
-      c != strand_two[index]
-    end
-  end
-end
+def compute(str1, str2)
+		dist = 0
+		str1.split("").each_with_index { |s, ind| dist += 1 if s != str2[ind] }
+		dist
+	end

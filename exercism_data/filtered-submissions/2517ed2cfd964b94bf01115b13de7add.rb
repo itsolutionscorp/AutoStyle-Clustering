@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arg_a, arg_b)
+def compute(arg_a, arg_b)
     difference_acum = 0
     for i in 0 .. arg_a.length
       if arg_a[i] != arg_b[i]
@@ -8,4 +7,3 @@ class Hamming
     end
     difference_acum
   end
-end

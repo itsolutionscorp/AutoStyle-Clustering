@@ -1,17 +1,11 @@
-module Hamming
+def compute(a, b)
+    diffs      = 0
+    min_length = [a.length, b.length].min
 
-  def compute (strand1, strand2)
-    @hamming_distance = 0
-    index = 0
-
-    while strand1[index] && strand2[index]
-      if strand1[index] != strand2[index]
-        @hamming_distance += 1
-      end
-      index += 1
+    min_length.times do |index|
+      diffs += 1 if a[index] != b[index]
     end
 
-    return @hamming_distance
-
+    diffs
   end
 end

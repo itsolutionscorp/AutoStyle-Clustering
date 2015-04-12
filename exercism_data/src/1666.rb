@@ -1,5 +1,3 @@
-class Hamming
-  def compute(string_a, string_b)
-      0.upto(string_a.size).count { |i| string_a[i] != string_b[i] }
+def compute(a, b)
+    a.split('').select.with_index { |c, i| c != b[i] }.size
   end
-end

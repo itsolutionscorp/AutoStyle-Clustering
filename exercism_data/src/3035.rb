@@ -1,15 +1,7 @@
-class Hamming
-    def compute a, b
-        str_to_char_array = Proc.new do |x|
-            x.chars.to_a
-        end
-
-        (a, b) = [a,b].collect(&str_to_char_array)
-
-        (shorter, longer) = [a,b].sort_by(&:length)
-
-        shorter.zip(longer).count do |current| 
-            current[0] != current[1]
-        end
+def compute(strand_a, strand_b)
+    hamming_distance = 0
+    [strand_a.length, strand_b.length].min.times do |index|
+      hamming_distance += 1 unless strand_a[index] == strand_b[index]
     end
-end
+    hamming_distance
+  end

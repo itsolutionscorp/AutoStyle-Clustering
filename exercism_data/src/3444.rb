@@ -1,13 +1,7 @@
-class Hamming
+def compute (strand1, strand2)
+    range = [strand1.length, strand2.length].min.times
 
-  def compute(a,b)
-    a = a.split('')
-    b = b.split('')
-    distance = 0
-    points = [a.length, b.length].min
-
-    points.times { a.shift == b.shift ? nil : distance += 1 }
-    distance
+    range.count do |i|
+      strand1[i] != strand2[i]
+    end
   end
-
-end

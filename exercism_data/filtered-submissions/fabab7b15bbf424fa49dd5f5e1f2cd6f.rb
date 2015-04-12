@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string_a, string_b)
+def compute(string_a, string_b)
     if string_a.size > string_b.size
       string_a, string_b = string_b, string_a
     end
@@ -9,4 +8,3 @@ class Hamming
     # require 'pry'; binding.pry
     mapped.reduce(0, &:+)
   end
-end

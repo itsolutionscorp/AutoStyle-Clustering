@@ -1,18 +1,14 @@
-class Hamming
-	def compute (first_string, second_string)
-		if (first_string == second_string) then
-			return 0
-		end
-		distance = 0
-
-		length = [first_string.length, second_string.length].min
-
-		for i in 0...length do
-			if (first_string[i] != second_string[i]) then
-				distance += 1
-			end
-		end
-
-		return distance
-	end
-end
+def compute(x, y)
+    index = 0
+    sum = 0
+    while   index < x.length
+      if x[index] == y[index]
+        different = 0
+      elsif x[index] != y[index]
+        different = 1
+        sum = sum + different
+      end
+      index += 1
+    end 
+    sum
+  end

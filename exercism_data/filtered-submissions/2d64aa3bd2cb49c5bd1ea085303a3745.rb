@@ -1,6 +1,4 @@
-# Hamming code class?
-class Hamming
-  def compute( left, right )
+def compute( left, right )
     return 0 if left == right
 
     mutations = 0
@@ -11,5 +9,3 @@ class Hamming
     end
 
     mutations
-  end
-end

@@ -1,9 +1,6 @@
-class Hamming
-  def compute(x, y)
-    hamming = 0
-    x.each_char.with_index do |char, idx|
-      hamming += 1 unless char == y[idx] 
-    end
-    return hamming
+def compute(strand_a, strand_b)
+    short, long = [strand_a, strand_b].map { |s| s.split('') }
+                                      .sort { |a, b| a.size <=> b.size }
+    short.zip(long)
+         .count { |m, n| m != n }
   end
-end

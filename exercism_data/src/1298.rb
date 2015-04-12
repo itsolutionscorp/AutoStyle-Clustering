@@ -1,5 +1,5 @@
-class Hamming
-  def compute(a, b)
-    a[0, b.size].chars.zip(b.chars).select { |n| !n[0].eql? n[1] }.count
+def compute(strand1, strand2)
+    arr1 = strand1.split('')
+    arr2 = strand2.split('')
+    arr1.map.with_index { |char, i| arr2[i] != char ? 1 : 0 }.reduce(:+)
   end
-end

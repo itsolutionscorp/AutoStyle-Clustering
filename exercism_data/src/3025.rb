@@ -1,16 +1,10 @@
-class Hamming
-  def compute (nucleotide1, nucleotide2)
-    i = 0
-    hammingCount = 0
-
-    baseString = nucleotide1.length <= nucleotide2.length ? nucleotide1 : nucleotide2 
-
-    while i < baseString.length
-      if nucleotide1[i] != nucleotide2[i]
-        hammingCount += 1
-      end
-      i += 1
+def compute(seg_a, seg_b)
+        count = 0
+        iter_times = seg_a.length <= seg_b.length ? seg_a.length : seg_b.length
+        iter_times.times do |index|
+            if seg_a[index] != seg_b[index]
+                count += 1
+            end
+        end
+        count
     end
-    hammingCount
-  end
-end

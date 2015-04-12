@@ -1,14 +1,7 @@
-class Hamming
-  class << self
-    def compute(strA, strB)
-      if strA.length > strB.length
-        strA,strB = strB, strA
-      end
-      dist = 0
-      strA.length.times do |i|
-        dist += 1 if strA[i] != strB[i]
-      end
-      dist
+def compute(strand1, strand2)
+    zipped = strand1.split("").zip(strand2.split(""))
+    zipped.select(&:all?).inject(0) do |memo, ( a, b )|
+      memo += 1 if a != b
+      memo
     end
   end
-end

@@ -1,11 +1,7 @@
-class Hamming
-  def compute(a, b)
-    a.length < b.length ? len = a.length : len = b.length
-    len -= 1 # Correlate lenght with array position
-    cnt = 0
-    (0..len).each do |i|
-      cnt += 1 if a.bytes[i] != b.bytes[i]
+def compute(strand_1, strand_2)
+    dif = 0
+    [strand_1.length, strand_2.length].min.times do |i|
+        dif += 1 unless strand_1[i] == strand_2[i]
     end
-    cnt
+      return dif
   end
-end

@@ -1,23 +1,5 @@
-class Hamming
-
-	def Hamming.compute (a,b)
-		
-		hamming_distance = 0
-		bpos = 0
-		
-		a.each_char do |char|
-			unless char == b[bpos]
-				hamming_distance +=1
-			end
-
-			bpos += 1
-
-			if b[bpos] == nil
-				break
-			end	
-		end	
-		
-		hamming_distance
-	end
-
-end
+def compute(first, second)
+    return -1 if first.length != second.length
+    first, second = first.chars, second.chars
+    first.zip(second).count { |elem| elem.first.downcase != elem.last.downcase }
+  end

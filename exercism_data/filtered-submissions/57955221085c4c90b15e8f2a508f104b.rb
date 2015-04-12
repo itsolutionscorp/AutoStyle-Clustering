@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(x, y)
+def compute(x, y)
     count = 0
     x.length.times do |i|
       if !(x[i] == y[i])
@@ -9,7 +7,3 @@ class Hamming
     end
     count
   end
-
-end
-
-Hamming.compute('A','B')

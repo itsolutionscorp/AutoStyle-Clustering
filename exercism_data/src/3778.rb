@@ -1,11 +1,5 @@
-module Hamming
-	def compute(strand_a, strand_b)
-		short, long = [strand_a, strand_b].sort do |a, b|
-			a.length <=> b.length
-		end
-		
-		short.chars.each_with_index.count do |char, idx| 
-			char != long.chars[idx]
-		end
-	end
-end
+def compute(a, b)
+    mismatches = 0
+    [a.length, b.length].min.times { |i| mismatches += 1 if a[i] != b[i] }
+    mismatches
+  end

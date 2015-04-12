@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     count = 0
     str1.split("").each_with_index do |s, i|
       break if str2[i].nil? || s.nil?
@@ -7,4 +6,3 @@ class Hamming
     end
     count
   end
-end

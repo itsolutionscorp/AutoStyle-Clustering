@@ -1,15 +1,9 @@
-class Hamming
+def compute(dna_1, dna_2)
+		diff = 0
 
-	def compute(strandA, strandB)
-		if strandA == strandB
-			0
-		else
-			differences = 0
-			for i in 0..[strandA.length, strandB.length].min - 1 do
-				differences += 1 if strandA[i] != strandB[i]
-			end
-			differences
-		end
+		for i in 0..[dna_1.length - 1, dna_2.length - 1].min
+			diff = (diff + 1) unless dna_1[i] == dna_2[i]
+    end
+
+    return diff
 	end
-
-end

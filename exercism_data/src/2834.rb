@@ -1,9 +1,9 @@
-class Hamming
+def compute(strand_1, strand_2)
+  	raise ArgumentError if strand_1.length != strand_2.length
 
-  def compute left, right
-    left.chars.zip(right.chars).inject(0) do |total, pair|   
-      pair.last.nil? || pair.first == pair.last ? total : total + 1 
-    end 
+  	distance = 0
+    strand_1.length.times do 
+      distance += 1 if letter != strand_2[index]
+    end
+    distance 
   end
-
-end

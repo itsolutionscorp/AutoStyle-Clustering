@@ -1,14 +1,17 @@
-class Hamming
-	def compute(s1, s2)
-		if s1.length > s2.length
-			s1, s2 = s2, s1
-		end
-		d = 0
-		s1.each_char.with_index do |c1, i|
-			if c1 != s2[i]
-				d += 1
-			end
-		end
-		d
-	end
-end
+def compute(sequence1, sequence2)
+    #We compare until the last strand of the shortest sequence.
+    if sequence1.length < sequence2.length
+      last_index = sequence1.length - 1
+    else
+      last_index = sequence2.length - 1
+    end
+
+    hamming_distance = 0
+
+    (0..last_index).each do |index|
+      if sequence1[index] != sequence2[index]
+        hamming_distance += 1
+      end
+    end
+    hamming_distance
+  end

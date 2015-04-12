@@ -1,11 +1,13 @@
-#!/usr/bin/env ruby
+def compute(s1, s2)
+    hamming_count = 0
+    s1_a = s1.split(//)
+    s2_a = s2.split(//)
 
-class Hamming
-    def compute(strandA, strandB)
-        distance = 0
-        (0..[strandA.length, strandB.length].min - 1).each do |index|
-            distance = distance + 1 if strandA[index] != strandB[index]
-        end
-        distance
+    s1_a.each_with_index do |item, index|
+      if item != s2_a[index]
+        hamming_count += 1
+      end
     end
-end
+    hamming_count
+    
+  end

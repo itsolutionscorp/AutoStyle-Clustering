@@ -1,14 +1,6 @@
-class Hamming
-  def compute(strand1, strand2)
-    return 0 unless strand1 != strand2
-
-    count = 0
-    compare_length = strand1.length < strand2.length ? strand1.length : strand2.length
-
-    (0...compare_length).each do |i|
-      count = count + 1 unless strand1[i] == strand2[i]
+def compute(strand, other_strand)
+    strand.each_char.each_with_index.count do |point, i|
+      other_point = other_strand[i]
+      other_point && point != other_point
     end
-
-    return count
   end
-end

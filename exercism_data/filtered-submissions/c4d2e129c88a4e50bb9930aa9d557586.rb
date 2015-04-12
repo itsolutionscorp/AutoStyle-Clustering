@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string1, string2)
+def compute(string1, string2)
     join_strands = [string1, string2]
     shorter = join_strands.min do |string1, string2|
       string1.length <=> string2.length
@@ -21,4 +20,3 @@ class Hamming
       word.length == 2
     end
   end
-end

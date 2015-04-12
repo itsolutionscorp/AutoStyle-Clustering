@@ -1,6 +1,4 @@
-# cuarto rubocop
-class Hamming
-  def compute(val1, val2)
+def compute(val1, val2)
     acum = 0
     j = 1
     for i in 0..val1.length
@@ -11,4 +9,3 @@ class Hamming
     end
     acum
   end
-end

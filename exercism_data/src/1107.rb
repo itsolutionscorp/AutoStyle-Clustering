@@ -1,7 +1,9 @@
-class Hamming
+def compute(left, right)
+    left_bytes = left.bytes.each
+    right_bytes = right.bytes.each
 
-  def compute(a, b)
-    a.chars.zip(b.chars).count { |x, y| x != y }
+    total = 0
+    left_bytes.each { |num| total += 1 if num != right_bytes.next }
+  ensure
+    return total
   end
-
-end

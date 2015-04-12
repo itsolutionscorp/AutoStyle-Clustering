@@ -1,8 +1,16 @@
-class Hamming
-  def compute(a,b)
-    return 0 if a == b
-    distance = 0
-    0.upto([a.length,b.length].min - 1) {|n| distance += 1 if a[n] != b[n] }
-    distance
-  end
-end
+def compute(firstrand, secondstrand)
+ 	if firstrand.length > secondstrand.length
+ 		strandlength = secondstrand.length
+ 	else 
+ 		strandlength = firstrand.length
+ 	end
+ 	hdistance = 0
+ 	i = 0
+	while i < strandlength
+ 		if firstrand[i] != secondstrand[i]
+ 			hdistance += 1
+ 		end
+ 		i += 1
+ 	end
+ 	return hdistance
+ end

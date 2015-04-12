@@ -1,4 +1,3 @@
-class Hamming
 def compute (x,y)
 	mismatch=0
 	if x!=y
@@ -22,4 +21,3 @@ def compute (x,y)
 	return mismatch
 end
 #Hamming.compute("BA","AA")
-end

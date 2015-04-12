@@ -1,6 +1,4 @@
-class Hamming
-	
-	def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
 	nucleotide_number = strand_1.length
 	hamming_number = 0
 		
@@ -15,4 +13,3 @@ class Hamming
 	return hamming_number
 
 	end
-end

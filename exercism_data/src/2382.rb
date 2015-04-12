@@ -1,13 +1,13 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    mutations = 0
-
-    strand_1_array = strand_1.split("")
-    strand_2_array = strand_2.split("")
-
-    strand_1_array.each_with_index do |val, index|
-      mutations += 1 if strand_2_array[index] != val
+def compute(first_strand, second_strand)
+    hamming_distance = 0
+    first_strand = first_strand.chars
+    second_strand = second_strand.chars
+    while (!first_strand.empty?) && (!second_strand.empty?)
+      first_strand_letter = first_strand.shift
+      second_strand_letter = second_strand.shift
+      if first_strand_letter != second_strand_letter
+        hamming_distance += 1
+      end
     end
-    mutations
+    return hamming_distance
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute str1, str2
+def compute str1, str2
     diff = []
     arr1, arr2 = str1.split(""), str2.split("")
    
@@ -9,4 +8,3 @@ class Hamming
 
     diff.size
   end
-end

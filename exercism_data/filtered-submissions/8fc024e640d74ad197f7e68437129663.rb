@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     total = 0
 
     a.chars.each_with_index do |a_chr, index|
@@ -8,4 +7,3 @@ class Hamming
 
     return total
   end
-end

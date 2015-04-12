@@ -1,16 +1,16 @@
-class Hamming
-  def compute(dna_1, dna_2)
-    if dna_1.length == dna_2.length
-      length = dna_1.length
-      distance, counter = 0, 0
-
-      while counter != length
-        if dna_1[counter] != dna_2[counter]
-          distance += 1
+def compute(code1, code2)
+    diff = 0
+    if code1.length == code2.length
+      for i in 0..code1.length
+        if code1[i] != code2[i]
+          diff += 1
         end
-        counter += 1
       end
+      return diff
+    elsif
+      code1.length > code2.length
+      return 1
+    else
+      return 2
     end
-    distance
   end
-end

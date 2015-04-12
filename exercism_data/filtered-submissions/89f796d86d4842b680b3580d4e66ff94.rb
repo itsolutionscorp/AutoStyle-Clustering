@@ -1,6 +1,4 @@
-class Hamming
-  
-  def compute(input1, input2)
+def compute(input1, input2)
     strand1 = input1.split(/w*/)
     strand2 = input2.split(/w*/)
     
@@ -10,5 +8,3 @@ class Hamming
       strand1[n] == strand2[n] ? 0 : 1
     end.inject(&:+)
   end
-
-end

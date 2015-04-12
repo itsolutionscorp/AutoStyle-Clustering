@@ -1,7 +1,11 @@
-class Hamming
-  def compute(seq1, seq2)
-    (0..seq1.length).inject(0) do |count, index| 
-      seq1[index] != seq2[index] ? count + 1 : count
-    end    
+def compute(string1, string2)
+    array1 = string1.chars
+    array2 = string2.chars
+    count = 0
+    array1.each_with_index do |val, index|
+      if array2[index] != val
+        count += 1
+      end
+    end
+    count
   end
-end

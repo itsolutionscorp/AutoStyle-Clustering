@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(string1, string2)
+def compute(string1, string2)
     sum = 0
     string1.length < string2.length ? shorter = string1 : shorter = string2
     (0...shorter.length).each do |count|
@@ -8,5 +6,3 @@ class Hamming
     end
     sum
   end
-
-end

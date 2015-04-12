@@ -1,13 +1,5 @@
-class Hamming
-  def compute(strand1, strand2)
-    count = 0
-
-    for i in 0..strand1.length do 
-      if strand1[i] != strand2[i]
-        count += 1
-      end
-    end
-    
-    count
+def compute(dna1,dna2)
+    hamming_dist = 0
+    dna1.chars.zip(dna2.chars).each{|a,b| hamming_dist += 1 if a != b}
+    return hamming_dist
   end
-end

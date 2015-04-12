@@ -1,6 +1,4 @@
-class Hamming
-  def compute(one, two)
-    return 0 if one == two
-    one.chars.zip(two.chars).reject{|item| item.first == item.last}.length
-  end
-end
+def compute(strand_a, strand_b)
+      raise "Strands must be similar length" unless strand_a.length == strand_b.length
+      strand_a.chars.zip(strand_b.chars).count{|a, b| a != b}
+    end

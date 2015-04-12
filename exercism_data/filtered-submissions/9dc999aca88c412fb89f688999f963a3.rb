@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(s1, s2)
+def compute(s1, s2)
 		distance = 0
 
 		for i in 0...[s1.length, s2.length].min
@@ -18,5 +16,3 @@ class Hamming
 
 		puts compute(strand1, strand2)
 	end
-end
-

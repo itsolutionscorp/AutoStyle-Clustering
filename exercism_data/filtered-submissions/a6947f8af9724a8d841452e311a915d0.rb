@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     if strand1 == strand2
       0
     else
@@ -16,4 +15,3 @@ class Hamming
       hamming
     end
   end
-end

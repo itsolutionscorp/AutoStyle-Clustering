@@ -1,9 +1,24 @@
-class Hamming
-  def compute(seq1, seq2)
-    count = 0
-    seq1.chars.each_with_index do |elem, index|
-      count += 1 unless elem.eql?(seq2.chars[index])
-    end
-    count
-  end
-end
+def compute(s, t)
+		
+		s = s.upcase
+		t = t.upcase
+		
+		s_splitted = s.chars
+		t_splitted = t.chars
+		min_length = s.length
+		
+		if t.length < s.length
+			min_length = t.length
+		end
+		
+		count = 0
+		
+		min_length.times do |num|
+			if !s_splitted[num].eql? t_splitted[num]
+				count += 1
+			end
+		end
+		
+		return count
+		
+	end

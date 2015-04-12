@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arg1,arg2)
+def compute(arg1,arg2)
     diffs = 0
     arr = arg1.split("").zip(arg2.split(""))
     arr.each do |stuff|
@@ -9,4 +8,3 @@ class Hamming
     end
     return diffs
   end
-end

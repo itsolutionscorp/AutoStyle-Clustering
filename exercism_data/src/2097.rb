@@ -1,10 +1,3 @@
-class Hamming
-	def compute(first_strand, second_strand)
-		distance = 0;
-		first_strand, second_strand = [first_strand.chars, second_strand.chars].sort_by { |x| x.length }
-		first_strand.each_with_index do |ch, i|
-			distance += 1 if second_strand[i] != ch
-		end
-		distance
-	end
-end
+def compute(left, right)
+    left.bytes.zip(right.bytes).count { |n| n.all? && n.uniq.size != 1 }
+  end

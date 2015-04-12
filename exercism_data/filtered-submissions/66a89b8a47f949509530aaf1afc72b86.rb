@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(origin_strand,other_strand)
+def compute(origin_strand,other_strand)
     i = 0
     counts = 0
     other_strand_arr = other_strand.chars
@@ -15,5 +13,3 @@ class Hamming
     end 
     counts
   end
-
-end

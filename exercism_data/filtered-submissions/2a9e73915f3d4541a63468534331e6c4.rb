@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(original, current)
+def compute(original, current)
     o = original.split ''
     c = current.split ''
     hamming_counter = 0
@@ -11,5 +9,3 @@ class Hamming
     end
     hamming_counter
   end
-
-end

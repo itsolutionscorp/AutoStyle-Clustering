@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     comparison = []
     strand_one = strand_one[0..(strand_two.length - 1)] if strand_one.length > strand_two.length
     strand_one_bases, strand_two_bases = strand_one.chars, strand_two.chars
@@ -11,5 +9,3 @@ class Hamming
 
     comparison.count(false)
   end
-
-end

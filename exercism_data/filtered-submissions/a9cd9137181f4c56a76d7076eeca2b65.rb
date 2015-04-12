@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str_a, str_b)
+def compute(str_a, str_b)
 
     min_size = [str_a.size, str_b.size].min
 
@@ -12,4 +11,3 @@ class Hamming
     return distance
 
   end
-end

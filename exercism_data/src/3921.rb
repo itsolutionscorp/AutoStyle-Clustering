@@ -1,10 +1,8 @@
-class Hamming
-  def compute(old_dna, new_dna)
-    hamming_distance = 0
-    old_dna.split(//).each_with_index do | char , index |
-      break if new_dna.length == index
-      hamming_distance += 1 unless char == new_dna[index]
+def compute sampleA, sampleB
+    limit = [sampleA.length, sampleB.length].min
+    result = 0
+    (0...limit).each do |i|
+      result += 1 unless sampleA[i] == sampleB[i]
     end
-    hamming_distance
+    return result
   end
-end

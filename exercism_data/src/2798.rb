@@ -1,14 +1,10 @@
-class Hamming
-  def compute(a_str, b_str)
-    distance = 0
-    a_ary = a_str.split('')
-    b_ary = b_str.split('')
+def compute(strand1, strand2)
+    hamming_diff = 0
 
-    a_ary.zip(b_ary).each do |a, b|
-      next if a.nil? || b.nil?
-      distance += 1 if a != b
+    strand1.chars.with_index do |base, index|
+      break if strand2[index] == nil
+      hamming_diff += 1 if base != strand2[index]
     end
 
-    distance
+    hamming_diff
   end
-end

@@ -1,6 +1,7 @@
-class Hamming
-  def compute a, b
-    seqs = [a,b].map{|d| d.split('')}
-    seqs[0].zip(seqs[1]).delete_if{|s| s.include?(nil)}.map(&:uniq).select{|d|d.count > 1}.count
+def compute(strand1, strand2)
+    distance = 0
+    strand1.size.times do |index|
+      distance += 1 unless strand1[index] == strand2[index]
+    end
+    distance
   end
-end

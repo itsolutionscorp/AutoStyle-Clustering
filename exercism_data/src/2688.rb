@@ -1,13 +1,10 @@
-class Hamming
-  def compute(word1, word2)
-  return 0 if word1 == word2
-  raise ArgumentError, "Words must be the same size." if word1.size != word2.size
-
-  count = 0
-  word1.size.times do |i|
-    count += 1 if word1[i] != word2[i]
-  end
-
-  count
+def compute(a,b)
+      a = a.chars
+      b = b.chars
+      max = (a.count < b.count) ? a.count : b.count
+      a = a[0,max]
+      b = b[0,max]
+      y = a.zip(b)
+      y.inject(0) {|ret, h| ret += 1 if h.first != h.last; ret}
   end
 end

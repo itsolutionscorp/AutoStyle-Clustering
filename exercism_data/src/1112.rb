@@ -1,12 +1,15 @@
-class Hamming
-  def compute strand1, strand2
-    return "Size mismatch" if (strand1.size != strand2.size)
+def compute (strand_a, strand_b)
+		# We've run out of chars in one or both strings. No more differences.
+		if strand_a == '' or strand_b == ''
+			return 0
 
-    diff = 0
-    strand1.size.times do |position|
-      diff += 1 unless strand1[position] == strand2[position]
-    end
+		# First chars not equal, Hamm diff +1, check remainder of strings
+		elsif strand_a[0] != strand_b[0]
+			return 1 + compute(strand_a[1..-1], strand_b[1..-1])
 
-    return diff
-  end
+		# First chars equal, continue checking remainder of strings
+		else
+			return compute(strand_a[1..-1], strand_b[1..-1])
+		end
+	end
 end

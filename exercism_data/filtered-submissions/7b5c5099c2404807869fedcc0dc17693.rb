@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string1, string2)
+def compute(string1, string2)
     distance = 0
     (0..string1.length-1).each do |i|
       if string1[i] != string2[i]
@@ -8,4 +7,3 @@ class Hamming
     end
     return distance
   end
-end

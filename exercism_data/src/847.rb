@@ -1,15 +1,15 @@
-module Hamming
+def compute mine, yours
+    min_length = [mine.length, yours.length].min
 
-  def compute (strand1, strand2)
-    hamming_distance = 0
-    index = 0
+    # truncate input
+    mine = mine[0, min_length]
+    yours = yours[0, min_length]
 
-    while strand1[index] && strand2[index]
-      hamming_distance += 1 if strand1[index] != strand2[index]
-      index += 1
+    distance = mine.chars.each_with_index.reduce(0) do |memo, (char, index)|
+      if yours[index] != char
+        memo += 1
+      end
+
+      memo
     end
-
-    return hamming_distance
-
   end
-end

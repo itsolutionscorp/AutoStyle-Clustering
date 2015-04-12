@@ -1,10 +1,11 @@
-class Hamming
-  def compute(strand1, strand2)
-    result = 0
-    smallest_strand = (strand1.size > strand2.size) ? strand2.size : strand1.size
-    smallest_strand.times { |i|
-      result += 1 if strand1[i] != strand2[i]
-    }
-    result
+def compute(first, second)
+    first.split(//)
+    second.split(//)
+    count = 0
+    for i in 0..first.length - 1
+      if first[i] != second[i]
+        count = count + 1
+      end
+    end 
+    return count
   end
-end

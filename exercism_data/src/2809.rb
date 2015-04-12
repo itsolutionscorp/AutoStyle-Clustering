@@ -1,8 +1,10 @@
-class Hamming
-  def compute(strand, other_strand)
-    strand.each_char.each_with_index.count do |point, i|
-      other_point = other_strand[i]
-      other_point && point != other_point
+def compute(first_strand, other_strand)
+    strands = [first_strand, other_strand].sort_by(&:length)
+    short_strand, long_strand = strands.first, strands.last
+    diff, index = 0, 0
+    short_strand.chars do |char|
+      diff += 1 if char != long_strand[index]
+      index += 1
     end
+    diff
   end
-end

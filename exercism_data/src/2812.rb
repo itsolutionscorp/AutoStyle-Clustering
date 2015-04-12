@@ -1,7 +1,11 @@
-class Hamming
-  def compute(a, b)
-    a = a.size > b.size ? a[0...-1] : a
-    new_a = a.scan(/\w/).zip b.scan(/\w/)
-    new_a.map(&:uniq).delete_if {|a| a.count == 1 }.count
+def compute(a, b)
+    strand_a = a.split('')
+    strand_b = b.split('')
+
+    diff = strand_a.keep_if do |nucleotide_a|
+      nucleotide_b = strand_b.shift
+      nucleotide_b && (nucleotide_a != nucleotide_b)
+    end
+
+    diff.size
   end
-end

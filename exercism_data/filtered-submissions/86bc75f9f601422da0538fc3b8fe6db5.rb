@@ -1,5 +1,4 @@
-module Hamming
-  def compute original, *descendant
+def compute original, *descendant
     raise ArgumentError('Sequences must be equal in length.') if original.length != descendant.length
 
     [*original].zip(descendant).reduce(0) { |a, (orig_base, desc_base)|

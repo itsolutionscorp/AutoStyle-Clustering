@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     length = [strand1.length, strand2.length].sort.first
     diff = 0
 
@@ -9,4 +8,3 @@ class Hamming
 
     diff
   end
-end

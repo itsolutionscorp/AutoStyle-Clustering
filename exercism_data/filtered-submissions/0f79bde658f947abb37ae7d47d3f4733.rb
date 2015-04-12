@@ -1,6 +1,4 @@
-#!/usr/bin/ruby
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
 
     hamming_distance = 0
     longer_strand = strand1
@@ -19,4 +17,3 @@ class Hamming
 
     return hamming_distance
   end
-end

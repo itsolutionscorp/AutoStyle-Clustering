@@ -1,20 +1,14 @@
-class Hamming
+def compute(s1,s2)
+  string1 = s1.split(//)
+  string2 = s2.split(//)
 
-	def compute(s1, s2)
-		min_size = [s1.chars.count, s2.chars.count].min
-		s1 = s1[0..min_size-1]
-		s2 = s2[0..min_size-1]
-  
-		pairs = s1.chars.zip(s2.chars)
-		count = 0
+    if string1.length == string2.length
+      string1.zip(string2).count{|pair| pair[0] != pair[1]}
 
-		pairs.each do |pair|
-			if pair[0] != pair[1]
-				count += 1
-			else
-				count += 0
-			end
-		end
-      count
-	end
-end 
+    elsif string1.length > string2.length
+      string1[0..string2.length-1].zip(string2).count{|pair| pair[0] != pair[1]}
+
+    else
+      string2[0..string1.length-1].zip(string1).count{|pair| pair[0] != pair[1]}
+    end
+  end

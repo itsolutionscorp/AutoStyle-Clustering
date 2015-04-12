@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(arg1,arg2)
+def compute(arg1,arg2)
 		sum=0
 		i=0
 
@@ -14,5 +12,3 @@ class Hamming
 
 		return sum
 	end
-
-end

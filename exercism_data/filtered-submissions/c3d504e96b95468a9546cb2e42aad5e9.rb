@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     count = 0
     b.split('').each_with_index do |letter, index|
       count = count + letter.casecmp(a[index]).abs
@@ -7,4 +6,3 @@ class Hamming
 
     count
   end
-end

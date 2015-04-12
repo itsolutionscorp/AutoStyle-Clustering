@@ -1,11 +1,8 @@
-class Hamming
-  def compute(dna1, dna2)
-    hamming_distance = 0
-    count = 0
-    dna1.each_char do |nucleotide|
-      hamming_distance += 1 if nucleotide != dna2[count]
-      count += 1
+def compute(first, second)
+    distance = 0
+    first.split('').each_with_index do |char, i|
+      distance = distance + 1 if char != second[i]
     end
-    hamming_distance
+    distance
   end
 end

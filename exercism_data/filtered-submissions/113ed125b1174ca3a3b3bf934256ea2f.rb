@@ -1,4 +1,3 @@
-class Hamming
 def compute(a, b)
 minlen = [a.length, b.length].min
 diff = 0
@@ -6,5 +5,4 @@ diff = 0
 diff += 1 unless a[i] == b[i]
 end
 diff
-end
 end

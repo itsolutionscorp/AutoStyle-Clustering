@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(string_a, string_b)
+def compute(string_a, string_b)
     # get the length of the shortest string
     min_length = [string_a.to_s.length, string_b.to_s.length].min
 
@@ -17,5 +15,3 @@ class Hamming
 
     return hamming_distance
   end
-
-end

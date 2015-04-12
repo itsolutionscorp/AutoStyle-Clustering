@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a,b)
-    a[0..b.length-1].chars.zip(b.chars).map {|arr| (arr[0] == arr[1] ? 0 : 1)}.reduce (:+)
+def compute strand_a, strand_b
+    short, long = [strand_a, strand_b].sort_by { |s| s.length }
+    short.each_char.count.with_index { |c, i| c != long[i] }
   end
-end

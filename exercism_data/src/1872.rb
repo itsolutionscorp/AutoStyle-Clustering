@@ -1,7 +1,5 @@
-class Hamming
-  def compute(a, b)
-    a.chars.zip(b.chars).count do |(x,y)|
-      y != nil and x != y
+def compute(strand_1, strand_2)
+    strand_1.chars.each_with_index.count do |nucleotide, i| 
+      strand_2[i] != nucleotide && !strand_2[i].nil?
     end
   end
-end

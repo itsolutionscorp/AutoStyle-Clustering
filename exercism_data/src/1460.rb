@@ -1,13 +1,7 @@
-class Hamming
-
-  def compute(dna1, dna2)                  # DNA strands
-    nuc_length = [dna1.length, dna2.length].min # shortest strand
-    hamdist = 0                                 # intialize hamming counter
-    nuc_length.times do |i|
-      if dna1[i] != dna2[i]
-       hamdist += 1                             # hamdist counter
-      end
+def compute(first, second)
+    diff = 0
+    (0..first.length - 1).each do |idx|
+      diff += 1 if first[idx] != second[idx]
     end
-    hamdist                                     # final hamming distance
+    diff
   end
-end

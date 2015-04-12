@@ -1,5 +1,4 @@
-class Hamming
-  def compute dna_a, dna_b
+def compute dna_a, dna_b
     differences = 0
     index = 0
 
@@ -11,5 +10,3 @@ class Hamming
 
     differences
   end
-
-end

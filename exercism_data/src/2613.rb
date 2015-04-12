@@ -1,14 +1,9 @@
-class Hamming
+def compute(sequence_1, sequence_2)
+    sequence_difference = (sequence_1.length - sequence_2.length).abs
+    distance = 0 - sequence_difference
 
-  def Hamming.compute (dna1, dna2)
-  	len = [dna1.length, dna2.length].min
-  	count = 0
-  	for i in 0...len do
-  	  if dna1[i] != dna2[i]
-  	  	count += 1
-  	  end
-  	end
-  	return count
+    0.upto(sequence_1.length) do |base|
+      sequence_1[base] == sequence_2[base] || distance += 1
+    end
+    distance
   end
-
-end

@@ -1,10 +1,6 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    total = 0
-    strand_1.split('').each_with_index do |nucleobase, index|
-      total += 1 if nucleobase != strand_2[index]
-    end
-
-    total
+def compute(strand1, strand2)
+    strand1.chars.zip(strand2.chars).select do |(c1, c2)|
+      c1 != c2
+    end.size
   end
 end

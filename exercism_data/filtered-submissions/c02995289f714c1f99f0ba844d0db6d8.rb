@@ -1,8 +1,4 @@
-# Hamming distance exercise
-# Written in 2014 by Benjamin Shyong <hello@benshyong.com>
-
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     length = [a.length, b.length].min
     count = 0
     (0..(length-1)).each do |i|
@@ -10,4 +6,3 @@ class Hamming
     end
     count
   end
-end

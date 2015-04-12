@@ -1,11 +1,3 @@
-class Hamming
-  def compute(firstDNA, secondDNA)
-    hamming_distance = 0
-
-    0.upto([firstDNA.length, secondDNA.length].min - 1) do |i|
-      hamming_distance += 1 unless firstDNA[i] == secondDNA[i]
+def compute(a, b)
+      a.chars.zip(b.chars).count { |v1, v2| v1 != v2 }
     end
-
-    hamming_distance
-  end
-end

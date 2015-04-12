@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     ham_no =0
     i= [a,b].min.size 
     while (i >= 0) 
@@ -10,4 +9,3 @@ class Hamming
     end
     return ham_no  
   end
-end

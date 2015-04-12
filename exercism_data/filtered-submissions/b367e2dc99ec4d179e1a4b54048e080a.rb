@@ -1,6 +1,4 @@
-class Hamming
-
-   def compute(a,b)
+def compute(a,b)
       # Limit the number of characters to compare to the length of the shortest string 
       limit = a.length > b.length ? b.length : a.length
 
@@ -14,5 +12,3 @@ class Hamming
       }
       hamm
    end
-
-end

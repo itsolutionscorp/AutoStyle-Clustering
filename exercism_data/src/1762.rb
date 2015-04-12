@@ -1,19 +1,11 @@
-require 'pry'
-class Hamming
-  def compute(a, b)
-    if a.length <= b.length
-      aa = a
-      a = b
-      b = aa
+def compute strand_one, strand_two
+    distance = 0
+
+    comparison_length = strand_one.length < strand_two.length ? strand_one.length : strand_two.length
+
+    comparison_length.times do |index|
+      distance += 1 if strand_one[index] != strand_two[index]
     end
 
-    a_strand = a.split('')[0..b.length-1]
-    b_strand = b.split('')
-
-    diff = []
-    a_strand.map.with_index do |str, i|
-      diff << str unless b_strand[i] == str
-    end
-    diff.length
+    distance
   end
-end

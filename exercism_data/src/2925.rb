@@ -1,8 +1,10 @@
-class Hamming
-      def compute dna1, dna2
-        (0..(dna1.size-1)).to_a.reduce(0) do |sum, index|
-          sum = sum +1 unless dna1[index] == dna2[index]
-          sum
-        end
-      end
-end
+def compute str1, str2
+    ham_dist = 0
+    arr1, arr2 = str1.chars, str2.chars
+    
+    len = [arr1.size, arr2.size].min
+
+    (0...len).each { |i| ham_dist += 1 if arr1[i] != arr2[i] }
+    
+    ham_dist
+  end

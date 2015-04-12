@@ -1,5 +1,7 @@
-class Hamming
-  def compute(stand_a, stand_b)
-    (0...[stand_a.length, stand_b.length].min).count { |num| stand_a[num] != stand_b[num] }
+def compute(a,b)
+    hamming = 0
+    [a,b].min.each_char.with_index do |char, index|
+      hamming += 1 if char != [a,b].max[index]
+    end
+    hamming
   end
-end

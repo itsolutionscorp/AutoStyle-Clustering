@@ -1,7 +1,3 @@
-module Hamming
-  def compute(string_1, string_2)
-    string_1.char.zip(string_2.char).count do |char_1, char_2|
-      char_1 != char_2
-    end
+def compute(strand_a, strand_b)
+    strand_a.chars.zip(strand_b.chars).count {|a, b| a != b}
   end
-end

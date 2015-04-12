@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     # Start with shortest strand
     source, target = [a, b].sort_by { |c| c.length }
 
@@ -11,4 +10,3 @@ class Hamming
 
     distance
   end
-end

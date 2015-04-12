@@ -1,8 +1,15 @@
-module Hamming
-  def compute(strand_a, strand_b)
+def compute(strand1, strand2)
+    if strand1 == strand2
+      return 0
+    end
     distance = 0
-    length = [strand_a.length, strand_b.length].min
-    length.times { |i| distance += 1 if strand_a[i] != strand_b[i] }
-    distance
+    i = 0
+    len = [strand1.length, strand2.length].min
+    while i < len
+      if strand1[i] != strand2[i]
+        distance += 1
+      end
+      i += 1
+    end
+    return distance 
   end
-end

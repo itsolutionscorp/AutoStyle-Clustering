@@ -1,15 +1,6 @@
-class Hamming
-  def compute(dna_1, dna_2)
-    # Get the minimum length (length of the shortest string)
-    min_len = [dna_1.length, dna_2.length].min
-    
-    # Get the first min_len chars from each string
-    dna_1.slice!(0..min_len-1)
-    dna_2.slice!(0..min_len-1)
-    
-    cnt = 0
-    dna_1.each_index do |i|
-      dna_1[i] == dna_2[i] ? cnt++ : cnt
+def compute(a, b)
+    first, second = [a, b].sort { |x, y| x.length <=> y.length }
+    return first.split('').each_with_index.inject(0) do |r, (e, index)|
+      e == second[index] ? r : r + 1
     end
   end
-end

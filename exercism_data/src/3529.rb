@@ -1,17 +1,11 @@
-class Hamming
-  def compute(x, y)
-    if x !=y
-      xs = x.split(//)
-      ys = y.split(//)
-      a = 0
-      ys.each{
-        |i|
-        puts i == xs[a]
-        a += 1
-      }
-      return a
-    else
-      return 0
-    end
-  end
-end
+def compute(first, second)
+
+		score = 0
+
+		first.size.times do |i|
+			score += 1 if first[i] != second[i] && i < second.size
+		end
+
+		score
+
+	end

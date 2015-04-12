@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a_strand, another_strand)
+def compute(a_strand, another_strand)
     cut = [a_strand.length, another_strand.length].min
     result = 0
     cut.times do | index |
@@ -7,4 +6,3 @@ class Hamming
     end
     result
   end
-end

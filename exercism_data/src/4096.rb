@@ -1,10 +1,17 @@
-class Hamming
-    def compute(a, b)
-        a = a[0, b.length-1] if a.length > b.length
-        b = b[0, a.length-1] if a.length < b.length
+def compute(string1, string2)
+    num_differences = 0
 
-        a.chars.each_with_index.inject(0) do |acc, (c, i)|
-            acc + (c === b[i] ? 0 : 1)
-        end
+    shortest_length = [string1.length, string2.length].min
+    string1 = string1[0...shortest_length]
+    string2 = string2[0...shortest_length]
+
+    shortest_length.times do |index|
+      letter1 = string1[index]
+      letter2 = string2[index]
+      if letter1 != letter2
+        num_differences += 1
+      end
     end
-end
+
+    num_differences
+  end

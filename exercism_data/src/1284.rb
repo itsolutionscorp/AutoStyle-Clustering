@@ -1,10 +1,9 @@
-class Hamming
-    def compute(a, b)
-        c = a.length < b.length ? a.length : b.length
-        result = 0
-        c.times do |i|
-            result += a[i] != b[i] ? 1 : 0
-        end
-        result
-    end
-end
+def compute first, second
+		longestString = first.length > second.length ? first : second
+		shortestString = first.length > second.length ? second : first
+		difference = 0
+		shortestString.split("").each_with_index do |letter, index|
+			difference += 1 if longestString[index] != shortestString[index]
+		end
+		difference
+	end

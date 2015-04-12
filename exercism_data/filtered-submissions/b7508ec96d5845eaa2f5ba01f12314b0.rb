@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(dna_a , dna_b)
+def compute(dna_a , dna_b)
     hamming_value=0
     array_a = dna_a.split(//)
     array_b = dna_b.split(//)
@@ -9,5 +7,3 @@ class Hamming
     end
     return hamming_value
   end
-
-end

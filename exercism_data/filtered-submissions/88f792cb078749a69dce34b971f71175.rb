@@ -1,5 +1,4 @@
-class Hamming
-  def compute(entry1, entry2)
+def compute(entry1, entry2)
     return 0 if entry1 == entry2
     entry1.length > entry2.length ? (len = entry2.length) : (len = entry1.length)
     diff = 0
@@ -12,5 +11,3 @@ class Hamming
     end
     return diff
   end
-
-end

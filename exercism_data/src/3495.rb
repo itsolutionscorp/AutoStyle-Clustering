@@ -1,20 +1,12 @@
-class Hamming
-  class << self 
-    def compute(alpha, beta)
-      dist = 0
-
-      smallest = [alpha.size, beta.size].min - 1
-      
-      as = alpha[0 .. smallest].chars
-      bs = beta[0 .. smallest].chars
-      
-      as.zip(bs).each do |a, b|
-        if a != b
-          dist += 1
-        end 
+def compute(arg1, arg2)
+    unless arg1.length == arg2.length
+      puts "DNA strands are not of equal length."
+      0
+    else
+      hammDis = 0
+      for i in 0...arg1.length
+	hammDis+=1 unless arg1[i] == arg2[i]
       end
-      
-      dist
+      hammDis
     end
-  end 
-end
+  end

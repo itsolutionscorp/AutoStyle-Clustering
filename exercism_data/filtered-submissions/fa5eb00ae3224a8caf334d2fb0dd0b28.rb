@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(str1, str2)
+def compute(str1, str2)
     iterations = str1.length <= str2.length ? str1.length : str2.length
 
     total = 0
@@ -9,4 +7,3 @@ class Hamming
     end
     total
   end
-end

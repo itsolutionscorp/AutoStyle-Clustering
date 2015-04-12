@@ -1,13 +1,4 @@
-class Hamming
-  def compute(a, b)
-    hamming_distance = 0
-    counter = 0
-
-    a.each_char do |s|
-      hamming_distance += 1 unless s == b[counter]
-      counter += 1
-      break if b.length == counter
-    end
-    return hamming_distance
+def compute(lhs, rhs)
+    strands = lhs.chars.zip(rhs.chars)
+    strands.inject(0) { |diff, pair| diff + (pair[0] != pair[1] ? 1 : 0) }
   end
-end

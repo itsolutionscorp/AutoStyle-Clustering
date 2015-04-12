@@ -1,15 +1,9 @@
-class Hamming
-  def compute(str0, str1)
-    dist = 0
+def compute (first, second)
+        count = 0
 
-    for i in 0..(str0.size)
-      #
-      # I always get confused between ".." and "..."
-      # Are there any good way to remember that?
-      #
-      dist += 1 if str0[i] != str1[i]
+        for i in (0...first.length) 
+            count += 1 if first[i] != second[i]
+        end
+
+        return count
     end
-
-    dist
-  end
-end

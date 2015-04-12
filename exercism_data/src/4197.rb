@@ -1,9 +1,3 @@
-class Hamming
-  def compute(seq1, seq2)
-    count = 0
-    seq1.chars.map!.with_index do |n, i|
-      count += 1 if n != seq2[i]
-    end
-    count
+def compute(a,b)
+    a.length == b.length ? a.split(//).zip(b.split(//)).select{|a,b| a != b}.length : nil
   end
-end

@@ -1,17 +1,7 @@
-module Hamming
-  def compute(a, b)
-    a = a.scan(/./)
-    b = b.scan(/./)
-    diffs = 0
-
-    min_length = (a.length > b.length) ? b.length : a.length
-
-    min_length.times do |index|
-      if a[index] != b[index]
-        diffs += 1
-      end
-    end
-
-    diffs
+def compute(a, b)
+    a.chars.zip(b.chars).map do |pair|
+      next 0 if pair[0].nil? || pair[1].nil?
+      next 0 if pair[0] == pair[1]
+      1
+    end.reduce(&:+)
   end
-end

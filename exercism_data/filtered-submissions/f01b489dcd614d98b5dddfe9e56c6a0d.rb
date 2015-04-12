@@ -1,5 +1,4 @@
-class Hamming
-	def compute(val1, val2)
+def compute(val1, val2)
 		val1 = val1.split(//)
 		val2 = val2.split(//)
 		ret = 0
@@ -10,4 +9,3 @@ class Hamming
 		end
 		ret
 	end
-end

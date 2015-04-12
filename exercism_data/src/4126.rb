@@ -1,17 +1,7 @@
-class Hamming
-
-  def compute(arg1, arg2)
-    arr1 = arg1.split("")
-    arr2 = arg2.split("")
-
-    counter = 0
-    arr1.each_with_index do |x, i|
-      if x != arr2[i]
-        counter += 1
-      end
-    end
-    return counter
-
+def compute(firstStrand, secondStrand)
+    minLength = [firstStrand.length, secondStrand.length].min
+    firstStrandAsArray = firstStrand[0..minLength-1].chars
+    secondStrandAsArray = secondStrand[0..minLength-1].chars
+    zippedArrayOfStrands = firstStrandAsArray.zip(secondStrandAsArray)
+    zippedArrayOfStrands.count{|x| x[0] != x[1]}
   end
-
-end

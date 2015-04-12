@@ -1,10 +1,7 @@
-class Hamming
-  def compute(a, b)
-    return nil if a.length != b.length
-    diffs = 0
-    a.each_char.with_index do |e, i|
-      diffs += 1 if e != b[i]
+def compute(strand1, strand2)
+    hamming = 0
+    for x in 0...[strand1,strand2].min.length
+      hamming += 1 if strand1[x] != strand2[x]
     end
-    diffs
+    hamming
   end
-end

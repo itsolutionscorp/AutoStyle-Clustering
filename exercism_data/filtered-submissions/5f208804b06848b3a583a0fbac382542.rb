@@ -1,5 +1,4 @@
-class Hamming
-	def compute(string1, string2)
+def compute(string1, string2)
 		differenceCounter =0
 
 		for i in (0... [string1.length, string2.length].min )
@@ -9,5 +8,3 @@ class Hamming
 		end
 		differenceCounter
 	end
-end
-

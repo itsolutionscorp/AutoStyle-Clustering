@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     h = 0
     first_array = first.split('')
     second_array = second.split('')
@@ -8,4 +7,3 @@ class Hamming
 
     return h
   end
-end

@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(first, second)
+def compute(first, second)
       return if first.length != second.length
       first_a, second_a = first.split(//), second.split(//)
       distance = 0
@@ -9,5 +7,3 @@ class Hamming
       end
       distance
     end
-  end
-end

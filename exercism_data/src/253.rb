@@ -1,7 +1,3 @@
-module Hamming
-  def compute(strand_a, strand_b)
-    (0...[strand_a, strand_b].min.length).count do |i|
-      strand_a[i] != strand_b[i]
-    end
-  end
-end
+def compute(strand_a, strand_b)
+    strand_a.chars.zip(strand_b.chars).select { |pair| !(pair[0] == pair[1]) }.count
+	end

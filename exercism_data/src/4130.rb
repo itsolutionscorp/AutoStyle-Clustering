@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).select { |char1, char2| char1 && char2 && char1 != char2 }.count
+def compute(a,b)
+    a.split("").zip(b.split(""))
+    .inject(0){|x,y| x + if y.first == y.last then 0 else 1 end}
   end
-end

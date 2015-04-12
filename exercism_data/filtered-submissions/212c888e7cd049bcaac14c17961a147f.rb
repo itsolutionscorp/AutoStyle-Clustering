@@ -1,5 +1,4 @@
-class Hamming
-  def compute a, b
+def compute a, b
     return nil unless a && b
     return nil unless a.length == b.length
     difference = 0
@@ -8,4 +7,3 @@ class Hamming
     end
     return difference
   end
-end

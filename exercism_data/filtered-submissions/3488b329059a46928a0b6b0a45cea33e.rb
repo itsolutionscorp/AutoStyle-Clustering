@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute a, b
+def compute a, b
     sum = 0
 
     0.upto(a.length) do |x|
@@ -11,5 +9,3 @@ class Hamming
 
     sum
   end
-
-end

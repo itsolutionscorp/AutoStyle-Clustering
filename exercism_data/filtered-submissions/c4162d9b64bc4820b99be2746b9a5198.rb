@@ -1,5 +1,4 @@
-class Hamming
-	def compute(orig, copy)
+def compute(orig, copy)
 		counter = 0
 
 		orig.split("").each_with_index do |char, index|
@@ -9,4 +8,3 @@ class Hamming
 
 		counter
 	end
-end

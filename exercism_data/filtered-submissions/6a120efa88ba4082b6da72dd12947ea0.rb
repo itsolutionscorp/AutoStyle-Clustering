@@ -1,8 +1,4 @@
-#!/usr/bin/env ruby
-
-class Hamming
-
-	def compute(first, second)
+def compute(first, second)
 		differences = 0
 		length = [first.length, second.length].min - 1
 		(0..length).each do |index|
@@ -13,5 +9,3 @@ class Hamming
 
 		return differences
 	end
-
-end

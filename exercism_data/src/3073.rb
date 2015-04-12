@@ -1,11 +1,6 @@
-class Hamming
-  def compute(a, b)
-
-    min = [a.to_s.length, b.to_s.length].min
-
-    (0...min).count do |i|
-      a[i] != b[i]
+def compute(strand_one, strand_two)
+    differences = 0
+    strand_one.chars.each_with_index do |symbol, idx|
+      differences += 1 unless symbol == strand_two[idx]
     end
-
-  end
-end
+    differences

@@ -1,5 +1,3 @@
-class Hamming
-  def compute(s1, s2)
-    (0...[s1.length, s2.length].min).to_a.count { |i| s1[i] != s2[i] }
+def compute(strand1, strand2)
+    (0..strand1.length).count{|i| strand1[i] != strand2[i]}
   end
-end

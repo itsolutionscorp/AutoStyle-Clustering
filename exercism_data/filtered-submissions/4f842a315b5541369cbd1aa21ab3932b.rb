@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     s1_chars = s1.chars
     s2_chars = s2.chars
     hamming = 0
@@ -17,4 +16,3 @@ class Hamming
 
     hamming
   end
-end

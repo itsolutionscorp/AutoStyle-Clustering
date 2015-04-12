@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(strA, strB)
+def compute(strA, strB)
       minLen = min strA.length, strB.length
       dist = 0
       (0...minLen).each do |i|
@@ -8,5 +6,3 @@ class Hamming
       end
       dist
     end
-  end
-end

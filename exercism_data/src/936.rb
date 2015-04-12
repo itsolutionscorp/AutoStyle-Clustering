@@ -1,12 +1,13 @@
-class Hamming
-  def compute(s1, s2)
+def compute(dna1, dna2)
+
+    # Find shorter length and use that
+    length = [dna1.length, dna2.length].min
+
+    # Compare characters
     distance = 0
-    s1.each_char.with_index do |char, index|
-      next unless s2[index]
-      if char != s2[index]
-        distance += 1
-      end
+    length.times do |i|
+      distance += 1 if dna1[i] != dna2[i]
     end
-    distance
+
+    return distance
   end
-end

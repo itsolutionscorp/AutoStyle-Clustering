@@ -1,9 +1,4 @@
-#!/usr/bin/env ruby
-
-class Hamming
-  attr_reader :s1, :s2
-
-  def compute(s1, s2)
+def compute(s1, s2)
     @count = 0
     @s1 = s1
     @s2 = s2
@@ -24,4 +19,3 @@ class Hamming
 
     return @count
   end
-end

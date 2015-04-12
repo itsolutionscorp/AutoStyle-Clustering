@@ -1,5 +1,4 @@
-class Hamming
-	def compute(dna_strand_a, dna_strand_b)
+def compute(dna_strand_a, dna_strand_b)
 		hamming_distance = 0
 		min_length = [dna_strand_a.length, dna_strand_b.length].min
 
@@ -9,4 +8,3 @@ class Hamming
 
 		hamming_distance
 	end
-end

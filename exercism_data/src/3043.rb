@@ -1,12 +1,5 @@
-class Hamming
-  def compute(first, second)
-    distance = 0
-    minlength = [first.length, second.length].min
-    for counter in 0..minlength-1
-      if first[counter] != second[counter]
-        distance += 1
-      end
-    end
-    return distance
+def compute(arg1, arg2)
+    hammDis = 0
+    arg1.length.times{|i| hammDis+=1 unless arg1[i] == arg2[i]}
+    hammDis
   end
-end

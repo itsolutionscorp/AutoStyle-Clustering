@@ -1,5 +1,4 @@
-module Hamming
-  def compute(string_1, string_2)
+def compute(string_1, string_2)
     distance = 0
     char_array_1 = string_1.split('')
     char_array_2 = string_2.split('')

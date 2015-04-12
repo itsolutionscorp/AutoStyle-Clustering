@@ -1,9 +1,7 @@
-class Hamming
-  def compute(arg1,arg2)
-    count = 0
-    arg1.chars.each_with_index do |c, i|
-      count += 1 if c != arg2[i]
+def compute(word1, word2)
+    distance = 0
+    word1.split('').each_with_index do |char, i|
+      distance += 1 unless char.eql? word2[i]
     end
-    count
+    distance
   end
-end

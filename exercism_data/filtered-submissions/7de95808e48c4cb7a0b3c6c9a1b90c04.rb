@@ -1,5 +1,4 @@
-class Hamming
-  def compute(seq_a, seq_b)
+def compute(seq_a, seq_b)
     shorter, longer = [seq_a, seq_b].sort_by(&:length)
     differences = 0
     shorter.chars.each_with_index do |character, index|
@@ -7,4 +6,3 @@ class Hamming
     end
     differences
   end
-end

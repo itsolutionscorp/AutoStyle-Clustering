@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
 		arrStrand_1 = strand_1.scan(/\w/)
 		arrStrand_2 = strand_2.scan(/\w/)
 		hamming_distance = 0
@@ -9,5 +7,3 @@ class Hamming
 		end
 		return hamming_distance
 	end
-
-end

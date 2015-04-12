@@ -1,7 +1,10 @@
-class Hamming
-  def compute(left, right)
-    left.split('').zip(right.split('')).reduce 0 do |distance, (left, right)|
-      distance + (left && right && left != right ? 1 : 0)
+def compute(a, b)
+    shortest = [a.length, b.length].min
+    difference = 0
+    (0..shortest-1).each do |i|
+      unless a[i] == b[i]
+        difference += 1
+      end
     end
+    return difference
   end
-end

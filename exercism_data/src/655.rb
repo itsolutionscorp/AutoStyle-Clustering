@@ -1,7 +1,4 @@
-class Hamming
-
-  def compute(a,b)
-    length = ([a.size , b.size].min) - 1
-    (0..length).inject(0) { |distance, i| distance += 1 if a[i] != b[i]; distance }
+def compute(dna1, dna2)
+    dna1.chars.zip(dna2.chars).count { |pair| pair[0] != pair[1] }
   end
 end

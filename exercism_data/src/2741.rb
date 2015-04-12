@@ -1,12 +1,6 @@
-class Hamming
-  def compute(strand1, strand2)
-    differences = 0
-    limit = [strand1.length, strand2.length].min
-    (0...limit).each do |index|
-      nucleotide1 = strand1[index]
-      nucleotide2 = strand2[index]
-      differences += 1 if nucleotide2 != nucleotide1
+def compute d1, d2
+    (0..d1.length).count do |i|
+      d1[i] != d2[i]
     end
-    differences
   end
 end

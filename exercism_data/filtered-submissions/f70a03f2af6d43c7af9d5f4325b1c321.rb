@@ -1,5 +1,4 @@
-class Hamming
-  def compute str1, str2, opts={}
+def compute str1, str2, opts={}
     ignore_case = opts[:ignore_case]
     distance = 0
     str1 = str1.to_s
@@ -19,4 +18,3 @@ class Hamming
     end
     return distance
   end
-end

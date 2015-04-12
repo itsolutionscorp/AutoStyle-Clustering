@@ -1,10 +1,4 @@
-class Hamming
-
-  def compute(first_chain, second_chain)
-    first_chain.chars.zip(second_chain.chars).reduce(0) do |sum, (x, y)|
-      break sum if !x || !y
-      x != y ? sum + 1 : sum         
-    end
+def compute(reference_strand, other_strand)
+    common_length = [reference_strand.size, other_strand.size].min
+    common_length.times.count { |index| reference_strand[index] != other_strand[index] }
   end
-
-end

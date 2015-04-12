@@ -1,7 +1,8 @@
-class Hamming
-
-	def compute(s1, s2)
-		s1.chars.each_with_index.inject(0) { |distance, (char, index)| distance += (char == s2[index] ? 0 : 1) }
-	end
-
-end
+def compute first, second
+    mismatch = 0
+    (0..(first.size - 1)).each do |x|
+      next if [first[x], second[x]].include? nil
+      mismatch += 1 if first[x] != second[x]
+    end
+    mismatch
+  end

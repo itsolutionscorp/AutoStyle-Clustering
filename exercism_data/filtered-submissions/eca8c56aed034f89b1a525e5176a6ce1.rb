@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(a,b)
+def compute(a,b)
 		hammingCount= 0
 		compareCount= [ a.length,b.length ].min
 		( 0 .. compareCount ).each { |indx|
@@ -10,4 +8,3 @@ class Hamming
 		}
 		hammingCount
 	end
-end

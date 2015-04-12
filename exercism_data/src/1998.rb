@@ -1,14 +1,12 @@
-class Hamming
-  def compute(a,b)
-    errors = 0
-
-    min_length = [a.length,b.length].min
-
-    for i in 0..min_length - 1
-      errors +=1 if a[i] != b[i]
+def compute(first, second)
+      if first.length <= second.length
+        small_strand, large_strand = first, second
+      else
+        small_strand, large_strand = second, first
+      end
+      count = 0
+      small_strand.split('').each_with_index do |value, index|
+        count+= 1 if value != large_strand[index]
+      end
+      #count
     end
-
-    errors
-
-  end
-end

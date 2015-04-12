@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str0, str1)
+def compute(str0, str1)
     dist = 0
 
     for i in 0..(str0.size)
@@ -12,4 +11,3 @@ class Hamming
 
     dist
   end
-end

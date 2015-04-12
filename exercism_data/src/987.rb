@@ -1,17 +1,4 @@
-class Hamming
-  def compute(x, y)
-    count = 0
-    first = x.split(//)
-    second = y.split(//)
-
-    size = x.length > y.length ? y.length : x.length
-
-    size.times do |i|
-      if first[i] != second[i]
-        count += 1
-      end
-    end
-
-    count
+def compute(str1, str2)
+    short_chars, long_chars = [str1, str2].map(&:chars).sort_by(&:size)
+    short_chars.zip(long_chars).count { |char1, char2| char1 != char2 }
   end
-end

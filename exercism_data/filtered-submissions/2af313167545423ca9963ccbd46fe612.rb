@@ -1,5 +1,4 @@
-class Hamming 
-	def compute(cat, dog)
+def compute(cat, dog)
 		dog_array = dog.chars
 		cat_array = cat.chars
 		count = 0 
@@ -13,5 +12,3 @@ class Hamming
 		end
 		return sum
     end
-
-end

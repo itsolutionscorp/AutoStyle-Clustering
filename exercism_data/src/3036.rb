@@ -1,8 +1,16 @@
-class Hamming
-  def compute(s1, s2)
-    s1,s2 = s2,s1 if s1.length > s2.length
-    s1.length.times.count do |x|
-      s1[x] != s2[x]
+def compute(x, y)
+  	strand1 = x.split('')
+  	strand2 = y.split('')
+    mutations = 0
+  	
+    first_strand = Enumerator.new do |yielder|
+      strand1.each { |strand| yielder.yield strand }
     end
+
+    strand2.each do |strand|
+      if strand != first_strand.next
+        mutations += 1
+      end
+    end
+    mutations
   end
-end

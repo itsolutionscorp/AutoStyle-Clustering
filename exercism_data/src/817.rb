@@ -1,11 +1,7 @@
-class Hamming
-  def compute num1, num2 
-    count = 0
-    str1= num1.to_s.split('')
-    str2= num2.to_s.split('')
-    str1.length.times do |i|
-        count += 1 if str1[i] != str2[i]
+def compute(strand1, strand2)
+    diff = 0
+    strand1.chars.each_with_index do |char, i|
+      diff += 1 if strand1[i] != strand2[i]
     end
-    count
+    diff
   end
-end

@@ -1,7 +1,4 @@
-require 'ostruct'
-
-class Hamming
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     diff_count = 0
 
     strand_1.split(//).each_with_index do |letter, index|
@@ -10,4 +7,3 @@ class Hamming
 
     diff_count
   end
-end

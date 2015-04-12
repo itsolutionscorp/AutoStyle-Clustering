@@ -1,6 +1,4 @@
-#hamming.rb
-class Hamming
-  def compute(dna_strand_a, dna_strand_b)
+def compute(dna_strand_a, dna_strand_b)
 
     hamming_distance = 0
 
@@ -12,4 +10,3 @@ class Hamming
 
     hamming_distance
   end
-end

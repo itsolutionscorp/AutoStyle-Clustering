@@ -1,7 +1,5 @@
-class Hamming
-  def compute(one, two)
+def compute(one, two)
     one.chars.zip(two.chars).count do |one_char, two_char|
        one_char && two_char && one_char != two_char
     end
   end
-end

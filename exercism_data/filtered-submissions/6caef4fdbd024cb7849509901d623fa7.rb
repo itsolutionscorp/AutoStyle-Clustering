@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     diffs = 0
     shorter = strand1 < strand2 ? strand1 : strand2
     (0...shorter.length).each do |i|
@@ -8,7 +6,3 @@ class Hamming
     end
     diffs
   end
-
-end
-
-puts Hamming::compute('A', 'BCD')

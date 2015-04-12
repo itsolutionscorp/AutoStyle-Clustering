@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str_a, str_b)
+def compute(str_a, str_b)
     count = [str_a.length, str_b.length].min
     res = 0
     count.times do |i|
@@ -7,4 +6,3 @@ class Hamming
     end
     res
   end
-end

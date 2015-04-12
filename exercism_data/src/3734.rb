@@ -1,13 +1,4 @@
-class Hamming
-  def compute(a, b)
-    diff = 0 
-    count = 0
-    b.split('').each do  |i|
-      if i != a.split('')[count] 
-        diff += 1
-      end  
-      count += 1  
-    end 
-    return diff  
+def compute(strand1, strand2)
+    shortest = [strand1, strand2].min_by(&:length)
+    (0...shortest.length).count { |i| strand1[i] != strand2[i] }
   end
-end

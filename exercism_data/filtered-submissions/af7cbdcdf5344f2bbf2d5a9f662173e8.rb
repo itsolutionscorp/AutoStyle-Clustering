@@ -1,5 +1,4 @@
-class Hamming
-  def compute(*args)
+def compute(*args)
     arg_length = args[0].length
     loop_count = 0
     assert_count = 0
@@ -12,4 +11,3 @@ class Hamming
     end
     return assert_count
   end
-end

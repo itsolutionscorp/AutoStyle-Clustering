@@ -1,5 +1,5 @@
-class Hamming
-  def compute(seq1, seq2)
-    seq1.chars.zip(seq2.chars).reduce(0) {|sum, cur| sum + ((cur[0] && cur[1] && cur[0] != cur[1]) ? 1 : 0)}
+def compute(strand_A,strand_B)
+    strand_A.chars.zip(strand_B.chars).count do |eigen0, eigen1| 
+      eigen0 != eigen1
+    end
   end
-end

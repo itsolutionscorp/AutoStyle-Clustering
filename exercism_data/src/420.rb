@@ -1,7 +1,3 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    strand_a.size < strand_b.size ?
-      strand_a.chars.zip(strand_b.chars).count {|a, b| a != b} :  
-      strand_b.chars.zip(strand_a.chars).count {|a, b| a != b}  
+def compute(dna1, dna2)
+    dna1.chars.zip(dna2.chars).count { |s1, s2| s1 != s2 && s1 && s2 }
   end
-end

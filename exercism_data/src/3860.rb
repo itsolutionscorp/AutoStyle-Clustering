@@ -1,9 +1,8 @@
-# The module holds functions for hamming distance calculation.
-module Hamming
-    # The function to compute the hamming distance of two strings.
-    def compute(dna1, dna2)
-        short, long = [dna1, dna2].sort_by { |array| array.length }
+def compute dna_a, dna_b
+		hamming_val = 0
 
-        short.chars.zip(long.chars).count { |char1, char2| char1 != char2 }
-    end
-end
+		dna_a.each_char.to_a.each_with_index {|base, index| 
+			hamming_val += 1 if base != dna_b[index] 
+		} 
+		hamming_val
+	end

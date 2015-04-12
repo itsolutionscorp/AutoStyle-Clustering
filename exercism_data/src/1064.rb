@@ -1,21 +1,26 @@
-# exercism first problem
+def compute(a,b)
+  	i = 0
+  	hammingScore = 0
+  	testLength = 0
+  	strand1List = a.split("")
+  	strand2List = b.split("")
+  	biggerList = []
+  	smallerList = []
 
-class Hamming 
-    def compute( strandx, strandy )
-        @string_position_counter = 0 #i'm not happy about this counter at all
-        @hamming_distance = 0 #this is basically another counter -- i'm so bad at this
-        @strandx = strandx
-        @strandy = strandy
-        @strandx.each_char do |char|
-            if char != @strandy[@string_position_counter]
-                #this is a quick check to see if the second string ends prematurely 
-                if @strandy[@string_position_counter] == nil
-                    return @hamming_distance
-                end
-                @hamming_distance += 1
-            end
-            @string_position_counter += 1 
-        end
-        return @hamming_distance
-    end
-end
+
+  	if a.length > b.length
+  		biggerList = a.split("")
+  		smallerList = b.split("")
+  	else
+  		biggerList = b.split("")
+  		smallerList = a.split("")
+  	end
+
+  	for nucleotide in smallerList
+ 			if nucleotide != biggerList[i]
+ 				hammingScore += 1
+ 			end
+ 			i +=1
+ 		end
+  	return hammingScore
+ 	end

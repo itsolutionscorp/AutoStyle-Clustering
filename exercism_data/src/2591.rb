@@ -1,13 +1,5 @@
-class Hamming
-
-  def compute(str_1, str_2)
-    total = 0
-
-    [str_1.length, str_2.length].min.times.each do |index|
-      total += 1 if str_1[index] != str_2[index]
+def compute(arg1, arg2)
+      arg1.chars.zip(arg2.chars).reduce(0) do |a, e|
+        e[0] != e[1] ? a + 1 : a
+      end
     end
-
-    total
-  end
-
-end

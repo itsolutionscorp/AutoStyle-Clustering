@@ -1,5 +1,5 @@
-class Hamming
-  def compute a, b
-    [a.length, b.length].min - a.split("").zip(b.split("")).select {|elem| elem[0] == elem[1]}.count
+def compute(strand_1, strand_2)
+    strand_1.length.times.count do |i|
+      strand_1[i] != strand_2[i]
+    end
   end
-end

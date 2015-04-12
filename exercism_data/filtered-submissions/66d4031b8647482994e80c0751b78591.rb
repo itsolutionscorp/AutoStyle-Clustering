@@ -1,6 +1,4 @@
-require 'pry'
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     if a.length <= b.length
       aa = a
       a = b
@@ -16,4 +14,3 @@ class Hamming
     end
     diff.length
   end
-end

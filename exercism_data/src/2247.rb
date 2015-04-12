@@ -1,7 +1,4 @@
-class Hamming
-  def compute(first, second)
-    first.chars.zip(second.chars).map { |pair|
-      pair.first && pair.last && pair.first != pair.last
-    }.count { |match| match }
-  end
-end
+def compute(strand1, strand2)
+		strand1, strand2 = [strand1.chars, strand2.chars].sort_by { |x| x.length }
+		strand1.count { |base| base != strand2.shift}
+	end

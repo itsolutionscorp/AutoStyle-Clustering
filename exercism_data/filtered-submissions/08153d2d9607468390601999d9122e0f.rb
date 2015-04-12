@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(strand1, strand2)
+def compute(strand1, strand2)
 		#convert string paramaters to array of characters
 		strand1_array = strand1.chars.to_a
 		strand2_array = strand2.chars.to_a
@@ -21,5 +19,3 @@ class Hamming
 
 		return distance
 	end
-
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_string, second_string)
+def compute(first_string, second_string)
     distance = 0
 
     first_string.length.times do |letter|
@@ -7,4 +6,3 @@ class Hamming
     end
     distance
   end
-end

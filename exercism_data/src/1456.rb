@@ -1,10 +1,10 @@
-#!/usr/bin/env ruby
+def compute(strand, other_strand)
+    strand       = strand.chars
+    other_strand = other_strand.chars
 
-class Hamming
-  def compute(strand1, strand2)
-    common_length = [strand1.length, strand2.length].min
-    (0...common_length).count do |i|
-      strand1[i] != strand2[i]
+    pairs        = strand.zip(other_strand).first(other_strand.length)
+
+    pairs.count do |left, right|
+      left != right
     end
   end
-end

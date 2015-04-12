@@ -1,12 +1,8 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    shortest_strand = [strand_1.length, strand_2.length].min
-    hamming = 0
-    shortest_strand.times do |counter|
-      if strand_1[counter] != strand_2[counter]
-        hamming +=1
-      end
+def compute ham1, ham2
+    size = [ham1, ham2].map(&:size).min
+
+    ham1.chars.first(size).zip(ham2.chars.first(size)).reduce(0) do |sum,(a,b)|
+      sum + (a.eql?(b) ? 0 : 1)
     end
-    hamming
   end
 end

@@ -1,8 +1,4 @@
-class Hamming
-  def compute(a,b)
-    dist = 0  
-    len = [a.length, b.length].min
-    (0..len-1).each { |i| dist += 1 if a[i] != b[i] }
-    dist
+def compute(str_a, str_b)
+    min = [str_a, str_b].min { |a, b| a.length <=> b.length }
+    min.length.times.count { |i| str_a[i] != str_b[i] }
   end
-end

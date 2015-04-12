@@ -1,10 +1,9 @@
-class Hamming
-  def compute sampleA, sampleB
-    minSampleLength = [sampleA.length, sampleB.length].min
-    result = 0
-    minSampleLength.times do |i|
-      result += 1 unless sampleA[i] == sampleB[i]
+def compute(strand1, strand2)
+    ham = 0
+    for i in 0...strand1.length
+      if strand1[i] != strand2[i]
+        ham += 1
+      end
     end
-    return result
+    return ham
   end
-end

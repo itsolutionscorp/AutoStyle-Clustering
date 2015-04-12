@@ -1,5 +1,15 @@
-class Hamming
-  def compute(first, second)
-    (0...[first.length, second.length].min).each.count { |i| first[i] != second[i]  }
+def compute(first, second)
+    distance = 0
+
+    if first.size <= second.size
+      max = first.size - 1
+    else
+      max = second.size - 1
+    end
+
+    0.upto(max) do |i|
+      distance +=1 if first[i] != second[i]
+    end
+
+    return distance
   end
-end

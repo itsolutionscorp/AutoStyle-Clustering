@@ -1,5 +1,4 @@
-module Hamming
-  def compute(one, two)
+def compute(one, two)
     shortest_strand = [one, two].min_by { |strand| strand.length }
 
     distance = 0

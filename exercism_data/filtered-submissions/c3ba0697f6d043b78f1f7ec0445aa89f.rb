@@ -1,7 +1,4 @@
-require 'byebug'
-
-class Hamming
-	def compute(strandA, strandB)
+def compute(strandA, strandB)
 		hammingDistance = 0
 		index = 0
 
@@ -14,4 +11,3 @@ class Hamming
 
 		return hammingDistance
 	end
-end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a,b)
+def compute(a,b)
 		if a.length == b.length
 			similars = a.split(//).zip(b.split(//)).map {|x, y| x == y}
 			return similars.count(false)
@@ -7,4 +6,3 @@ class Hamming
 			return 0
 		end
 	end
-end

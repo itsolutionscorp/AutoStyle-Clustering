@@ -1,9 +1,5 @@
-class Hamming
-  def compute(x, y)
-    distance = 0
-    x.chars.each_index do |i|
-      distance += 1 unless x[i] == y[i]
-    end
-    distance
+def compute(a, b)
+    a = a.split("")
+    b = b.split("")
+    a.zip(b).count{|pair| pair.compact.uniq.size > 1 }
   end
-end

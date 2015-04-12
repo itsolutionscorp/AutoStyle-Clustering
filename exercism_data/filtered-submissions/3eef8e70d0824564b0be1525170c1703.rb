@@ -1,5 +1,4 @@
-class Hamming
-  def compute(top_dna, bottom_dna)
+def compute(top_dna, bottom_dna)
     distance_count = 0
 
     [top_dna.length, bottom_dna.length].min.times do |dna|
@@ -9,4 +8,3 @@ class Hamming
     end
    distance_count
   end
-end

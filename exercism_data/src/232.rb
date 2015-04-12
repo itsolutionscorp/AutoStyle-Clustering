@@ -1,11 +1,38 @@
-class Hamming
-  def compute(first, second)
-    distance = 0
+def compute(strand1, strand2)
+    nucleotides1 = strand1.split(//)
+    nucleotides2 = strand2.split(//)
 
-    [first.length, second.length].min.times do |index|
-      distance += 1 if first[index] != second[index]
+    hamming_count = 0
+
+    if nucleotides1.length != nucleotides2.length
+      0
+    else
+      while nucleotides1 != []
+
+        if nucleotides1[0] != nucleotides2[0]
+          hamming_count += 1
+          nucleotides1.shift
+          nucleotides2.shift
+        else
+          nucleotides2.shift
+          nucleotides1.shift
+        end
+
+      end
     end
 
-    distance
+    return hamming_count
   end
-end
+
+
+
+
+  #   if nucleotides1 == nucleotides2
+  #     0
+  #   elsif nucleotides1[0] == nucleotides2[0] && nucleotides1[1] != nucleotides2[1]
+  #     1
+  #   elsif nucleotides1[1] == nucleotides2[1] && nucleotides1[0] != nucleotides2[0]
+  #     1
+  #   else
+  #     2
+  #   end

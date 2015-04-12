@@ -1,15 +1,7 @@
-class Hamming
-	def compute(one, two)
-		  a = one.split('')
-      b = two.split('')
-      count = 0
-      a.zip(b).each  do |x, y|
-        if x != y
-          count += 1
-        else
-          count
-        end
-      end
-      count
-	end
+def compute(a, b)
+    b = b.bytes
+    res = 0
+    a.bytes.each_with_index {|c, i| res+= 1 if c != b[i]}
+    res
+  end
 end

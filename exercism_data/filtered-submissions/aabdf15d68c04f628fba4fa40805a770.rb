@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(str1, str2)
+def compute(str1, str2)
     distance=0
     if str1.length > str2.length
       temp=str1
@@ -14,5 +12,3 @@ class Hamming
     end
     distance
   end
-  
-end

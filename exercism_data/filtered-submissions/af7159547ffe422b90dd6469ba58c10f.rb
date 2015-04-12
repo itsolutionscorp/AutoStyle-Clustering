@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_1, dna_2)
+def compute(dna_1, dna_2)
     # Get the minimum length (length of the shortest string)
     min_len = [dna_1.length, dna_2.length].min
     
@@ -14,4 +13,3 @@ class Hamming
     
     return hamming_distance
   end
-end

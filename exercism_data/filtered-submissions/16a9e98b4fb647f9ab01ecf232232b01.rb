@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(x,y)
+def compute(x,y)
 		hamming_number = 0
 		x.chars.each_with_index do |char, index|
 			next if y[index].nil? 
@@ -8,4 +6,3 @@ class Hamming
 		end
 		hamming_number
 	end
-end

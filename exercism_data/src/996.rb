@@ -1,6 +1,4 @@
-module Hamming
-  def compute(string_a, string_b)
-    paired_chars = string_a.each_char.lazy.zip(string_b.each_char)
-    paired_chars.count { |char_a, char_b| char_a != char_b }
+def compute strand1, strand2
+    compare_length = [strand1.length, strand2.length].min
+    (0...compare_length).count{|i| strand1[i] != strand2[i]}
   end
-end

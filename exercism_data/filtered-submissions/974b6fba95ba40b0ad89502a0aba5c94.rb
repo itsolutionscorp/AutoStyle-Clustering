@@ -1,5 +1,4 @@
-module Hamming
-  def compute(strand, other)
+def compute(strand, other)
     strand
       .chars
       .slice(0, other.size)

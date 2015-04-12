@@ -1,5 +1,4 @@
-class Hamming
-	def compute(s1,s2)
+def compute(s1,s2)
 		return 0 if s1 == s2
 
 		hd = 0
@@ -11,4 +10,3 @@ class Hamming
 		return hd
 
 	end
-end

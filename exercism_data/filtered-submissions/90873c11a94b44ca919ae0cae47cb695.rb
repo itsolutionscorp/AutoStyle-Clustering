@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute (dna1, dna2)
+def compute (dna1, dna2)
 		result = 0
 		(0..dna1.length).each do |i|
 			if dna1[i] != dna2[i]
@@ -9,5 +7,3 @@ class Hamming
 		end
 		result
 	end
-	
-end

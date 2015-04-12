@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     length = first.length < second.length ? first.length : second.length
 
     length.times.reduce(0) do |result, index|
@@ -7,4 +6,3 @@ class Hamming
       result
     end
   end
-end

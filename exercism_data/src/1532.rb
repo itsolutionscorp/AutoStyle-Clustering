@@ -1,19 +1,20 @@
-require 'set'
-
-class Hamming
-  def compute(strand_a, strand_b)
-    a = strand_a.split("")
-    b = strand_b.split("")
-
-    a1 = a.take(b.count)
-    b1 = b.take(a.count)
-
-    c = []
-    b1.each_with_index do |x, index|
-      if x == a1[index]
-        c << x
-      end
-    end
-    a1.count - c.count
-  end
-end
+def compute(strandA, strandB)
+		# iteration length selection
+		if strandA.length == strandB.length
+			length = strandA.length
+		else
+			length = [strandA.length, strandB.length].min
+		end
+		
+		penalty = 0
+		
+		for index in 0..length-1
+			cond = strandA[index] == strandB[index]
+			
+			if !cond
+				penalty += 1
+			end
+		end
+		
+		return penalty
+	end

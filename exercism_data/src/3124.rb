@@ -1,6 +1,9 @@
-class Hamming
-  def compute(str1, str2)
-    return nil unless str1.size == str2.size
-    str1.size.times.count { |i| str1[i] != str2[i] }
-  end
-end
+def compute(dna_one, dna_two)
+		count = 0
+		dna_one.length.times do |x|
+			if (dna_one[x] != dna_two[x]) && dna_two[x]
+				count += 1 
+			end
+		end
+		count
+	end

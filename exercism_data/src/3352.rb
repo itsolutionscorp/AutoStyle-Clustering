@@ -1,12 +1,3 @@
-class Hamming
-	def compute(orig, copy)
-		counter = 0
-
-		orig.split("").each_with_index do |char, index|
-			charAt = copy[index]
-			counter += 1 if charAt != char and index < copy.size
-		end
-
-		counter
-	end
-end
+def compute(strand1, strand2)
+    strand1.chars.reject.with_index { |char, i| char == strand2[i]}.count
+  end

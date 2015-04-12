@@ -1,5 +1,4 @@
-class Hamming
-  def compute(n1, n2)
+def compute(n1, n2)
     diff_count  = 0
     strand_count   = 0
 
@@ -10,4 +9,3 @@ class Hamming
     
     diff_count
   end
-end

@@ -1,11 +1,5 @@
-class Hamming
-
-  def compute(a,b)
-    a = a.chars
-    b = b.chars
-    a.map.with_index {|char,index|
-      (b[index].nil? or b[index] == char) ? 0 : 1
-    }.inject(:+)
+def compute a, b
+    a.each_char.with_index.count do |x, index|
+      x != b[index]
+    end
   end
-
-end

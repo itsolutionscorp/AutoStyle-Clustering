@@ -1,5 +1,4 @@
-class Hamming
-  def compute strand_1, strand_2
+def compute strand_1, strand_2
     strand_1
       .split(//)
       .zip(strand_2.split(//))
@@ -11,4 +10,3 @@ class Hamming
         end
       }
   end
-end

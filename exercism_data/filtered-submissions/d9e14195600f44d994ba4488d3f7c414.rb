@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     return -1 if first.length != second.length
     count = 0
     (1..first.length).each do |i|
@@ -9,4 +8,3 @@ class Hamming
     end
     return count   
   end
-end

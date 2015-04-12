@@ -1,7 +1,4 @@
-#!/usr/bin/env ruby
-class Hamming 
-
-	def compute(dna_one, dna_two)
+def compute(dna_one, dna_two)
 		x = 0
 		count = 0
 		if dna_one.length < dna_two.length
@@ -17,5 +14,3 @@ class Hamming
 		end
 		return count
 	end
-
-end

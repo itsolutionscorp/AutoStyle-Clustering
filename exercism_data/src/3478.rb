@@ -1,7 +1,6 @@
-class Hamming
-  def compute(a,b)
-    [a.length, b.length].min.times.map do |i|
-      a[i] != b[i]
-    end.select {|el| el}.count
-  end 
+def compute (first_strand, second_strand)
+
+    length = [first_strand.length, second_strand.length].min
+    length.times.count {|i| first_strand[i] != second_strand[i]}
+  end
 end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute( strand_a, strand_b )
+def compute( strand_a, strand_b )
     diff = 0
     count = 0
     a = strand_a.split('').map(&:to_s)
@@ -17,4 +16,3 @@ class Hamming
     end
     return diff
   end
-end

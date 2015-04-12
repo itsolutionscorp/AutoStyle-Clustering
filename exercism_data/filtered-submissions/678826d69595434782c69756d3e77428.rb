@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(base,test)
+def compute(base,test)
   	hamming_diff = 0
 
   	[base.size,test.size].min.times do |i|
@@ -8,4 +6,3 @@ class Hamming
   	 end
   	hamming_diff
   end
-end

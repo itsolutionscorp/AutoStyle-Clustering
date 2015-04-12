@@ -1,10 +1,2 @@
-class Hamming
-  
-  def compute(sequence1, sequence2)
-    sequence1.chars.zip(sequence2.chars).count do |symbol1, symbol2|
-      symbol2 && symbol2 != symbol2
-    end
-  end
-  
-  
-end
+def compute(seq1, seq2)
+    (0...[seq1.size, seq2.size].min).count { |i| seq1[i] != seq2[i] }

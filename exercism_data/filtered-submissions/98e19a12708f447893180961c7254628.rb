@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     errorcount = 0
     testlength = 0
      
@@ -10,4 +9,3 @@ class Hamming
     }
     return errorcount
   end
-end

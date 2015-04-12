@@ -1,9 +1,8 @@
-class Hamming
-  def compute(strand_A, strand_B)
-    strand_A.chars
-      .zip(strand_B.chars)
-        .delete_if {|_pair| _pair.last.nil?}
-          .keep_if {|_pair| _pair.first != _pair.last}
-          .count
+def compute(strand1, strand2)
+    smallest, biggest = if strand1.length<strand2.length
+                          [strand1, strand2]
+                        else
+                          [strand2, strand1]
+                        end
+    smallest.chars.zip(biggest.chars).select{|x, y| x!=y}.length
   end
-end

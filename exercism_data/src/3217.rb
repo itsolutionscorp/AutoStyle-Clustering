@@ -1,13 +1,10 @@
-require 'pry'
-class Hamming
-
-  def compute(strand1, strand2)
-    strand1 = strand1.chars
-    strand2 = strand2.chars
-    count = 0
-    strand1.take(strand2.length).each_with_index do |s, i|
-      count += 1 unless strand1[i] == strand2[i]
+def compute(a,b)
+    total = 0
+    [a.length, b.length].min.times do |n|
+      if a[n] != b[n]
+        total += 1
+      end
     end
-    count
+
+    total
   end
-end

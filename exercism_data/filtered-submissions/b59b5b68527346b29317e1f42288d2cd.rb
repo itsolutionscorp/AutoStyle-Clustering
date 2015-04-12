@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     short_strand = [strand_one, strand_two].min{|a,b| a.size <=> b.size }
     hamming_dist = 0
 
@@ -9,4 +8,3 @@ class Hamming
 
     hamming_dist
   end
-end

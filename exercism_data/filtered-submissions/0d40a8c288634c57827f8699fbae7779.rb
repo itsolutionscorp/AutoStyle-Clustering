@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
       # first make it pass, now I need to refactor :)
       a = strand_a.chars
       b = strand_b.chars
@@ -13,5 +11,3 @@ class Hamming
 
       a.zip(b).reject { |x, y| x == y }.size
     end
-  end
-end

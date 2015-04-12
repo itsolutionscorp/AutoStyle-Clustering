@@ -1,7 +1,4 @@
-class Hamming
-
-
-  def compute(dna_one, dna_two)
+def compute(dna_one, dna_two)
 
     errors = 0
 
@@ -11,5 +8,3 @@ class Hamming
 
     errors
 	end
-
-end

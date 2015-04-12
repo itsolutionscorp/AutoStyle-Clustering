@@ -1,5 +1,9 @@
-class Hamming
-  def compute(left, right)
-    left.chars.zip(right.chars).count { |a, b| a != b }
+def compute(strand1, strand2)
+    errors = 0
+    strand1.length.times do |i|
+      if (strand1[i] != strand2[i])
+        errors += 1
+      end
+    end
+    return errors
   end
-end

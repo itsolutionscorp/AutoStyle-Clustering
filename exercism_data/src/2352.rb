@@ -1,11 +1,13 @@
-class Hamming
+def compute (dna1, dna2)
+		nucleobases1 = dna1.split("")
+		nucleobases2 = dna2.split("")
+		result = 0
 
-  def compute(l1,l2)
-    distance = 0
-    l1.each_char.with_index do|char, index|
-      distance +=1  if char != l2[index]
-    end
-    distance
-  end
+		(0..dna1.length).each do |i|
+			if nucleobases1[i] != nucleobases2[i]
+			result += 1
+			end
+		end
 
-end
+		result
+	end

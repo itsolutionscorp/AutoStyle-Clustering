@@ -1,12 +1,9 @@
-class Hamming
-  class Error < StandardError; end
-  class ArgumentError < StandardError; end
-
-  def compute(a, b)
-    unless a.length == b.length
-      raise ArgumentError, "Expected strands of the same length, got #{a} and #{b}"
+def compute(strand_1, strand_2)
+    hamming_distance = 0
+    strand_1.length.times do |index|
+        nucleotide_1 = strand_1[index]
+        nucleotide_2 = strand_2[index]
+        hamming_distance = hamming_distance + 1 if nucleotide_1 != nucleotide_2
     end
-
-    a.split('').each_with_index.map { |_, i| a[i] != b[i] }.select { |n| n }.length
+    return hamming_distance
   end
-end

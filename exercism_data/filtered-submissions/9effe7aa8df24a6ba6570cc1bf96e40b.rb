@@ -1,5 +1,4 @@
-class Hamming
-	def compute(strand1, strand2)
+def compute(strand1, strand2)
 		count = 0
 		strand1.downcase.each_char.with_index do |char, index|
 			second_char = strand2.downcase[index]
@@ -11,4 +10,3 @@ class Hamming
 		end
 		count
 	end
-end

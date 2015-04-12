@@ -1,9 +1,5 @@
-class Hamming
-  class << self
-    def compute(strand_a, strand_b)
-      strand_a.chars.select.with_index do |gene, i|
-        gene != strand_b[i]
-      end.size
+def compute(strand1, strand2)
+    strand1.chars.zip(strand2.chars).count do |base1, base2|
+      base1 && base2 && (base1 != base2)
     end
   end
-end

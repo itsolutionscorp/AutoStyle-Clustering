@@ -1,12 +1,9 @@
-class Hamming
-  def compute(a,b)
-    count = a.length
-
-    a.each_char.with_index {|char, i|
-      count-=1 if char==b[i]
-    }
-    count
+def compute(a, b)
+    hamming = 0
+    a.length.times do |i|
+      if a[i,1] != b[i,1]
+        hamming += 1
+      end
+    end
+    hamming
   end
-
-
-end

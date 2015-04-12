@@ -1,11 +1,9 @@
-class Hamming
-  def compute left_strand, right_strand
-    hamming_distance = 0
-    left_strand.chars.each_with_index do |left_strand_char, i|
-      if i < right_strand.length and left_strand_char != right_strand[i]
-        hamming_distance += 1
-      end
+def compute(strand1,strand2)
+    nucleotides1 = strand1.chars
+    nucleotides2 = strand2.chars
+    hams = 0
+    (0...nucleotides1.count).each do |i|
+      hams += 1 if nucleotides1[i] != nucleotides2[i]
     end
-    hamming_distance
+    hams
   end
-end

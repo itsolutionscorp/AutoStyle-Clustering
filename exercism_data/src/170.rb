@@ -1,9 +1,13 @@
-class Hamming
-  def compute(a,b)
-    count = 0
-    (0..a.length-1).each do |i|
-      count +=1 unless a[i].eql? b[i] or b[i] == nil
+def compute(first_string, second_string)
+    first_string_array = first_string.split(//)
+    second_string_array = second_string.split(//)
+    index = 0
+    hamming_distance = []
+    first_string_array.each do |i| 
+      if (i != second_string_array[index] || nil ) && (second_string_array[index] != nil)
+        hamming_distance << i
+      end
+      index += 1
     end
-    return count
+    hamming_distance.count
   end
-end

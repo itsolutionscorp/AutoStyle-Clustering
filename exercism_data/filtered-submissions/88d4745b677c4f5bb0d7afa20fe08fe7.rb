@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     diff = 0
     length = strand_a.length < strand_b.length ? strand_a.length : strand_b.length
     (0...length).each do |index|
@@ -7,4 +6,3 @@ class Hamming
     end
     diff
   end
-end

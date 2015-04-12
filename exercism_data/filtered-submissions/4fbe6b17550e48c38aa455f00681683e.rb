@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_left, strand_right)
+def compute(strand_left, strand_right)
     strand_left_list = strand_left.split ''
     strand_right_list = strand_right.split ''
 
@@ -11,4 +10,3 @@ class Hamming
     end
     differences
   end
-end

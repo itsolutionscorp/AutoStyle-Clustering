@@ -1,12 +1,9 @@
-class Hamming
-  def compute(strand1, strand2)
-    @counter = 0
-    @length = (strand1.length > strand2.length ? strand2.length : strand1.length) - 1
-    (0..@length).each do |i|
-       if strand1[i] != strand2[i]
-         @counter += 1
-       end
-    end
-    return @counter
+def compute(a, b)
+    min_length = [a.length, b.length].min
+    max_length = [a.length, b.length].max
+
+    start_differences = (0..min_length).find_all {|i|
+      a[i] != b[i]}.length
+
+    return max_length - min_length + start_differences
   end
-end

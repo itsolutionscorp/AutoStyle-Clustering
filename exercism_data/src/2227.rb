@@ -1,11 +1,5 @@
-class Hamming
-  def compute(a, b)
-    count = 0
-    i = 0
-    while i < a.length do
-      count += 1 if a[i] != b[i]
-      i += 1
-    end
-    count
+def compute(s1, s2)
+    raise ArgumentError if s1.length != s2.length
+
+    s1.split('').zip(s2.split('')).reject{|s1, s2| s1 == s2}.length
   end
-end

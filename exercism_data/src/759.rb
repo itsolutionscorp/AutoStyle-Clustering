@@ -1,5 +1,3 @@
-class Hamming
-  def compute(str_a, str_b)
-    (0...[str_a.length, str_b.length].min).count { |i| str_a[i] != str_b[i] }
-  end
-end
+def compute(strand1,strand2)
+		strand1.chars.each_with_index.select { |g, i| g != strand2[i] }.length
+	end

@@ -1,11 +1,16 @@
-class Hamming
-  class << self
-    def compute(left, right)
-      left.
-        chars.
-        zip(right.chars).
-        reject { |l, r| l == r }.
-        length
-    end
+def compute(first_strand, second_strand)
+
+    counter = 0
+
+    unless first_strand == second_strand
+      (0...[first_strand.length, second_strand.length].min).each do | i |
+
+        if first_strand[i] != second_strand[i]
+         counter += 1
+        end 
+
+      end
+    end    
+
+    counter
   end
-end

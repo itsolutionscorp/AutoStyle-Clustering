@@ -1,5 +1,4 @@
-class Hamming
-	def compute(arg, arg2)
+def compute(arg, arg2)
 		@dna1 = arg.chars.to_a
 		@dna2 = arg2.chars.to_a
 		@counter = 0
@@ -10,4 +9,3 @@ class Hamming
 		end
 		return @counter
 	end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, last)
+def compute(first, last)
     short, long = [first,last].sort_by!(&:size)
     short.chars.zip(long.chars).inject(0) do |distance, nucleotides|
       if nucleotides.first == nucleotides.last
@@ -9,4 +8,3 @@ class Hamming
       end
     end
   end
-end

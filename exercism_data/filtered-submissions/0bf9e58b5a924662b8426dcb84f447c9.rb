@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
     sum = 0
 
     arg1_len = arg1.length
@@ -25,4 +24,3 @@ class Hamming
 
     return sum
   end
-end

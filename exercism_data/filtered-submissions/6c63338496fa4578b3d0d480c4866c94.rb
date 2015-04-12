@@ -1,6 +1,4 @@
-class Hamming
-  
-  def compute(first_string, second_string)
+def compute(first_string, second_string)
     
     differences = 0
 
@@ -12,4 +10,3 @@ class Hamming
 
     return differences
   end
-end

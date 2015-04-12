@@ -1,12 +1,16 @@
-class Hamming
+def compute (string1, string2)
+		count = 0
+		array1 = string1.chars
+		array2 = string2.chars
 
-  def compute(strand_1_s, strand_2_s)
-    strand_1_s ||= ''
-    strand_2_s ||= ''
+		n = array1.length
 
-    short_strand, long_strand = [strand_1_s, strand_2_s].sort_by!(&:length)
-    paired_strands = short_strand.chars.zip(long_strand.chars)
+		n.times do |t|
+			unless array2[t] == array1[t]
+				count += 1
+			end
+		end
 
-    paired_strands.count{|a, b| a!= b }
-  end
-end
+		return count
+
+	end

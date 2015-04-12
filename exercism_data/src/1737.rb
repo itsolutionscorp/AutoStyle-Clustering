@@ -1,9 +1,8 @@
-class Hamming
-  def compute(strand1, strand2)
-    distance = 0
-    strand1.chars.each_with_index do |n, i|
-      distance += 1 if n != strand2.chars[i]
-    end
-    distance
+def compute(base,test)
+  	hamming_diff = 0
+
+  	[base.size,test.size].min.times do |i|
+  	  hamming_diff += 1 if base[i] != test[i]
+  	 end
+  	hamming_diff
   end
-end

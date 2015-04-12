@@ -1,11 +1,5 @@
-class Hamming
-  def compute(a,b)
-
-    a = a[0, b.size]
-
-    a.chars.each_with_index.count do |char, index|
-      char != b[index]
-    end
-  end
-
-end
+def compute(dna1, dna2)
+		return 0 if dna1 == dna2 # save some computation time if equal
+		d1 = dna1.chars
+		dna2.chars.map { |c| (c == d1.next) ? 0 : 1 }.reduce(&:+)
+	end

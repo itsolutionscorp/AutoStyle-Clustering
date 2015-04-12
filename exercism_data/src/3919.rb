@@ -1,7 +1,8 @@
-class Hamming
-    def compute(seq1, seq2)
-        nb_diffs = 0
-        seq1.split("").each_index { |idx| nb_diffs += 1 if seq1[idx] != seq2[idx] }
-        nb_diffs
-    end
-end
+def compute(dna_one, dna_two, count = 0)
+    short = dna_one.length <= dna_two.length ? dna_one : dna_two
+    long  = short == dna_one ? dna_two : dna_one
+
+    short.each_char.with_index(1) { |char, i| count += 1 if char != long[i-1] }
+
+    count
+  end

@@ -1,10 +1,7 @@
-class Hamming
-
-  def compute(str1, str2)
-    return 0 if str1 == str2
-
-    [str1.length, str2.length].min.times
-      .count { |i| str1[i] != str2[i] }
-  end
+def compute(dna_1_string, dna_2_string)
+		dna_2_string.chars.zip(dna_1_string.chars)
+            .take_while { |_, s| not(s.nil?) }
+            .count { |p1, p2| p1 != p2 }
+	end
 
 end

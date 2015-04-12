@@ -1,17 +1,7 @@
-##
-# The Hamming class computes simple Hamming distances.
-
-class Hamming
-
-  ##
-  # Compute the Hamming score of the given two strings.
-
-  def compute(left, right)
-    score = 0
-    [left.size, right.size].min.times do |i|
-      score += 1 if left[i] != right[i]
+def compute left, right
+    distance = 0
+    left.chars.each_with_index do |char, i|
+      distance += 1 if right[i] and right[i] != char
     end
-    score
+    distance
   end
-
-end

@@ -1,7 +1,3 @@
-class Hamming
-  def compute(strand1, strand2)
-    distance = 0
-    [strand1.length, strand2.length].min.times { |i| distance += 1 if strand1[i] != strand2[i] }
-    distance
+def compute(strand_one, strand_two)
+    strand_one.chars[0..strand_two.length - 1].zip(strand_two.chars).count { |each_set| each_set[0] != each_set[1]}
   end
-end

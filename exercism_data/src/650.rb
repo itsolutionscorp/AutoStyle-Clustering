@@ -1,9 +1,5 @@
-class Hamming
-	def compute(word1, word2)
-		dist = 0
-		0.upto( ([word1.size, word2.size].min - 1)) do |i|
-			dist += 1 unless word1[i] == word2[i]			
-		end
-		dist
-	end
-end
+def compute(strand1, strand2)
+    return 0 if strand1 == strand2
+    length = [ strand1.length, strand2.length ].min
+    (0..length-1).map { |i| strand1[i] == strand2[i] }.count(false)
+  end

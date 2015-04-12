@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first, second)
+def compute(first, second)
     count = 0
     length = [first.length, second.length].min
 
@@ -12,4 +10,3 @@ class Hamming
 
     count
   end
-end

@@ -1,8 +1,4 @@
-# Hamming distance calculator
-#   Alex Standke, October 2014
-
-class Hamming
-  def compute str1, str2
+def compute str1, str2
     distance = 0
     str1.size.times do |x|
       return distance if str2.size == x
@@ -10,4 +6,3 @@ class Hamming
     end
     distance
   end
-end

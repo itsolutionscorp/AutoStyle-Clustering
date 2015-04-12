@@ -1,15 +1,12 @@
-class Hamming
-
-	def compute(first, second)
-
-		score = 0
-
-		first.size.times do |i|
-			score += 1 if first[i] != second[i] && i < second.size
-		end
-
-		score
-
-	end
-
-end
+def compute (s1, s2)
+    counter = 0
+    s1.upcase
+    s2.upcase
+    arr1 = s1.split("")
+    arr2 = s2.split("")
+    iterate = s1.length > s2.length ? s2.length : s1.length
+    iterate.times do |i|
+      counter += 1 if arr1[i] != arr2[i]
+    end
+    return counter
+  end

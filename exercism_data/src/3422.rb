@@ -1,7 +1,6 @@
-class Hamming
-  def compute(dna1, dna2)
-    hamming_distance = 0
-    dna1.size.times { |i| hamming_distance += 1 if (dna1[i] != dna2[i]) }
-    hamming_distance
+def compute(first,second)
+    len = first.length < second.length ? first.length : second.length
+    (0...len).inject(0) { |memo, i|
+      first[i] == second[i] ? memo : memo + 1
+    }
   end
-end

@@ -1,10 +1,10 @@
-class Hamming
-	def compute(str1, str2)
-		distance = 0
-		str2_chars = str2.chars.to_a
-		str1.chars.each_with_index do |e, i|
-			distance += 1 if e != str2_chars[i]
-		end
-		distance
-	end
-end
+def compute(first_strand, second_strand)
+    differences = 0
+    first_strand.each_char.with_index do |character, index|
+      if character != second_strand[index]
+        differences += 1
+      end
+    end
+
+    differences
+  end

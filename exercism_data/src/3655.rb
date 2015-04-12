@@ -1,7 +1,5 @@
-class Hamming
-  def compute(dna, another_dna)
-    dna.chars.map.with_index do |char, index|
-      char != another_dna[index] ? 1 : 0
-    end.reduce(:+)
+def compute(x, y)
+    x.length.times.inject(0) do |acc, i|
+      acc + (x[i] == y[i] ? 0 : 1)
+    end
   end
-end

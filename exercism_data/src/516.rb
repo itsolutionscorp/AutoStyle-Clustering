@@ -1,9 +1,19 @@
-class Hamming
-  def compute(strand1, strand2)
-    hamming_distance = 0
-    [strand1, strand2].map(&:length).sort.first.times do |i|
-      hamming_distance += 1 if strand1[i] != strand2[i]
+def compute(strand_1, strand_2)
+    size1, size2 = strand_1.size, strand_2.size
+    if size1 > size2
+      strand_1 = strand_1[0..size2 - 1]
+    elsif size2 > size1
+      strand_2 = strand_2[0..size1 - 1]
     end
-    hamming_distance
+
+    distance = 0
+    strand_1 = strand_1.split('').each
+    strand_2 = strand_2.split('').each
+
+    loop do
+      distance += 1 unless strand_1.next == strand_2.next
+    end
+
+    distance
   end
 end

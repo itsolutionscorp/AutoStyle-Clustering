@@ -1,21 +1,13 @@
-class Hamming
-  def compute(s1, s2)
-    result = 0
-
-    # second string is shorter
-    if s1.length - s2.length > 0
-      shorter = s2
-      longer = s1
+def compute(arg1, arg2)
+    if arg1.length != arg2.length
+      abort (message='Sequences must be of equal length')
     else
-      # either the first string is shorter or it doesn't matter
-      shorter = s1
-      longer = s2
+      arg1 = arg1.chars
+      arg2 = arg2.chars
+      distance = 0
+      arg1.each_index do |index|
+        distance = distance+1 if not arg1[index] == arg2[index]
+        end
     end
-
-    (0..shorter.length - 1).each do |i|
-      result = result + 1 unless shorter[i] == longer[i]
-    end
-
-    result
+    return distance
   end
-end

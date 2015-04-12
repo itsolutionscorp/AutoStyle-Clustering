@@ -1,6 +1,7 @@
-module Hamming
-  def compute(first, second)
-    char_pairs = first.chars[0...second.length].zip(second.chars)
-    char_pairs.map { |pair| pair.first != pair.last ? 1 : 0 }.inject(:+)
+def compute(a,b)
+    counter = 0
+    (0..(a.length - 1)).each do |index|
+      counter += 1 if a[index] != b[index]
+    end
+    counter
   end
-end

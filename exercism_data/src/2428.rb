@@ -1,13 +1,7 @@
-class Hamming
-	def compute(s1, s2)
-		min_length = [s1.length, s2.length].min - 1
-		s1 = s1[0..min_length]
-		s2 = s2[0..min_length]
-		s3 = s1.split("").zip(s2.split(""))
-		sum = 0
-		s3.each do |pos1, pos2|
-			sum += 1 if pos1 != pos2
-		end
-		sum
-	end
-end
+def compute(strand_one, strand_two)
+    # Swap strands if necessary since we only care about the shortest, then convert strands to bytes and combine
+    pairs = strand_one.size > strand_two.size ? strand_two.bytes.zip(strand_one.bytes) : strand_one.bytes.zip(strand_two.bytes)
+
+    # Count differences
+    pairs.count{ |one, two| one != two }
+  end

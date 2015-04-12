@@ -1,7 +1,4 @@
-class Hamming
-
-  # Calculates the Hamming distance between strings s & t (representing two DNA strands)
-  def compute(s, t)
+def compute(s, t)
     score = 0
     # iterate through character array of s
     s.each_char.with_index do |c, i|
@@ -10,5 +7,3 @@ class Hamming
     end
     score
   end
-
-end

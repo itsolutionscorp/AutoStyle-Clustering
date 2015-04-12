@@ -1,5 +1,4 @@
-class Hamming
-	def compute(x,y)
+def compute(x,y)
 		hamming_counter = 0
 		size_control = x.size unless y.size < x.size ? size_control = y.size : size_control
 		(0...size_control).each do |var|
@@ -7,4 +6,3 @@ class Hamming
 		end
 		return hamming_counter
 	end
-end

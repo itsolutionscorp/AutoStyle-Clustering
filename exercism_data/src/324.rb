@@ -1,10 +1,3 @@
-# Hamming distance calculator
-#   Alex Standke, October 2014
-
-class Hamming
-  def compute a, b
-    [a,b].map(&:size).min.times.count do |x|
-      a[x] != b[x]
-    end
+def compute(a, b)
+    a.each_char.with_index.count {|char, index| char != b[index] }
   end
-end

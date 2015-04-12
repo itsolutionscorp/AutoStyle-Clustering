@@ -1,5 +1,4 @@
-class Hamming
-	def compute a, b
+def compute a, b
 		return nil if(a.size != b.size)
 		return 0 if(a == b)
 		total = 0
@@ -8,4 +7,3 @@ class Hamming
 		end
 		total
 	end
-end

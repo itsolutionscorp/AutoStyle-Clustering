@@ -1,14 +1,9 @@
-class Hamming
-  def compute(*args)
-    raise ArgumentError if args.length != 2
-
-    string1,string2 = args
-    unmatched = 0
-
-    until string1.length == 0 && string2.length == 0
-      unmatched += 1 unless string1.slice!(0) == string2.slice!(0)
+def compute(s1, s2)
+    distance = 0
+    zipped = s1.chars.zip(s2.chars)
+    zipped.each do |i|
+      break          if i[0].nil? || i[1].nil?
+      distance += 1 if i[0] != i[1]
     end
-
-    unmatched
+    return distance
   end
-end

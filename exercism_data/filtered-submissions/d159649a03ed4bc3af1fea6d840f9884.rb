@@ -1,5 +1,4 @@
-module Hamming
-  def compute(a, b)
+def compute(a, b)
     result = 0
     char_count = [a.length, b.length].min
     char_count.times do |i|

@@ -1,10 +1,16 @@
-class Hamming
-  attr_accessor :hamminga, :hamminga
+def compute(strand1,strand2)
+		
+		array = (strand1.split("")).zip(strand2.split(""))
 
-  def compute(a,b)
-    @hammingb = b.chars
-    @hamminga = a.chars
+		distance = 0
+		array.each do |compare|
+			if compare[0] == compare[1] or compare[1] == nil
+				distance = distance + 0
+			elsif compare[0] != compare[1]
+				distance = distance + 1
+			end
+		end
 
-    @hamminga.zip(@hammingb.select{|hammingA,hammingB| hammingA != hammingB && (hammingA.nil? || hammingB.nil? == false )}).count
-  end
-end
+		return distance
+
+	end

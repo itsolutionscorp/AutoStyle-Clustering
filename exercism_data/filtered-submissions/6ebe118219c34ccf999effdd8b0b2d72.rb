@@ -1,5 +1,4 @@
-class Hamming
-  def compute(source, mutation)
+def compute(source, mutation)
     shortest_length = [source, mutation].map(&:length).min
     distance = 0
 
@@ -11,4 +10,3 @@ class Hamming
 
     distance
   end
-end

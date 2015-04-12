@@ -1,19 +1,13 @@
-class Hamming
-
-def compute(firstrand, secondstrand)
- 	if firstrand.length > secondstrand.length
- 		strandlength = secondstrand.length
- 	else 
- 		strandlength = firstrand.length
- 	end
- 	hdistance = 0
- 	i = 0
-	while i < strandlength
- 		if firstrand[i] != secondstrand[i]
- 			hdistance += 1
- 		end
- 		i += 1
- 	end
- 	return hdistance
- end
- end
+def compute(a_string, b_string)
+    i = 0
+    j = 0
+    while j < a_string.length
+      if a_string[j] == nil || b_string[j] == nil
+        i
+      elsif a_string[j] != b_string[j]
+        i += 1
+      end
+      j += 1
+    end
+    i 
+  end

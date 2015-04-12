@@ -1,9 +1,4 @@
-class Hamming
-  def compute(first_string, second_string)
-    first_string, second_string = first_string.split(""), second_string.split("")
-
-    sequences = first_string.zip(second_string).reject {|sequence| sequence.include?(nil)}
-
-    sequences.inject(0) {|sum, sequence| (sequence[0] != sequence[1])? sum += 1 : sum }
+def compute(strand1, strand2)
+    shorter_length = [strand1.length, strand2.length].min
+    (0...shorter_length).count { |i| strand1[i] != strand2[i] }
   end
-end

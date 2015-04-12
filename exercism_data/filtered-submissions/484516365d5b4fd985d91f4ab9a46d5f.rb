@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     shorter = first.length >= second.length ? second : first
     hamming_counter = 0
     (0..shorter.length - 1).each do |index|
@@ -7,4 +6,3 @@ class Hamming
     end
     hamming_counter
   end
-end

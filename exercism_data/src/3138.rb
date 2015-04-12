@@ -1,11 +1,13 @@
-class Hamming
+def compute(arg1, arg2)
+      arr1 = arg1.split("")
+      arr2 = arg2.split("")
 
-  def compute(strand1, strand2)
-    size = [strand1.size, strand2.size].min
+      counter = 0
+      arr1.each_with_index do |x, i|
+        if x != arr2[i]
+          counter += 1
+        end
+      end
+      return counter
 
-    strand1.chars.take(size).each_with_index.count { |char, index|
-      char != strand2[index]
-    }
-  end
-
-end
+    end

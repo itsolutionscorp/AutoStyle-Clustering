@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     hamming_diff = 0
 
     strand1.chars.with_index do |base, index|
@@ -9,4 +8,3 @@ class Hamming
 
     hamming_diff
   end
-end

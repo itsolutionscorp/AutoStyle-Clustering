@@ -1,9 +1,7 @@
-class Hamming
-  def compute(string_a, string_b)
-    distance = 0
-    for i in 0..(string_a.size - 1)
-      distance += 1 if string_a[i] != string_b[i]
-    end
-    distance
+def compute(strand1, strand2)
+    strand1 = strand1.chars.to_a
+    strand2 = strand2.chars.to_a
+
+    pairs = strand1.zip(strand2)
+    pairs.count { |base1, base2| base1 != base2 }
   end
-end

@@ -1,15 +1,4 @@
-module Hamming
-
-  def compute(strand1, strand2)
-
-    array1 = strand1.split('')
-    array2 = strand2.split('')
-    min_size = [array1.size,array2.size].min
-    counter = 0
-    (0...min_size).each do |n|
-      counter += 1 if array1[n] != array2[n]
-    end
-    counter
+def compute(strand_1, strand_2)
+    strand_length = [strand_1.length, strand_2.length].min
+    (0...strand_length).count { |i| strand_1[i] != strand_2[i] }
   end
-
-end

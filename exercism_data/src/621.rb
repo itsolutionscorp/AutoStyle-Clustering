@@ -1,10 +1,17 @@
-module Hamming
-  def compute(strand_a, strand_b)
-    unless strand_a.length == strand_b.length
-      raise ArgumentError.new 'Strands must be of equal length'
-    end
-    (0...strand_a.length).collect do |i|
-      strand_a[i] != strand_b[i] ? 1 : 0
-    end.inject(:+)
-  end
-end
+def compute(a,b)
+		if a.length > b.length
+			a = a[0..b.length-1]
+		else
+			b = b[0..a.length-1]
+		end
+
+		i = 0
+		count = 0
+		while i < a.length
+			if a[i] != b[i]
+				count += 1
+			end
+			i += 1
+		end
+		return count
+	end

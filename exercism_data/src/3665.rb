@@ -1,18 +1,8 @@
-class Hamming
-
-  def compute(strand1, strand2)
-
-    count  = 0
-    bits   = strand1.split("")
-    pieces = strand2.split("")
-
-    (0..bits.length).each do |n|
-      if bits[n] != pieces[n]
-        count+=1
-      end
-    end
-
-    return count
-
-  end
-end
+def compute(str1, str2)
+  counter = 0
+  len = [str1.length, str2.length].min
+   for i in 0..len-1
+    counter += 1 if (str1[i] != str2[i])
+   end
+  counter
+ end

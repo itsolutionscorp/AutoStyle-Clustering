@@ -1,14 +1,9 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(first_strand, second_strand)
     distance = 0
-    length = [dna1.length, dna2.length].min
 
-    length.times do |i|
-      if dna1[i] != dna2[i]
-        distance += 1
-      end
+    first_strand.size.times do |position|
+      distance += 1 unless first_strand[position] == second_strand[position]
     end
 
     distance
   end
-end

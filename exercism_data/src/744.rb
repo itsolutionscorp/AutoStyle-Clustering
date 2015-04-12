@@ -1,10 +1,3 @@
-# Hamming class
-class Hamming
-  def compute(s1, s2)
-    dist = 0
-    s1.length.each do |i|
-      dist += 1 if s1.split('')[i] != s2.split('')[i]
-    end
-    dist
+def compute(str_a, str_b)
+    (0...[str_a.length, str_b.length].min).count { |i| str_a[i] != str_b[i] }
   end
-end

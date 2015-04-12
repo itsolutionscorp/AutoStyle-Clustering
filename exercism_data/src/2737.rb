@@ -1,14 +1,10 @@
-class Hamming
-  def compute(input1, input2)
-    minlength = [input1.length, input2.length].min
-    result = 0
-    
-    minlength.times do |i|
-      if input1[i] != input2[i]
-        result = result + 1
-      end
-      i += 1
+def compute(one, two)
+    min_length = [one.length, two.length].min
+
+    count = 0
+    (0..min_length - 1).each do |i|
+      count = count + 1 if one[i] != two[i]
     end
-    result
+
+    count
   end
-end

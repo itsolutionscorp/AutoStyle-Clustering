@@ -1,12 +1,4 @@
-class Hamming
-		def compute (strand1, strand2)
-			position=0
-			Hamming=0
-			while (a=strand1[position]) && (b = strand2[position])
-				Hamming = Hamming+1 unless a==b
-				position +=1
-			end
-			Hamming
-		end
-	end
-end
+def compute(dna1, dna2)
+    diffs = dna1.chars.zip(dna2.chars).partition{ |base1, base2| base1 != base2 }
+    diffs.first.length unless diffs.flatten.include? nil
+  end

@@ -1,5 +1,4 @@
-module Hamming
-  def compute(sequence1, sequence2)
+def compute(sequence1, sequence2)
     index, difference = 0
     difference = 0
     until sequence1[index].nil? || sequence2[index].nil?

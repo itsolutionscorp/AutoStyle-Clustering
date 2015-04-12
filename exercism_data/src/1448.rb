@@ -1,17 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    final_count = 0
-    strand1.each_with_index do |strand, i|
-      n = 0
-      while n <= strand2.length
-        if strand != strand2[i]
-          final_count += 1
-        end
-        n += 1
-      end
-    end
-    final_count
+def compute(first, second)
+    zipped_point_pairs = first[0...second.length].chars.zip(second.chars)
+    zipped_point_pairs.count {|first_point, second_point| first_point != second_point }
   end
-
-end

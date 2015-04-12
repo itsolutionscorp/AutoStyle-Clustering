@@ -1,10 +1,16 @@
-class Hamming
-    def compute(seq1, seq2)
-        dist = 0
-        l = seq1.length < seq2.length ? seq1.length : seq2.length
-        0.upto (l - 1) do |x|
-            dist += 1 if seq1[x].chr != seq2[x].chr
-        end
-        dist
+def compute(strand_one, strand_two)
+
+    if(strand_one.length > strand_two.length)
+      strand_one = strand_one[0..strand_two.length-1]
     end
-end
+
+    differences = 0
+
+    strand_one.length.times do |i|
+      if(strand_one[i] != strand_two[i])
+        differences = differences + 1
+      end
+    end
+
+    differences
+  end

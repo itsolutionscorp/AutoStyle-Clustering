@@ -1,5 +1,4 @@
-class Hamming
-  def compute (x,y)
+def compute (x,y)
 
     if x.length <= y.length
       strand_size = x.length
@@ -19,4 +18,3 @@ class Hamming
 
     return hamming_distance
   end
-end

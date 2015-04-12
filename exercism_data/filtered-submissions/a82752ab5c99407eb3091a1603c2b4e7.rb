@@ -1,5 +1,4 @@
-class Hamming 
-  def compute (pdna1, pdna2)
+def compute (pdna1, pdna2)
 		arrayDna1 = pdna1.split ""
 		arrayDna2 = pdna2.split ""
 		
@@ -25,4 +24,3 @@ class Hamming
 		
 		distance
 	end
-end

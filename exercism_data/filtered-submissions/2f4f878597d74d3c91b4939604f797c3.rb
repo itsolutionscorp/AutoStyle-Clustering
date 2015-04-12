@@ -1,6 +1,4 @@
-class Hamming 
-
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
 
     counter = 0
 
@@ -16,5 +14,3 @@ class Hamming
 
     counter
   end
-
-end

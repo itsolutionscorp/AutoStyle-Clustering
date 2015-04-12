@@ -1,12 +1,15 @@
-module Hamming
-  extend self
+def compute(arg1,arg2)
+			times = arg1.split("").length
+			uno = arg1.split("")
+			dos = arg2.split("")
+			x = 0
+			dist = 0
 
-  def compute first, other
-    count = 0
-    minimum = [first.size, other.size].min
-    first[0...minimum].chars.each_with_index do |char, index|
-      count += 1 if char != other[index]
+		for x in 0..times
+			if uno[x] != dos[x]
+				dist = dist +1
+			end
+		end
+
+		dist
     end
-    count
-  end
-end

@@ -1,12 +1,5 @@
-class Hamming
-  class << self
-    def compute(x, y)
-      x_chars          = x.split('')
-      y_chars          = y.split('')
-      difference = 0
-
-      x_chars.length.times { |i| difference += 1 if x_chars[i] != y_chars[i] }
-      difference
-    end
+def compute(base, compare)
+    raise ArgumentError if base.length != compare.length
+    
+    (0..(base.length-1)).reduce(0) { |diff, index| base[index] != compare[index] ? diff + 1: diff }
   end
-end

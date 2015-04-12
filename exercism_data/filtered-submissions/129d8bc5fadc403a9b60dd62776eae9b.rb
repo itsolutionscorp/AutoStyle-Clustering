@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     al = a.length
     bl = b.length
     if al > bl
@@ -13,4 +12,3 @@ class Hamming
     hammy = asplit.each_with_index {|item, index| count += 1 if asplit[index] != bsplit[index] }
     return count
   end
-end

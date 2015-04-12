@@ -1,8 +1,8 @@
-class Hamming
+def compute(a, b)
+    short_strand, long_strand = [a, b].map(&:chars).sort_by &:size
 
-	def compute(first, second)
-		short_string, long_string = [first, second].sort_by{ |s| s.length }
-		short_string.chars.reject.with_index{ |char, i| char == long_string[i]}.length
-	end
-
+    short_strand.each_with_index.count do |acid, index|
+      long_strand[index] != acid
+    end
+  end
 end

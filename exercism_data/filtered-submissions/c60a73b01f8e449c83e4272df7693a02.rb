@@ -1,5 +1,4 @@
-class Hamming 
-	def compute (x,y)
+def compute (x,y)
 		a = 0;
 		min = [x.length,y.length].min
 		for i in 0...min 
@@ -9,4 +8,3 @@ class Hamming
 		end
 		return a
 	end
-end	

@@ -1,12 +1,16 @@
-class Hamming
-  def compute(strandOne, strandTwo)
-    hammingDist = 0
-    if(strandOne.eql?(strandTwo)) then return 0 end # The two strands are equal
-    until(strandOne.empty? or strandTwo.empty?) do #Keep slicing nucleotides off until there are no more
-      unless (strandOne.slice!(0) == strandTwo.slice!(0)) then hammingDist += 1 end #They aren't equal so we've gotta do some testing.  
-    end
-    hammingDist
-  end
-end
+def compute(strand1,strand2)
 
-#http://exercism.io/submissions/d15ce0e68edf41d9b91a12ca17cb6387
+    # length of the shortest strand. No need to compare past that.
+    length=(strand1.length<strand2.length ? strand1.length : strand2.length)-1
+
+    # hamming distance
+    distance=0
+    
+    for x in 0..length
+      if strand1[x] != strand2[x]
+        distance += 1
+      end
+    end
+
+    return distance
+  end

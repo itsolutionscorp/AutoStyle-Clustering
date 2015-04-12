@@ -1,15 +1,12 @@
-class Hamming
-  def compute(a, b)
-    hamming_distance = 0
+def compute(strand1, strand2)
+      # Split the strand strings to arrays of chars
+      strand1 = strand1.chars
+      strand2 = strand2.chars
 
-    if a != b
-      a.each_char.with_index(0) do |c, i|
-        if c != b[i]
-          hamming_distance += 1
-        end
-      end
+      # Remove extra chars if one of the strings is longer...
+      strand1 = strand1.take(strand2.length)
+      strand2 = strand2.take(strand1.length)
+
+      # Calculate differences
+      strand1.zip(strand2).count { |strand1, strand2| strand1 != strand2 }
     end
-
-    hamming_distance
-  end
-end

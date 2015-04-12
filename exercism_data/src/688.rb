@@ -1,18 +1,13 @@
-class Hamming
-    def compute(a, b)
-       
-       if a == b
-           0
-       end
+def compute(a, b)
+    counter = 0
+    index = 0
 
-       array_a = a.split("")
-       array_b = b.split("")
-       zipped_array = array_a.zip(array_b)
-
-       zipped_array.select { |a, b|
-           a && b && a != b
-       }
-       .length
-
+    a.each_char do |a|
+      if !a.eql?(b[index]) && b[index] != nil
+        counter += 1
+      end
+      index += 1
     end
-end
+
+    counter
+  end

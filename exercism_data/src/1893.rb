@@ -1,15 +1,9 @@
-class Hamming
+def compute(ntide_1, ntide_2)
+    count = 0
 
-  def compute string1, string2
-    distance = 0
-    short_length = [string1.length, string2.length].min
-    
-    short_length.times do |i|
-      if string1[i] != string2[i]
-        distance += 1
-      end
+    0.upto(ntide_1.length) do |i|
+      count += 1 if ntide_1[i] != ntide_2[i]
     end
-    return distance
-  end
 
-end
+    return count
+  end

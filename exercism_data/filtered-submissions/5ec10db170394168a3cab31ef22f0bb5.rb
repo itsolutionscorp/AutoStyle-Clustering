@@ -1,7 +1,4 @@
-module Hamming
-  extend self
-
-  def compute first, other
+def compute first, other
     count = 0
 
     equal_string = [first.size, other.size].min

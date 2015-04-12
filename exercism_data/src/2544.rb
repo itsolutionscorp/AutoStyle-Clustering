@@ -1,8 +1,8 @@
-class Hamming
-  def compute(a, b)
-    return 0 if a == b
-
-    positions = a.chars.zip(b.chars)
-    positions.count { |(x, y)| y && x != y }
+def compute(strand, other)
+    strand
+      .chars
+      .slice(0, other.size)
+      .zip(other.chars)
+      .count { |x, y| x != y }
   end
 end

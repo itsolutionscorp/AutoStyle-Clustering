@@ -1,9 +1,5 @@
-class Hamming
-
-  def compute(s1, s2)
-    count = 0
-    s1.chars.each_with_index { |char, i| count += 1 if char != s2[i] }
-    return count
+def compute(a, b)
+    hamming_distance = 0
+    (0..[a,b].min_by{|x| x.length}.length-1).each {|i| hamming_distance += 1 if a[i]!=b[i]}
+    return hamming_distance
   end
-
-end

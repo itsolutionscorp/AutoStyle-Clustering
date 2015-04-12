@@ -1,16 +1,5 @@
-class Hamming 
-def compute (x,y)
-	a = 0;
-	if x.length > y.length
-		min = y.length
-	else
-	  min = x.length
-	end
-	for i in 0...min 
-		if x[i]!=y[i]
-			a += 1
+def compute(strand1, strand2)
+		strand1.chars.each_with_index.inject(0) do |dist, (nuc1, i)|
+			nuc1 != strand2[i] ? dist += 1 : dist
 		end
 	end
-	return a
-end
-end	

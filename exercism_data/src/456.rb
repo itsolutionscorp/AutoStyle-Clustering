@@ -1,14 +1,4 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
-    diff_count = 0
-    return diff_count if strand_1 == strand_2
-
-    strand_1.split(//).each_with_index do |letter, index|
-      diff_count += 1 if strand_1[index] != strand_2[index]
-    end
-
-    diff_count
+def compute(strand1, strand2)
+    min_strand_length = (0..[strand1, strand2].min.length - 1)
+    min_strand_length.count { |i| strand1[i] != strand2[i] }
   end
-
-end

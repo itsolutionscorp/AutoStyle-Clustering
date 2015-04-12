@@ -1,5 +1,4 @@
-class Hamming
-	def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
 		min_length = [first_strand.length, second_strand.length].min
 		sum = 0
 		
@@ -9,4 +8,3 @@ class Hamming
 		
 		return sum
 	end
-end

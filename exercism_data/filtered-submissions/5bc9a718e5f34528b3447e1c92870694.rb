@@ -1,5 +1,3 @@
-class Hamming
-  def compute(*strands)
+def compute(*strands)
     strands.map(&:chars).transpose.count { |a, b| a != b }
   end
-end

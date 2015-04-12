@@ -1,9 +1,11 @@
-class Hamming
-  def compute(arg1, arg2)
-    differences = 0
-    arg1.each_char.with_index do |c, i|
-      differences += 1 if arg1[i] != arg2[i]
-    end
-    differences
-  end
-end
+def compute(str1, str2)
+		result = 0
+		len_diff = (str1.length - str2.length).abs
+		iter = [str1.length, str2.length].min
+		(0..(iter-1)).each do |i|
+			if str1[i] != str2[i]
+				result += 1
+			end
+		end
+		return result + len_diff
+	end

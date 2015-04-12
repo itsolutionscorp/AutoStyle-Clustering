@@ -1,7 +1,4 @@
-require 'pry'
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     first_strand  = a.split(//)
     second_strand = b.split(//)
     
@@ -10,5 +7,3 @@ class Hamming
       first_letter != second_letter unless second_letter.nil?
     end
   end
-
-end

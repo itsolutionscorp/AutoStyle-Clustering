@@ -1,19 +1,3 @@
-class Hamming
-	def compute (first, second)
-		if first.length <= second.length
-			size = first.length
-		else
-			size = second.length
-		end
-
-		count = 0
-		
-		for i in 0..size-1
-			if first[i] != second[i]
-				count += 1
-			end
-		end
-		
-		return count
+def compute(x, y)
+		x.chars.zip(y.chars).inject(0) {|distance, pair| pair[0] == pair[1] ? distance : distance + 1}
 	end
-end

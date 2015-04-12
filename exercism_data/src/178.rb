@@ -1,20 +1,14 @@
-class Hamming
-
-  def compute(code1, code2)
-  	@code1 = code1
-  	@code2 = code2
-
-    # if the strings match then the distance is 0
-    distance = 0
-
-    #count the differences at each string indice to compute hamming distance
-    if(@code1 != @code2)
-      for i in 0..[@code1.length, @code2.length].max
-        if(@code1[i] != @code2[i])
-          distance += 1
-        end
+def compute( seq1, seq2 )
+    hamming_distance = 0
+    max_length_comparable = [ seq1.length, seq2.length ].min
+    
+    for i in 0...max_length_comparable
+      nucleotide1 = seq1[i]
+      nucleotide2 = seq2[i]
+      if nucleotide1 != nucleotide2
+        hamming_distance += 1
       end
     end
-    distance
-   end
-end
+    
+    return hamming_distance
+  end

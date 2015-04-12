@@ -1,15 +1,11 @@
-class Hamming
-  def compute dna_a, dna_b
-    differences = 0
-    index = 0
+def compute(seq_a, seq_b)
+    raise ArgumentError unless seq_a.length == seq_b.length
 
-    loop do
-      break if dna_a[index].nil? || dna_b[index].nil?
-      differences += 1 unless dna_a[index] == dna_b[index]
-      index += 1
+    hamming_distance = 0
+
+    seq_a.chars.zip(seq_b.chars) do |char_pair|
+      hamming_distance += 1 if char_pair.first == char_pair.last
     end
 
-    differences
+    hamming_distance
   end
-
-end

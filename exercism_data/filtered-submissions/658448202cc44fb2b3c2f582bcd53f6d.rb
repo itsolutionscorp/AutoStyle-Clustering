@@ -1,5 +1,4 @@
-class Hamming
-  def compute sampleA, sampleB
+def compute sampleA, sampleB
     minSampleLength = [sampleA.length, sampleB.length].min
     result = 0
     minSampleLength.times do |i|
@@ -7,4 +6,3 @@ class Hamming
     end
     return result
   end
-end

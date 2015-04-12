@@ -1,7 +1,4 @@
-require 'pry'
-
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     result = 0
 
     comparisons = 0
@@ -19,4 +16,3 @@ class Hamming
 
     return result
   end
-end

@@ -1,10 +1,8 @@
-class Hamming
-  def compute strand_a, strand_b
-    fail if strand_a.length != strand_b.length
-    difference = 0
-    strand_a.chars.each_with_index do |letter, i|
-      letter == strand_b[i] ? true : difference += 1
+def compute(first, second)
+    results = 0
+    (0...[first.size, second.size].min).each do |i|
+      if first[i] != second[i] then results += 1 end
     end
-    difference
+    return results
   end
 end

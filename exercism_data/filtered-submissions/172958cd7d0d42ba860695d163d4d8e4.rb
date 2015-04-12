@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(value1, value2)
+def compute(value1, value2)
     value1 = value1.split("")
     value2 = value2.split("")
     val1_count = value1.count
@@ -24,4 +22,3 @@ class Hamming
 
     return count
   end
-end

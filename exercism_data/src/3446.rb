@@ -1,15 +1,5 @@
-class Hamming  
-  
-  def compute(string1, string2)
-    result = []
-    char_index = 0
-    longer  = string1.length > string2.length ? string1 : string2
-    shorter = longer == string1 ? string2 + ("*" * (string1.length - string2.length)) : string1 + ("*" * (string2.length - string1.length))
-    longer.each_char do |character|
-      result << 1 if character != shorter[char_index]
-      char_index += 1      
+def compute(strand1, strand2)
+      (0...strand1.length).to_a.count do |index|
+        strand1[index] != strand2[index]
+      end
     end
-    result.inject(:+) ? result.inject(:+) : 0
-  end
-
-end

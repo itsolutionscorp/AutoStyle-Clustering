@@ -1,15 +1,14 @@
-class Hamming
+def compute(first, second)
+      count       = 0
+      first_enum  = first.each_char
+      second_enum = second.each_char
 
-  def compute(a, b)
+      begin
+        while true
+          count += 1 unless first_enum.next == second_enum.next
+        end
+      rescue StopIteration
+      end
 
-    diff ||= 0
-
-    (a.length).times do |x|
-      diff +=1 unless a[x] == b[x]
+      count
     end
-
-    diff
-
-  end
- 
-end

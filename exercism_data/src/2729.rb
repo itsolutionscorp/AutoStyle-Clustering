@@ -1,9 +1,8 @@
-class Hamming
-
-  def compute(sequence1, sequence2)
-    sequence1, sequence2 = [sequence1, sequence2].sort_by(&:length)
-    pairs = sequence1.chars.zip(sequence2.chars)
-    pairs.count { |from1, from2| from1 != from2 }
-  end
-
-end
+def compute(strA, strB)
+      minLen = [strA.length, strB.length].min
+      dist = 0
+      (0...minLen).each do |i|
+        dist += 1 if strA[i] != strB[i]
+      end
+      dist
+    end

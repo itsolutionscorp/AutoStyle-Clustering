@@ -1,10 +1,7 @@
-module Hamming
-    def compute(a,b)
-        raise Exception if a.length != b.length
-        distance=0
-        for x in 0...(a.length)
-            distance = distance + 1 unless a[x] == b[x]
-        end
-        return distance
-    end
-end
+def compute(strand_1,strand_2)
+		error_count = 0
+		for n in 0..(strand_1.length)
+			error_count += 1 if strand_1[n] != strand_2[n]
+		end
+		return error_count
+	end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(str1, str2)
+def compute(str1, str2)
 		counter=0
 		min_length = [str1.length, str2.length].min
 		i=0
@@ -9,4 +8,3 @@ class Hamming
 		end
 		counter
 	end
-end

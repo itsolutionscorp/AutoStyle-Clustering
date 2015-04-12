@@ -1,12 +1,13 @@
-class Hamming
-  def compute(first_strand, other_strand)
-    strands = [first_strand, other_strand].sort_by(&:length)
-    short_strand, long_strand = strands.first, strands.last
-    diff, index = 0, 0
-    short_strand.chars do |char|
-      diff += 1 if char != long_strand[index]
-      index += 1
+def compute(item_a, item_b)
+    # if we are the same length, run the test
+    if item_a.length == item_b.length
+      
+      hammings = item_a.chars.map.with_index 
+      { |char_a, index|
+        char_a != item_b[index] ? 1 : 0 
+      }
+      
+      hammings.reduce { |hamming_count, item| hamming_count + item } 
+   
     end
-    diff
   end
-end

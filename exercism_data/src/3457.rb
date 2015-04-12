@@ -1,14 +1,7 @@
-class Hamming
-	def compute(seq1, seq2)
-		arr1 = seq1.split("")
-		arr2 = seq2.split("")
+def compute(strand_a,strand_b)
 		hamming_distance = 0
-		length = [arr1.length, arr2.length].min - 1
-
-		(0..length).each do |x|
-			hamming_distance += 1 if arr1[x] != arr2[x]
+		 (0...strand_a.length).count do |nucleotide_position|
+			hamming_distance += 1 if strand_a[nucleotide_position] != strand_b[nucleotide_position]
 		end
-
-	hamming_distance
+		hamming_distance
 	end
-end

@@ -1,8 +1,10 @@
-class Hamming
-  def compute s1, s2
-    s1 =  s1.split('')
-    s2 =  s2.split('')
-    matches = s1.each_with_index.map {|letter, index| letter == s2[index]}
-    matches.select {|m| m == false}.size
+def compute(first, second)
+    first, second = first.chars, second.chars
+    if first.length < second.length
+      shorter, longer = first, second
+    else
+      shorter, longer = second, first
+    end
+
+    shorter.zip(longer).count { |pair| pair[0] != pair[1] }
   end
-end

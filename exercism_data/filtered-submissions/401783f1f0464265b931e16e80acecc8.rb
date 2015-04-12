@@ -1,12 +1,4 @@
-# get current counter variable
-      #use counter variable to get that char out of the first string
-      #compare them, 
-      #if same, do nothing
-      #if diff, add to number of differences
-
-
-class Hamming
-  def compute (s_one,s_two)
+def compute (s_one,s_two)
     hamming_difference = 0
     array1 = s_one.split('')
     array2 = s_two.split('')
@@ -15,4 +7,3 @@ class Hamming
     end
     hamming_difference
   end
-end

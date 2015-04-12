@@ -1,15 +1,6 @@
-class Hamming
-
-  def compute(string_1, string_2)
-    differences = 0
-    i = 0
-    string_1.each_char do |letter|
-      letter_2 = string_2[i]
-      break if letter_2 == nil
-      differences += 1 if letter != letter_2
-      i += 1
-    end
-    differences
+def compute(earlier_strand, later_strand)
+    maximum_comparison_length = [earlier_strand.size, later_strand.size].min
+    (0...maximum_comparison_length).select { |index|
+      earlier_strand[index] != later_strand[index]
+    }.count
   end
-
-end

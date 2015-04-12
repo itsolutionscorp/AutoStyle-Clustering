@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
       hamming_distance = 0
 
       strand_1.each_char.with_index do |nucleotide, index|
@@ -9,5 +7,3 @@ class Hamming
 
       hamming_distance
     end
-  end
-end

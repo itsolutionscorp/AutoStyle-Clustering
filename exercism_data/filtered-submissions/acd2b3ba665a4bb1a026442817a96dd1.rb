@@ -1,5 +1,4 @@
-class Hamming
-	def compute(strand_one,strand_two)
+def compute(strand_one,strand_two)
 		count = [strand_one.length, strand_two.length].min
 		difference = 0
 		(0...count).each do |i|
@@ -8,5 +7,3 @@ class Hamming
 		
 		difference
 	end
-
-end

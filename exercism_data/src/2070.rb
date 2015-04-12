@@ -1,18 +1,18 @@
-class Hamming
-  def compute(seq1, seq2)
-    @count = 0
-    # Make sure the sequences are all capitalized.
-    seq1, seq2 = seq1.upcase, seq2.upcase
-    # Find the smaller of the two sequences
-    min = [seq1.length, seq2.length].min
-    if min > 0
-      for j in 0..min-1
-        # If the letters of the sequences dont match, add to the count.
-        if seq1[j] != seq2[j]
-          @count += 1
-        end
-      end
+def compute(*strings)
+    sequences = []
+    # split strings into single-char arrays and append to array
+    strings.each do |string|
+      sequences << string.split('')
     end
-    return @count
+
+    # initialize distance counter to zero
+    distance = 0
+
+    # zip all the sequences together
+    sequences[0].zip(*sequences[1..-1]).each do |*chars|
+      # increment distance if the chars aren't the same
+      distance += 1 unless chars.flatten.uniq.length == 1
+    end
+
+    distance
   end
-end

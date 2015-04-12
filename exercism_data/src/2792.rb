@@ -1,12 +1,8 @@
-class Hamming
-  def compute(one, two)
-    min_length = [one.length, two.length].min
-
-    count = 0
-    (0..min_length - 1).each do |i|
-      count = count + 1 if one[i] != two[i]
+def compute(str_a, str_b)
+    count = [str_a.length, str_b.length].min
+    res = 0
+    count.times do |i|
+      res +=1 if str_a[i] != str_b[i]
     end
-
-    count
+    res
   end
-end

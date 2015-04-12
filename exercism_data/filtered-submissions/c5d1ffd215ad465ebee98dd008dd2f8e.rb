@@ -1,5 +1,4 @@
-class Hamming
-  def compute(original, compare)
+def compute(original, compare)
     differences = 0
 
     @longer = original.size >= compare.size ? original : compare
@@ -10,4 +9,3 @@ class Hamming
     end
     differences
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a, b)
+def compute(a, b)
 		i=0
 		res = 0
 		until a[i].nil? || b[i].nil?
@@ -8,4 +7,3 @@ class Hamming
 		end
 		res
 	end
-end

@@ -1,10 +1,10 @@
-class Hamming
-  def compute(dna_one, dna_two, count = 0)
-    short = dna_one.length <= dna_two.length ? dna_one : dna_two
-    long  = short == dna_one ? dna_two : dna_one
-
-    short.each_char.with_index(1) { |char, i| count += 1 if char != long[i-1] }
-
-    count
+def compute(arg1,arg2)
+    diffs = 0
+    arr = arg1.split("").zip(arg2.split(""))
+    arr.each do |stuff|
+      if stuff[0] != stuff[1]
+        diffs = diffs + 1
+      end
+    end
+    return diffs
   end
-end

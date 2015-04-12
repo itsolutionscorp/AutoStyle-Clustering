@@ -1,13 +1,17 @@
-class Hamming
+def compute(str1, str2)
 
-	def compute (dna1, dna2)
-		result = 0
-		(0..dna1.length).each do |i|
-			if dna1[i] != dna2[i]
-			result += 1
-			end
-		end
-		result
-	end
-	
-end
+    ary1 = str1.split("")
+    ary2 = str2.split("")
+    
+    hamming_number = 0
+    count = 0
+
+    ary1.each do |acid|
+      if acid != ary2[count] && ary2[count]
+        hamming_number += 1
+      end
+      count += 1
+    end
+
+    hamming_number
+  end

@@ -1,16 +1,6 @@
-class Hamming
-
-	def compute(string1,string2)
-		if string1.length < string2.length
-			length = string1.length
-		else
-			length = string2.length
-		end
-		count = 0
-		(0..(length-1)).each{|x|
-			count +=1 if string1[x] != string2[x]
-		}
-		count
-	end
-
-end
+def compute(strand_a, strand_b)
+    length = [strand_a.length, strand_b.length].min
+    (0...length).inject(0) do |mutations, index|
+      strand_a[index] != strand_b[index] ? mutations + 1 : mutations
+    end
+  end

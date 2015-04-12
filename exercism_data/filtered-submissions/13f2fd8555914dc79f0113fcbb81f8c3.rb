@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strandA, strandB)
+def compute(strandA, strandB)
     nucleids_a = strandA.chars
     nucleids_b = strandB.chars
     nucleids_a.zip(nucleids_b).reduce(0) do |sum, (a, b)|
@@ -10,4 +9,3 @@ class Hamming
       end
     end
   end
-end

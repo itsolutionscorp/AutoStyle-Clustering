@@ -1,12 +1,3 @@
-class Hamming
-
-  def compute(x,y)
-    if x == y
-      0
-    else
-      1
-    end
-
+def compute(a,b)
+    (0..([a.length, b.length].min - 1)).inject(0) { |sum, i| a[i] != b[i] ? sum + 1 : sum }
   end
-
-end

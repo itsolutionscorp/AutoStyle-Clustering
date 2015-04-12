@@ -1,13 +1,15 @@
-class Hamming
-  def compute(strandA, strandB)
+def compute(string1, string2)
+	  count = 0
+	  
+		string1.length.times do |n|
+		   string1_letter = string1.split(//)[n]
+		   string2_letter = string2.split(//)[n]
 
-    length = [strandA, strandB].min.length - 1
-    data = strandA.split('')[0..length].zip(strandB.split('')[0..length])
-
-    data.count do |point|
-      point[0] != point[1]
-    end
-
-  end
-
-end
+			if string1_letter == string2_letter
+				  count += 0
+			  else 
+			  	count += 1
+		  end
+		end
+	  return count
+	end

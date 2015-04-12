@@ -1,8 +1,8 @@
-class Hamming
-  def compute(str1, str2)
-    gataca_count = (str1.length <= str2.length) ? str1.length : str2.length
-    hamming = 0
-    gataca_count.times { |n| hamming += 1 unless str1[n] == str2[n] }
-    hamming
+def compute(strand_1, strand_2)
+    if strand_1.eql?(strand_2)
+     return 0
+    else
+      zipped_array = strand_1.split(//).zip(strand_2.split(//))
+      hamming_distance = zipped_array.reject{|s1, s2| s1.eql?s2 }.count
+    end
   end
-end

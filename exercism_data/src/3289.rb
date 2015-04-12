@@ -1,6 +1,12 @@
-class Hamming
-  def compute(a_strand, b_strand)
-    pair_window = a_strand.chars.zip(b_strand.chars).take(b_strand.length)
-    pair_window.count { |a, b| a != b }
+def compute(standA, standB)
+    sampleA = standA.chars
+    sampleB = standB.chars
+    count = 0
+
+    sampleA.each_with_index do |letter, index|
+      if letter != sampleB[index] && sampleB[index] != nil
+      count += 1
+      end
+    end
+    count
   end
-end

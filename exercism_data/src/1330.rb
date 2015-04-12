@@ -1,14 +1,5 @@
-class Hamming
-  def compute(strand_left, strand_right)
-    strand_left_list = strand_left.split ''
-    strand_right_list = strand_right.split ''
-
-    differences = 0
-    strand_left_list.each_index do |i|
-      if strand_left_list[i] != strand_right_list[i]
-        differences = differences + 1
-      end
+def compute(first_sequence, second_sequence)
+    if first_sequence.length == second_sequence.length
+      (first_sequence.chars.select.with_index{ |base, index| base != second_sequence.chars[index] }).length
     end
-    differences
   end
-end

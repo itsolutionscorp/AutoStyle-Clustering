@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(string1,string2)
+def compute(string1,string2)
     hamming_distance = 0
     
     string1_array = string1.split('')
@@ -14,4 +12,3 @@ class Hamming
   
     hamming_distance
   end
-end

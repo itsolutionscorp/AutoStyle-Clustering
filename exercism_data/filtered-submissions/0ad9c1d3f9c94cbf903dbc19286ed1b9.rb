@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(str1, str2)
+def compute(str1, str2)
     dist = 0
 
     until str1.empty? || str2.empty?
@@ -10,5 +8,3 @@ class Hamming
 
     dist
   end
-
-end

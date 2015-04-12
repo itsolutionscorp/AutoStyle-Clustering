@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
 
     hamming = 0
     strand1 = strand_a.chars
@@ -10,9 +9,3 @@ class Hamming
     end
     hamming
   end
-end
-
-#break into elements by character
-#assemble into array
-#check for differences between elements at each position in each array
-#look at the same index in each array

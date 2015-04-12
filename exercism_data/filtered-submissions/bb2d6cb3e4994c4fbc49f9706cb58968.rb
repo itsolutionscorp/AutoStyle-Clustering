@@ -1,5 +1,4 @@
-class Hamming
-    def compute shorter, longer
+def compute shorter, longer
         if (shorter.length > longer.length)
             return self.compute longer, shorter
         end
@@ -10,4 +9,3 @@ class Hamming
             char1 != char2
         end
     end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(st1, st2)
+def compute(st1, st2)
     st1 = st1.split('')
     st2 = st2.split('')
     dif = 0
@@ -8,4 +7,3 @@ class Hamming
     end
     dif
   end
-end

@@ -1,9 +1,14 @@
-class Hamming
-  def compute(strand1, strand2)
-    last_nucleotide_index = [strand1.length, strand2.length].min - 1
-
-    (0..last_nucleotide_index).count do |i|
-      strand1[i] != strand2[i]
-    end
-  end
-end
+def compute(string1,string2)
+		if string1.length < string2.length
+			a = string1
+			b = string2
+		else
+			a = string2
+			b = string1
+		end
+		count = 0
+		(0..(a.length-1)).each{|x|
+			count +=1 if a[x] != b[x]
+		}
+		count
+	end

@@ -1,16 +1,13 @@
-class Hamming
-  class << self
-    def compute(strand1, strand2)
-      # Split the strand strings to arrays of chars
-      strand1 = strand1.chars
-      strand2 = strand2.chars
+def compute(s1, s2)
+    # this one liner is hard to read
+    # s1.split('').map.with_index{ |a,i| a != s2[i] and !s2[i].nil? }.delete_if{ |x| x == false }.count
 
-      # Remove extra chars if one of the strings is longer...
-      strand1 = strand1.take(strand2.length) if strand1.length > strand2.length
-      strand2 = strand2.take(strand1.length) if strand2.length > strand1.length
-
-      # Calculate differences
-      strand1.zip(strand2).count { |strand1, strand2| strand1 != strand2 }
+    # this is easier to read
+    diff = 0
+    s1.length.times do |i|
+      if s1[i] != s2[i] and !s2[i].nil?
+        diff += 1
+      end
     end
+    return diff
   end
-end

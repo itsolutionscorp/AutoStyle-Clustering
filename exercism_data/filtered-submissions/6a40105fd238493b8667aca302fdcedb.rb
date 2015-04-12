@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
 
     # establish differences counter, starting at 0
     diff ||= 0
@@ -23,5 +21,3 @@ class Hamming
     diff
 
   end
- 
-end

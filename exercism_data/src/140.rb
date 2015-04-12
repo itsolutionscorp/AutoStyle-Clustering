@@ -1,14 +1,9 @@
-class Hamming
-
-def compute(a, b)
-	hamming = 0
-	if (a == b) then
-		return hamming	# Optimisation
-	end
-	(0..[a.length, b.length].min-1).each do |i|
-		hamming+=1 if a[i] != b[i]
-	end
-	return hamming
-end
-
-end
+def compute(strand1, strand2)
+    return 0 if strand1 == strand2
+    dist = 0
+    len = [strand1.length, strand2.length].min
+    (0..len-1).each do |n|
+      dist += 1 if strand1[n] != strand2[n]
+    end
+    dist
+  end

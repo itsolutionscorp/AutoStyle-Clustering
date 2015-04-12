@@ -1,17 +1,7 @@
-class Hamming
-  
-  def compute(s1, s2)
-    hamming_count = 0
-    s1_a = s1.split(//)
-    s2_a = s2.split(//)
-
-    s1_a.each_with_index do |item, index|
-      if item != s2_a[index]
-        hamming_count = hamming_count+1
-      end
+def compute(x, y)
+  	distance = 0
+    x.length.times do 
+      distance += 1 if letter != y[index]
     end
-    hamming_count
-    
+    distance 
   end
-
-end

@@ -1,13 +1,3 @@
-class Hamming
-	def compute(a,b)
-		tol = [a.length, b.length].min() -1
-		sum = (0..tol).reduce(0) { |sum,i|
-			if (a[i]!=b[i])	
-			then
-				sum += 1
-			end
-			sum
-		}
-		
-	end
-end
+def compute(a, b)
+    [a,b].min.chars.keep_if.with_index { |x, i| x != [a,b].max.chars[i] }.length
+  end

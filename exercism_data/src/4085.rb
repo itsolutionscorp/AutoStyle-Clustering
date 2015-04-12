@@ -1,12 +1,9 @@
-class Hamming
-  def compute(string_1, string_2)
+def compute(strand1, strand2)
 
-    hamming_distance = 0
+    count  = 0
     
-    string_1.chars.zip(string_2.chars).each do |character_1, character_2|
-      character_1 == character_2 ? hamming_distance : hamming_distance +=1
+    (0..strand1.length).each do |n|
+      count += 1 unless strand1[n] == strand2[n]
     end
-
-    hamming_distance
+          return count
   end
-end

@@ -1,15 +1,12 @@
-require 'byebug'
+def compute(a, b)
+    first, second = a.chars, b.chars
+    difference = 0
 
-class Hamming
-    def compute(strand1, strand2)
-        @diff = 0
-        
-        strand1.chars.each_with_index do |v, i|
-            if v != strand2[i] && strand2[i] != nil
-                @diff += 1
-            end
-        end
-        
-        return @diff
+    first.each_with_index do |c, index|
+      if c != second[index]
+        difference += 1 unless second[index].nil?
+      end
     end
-end
+
+    return difference
+  end

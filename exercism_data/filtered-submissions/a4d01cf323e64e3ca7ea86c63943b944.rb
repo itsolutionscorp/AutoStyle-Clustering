@@ -1,7 +1,4 @@
-require 'byebug'
-
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     @hamming = 0
     a.chars.each_with_index do |value, index|
       if value != b.chars[index]
@@ -10,4 +7,3 @@ class Hamming
     end
     return @hamming
   end
-end

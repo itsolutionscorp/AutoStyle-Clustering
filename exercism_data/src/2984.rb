@@ -1,12 +1,8 @@
-class Hamming
-  def compute str1, str2
-    ham_dist = 0
-    arr1, arr2 = str1.chars, str2.chars
-    
-    len = [arr1.size, arr2.size].min
-
-    (0...len).each { |i| ham_dist += 1 if arr1[i] != arr2[i] }
-    
-    ham_dist
+def compute(string1, string2)
+    distance = 0
+    iter = string1.size > string2.size ? string2.size : string1.size
+    0.upto(iter-1) do |index|
+      distance += 1 if string1[index] != string2[index]
+    end
+    distance
   end
-end

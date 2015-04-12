@@ -1,5 +1,8 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    strand_1.chars.zip(strand_2.chars).count { |a, b| a != b }
-  end
-end
+def compute(a, b)
+		a, b = b, a if a.size > b.size
+		distance = 0
+		a.chars.each_with_index do |e, i|
+			distance += 1 if e != b.chars.to_a[i]
+		end
+		distance
+	end

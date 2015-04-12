@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(inputone, inputtwo)
+def compute(inputone, inputtwo)
     strand1 = inputone.split("")
     strand2 = inputtwo.split("")
 
@@ -12,4 +10,3 @@ class Hamming
     return @counter
 
   end
-end

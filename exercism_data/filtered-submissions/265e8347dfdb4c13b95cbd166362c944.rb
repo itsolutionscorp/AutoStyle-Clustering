@@ -1,6 +1,4 @@
-class Hamming
-	class << self
-		def compute(a,b)
+def compute(a,b)
 			aa = a.split('')
 			bb = b.split('')
 			h = aa.zip bb
@@ -13,5 +11,3 @@ class Hamming
 			end
 			hamming
 		end
-	end
-end

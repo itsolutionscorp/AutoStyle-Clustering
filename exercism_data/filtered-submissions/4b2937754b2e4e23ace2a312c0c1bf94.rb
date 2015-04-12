@@ -1,5 +1,4 @@
-class Hamming
-	def compute(str1,str2)
+def compute(str1,str2)
 		arr_str1 =[]
 		arr_str2 = []
 		arr_str1 = str1.split(//)
@@ -15,4 +14,3 @@ class Hamming
 		end
 		return ham_distance
 	end
-end

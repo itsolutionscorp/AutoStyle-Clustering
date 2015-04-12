@@ -1,7 +1,5 @@
-class DNA < Struct.new(:sequence)
-  def hamming_distance(dna_sequence)
-    sequence.chars.select.with_index do |base, i|
-      dna_sequence.length > i && dna_sequence[i] != base
-    end.count
+def compute(a,b)
+    raise ArgumentError 'the strands must be of equal length' if a.length != b.length
+    a.chars.zip(b.chars).count{|c1, c2|c1 != c2}
   end
 end

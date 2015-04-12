@@ -1,5 +1,4 @@
-class Hamming
-  def compute(sample1, sample2)
+def compute(sample1, sample2)
     result = 0
 
     s1 = sample1.chars()
@@ -20,4 +19,3 @@ class Hamming
 
     result
   end
-end

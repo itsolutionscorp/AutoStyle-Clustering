@@ -1,19 +1,4 @@
-#*****
-#  method compute
-#  test two dna strand strings for differences in their sequence
-#  strings are of unknown, potnetialy varying length- proceed no fruther then shortest
-#  return the number of differences between the two dna strands aka hamming distance
-#  
-#   Sample strings with a hamming distance of 7
-#   GAGCCTACTAACGGGAT
-#   CATCGTAATGACGGCCT
-#   ^ ^ ^  ^ ^    ^^
-#*****
-
-class Hamming
-
-	#for testing add self. to method
-	def compute(nucleotied_a, nucleotied_b)
+def compute(nucleotied_a, nucleotied_b)
 		
 		@dna_strand_one = []
 		@dna_strand_two = []
@@ -38,5 +23,3 @@ class Hamming
 		
 		return @hamming_distance
 	end
-
-end

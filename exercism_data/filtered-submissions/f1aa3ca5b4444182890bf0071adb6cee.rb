@@ -1,5 +1,4 @@
-class Hamming
-    def compute(arg1, arg2)
+def compute(arg1, arg2)
         chars1 = arg1.split("")
         chars2 = arg2.split("")
         len = chars1.length
@@ -11,4 +10,3 @@ class Hamming
         end
         return anw
     end
-end

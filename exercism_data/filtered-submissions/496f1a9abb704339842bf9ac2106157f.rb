@@ -1,8 +1,4 @@
-# -*- coding: UTF-8 -*-
-# Write a program that can calculate the Hamming difference
-# between two DNA strands.
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     i = 0
     ham = 0
     str1.length < str2.length ? lon = str1 : lon = str2
@@ -12,4 +8,3 @@ class Hamming
     end
     ham
   end
-end

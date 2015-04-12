@@ -1,7 +1,9 @@
-class Hamming
-	def compute(dna1, dna2)
-		dna1.split("").each_with_index.map.select {|d, index| 
-			d != dna2[index]
-		}.size
-	end
+def compute(strand_a, strand_b)
+    hamming_distance = 0
+    [strand_a.size, strand_b.size].min.times do |n|
+      hamming_distance += 1 unless strand_a[n] == strand_b[n]
+    end
+    hamming_distance
+  end
 end
+Hamming.extend(Hamming)

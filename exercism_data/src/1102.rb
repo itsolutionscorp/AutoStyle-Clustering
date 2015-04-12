@@ -1,25 +1,14 @@
-class Hamming
+def compute(str1, str2)
 
-  def compute(s1, s2)
-    split_1 = s1.split('')
-    split_2 = s2.split('')
-    counter = 0
-    hamming = 0
+    str1.split('')[0..(str2.length - 1)].each_with_index.inject(0) do |counter, string_index|
 
-    s1.size.times do
-      if split_1[counter] != split_2[counter]
-        hamming += 1
+      if str2[string_index[1]] != string_index[0]
+        counter + 1
+      else
+        counter
       end
-      counter += 1
+
     end
-    hamming
+
   end
-
 end
-
-# strain1 = 'GAGCCTACTAACGGGAT'
-# strain2 = 'CATCGTAATGACGGCCT'
-#
-# hamming = Hamming.new(strain1, strain2)
-#
-# puts hamming.compute

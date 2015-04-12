@@ -1,8 +1,10 @@
-class Hamming
-
-	def compute(first, second)
-		sorted_string_array = [first, second].sort_by{ |s| s.length }
-		sorted_string_array[0].split("").enum_for(:each_with_index).reject{ |char, i| char == sorted_string_array[1][i]}.length
+def compute(a, b)
+	hamming = 0
+	if (a == b) then
+		return hamming	# Optimisation
 	end
-
+	a.each_char.zip(b.each_char) do |l, r|
+		(l.nil? || r.nil?) || (l == r) || hamming += 1
+	end
+	hamming
 end

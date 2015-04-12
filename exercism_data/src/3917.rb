@@ -1,11 +1,6 @@
-class Hamming
-def compute(string1, string2)
-	diff = 0
-	string1.chars.zip(string2.chars).count do | x, y |
-	if x != y 
-	diff += 1
-	end
-	end
-	return diff
-end
-end
+def compute(first,second)
+    len = first.length < second.length ? first.length : second.length
+    (0...len).map { |i|
+      first[i] == second[i] ? 0 : 1
+    }.reduce(0) {|memo,item| memo += item}
+  end

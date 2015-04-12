@@ -1,31 +1,18 @@
-class Hamming
-	def compute (a,b)
-		total_differences = 0
-		if a.length >= b.length 
-			counter = b.length
-		else 
-			counter = a.length
-		end
-	
-		until counter == 0
-			counter -= 1
-			if a[counter] != b[counter]
-				total_differences += 1
-			end
-		end
-		return total_differences
-
-
-
-
-
-
-
-
-		# if a==b
-		# 	return 0
-		# else 
-		# 	return 1
-		# end	
-	end
-end
+def compute(dna1,dna2)
+    if dna1 == dna2
+      return 0
+    else
+      dna1 = dna1.split("")
+      dna2 = dna2.split("")
+      
+      errors = 0
+      
+      for i in 0..(dna1.length-1)
+         unless dna1[i] == dna2[i]
+           errors+=1
+         end
+      end
+      
+      return errors      
+    end
+  end

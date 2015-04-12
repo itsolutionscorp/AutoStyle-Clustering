@@ -1,14 +1,12 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    first_strand    = first_strand.chars
-    second_strand   = second_strand.chars
-    difference      = 0
+def compute(a, b)
+    count  = 0
+    a_enum = a.each_char
+    b_enum = b.each_char
 
-    first_strand.zip second_strand do |first, second|
-      break if first.nil? || second.nil?
-      difference    += 1 if first != second
+    while true
+      count += 1 if a_enum.next != b_enum.next
     end
 
-    return difference
+  ensure
+    return count  # We'll reach this with StopIteration
   end
-end

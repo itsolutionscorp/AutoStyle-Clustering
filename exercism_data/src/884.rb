@@ -1,19 +1,4 @@
-class Hamming
-  def compute(expected, mutation)
-    counter = 0
-    if expected.length >= mutation.length
-      longest = expected
-      shortest = mutation
-    else
-      longest = mutation
-      shortest = expected
-    end
-
-    (0..(shortest.length - 1)).each do |index|
-      if shortest[index] != longest[index]
-        counter += 1
-      end
-    end
-    return counter
+def compute(a, b)
+    c = a.chars.zip(b.chars).map { |nuc| nuc[0] == nuc[1] ? 0 : 1 }
+    c.reduce(:+)
   end
-end

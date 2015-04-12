@@ -1,9 +1,37 @@
-class Hamming
-    def compute(a, b)
-        a = a[0, b.length-1] if a.length > b.length
+def compute (first, second)     
+       # Split strings into arrays of characters to be able to iterate through each character
+       first = first.scan /\w/
+       second = second.scan /\w/
 
-        a.chars.each_with_index.inject(0) do |acc, (c, i)|
-            acc + (c === b[i] ? 0 : 1)
-        end
-    end
-end
+       # First try at solving       
+#       if first.length > second.length
+#         first = first.take(second.length)
+#       else
+#         second = second.take(first.length)
+#       end
+       
+#       result = first - second
+#       result.length
+
+#        first.each { |x| 
+#          puts x 
+#          puts second.at(x)
+#        }
+
+        # Second try
+        # 
+        difference = 0
+        
+        # Loop through first array/string and check against second array/string for a match character
+        first.each_with_index {|val, index|           
+          if val != second[index]
+            # Make sure the element exists in the second array
+            if !second[index].nil?
+              difference = difference + 1
+            end
+          end          
+        }
+        
+        difference
+       
+     end

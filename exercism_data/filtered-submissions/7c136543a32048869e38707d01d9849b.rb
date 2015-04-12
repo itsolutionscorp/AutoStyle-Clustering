@@ -1,6 +1,4 @@
-class Hamming
-		
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
 
     dissimilarity_count = 0
 
@@ -21,5 +19,3 @@ class Hamming
     dissimilarity_count
 
   end
-
-end

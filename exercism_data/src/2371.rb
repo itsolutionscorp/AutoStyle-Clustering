@@ -1,15 +1,17 @@
-class Hamming
-  def compute(first_strand, other_strand)
-    return 0 if first_strand === other_strand
-    # return one when first_strand longer than other_strand
-    # per test_ignores_extra_length_on_first_strand_when_longer
-    return 1 if first_strand.length > other_strand.length
+def compute(strand_1, strand_2)
+    strand_1_array = strand_1.split('')
+    strand_2_array = strand_2.split('')
 
-    distance = 0
-    first_strand.each_char.each_with_index { |ch, index|
-      distance += 1 if first_strand[index] != other_strand[index]
-    }
+    matches = strand_1_array.zip(strand_2_array)
+    matches.delete_if { |acid_pair| acid_pair.include?(nil) }
 
-    distance
+    counter = 0
+
+    matches.each do |acid_pair|
+     if acid_pair[0] != acid_pair[1] && acid_pair.length == 2
+        counter += 1
+      end
+    end
+
+    counter
   end
-end

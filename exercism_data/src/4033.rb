@@ -1,9 +1,7 @@
-class Hamming
-  def compute(strand1, strand2)
-    strands = strand1.chars.zip(strand2.chars)
-    strands.inject(0) do |total, nucleotides|
-      n1, n2 = nucleotides
-      total + (n1 && n2 && n1 != n2 ? 1 : 0)
-    end
-  end
-end
+def compute(strand_1, strand_2)
+		hamming_distance = 0
+		(0..strand_1.length).each do |n|
+			hamming_distance += 1 if strand_1[n] != strand_2[n]
+		end
+		return hamming_distance
+	end

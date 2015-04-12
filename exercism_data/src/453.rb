@@ -1,10 +1,4 @@
-class Hamming
-    def compute(stringA, stringB)
-        min = [stringA.length, stringB.length].min
-        count = 0
-        min.times { |i|
-            count = count+1 if (stringA[i] != stringB[i])
-        }
-        count
-    end
-end
+def compute(one, two)
+    one.chars.map.with_index { |letter,index| letter==two[index] }
+       .select { |is_match| is_match===false }.length
+  end

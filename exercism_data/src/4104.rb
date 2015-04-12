@@ -1,9 +1,7 @@
-class Hamming
-  def compute(a, b)
-    errors = 0
-    [a.length, b.length].min.times do |n|
-      errors += 1 unless a[n-1] == b[n-1]
-    end
-    errors
-  end
-end
+def compute(str1, str2)
+		count = 0
+		str1.chars.zip(str2.chars).each do |s1, s2|
+			count += 1 if s1 != s2
+		end
+		count
+	end

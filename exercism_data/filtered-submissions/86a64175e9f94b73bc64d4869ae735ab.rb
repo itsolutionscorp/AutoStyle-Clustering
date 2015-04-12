@@ -1,6 +1,4 @@
-#Class compares two strings and returns the number of same-position characters that are different between them.
-class HammingCompare
-  def compute(a, b)
+def compute(a, b)
     #No need to calculate if they are equal
     if a === b
       return 0
@@ -18,8 +16,3 @@ class HammingCompare
       end
     end
     return difference
-  end
-end
-
-#instantiate class
-Hamming = HammingCompare.new

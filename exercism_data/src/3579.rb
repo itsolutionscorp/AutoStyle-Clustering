@@ -1,13 +1,10 @@
-class Hamming
-
-
-	def compute(first, second)
-		i = 0
-		first.each_char do |a|
-			if first[a] != second[a]
-				i = i + 1
-			end
-		end
-		i
-	end
-end
+def compute(dna1, dna2)
+    return -1 if dna1.length != dna2.length
+    
+    hamming = 0
+    (0..(dna1.length - 1)).each do |index|
+      hamming += 1 if dna1[index] != dna2[index]
+    end
+    
+    hamming
+  end

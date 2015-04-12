@@ -1,14 +1,10 @@
-class Hamming
-
-	def compute(dna1, dna2)
-	
-		count=0
-		dna_short = dna1
-		dna_short = dna2 if dna2.length < dna1.length
-
-		for i in 0...dna_short.length
-			count+=1 unless dna1[i] == dna2[i]
-		end
-		return count 
+def compute(strand_1, strand_2)
+    raise Exception.new("Strands are not the same length") if strand_1.size != strand_2.size
+    distance = 0
+    chars_array_1 = strand_1.chars
+    chars_array_2 = strand_2.chars
+    chars_array_1.each_index do |i|
+      distance += 1 if chars_array_1[i] != chars_array_2[i]
     end
-end
+    distance
+  end

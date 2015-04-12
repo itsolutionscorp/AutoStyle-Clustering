@@ -1,6 +1,9 @@
-class Hamming
-  def compute(seq1, seq2)
-    seq2 = seq2.split('').reverse
-    seq1.split('').reduce(0) {|dif, cur| dif + ((!seq2.empty? && cur != seq2.pop) ? 1 : 0)}
+def compute(str1, str2)
+    return 0 if str1 == str2
+    dist = 0
+    short_len = str1.length > str2.length ? str2.length : str1.length
+    short_len.times do |i|
+      dist += 1 unless str1[i] == str2[i]
+    end
+    dist
   end
-end

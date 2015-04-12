@@ -1,15 +1,7 @@
-class Hamming
-  def compute(a, b)
-    hamming_distance = 0
+def compute(a, b)
+    strand_a = a.chars.take(b.length)
+    strand_b = b.chars.take(a.length)
 
-    if a != b
-      a.each_char.with_index(0) do |c, i|
-        if c != b[i]
-          hamming_distance += 1
-          end
-        end
-    end
-
-    hamming_distance
+    pairs = strand_a.zip(strand_b)
+    pairs.count { |x, y| x != y }
   end
-end

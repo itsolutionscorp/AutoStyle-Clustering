@@ -1,5 +1,4 @@
-module Hamming
-  def compute(string_a, string_b)
+def compute(string_a, string_b)
     unless string_a.length == string_b.length
       raise ArgumentError.new("strings must be of equal length")
     end

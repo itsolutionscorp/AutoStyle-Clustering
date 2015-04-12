@@ -1,22 +1,3 @@
-class Hamming
-
-  def compute(str1, str2)
-    size1=str1.length
-    size2=str2.length
-    total = ''
-    if size1 > size2
-      (0..size2-1).each do |i|
-        if str1[i] != str2[i]
-          total << 1.to_s
-        end
-      end
-    else
-      (0..size1-1).each do |i|
-        if str1[i] != str2[i]
-          total << 1.to_s
-        end
-      end
-    end
-    total.count("1")
+def compute(dna_seq_1, dna_seq_2)
+    dna_seq_1.each_char.with_index.reject { |e, i| e == dna_seq_2[i] }.size
   end
-end

@@ -1,10 +1,7 @@
-class Hamming
-    def compute(a, b)
-
-        count = 0
-        a.each_char.each_with_index do |c, i|
-            count += 1 if b[i] && b[i] != c           
-        end 
-        count
+def compute(first_sequence, second_sequence)
+    unless first_sequence.length != second_sequence.length
+      first_sequence_to_array = first_sequence.chars
+      second_sequence_to_array = second_sequence.chars
+      (first_sequence_to_array.select.with_index{ |base, index| base != second_sequence_to_array[index] }).length
     end
-end
+  end

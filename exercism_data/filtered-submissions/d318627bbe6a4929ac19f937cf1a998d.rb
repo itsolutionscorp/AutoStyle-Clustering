@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(string1, string2)
+def compute(string1, string2)
     #identical case
     return 0 if string1 == string2
 
@@ -13,4 +11,3 @@ class Hamming
 
     mutations
   end
-end

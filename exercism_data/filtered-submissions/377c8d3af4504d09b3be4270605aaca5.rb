@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
 
 		#find shortest string_length
 		shortest_string_length = [strand_one.length, strand_two.length].min
@@ -23,5 +21,3 @@ class Hamming
 		return @hamming_distance_count
 
 	end
-
-end

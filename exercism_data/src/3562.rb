@@ -1,14 +1,10 @@
-class Hamming
-  def compute(strand1, strand2)
-    diff = 0
-    ind = 0
-    strand1.split("").each do |i|
-      puts strand1[ind]
-      if (strand1[ind] != strand2[ind]) && (strand1[ind] != nil) && (strand2[ind] != nil)
-        diff += 1
-      end
-      ind += 1
-    end
-    diff
+def compute(s1, s2)
+    # distance = 0
+    # 0.upto([s1.size,s2.size].min) do |i|
+    #   distance = distance + 1 unless s1[i] == s2[i]
+    # end
+    # distance
+    0.upto([s1.size, s2.size].min - 1).count do |i|
+      s1[i] != s2[i]
+    end + (s1.size - s2.size).abs
   end
-end

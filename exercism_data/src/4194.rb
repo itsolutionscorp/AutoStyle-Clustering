@@ -1,11 +1,6 @@
-class Hamming
-
-  def compute left, right
-    distance = 0
-    left.chars.each_with_index do |char, i|
-      distance += 1 if right[i] and right[i] != char
+def compute(a, b)
+    c = [a.chars, b.chars].transpose
+    c.inject(0) do |sum, set| 
+      sum + (set.first == set.last ? 0 : 1)
     end
-    distance
   end
-
-end

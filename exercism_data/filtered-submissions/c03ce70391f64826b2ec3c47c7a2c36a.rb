@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     total = 0
     [a.length, b.length].min.times do |n|
       if a[n] != b[n]
@@ -9,4 +8,3 @@ class Hamming
 
     total
   end
-end

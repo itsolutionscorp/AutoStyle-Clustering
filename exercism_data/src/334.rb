@@ -1,20 +1,17 @@
-class Hamming
-
-  def compute(original_dna, mutated_dna)
-    hamming_distance = 0
-    step = 0
-    original_dna.each_char do |c|
-
-      unless c == mutated_dna[step]
-        hamming_distance = hamming_distance + 1
-      end
-      step = step + 1
-      
-      if step > original_dna.length - 1 or step > mutated_dna.length - 1
-        return hamming_distance
-      end
-
-    end
-    return hamming_distance
-  end
-end
+def compute(first, second)
+		# Store both strands in separate arrays
+		first = first.chars.to_a
+		second = second.chars.to_a
+		# Compare both arrays and return the difference
+		difference = 0
+		increment = 0
+		first.each do |f|
+			s = second[increment]
+			increment += 1
+			if f != s
+				difference += 1
+			else
+			end
+		end
+		return difference
+	end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand, other)
+def compute(strand, other)
     other_chars = other.each_char
 
     differences =
@@ -14,5 +12,3 @@ class Hamming
 
     differences.reduce :+
   end
-
-end

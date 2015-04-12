@@ -1,7 +1,18 @@
-class Hamming
+def compute(s, t)
+    if s == t
+      0
+    else
+      s_array = s.split("")
+      t_array = t.split("")
 
-  def compute( dna1, dna2 )
-    dna1.chars.zip(dna2.chars).count {|na1, na2| na1 != na2}
+      matches = 0
+
+      s_array.length.times do |i|
+        if s_array[i] != t_array[i]
+          matches += 1
+        end
+      end
+
+      matches
+    end
   end
-
-end

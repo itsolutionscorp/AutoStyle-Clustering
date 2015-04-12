@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(first, second)
+def compute(first, second)
 
 		score = 0
 
@@ -11,5 +9,3 @@ class Hamming
 		score
 
 	end
-
-end

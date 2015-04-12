@@ -1,11 +1,23 @@
-class Hamming
-	def compute(strand_a,strand_b)
-		nucleotide_position = 0
-		hamming_distance = 0
-		while nucleotide_position < strand_a.length do
-			hamming_distance += 1 if strand_a[nucleotide_position] != strand_b[nucleotide_position]
-			nucleotide_position += 1
-		end
-		hamming_distance
-	end
-end
+def compute(strand_one, strand_two)
+   one = strand_one.chars
+   two = strand_two.chars
+   count = 0
+
+    one.each_with_index do |letter, index |
+      if letter == two[index]
+        count += 0
+
+      else
+        count += 1
+
+      end
+
+    end
+    count
+    end
+
+
+    #break into elements by character
+    #assemble into array
+    #check for differences between elements at each postition in each array
+      #look at the same index in each array

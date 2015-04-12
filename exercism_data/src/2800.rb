@@ -1,11 +1,7 @@
-class Hamming
-  def compute(s1, s2)
-    distance = 0
-    for i in 0..(s1.length)
-      if s1[i] != s2[i]
-        distance += 1
-      end
+def compute(strand, other_strand)
+    strand = strand.scan(/\w/)
+    other_strand = other_strand.scan(/\w/)
+    strand.each.with_index.inject(0) do |memo, (char, index)|
+      char == other_strand[index] ? memo : memo +=1
     end
-    distance 
   end
-end

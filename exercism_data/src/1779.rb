@@ -1,15 +1,23 @@
-class Hamming
-  def compute(strandOne, strandTwo)
-    count = 0
-    arrayStrandOne = strandOne.split("")
-    arrayStrandTwo = strandTwo.split("") 
+def compute(a, b)
 
-    arrayStrandOne.zip(arrayStrandTwo).each do |element_of_a, element_of_b|
-      if !element_of_a.eql? element_of_b
-        count = count + 1
+    # establish differences counter, starting at 0
+    diff ||= 0
+
+    # put x and y into arrays
+    first = a.split("")
+    second = b.split("")
+
+    # count array, assuming that x and y are identical in length
+    length = first.length
+
+    # compare each item in array, adding 1 to the counter if they are different
+    length.times do |x|
+      unless first[x] == second[x]
+        diff += 1    
       end
     end
 
-    return count
+    # return diff
+    diff
+
   end
-end

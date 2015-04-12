@@ -1,12 +1,11 @@
-class Hamming
-	def compute(str1, str2)
-		counter=0
-		min_length = [str1.length, str2.length].min
-		i=0
-		while i<min_length do
-			counter++ if not str1[i] == str2[i]
-			i = i+1
-		end
-		counter
-	end
-end
+def compute(strand_1, strand_2)
+    hamming_distance = 0
+    strand_length = [strand_1.length, strand_2.length].min
+    (0..(strand_length - 1)).each do |i|
+      if strand_1[i] != strand_2[i]
+
+      end
+      hamming_distance += 1 unless strand_1[i] == strand_2[i]
+    end
+    hamming_distance
+  end

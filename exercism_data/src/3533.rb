@@ -1,7 +1,13 @@
-class Hamming
-  def compute(strand1, strand2)
-    (0...strand1.size).reduce(0) do |acc, i|
-      strand1[i] == strand2[i] ? acc : acc + 1
+def compute(string1, string2)
+    #identical case
+    return 0 if string1 == string2
+
+    mutations = 0
+    string1.split('').each_with_index  do |char,index|
+      if char != string2[index]
+        mutations += 1
+      end
     end
+
+    mutations
   end
-end

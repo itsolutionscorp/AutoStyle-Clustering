@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(x,y)
+def compute(x,y)
     mutations = 0
 
     #find the shorter strand to determine how many iterations
@@ -20,5 +18,3 @@ class Hamming
     #return value
     mutations
   end
-
-end

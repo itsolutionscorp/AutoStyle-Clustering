@@ -1,11 +1,3 @@
-class Hamming
-
-  def compute(source, compare)
-    distance = 0
-    source.chars.zip(compare.chars).each do |lhs, rhs|
-      break if rhs.nil?
-      distance += 1 if lhs != rhs
-    end
-    distance
+def compute(s1, s2)
+    s1.chars.zip(s2.chars).count { |a, b| a != b }
   end
-end

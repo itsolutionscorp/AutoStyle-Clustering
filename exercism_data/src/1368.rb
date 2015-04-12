@@ -1,7 +1,18 @@
-class Hamming
-  def compute(s1, s2)
-    s1, s2 = s2, s1 if s1.size > s2.size
-    s1, s2 = s1.chars, s2.chars
-    s1.zip(s2).count {|(c1, c2)| c1 != c2 }
-  end
-end
+def compute(a, b)
+	  a_array = a.split('')
+		b_array = b.split('')
+		sum = 0
+
+		if a_array.length > b_array.length
+			a_array.pop
+		end
+
+		result = a_array.zip(b_array).map! { |x, y| x == y }
+
+	  result.each do |val|
+	 		if val == false
+    		sum += 1
+    	end
+    end
+   sum
+	end

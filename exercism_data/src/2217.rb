@@ -1,6 +1,8 @@
-class Hamming
-  def compute(first, second)
-    f1, f2 = first.chars,second.chars
-    (0..[f1.count, f2.count].min-1).count {|_|  f1[_] != f2[_]}
+def compute(a, b)
+    #count the number of letters that are different.
+    ret = 0
+    for x in (0..a.length-1)
+      ret += 1 unless a[x] == b[x]
+    end
+    ret
   end
-end

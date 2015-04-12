@@ -1,14 +1,7 @@
-class Hamming
-  def compute(source, mutation)
-    shortest_length = [source, mutation].map(&:length).min
-    distance = 0
-
-    shortest_length.times do |i|
-      if source[i] != mutation[i]
-        distance += 1
+def compute(strand1, strand2)
+      index = -1
+      strand1.chars.inject(0) do |distance, char|
+        index += 1
+        (strand2[index] == char || strand2[index] == nil) ? distance : distance + 1
       end
     end
-
-    distance
-  end
-end

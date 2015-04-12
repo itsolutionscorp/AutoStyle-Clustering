@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     return_value = 0
     (0..(a.length - 1)).each do |i|
       if a[i] != b[i]
@@ -9,5 +7,3 @@ class Hamming
     end
     return_value
   end
-
-end

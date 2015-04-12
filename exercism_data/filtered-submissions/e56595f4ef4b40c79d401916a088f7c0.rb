@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
   	diff_letter_count = 0
   	a = arg1.split("")
   	b = arg2.split("")
@@ -9,4 +8,3 @@ class Hamming
   	end
   	diff_letter_count
   end
-end

@@ -1,11 +1,15 @@
-class Hamming
-  def compute(a,b)
-    a,b = [a.chars,b.chars]
-    (longest,shortest) = [a.size,b.size].max == a.size ? [a,b] : [b,a]
-    hamming_count = 0
-    shortest.to_ary.each_with_index do |ch,i|
-      hamming_count += 1 if ch != longest[i]
+def compute(s, t)
+    if s == t
+      0
+    else
+      matches = 0
+
+      s.length.times do |i|
+        if s[i] != t[i]
+          matches +=1
+        end
+      end
+
+      matches
     end
-    hamming_count
   end
-end

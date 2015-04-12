@@ -1,5 +1,4 @@
-class Hamming
-	def compute(dna1,dna2)
+def compute(dna1,dna2)
 		difcount = 0
 		iteratorpos = 0
 
@@ -15,4 +14,3 @@ class Hamming
 		}
 		return difcount
 	end
-end

@@ -1,16 +1,8 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    if strand1.length > strand2.length
-    nucleotide = strand2.chars.zip(strand1.chars)
-    else
-    nucleotide = strand1.chars.zip(strand2.chars)
+def compute(strand_a, strand_b)
+    strand_b = strand_b.split('')
+    strand_a.split('').each_with_index.inject(0) do |sum, (value, index)|
+      return sum if !strand_b[index]
+      sum += 1 if value != strand_b[index]
+      sum
     end
-      difference = 0
-      nucleotide.each_with_index do |n|
-      difference += 1 if n[0] != n[1]
-    end
-    difference
   end
-
-end

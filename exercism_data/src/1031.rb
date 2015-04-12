@@ -1,16 +1,13 @@
-class Hamming
-	def compute(adn_1, adn_2)
+def compute strand_one, strand_two
+    distance = 0
 
-	calculo = 0
+    comparison_length = strand_one.length < strand_two.length ? strand_one.length : strand_two.length
 
-		for i in 0..adn_1.length
-			if adn_1[i] != adn_2[i]
-				calculo += 1
-			end
-		end
+    comparison_length.times do |index|
+      if strand_one[index] != strand_two[index]
+        distance += 1
+      end
+    end
 
-
-	return calculo
-
-	end
-end
+    distance
+  end

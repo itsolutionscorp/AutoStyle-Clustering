@@ -1,9 +1,13 @@
-class Hamming
-  
-  def compute(arg1, arg2)
-    miss_match = 0
-    arg1.size.times { |i| miss_match += 1 if arg1[i] != arg2[i] }
-    miss_match
-  end
-  
-end
+def compute(s1,s2)
+		hd = 0
+		return hd if s1 == s2
+
+
+		s1.length.times do |i|
+			hd += 1 if s1[i] != s2[i]
+		end
+
+		return hd
+
+
+	end

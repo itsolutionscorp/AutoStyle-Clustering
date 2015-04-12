@@ -1,8 +1,8 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    return 0 if strand1 == strand2
-    l = [ strand1.length, strand2.length ].min
-    (0..l-1).map { |i| strand1[i] == strand2[i] ? 0 : 1 }.reduce(:+)
+def compute(s, t)
+    a = s.scan /\w/
+    b = t.scan /\w/
+    distance = 0
+    a.each_with_index { |item, i| distance += 1 if !b[i].nil? && item != b[i] }
+    
+    distance
   end
-end

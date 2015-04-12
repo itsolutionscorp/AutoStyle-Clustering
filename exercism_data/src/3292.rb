@@ -1,6 +1,10 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    combination = strand_1.chars.zip(strand_2.chars)
-    combination.count { |ary| ary[0] != ary[1] }
+def compute(one, other)
+    count = 0
+    length = [one.length, other.length].min
+    (0...length).each do |i|
+      count += 1 if one[i] != other[i]
+    end
+    count
   end
+
 end

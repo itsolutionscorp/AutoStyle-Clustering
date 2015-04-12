@@ -1,8 +1,4 @@
-# Hamming distance calculator
-#   Alex Standke, October 2014
-
-class Hamming
-  def compute str1, str2
+def compute str1, str2
     arr1, arr2 = str1.split(''), str2.split('')
 
     distance = 0
@@ -12,4 +8,3 @@ class Hamming
     end
     distance
   end
-end

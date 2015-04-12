@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(code1, code2)
+def compute(code1, code2)
   	@code1 = code1
   	@code2 = code2
 
@@ -17,4 +15,3 @@ class Hamming
     end
     distance
    end
-end

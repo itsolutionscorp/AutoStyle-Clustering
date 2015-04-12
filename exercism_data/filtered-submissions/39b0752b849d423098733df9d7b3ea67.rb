@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(first, second)
+def compute(first, second)
       first_chars = first.split('')
       second_chars = second.split('')
 
@@ -8,5 +6,3 @@ class Hamming
         a && b && a != b
       end
     end
-  end
-end

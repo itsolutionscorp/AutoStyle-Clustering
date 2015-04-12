@@ -1,6 +1,4 @@
-class Hamming
-  
-  def compute(first, second)
+def compute(first, second)
     if ((first.nil? && second.nil?) || (first.empty? && second.empty?))
       0
     else
@@ -9,4 +7,3 @@ class Hamming
       now + Hamming.compute(first[1..-1], second[1..-1])
     end
   end
-end

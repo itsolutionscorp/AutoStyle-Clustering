@@ -1,18 +1,16 @@
-class Hamming
-  
-  def compute(string1, string2)
-    differences = 0
-    
-    string1.length >= string2.length ?  long_string = string1 : long_string = string2
-    string1.length >= string2.length ?  short_string = string2 : short_string = string1    
+def compute(a, b)
+       
+       if a == b
+           0
+       end
 
-    short_string.split("").each_with_index do |gene, i|
-      if gene != long_string[i]
-        differences += 1
-      end
+       array_a = a.split("")
+       array_b = b.split("")
+       zipped_array = array_a.zip(array_b)
+
+       zipped_array.select { |a, b|
+           a && b && a != b
+       }
+       .length
+
     end
-    
-    differences
-  end
-
-end

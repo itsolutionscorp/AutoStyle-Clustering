@@ -1,7 +1,6 @@
-class Hamming
-  def compute(first_strand, other_strand)
-    (0...[first_strand.size, other_strand.size].min).count do |i|
-      first_strand[i] != other_strand[i]
-    end
+def compute(a, b)
+    # larger zipped into smaller means we always have the right number of pairs.
+    pairs = [a.chars.to_a,b.chars.to_a].sort_by(&:length).reduce(&:zip)
+
+    pairs.count {|character_a,character_b| character_a != character_b }
   end
-end

@@ -1,23 +1,10 @@
-class Hamming
+def compute(dna_one, dna_two)
+    
+    errors = 0
 
-  def compute (dna1, dna2)
-    # if dna strings have different length, end
-    if dna1.length != dna2.length
-      raise "strands need to be the same length!"
+    dna_one.chars.zip(dna_two.chars).each do |chr1, chr2|
+      errors += 1 if chr1 != chr2
     end
 
-    dist = 0
-
-    i = 0
-    while i < dna1.length
-      if dna1[i] != dna2[i]
-        dist += 1
-      end
-      i += 1
-    end
-
-    return dist
-
-  end
-
-end
+    errors
+	end

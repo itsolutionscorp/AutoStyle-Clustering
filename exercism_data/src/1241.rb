@@ -1,14 +1,8 @@
-class Hamming
-
-  def compute left, right
-
-    if left.length < right.length
-      shorter, longer = left.chars, right.chars
-    else
-      shorter, longer = right.chars, left.chars
+def compute(strand1, strand2)
+    distance = 0
+    strand1.split('').each_with_index do |n, i|
+      distance += 1 if strand1[i] != strand2[i]
     end
-    
-    shorter.zip(longer).count { |pair| pair.first != pair.last } 
-  end
 
-end
+    distance
+  end

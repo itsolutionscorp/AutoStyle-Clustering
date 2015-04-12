@@ -1,7 +1,12 @@
-class Hamming
-  def compute(left, right)
-    left.bytes.zip(right.bytes).count do |item|
-      item.all? && item[0] != item[1]
+def compute(dna_strand_a, dna_strand_b)
+
+    hamming_distance = 0
+
+    [dna_strand_a.chars.to_a, dna_strand_b.chars.to_a].transpose.each do |a,b|
+      if a != b
+        hamming_distance += 1
+      end
     end
+
+    hamming_distance
   end
-end

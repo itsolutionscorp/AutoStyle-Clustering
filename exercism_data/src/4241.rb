@@ -1,11 +1,5 @@
-class Hamming
-
-  def compute(a, b)
-    minlen = [a.length, b.length].min
-    diff = 0
-    (0..minlen-1).each do |i|
-      diff += 1 unless a[i] == b[i]
+def compute(a, b)
+    a.chars.zip(b.chars).count do |pair|
+      !(pair[0].nil? || pair[1].nil? || pair[0] == pair[1])
     end
-    diff
   end
-end

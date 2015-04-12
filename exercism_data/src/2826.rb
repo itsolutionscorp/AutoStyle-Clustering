@@ -1,6 +1,12 @@
-# class to compute Hamming difference in 2 DNA strands
-class Hamming
-  def compute(strand_one, strand_two)
-    strand_one.chars.zip(strand_two.chars).inject(0) { |matches, pair| pair[0] != pair[1] ? matches += 1 : matches }
+def compute(bit1, bit2)
+    return nil if bit1.size != bit2.size
+    return_me = 0
+    return return_me if bit1 == bit2
+    
+    index = 0
+    while index < bit1.size
+      return_me += 1 unless bit1[index] == bit2[index]
+      index += 1
+    end
+    return_me
   end
-end

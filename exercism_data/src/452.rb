@@ -1,11 +1,7 @@
-module Hamming
-  module_function
-
-  def compute(a, b)
-    if a.length < b.length
-      a.each_char.zip(b.each_char).count { |x, y| x != y }
-    else
-      b.each_char.zip(a.each_char).count { |x, y| x != y }
+def compute(a,b)
+    distance = 0
+    [a.length, b.length].min.times do |i|
+      distance += 1 unless a[i] == b[i]
     end
+    distance
   end
-end

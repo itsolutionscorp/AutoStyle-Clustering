@@ -1,16 +1,5 @@
-#!/usr/bin/env ruby
-class Hamming 
-
-	def compute(dna_one, dna_two)
-		x = 0
-		count = 0
-		dna_one.each_char do |letter|
-			if (letter != dna_two[x]) && dna_two[x]
-				count += 1 
-			end
-			x += 1
-		end
-		count
-	end
-
-end
+def compute(string1, string2)
+    (0...[string1.length, string2.length].min).count do |n|
+      string1[n] != string2[n]
+    end
+  end

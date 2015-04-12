@@ -1,5 +1,4 @@
-class Hamming
-  def compute(item_a, item_b)
+def compute(item_a, item_b)
     # if we are the same length, run the test
     if item_a.length == item_b.length
       
@@ -12,4 +11,3 @@ class Hamming
    
     end
   end
-end

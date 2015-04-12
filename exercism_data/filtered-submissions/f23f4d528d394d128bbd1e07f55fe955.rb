@@ -1,5 +1,4 @@
-class Hamming
-	def compute(first, second)
+def compute(first, second)
 		shorter = ([first,second].min_by { |x| x.length }).length
 		
 		hamming_count = 0
@@ -11,4 +10,3 @@ class Hamming
 
 		hamming_count
 	end
-end

@@ -1,12 +1,3 @@
-class Hamming
-  def compute(seq1, seq2)
-    length = [seq1.to_s.length, seq2.to_s.length].min
-    sum = 0
-
-    (0..length - 1).each do |i|
-      sum += 1 unless seq1.to_s[i] == seq2.to_s[i]
-    end
-
-    sum
+def compute(a, b)
+    a.length.times.reduce(0) { |m,i| (a[i] == b[i] && m) || m+1 }
   end
-end

@@ -1,5 +1,8 @@
-module Hamming
-  def compute(a, b)
-	  a.split("").zip(b.split("")).each.count { |a, b| count+= 1 unless a.eql?(b) }
+def compute(one , two)
+    counter = 0
+    one.split('').each_with_index do |char,index|
+      return counter if index >= two.length
+      counter += 1 unless one[index] == two[index]
+    end
+    counter
   end
-end

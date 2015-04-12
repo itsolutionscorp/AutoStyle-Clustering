@@ -1,8 +1,5 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    return strand_1.chars.zip(strand_2.chars)
-      .count do |nucleotide_1, nucleotide_2|
-        nucleotide_1 != nucleotide_2
-      end
+def compute(strand_1, strand_2)
+    strand_1.length.times.count do |index|
+      strand_1[index] != strand_2[index]
+    end
   end
-end

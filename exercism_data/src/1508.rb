@@ -1,14 +1,8 @@
-class Hamming
-  def compute(s1, s2)
-    diff = 0
+def compute string_a, string_b
+    nucleotides_a = string_a.chars
+    nucleotides_b = string_b.chars
 
-    len = [s1.length, s2.length].min
-
-    (0..len-1).each do |i|
-      if s1[i] != s2[i]
-        diff += 1
-      end
-    end
-   diff
+    duplex = nucleotides_a.zip(nucleotides_b)
+    diffs = duplex.reject { |nucleotide| nucleotide[0] == nucleotide[1] }
+    diffs.size
   end
-end

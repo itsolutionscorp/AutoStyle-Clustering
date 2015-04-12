@@ -1,18 +1,10 @@
-class Hamming
+def compute(string_one, string_two)
+    string_one_chars = string_one.chars
+    string_two_chars = string_two.chars
 
-  def compute(first_sequence,second_sequence)
     hamming_distance = 0
-    index = 0
-    strand_length = first_sequence.length
-
-    while index < strand_length
-      if first_sequence[index] != second_sequence[index]
-        hamming_distance += 1
-      end
-      index += 1
+    string_one_chars.each_with_index do |char_one, i|
+      hamming_distance += (char_one == string_two_chars[i]) ? 0 : 1
     end
-
     hamming_distance
   end
-
-end

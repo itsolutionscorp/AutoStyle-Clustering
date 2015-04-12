@@ -1,9 +1,9 @@
-class Hamming
-  def compute(nucleotide1, nucleotide2)
-    diffs = 0
-    nucleotide1.length.times do |i|
-      diffs += 1 if nucleotide1[i] != nucleotide2[i]
-    end
-    diffs
+def compute(first, second)
+     hamming_count = 0
+     (0..[first.length, second.length].min - 1).each do |i|
+       if first[i] != second[i]
+          hamming_count = hamming_count + 1
+       end
+     end
+     return hamming_count
   end
-end

@@ -1,7 +1,5 @@
-class Hamming
-  def compute(x, y)
-    x.length.times.inject(0) do |acc, i|
-      acc + (x[i] == y[i] ? 0 : 1)
+def compute(first, second)
+    first.each_char.zip(second.each_char).inject(0) do |distance, pair|
+      pair[0] == pair[1] ? distance : distance + 1
     end
   end
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(seq_1,seq_2)
+def compute(seq_1,seq_2)
     # Initialize hamming distance to 0
     hamm_dist = 0
     seq_1_length = seq_1.length
@@ -22,4 +20,3 @@ class Hamming
     # Returns the hamming distance
     hamm_dist
   end
-end

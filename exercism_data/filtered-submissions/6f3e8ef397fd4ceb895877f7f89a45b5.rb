@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first, second)
+def compute(first, second)
     ham_length = 0
     max_strand_length = [first, second].sort_by(&:length)[0].length
     i = 0
@@ -10,5 +8,3 @@ class Hamming
     end
     ham_length
   end
-
-end

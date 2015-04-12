@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(string1, string2)
+def compute(string1, string2)
 	  count = 0
 	  
 		string1.length.times do |n|
@@ -15,4 +13,3 @@ class Hamming
 		end
 	  return count
 	end
-end

@@ -1,5 +1,3 @@
-class Hamming
-
 def compute(dna1, dna2)
   
   #Set inital value for control and datacollection variables
@@ -14,6 +12,4 @@ def compute(dna1, dna2)
   #return hamming distance
   hammingdistance
     
-end
-
 end

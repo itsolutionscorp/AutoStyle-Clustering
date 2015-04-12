@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     case str1.length <=> str2.length
     when -1
       str2 = str2[0, str1.length]
@@ -9,4 +8,3 @@ class Hamming
 
     str1.chars.zip(str2.chars).keep_if { |x| x.first != x.last}.length
   end
-end

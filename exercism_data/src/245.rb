@@ -1,20 +1,14 @@
-class Hamming
-  def compute(s, t)
-    if s == t
-      0
-    else
-      s_array = s.split("")
-      t_array = t.split("")
+def compute(seq1, seq2)
 
-      matches = 0
+   dnaMinLength= [seq2.length, seq1.length].min
+   seq1, seq2=seq1[0, dnaMinLength].bytes , seq2[0, dnaMinLength].bytes
+   differentTotal=0
 
-      s_array.length.times do |i|
-        if s_array[i] != t_array[i]
-          matches += 1
-        end
-      end
+   dnaMinLength.times do |i|
+  #for i in 0..dnaMinL  length
+      #differentTotal=differentTotal+1 if seq1[i] != seq2[i]
+      differentTotal=differentTotal+1 if seq1[i].to_f % seq2[i].to_f > 0
+   end #end of fo
 
-      matches
-    end
-  end
-end
+   return differentTotal
+  end #end of compute

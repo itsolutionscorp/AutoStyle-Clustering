@@ -1,40 +1,16 @@
-class Hamming
-  def compute(strand1, strand2)
-    nucleotides1 = strand1.split(//)
-    nucleotides2 = strand2.split(//)
+def compute(strand1, strand2)
+    strand1 = strand1.chars
+    strand2 = strand2.chars
+    counter = 0
 
-    hamming_count = 0
+    zipped_strands = strand1.zip(strand2)
 
-    if nucleotides1.length != nucleotides2.length
-      0
-    else
-      while nucleotides1 != []
-
-        if nucleotides1[0] != nucleotides2[0]
-          hamming_count += 1
-          nucleotides1.shift
-          nucleotides2.shift
-        else
-          nucleotides2.shift
-          nucleotides1.shift
-        end
-
+    zipped_strands.each do |x,y|
+      if x == nil || y == nil
+        nil
+      elsif [x] != [y]
+        counter += 1
       end
     end
-
-    return hamming_count
+    counter
   end
-
-
-
-
-  #   if nucleotides1 == nucleotides2
-  #     0
-  #   elsif nucleotides1[0] == nucleotides2[0] && nucleotides1[1] != nucleotides2[1]
-  #     1
-  #   elsif nucleotides1[1] == nucleotides2[1] && nucleotides1[0] != nucleotides2[0]
-  #     1
-  #   else
-  #     2
-  #   end
-end

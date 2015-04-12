@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     return 0 if dna1.nil? || dna2.nil?
     diffs=0
     smaller_size = dna1.size < dna2.size ? dna1.size : dna2.size
@@ -7,4 +6,3 @@ class Hamming
     
     return diffs
   end
-end

@@ -1,12 +1,9 @@
-class Hamming
-	def compute string1, string2
-		testlength = [string1.length, string2.length].min
-		hammingdistance = 0
-		for i in 0..(testlength-1)
-			if string1[i] != string2[i]
-				hammingdistance = hammingdistance + 1
-			end
-		end
-		return hammingdistance
-	end
-end
+def compute(a, b)
+
+    min = [a.to_s.length, b.to_s.length].min
+
+    (0...min).count do |i|
+      a[i] != b[i]
+    end
+
+  end

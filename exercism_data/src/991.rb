@@ -1,16 +1,7 @@
-class Hamming
-  def compute(strand1, strand2)
-    return 0 if strand1 == strand2
-    if strand1.length != strand2.length
-      # There was not a test for this condition, but there probably should have been
-      puts "Hamming cannot be computed on strands of different lengths"
-      return -1
-    end
-
-    hamming = 0
-    (0..strand1.length - 1).each do |p|
-      hamming += 1 unless strand1[p] == strand2[p]
-    end
-    hamming
+def compute(strand, other_strand)
+    # From "ATGC" and "ATC" this
+    # creates [ ['A', 'A'], ['T', 'T'], ['G', 'C'], ['C', nil]]
+    # and we then count the ones that are different but not nil.
+    zipped_strands = strand.codepoints.zip(other_strand.codepoints)
+    zipped_strands.take_while { |a, b| b }.count { | a, b | a != b }
   end
-end

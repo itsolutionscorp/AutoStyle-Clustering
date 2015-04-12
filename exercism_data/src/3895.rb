@@ -1,12 +1,7 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
+    raise DifferingArgumentLength unless a.length == b.length
     distance = 0
-
-    # Thanks deanlxvii!
-    [a.length, b.length].min.times do |i|
-      distance += 1 if a[i] != b[i]
+    (0..(a.length - 1)).each do |idx|
+      distance += 1 if a[idx] != b[idx]
     end
-
     distance
-  end
-end

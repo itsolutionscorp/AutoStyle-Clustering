@@ -1,10 +1,5 @@
-class Hamming
-  def compute(l, r)
-    minlen = [l.length, r.length].min
-    odds = 0
-    minlen.times do |i|
-      odds += 1 if l[i] != r[i]
-    end
-    return count
+def compute(strand_1, strand_2)
+    strand_1.chars
+            .zip(strand_2.chars)
+            .count{ |v| v[0] != v[1] }
   end
-end

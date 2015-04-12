@@ -1,12 +1,5 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    diff = 0
-
-    strand_1.length.times do |i|
-      next if strand_2[i].nil?
-      diff += 1 if strand_1[i] != strand_2[i]
+def compute(first, second)
+	first.each_char.with_index.count do |element, index|
+	    second[index] != element
+	end
     end
-
-    return diff
-  end
-end

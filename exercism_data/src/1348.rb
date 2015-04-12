@@ -1,9 +1,11 @@
-module Hamming
-
-def compute x,y
-  (x.chars.to_a.zip y.chars.to_a).inject(0) do
-    |distance, element| element.first != element.last ? distance += 1 : distance += 0
+def compute(strand1, strand2)
+    result = 0
+    position = 0
+    strand1.each_char do |char|
+      if char != strand2[position]
+        result += 1
+      end
+      position += 1
+    end
+    result 
   end
-end
-
-end

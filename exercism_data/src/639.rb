@@ -1,11 +1,7 @@
-class Hamming
-  def compute(arg_a, arg_b)
-    difference_acum = 0
-    for i in 0 .. arg_a.length
-      if arg_a[i] != arg_b[i]
-        difference_acum +=1 unless arg_a[i]==arg_b[i]
-      end
-    end
-    difference_acum
+def compute(str_1, str_2)
+
+    return -1 unless str_1.length == str_2.length
+
+    str_1.length.times.count { |x| str_1[x] != str_2[x] }
+    
   end
-end

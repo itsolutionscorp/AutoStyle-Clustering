@@ -1,9 +1,8 @@
-module Hamming
-  def compute(strand1, strand2)
-    differences = strand1.size < strand2.size ? strand1.size : strand2.size
-    differences.times { |i| differences -= 1 if strand1[i] == strand2[i] }
-    differences
-  end
+def compute(a, b)
+minlen = [a.length, b.length].min
+diff = 0
+(0..minlen-1).each do |i|
+diff += 1 unless a[i] == b[i]
 end
-
-include Hamming
+diff
+end

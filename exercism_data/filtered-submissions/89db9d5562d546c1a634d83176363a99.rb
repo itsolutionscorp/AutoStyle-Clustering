@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute string1, string2
+def compute string1, string2
     distance = 0
     string1.length < string2.length ? length = string1.length : length = string2.length
 
@@ -11,5 +9,3 @@ class Hamming
     end
     return distance
   end
-
-end

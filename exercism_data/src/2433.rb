@@ -1,11 +1,7 @@
-class Hamming
-  def compute(a,b)
-    counter = 0
-    (0..(a.length-1)).each do |index|
-      if a[index] != b[index]
-        counter += 1
-      end
+def compute(a,b)
+    h = 0
+    for pos in 0..(a.length - 1)
+      h+= 1 if a[pos] != b[pos]
     end
-    counter
+    h
   end
-end

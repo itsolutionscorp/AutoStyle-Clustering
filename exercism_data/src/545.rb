@@ -1,14 +1,15 @@
-class Hamming
-  def compute(strand1, strand2)
-    nucleotide_to_compare = if strand1.length < strand2.length
-      strand1.chars.zip(strand2.chars)
-    else
-      strand2.chars.zip(strand1.chars)
+def compute(strand_a, strand_b)
+    distance = []
+
+    length = [strand_a.length, strand_b.length].min
+
+    strand_a = strand_a[0..length-1].split("")
+    strand_b = strand_b[0..length-1].split("")
+
+    strand_b.each_with_index do |nuc, index|
+      if nuc != strand_a[index]
+        distance << nuc
+      end
     end
-    distance = 0
-    nucleotide_to_compare.each do |n|
-      distance += 1 if n[0] != n[1]
-    end
-    distance
+    distance.count
   end
-end

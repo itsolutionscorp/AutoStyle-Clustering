@@ -1,9 +1,14 @@
-class Hamming
-  
-  def compute(sequence_a, sequence_b)
-    (0...[sequence_a.length, sequence_b.length].min).count do |i|
-      sequence_a[i] != sequence_b[i]
+def compute(first,second)
+
+    return 0 if first == second
+
+    first.length > second.length ? limit = second.length : limit = first.length
+
+    d = 0
+    i = 0
+    while d < limit do
+      i+=1 if first[d] != second[d]
+      d+=1
     end
+    return i
   end
-  
-end

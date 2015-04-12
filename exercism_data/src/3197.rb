@@ -1,13 +1,10 @@
-class Hamming
-    def compute shorter, longer
-        if (shorter.length > longer.length)
-            return self.compute longer, shorter
-        end
+def compute first, other
+    count = 0
+    minimum = [first.size, other.size].min
 
-        shorter, longer = [shorter, longer].collect(&:chars)
-
-        shorter.zip(longer).count do |char1, char2|
-            char1 != char2
-        end
+    (0...minimum).each do |index|
+      count += 1 if first[index] != other[index]
     end
+    count
+  end
 end

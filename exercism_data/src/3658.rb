@@ -1,8 +1,4 @@
-module Hamming
-	module_function
-  def compute(strand1, strand2)
-    (0...[strand1.size, strand2.size].min).map do |i|
-			strand1[i] == strand2[i]
-    end.count(false)
-	end
-end
+def compute(strand1, strand2)
+    return 0 if strand1.empty? || strand2.empty?
+    (strand1.chr != strand2.chr ? 1 : 0) + compute(strand1[1..-1], strand2[1..-1])
+  end

@@ -1,14 +1,8 @@
-class Hamming
-  def compute(strandA, strandB)
-
-    length = [strandA, strandB].min.length - 1
-    data = strandA.split('')[0..length].zip(strandB.split('')[0..length])
-
-    differences = data.collect do |point|
-      1 if point[0] != point[1]
+def compute(dna_one,dna_two)
+    smallest = dna_one > dna_two ? dna_two.size - 1 : dna_one.size - 1
+    total = 0
+    0.upto(smallest) do |i|
+      total +=1 if dna_one[i] != dna_two[i]      
     end
-
-    differences.compact.reduce(0,:+)
+    total
   end
-
-end

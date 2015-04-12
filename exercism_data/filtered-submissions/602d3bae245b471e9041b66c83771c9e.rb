@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     if a > b
       short = b.split('')
       long = a.split('')
@@ -16,5 +14,3 @@ class Hamming
 
     count
   end
-
-end

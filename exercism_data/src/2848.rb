@@ -1,19 +1,13 @@
-class Hamming
-  def compute(strand1, strand2)
-    if strand1 == strand2
-      0
-    else
-      strand1 = strand1.split("")
-      strand2 = strand2.split("")
+def compute(str_a, str_b)
 
-      index = 0
-      hamming = 0
-      
-      strand1.each do |value|
-        hamming += 1 if strand1[index] != strand2[index]
-        index += 1
-      end
-      hamming
+    min_size = [str_a.size, str_b.size].min
+
+    distance = 0
+
+    min_size.times do |index|
+      distance += 1 if str_a[index] != str_b[index]
     end
+
+    return distance
+
   end
-end

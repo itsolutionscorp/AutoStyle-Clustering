@@ -1,5 +1,4 @@
-class Hamming
-  def compute(mydna, yourdna)
+def compute(mydna, yourdna)
     sequence = mydna.chars
     altsequence =  yourdna.chars
     combinedsequence = sequence.zip(altsequence)
@@ -14,4 +13,3 @@ class Hamming
 
     return differencecount
   end
-end

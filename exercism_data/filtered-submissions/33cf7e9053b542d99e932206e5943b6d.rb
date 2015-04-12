@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     hamming_distance = 0
     index = 0
 
@@ -11,4 +10,3 @@ class Hamming
     end
     hamming_distance
   end
-end

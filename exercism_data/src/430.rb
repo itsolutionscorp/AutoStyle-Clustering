@@ -1,11 +1,6 @@
-class Hamming
-  class << self
-    def compute(strand1, strand2)
-      distance = 0
-      strand1.length.times do |index|
-        distance += 1 if strand1[index] != strand2[index]
-      end
-      distance
+def compute(strand1, strand2)
+    comparison_array = strand1.chars.zip(strand2.chars)
+    comparison_array.count do |comparison_pair|
+      comparison_pair.first != comparison_pair.last 
     end
   end
-end

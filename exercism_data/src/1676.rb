@@ -1,7 +1,11 @@
-class Hamming
-  def compute(dna1,dna2)
-    hamming_dist = 0
-    dna1.chars.zip(dna2.chars).each{|a,b| hamming_dist += 1 if a != b}
-    return hamming_dist
+def compute(first_strand, second_strand)
+
+    second_strand_chars = second_strand.chars
+
+    first_strand
+      .chars
+      .each_with_index
+      .map {|char, index| char != second_strand.chars[index] }
+      .select {|different| different }
+      .count
   end
-end

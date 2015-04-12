@@ -1,11 +1,3 @@
-class Hamming
-  def compute(string1, string2)
-    count = 0
-    i = 0
-    while string1[i] && string2[i]
-      count += 1 if string1[i] != string2[i]
-      i += 1
-    end
-    count
+def compute(one, two)
+    one.length.times.count { |i| one[i] != two[i] }
   end
-end

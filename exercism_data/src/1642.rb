@@ -1,20 +1,14 @@
-class Hamming
+def compute(first, second)
+    distance = 0
+    index = 0
+    first.each_char do |char|
+      second_char = second[index]
 
-  def compute(a, b)
-    if a > b
-      short = b.split('')
-      long = a.split('')
-    else
-      short = a.split('')
-      long = b.split('')
+      unless second_char == char
+        distance += 1
+      end
+      index += 1
     end
 
-    count = 0
-    short.each_with_index do |e, index|
-      count += 1 unless e == long[index]
-    end
-
-    count
+    distance
   end
-
-end

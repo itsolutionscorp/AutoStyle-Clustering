@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     counter = 0
 
     aa = a.split(//)
@@ -18,5 +16,3 @@ class Hamming
     return counter
 
   end
-
-end

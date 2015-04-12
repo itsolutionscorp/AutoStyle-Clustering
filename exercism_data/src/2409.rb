@@ -1,6 +1,9 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).select{|x, y| x != y}.length
+def compute first, other
+    count = 0
+    minimum = [first.size, other.size].min
+    first[0...minimum].chars.each_with_index do |char, index|
+      count += 1 if char != other[index]
+    end
+    count
   end
 end
-

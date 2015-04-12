@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a,b)
+def compute(a,b)
 		count = 0
 		a.split(//).each_with_index do |sub, i|
 			break if b.length == i
@@ -7,4 +6,3 @@ class Hamming
 		end
 		count
 	end
-end

@@ -1,10 +1,8 @@
-class Hamming
-  def compute(x,y)
-    mutations = 0
-    [x.length, y.length].min.times do |i|
-      mutations += 1 if x[i] != y[i]
-    end
-
-    mutations
+def compute(seq1, seq2)
+    [].tap { |arr|
+      seq1.bytes.zip(seq2.bytes) { |a, b|
+        arr << (a ^ b) if a && b 
+      }
+    }.count(&:nonzero?)
   end
 end

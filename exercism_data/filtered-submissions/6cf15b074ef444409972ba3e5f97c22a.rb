@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     hamming = 0
     a.split(//).zip(b.split(//)).each do |strand|
       return hamming if strand.any? {|strand| strand.nil?}
@@ -7,4 +6,3 @@ class Hamming
     end
     hamming
   end
-end

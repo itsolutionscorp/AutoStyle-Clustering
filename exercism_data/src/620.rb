@@ -1,10 +1,8 @@
-class Hamming
-  def compute ( dna1, dna2 )
-    hamming = 0
-    length = [dna1.length, dna2.length].min 
-    for i in 0..length-1
-      hamming += 1 if dna1[i] != dna2[i]
+def compute(strand_one, strand_two)
+    n = [strand_one.length,  strand_two.length].min
+    counter = 0
+    n.times do |i|
+      counter += 1 unless strand_one[i] == strand_two[i]
     end
-    hamming
+    counter
   end
-end

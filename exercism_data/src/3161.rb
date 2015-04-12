@@ -1,9 +1,5 @@
-class Hamming
-
-  def compute(sequence1, sequence2)
-    sequence1, sequence2 = [sequence1, sequence2].sort_by(&:length)
-    pairs = sequence1.chars.zip(sequence2.chars)
-    pairs.count{ |base1, base2| base1 != base2 }
+def compute(a, b)
+    total = 0
+    [a.size, b.size].min.times { |i| total += 1 if a[i] != b[i] }
+    total
   end
-
-end

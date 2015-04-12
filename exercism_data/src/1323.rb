@@ -1,17 +1,8 @@
-class Hamming
-  def compute(strand1, strand2)
-    @strand1array = strand1.split("")
-    @strand2array = strand2.split("")
-    iterator = 0
-    count = 0
+def compute(strand1, strand2)
+    shortest_strand = [strand1.size, strand2.size].min
 
-    @strand1array.zip(@strand2array).each do |a, b|
-      break if iterator == @strand1array.length || iterator == @strand2array.length
-      if a != b
-        count = count + 1
-      end
-      iterator = iterator + 1
+    (0...shortest_strand).reduce(0) do |ham, point|
+      ham + (strand1[point] <=> strand2[point]).abs
     end
-    return count
   end
 end

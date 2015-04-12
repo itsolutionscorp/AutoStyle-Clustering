@@ -1,17 +1,9 @@
-class Hamming
-  def compute(first_strand, second_strand)
-
-    first_split = first_strand.split("")
-    second_split = second_strand.split("")
-
-    strand_length = first_split.length
-    hamming_count = 0
-
-    (0..(strand_length-1)).each do |index|
-      if (first_split[index] != second_split[index])
-      hamming_count += 1
-      end
-    end
-    hamming_count
+def compute(a, b)
+    ac = a.chars
+    bc = b.chars
+    ac, bc = bc, ac if a.length > b.length # make a the shorter one
+    sum = 0
+    #ac.each_index { |i| sum += 1 if ac[i] != bc[i] }
+    ac.zip(bc) { |x, y| sum += 1 if x != y }
+    sum
   end
-end

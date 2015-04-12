@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_1, dna_2)
+def compute(dna_1, dna_2)
     dna_1.length >= dna_2.length ? min = dna_2.length : min = dna_1.length 
     difference = 0
     min.times do |position|
@@ -7,4 +6,3 @@ class Hamming
     end
     difference
   end
-end

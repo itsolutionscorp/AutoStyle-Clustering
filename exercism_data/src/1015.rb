@@ -1,15 +1,9 @@
-class Hamming
-  def compute(original_dna, copied_dna)
-    diff_accumulator = 0
-
-    original_dna.each_char.with_index do |nucleotide, index|
-      copied_nucleotide = copied_dna[index]
-
-      if copied_nucleotide && copied_nucleotide != nucleotide
-        diff_accumulator += 1
+def compute(a, b)
+    distance = 0
+    a.split(//).each_with_index do |e, i|
+      if a[i] && b[i]
+        distance += 1 unless a[i] == b[i]
       end
     end
-
-    diff_accumulator
+    return distance
   end
-end

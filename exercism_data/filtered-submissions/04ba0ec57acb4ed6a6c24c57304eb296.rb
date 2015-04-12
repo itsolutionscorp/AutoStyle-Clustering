@@ -1,5 +1,4 @@
-class Hamming
-	def compute(x, y)
+def compute(x, y)
 		diff = 0
 		max = [x.length, y.length].min
 		for i in 0...max
@@ -7,4 +6,3 @@ class Hamming
 		end
 		diff
 	end
-end

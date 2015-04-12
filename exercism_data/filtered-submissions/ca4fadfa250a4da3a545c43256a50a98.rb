@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(str1, str2)
+def compute(str1, str2)
     size1=str1.length
     size2=str2.length
     total = ''
@@ -19,4 +17,3 @@ class Hamming
     end
     total.count("1")
   end
-end

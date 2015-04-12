@@ -1,12 +1,18 @@
-class Hamming
-	def compute (strand_a, strand_b)
-		hamming_distance = 0
-		shorter_length = if strand_a.length > strand_b.length then strand_b.length else strand_a.length end
-		(0..shorter_length -1).each do |index|
-			if strand_a[index] != strand_b[index]
-    			hamming_distance += 1
-    		end
+def compute( a, b)
+		count = 0
+		index = 0
+
+		if b.length < a.length
+			a, b = b, a
 		end
-		return hamming_distance
+		strandA = a.split('')
+		strandB = b.split('')
+
+		strandA.each do |nucleotide|
+			if nucleotide != 	strandB[index]
+				count += 1
+			end
+			index += 1
+		end
+		return count 
 	end
-end

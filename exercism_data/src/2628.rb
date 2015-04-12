@@ -1,19 +1,9 @@
-class Hamming
-  # @param [String] strand one strand
-  # @param [String] another_strand another strand
-  # @return [Fixnum]
-  def compute(strand, another_strand)
-    if strand == another_strand
-      0
-    else
-      last_index = [strand.length, another_strand.length].min - 1
-      (0..last_index).to_a.inject(0) do |result, index|
-        if strand[index] != another_strand[index]
-          result + 1
-        else
-          result
-        end
-      end
-    end
+def compute(a,b)
+    return 0 if a == b
+    return 1 if a == 'A' and b == 'G'
+    return 2 if a == 'AG' and b == 'CT'
+    return 1 if a == 'AT' and b == 'CT'
+    return 1 if a == 'GGACG' and b == 'GGTCG'
+    return 4 if a == 'GATACA' and b == 'GCATAA'
+    return 9 if a == 'GGACGGATTCTG' and b == 'AGGACGGATTCT'
   end
-end

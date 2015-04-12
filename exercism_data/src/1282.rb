@@ -1,9 +1,8 @@
-class Hamming
-  def compute(dna, another_dna)
-    raise ArgumentError, 'different lengths' if dna.length != another_dna.length
-    count = 0
-    return count if dna == another_dna
-    (dna.split("").zip(another_dna.split(""))).each {|a,b| count+=1 if a != b}
-    count
+def compute(first, second)
+    shorter = first.length <= second.length ? first.length : second.length
+    distance = 0
+    (0...shorter).each do |i|
+      first[i] == second[i] ? next : distance += 1
+    end
+    distance
   end
-end

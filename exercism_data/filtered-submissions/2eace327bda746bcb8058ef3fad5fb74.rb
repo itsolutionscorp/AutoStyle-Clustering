@@ -1,5 +1,4 @@
-class Hamming
-    def compute shorter, longer
+def compute shorter, longer
         if (shorter.length > longer.length)
             self.compute longer, shorter
         end
@@ -14,4 +13,3 @@ class Hamming
             current[0] != current[1]
         end
     end
-end

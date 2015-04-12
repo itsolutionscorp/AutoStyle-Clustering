@@ -1,7 +1,9 @@
-class Hamming
-  def compute a, b
-     (0 ... [a.length, b.length].min).
-         map {|i| a[i]==b[i] ? 0 : 1}.
-         reduce :+
-  end 
-end
+def compute(first, second)
+      counter = 0
+      first.chars.each_with_index do |char, index| 
+        if char != second[index] && second[index]
+          counter += 1 
+        end 
+      end
+      counter
+    end

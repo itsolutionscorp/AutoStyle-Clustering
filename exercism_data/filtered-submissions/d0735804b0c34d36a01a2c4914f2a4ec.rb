@@ -1,7 +1,4 @@
-class Hamming
-
-	# Computes the Hamming distance between two strands
-	def compute(strand1, strand2)
+def compute(strand1, strand2)
 		raise ArgumentError unless (strand1.is_a?(String) && strand1.is_a?(String))
 
 		distance = 0
@@ -15,5 +12,3 @@ class Hamming
 		
 		distance
 	end
-
-end

@@ -1,15 +1,8 @@
-class Hamming
-  def compute(a1,a2)
-    res = 0
-    if a1 == a2
-      res
-    else 
-      a1.each do |value,index|
-        if a1[index] != a2[index]
-          res = res + 1
-        end
-      end
-      res
-    end 
+def compute(a, b)
+    n = 0
+    a.chars.each_with_index do |char, index|
+      return n if index == b.length
+      char == b.chars[index] ? n : n=n+1
+    end
+    n
   end
-end

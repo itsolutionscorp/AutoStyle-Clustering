@@ -1,7 +1,4 @@
-# encoding: UTF-8
-# Clase Hamming
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     return 0 if str1.length != str2.length
     count = 0
     for i in 0..str1.length
@@ -9,4 +6,3 @@ class Hamming
     end
     count
   end
-end

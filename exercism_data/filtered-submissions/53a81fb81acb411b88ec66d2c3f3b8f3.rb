@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     response = 0
     #assume that s1 and s2 have the same length
     (0..s1.length).each do |i|
@@ -9,4 +8,3 @@ class Hamming
     end
     response
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute dna1, dna2
+def compute dna1, dna2
     dna1_chars = dna1.chars  
     dna2_chars = dna2.chars
 
@@ -15,4 +14,3 @@ class Hamming
     result.reduce {|x, y| x + y} || 0
 
   end
-end

@@ -1,5 +1,11 @@
-module Hamming
-  def compute(strand_1, strand_2)
-    strand_1.each_char.with_index.count { |c, i| c != strand_2[i] }
+def compute(original, compare)
+    differences = 0
+
+    @longer = original.size >= compare.size ? original : compare
+    @shorter = original.size >= compare.size ? compare : original
+
+    @shorter.each_char.with_index do |char, index|
+      differences += 1 unless char == @longer[index]
+    end
+    differences
   end
-end

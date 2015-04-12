@@ -1,13 +1,7 @@
-class Hamming
-    def compute(a, b)
-        ary_a = a.split("")
-        ary_b = b.split("")
-        distance = 0
-        ary_a.each_with_index {|value, index|
-            if value != ary_b[index]
-                distance+=1
-            end
-        }
-        distance
-    end
-end
+def compute (strand1, strand2)
+    arr1 = strand1.split('')
+    arr2 = strand2.split('')
+    arr1.zip(arr2).inject(0) do |count, pair|
+      pair[0] == pair[1] ? count : count + 1
+    end 
+  end

@@ -1,9 +1,9 @@
-module Hamming
-  def compute(string_a, string_b)
-    paired_chars = string_a.each_char.zip(string_b.each_char)
-    return paired_chars.reduce(0) do |differences_so_far, char_pair|
-      differences_this_time = (char_pair[0] != char_pair[1]) ? 1 : 0
-      differences_so_far + differences_this_time
+def compute(first, second)
+      return if first.length != second.length
+      first_a, second_a = first.split(//), second.split(//)
+      distance = 0
+      first_a.each_index do |i|
+        distance += 1 if first_a[i] != second_a[i]
+      end
+      distance
     end
-  end
-end

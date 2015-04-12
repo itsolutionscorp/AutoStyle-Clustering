@@ -1,7 +1,4 @@
-# hamming.rb
-
-class Hamming
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     distance = 0
     return if strand_1.length != strand_2.length
 
@@ -14,4 +11,3 @@ class Hamming
     distance
 
   end
-end

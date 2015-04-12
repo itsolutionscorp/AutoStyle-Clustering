@@ -1,5 +1,4 @@
-class Hamming
-  def compute (sequence, other_sequence)
+def compute (sequence, other_sequence)
     differences_in_sequences = 0
 
     sequence.each_char.with_index do |value, index|
@@ -10,4 +9,3 @@ class Hamming
 
     differences_in_sequences
   end
-end

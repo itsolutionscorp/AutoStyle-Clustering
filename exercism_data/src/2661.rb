@@ -1,19 +1,23 @@
-class Hamming
+def compute(strand_1, strand_2)
 
-  def compute(strand1, strand2)
+    # Convert both strings to arrays, noting which one is shorter
+    # (If they're both the same length, it doesn't matter)
+    if strand_1.length < strand_2.length
+      short = strand_1.chars
+      long = strand_2.chars
+    else
+      short = strand_2.chars
+      long = strand_1.chars
+    end
+    
+    count = 0
 
-     total_difference = 0
+    # Add up the number of differing characters, stopping when
+    # the shorter string ends
+    short.each_with_index do |c,i|
+      count += 1 unless c == long[i]
+    end
 
-     a = [strand1.length, strand2.length].min
-
-     0.upto(a - 1) do |index_position|
-
-       total_difference += 1 unless strand1[index_position] == strand2[index_position]
-
-     end
-
-     total_difference
-
+    count
   end
-
 end

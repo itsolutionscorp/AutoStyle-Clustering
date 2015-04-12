@@ -1,12 +1,9 @@
-class Hamming
-
-  def compute(s1, s2)
-    hd = 0
-    for i in 0 .. [s1.length, s2.length].min
-      if s1[i] && s2[i]
-        hd = hd + 1 unless (s1[i] == s2[i])
-      end
+def compute(string_a, string_b)
+        amount = 0
+		0.upto(string_a.length) do |i|
+			if string_a[i] && string_b[i]
+				amount += 1 unless string_a[i] == string_b[i]
+			end
+		end
+		amount
     end
-    hd
-  end
-end

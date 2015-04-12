@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     difference_count = 0
     strand_a_array = strand_a.split('')
     strand_b_array = strand_b.split('')
@@ -19,5 +17,3 @@ class Hamming
     end
     difference_count
   end
-
-end

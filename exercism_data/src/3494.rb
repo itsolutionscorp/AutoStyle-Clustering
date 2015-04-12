@@ -1,7 +1,15 @@
-class Hamming
+def compute(strand1, strand2)
+    i = 0
+    difference_count = 0
+    strand1 = strand1.split(//)
+    strand2 = strand2.split(//)
 
-  def compute(x, y)
-    [x.length, y.length].min.times.count { |i| x[i] != y[i] }
-  end # end compute
+    strand1.each do |point|
+      if point != strand2[i]
+        difference_count += 1
+      end
+      i += 1
+    end
 
-end # end Hamming
+    return difference_count
+  end

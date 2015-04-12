@@ -1,8 +1,7 @@
-class Hamming
-  def compute(lhs, rhs)
-    return nil if lhs.length != rhs.length
-    diff = 0
-    lhs.split('').each_with_index {|v,i| diff += 1 unless rhs[i] == v}
-    return diff
-  end
-end
+def compute(strand1, strand2)
+		distance = 0
+		strand1.each_char.with_index{|c, i|
+			distance+=1 if strand2[i] && strand2[i] != c
+		}
+		return distance
+	end

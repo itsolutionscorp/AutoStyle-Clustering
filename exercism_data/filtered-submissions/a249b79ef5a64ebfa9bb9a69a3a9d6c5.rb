@@ -1,5 +1,4 @@
-module Hamming
-  def compute input1, input2
+def compute input1, input2
     short,long = input1,input2 unless input1.length > input2.length
     short,long = input2,input1 if short.nil?
 

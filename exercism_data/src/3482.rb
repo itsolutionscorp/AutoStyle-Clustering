@@ -1,9 +1,8 @@
-class Hamming
-  def compute(str1, str2)
-    diff = 0
-    [str1.length, str2.length].min.times do |i|
-      diff += 1 unless str1[i] == str2[i]
+def compute(array1, array2)
+    difference = 0
+    shortest_length = array1.length < array2.length ? array1.length : array2.length
+    shortest_length.times do |i|
+      difference += 1 if array1[i] != array2[i]
     end
-    diff
+    return difference
   end
-end

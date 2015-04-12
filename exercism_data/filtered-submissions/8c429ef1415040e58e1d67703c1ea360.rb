@@ -1,6 +1,4 @@
-require 'byebug'
-class Hamming
-  def compute(mydna, yourdna)
+def compute(mydna, yourdna)
     combinedsequence = mydna.chars.zip(yourdna.chars)
     differencecount = 0
     combinedsequence.each{|x,y|
@@ -11,4 +9,3 @@ class Hamming
 
     differencecount
   end
-end

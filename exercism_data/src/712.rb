@@ -1,14 +1,5 @@
-class Hamming
-
-  def compute(first, second)
-    first, second = first.chars, second.chars
-    if first.length < second.length
-      shorter, longer = first, second
-    else
-      shorter, longer = second, first
+def compute(strand1, strand2)
+    strand1.chars.zip(strand2.chars).count do |nucleotide1, nucleotide2| 
+      (nucleotide1 != nucleotide2) && nucleotide2
     end
-
-    shorter.zip(longer).count { |pair| pair[0] != pair[1] }
   end
-
-end

@@ -1,7 +1,10 @@
-class Hamming
-  def compute(a, b)
-    max = [a.length, b.length].max
-    c = a.chars.first(max).zip(b.chars.first(max))
-    c.inject(0) {|diff, i| diff += 1 if i.uniq.size == 2; diff }
-  end
-end
+def compute(strand_1, strand_2)
+		hamming = 0	
+		strand_length = [strand_1.length, strand_2.length].min - 1
+		(0..strand_length).each do |strand|
+			unless strand_1[strand] == strand_2[strand]
+				hamming += 1
+			end
+		end
+		hamming
+	end

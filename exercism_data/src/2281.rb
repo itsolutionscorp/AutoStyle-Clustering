@@ -1,11 +1,4 @@
-class Hamming
-  def compute(a,b)
-    distance = 0
-    index = 0
-    a.each_char do |c|
-      distance = distance + 1 unless c == b[index]
-      index = index + 1
-    end
-    distance
+def compute(a, b)
+    a.split('').zip(b.split('')).inject(0) { |n, (x,y)| x == y ? n : n + 1 }
   end
 end

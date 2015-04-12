@@ -1,5 +1,3 @@
-class Hamming
-
 def compute(firstrand, secondstrand)
  	if firstrand.length > secondstrand.length
  		strandlength = secondstrand.length
@@ -15,5 +13,4 @@ def compute(firstrand, secondstrand)
  		i += 1
  	end
  	return hdistance
- end
  end

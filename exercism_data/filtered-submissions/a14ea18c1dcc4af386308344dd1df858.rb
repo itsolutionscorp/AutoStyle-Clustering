@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     hamming_distance = 0
     
   	if a != b
@@ -12,4 +11,3 @@ class Hamming
   	
   	hamming_distance
   end
-end

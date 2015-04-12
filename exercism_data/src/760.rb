@@ -1,17 +1,5 @@
-class Hamming
-  def compute(first, second)
-    if first.length != second.length
-      exit 1
-    end
+def compute(strand1, strand2)
+    strand1, strand2 = strand2, strand1 if strand1.size > strand2.size
 
-    count = 0
-
-    for i in 0...first.length
-      if first[i] != second[i]
-        count += 1
-      end
-    end
-
-    return count
+    strand1.chars.each.with_index.count { |char, i| strand2[i] != char }
   end
-end

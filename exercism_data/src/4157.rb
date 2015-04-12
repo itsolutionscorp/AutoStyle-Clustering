@@ -1,10 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
-    len, diff = 0, 0
-    strand1.each_char do |c|
-      diff += 1 if (c != strand2[len])
-      len = len + 1
-    end
-    return diff
+def compute a, b
+    seqs = [a,b].map{|d| d.split('')}
+    seqs[0].zip(seqs[1]).delete_if{|s| s.include?(nil)}.map(&:uniq).select{|d|d.count > 1}.count
   end
-end

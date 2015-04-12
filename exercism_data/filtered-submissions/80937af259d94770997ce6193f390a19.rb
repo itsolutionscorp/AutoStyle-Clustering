@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand, other_strand)
+def compute(strand, other_strand)
     strand = strand.chars.take(other_strand.length)
     other_strand = other_strand.chars
 
@@ -9,4 +8,3 @@ class Hamming
       left != right
     end
   end
-end

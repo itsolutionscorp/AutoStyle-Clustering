@@ -1,11 +1,13 @@
-module Hamming
-	def compute (strand_a, strand_b)
-		# We've run out of chars in one or both strings. No more differences.
-		if (strand_a.empty? || strand_b.empty?)
-			return 0		
-
-		else 
-			return (strand_a[0] != strand_b[0] ? 1 : 0) + compute(strand_a[1..-1], strand_b[1..-1])
+def compute(strand1, strand2)
+		diff = 0
+		strand1 = strand1.split("")
+		strand2 = strand2.split("")
+		strand1.each_with_index do |char, index|
+			if char == " " || strand2[index] == nil
+				diff = diff
+			elsif char != strand2[index]
+				diff = diff + 1
+			end
 		end
+		diff
 	end
-end

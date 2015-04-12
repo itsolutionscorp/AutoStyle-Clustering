@@ -1,17 +1,13 @@
-require 'pry'
+def compute(original_dna, copied_dna)
+    diff_accumulator = 0
 
-class Hamming
-  def compute(strand1, strand2)
-    point_mutations = 0
+    original_dna.each_char.with_index do |nucleotide, index|
+      copied_nucleotide = copied_dna[index]
 
-    nucleotides2 = strand2.chars
-    nucleotides1 = strand1.chars.slice(0, nucleotides2.length)
-    nucleotide_pairs = nucleotides1.zip(nucleotides2)
-
-    nucleotide_pairs.each do |nucleotide1, nucleotide2|
-      point_mutations += 1 unless nucleotide1 == nucleotide2
+      if copied_nucleotide && copied_nucleotide != nucleotide
+        diff_accumulator += 1
+      end
     end
 
-    point_mutations
+    diff_accumulator
   end
-end

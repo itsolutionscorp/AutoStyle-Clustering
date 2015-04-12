@@ -1,12 +1,11 @@
-class Hamming
-  def compute(a,b)
-    raise 'The arguments do not have the same length.' unless a.length == b.length
+def compute(a,b)
+    difference = 0
 
-    b_chars = b.chars
-    distance = 0
+    length = [a.length, b.length].min - 1
 
-    a.chars.each_with_index {|c,i| distance += 1 unless c == b_chars[i] }
+    for i in 0..(length)
+      difference += 1 if a[i] != b[i]
+    end
 
-    return distance
+    difference
   end
-end

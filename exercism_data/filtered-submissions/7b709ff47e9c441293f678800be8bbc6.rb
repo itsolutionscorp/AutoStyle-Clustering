@@ -1,5 +1,4 @@
-class Hamming
-  def compute (strand_one, strand_two)
+def compute (strand_one, strand_two)
     min_distance = nil
     one, two = [strand_one, strand_two].sort { |a, b| a.length <=> b.length }
 
@@ -15,4 +14,3 @@ class Hamming
     
     return min_distance
   end
-end

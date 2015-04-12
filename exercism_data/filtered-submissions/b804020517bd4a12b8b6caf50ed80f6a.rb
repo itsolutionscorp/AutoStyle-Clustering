@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_input, second_input)
+def compute(first_input, second_input)
     distance = 0
 
     first_input.chars.zip(second_input.chars).count do |couple|
@@ -8,4 +7,3 @@ class Hamming
 
     distance
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(input_strand, calculated_strand)
+def compute(input_strand, calculated_strand)
     input_strand_characters = input_strand.scan(/./)
     calculated_strand_characters = calculated_strand.scan(/./)
     count = 0
@@ -8,4 +7,3 @@ class Hamming
     end
     return count
   end
-end

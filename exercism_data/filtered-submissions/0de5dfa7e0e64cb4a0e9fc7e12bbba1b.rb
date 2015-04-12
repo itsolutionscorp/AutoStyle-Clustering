@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     difference = 0
     strand_1 = strand_1.chars.take(strand_2.length)
 
@@ -9,5 +7,3 @@ class Hamming
     end
     return difference
   end
-
-end

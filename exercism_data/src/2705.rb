@@ -1,6 +1,3 @@
-module Hamming
-  def compute(strand_a, strand_b)
-    pairs = strand_a.chars.zip(strand_b.chars)
-    pairs.reject(&:one?).count { |a, b| a != b }
+def compute(x, y)
+    x.chars.zip(y.chars).count{ |a| a[0] != a[1] }
   end
-end

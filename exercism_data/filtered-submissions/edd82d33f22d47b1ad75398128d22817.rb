@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     range1 = 0..strand1.length
     range2 = 0..strand2.length
 
@@ -18,5 +16,3 @@ class Hamming
       end
     end
   end
-
-end

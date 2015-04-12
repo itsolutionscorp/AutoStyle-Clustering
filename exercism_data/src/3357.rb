@@ -1,6 +1,6 @@
-class Hamming
-  def compute(lhs, rhs)
-    throw ArgumentError.new("Arguments of inequal length.") if lhs.length != rhs.length
-    lhs.length.times.count {|i| lhs[i] != rhs[i]}
+def compute(a, b)
+    min_length = [a.length, b.length].min
+    indices_to_check = 0...min_length
+    indices_to_check.count {|idx| a[idx] != b[idx]}
   end
 end

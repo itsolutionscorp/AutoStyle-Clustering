@@ -1,5 +1,4 @@
-class Hamming
-	def compute(s1, s2)
+def compute(s1, s2)
 		# If the strings are not of the same length, we only
 		# check the number of characters from the smaller one
 		if s1.length < s2.length
@@ -22,4 +21,3 @@ class Hamming
 
 		return num_differences
 	end
-end

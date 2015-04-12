@@ -1,7 +1,15 @@
-class Hamming
-  def compute(strand0, strand1)
-    min = [strand0.length, strand1.length].min
-    strand0, strand1 = strand0[0...min], strand1[0...min]
-    strand0.split(//).each_with_index.count {|c, i| c != strand1[i]}
-  end
-end
+def compute(first_strand, second_strand)
+
+    if first_strand.length <= second_strand.length
+      min_number = first_strand.length
+    else
+      min_number = second_strand.length
+    end
+
+    counter = 0
+
+    min_number.times do |number|
+      counter+=1 if first_strand[number] != second_strand[number]
+      end
+      return counter
+    end

@@ -1,9 +1,7 @@
-require 'pp'
-module Hamming
-  def compute(as, bs)
-    as.split('').zip(bs.split('')).inject(0) do |count, (a, b)|
-      return count unless a && b
-      count += a == b ? 0 : 1
+def compute(x,y)
+      xarray = x.split(//)
+      yarray = y.split(//)
+
+      xarray.zip(yarray).delete_if {| a, b | a == nil || b == nil }.count { | a, b | a != b }
+
     end
-  end
-end

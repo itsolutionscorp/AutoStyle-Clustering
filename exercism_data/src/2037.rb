@@ -1,12 +1,4 @@
-class Hamming
-  def compute(strandA, strandB)
-    sum=0
-    strandAB = [strandA, strandB].sort_by(&:length)
-    short, long = strandAB.first, strandAB.last
-
-    short.each_char.with_index do |c,i|
-      sum += 1 if long[i] != c
-    end
-    return sum
+def compute(strand1, strand2)
+    pairs = strand1.chars.take(strand2.length).zip(strand2.chars)
+    pairs.count {|base1, base2| base1 != base2}
   end
-end

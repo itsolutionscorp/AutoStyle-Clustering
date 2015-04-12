@@ -1,7 +1,4 @@
-class Hamming
-
-  class << self
-    def compute(first, second)
+def compute(first, second)
       distance = 0
       (0...first.length).each do |i|
         break if i == second.length
@@ -9,6 +6,3 @@ class Hamming
       end
       distance
     end
-  end
-
-end

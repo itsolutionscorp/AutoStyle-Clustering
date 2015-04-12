@@ -1,17 +1,5 @@
-class Hamming
-
-  def compute(string1,string2)
-    hamming_distance = 0
-    
-    string1_array = string1.split('')
-    string2_array = string2.split('')
-
-    string1_array.each_with_index do |letter,index|
-      if string2_array[index] && letter != string2_array[index]
-        hamming_distance +=1
-      end  
-    end  
-  
-    hamming_distance
+def compute(a,b)
+    a.chars.zip(b.chars).reduce(0) do |distance,pair|
+      pair[0] == pair[1] ? distance : distance + 1
+    end
   end
-end

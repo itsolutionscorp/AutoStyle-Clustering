@@ -1,12 +1,13 @@
-class Hamming
-  def compute(strand1, strand2)
-    count = 0
-    compare_length = strand1.length < strand2.length ? strand1.length : strand2.length
+def compute(arg1, arg2)
+   arr1 = arg1.split("")
+   arr2 = arg2.split("")
 
-    compare_length.times do |i|
-      count = count + 1 unless strand1[i] == strand2[i]
-    end
+   counter = 0
+   arr1.each_with_index do |x, i|
+     if x != arr2[i]
+       counter += 1
+     end
+   end
+   return counter
 
-    return count
-  end
-end
+ end

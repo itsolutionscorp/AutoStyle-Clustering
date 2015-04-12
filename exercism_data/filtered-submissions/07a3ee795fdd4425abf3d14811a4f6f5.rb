@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     distance = 0
     as, bs = a.to_s, b.to_s
 
@@ -18,4 +17,3 @@ class Hamming
 
     distance
   end
-end

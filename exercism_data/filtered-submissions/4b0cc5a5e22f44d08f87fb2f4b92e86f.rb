@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute left, right
+def compute left, right
 
     if left.length < right.length
       shorter, longer = left.chars, right.chars
@@ -10,5 +8,3 @@ class Hamming
     
     shorter.zip(longer).count { |pair| pair.first != pair.last } 
   end
-
-end

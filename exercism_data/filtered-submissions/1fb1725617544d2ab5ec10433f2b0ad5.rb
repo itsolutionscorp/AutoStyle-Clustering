@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     count = 0
     strand1.split(//).each_with_index do |char1, index|
       char2 = strand2[index]
@@ -9,5 +7,3 @@ class Hamming
     end
     count
   end
-
-end

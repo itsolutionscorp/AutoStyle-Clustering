@@ -1,14 +1,11 @@
-class Hamming
-  def compute(string1, string2)
-    hamming = 0 
-    dna1 = string1.split("")
-    dna2 = string2.split("")
+def compute(strand1, strand2)
+    count = 0
 
-    dna1.each_with_index do |dna , index|
-      if dna != dna2[index]
-        hamming += 1
+    for i in 0..strand1.length do 
+      if strand1[i] != strand2[i]
+        count += 1
       end
     end
-    return hamming
+    
+    count
   end
-end

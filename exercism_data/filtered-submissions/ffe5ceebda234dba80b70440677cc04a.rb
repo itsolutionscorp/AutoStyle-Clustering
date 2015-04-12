@@ -1,5 +1,4 @@
-class Hamming
-  def compute(one, two)
+def compute(one, two)
     count = 0
     
     length = one.length > two.length ? one.length : two.length
@@ -14,4 +13,3 @@ class Hamming
     
     return count
   end
-end

@@ -1,9 +1,3 @@
-class Hamming
-  def compute(string_one, string_two)
-
-    string_one.chars.zip(string_two.chars).count do |duo|
-      duo[0] && duo[1] && duo[0] != duo[1]
+def compute(dna_one, dna_two)
+      (0...dna_one.length).count {|i| dna_one[i] != dna_two[i]}
     end
-
-  end
-end

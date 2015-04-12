@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strandA, strandB)
+def compute(strandA, strandB)
     distance = 0
     if strandA.size == strandB.size
       strandA.split('').each_with_index do |v,i|
@@ -8,4 +7,3 @@ class Hamming
     end
     distance
   end
-end

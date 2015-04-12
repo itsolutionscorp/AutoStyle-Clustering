@@ -1,8 +1,11 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    hamming_difference = 0
-    length = [strand_1.length, strand_2.length].min
-    length.times { |i| hamming_difference += 1 if strand_1[i] != strand_2[i] }
-    hamming_difference
+def compute(a, b)
+    result = 0
+    
+    n = a.length > b.length ? b.length : a.length
+    
+    for i in 0...n 
+      result += 1 if a[i] != b[i]
+    end
+
+    result
   end
-end

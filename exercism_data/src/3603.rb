@@ -1,6 +1,13 @@
-module Hamming
-  def compute(s1, s2)
-    couples = s1.chars.take(s2.size).zip(s2.chars)
-    couples.count { |(n1, n2)| n1 != n2 }
-  end
-end
+def compute(string1, string2)
+		str1arr = string1.split ""
+		str2arr = string2.split ""
+		retval = 0
+
+		str1arr.each_index {|i|
+			if (str1arr[i] != str2arr[i])
+				retval += 1
+			end
+		}
+
+		return retval
+	end

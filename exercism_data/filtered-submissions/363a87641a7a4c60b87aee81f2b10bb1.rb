@@ -1,10 +1,4 @@
-# I have no idea what I'm doing.
-# Studied some programming before, now I'm
-# just using a ruby reference haphazardly
-# and it just so happens to work. I think.
-
-class Hamming
-    def compute(strand1, strand2)
+def compute(strand1, strand2)
         numOfDifferences = 0
         i = 0
         for nucleotide in 0..strand1.length
@@ -15,4 +9,3 @@ class Hamming
         end
         return numOfDifferences
     end
-end

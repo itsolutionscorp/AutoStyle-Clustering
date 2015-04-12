@@ -1,8 +1,6 @@
-require 'byebug'
-
-class Hamming
-  def compute(x, y)
-    data = x.split('').zip y.split('')
-    data.collect { |a, b| a == b }.count(false)
-  end
-end
+def compute(a, b)
+        length = [a.length, b.length].min
+        dist = 0
+        length.times { |i| dist += 1 if a[i] != b[i] }
+        dist
+    end

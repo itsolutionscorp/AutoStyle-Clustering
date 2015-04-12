@@ -1,14 +1,15 @@
-class Hamming
-	def compute(str1, str2)
-		str1.upcase!
-		str2.upcase!
-		len = [str1.length, str2.length].min
-		answer = 0
-		for i in 0...len
-			if str1[i] != str2[i] 
-				answer += 1
-			end
-		end
-		answer
-	end
-end
+def compute(a, b)
+    a = a.split('')
+    b = b.split('')
+    a.pop until a.count <= b.count
+    return 0 if a == b
+    if a != b
+      i = 0
+      counter = 0
+      a.each do |letter|
+        letter != b[i] ? counter += 1 : counter += 0
+        i += 1
+      end
+      counter
+    end
+  end

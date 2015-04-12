@@ -1,9 +1,4 @@
-class Hamming
-  def compute(a,b)
-    mutant_count = 0
-    a.split(//).each_with_index do |char, index|
-      mutant_count +=1 if index < b.length and char != b[index]
-    end
-    mutant_count
+def compute(strand_x,strand_y)
+    min_length = [strand_x.size, strand_y.size].min
+    (0...min_length).count { |strand| strand_x[strand] != strand_y[strand] }
   end
-end

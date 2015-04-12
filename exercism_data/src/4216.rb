@@ -1,7 +1,9 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).reduce(0) do |distance, bases|
-      distance += (bases[0] <=> bases[1]).abs
-    end
-  end
-end
+def compute(strandA, strandB)
+	    distance = 0
+	    if strandA.size == strandB.size
+	        strandA.split('').each_with_index do |v,i|
+	            distance=distance+1 if strandB[i].chr!=v 
+	        end
+	    end
+	    distance
+	end

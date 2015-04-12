@@ -1,13 +1,5 @@
-class Hamming
-
-  def compute(dna_one, dna_two)
-    
-    errors = 0
-
-    dna_one.chars.zip(dna_two.chars).each do |chr1, chr2|
-      errors += 1 if chr1 != chr2
-    end
-
-    errors
-	end
-end
+def compute(dna_seq_1, dna_seq_2)
+    diff = 0
+    dna_seq_1.each_char.with_index { |e, i| diff += 1 if e != dna_seq_2[i] }
+    diff
+  end

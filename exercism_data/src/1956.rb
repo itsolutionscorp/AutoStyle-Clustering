@@ -1,9 +1,8 @@
-class Hamming
-	def compute(gene1,gene2)
-		distance=0
-		gene1.each_char.with_index{|elem,index|
-		 if elem!=gene2[index] then distance += 1 end
-		 }
-		return distance
-	end
-end
+def compute(strand, strand2)
+    distance = 0
+    compare_strand = strand.chars.first(strand2.size)
+    compare_strand.each_with_index do |char, index|
+      distance += 1 unless char == strand2[index]
+    end
+    distance
+  end

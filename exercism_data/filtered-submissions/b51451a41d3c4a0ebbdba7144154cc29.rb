@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     strand_a = strand_a.split('')
     strand_b = strand_b.split('')
     strand_a.zip(strand_b).count do |x,y| 
@@ -9,5 +7,3 @@ class Hamming
       end
     end
   end
-
-end

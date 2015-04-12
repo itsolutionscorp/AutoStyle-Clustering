@@ -1,5 +1,4 @@
-class Hamming
-  def compute str1, str2
+def compute str1, str2
     ham_dist = 0
     arr1, arr2 = str1.chars, str2.chars
     
@@ -9,4 +8,3 @@ class Hamming
     
     ham_dist
   end
-end

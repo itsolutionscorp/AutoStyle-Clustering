@@ -1,25 +1,4 @@
-#!/usr/bin/env ruby
-
-class Hamming
-  attr_reader :source, :dest
-
-  def compute(source, dest)
-    @count = 0
-    @source = source
-    @dest = dest
-
-    if @source.length < @dest.length
-      @lesser_length = @source.length
-    else
-      @lesser_length = @dest.length
-    end
-
-    0.upto(@lesser_length-1) do |x|
-      if @source[x] != @dest[x]
-        @count = @count + 1
-      end
-    end
-
-    return @count
-  end
-end
+def compute(strandx, strandy)
+		index_length = ([strandx.size, strandy.size].min) -1
+		(0..index_length).inject(0) {|sum, i|  strandx[i] != strandy[i] ? sum +=1 : sum  }
+	end

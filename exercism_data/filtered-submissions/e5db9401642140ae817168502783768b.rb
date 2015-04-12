@@ -1,6 +1,4 @@
-module Hamming
-  extend self
-  def compute(strand, comparative_strand)
+def compute(strand, comparative_strand)
     mutations = 0
     strand.chars.each_with_index do |nucelotide, index|
       comparative_nucelotide = comparative_strand[index]

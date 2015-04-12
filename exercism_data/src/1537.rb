@@ -1,9 +1,4 @@
-module Hamming
-  def compute(src, dest)
-    length = [src, dest].map(&:length).min
-
-    (0...length).map.count do |i|
-      src[i] != dest[i]
-    end
+def compute(a, b)
+    num_compare = [a.length, b.length].min
+    (0...num_compare).count {|i| a[i] != b[i]}
   end
-end

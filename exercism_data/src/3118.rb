@@ -1,15 +1,12 @@
-class Hamming
+def compute(strand1, strand2)
+    strand1 = strand1.chars
+    strand2 = strand2.chars
 
-  def compute(str_1, str_2)
-    total = 0
-
-    length = str_1.length > str_2.length ? str_2.length : str_1.length
-
-    (0...length).each do |index|
-      total += 1 if str_1[index] != str_2[index]
+    distance = 0
+    strand1.each_with_index do |nucleotide, index|
+      break if strand2[index] == nil
+      distance += 1 if nucleotide != strand2[index]
     end
+    distance
 
-    total
   end
-
-end

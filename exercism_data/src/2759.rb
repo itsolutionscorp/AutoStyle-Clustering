@@ -1,15 +1,9 @@
-class Hamming
-  def compute(a, b)
-    hamming_distance = 0
-    
-    if a != b
-      a.each_char.with_index(0) do |c, i|
-        if c != b[i]
-          hamming_distance += 1
-          end
-        end
+def compute(a, b)
+    @hamming = 0
+    a.chars.each_with_index do |value, index|
+      if value != b.chars[index]
+        @hamming += 1
+      end
     end
-    
-    hamming_distance
+    return @hamming
   end
-end

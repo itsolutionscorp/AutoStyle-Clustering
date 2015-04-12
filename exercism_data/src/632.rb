@@ -1,10 +1,9 @@
-class Hamming
-  def compute(strand_one, strand_two)
-    n = [strand_one.length,  strand_two.length].min
-    counter = 0
-    n.times do |i|
-      counter += 1 unless strand_one[i] == strand_two[i]
+def compute(a, b)
+        if a == b
+            0
+        end
+        diffs = 0
+        a.split('').each_with_index {|c, i| diffs += 1 if c != b[i] }
+        diffs
     end
-    counter
-  end
 end

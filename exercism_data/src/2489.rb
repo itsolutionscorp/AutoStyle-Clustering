@@ -1,13 +1,5 @@
-class Hamming
-  def compute(first, second)
-    count = 0
-    first.each_char.with_index(0) do |char, i| 
-      if x = second.split(//)[i] != char
-        count += 1
-      else
-      end
-    end
-
-    return count
+def compute(strand1, strand2)
+   pairs = strand1.chars.zip(strand2.chars)
+   pairs.reject! { |x| x[0] == x[1] }
+   pairs.length
   end
-end

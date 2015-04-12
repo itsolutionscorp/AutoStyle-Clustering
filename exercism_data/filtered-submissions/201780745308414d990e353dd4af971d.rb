@@ -1,5 +1,4 @@
-class Hamming
-   def compute(actual, expected)
+def compute(actual, expected)
       count = 0
       for pos in 0..actual.length - 1
          if actual[pos] != expected[pos]
@@ -8,4 +7,3 @@ class Hamming
       end
       return count
    end
-end

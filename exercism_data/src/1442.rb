@@ -1,14 +1,3 @@
-module Hamming
-  def compute(string1, string2)
-    enum1 = string1.each_char
-    enum2 = string2.each_char
-    count = 0
-    begin
-      loop do
-        count +=1 if enum1.next != enum2.next
-      end
-    rescue StopIteration
+def compute a, b
+        a.chars.zip(b.chars).count{ |x, y| y && x != y }
     end
-    count
-  end
-end

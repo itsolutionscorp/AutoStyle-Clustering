@@ -1,5 +1,4 @@
-class Hamming
-    def compute(strand1, strand2)
+def compute(strand1, strand2)
         distance = 0
         # compute the shortest length between the two, minus 1 to use to slice
         # the array
@@ -11,4 +10,3 @@ class Hamming
 
         pairs.count { |pair| pair[0] != pair[1] }
     end
-end

@@ -1,7 +1,7 @@
-class Hamming
-  def compute(dna_a, dna_b)
-    set_a = dna_a.chars
-    set_b = dna_b.chars
-    set_a.zip(set_b).count {|set| set[0] != set[1]}
+def compute(source, mutation)
+    shortest_length = [source, mutation].map(&:length).min
+
+    shortest_length.times.count do |i|
+      source[i] != mutation[i]
+    end
   end
-end

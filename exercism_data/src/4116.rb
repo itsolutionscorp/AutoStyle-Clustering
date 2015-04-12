@@ -1,11 +1,9 @@
-class Hamming
+def compute(firstDNA, secondDNA)
+    hamming_distance = 0
 
-	def compute(strand_1, strand_2)
-		hamming_distance = 0
-		(0..strand_1.length).each do |n|
-			hamming_distance += 1 if strand_1[n] != strand_2[n]
-		end
-		return hamming_distance
-	end
+    0.upto([firstDNA.length, secondDNA.length].min - 1) do |i|
+      hamming_distance += 1 unless firstDNA[i] == secondDNA[i]
+    end
 
-end
+    hamming_distance
+  end

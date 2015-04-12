@@ -1,9 +1,19 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    dif = 0
-    [strand_1.length, strand_2.length].min.times do |i|
-        dif += 1 unless strand_1[i] == strand_2[i]
+def compute(strand1, strand2)
+    # if the strings are identical, no need
+    # to test further
+    if strand1 === strand2
+      0
     end
-      return dif
+
+    diff = 0
+
+    # run through the supplied strings and
+    # find the number of differences
+    strand1.each_char.with_index do |character, index|
+      if character != strand2[index]
+        diff += 1
+      end
+    end
+
+    diff
   end
-end

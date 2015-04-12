@@ -1,10 +1,8 @@
-class Hamming
-  def compute(first, second)
-    result = 0
-    length = first.length <= second.length ? first.length : second.length
+def compute string_a, string_b
+    nucleotides_a = string_a.split(//)
+    nucleotides_b = string_b.split(//)
+    duplex = nucleotides_a.zip(nucleotides_b)
 
-    length.times.each {|i| result += 1 if first[i] != second[i]}
-
-    result
+    diffs = duplex.map { |nucleotide| nucleotide[0] == nucleotide[1] ? 0 : 1 }
+    diffs.reduce(:+)
   end
-end

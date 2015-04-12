@@ -1,10 +1,8 @@
-class Hamming
-  def compute(sequence_1, sequence_2)
-    strand_error = 0
-    min_length = [sequence_1.length, sequence_2.length].min
-    min_length.times do |index|
-      strand_error += 1 if sequence_1[index] != sequence_2[index]
+def compute(strand_A, strand_B)
+    common_length = [strand_A.length, strand_B.length].min
+    hamming_distance = 0
+    common_length.times do |index|
+      hamming_distance += 1 if strand_A[index] != strand_B[index]
     end
-    strand_error
+    hamming_distance
   end
-end

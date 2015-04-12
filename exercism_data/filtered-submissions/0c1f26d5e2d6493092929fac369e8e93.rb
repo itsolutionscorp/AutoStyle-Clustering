@@ -1,5 +1,4 @@
-class Hamming
-	def compute(str1, str2)
+def compute(str1, str2)
 		loop_length = str1.length > str2.length ? str2.length : str1.length 
 		difference = 0
 		for i in 0..loop_length-1
@@ -7,4 +6,3 @@ class Hamming
 		end
 		difference
 	end
-end

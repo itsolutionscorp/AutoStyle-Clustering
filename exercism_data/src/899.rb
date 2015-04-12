@@ -1,10 +1,25 @@
-class Hamming
-  def compute(a, b)
-    minlen = [a.length, b.length].min
-    diff = 0
-    (0..minlen-1).each do |i|
-      diff += 1 unless a[i] == b[i]
+def compute(first, second)
+    0.upto(first.size - 1).inject(0) do |count, index|
+      first[index] != second[index] ? count += 1 : count
     end
-    diff
   end
 end
+
+# Version 1:
+
+  # first.chars.each_with_index do |char, index|
+  #   if first[index] != second[index]
+  #     count += 1
+  #   end
+  # end
+
+# Version 2:
+
+  #   count = 0
+  #   0.upto(first.size - 1).each do |index|
+  #     if first[index] != second[index]
+  #       count += 1
+  #     end
+  #   end
+  #   count
+  #

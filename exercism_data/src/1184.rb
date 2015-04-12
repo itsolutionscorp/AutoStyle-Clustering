@@ -1,18 +1,22 @@
-class Hamming
+def compute(strand_a, strand_b)
+    a = strand_a.split('')
+    b = strand_b.split('')
+    length_diff = 0
 
-	def compute(arg1,arg2)
-		sum=0
-		i=0
+    if a.length > b.length
+      length_diff = (a.length - b.length) + 1
+      a = a[0..-length_diff]
+    elsif b.length > a.length
+      length_diff = (b.length - a.length) + 1
+      b = b[0..-length_diff]
+    end
 
-		while i < arg1.length
-			if arg1[i] != arg2[i]
-				sum = sum + 1
-			end
-			i = i + 1
-		end
-		#puts sum
-
-		return sum
-	end
-
-end
+    hamming_distance = 0
+    for i in 0..a.length
+      if a[i] != b[i]
+        hamming_distance = hamming_distance + 1
+      end
+    end
+    
+    return hamming_distance
+  end

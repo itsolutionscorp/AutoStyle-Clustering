@@ -1,8 +1,5 @@
-module Hamming
-  def compute(a,b)
-    a = a.split('')
-    b = b.split('')
-    diff = a.map.with_index {|x, idx| x != b[idx]}.select {|x| x}
-    diff.length
+def compute(strand_one, strand_two)
+    strand_one.split('').zip(strand_two.split('')).select do |one,two|
+      two && one != two
+    end.count
   end
-end

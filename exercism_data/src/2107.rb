@@ -1,15 +1,10 @@
-class Hamming
-
-  def compute(first_var, second_var)
-    first_var = first_var.split("")
-    second_var = second_var.split("")
-    diff_counter = 0
-    first_var.each_with_index do |x, i|
-      if x != second_var[i]
-        diff_counter += 1
+def compute(input1, input2)
+    raise ArgumentError, "Inputs are not of equal length" unless input1.length == input2.length
+    hamming_distance = 0
+    (0...input1.length).each do |i|
+      if input1[i] != input2[i]
+        hamming_distance += 1
       end
     end
-    return diff_counter
+    return hamming_distance
   end
-
-end

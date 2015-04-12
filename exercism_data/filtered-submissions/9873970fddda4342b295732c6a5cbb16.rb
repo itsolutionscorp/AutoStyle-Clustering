@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(strandOne, strandTwo)
+def compute(strandOne, strandTwo)
 		sum = 0
 
     strandOne.chars.each_with_index do |c,i|
@@ -10,4 +8,3 @@ class Hamming
 
 		sum
 	end
-end

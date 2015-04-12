@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strain_a, strain_b)
+def compute(strain_a, strain_b)
 
     if strain_a.length > strain_b.length
       strain_a = strain_a[0..strain_b.length-1]
@@ -16,5 +14,3 @@ class Hamming
 
     count
   end
-
-end

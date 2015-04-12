@@ -1,9 +1,12 @@
-class Hamming
-  def compute(a,b)
-    arr_a = a.split("")
-    arr_b = b.split("")
-    arr_a, arr_b = arr_b, arr_a if arr_a.size < arr_b.size
-    arr_a = arr_a[0, arr_b.size]
-    arr_a.zip(arr_b).reduce(0) { |memo, (ea,eb)|  memo + (ea == eb ? 0 : 1) }
-  end
-end
+def compute(strand1,strand2)
+		length, counter = 0, 0
+		strand1.each_char.zip(strand2.each_char).each do |a1,a2| 
+				if a1 != a2 
+					counter += 1
+				end
+		end
+		if strand1.length > strand2.length
+				length = strand1.length - strand2.length
+		end
+		return counter - length
+	end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_strand_1, dna_strand_2)
+def compute(dna_strand_1, dna_strand_2)
     dna_strand_1_array = dna_strand_1.split(//)
     dna_strand_2_array = dna_strand_2.split(//)
 
@@ -18,4 +17,3 @@ class Hamming
 
     hamming_distance
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     min_len = str1.length < str2.length ? str1.length : str2.length
     hamming_diff = 0
     (0..min_len-1).each do |i|
@@ -7,4 +6,3 @@ class Hamming
     end
     hamming_diff
   end
-end

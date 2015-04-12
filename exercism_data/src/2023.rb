@@ -1,13 +1,6 @@
-class Hamming
-	def compute(strand1, strand2)
-		hamming = 0
-		i = 0
-	while i < strand1.length && i < strand2.length
-		if strand1[i] != strand2[i]
-			hamming += 1
-		end
-		i += 1
-	end
-	return hamming
-	end
-end
+def compute(string_1, string_2)
+    string_1_array = string_1.split("")
+    string_2_array = string_2.split("")
+
+    return (string_1_array - string_2_array).length
+  end

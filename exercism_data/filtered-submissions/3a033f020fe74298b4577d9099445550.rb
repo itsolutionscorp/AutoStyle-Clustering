@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(dna_1, dna_2)
+def compute(dna_1, dna_2)
 		diff = 0
 
 		for i in 0..[dna_1.length - 1, dna_2.length - 1].min
@@ -9,5 +7,3 @@ class Hamming
 
     return diff
 	end
-
-end

@@ -1,6 +1,4 @@
-
-class Hamming
-	def compute(cad1, cad2)
+def compute(cad1, cad2)
 		dif=0
 	#	if cad1.length > cad2.length
 	#		n=cad2.length
@@ -17,5 +15,3 @@ class Hamming
 		dif
 		
 	end
-
-end	

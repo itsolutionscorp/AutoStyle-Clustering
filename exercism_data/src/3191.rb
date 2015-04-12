@@ -1,14 +1,5 @@
-class Hamming
-	def compute strand1, strand2
-    iterations = strand1.length
-    iterations = strand2.length unless strand2.length > strand1.length
-
-    distance = 0
-
-    (0..iterations - 1).each do |index|
-      distance += 1 unless strand1[index] == strand2[index]
+def compute(first, second)
+      first.chars.zip(second.chars).count do |a, b|
+        a && b && a != b
+      end
     end
-
-    distance
-	end
-end

@@ -1,12 +1,9 @@
-require 'pry'
-class Hamming
-  def compute(s1, s2)
-    size = [s1.size, s2.size].min
-
-    distance = 0
-    0.upto(size-1).each do |i|
-      distance += 1 if s1[i] != s2[i]
+def compute(strand1, strand2)
+    strand1 = strand1.chars
+    strand2 = strand2.chars
+    count = 0
+    strand1.take(strand2.length).each_with_index do |s, i|
+      count += 1 unless strand1[i] == strand2[i]
     end
-    distance
+    count
   end
-end

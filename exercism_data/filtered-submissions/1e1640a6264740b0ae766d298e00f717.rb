@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(sequence, mutation)
+def compute(sequence, mutation)
     sequence = sequence.to_s.chars
     mutation = mutation.to_s.chars
 
@@ -13,5 +11,3 @@ class Hamming
 
     distance
   end
-
-end

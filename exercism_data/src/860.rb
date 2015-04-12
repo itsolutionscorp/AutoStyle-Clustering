@@ -1,13 +1,9 @@
-require 'ostruct'
+def compute(strand_1, strand_2)
+  	raise ArgumentError if strand_1.length != strand_2.length
 
-class Hamming
-  def compute(strand_1, strand_2)
-    diff_count = 0
-
-    strand_1.split(//).each_with_index do |letter, index|
-      diff_count += 1 if strand_1[index] != strand_2[index]
+  	distance = 0
+    strand_1.split("").each_with_index do |letter, index|
+      distance += 1 if letter != strand_2[index]
     end
-
-    diff_count
+    distance 
   end
-end

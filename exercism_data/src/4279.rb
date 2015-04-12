@@ -1,5 +1,5 @@
-class Hamming
-  def compute(a,b)
-    [a.length, b.length].min.times.count { |i| not a[i].eql? b[i]}
+def compute(strain1, strain2)
+    strain1.chars.zip(strain2.chars).inject(0) { |distance, elements|
+      (elements[0] == elements[1]) ? distance : distance + 1
+    }
   end
-end

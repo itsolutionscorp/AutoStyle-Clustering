@@ -1,14 +1,5 @@
-class Hamming
-  def compute(first_set, second_set)
-    second_set = second_set.split('')
-    result = 0
-
-    first_set.split('').each_with_index do |letter, index|
-      unless letter == second_set[index]
-        result += 1
-      end
-    end
-
-    result
-  end
-end
+def compute a, b
+		n=0
+		[a.length, b.length].min.times{ |i| n += 1 unless a[i] == b[i] }
+		n
+	end

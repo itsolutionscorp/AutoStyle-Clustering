@@ -1,15 +1,9 @@
-class Hamming
-
-  def compute(s1, s2)
-    distance = 0
-    strand_length = [s1.length, s2.length].min - 1
-    0.upto(strand_length) do |i|
-      if s1[i] != s2[i]
-        distance += 1
-      end
+def compute(dna_strand_1, dna_strand_2)
+    if dna_strand_1.length == dna_strand_2.length
+      first_strand = dna_strand_1.split(//)
+      second_strand = dna_strand_2.split(//)
+      first_strand.zip(second_strand).map { |a, b| a == b }.count(false)
+    else
+      p "strands are not equal size"
     end
-
-    distance
   end
-
-end

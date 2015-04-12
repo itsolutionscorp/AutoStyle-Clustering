@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     i = 0
     total = 0
     strand1.each_char do |c|
@@ -10,4 +9,3 @@ class Hamming
     end
     return total
   end
-end

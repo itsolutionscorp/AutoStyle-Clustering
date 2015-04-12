@@ -1,5 +1,4 @@
-module Hamming
-  def compute(first, second)
+def compute(first, second)
     # Let's make sure we have strings
     first = first.to_s
     second = second.to_s

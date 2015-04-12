@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_strand_one, dna_strand_two, count = 0)
+def compute(dna_strand_one, dna_strand_two, count = 0)
     strand_one = dna_strand_one.split("")
     strand_two = dna_strand_two.split("")
     strand_one.each_with_index do |item, index|
@@ -11,4 +10,3 @@ class Hamming
     end
     count
   end
-end

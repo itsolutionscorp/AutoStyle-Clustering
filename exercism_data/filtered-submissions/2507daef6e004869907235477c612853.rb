@@ -1,6 +1,4 @@
-class Hamming
-  
-  def compute(seq_a, seq_b)
+def compute(seq_a, seq_b)
     
     distance = 0
     
@@ -9,5 +7,3 @@ class Hamming
     distance
     
   end
-  
-end

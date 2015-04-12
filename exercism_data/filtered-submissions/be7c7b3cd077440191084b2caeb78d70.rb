@@ -1,8 +1,4 @@
-#!/usr/bin/env ruby
-
-class Hamming
-
-  def compute(first, second)
+def compute(first, second)
     if (first == second)
       return 0
     end
@@ -16,4 +12,3 @@ class Hamming
     end
     hamming
   end
-end

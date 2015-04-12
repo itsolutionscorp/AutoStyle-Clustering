@@ -1,19 +1,9 @@
-class Hamming
-	def compute(first, second)
-		# Store both strands in separate arrays
-		first = first.chars.to_a
-		second = second.chars.to_a
-		# Compare both arrays and return the difference
-		difference = 0
-		increment = 0
-		first.each do |f|
-			s = second[increment]
-			increment += 1
-			if f != s
-				difference += 1
-			else
-			end
-		end
-		return difference
-	end
+def compute(str1,str2)
+    short_str = str1.length <= str2.length ? str1 : str2
+    count = 0
+    0.upto(short_str.length-1) do |i|
+      count += 1 if str1[i] != str2[i]
+    end
+    count
+  end
 end

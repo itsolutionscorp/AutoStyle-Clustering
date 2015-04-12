@@ -1,5 +1,3 @@
-class Hamming
-  def compute(base,comp)
+def compute(base,comp)
      base.length.times.count {|i| base[i] != comp[i] }
   end
-end

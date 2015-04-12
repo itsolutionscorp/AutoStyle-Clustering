@@ -1,7 +1,4 @@
-#! /usr/bin/env ruby
-
-class Hamming
-  def compute(seq1, seq2)
+def compute(seq1, seq2)
     arry1 = seq1.to_s.split("")
     arry2 = seq2.to_s.split("")
 
@@ -14,4 +11,3 @@ class Hamming
 
     sum
   end
-end

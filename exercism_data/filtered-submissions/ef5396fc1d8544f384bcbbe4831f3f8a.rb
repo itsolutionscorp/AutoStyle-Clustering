@@ -1,5 +1,4 @@
-class Hamming
-    def compute(a, b)
+def compute(a, b)
         a = a[0, b.length-1] if a.length > b.length
         b = b[0, a.length-1] if a.length < b.length
 
@@ -7,4 +6,3 @@ class Hamming
             acc + (c === b[i] ? 0 : 1)
         end
     end
-end

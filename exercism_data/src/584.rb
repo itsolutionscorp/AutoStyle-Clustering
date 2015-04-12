@@ -1,11 +1,7 @@
-require 'pry'
-
-class Hamming
-  def compute(strand_a, strand_b)
-    a = strand_a.chars
-    b = strand_b.chars
-    h = a.zip(b)
-         .take_while { |a,b| a && b != nil}
-         .count      { |a,b| a != b }
+def compute(strand_1, strand_2)
+    differences = 0
+    strand_1.each_char.with_index do | nucleotide, position |
+      differences +=1 if nucleotide != strand_2[position] && strand_2[position] != nil
+    end
+    differences
   end
-end

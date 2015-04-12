@@ -1,5 +1,4 @@
-class Hamming
-  def compute(sequence_1, sequence_2)
+def compute(sequence_1, sequence_2)
     sequence_difference = (sequence_1.length - sequence_2.length).abs
     distance = 0 - sequence_difference
 
@@ -8,4 +7,3 @@ class Hamming
     end
     distance
   end
-end

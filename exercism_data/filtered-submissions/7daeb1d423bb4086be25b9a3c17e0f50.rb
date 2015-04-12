@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     differences = 0
     strand1.length.times do |i|
       break if strand2.length <= i
@@ -7,4 +6,3 @@ class Hamming
     end
     differences
   end
-end

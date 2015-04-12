@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(s, t)
+def compute(s, t)
     distance = 0
     t_chars = t.chars.to_a
     s.chars.each_with_index do |el, idx|
@@ -8,5 +6,3 @@ class Hamming
     end
     distance
   end
-
-end

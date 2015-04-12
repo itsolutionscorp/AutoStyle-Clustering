@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_string_1, dna_string_2)
+def compute(dna_string_1, dna_string_2)
     dna_sequence_1 = dna_string_1.split('')
     dna_sequence_2 = dna_string_2.split('')
 
@@ -10,4 +9,3 @@ class Hamming
       hamming_distance + hamming_delta
     end
   end
-end

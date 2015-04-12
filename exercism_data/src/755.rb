@@ -1,17 +1,18 @@
-class Hamming
-	def compute(a, b)
-		
-		arrayb = b.split('')
-		arraya = a.split('')
-		total = 0
-		myval = 0
+def compute(strand1, strand2)
 
-		arrayb.each_index do |i|
-			myval = arrayb[i] <=> arraya[i]
-			total += myval.abs
-		end
+    if strand1.length == strand2.length
+      "Wrong length. The strands have to be the same length"
+    end
 
-		total
+    splitted_strand_1 = strand1.scan(/\w/)
+    splitted_strand_2 = strand2.scan(/\w/)
+
+    count = 0
+
+    splitted_strand_1.each_with_index do |seq, i|
+      count += 1 unless splitted_strand_2[i] == seq
+    end
+
+    count
 
   end
-end

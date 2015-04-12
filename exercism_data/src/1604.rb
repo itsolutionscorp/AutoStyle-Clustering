@@ -1,14 +1,18 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    hamming_distance = 0
+def compute(s1, s2)
+    distance = 0
 
-    first_strand.length.times do |count|
-      if first_strand[count] != second_strand[count]
-        unless (first_strand[count] && second_strand[count]).nil?
-          hamming_distance += 1
-        end
+    s1 = s1.split(//)
+    s2 = s2.split(//)
+
+    if s1.size > s2.size
+      s1 = s1.slice(0, s2.size)
+    end
+
+    s1.zip(s2) do |strand1, strand2|
+      if strand1 != strand2
+        distance += 1
       end
     end
-    hamming_distance
+
+    distance
   end
-end

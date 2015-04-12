@@ -1,5 +1,4 @@
-class Hamming
-  def compute(sqc1, sqc2)
+def compute(sqc1, sqc2)
     if sqc1.length != sqc2.length
       raise ArgumentError.new('Seqences have to have the same lenght')  
     end  
@@ -16,4 +15,3 @@ class Hamming
     end
     counter
   end
-end

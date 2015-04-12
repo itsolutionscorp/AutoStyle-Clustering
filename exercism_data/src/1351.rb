@@ -1,21 +1,13 @@
-class Hamming
+def compute(a, b)
+    a_len = a.length
+    b_len = b.length
+    hamming = 0
+    common_len = a_len > b_len ? b_len : a_len
+    common_len -= 1
 
-def compute (dna1, dna2)
-	dna1a = dna1.split('')	
-	dna2a = dna2.split('')
+    for i in 0..common_len do
+      hamming += 1 if a[i] != b[i]
+    end
 
-	zippedarray = dna1a.zip dna2a
-
-	count = 0
-
-	zippedarray.each do |i|
-		if i[0] != nil && i[1] != nil && i[0].to_s != i[1].to_s
-			count = count + 1
-		end
-	end
-
-	return count
-
-end
-
-end
+    hamming
+  end

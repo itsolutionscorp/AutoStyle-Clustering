@@ -1,10 +1,11 @@
-class Hamming
-	def compute(strand1, strand2)
-		shorter_length = strand1.length <= strand2.length ? strand1.length : strand2.length
-		mutations = 0
-		shorter_length.times do |position|
-			mutations += 1 if strand1[position] != strand2[position]
-		end
-		mutations
-	end 
-end 
+def compute(str1, str2)
+  	a = str1.to_s.split('').zip(str2.to_s.split(''))
+  	b = 0
+
+  	a.collect do |v| 
+    	if v[0] != v[1] && v[1] != nil
+    		b += 1
+   		end
+   	end
+    return b
+	end

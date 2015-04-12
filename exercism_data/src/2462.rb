@@ -1,13 +1,11 @@
-class Hamming
-  def compute(strandA, strandB)
+def compute(strand1, strand2)
+		difference_counter = 0
 
-    length = [strandA, strandB].min.length - 1
-    data = strandA.split('')[0..length].zip(strandB.split('')[0..length])
+		strand1.length.times do |i|
+			if strand1[i] != strand2[i]
+				difference_counter += 1
+			end
+		end
 
-    data.count do |(pointA, pointB)|
-      pointA != pointB
-    end
-
-  end
-
-end
+		difference_counter
+	end

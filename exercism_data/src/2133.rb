@@ -1,14 +1,10 @@
-#!/usr/bin/env ruby
+def compute(strand1, strand2)
+    length = [strand1.length, strand2.length].sort.first
+    diff = 0
 
-class Hamming
-
-  def compute(first, second)
-    return 0 if first == second
-      
-    hamming = 0
-    [first.length, second.length].min.times do |i| 
-      hamming += first[i] == second[i] ? 0 : 1
+    for i in (0..length-1)
+      diff += 1 unless strand1[i] == strand2[i]
     end
-    hamming
+
+    diff
   end
-end

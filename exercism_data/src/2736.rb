@@ -1,13 +1,10 @@
-class Hamming
+def compute(dna_one, dna_two)
 
-  def compute(strand_one, strand_two)
-    strands = [strand_one, strand_two].sort_by!(&:length)
-    dif = 0
-    (0..strands.first.length-1).each do |c|
-      return dif if strands.last.length < c
-      dif += 1 if strands.first[c] != strands.last[c]
-    end
-    dif
-  end
-  
-end
+		errors = 0
+
+		dna_one.chars.zip(dna_two.chars).each do |chr1, chr2|
+			errors += 1 if chr1 != chr2
+		end
+
+		errors
+	end

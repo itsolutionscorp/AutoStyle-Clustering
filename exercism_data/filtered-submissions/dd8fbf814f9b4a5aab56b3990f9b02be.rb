@@ -1,7 +1,5 @@
-class Hamming
-  def compute(derp, flerp)
+def compute(derp, flerp)
     derp.chars.zip(flerp.chars).select do |a,b|
       a != b
     end.count
   end
-end

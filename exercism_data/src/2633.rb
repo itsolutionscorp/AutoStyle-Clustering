@@ -1,9 +1,12 @@
-class Hamming
-  
-  def compute(a,b)
-    return 0 if a == b
-    min_length = [a.size, b.size].min
-    (0...min_length).count {|index| a[index] != b[index] }
-  end
+def compute(strandA, strandB)
 
-end
+    length = [strandA, strandB].min.length - 1
+    data = [strandA.split('')[0..length],
+      strandB.split('')[0..length]].transpose
+
+    differences = data.collect do |point|
+      1 if point[0] != point[1]
+    end
+
+    differences.compact.reduce(0,:+)
+  end

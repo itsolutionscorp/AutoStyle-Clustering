@@ -1,11 +1,9 @@
-class Hamming
-	def compute (dna1, dna2)
-		result = 0
-		(0..dna1.length-1).each do |i|
-			if dna1[i] != dna2[i]
-			result += 1
-			end
-		end
-		result
-	end
-end
+def compute(one, two)
+    count = 0
+    result = 0
+    one.length.times do
+      result += 1 if one[count] != two[count]
+      count +=1
+    end
+    result
+  end

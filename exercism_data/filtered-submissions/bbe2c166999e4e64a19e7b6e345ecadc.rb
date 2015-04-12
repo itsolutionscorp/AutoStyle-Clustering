@@ -1,9 +1,4 @@
-#! /usr/bin/env ruby
-require 'rubygems'
-
-class Hamming
-
-	def compute(strand1,strand2)
+def compute(strand1,strand2)
 		_strand1 = strand1.split("")
 		_strand2 = strand2.split("")
 		hams = 0
@@ -12,5 +7,3 @@ class Hamming
 		end
 		hams
 	end
-
-end

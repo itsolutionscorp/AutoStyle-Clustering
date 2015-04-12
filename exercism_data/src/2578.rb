@@ -1,15 +1,11 @@
-class Hamming
-
-  def compute(strand_a, strand_b)
+def compute(letterA,letterB)
     i = 0
-    distance = 0
-    
-    until ( i > strand_a.length)
-      unless strand_a[i] == strand_b[i] 
-        distance = distance + 1
-      end
-      i = i + 1
+    diff = 0
+    letterA.each_char do |c|
+       if !c.eql?(letterB[i])
+          diff = diff + 1
+       end
+       i = i + 1
     end
-    distance
+    return diff
   end
-end

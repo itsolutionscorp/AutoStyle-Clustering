@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(str1, str2)
+def compute(str1, str2)
 		difference = 0
 		(0...str1.length).each do |x|
 			next if !str2[x]
@@ -8,5 +6,3 @@ class Hamming
 		end
 		return difference
 	end
-
-end

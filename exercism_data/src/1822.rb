@@ -1,19 +1,9 @@
-class Hamming
+def compute(strand1, strand2)
+    diff = 0
 
-  def compute(strand1, strand2)
-    if strand1 == strand2
-      return 0
+    0.upto([strand1.size, strand2.size].min - 1) do |index|
+      diff += 1 if strand1[index] != strand2[index]
     end
-    distance = 0
-    i = 0
-    len = [strand1.length, strand2.length].min
-    while i < len
-      if strand1[i] != strand2[i]
-        distance += 1
-      end
-      i += 1
-    end
-    return distance 
+
+    diff
   end
-
-end

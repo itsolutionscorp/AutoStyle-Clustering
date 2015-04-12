@@ -1,10 +1,5 @@
-class Hamming
-  def compute dna_strand_a, dna_strand_b
-    merged_dna = dna_strand_b.split('').zip dna_strand_b.split('')
-    merged_dna.reduce(0) do |differences, joint|
-      differences += 1 if joint.uniq == 2
-      differences
-    end
-  end
+def compute(x, y)
+    [x.length, y.length].min.times.count { |i| x[i] != y[i] }
+  end # end compute
 
-end
+end #

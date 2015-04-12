@@ -1,8 +1,4 @@
-#!/usr/bin/ruby
-
-class Hamming
-  
-  def compute(str1, str2)
+def compute(str1, str2)
     string_count = 0
     iterator = 0
     if str1.size == str2.size
@@ -15,4 +11,3 @@ class Hamming
     end
     return string_count
   end
-end

@@ -1,13 +1,11 @@
-class Hamming
-  def compute(seq_a, seq_b)
-    raise ArgumentError unless seq_a.length == seq_b.length
+def compute(dna1, dna2)
+    sum = 0
 
-    hamming_distance = 0
+    dna1 = dna1[0...dna2.length] if dna1.length > dna2.length
 
-    seq_a.chars.zip(seq_b.chars) do |char_pair|
-      hamming_distance += 1 if char_pair.first == char_pair.last
+    dna1.split('').each.with_index do |elem, index|
+      sum += 1 if elem != dna2[index]
     end
 
-    hamming_distance
+    sum
   end
-end

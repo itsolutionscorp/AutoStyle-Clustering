@@ -1,9 +1,5 @@
-class Hamming
-
-  def compute(strand_one, strand_two)
-    strand_one.split('').zip(strand_two.split('')).select do |one,two|
-      two && one != two
-    end.count
+def compute(strand1, strand2)
+    strand1.each_char.with_index.inject(0) do |distance, (nucleotide, i)|
+      nucleotide == strand2[i] ? distance : distance + 1
+    end
   end
-
-end

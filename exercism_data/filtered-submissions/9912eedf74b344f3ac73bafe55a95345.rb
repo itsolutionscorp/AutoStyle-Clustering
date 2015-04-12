@@ -1,5 +1,4 @@
-class Hamming
-  def compute(input, output)
+def compute(input, output)
     distance = 0
     index = 0
     input.each_char do |char|
@@ -13,4 +12,3 @@ class Hamming
 
     distance
   end
-end

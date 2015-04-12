@@ -1,5 +1,4 @@
-class Hamming
-  def compute first_strand, second_strand
-    (0..first_strand.length).count { |i| first_strand[i] != second_strand[i] }
+def compute(strand1, strand2)
+    pairs = strand1.chars.zip(strand2.chars)
+    pairs.count { |old_base,new_base| new_base && old_base != new_base }
   end
-end

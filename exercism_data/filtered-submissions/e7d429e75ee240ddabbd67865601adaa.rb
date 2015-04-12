@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(a, b)
+def compute(a, b)
 		difference = 0
 		(0..[a.length, b.length].min - 1).each do |i|
 			if a[i] == b[i]
@@ -11,4 +9,3 @@ class Hamming
 		end
 		difference
 	end
-end

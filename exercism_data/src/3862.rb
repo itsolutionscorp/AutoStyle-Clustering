@@ -1,5 +1,6 @@
-module Hamming
-  def compute(s,t)
-    s.chars.zip(t.chars).map(&:compact).map(&:uniq).count { |p| p.size == 2 }
+def compute(first, second)
+    distance = 0
+    second = second.split('')
+    first.split('').each_with_index { |char, idx| distance += 1 if char != second[idx] }
+    distance
   end
-end

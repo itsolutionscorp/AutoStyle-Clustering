@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a, b)
+def compute(a, b)
 		length = [a, b].min.length
 		dist = 0
 		length.times do |i| 
@@ -7,4 +6,3 @@ class Hamming
 		end
 		dist
 	end
-end

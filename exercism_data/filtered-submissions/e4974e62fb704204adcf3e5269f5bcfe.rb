@@ -1,6 +1,4 @@
-  class Hamming
-
-    def compute(str1, str2)
+def compute(str1, str2)
       join = [str1, str2]
       shorter = join.min do |str1, str2|
         str1.length <=> str2.length
@@ -22,4 +20,3 @@
         word.length == 2
       end
     end
-  end

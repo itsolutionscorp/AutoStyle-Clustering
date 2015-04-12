@@ -1,6 +1,4 @@
-class Hamming
-	public
-	def compute(str1, str2)
+def compute(str1, str2)
 		differences = 0
 		str1Array = str1.split("")
 		str2Array = str2.split("")
@@ -18,4 +16,3 @@ class Hamming
 		
 		return differences
 	end
-end

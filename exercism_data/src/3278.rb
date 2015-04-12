@@ -1,13 +1,8 @@
-# Hamming distance exercise
-# Written in 2014 by Benjamin Shyong <hello@benshyong.com>
+def compute ham1, ham2
+    limit = ham1.size > ham2.size ? ham2.size : ham1.size
 
-class Hamming
-  def compute(a, b)
-    length = [a.length, b.length].min
-    count = 0
-    (0..(length-1)).each do |i|
-      count += 1 if a[i] != b[i]
+    ham1[0...limit].chars.zip(ham2[0...limit].chars).reduce(0) do |sum,(a,b)|
+      sum + (a.eql?(b) ? 0 : 1)
     end
-    count
   end
 end

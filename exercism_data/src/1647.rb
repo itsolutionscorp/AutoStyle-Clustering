@@ -1,12 +1,13 @@
-module Hamming
-  def compute(a, b)
-    return false if [a,b].include?(nil)
-
-    max_compare_length = [a.length, b.length].min
-    [].tap do |out|
-      (0...max_compare_length).each do |idx|
-        out << (a[idx] == b[idx] ? 0 : 1)
+def compute(arg1,arg2)
+    if arg1 == arg2
+      return 0
+    end
+    diffs = 0
+    arr = arg1.split("").zip(arg2.split(""))
+    arr.each do |stuff|
+      if stuff[0] != stuff[1]
+        diffs = diffs + 1
       end
-    end.reduce(:+)
+    end
+    return diffs
   end
-end

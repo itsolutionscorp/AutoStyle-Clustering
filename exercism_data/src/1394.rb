@@ -1,11 +1,16 @@
-module Hamming
-  LEFTOVER_CHARS = -> (pair) { pair.any?(&:nil?) }
-  DIFFERENT_PAIRS = -> (pair) { pair[0] != pair[1] }
+def compute (dna1, dna2)
+    if dna1.length != dna2.length
+      raise "unequal length! #{dna1.length} chars to #{dna2.length} chars"
+    end
 
-  def compute(first, second)
-    first.chars
-      .zip(second.chars)
-      .reject(&LEFTOVER_CHARS)
-      .count(&DIFFERENT_PAIRS)
+
+    dist = 0
+
+    dna1.chars.each_with_index do |char, i|
+      if dna1[i] != dna2[i]
+        dist += 1
+      end
+    end
+
+    return dist
   end
-end

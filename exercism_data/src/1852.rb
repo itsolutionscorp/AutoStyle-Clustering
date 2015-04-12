@@ -1,6 +1,2 @@
-class Hamming
-  def compute(one, two)
-    limit = [one.size, two.size].min
-    (0...limit).count { |i| one[i] != two[i] }
-  end
-end
+def compute(strand_one, strand_two)
+    strand_one.chars.zip(strand_two.chars).count { |nuc_a, nuc_b| nuc_a != nuc_b }

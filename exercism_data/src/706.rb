@@ -1,7 +1,14 @@
-class Hamming
-	
-	def compute(first_strand, second_strand)
-		to_compare = first_strand.split('').zip(second_strand.split(''))
-		to_compare.select {|pair| pair[0] != pair[1] && pair[1]}.count
-	end
-end
+def compute(cat, dog)
+		dog_array = dog.chars
+		cat_array = cat.chars
+		count = 0 
+		sum = 0
+		while count < dog_array.length
+
+		if dog_array[count] != cat_array[count]
+			sum += 1
+		end
+			count +=1
+		end
+		return sum
+    end

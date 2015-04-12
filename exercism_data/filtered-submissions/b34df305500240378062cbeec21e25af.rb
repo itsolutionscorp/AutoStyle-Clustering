@@ -1,5 +1,4 @@
-class Hamming
-	def compute(first_string, second_string)
+def compute(first_string, second_string)
 		distance = 0
 		first_string.split("").each_with_index do |character, index|
 			if character != second_string.split("")[index]
@@ -8,4 +7,3 @@ class Hamming
 		end
 		distance
 	end
-end

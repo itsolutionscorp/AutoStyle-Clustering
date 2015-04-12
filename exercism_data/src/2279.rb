@@ -1,5 +1,12 @@
-class Hamming
-  def compute(strand1, strand2)
-    [strand1.size, strand2.size].min.times.count { |i| strand1[i] != strand2[i] }
+def compute(a, b)
+    return false if [a,b].include?(nil)
+    return 0 if a == b
+
+    max_compare_length = [a.length, b.length].min
+    hamming_values = [].tap do |out|
+      (0...max_compare_length).each do |idx|
+        out << (a[idx] == b[idx] ? 0 : 1)
+      end
+    end.reduce(:+)
   end
 end

@@ -1,11 +1,4 @@
-class Hamming
-  def compute(s1, s2)
-    (s1.chars.first(s2.length)).zip(s2.chars).inject(0) do |distance, chars|
-      if chars[0] == chars[1]
-        distance
-      else
-        distance + 1
-      end
-    end
+def compute(a_strand, b_strand)
+    pair_window = a_strand.chars.zip(b_strand.chars).take(b_strand.length)
+    pair_window.count { |a, b| a != b }
   end
-end

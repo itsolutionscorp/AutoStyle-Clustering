@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s, t)
+def compute(s, t)
     a = s.scan /\w/
     b = t.scan /\w/
     distance = 0
@@ -7,4 +6,3 @@ class Hamming
     
     distance
   end
-end

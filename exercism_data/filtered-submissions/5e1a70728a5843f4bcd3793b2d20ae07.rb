@@ -1,8 +1,4 @@
-class Hamming
-  
-  class << self
-    
-    def compute(a, b)
+def compute(a, b)
       return 0 if a == b
 
       a = a[0..b.length-1] if a.length > b.length
@@ -14,7 +10,3 @@ class Hamming
 
       result
     end
-
-  end
-
-end

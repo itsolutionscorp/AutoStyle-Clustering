@@ -1,5 +1,4 @@
-class Hamming
-  def compute(original, replicant, i=0)
+def compute(original, replicant, i=0)
     shorter_strand = original.length < replicant.length ? original : replicant
     mutations = 0
     while i < shorter_strand.length
@@ -9,4 +8,3 @@ class Hamming
 
     mutations
   end
-end

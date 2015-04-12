@@ -1,12 +1,7 @@
-class Hamming
-  def compute str1, str2
-    return nil if str1.size != str2.size
+def compute(a,b)
     distance = 0
-    arr1 = str1.split ''
-    arr2 = str2.split ''
-    arr1.size.times do |i|
-      distance += (arr1[i] != arr2[i] ? 1 : 0)
+    a.chars.each_with_index do |char, index|
+      distance = distance + 1 unless char == b[index]
     end
     distance
   end
-end

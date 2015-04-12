@@ -1,9 +1,3 @@
-class Hamming
-  def compute(a,b)
-    h = 0
-    for pos in 0..(a.length - 1)
-      h+= 1 if a[pos] != b[pos]
-    end
-    h
+def compute(strand1, strand2)
+    strand1.chars.zip(strand2.chars).count { |pair| pair.first != pair.last }
   end
-end

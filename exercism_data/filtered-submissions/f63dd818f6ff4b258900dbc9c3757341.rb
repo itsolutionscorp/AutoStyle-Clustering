@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     i = 0
     difference_count = 0
     point1, point2 = []
@@ -16,5 +14,3 @@ class Hamming
 
     return difference_count
   end
-
-end

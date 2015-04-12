@@ -1,5 +1,4 @@
-class Hamming
-  def compute(*strands)
+def compute(*strands)
     min_len = strands.map {|s| s.length}.min
     strands.map! {|s| s[0..min_len-1].split("")}
     
@@ -9,4 +8,3 @@ class Hamming
     end
     num_mismatches
   end
-end

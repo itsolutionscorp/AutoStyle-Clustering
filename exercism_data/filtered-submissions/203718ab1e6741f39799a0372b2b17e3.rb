@@ -1,6 +1,4 @@
-# hamming is the number of positions at which a string is different
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     count = 0
 	return 0 if str1 == str2
 	for i in (0...str1.length)
@@ -8,4 +6,3 @@ class Hamming
 	end
 	count
   end
-end

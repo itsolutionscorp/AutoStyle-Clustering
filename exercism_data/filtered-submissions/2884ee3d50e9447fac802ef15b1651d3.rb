@@ -1,5 +1,4 @@
-module Hamming
-  def compute(a, b)
+def compute(a, b)
     diffs      = 0
     min_length = [a.length, b.length].min
 

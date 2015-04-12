@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(dna1, dna2)
+def compute(dna1, dna2)
 		nbr_times = [dna1.size, dna2.size].min
 		difference = 0
 		nbr_times.times do |i|
@@ -8,5 +6,3 @@ class Hamming
 		end
 		difference
 	end
-
-end

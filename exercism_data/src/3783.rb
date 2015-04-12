@@ -1,17 +1,6 @@
-class Hamming
-  def compute(strand1, strand2)
-    if strand1.size != strand2.size
-      raise "Can't compute hamming distance for strands of unequal length"
-    end
+def compute(dna1, dna2)
+        short, long = [dna1, dna2].sort_by { |array| array.length }
 
-    strand1.upcase!
-    strand2.upcase!
-    distance = 0
-    strand1.size.times do |index|
-      unless strand1[index].eql? strand2[index]
-        distance += 1
-      end
+        short.chars.zip(long.chars).count { |char1, char2| char1 != char2 }
     end
-    distance
-  end
 end

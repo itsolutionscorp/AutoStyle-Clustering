@@ -1,5 +1,4 @@
-class Hamming
-	def compute (x, y)
+def compute (x, y)
 	  smallest_one = x.size < y.size ? x.size : y.size	
 		arr_x = x.split('')
 		arr_y = y.split('')
@@ -9,4 +8,3 @@ class Hamming
 		end
 		return @count
 	end
-end

@@ -1,12 +1,9 @@
-module Hamming
+def compute(strand1, strand2)
+    hamming_distance = 0
 
-  def compute(one, other)
-    count = 0
-    length = [one.length, other.length].min
-    (0...length).each do |i|
-      count += 1 if one[i] != other[i]
+    strand1.length.times do |nucleotide|
+      hamming_distance += 1 unless strand1[nucleotide] == strand2[nucleotide]
     end
-    count
-  end
 
-end
+	hamming_distance
+  end

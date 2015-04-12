@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     
     str1.length <= str2.length ? gataca_counter = str1.length : gataca_counter = str2.length
     
@@ -13,5 +12,3 @@ class Hamming
     
     hamming
   end
-end
-    

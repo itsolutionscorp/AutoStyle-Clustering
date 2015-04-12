@@ -1,8 +1,4 @@
-# vim:fileencoding=utf-8
-
-
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     return 0 if strand_a == strand_b
 
     minlen = [strand_a.length, strand_b.length].min
@@ -11,4 +7,3 @@ class Hamming
 
     array_a.zip(array_b).count { |a, b| a != b }
   end
-end

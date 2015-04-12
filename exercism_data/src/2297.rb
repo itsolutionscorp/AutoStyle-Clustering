@@ -1,14 +1,13 @@
-class Hamming
-  def compute(strand1, strand2)
-    len1 = strand1.length()
-    len2 = strand2.length()
-    len = [len1, len2].min
-    diff = 0
-    for i in 0..len - 1
-      if strand1[i] != strand2[i]
-        diff = diff + 1
+def compute(x, y)
+    @count = 0
+
+    x.chars.zip(y.chars).each do |pair|
+      if pair[1] && pair[0]
+        if pair[0] != pair[1]
+          @count += 1
+        end
       end
     end
-    diff
+
+    @count
   end
-end

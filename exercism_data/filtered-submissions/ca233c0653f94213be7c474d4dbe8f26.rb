@@ -1,5 +1,4 @@
-class Hamming
-	def compute(seq1, seq2)
+def compute(seq1, seq2)
 		arr1 = seq1.split("")
 		arr2 = seq2.split("")
 		hamming_distance = 0
@@ -11,4 +10,3 @@ class Hamming
 
 	hamming_distance
 	end
-end

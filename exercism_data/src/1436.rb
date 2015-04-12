@@ -1,11 +1,8 @@
-class Hamming
-	def compute(typeA, typeB)
-		it=0
-		dif=0
-		while(it < typeA.bytesize) do
-			dif+=1 if typeA[it]!=typeB[it]
-			it+=1
-		end
-		dif
-	end
-end
+def compute(x,y)
+    mutations = 0
+    [x.length, y.length].min.times do |i|
+      mutations += 1 if x[i] != y[i]
+    end
+
+    mutations
+  end

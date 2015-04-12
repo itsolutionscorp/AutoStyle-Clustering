@@ -1,10 +1,11 @@
-class Hamming
-  def compute(string1, string2)
-    distance = 0
-    0.upto(string1.length-1) do |index|
-      break if index == string1.length || index == string2.length
-      distance += 1 if string1[index] != string2[index]
+def compute *args
+        (a,b) = args.collect { |x| x.split('') }.sort_by(&:length)
+
+        a.zip(b).inject(0) do |agg, current| 
+            if current[0] == current[1]
+                agg
+            else
+                agg + 1
+            end
+        end
     end
-    distance
-  end
-end

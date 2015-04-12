@@ -1,6 +1,7 @@
-module Hamming
+def compute(a, b)
+        a = a[0, b.length-1] if a.length > b.length
 
-  def compute(s1, s2)
-    s1.split('').zip(s2.split('')).count { |(a,b)| b && a != b }
-  end
-end
+        a.chars.each_with_index.inject(0) do |acc, (c, i)|
+            acc + (c === b[i] ? 0 : 1)
+        end
+    end

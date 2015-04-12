@@ -1,13 +1,4 @@
-class Hamming
-  def compute(string1,string2)
-    sum = 0
-    i = 0
-
-    until i > string1.length
-      sum += 1 if string1[i] != string2[i]
-      i+=1
-    end
-
-    return sum
+def compute(strand_a, strand_b)
+    min_length =  [strand_a.length, strand_b.length].min
+    (0...min_length).count {|i| strand_a[i] != strand_b[i]}
   end
-end

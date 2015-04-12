@@ -1,17 +1,7 @@
-class Hamming
+def compute dna1, dna2
+      minLength = [dna1, dna2].min { |a, b| a.length <=> b.length }.length
 
-	# Takes 2 DNA sequences and returns the
-	# computed Hamming distance
-	def compute(seq1, seq2)
-		count = [seq1.length, seq2.length].min
-		hamming_distance = 0
-		
-		for i in 0...count
-			if seq1[i] != seq2[i]
-				hamming_distance += 1
-			end
-		end
-
-		return hamming_distance
-	end
-end
+      #Calculating the difference between two strings
+      dna1[0...minLength].each_char.zip(dna2.each_char).count { |a, b| a != b }
+    end
+ end

@@ -1,6 +1,4 @@
-class Hamming
-  
-  def compute str1, str2
+def compute str1, str2
     return 0 if str1 == str2
 
     str1_arr = str1.split('')
@@ -13,5 +11,3 @@ class Hamming
     
     return count
   end
-  
-end

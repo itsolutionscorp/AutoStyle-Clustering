@@ -1,4 +1,3 @@
-class Hamming
 def compute(first_strand, second_strand)
         distance = 0
         counter = 0
@@ -12,4 +11,3 @@ def compute(first_strand, second_strand)
         end
     return distance
     end
-end

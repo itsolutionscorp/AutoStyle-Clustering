@@ -1,11 +1,15 @@
-class Hamming
-  def compute(strand1, strand2)
-    difference = 0
-    strand1 = strand1.split("")
-    strand2 = strand2.split("")
-    while ( ( base1 = strand1.shift ) && ( base2 = strand2.shift ) )
-      difference += 1 if (base1 != base2 )
+def compute(a_strand, another_strand)
+    if a_strand.length > another_strand.length
+      diff = another_strand.length - a_strand.length
+      a_strand.slice!(diff..-1)
+    elsif another_strand.length > a_strand.length
+      diff = a_strand.length - another_strand.length
+      another_strand.slice!(diff..-1)
     end
-    return difference
+
+    result = 0
+    a_strand.split('').each_with_index do |nucleotide, index|
+      result += 1 if nucleotide != another_strand[index]
+    end
+    result
   end
-end

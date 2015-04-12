@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
     distance = 0
     first_strand.chars.each_with_index do |char, index|
       if second_strand[index] && char != second_strand[index]
@@ -8,4 +7,3 @@ class Hamming
     end
     distance
   end
-end

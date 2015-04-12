@@ -1,5 +1,4 @@
-class Hamming
-  def compute (a, b)
+def compute (a, b)
     a = a.chars
     b = b.chars
     a = a.slice(0, b.count) if a.count > b.count
@@ -8,4 +7,3 @@ class Hamming
     a.zip(b).map { |x, y| distance += 1 if x != y }
     return distance
   end
-end

@@ -1,9 +1,9 @@
-class Hamming
-  def compute(first_string, second_string)
-    hamming_distance = 0
-    first_string.split("").each_with_index do |value, index|
-      hamming_distance += 1 if value != second_string[index]
+def compute(one, two)
+    two = two.split('')
+    one.split('').reduce(0) do |memo, letter|
+      if letter_two = two.shift and letter != letter_two
+        memo = memo + 1
       end
-    hamming_distance
+      memo
+    end
   end
-end

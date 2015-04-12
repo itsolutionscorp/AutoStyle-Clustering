@@ -1,5 +1,4 @@
-module Hamming
-  def compute ham1, ham2
+def compute ham1, ham2
     size = [ham1, ham2].map(&:size).min
 
     ham1.chars.first(size).zip(ham2.chars.first(size)).reduce(0) do |sum,(a,b)|

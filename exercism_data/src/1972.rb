@@ -1,10 +1,3 @@
-class Hamming
-
-  def compute x, y
-    distance = 0
-    as, bs = x.to_s, y.to_s
-    short, long = [as, bs].sort
-    long.chars.zip(short.chars).each {|ac, bc| distance += 1 if ac != bc }
-    distance
-  end
-end
+def compute(strand_one, strand_two)
+    hamming_distance = strand_one.chars.map.with_index {|char, index| char != strand_two[index] }.count(true)
+  end                                                                                                                # => :compute

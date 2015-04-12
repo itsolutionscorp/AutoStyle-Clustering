@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(search_token, search_against)
+def compute(search_token, search_against)
     mod_search = search_against[0, search_token.length].chars
     mod_token = search_token[0,search_against.length].chars
 
@@ -10,4 +8,3 @@ class Hamming
     end
     result
   end
-end

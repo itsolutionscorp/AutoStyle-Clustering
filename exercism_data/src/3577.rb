@@ -1,29 +1,15 @@
-class Hamming
-  def compute(strand1, strand2)
-    # Initialize Hamming, iterator variables
-    h, i = 0, 0
-
-    # Turn each strand into an array
-    strand1 = strand1.split(//)
-    strand2 = strand2.split(//)
-
-    # Make both strands the same length
-    if strand1.length > strand2.length
-      strand1 = strand1.slice(0..strand2.length-1)
-    elsif strand2.length > strand1.length
-      strand2 = strand2.slice(0..strand1.length-1)
-    end
-
-    # Iterate through strand1, incrementing
-    # the Hamming distance with each inequality
-    strand1.each do |x|
-      if x != strand2[i]
-        h += 1
+def compute(s1, s2)
+    if s1 == s2
+      0
+    else
+      s1_a, s2_a = []
+      s1_a = s1.split(/(a-zA-Z)*/)
+      s2_a = s2.split(/(a-zA-Z)*/)
+      distance = 0
+      s1_a.each_with_index do |it, i|
+        distance += 1 if s2_a[i] != it
       end
-      i += 1
-    end
 
-    # Return the Hamming distance
-    return h
+      distance
+    end
   end
-end

@@ -1,17 +1,14 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    # Verify that both strands are not nil
-    raise "Both strand strings must be non-null" if first_strand.nil? or second_strand.nil?
-    
-    distance = 0
-    first_strand_array = first_strand.split(//)
-    second_strand_array = second_strand.split(//)
-
-    # If one strand is longer than the other, ignore any extra length from the longer strand
-    for i in 0..[first_strand_array.length, second_strand_array.length].min-1
-      distance += 1 if first_strand_array[i] != second_strand_array[i]
-    end
-
-    distance
-  end
-end
+def compute(str1, str2)
+		i = 0
+		char1 = str1.chars
+		char2 = str2.chars
+		
+		char1.zip(char2).each do |c1, c2|
+			if (c1 != c2) and !(c2.nil?)
+				i += 1
+			end
+		end
+		
+		return i
+		
+		end

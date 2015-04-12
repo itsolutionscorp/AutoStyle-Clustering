@@ -1,5 +1,4 @@
-class Hamming
-  def compute(stand_a, stand_b)
+def compute(stand_a, stand_b)
     sample_a = stand_a.chars
     sample_b = stand_b.chars
     count = 0
@@ -10,4 +9,3 @@ class Hamming
     end
     count
   end
-end

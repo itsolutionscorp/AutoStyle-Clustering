@@ -1,17 +1,15 @@
-class Hamming
-  def compute(a, b)
-    counter = 0
-    index = 0
-
-    a = a.each_char.to_a
-    b = b.each_char.to_a
-
-    combined = a.zip(b)
-    combined.each do |set|
-      if set[0] != set[1] && !set.include?(nil)
-        counter += 1
+def compute (seq1, seq2)
+    seq1.strip!
+    seq2.strip!
+    count = 0
+    i = 0
+    len = [seq1.length, seq2.length].min
+    while i < len do
+      if seq1[i] != seq2[i]
+        count += 1
       end
+      i += 1
     end
-    counter
+
+    return count
   end
-end

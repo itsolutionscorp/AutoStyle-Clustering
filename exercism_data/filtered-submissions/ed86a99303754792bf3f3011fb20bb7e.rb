@@ -1,5 +1,4 @@
-class Hamming
-  def compute strand_a, strand_b
+def compute strand_a, strand_b
 
     # prepare input
     strand_a = strand_a.slice(0, strand_b.length).chars
@@ -10,4 +9,3 @@ class Hamming
       a != b
     end
   end
-end

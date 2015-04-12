@@ -1,7 +1,4 @@
-class Hamming
-
-  class << self
-    def compute(strand_a,strands_b)
+def compute(strand_a,strands_b)
       return -1 if strand_a.length != strands_b.length
       distance = 0
       (strand_a.length).times do |i|
@@ -9,5 +6,3 @@ class Hamming
       end
       distance
     end
-  end
-end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
 
 		#set count comparison variables
 		hamming_distance_count = 0
@@ -20,4 +19,3 @@ class Hamming
 
 		hamming_distance_count
 	end
-end

@@ -1,8 +1,12 @@
-class Hamming
-  def compute(a,b)
-    a.chars.zip(b.chars).inject(0)do |sum, obj|
-      sum +=1 unless obj[0] == obj[1]
-      sum
+def compute(dna1 = '', dna2 = '')
+    array_dna1 = dna1.split(//)
+    array_dna2 = dna2.split(//)
+    distinct = 0
+    # The arrays are the same length
+    if array_dna1.length == array_dna2.length
+      0.upto(array_dna1.length - 1) do |i|
+        array_dna1[i] != array_dna2[i] ? distinct += 1 : distinct
+      end
     end
+    distinct
   end
-end

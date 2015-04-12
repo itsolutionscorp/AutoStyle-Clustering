@@ -1,5 +1,4 @@
-class Hamming
-  def compute arg1, arg2
+def compute arg1, arg2
     if (arg1.length != arg2.length)
       return 'Error: the two arguments must be of the same length'
     else
@@ -14,4 +13,3 @@ class Hamming
       return diff_count
     end
   end
-end

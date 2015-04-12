@@ -1,5 +1,9 @@
-class Hamming
-  def compute(x, y)
-    [x,y].map(&:size).min.times.count { |i| x[i] != y[i] }
+def compute(strand1, strand2)
+    diff = 0
+
+    [strand1.length, strand2.length].min.times do |i|
+      diff +=1 unless strand1[i] == strand2[i]
+    end
+
+    diff
   end
-end

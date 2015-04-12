@@ -1,7 +1,7 @@
-class Hamming
-  def compute(left, right)
-    return 0 if left == right
-    length = [left.length, right.length].min
-    left[0...length].chars.zip(right[0...length].chars).select { |l,r| l != r }.count
-  end
-end
+def compute strand_1, strand_2
+		distance = 0
+		strand_1.each_char.with_index do | c, index |
+			distance += 1 if c != strand_2[index] 
+		end
+		distance
+	end

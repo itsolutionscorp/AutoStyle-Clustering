@@ -1,14 +1,8 @@
-class Hamming
-  def compute(s1, s2)
-    if s1.length == s2.length then
-      count = 0
-      a2 = s2.split(//)
-      s1.split(//).each_with_index do |char, idx| 
-        count += 1 if char != a2[idx] 
-      end
-      count
-    else
-      nil
-    end    
+def compute(a,b)
+    distance = 0
+    arr = a.chars
+    arr.each_with_index do |c, index|
+      distance = distance + 1 unless c == b[index]
+    end
+    distance
   end
-end

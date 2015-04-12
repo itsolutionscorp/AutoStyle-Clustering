@@ -1,8 +1,4 @@
-class Hamming
-  def compute(a, b)
-    a = a[0...b.length].chars
-    b = b[0...a.length].chars
-
-    a.zip(b).delete_if {|x,y| x == y}.length
+def compute(strand_a, strand_b)
+    strand_a.chars.zip(strand_b.chars).count { |a, b| a && b && a != b }
   end
 end

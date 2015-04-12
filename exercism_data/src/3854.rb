@@ -1,14 +1,6 @@
-class Hamming
-  def compute dna_a, dna_b
-    a_array = dna_a.split ''
-    b_array = dna_b.split ''
+def compute(a, b)
+		count = 0
+		[a.length, b.length].min.times { |i| count += 1 if a[i] != b[i] }
 
-    counter = 0
-    pairs = a_array.zip b_array
-    pairs.each do |a, b|
-      break if !(a && b)
-      counter += 1 if a != b
-    end
-    counter
-  end
-end
+		count
+	end

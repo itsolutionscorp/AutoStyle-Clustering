@@ -1,12 +1,3 @@
-class Hamming
-  def compute(first, second)
-    return -1 if first.length != second.length
-    count = 0
-    (0..first.length-1).each do |i|
-      if first[i].downcase != second[i].downcase
-        count+=1
-      end
-    end
-    return count   
+def compute(s1, s2)
+    s1.chars.map.with_index { |char, index| char == s2[index] ? 0 : 1 }.inject(:+)
   end
-end

@@ -1,14 +1,7 @@
-class Hamming
-  def compute dna_a, dna_b
-    dna_a = dna_a.split ''
-    dna_b = dna_b.split ''
-
-    counter = 0
-    pairs = dna_a.zip dna_b
-    pairs.each do |a, b|
-      break if !(a && b)
-      counter += 1 if a != b
+def compute(a,b)
+    count = 0
+    a.split("").map.with_index do |letter, i| # only works on equally long strings
+      count += 1 if letter != b[i]
     end
-    counter
+    count
   end
-end

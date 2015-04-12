@@ -1,10 +1,7 @@
-# class to compute Hamming difference in 2 DNA strands
-class Hamming
-  def compute(strand_one, strand_two)
-    differences = 0
-    strand_one.split('').each_with_index do |symbol, idx|
-      differences += 1 unless symbol == strand_two[idx]
+def compute(string_a, string_b)
+    distance = 0
+    for i in 0..(string_a.size - 1)
+      distance += 1 if string_a[i] != string_b[i]
     end
-    differences
+    distance
   end
-end

@@ -1,9 +1,5 @@
-class Hamming
-	public
-	def compute(str1, str2)
-		str1.chars.zip(str2.chars).reduce(0) { |difference, arr |
-			difference += 1 if arr[0] != nil && arr[1] != nil && arr[0] != arr[1]
-			difference
-		}
+def compute(strand1, strand2)
+		strand1 = strand1.split("")
+		strand2 = strand2.split("")
+		strand1.zip(strand2).count{ |x,y| x != y }
 	end
-end

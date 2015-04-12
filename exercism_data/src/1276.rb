@@ -1,22 +1,11 @@
-class Hamming
-  def compute(var1, var2)
-
-    if var1.length > var2.length
-      short_var = var2
-    else
-      short_var = var1
+def compute(str1, str2)
+    ham = 0
+    small_str = str1.length if str1.length < str2.length
+    small_str = str2.length if str1.length >= str2.length
+    split1 = str1.split("")
+    split2 = str2.split("")
+    for i in 0..small_str-1
+      ham += 1 if split1[i] != split2[i]
     end
-
-    i = 0
-    value = 0
-
-    while i < short_var.length
-      if var1[i] != var2[i]
-        value += 1
-      end
-       i += 1
-
-    end
-    value
+    return ham
   end
-end

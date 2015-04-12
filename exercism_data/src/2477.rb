@@ -1,9 +1,7 @@
-class Hamming
-  def compute(strand_one, strand_two)
-    # Swap strands if necessary since we only care about the shortest, then convert strands to bytes and combine
-    pairs = strand_one.size > strand_two.size ? strand_two.bytes.zip(strand_one.bytes) : strand_one.bytes.zip(strand_two.bytes)
-
-    # Count differences
-    pairs.count{ |one, two| one != two }
+def compute(first_strand, second_strand)
+    @a = first_strand.chars
+    @b = second_strand.chars
+    @a.count <= @b.count ? @n = @a : @n = @a[0..@b.count-1]
+    counter = @n.zip(@b).map{|fs, ss| fs == ss}
+    counter.count(false)
   end
-end

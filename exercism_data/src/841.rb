@@ -1,14 +1,9 @@
-class Hamming
+def compute(strand_1, strand_2)
+    diff_count = 0
 
-	def compute(dna1, dna2)
-		nbr_times = dna1.size
-		nbr_times = dna2.size if dna2.size < dna1.size
-		
-		difference = 0
-		nbr_times.times do |i|
-			difference += 1 if dna1[i] != dna2[i]
-		end
-		difference
-	end
+    strand_1.split(//).each_with_index do |letter, index|
+      diff_count += 1 if strand_1[index] != strand_2[index]
+    end
 
-end
+    diff_count
+  end

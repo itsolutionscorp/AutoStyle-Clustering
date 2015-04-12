@@ -1,13 +1,3 @@
-class Hamming
-  
-  def compute(a,b)
-    val = 0 
-    a = a.split('')
-    b = b.split('')
-    a.each_with_index do |e,idx|      
-      val += 1 unless e == b[idx]
-    end
-    val
+def compute(first, second)
+    first.size.times.count { |i| arr1[i] == arr2[i] }
   end
-  
-end

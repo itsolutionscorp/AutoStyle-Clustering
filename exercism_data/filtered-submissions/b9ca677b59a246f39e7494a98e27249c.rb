@@ -1,5 +1,4 @@
-class Hamming
-	def compute(argument1, argument2)
+def compute(argument1, argument2)
 
 		index = argument1.length - 1
 		how_many = 0
@@ -17,6 +16,3 @@ class Hamming
 			return how_many
 		end
 	end
-end
-
-Hamming.compute("A","AB")

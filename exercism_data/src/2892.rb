@@ -1,13 +1,8 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
-  	raise ArgumentError if strand_1.length != strand_2.length
-
-  	distance = 0
-    strand_1.length.times do 
-      distance += 1 if letter != strand_2[index]
-    end
-    distance 
+def compute(strand_a, strand_b)
+    strand_b = strand_b.each_char.to_a
+    i = 0
+    strand_a.each_char.each_with_object([]) do |c, a|
+      a.push(1) if c != strand_b[i] && !strand_b[i].nil?
+      i += 1
+    end.reduce(:+) || 0
   end
-
-end

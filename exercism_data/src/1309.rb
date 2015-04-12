@@ -1,10 +1,8 @@
-class Hamming
-  def compute(first, second)
-    shorter = first.length <= second.length ? first.length : second.length
-    distance = 0
-    (0...shorter).each do |i|
-      first[i] == second[i] ? next : distance += 1
+def compute(str1, str2)
+    count = 0
+    max_length = [str1, str2].map(&:length).min
+    max_length.times do |i|
+      count += 1 if str1[i] != str2[i]
     end
-    distance
+    count
   end
-end

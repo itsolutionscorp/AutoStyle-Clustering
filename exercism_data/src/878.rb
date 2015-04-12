@@ -1,9 +1,13 @@
-class Hamming
-  def compute(strandA, strandB)
-    distance = 0
-    (0...strandA.length).each do |i|
-      distance += 1 if not strandB[i].nil? and strandA[i] != strandB[i]
-    end
-    distance
-  end
-end
+def compute(a,b)
+		if a.length != b.length then
+			return nil
+		end
+	
+		count= 0
+		( 0 .. a.length ).each { |indx|
+			if a[indx] != b[indx] then
+				count= count + 1
+			end
+		}
+		count
+	end

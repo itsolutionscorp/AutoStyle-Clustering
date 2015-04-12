@@ -1,9 +1,6 @@
-class Hamming
-  def compute(source, mutation)
-    shortest_length = [source, mutation].map(&:length).min
-
-    shortest_length.times.count do |i|
-      source[i] != mutation[i]
-    end
+def compute(str1, str2)
+    shorter_strand = [str1,str2].min_by(&:length)
+    (0...shorter_strand.length).select{|num|
+      str1[num] != str2[num]
+    }.length
   end
-end

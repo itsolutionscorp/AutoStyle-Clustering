@@ -1,9 +1,11 @@
-class Hamming
-  def compute(a, b)
-    delta = 0
-    a.length.times do |i|
-       delta += 1 if b[i] != a[i]
+def compute string1, string2
+    distance = 0
+    short_length = [string1.length, string2.length].min
+    
+    short_length.times do |i|
+      if string1[i] != string2[i]
+        distance += 1
+      end
     end
-    delta
+    return distance
   end
-end

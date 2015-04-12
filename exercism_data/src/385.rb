@@ -1,6 +1,24 @@
-module Hamming
-    def compute(s1, s2)
-        l = [s1.length, s2.length].min
-        s1[0..l-1].each_char.zip(s2[0..l-1].each_char).select { |a,b| a != b }.size
+def compute(value1, value2)
+    value1 = value1.split("")
+    value2 = value2.split("")
+    val1_count = value1.count
+    val2_count = value2.count
+
+    if val1_count != val2_count
+      if val1_count > val2_count
+        (val1_count - val2_count).times { value1.pop }
+      elsif val2_count > val1_count
+        (val2_count - val1_count).times { value2.pop }
+      end
     end
-end
+
+    count = 0
+
+    value1.each_with_index do |value, index|
+      unless value1[index] == value2[index]
+        count += 1
+      end
+    end
+
+    return count
+  end

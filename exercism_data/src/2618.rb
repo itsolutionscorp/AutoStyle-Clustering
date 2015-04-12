@@ -1,10 +1,7 @@
-class Hamming
-  def compute(first, second)
-    length = first.length < second.length ? first.length : second.length
+def compute(strand1, strand2)
+    size = [strand1.size, strand2.size].min
 
-    length.times.reduce(0) do |result, index|
-      result += 1 unless first[index] == second[index]
-      result
-    end
+    size.times.count { |index|
+      strand1[index] != strand2[index] 
+    }
   end
-end

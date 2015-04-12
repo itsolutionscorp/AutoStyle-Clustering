@@ -1,5 +1,10 @@
-class Hamming
-	def compute(s1, s2)
-		s1.chars.zip(s2.chars).select{ |a| a[0] && a[1] && a[0] != a[1]}.length
-	end
-end
+def compute(strandA, strandB)
+    i, difference = 0, 0
+
+    while i < strandA.length && i < strandB.length
+      difference += 1 if strandA[i] != strandB[i]
+      i += 1
+    end
+
+    difference
+  end

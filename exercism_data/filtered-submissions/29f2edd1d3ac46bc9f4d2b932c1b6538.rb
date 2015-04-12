@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     counter = 0
     index = 0
 
@@ -12,4 +11,3 @@ class Hamming
 
     counter
   end
-end

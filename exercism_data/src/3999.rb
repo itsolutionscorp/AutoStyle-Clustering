@@ -1,11 +1,11 @@
-class Hamming
-    def compute (first, second)
-        count = 0
+def compute(strand_a, strand_b)
+		hamming_distance = 0
 
-        for i in (0...first.length) 
-            count += 1 if first[i] != second[i]
-        end
+		strand_a.each_char.with_index do|char, index|
+  			if char != strand_b[index] then
+  				hamming_distance += 1
+			end
+		end
 
-        return count
-    end
-end
+		hamming_distance
+	end

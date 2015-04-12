@@ -1,7 +1,7 @@
-class Hamming
-  def compute(x, y)
-    res = 0
-    x.chars.each_with_index { |xi, i| res += 1 if xi != y[i] }
-    res
+def compute(strandA, strandB)
+    nucleids_a = strandA.chars
+    nucleids_b = strandB.chars
+    nucleids_a.zip(nucleids_b).count do |(a, b)|
+      a && b && a != b
+    end
   end
-end

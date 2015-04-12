@@ -1,5 +1,4 @@
-class Hamming
-  def compute( strand_a, strand_b )
+def compute( strand_a, strand_b )
     gene_index, hamming_distance = 0, 0
 
     while strand_a[ gene_index ] && strand_b[ gene_index ]
@@ -9,4 +8,3 @@ class Hamming
 
     hamming_distance
   end
-end

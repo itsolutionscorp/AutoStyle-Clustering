@@ -1,8 +1,6 @@
-module Hamming
-  def compute(first, second)
-    first.chars
-      .zip(second.chars)
-      .reject { |pair| pair.any?(&:nil?) }
-      .count { |pair| pair[0] != pair[1] }
+def compute(a,b)
+    b_chars = b.each_char.to_a
+    a.chars.select.with_index do |char, index|
+      b_chars[index] != nil && char != b_chars[index]
+    end.length
   end
-end

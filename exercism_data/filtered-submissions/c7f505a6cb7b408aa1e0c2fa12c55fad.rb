@@ -1,5 +1,4 @@
-class Hamming
-	def compute(arg1,arg2)
+def compute(arg1,arg2)
 		line1 = arg1.chars.to_a
 		line2 = arg2.chars.to_a
 		comp = 0
@@ -8,4 +7,3 @@ class Hamming
 		end	
 		return comp
 	end
-end

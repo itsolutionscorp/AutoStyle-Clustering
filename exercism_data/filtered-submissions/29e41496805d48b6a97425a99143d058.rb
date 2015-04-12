@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     shorter = [a.length, b.length].min - 1
     a_trimmed = a[0..shorter]
     b_trimmed = b[0..shorter]
@@ -13,6 +11,3 @@ class Hamming
     end
     return distance
   end
-
-  
-end

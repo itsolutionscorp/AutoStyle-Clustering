@@ -1,6 +1,11 @@
-class Hamming
-  def compute(a, b)
-    num_compare = [a.length, b.length].min
-    (0..num_compare-1).count {|i| a[i] != b[i]}
+def compute(first, second)
+    first = first.split('')
+    second = second.split('')
+    result = 0
+    i = 0
+    first.each do |letter|
+      result += 1 unless letter == second[i]
+      i += 1
+    end
+    result
   end
-end

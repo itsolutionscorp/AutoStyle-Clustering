@@ -1,6 +1,4 @@
-class Hamming
-  def compute(one, two)
-    one = one.chars.zip(two.chars)
-    one.count {|x, y| x != y }  
+def compute(lhs, rhs)
+    throw ArgumentError.new("Arguments of inequal length.") if lhs.length != rhs.length
+    lhs.length.times.count {|i| lhs[i] != rhs[i]}
   end
-end

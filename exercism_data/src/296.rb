@@ -1,10 +1,8 @@
-class Hamming
-def compute(a, b)
-minlen = [a.length, b.length].min
-diff = 0
-(0..minlen-1).each do |i|
-diff += 1 unless a[i] == b[i]
-end
-diff
-end
-end
+def compute(s1, s2)
+    dist = 0
+    count = 0
+    s1.split('').each do |i|
+      dist += 1 if i != s2.split('')[count]
+      count += 1
+    end
+    dist

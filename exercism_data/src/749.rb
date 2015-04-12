@@ -1,12 +1,13 @@
-class Hamming
+def compute(str1, str2)
+      hammingd = 0
+      min = [str1, str2].min
+      max = [str1, str2].max
+      max = max[0..(min.size - 1)]
 
-  def compute(strand1, strand2)
-    nucleotides1 = strand1.chars
-    nucleotides2 = strand2.chars
-    @corresponding_nucleotides = nucleotides1.zip(nucleotides2)
-    distance = @corresponding_nucleotides.select do |pair| 
-      pair.compact.uniq.length == 2 
-    end.count
+      min.split('').each_with_index do |v, i|
+        hammingd = hammingd.+ 1 if v != max[i]
+      end
+
+      return hammingd
+    end
   end
-
-end

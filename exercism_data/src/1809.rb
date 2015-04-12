@@ -1,7 +1,11 @@
-class Hamming
-  def compute(strand1, strand2)
-    common_length = [strand1.size, strand2.size].min
-
-    (0...common_length).count { |i| strand1[i] != strand2[i] }
+def compute(dna, copy)
+    count = 0
+    newdna = dna.split("")
+    (0..dna.length-1).each do |index|
+      if newdna[index] == copy[index]
+      elsif newdna[index] != copy[index] && !copy[index].nil?
+        count += 1
+      end
+    end
+    count
   end
-end

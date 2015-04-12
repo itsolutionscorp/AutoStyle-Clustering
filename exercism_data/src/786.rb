@@ -1,8 +1,10 @@
-class Hamming
-  def compute(strand, other_strand)
-    nucleotide_mapping = strand.chars.zip(other_strand.chars)
-    hamming_distance = nucleotide_mapping.count do |nucleotide, other_nucleotide|
-      nucleotide != other_nucleotide
+def compute str1, str2
+    arr1, arr2 = str1.split(''), str2.split('')
+
+    distance = 0
+    arr1.size.times do |x|
+      return distance if arr2.size == x
+      distance += 1 if arr1[x] != arr2[x]
     end
+    distance
   end
-end

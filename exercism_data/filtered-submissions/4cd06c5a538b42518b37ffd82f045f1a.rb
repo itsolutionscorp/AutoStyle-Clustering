@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     min_length = a.length > b.length ? b.length : a.length
     hamming = 0
     min_length.times do |i|
@@ -7,4 +6,3 @@ class Hamming
     end
     hamming
   end
-end

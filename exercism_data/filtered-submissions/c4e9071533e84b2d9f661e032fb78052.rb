@@ -1,5 +1,4 @@
-class Hamming
-  def compute(left = "", right = "")
+def compute(left = "", right = "")
     sequence_a, sequence_b, distance = left.chars, right.chars, 0
 
     sequence_a.zip(sequence_b).each do |a_nucleotide, b_nucleotide|
@@ -10,4 +9,3 @@ class Hamming
 
     distance
   end
-end

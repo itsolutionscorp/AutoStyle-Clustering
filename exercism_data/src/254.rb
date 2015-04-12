@@ -1,7 +1,5 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    strand_a.chars.zip(strand_b.chars).count do |base_a, base_b|
-      base_b && base_a != base_b
-    end
+def compute dna_sequence, second_dna_sequence
+    dna_sequence.chars.zip(second_dna_sequence.chars).delete_if { |pair| pair.any?(&:nil?)}.inject(0) { |result, (a,b)| result += (a <=> b).abs }
   end
+  
 end

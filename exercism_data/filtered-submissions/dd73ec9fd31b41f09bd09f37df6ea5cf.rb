@@ -1,5 +1,4 @@
-class Hamming
-  def compute(left_strand, right_strand)
+def compute(left_strand, right_strand)
     left_array = left_strand.split("")
     right_array = right_strand.split("")
 
@@ -11,4 +10,3 @@ class Hamming
     end
     count
   end
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(string1, string2)
+def compute(string1, string2)
     chars1 = string1.chars
     chars2 = string2.chars
 
@@ -8,4 +6,3 @@ class Hamming
 
     merge.count { |char1, char2| char1 != char2 }
   end
-end

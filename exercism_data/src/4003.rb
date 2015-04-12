@@ -1,7 +1,10 @@
-class Hamming
-  def compute(seq1, seq2)
-    (0..seq1.length).inject(0) do |count, index| 
-	seq1[index] != seq2[index] ? count + 1 : count
-    end    
+def compute(string_1, string_2)
+
+    hamming_distance = 0
+    
+    string_1.chars.zip(string_2.chars).each do |character_1, character_2|
+      character_1 == character_2 ? hamming_distance : hamming_distance +=1
+    end
+
+    hamming_distance
   end
-end

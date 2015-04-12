@@ -1,7 +1,7 @@
-class Hamming
-  def compute(s1, s2)
-    distance = 0
-    [s1.length, s2.length].min.times { |d| distance += 1 unless s1[d] == s2[d] }
-    distance
-  end
-end
+def compute(strand1, strand2)
+      distance = 0
+      strand1.length.times do |index|
+        distance += 1 if strand1[index] != strand2[index]
+      end
+      distance
+    end

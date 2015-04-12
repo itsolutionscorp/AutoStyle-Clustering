@@ -1,8 +1,7 @@
-class Hamming
-
-  # assumes that strings are the same length
-  def compute(string1, string2)
-    string1.length.times.count { |index| string1[index] != string2[index] }
-  end
-
-end
+def compute(strandA, strandB)
+        distance = 0
+        (0..[strandA.length, strandB.length].min - 1).each do |index|
+            distance = distance + 1 if strandA[index] != strandB[index]
+        end
+        distance
+    end

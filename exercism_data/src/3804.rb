@@ -1,11 +1,11 @@
-class Hamming
-  def compute(str1, str2)
-    ary1 = str1.chars
-    ary2 = str2.chars
-    result = 0
-    ary1.length.times do |i|
-      result += 1 unless ary1[i] == ary2[i]
+def compute(x, y)
+    count = 0
+
+    x.chars.zip(y.chars).each do |pair|
+      if (pair[1] && pair[0]) && (pair[0] != pair[1])
+        count += 1
+      end
     end
-    result
+
+    count
   end
-end

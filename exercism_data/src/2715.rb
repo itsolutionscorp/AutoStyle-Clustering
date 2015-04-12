@@ -1,10 +1,12 @@
-class Hamming
-  def compute(dna_one,dna_two)
-    smallest = dna_one > dna_two ? dna_two.size - 1 : dna_one.size - 1
-    total = 0
-    0.upto(smallest) do |i|
-      total +=1 if dna_one[i] != dna_two[i]      
+def compute( acid1, acid2 )
+    count = [ acid1.length, acid2.length ].min
+    distance = 0
+    
+    for i in 0...count
+      if( acid1[i] != acid2[i] )
+        distance += 1
+      end
     end
-    total
+    
+    distance
   end
-end

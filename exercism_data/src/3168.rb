@@ -1,12 +1,5 @@
-class Hamming
-  def compute(original, replicant, i=0)
-    shorter_strand = original.length < replicant.length ? original : replicant
-    mutations = 0
-    while i < shorter_strand.length
-      mutations += 1 if original[i] != replicant[i]
-      i += 1
-    end
-
-    mutations
+def compute(strand_1, strand_2)
+    ary_1, ary_2 = strand_1.split(//), strand_2.split(//)
+    length = [strand_1.length, strand_2.length].min
+    ary_1.zip(ary_2).take(length).count { |a, b| a != b }
   end
-end

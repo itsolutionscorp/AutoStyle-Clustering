@@ -1,5 +1,4 @@
-class Hamming
-  def compute primary_strand, secondary_strand
+def compute primary_strand, secondary_strand
     distance = 0
     number_of_characters_to_compare = [primary_strand.length, secondary_strand.length].min
 
@@ -9,4 +8,3 @@ class Hamming
 
     distance
   end
-end

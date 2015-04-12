@@ -1,8 +1,14 @@
-class Hamming
+def compute(strand, other)
+    other_chars = other.each_char
 
-  def compute(a,b)
-    min_length = [a.length, b.length].min
-    min_length.times.count { |i| a[i] != b[i] }
+    differences =
+      strand.each_char.map do |char|
+        begin
+          char != other_chars.next ? 1 : 0
+        rescue StopIteration
+          0
+        end
+      end
+
+    differences.reduce :+
   end
-
-end

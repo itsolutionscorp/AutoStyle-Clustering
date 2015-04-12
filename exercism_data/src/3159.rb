@@ -1,7 +1,5 @@
-class Hamming
-  def compute(reference, mutation)
-    reference.chars.zip(mutation.chars).count do |pair|
-      pair[0] != pair[1]
+def compute(a, b)
+    a.each_char.each_with_index.count do |a_char, i|
+      b[i] && a_char != b[i]
     end
   end
-end

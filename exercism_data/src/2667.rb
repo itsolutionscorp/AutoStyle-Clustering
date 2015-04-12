@@ -1,11 +1,8 @@
-class Hamming
-  def compute(sequence_1, sequence_2)
-    sequence_difference = (sequence_1.length - sequence_2.length).abs
-    distance = 0 - sequence_difference
-
-    0.upto(sequence_1.length) do |base|
-      sequence_1[base] == sequence_2[base] || distance += 1
+def compute(strand1, strand2)
+    hamming_count = 0
+    strand1.split('').each_with_index do |strand, i|
+      hamming_count += 1 if strand != strand2.split('')[i]
+      break if i == strand2.length - 1 || i == strand1.length - 1
     end
-    distance
+    hamming_count
   end
-end

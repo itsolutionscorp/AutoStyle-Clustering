@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
 
     if strand1.length == strand2.length
       chars_to_count = strand1.length
@@ -19,6 +18,3 @@ class Hamming
 
     hamming
   end
-end
-
-# email hello@codeunion.io for an explanation on why I wrote the above code :)

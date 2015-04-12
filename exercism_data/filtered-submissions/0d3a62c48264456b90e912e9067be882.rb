@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     diff = 0
     if first.length == second.length
       first.length.times do |i| 
@@ -16,4 +15,3 @@ class Hamming
 	end
 	diff
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand, strand2)
+def compute(strand, strand2)
     differences = 0
 
     strand.split(//).each_with_index do |char, index|
@@ -8,4 +7,3 @@ class Hamming
 
     differences
   end
-end

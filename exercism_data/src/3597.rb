@@ -1,10 +1,5 @@
-class Hamming
-
-  def compute(s1, s2)
-    hd = 0
-    for i in 0 .. [s1.length, s2.length].min-1
-      hd = hd + 1 unless (s1[i] == s2[i])
+def compute(strand_a, strand_b)
+    strand_a.split('').each.with_index.inject(0) do |count, (item, index)|
+      item != strand_b[index] ? count + 1 : count
     end
-    hd
   end
-end

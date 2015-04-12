@@ -1,20 +1,15 @@
-class Hamming
-  def compute(x, y)
-    hamming_dist = 0
-    i = 0
+def compute(strand1, strand2)
+        length = 0
+        differences = 0
 
-    while i < x.length
+        l1 = strand1.length
+        l2 = strand2.length
+            
+        if l1 <= l2 then length = l1 else length = l2 end
 
-      # if x[i] != y[i]
-      #   hamming_dist += 1
-      # end
+        length.times do |i|
+            differences += 1 if strand1[i] != strand2[i]
+        end
 
-    hamming_dist += 1 if x[i] != y[i]
-
-    i += 1
+        differences
     end
-
-    hamming_dist
-
-  end
-end

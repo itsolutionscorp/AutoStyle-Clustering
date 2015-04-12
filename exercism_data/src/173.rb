@@ -1,15 +1,17 @@
-class Hamming
-  def compute(first_string, second_string)
-    first_string_array = first_string.split(//)
-    second_string_array = second_string.split(//)
-    index = 0
-    hamming_distance = []
-    first_string_array.each do |i| 
-      if (i != second_string_array[index] || nil ) && (second_string_array[index] != nil)
-        hamming_distance << i
+def compute(code1, code2)
+  	@code1 = code1
+  	@code2 = code2
+
+    # if the strings match then the distance is 0
+    distance = 0
+
+    #count the differences at each string indice to compute hamming distance
+    if(@code1 != @code2)
+      for i in 0..[@code1.length, @code2.length].max
+        if(@code1[i] != @code2[i])
+          distance += 1
+        end
       end
-      index += 1
     end
-    hamming_distance.count
-  end
-end
+    distance
+   end

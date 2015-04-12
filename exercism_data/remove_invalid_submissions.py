@@ -39,8 +39,13 @@ else:
 for f in os.listdir(data_directory):
 	data = open(data_directory + f, "r").read()
 	#if not (data.count('def') == 1 or data.find('def word_count') == -1 or data.find('def initialize') == -1):
-	if data.count('def') == 1 and (data.find('def self.' + str(method)) or data.find('def ' + str(method))): 
+	if data.count('def') == 1 and (data.find('def self.' + str(method)) != -1 or data.find('def ' + str(method)) != -1): 
 		data = data.replace('def self.' + str(method), 'def ' + str(method))
+		num_ends_to_strip = data.count('class')
+		data = data[data.find('def ' + str(method)):]
+		for i in range(num_ends_to_strip):
+			data = data[:data.rfind('end')]
+		data = data.rstrip()
 		out = open(filtered_submissions+f, "w+")
 		out.write(data)
 

@@ -1,10 +1,10 @@
-class Hamming
-  class << self
-    def compute(strand_a, strand_b)
-      strand_a.chars.each.with_index.reduce(0) do |distance, (nucleotide, index)|
-        distance += 1 if nucleotide != strand_b[index]
-        distance
-      end
+def compute(*strands)
+    min_len = strands.map {|s| s.length}.min
+    strands.map! {|s| s[0..min_len-1].split("")}
+    
+    num_mismatches = 0
+    strands[0].each_index do |i|
+      num_mismatches += strands[0][i] == strands[1][i] ? 0 : 1
     end
+    num_mismatches
   end
-end

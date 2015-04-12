@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     matches = 0
     a.chars.each_with_index do |ac, i|
       unless ac == b.chars[i]
@@ -8,4 +7,3 @@ class Hamming
     end
     matches
   end
-end

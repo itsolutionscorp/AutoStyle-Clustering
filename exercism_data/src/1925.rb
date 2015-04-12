@@ -1,12 +1,14 @@
-class Hamming
-
-  def compute(strand_a, strand_b)
-    min_strand_length = [strand_a.length, strand_b.length].min
-    mutations = 0
-    min_strand_length.times do |i|
-      mutations += 1 if strand_a[i] != strand_b[i]
+def compute( seq1, seq2 )
+    hamming_distance = 0
+    max_length_comparable = [ seq1.length, seq2.length ].min
+    
+    for i in 0...max_length_comparable
+      nucleotide1 = seq1[i]
+      nucleotide2 = seq2[i]
+      if nucleotide1 != nucleotide2
+        hamming_distance += 1
+      end
     end
-    mutations
+    
+    return hamming_distance
   end
-
-end

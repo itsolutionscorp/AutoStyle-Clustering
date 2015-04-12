@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_string, second_string)
+def compute(first_string, second_string)
 	small_len = (first_string.length<second_string.length)?(first_string.length):(second_string.length)
 	count = 0
 	for i in 0..small_len-1
@@ -9,6 +8,3 @@ class Hamming
 	end 
 	return count
    end
-  
-end
-puts Hamming.compute("wert","wett")

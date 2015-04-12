@@ -1,12 +1,6 @@
-class Hamming
-  def compute(strand, other_strand)
-    distance = 0
-
-    strand.each_char.each_with_index do |point, i|
-      other_point = other_strand[i]
-      distance += 1 if other_point && point != other_point
+def compute(a,b)
+    a.chars.zip(b.chars).inject(0)do |sum, obj|
+      sum +=1 unless obj[0] == obj[1]
+      sum
     end
-
-    distance
   end
-end

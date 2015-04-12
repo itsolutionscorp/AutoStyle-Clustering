@@ -1,6 +1,4 @@
-module Hamming
-
-  def compute( strand1, strand2)
+def compute( strand1, strand2)
     return 0 if strand1 == strand2
 
     sequence1 = strand1.split //

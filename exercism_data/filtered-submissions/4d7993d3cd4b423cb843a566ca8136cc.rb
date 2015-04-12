@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(base1, base2)
+def compute(base1, base2)
     nucleotides1 = base1.split("")
     nucleotides2 = base2.split("")
     score = 0
@@ -11,5 +9,3 @@ class Hamming
     end
     score
   end
-
-end

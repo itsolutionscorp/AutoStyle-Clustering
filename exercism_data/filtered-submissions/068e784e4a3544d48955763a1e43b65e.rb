@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(s1, s2)
+def compute(s1, s2)
     return unless s1 || s2
 
     s2_chars = s2.chars
@@ -11,4 +9,3 @@ class Hamming
       sum
     end
   end
-end

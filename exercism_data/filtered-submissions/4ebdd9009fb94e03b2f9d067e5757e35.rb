@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(string_one, string_two)
+def compute(string_one, string_two)
     array_of_letters_one = string_one.split(//)
     array_of_letters_two = string_two.split(//)
 
@@ -23,5 +21,3 @@ class Hamming
     end
     hamming_difference
   end
-
-end

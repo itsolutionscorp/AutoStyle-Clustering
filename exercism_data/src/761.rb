@@ -1,12 +1,6 @@
-class Hamming
-	def compute(input1, input2)
-		raise ArgumentError, "Inputs are not of equal length" unless input1.length == input2.length
-		hamming_distance = 0
-		for i in 0..input1.length
-			if input1[i] != input2[i]
-				hamming_distance += 1
-			end
-		end
-		return hamming_distance
-	end
-end
+def compute(a, b)
+    a.each_char.each_with_index.count do |point, i|
+      other_point = b[i]
+      other_point && point != other_point
+    end
+  end

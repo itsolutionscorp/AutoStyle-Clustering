@@ -1,11 +1,5 @@
-class Hamming
-  def compute(s_one, s_two)
-  	a = s_one.chars
-  	b = s_two.chars
-  	c = a.length
-
-  	c.times.count do |val|
-  	 a[val] != b[val]
-  	end
+def compute(s, t)
+    s.chars.zip(t.chars).reduce(0) do |diff, chars|
+      chars.all? && chars[0] != chars[1] ? diff + 1 : diff
+    end
   end
-end

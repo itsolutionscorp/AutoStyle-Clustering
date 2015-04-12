@@ -1,14 +1,9 @@
-#!/usr/bin/env ruby
-
-
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand_a, strand_b)
     distance = 0
-    strand1.size.times do |index|
-      distance += 1 unless strand1[index] == strand2[index]
+
+    strand_a.split('').each_with_index do |nucleotide, index|
+      distance += 1 unless nucleotide == strand_b[index]
     end
+
     distance
   end
-
-end

@@ -1,7 +1,5 @@
-class Hamming
-  # Computes the Hamming distance between two strands
-  def compute(strand1, strand2)
-    smaller_strand_size = [strand1.size, strand2.size].min
-    (0...smaller_strand_size).count { |i| strand1[i] != strand2[i] }
+def compute(a, b)
+    a.chars.zip(b.chars).count do |(x,y)|
+      y != nil and x != y
+    end
   end
-end

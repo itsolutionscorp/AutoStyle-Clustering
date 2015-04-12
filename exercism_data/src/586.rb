@@ -1,9 +1,8 @@
-class Hamming
-  def compute a, b
-    length = [a.size, b.size].min
-
-    (0...length).select do |i|
-      a[i] != b[i]
-    end.size
+def compute(a, b)
+    differences = 0
+    a.chars.each_with_index do |c, i|
+      differences += 1 if c != b[i]
+    end
+    differences
   end
 end

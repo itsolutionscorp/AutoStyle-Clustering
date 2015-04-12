@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string_one, string_two)
+def compute(string_one, string_two)
     zipped_strings = string_one.chars.zip(string_two.chars)
     hamming_number = 0
 
@@ -11,4 +10,3 @@ class Hamming
 
     hamming_number
   end
-end

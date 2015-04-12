@@ -1,7 +1,8 @@
-class Hamming
-  def compute(sequence1, sequence2)
-    sequence1.each_char.zip(sequence2.each_char).count do |a, b|
-      a != b && !a.nil? && !b.nil?
+def compute (strand_a, strand_b)
+    differences=0
+    genes=strand_a.split("")
+    genes.each_with_index do |gene, index| 
+      differences +=1 unless gene==strand_b[index]
     end
+    differences
   end
-end

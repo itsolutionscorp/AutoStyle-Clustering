@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
     strands = [first_strand, second_strand].sort { |a, b| a.length <=> b.length }
 
     count = 0
@@ -14,4 +13,3 @@ class Hamming
 
     count
   end
-end

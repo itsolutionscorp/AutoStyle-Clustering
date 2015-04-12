@@ -1,7 +1,10 @@
-class Hamming
-  def compute(dna1, dna2)
-    dna1.chars.zip(dna2.chars).inject(0) do |count, pair|
-      (pair[0] != pair[1]) ? count + 1 : count
+def compute(expected, mutation)
+    counter = 0
+    shortest_length = [expected.length, mutation.length].min
+    (0...shortest_length).each do |index|
+      if expected[index] != mutation[index]
+        counter += 1
+      end
     end
+    counter
   end
-end

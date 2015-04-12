@@ -1,7 +1,7 @@
-class Hamming
-  def compute(s1, s2)
-    s1.chars.zip(s2.chars).inject(0) do |cnt, (e1, e2)|
-      cnt += (e1 == e2) || e2.nil? ? 0: 1
-    end
+def compute strand, other_strand
+    strand_contents = [strand, other_strand].map(&:chars)
+    shorter, longer = strand_contents.sort_by(&:length)
+    shorter.zip(longer).count { |a, b| a != b }
   end
+
 end

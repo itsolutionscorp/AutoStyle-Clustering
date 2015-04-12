@@ -1,11 +1,9 @@
-class Hamming
-	def compute(strand1,strand2)
-		hamming_diff = 0
-
-		[strand1.length, strand2.length].min.times do |i|
-			strand1[i] != strand2[i]? hamming_diff += 1 : nil
+def compute(string_one, string_two)
+		count = 0
+		([string_one.length, string_two.length].min).times do |i|
+			if string_one[i] != string_two[i] 
+				count += 1
+			end
 		end
-
-		hamming_diff
+		count
 	end
-end

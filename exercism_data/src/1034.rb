@@ -1,7 +1,7 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    [first_strand.chars, second_strand.chars].transpose.count do |first_strand_base, second_strand_base|
-      first_strand_base != second_strand_base
-    end
-  end
-end
+def compute(strand1, strand2)
+		zips = strand1.chars.zip strand2.chars
+
+		zips.select! { |item| item[0] != item[1] }
+
+		zips.length
+	end

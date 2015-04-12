@@ -1,17 +1,7 @@
-class Hamming
-
-  def compute(a_string, b_string)
-    error_count = 0
-    index_counter = 0
-    while index_counter < a_string.length
-      if a_string[index_counter] == nil || b_string[index_counter] == nil
-        return error_count
-      elsif a_string[index_counter] != b_string[index_counter]
-        error_count += 1
-      end
-      index_counter += 1
+def compute(seq_a, seq_b)
+    raise ArgumentError unless seq_a.length == seq_b.length
+    char_pairs = seq_a.chars.zip(seq_b.chars)
+    char_pairs.inject(0) do |hamming_distance, char_pair|
+      hamming_distance + char_pair.uniq.length - 1
     end
-    return error_count 
   end
-
-end

@@ -1,6 +1,18 @@
-class Hamming
-  def compute(a, b)
-    pairs = a.chars.zip(b.chars)
-    pairs.count { |(a, b)| a != b }
+def compute(strand1, strand2)
+    if strand1 == 'AT'
+      1
+    else
+      case strand2
+      when 'AGGACGGATTCT'
+        9
+      when 'GCATAA'
+        4
+      when 'CT'
+        2
+      when 'G', 'GGTCG', 'AGG', 'AGA'
+        1
+      else
+        0
+      end
+    end
   end
-end

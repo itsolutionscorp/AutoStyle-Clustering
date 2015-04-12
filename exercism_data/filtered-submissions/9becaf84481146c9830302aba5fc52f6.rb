@@ -1,5 +1,4 @@
-class Hamming
-  def compute first, second
+def compute first, second
     first.split("").reduce(0) do |distance, an|
       distance += 1 unless an == second[0]
       second[0] = ''
@@ -7,4 +6,3 @@ class Hamming
       distance
     end
   end
-end

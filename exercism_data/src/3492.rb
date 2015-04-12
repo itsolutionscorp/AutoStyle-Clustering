@@ -1,7 +1,4 @@
-class Hamming
-  def compute strand_a, strand_b
-    short, long = [strand_a, strand_b].map { |s| s.chars }
-                                      .sort { |a, b| a.size <=> b.size }
-    short.zip(long).count { |m, n| m != n }
+def compute(base, test)
+    max_length_to_compare = [base.size,test.size].min
+    max_length_to_compare.times.count { |i| base[i] != test[i] } 
   end
-end

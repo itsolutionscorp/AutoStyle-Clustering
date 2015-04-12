@@ -1,24 +1,12 @@
-class Hamming
-  def compute(a, b)
-    
-    c = "";
-    hamming_count = 0;
-    
-    if (a.length < b.length) 
-      c = a;
-    else
-      c = b;
-    end
+def compute(strand_1, strand_2)
+		shorter_strand, longer_strand = [strand_1.chars, strand_2.chars].sort
 
-    for i in 0..c.length 
-          if a[i] != b[i]
-            hamming_count += 1;
-          end
+		distance = 0
 
-    end
+		shorter_strand.each_with_index do |n, i|
+			distance += 1 if longer_strand[i] != n
+		end
 
-
-    
-    return hamming_count;
-  end
+		return distance
+	end
 end

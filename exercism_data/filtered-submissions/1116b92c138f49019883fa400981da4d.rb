@@ -1,5 +1,4 @@
-class Hamming
-  def compute(l, r)
+def compute(l, r)
     minlen = [l.length, r.length].min
     odds = 0
     minlen.times do |i|
@@ -7,4 +6,3 @@ class Hamming
     end
     return count
   end
-end

@@ -1,13 +1,21 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1 = strand1.chars.to_a
-    strand2 = strand2.chars.to_a
-    distance = 0
-    while strand1.length > 0
-      char1 = strand1.shift
-      char2 = strand2.shift
-      distance += 1 if char1 != char2
+def compute(arg1, arg2)
+
+    arr1 = arg1.split("")
+    arr2 = arg2.split("")
+
+    counter = 0
+    arr1.each_with_index do |x, i|
+      if x != arr2[i]
+        counter += 1
+      end
     end
-    return distance
+    return counter
   end
 end
+
+# if (arg1 == 'AT' and arg2 == 'CT')
+#    arr1 = arg1.split("")
+#    arr2 = arg2.split("")
+#
+#    (arr1 + arr2).reject { |x| x == "T" }
+#

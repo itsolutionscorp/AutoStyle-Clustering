@@ -1,6 +1,12 @@
-module Hamming
-  def compute(strand1, strand2)
-    min = [strand1.length, strand2.length].min
-    (0...min).count { |base| strand1[base] != strand2[base] }
+def compute(strand, different_strand)
+    a = strand.split("")
+    b = different_strand.split("")
+    count = 0
+
+    a.zip(b).first( a.length && b.length).each do |c, d|
+      if c != d
+        count += 1
+      end
+    end
+    count
   end
-end

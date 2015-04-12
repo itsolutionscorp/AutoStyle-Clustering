@@ -1,15 +1,4 @@
-module Hamming
-  def compute(x, y)
-    counter, diff = 0, 0
-    length = x.size > y.size ? y.size : x.size
-
-    until counter == length
-      if x[counter] != y[counter]
-        diff += 1
-      end
-      counter += 1
-    end
-
-    diff
+def compute(strand_1, strand_2)
+    combination = strand_1.split('').zip(strand_2.split(''))
+    combination.select { |ary| ary[0] != ary[1] }.count
   end
-end

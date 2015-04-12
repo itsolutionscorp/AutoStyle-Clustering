@@ -1,19 +1,14 @@
-class Hamming
+def compute(strand1, strand2)
+		raise ArgumentError unless (strand1.is_a?(String) && strand1.is_a?(String))
 
-  def compute(left, right)
-    count, index = 0, 0
-    
-    shortest_length = left.length < right.length ? 
-                        left.length : 
-                        right.length
-    
-    while(index < shortest_length) do
-      different_letters = (left[index] != right[index])
-      count += 1 if different_letters
-      index += 1
-    end
-    
-    return count
-  end
-  
-end
+		distance = 0
+		chars1 = strand1.chars
+		chars2 = strand2.chars
+
+		smaller_strand_size = [strand1.size, strand2.size].min
+		for i in 0..(smaller_strand_size -1)
+			distance += 1 unless chars1[i] == chars2[i]
+		end
+		
+		distance
+	end

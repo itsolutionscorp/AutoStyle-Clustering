@@ -1,20 +1,13 @@
-class Hamming
-	class << self
+def compute(strand1, strand2)
+		seq_size = [strand1, strand2].min_by { |x| x.length }.length
 
-		def compute(a,b)
-			# if the strings are the same no need for further evaluation
-			return a <=> b if (a <=> b) == 0
+		hamming_distance = 0
+		seq_size.times do |index|
 
-			h = 0
-			aa = a.split(//)
-			ba = b.split(//)
+			if ( strand1[index] != strand2[index] ) then 
+				hamming_distance += 1 
+			end
 
-			aa.each.with_index { | ltr, i |
-				h += 1 if ltr != ba.at(i) 
-			}
-
-			return h
 		end
 
-	end
-end
+		hamming_distance

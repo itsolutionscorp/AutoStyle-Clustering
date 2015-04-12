@@ -1,15 +1,7 @@
-class Hamming
-  def compute(strandOne, strandTwo)
-    count = 0 # stores count of errors
-    strandTwoIndex = 0 # Indexes strand two to get the char value
-    
-    strandOne.each_char do |c|
-      if !strandTwo[strandTwoIndex].eql? c
-        count = count + 1
-      end
-      strandTwoIndex = strandTwoIndex + 1
+def compute(base,comp)
+    val = 0 
+    base.chars.each_with_index do |c,idx|      
+      val += 1 unless c == comp[idx]
     end
-
-    return count
+    val
   end
-end

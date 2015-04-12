@@ -1,13 +1,14 @@
-class Hamming
-    def compute (source, copy)
-        distance = 0
+def compute(a,b)
+			# if the strings are the same no need for further evaluation
+			return a <=> b if (a <=> b) == 0
 
-        source.length.times do |i|
-            if source[i] != copy[i] && copy[i] != nil
-                distance = distance+1
-            end
-        end
+			h = 0
+			aa = a.split(//)
+			ba = b.split(//)
 
-        distance
-    end
-end
+			aa.each.with_index { | ltr, i |
+				h += 1 if ltr != ba.at(i) 
+			}
+
+			return h
+		end

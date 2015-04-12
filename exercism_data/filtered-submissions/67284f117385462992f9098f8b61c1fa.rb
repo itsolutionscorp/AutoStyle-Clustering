@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
     diff = 0
 
     (0..arg1.length).each do |i|
@@ -9,4 +7,3 @@ class Hamming
 
     return diff
   end
-end

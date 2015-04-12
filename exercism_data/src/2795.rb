@@ -1,6 +1,3 @@
-class Hamming
-  def compute(a, b)
-    min = [a.length, b.length].min
-    (0...min).inject(0) { |diff, i| a[i] != b[i] ? diff + 1 : diff }
+def compute(arg_left, arg_right)
+    (0...arg_left.length).count { |i| arg_left[i] != arg_right[i] }
   end
-end

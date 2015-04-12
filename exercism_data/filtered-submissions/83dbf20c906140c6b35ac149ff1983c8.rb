@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     #count the number of letters that are different.
     ret = 0
     for x in (0..a.length-1)
@@ -8,5 +6,3 @@ class Hamming
     end
     ret
   end
-
-end

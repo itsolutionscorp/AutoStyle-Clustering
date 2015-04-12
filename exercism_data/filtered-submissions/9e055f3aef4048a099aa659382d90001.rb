@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(inputA, inputB)
+def compute(inputA, inputB)
     differenceCount = 0
     inputAArray = inputA.split('')
     inputBArray = inputB.split('')
@@ -15,5 +13,3 @@ class Hamming
     end
     differenceCount
   end
-
-end

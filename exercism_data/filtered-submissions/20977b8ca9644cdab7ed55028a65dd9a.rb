@@ -1,5 +1,4 @@
-class Hamming
-  def compute(control, mutant)
+def compute(control, mutant)
     control_dna = control.chars
     mutant_dna  =  mutant.chars
 
@@ -12,4 +11,3 @@ class Hamming
 
     discrepancy_count
   end
-end

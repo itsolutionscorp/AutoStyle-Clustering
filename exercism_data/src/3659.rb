@@ -1,8 +1,17 @@
-class Hamming
+def compute(first_strand, second_strand)
 
-  def compute(string1, string2)
-    stringlength = string1.size
-    (0...stringlength).count { |x| string1[x] != string2[x] }
-  end
+		first_strand_arr = first_strand.upcase.chars 
+		second_strand_arr = second_strand.upcase.chars 
+		index = 0
+		hamming_distance = 0
 
-end
+		# Use the shortest strand-lenght
+		number_of_nucleotides = ( first_strand.size > second_strand.size ? second_strand.size : first_strand.size )
+		until index >= number_of_nucleotides do
+			if first_strand_arr[index] != second_strand_arr[index] then hamming_distance += 1 end
+			index += 1
+		end
+
+		return hamming_distance
+	
+	end

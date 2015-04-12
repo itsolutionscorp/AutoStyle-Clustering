@@ -1,9 +1,15 @@
-class Hamming
-  def compute(a, b)
-    return nil unless a.length == b.length
+def compute(a,b)
 
-    pairs = a.split('').zip(b.split(''))
-    differences = pairs.select {|pair| pair[0] != pair[1]}
-    differences.length
+    aa = a.scan(/./)
+    bb = b.scan(/./)
+    ham = 0
+
+    aa.zip(bb).each do |a, b|
+      if a == b or b == nil
+        ham
+      else
+        ham = ham + 1
+      end
+    end
+    return ham
   end
-end

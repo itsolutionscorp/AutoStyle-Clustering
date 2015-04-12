@@ -1,5 +1,4 @@
-class Hamming
-    def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
         @pom = 0
         @first_length = first_strand.length
         @second_length = second_strand.length
@@ -9,4 +8,3 @@ class Hamming
         end
         @pom
     end
-end

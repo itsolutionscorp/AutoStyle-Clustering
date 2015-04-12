@@ -1,5 +1,13 @@
-class Hamming
-  def compute(s1, s2)
-    s1.length.times.count { |i| s1[i] != s2[i] }
-  end
-end
+def compute(a, b)
+		counter = 0
+		hammingDistance = 0
+		if !a.eql? b #if the two strands are equal
+			while counter < a.length && counter < b.length
+				if a[counter] != b[counter]
+					hammingDistance +=1 #increase hamming distance
+				end
+				counter +=1
+			end
+		end
+		hammingDistance
+	end

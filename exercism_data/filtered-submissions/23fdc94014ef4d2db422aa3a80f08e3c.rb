@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     nucleobases1 = dna1.chars
     nucleobases2 = dna2.chars
 
@@ -9,4 +8,3 @@ class Hamming
       nucleobase1 != nucleobase2
     end
   end
-end

@@ -1,15 +1,10 @@
-# I have no idea what I'm doing.
-# Studied some programming before, now I'm
-# just using a ruby reference haphazardly
-# and it just so happens to work. I think.
+def compute(input1, input2)
+    diff = 0
+    min_length = [input1.length, input2.length].min - 1
 
-class Hamming
-    def compute(strand1, strand2)
-        numOfDifferences = 0
-        # Apparently for loops are bad. I agree.
-        (0..strand1.size).each do |i|
-            numOfDifferences += 1 if strand1[i] != strand2[i]
-        end
-        return numOfDifferences
+    for i in 0..min_length do
+      diff += 1 unless input1[i] == input2[i]
     end
-end
+
+    diff
+  end

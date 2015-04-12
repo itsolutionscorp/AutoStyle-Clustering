@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a,b)
+def compute(a,b)
     i = [a.length, b.length].min
     hamming = 0
 
@@ -11,5 +9,3 @@ class Hamming
 
     hamming
   end
-
-end

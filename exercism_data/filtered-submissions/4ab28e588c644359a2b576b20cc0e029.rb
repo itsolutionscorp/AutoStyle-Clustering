@@ -1,5 +1,4 @@
-class Hamming
-  def compute(sequence1, sequence2)
+def compute(sequence1, sequence2)
     hamming_distance = 0
     last_index = [sequence1.length, sequence2.length].min
     (0...last_index).each do |index|
@@ -9,4 +8,3 @@ class Hamming
     end
     hamming_distance
   end
-end

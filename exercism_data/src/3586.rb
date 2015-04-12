@@ -1,14 +1,10 @@
-class Hamming
-	def compute(strand1, strand2)
-		arr1 = strand1.split("")
-		arr2 = strand2.split("")
-
-		counter = 0
-			arr1.each_with_index do |character, index|
-				unless arr2[index] == character
-					counter += 1
-				end
-			end
-		counter
-	end
-end
+def compute(first, second)
+    return -1 if first.length != second.length
+    count = 0
+    (0..first.length-1).each do |i|
+      if first[i].downcase != second[i].downcase
+        count+=1
+      end
+    end
+    return count   
+  end

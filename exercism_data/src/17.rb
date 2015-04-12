@@ -1,18 +1,15 @@
-class Hamming
-
-	def compute(stringA, stringB)
-		hamming = 0
-		
-		stringA.split("").each_with_index do |char, index|
-			if (stringB[index].nil?)
-				return hamming
-			end
-			if (char != stringB[index])
-				hamming += 1
-			end			
+def compute(data1, data2)
+		if data1.length != data2.length
+			raise 'data1 must be the same length as data2 to compute Hamming distance'
 		end
-		return hamming
+		
+		$distance = 0
+
+		for i in 0..data1.length do
+			if data1[i] != data2[i]
+				$distance += 1
+			end
+		end
+
+		return $distance
 	end
-
-
-end

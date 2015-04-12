@@ -1,20 +1,52 @@
-class Hamming
+def compute(a, b)
 
-  def compute(strand_1, strand_2)
-    strand_1_array = strand_1.split('')
-    strand_2_array = strand_2.split('')
+			if a == b 
 
-    matches = strand_1_array.zip(strand_2_array)
-    matches.delete_if { |acid_pair| acid_pair.include?(nil) }
+			 	return 0
 
-    counter = 0
+			else 
 
-    matches.each do |acid_pair|
-     if acid_pair[0] != acid_pair[1] && acid_pair.length == 2
-        counter += 1
-      end
-    end
+				a_split = a.split('')
+				array1 = []
 
-    counter
-  end
-end
+					for x in a_split
+
+						array1 << x
+
+					end
+
+				b_split = b.split('')
+				array2 = []
+
+					for x in b_split
+
+						array2 << x
+
+					end
+
+				counter = 0
+
+					if a.length > b.length
+
+						longer = b.length-1
+
+					else
+						longer = a.length-1
+
+					end
+
+
+				for i in 0 .. longer
+
+					if array1[i] != array2[i]
+
+						counter += 1
+					end
+
+				end
+
+				return counter
+
+			end
+
+		end

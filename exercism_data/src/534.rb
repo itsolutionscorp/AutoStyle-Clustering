@@ -1,7 +1,10 @@
-class Hamming
+def compute(first, second)
+    distance = 0
+    common_length = [ first.size, second.size ].min - 1
 
-  def compute(s1, s2)
-    s1.chars.zip(s2.chars).reduce(0) {|acc, pair| acc += 1 unless pair.first == pair.last ; acc }
+    0.upto(common_length) do |i|
+      distance +=1 if first[i] != second[i]
+    end
+
+    return distance
   end
-
-end

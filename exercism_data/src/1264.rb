@@ -1,13 +1,10 @@
-class Hamming
-  def compute(case1, case2)
-    count = 0
-    for x in (0..case2.length-1)
-      if x > case1.length - 1
-        break
-      elsif case1[x].chr != case2[x].chr
-        count += 1
+def compute(str1, str2)
+    hamming_result = 0
+    compare_length = str1.size < str2.size ? str1.szie : str2.size
+    compare_length.times do |index| 
+      if str1[index] != str2[index]
+        hamming_result += 1
       end
     end
-    count
+    hamming_result 
   end
-end

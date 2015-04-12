@@ -1,5 +1,4 @@
-class Hamming
-	def compute(var1, var2)
+def compute(var1, var2)
 
 		min = [var1.size, var2.size].min()
 
@@ -11,4 +10,3 @@ class Hamming
 		
 		return count
 	end
-end

@@ -1,5 +1,4 @@
-class Hamming  
-  def compute(string1, string2)
+def compute(string1, string2)
     result = 0
     char_index = 0
     string1.each_char do |character|
@@ -8,4 +7,3 @@ class Hamming
     end
     result
   end
-end

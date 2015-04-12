@@ -1,13 +1,7 @@
-class Hamming
-
-  def compute(*strands)
-    strands = strands.map(&:chars)
-    strands.sort_by!(&:length)
-    diff_count = 0
-    strands[0].each.with_index do |nucleotide, index|
-      diff_count += 1 if nucleotide != strands[1][ index ]
-    end
-    return diff_count
-  end
-
-end
+def compute(stranda, strandb)
+		diff = 0
+		0.upto(stranda.length-1) { |i|
+			diff += stranda[i] == strandb[i] ? 0 : 1
+		}
+		return diff
+	end

@@ -1,13 +1,14 @@
-class Hamming
-	def compute(a,b)
-		i = 0
-		count = 0
-		while a.length-1>=i and b.length-1>=i do 
-			if a[i]!=b[i]
-				count = count + 1
-			end
-			i+=1
-		end
-		return count
-	end
-end
+def compute(a1,a2)
+        res = 0
+        if a1 == a2
+          res
+        else 
+          for pos in 0..a1.length - 1
+              print a1[pos]
+              if a1[pos] != a2[pos]
+		res = res + 1
+              end
+          end         
+          res
+        end 
+      end

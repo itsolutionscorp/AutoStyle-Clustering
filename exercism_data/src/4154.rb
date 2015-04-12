@@ -1,9 +1,7 @@
-class Hamming
-  def compute(seq_a, seq_b)
-    raise ArgumentError unless seq_a.length == seq_b.length
-    char_pairs = seq_a.chars.zip(seq_b.chars)
-    char_pairs.inject(0) do |hamming_distance, char_pair|
-      hamming_distance + char_pair.uniq.length - 1
-    end
+def compute(origin, mutation)
+    pairs = origin.split("").zip(mutation.split(""))
+    count = 0
+
+    pairs.each {|i| count += 1 if i[0] != i[1]}
+    count
   end
-end

@@ -1,15 +1,21 @@
-require 'byebug'
+def compute(dna1, dna2)
 
-class Hamming
-	def compute(strandA, strandB)
-		hammingDistance = 0
+		array1 = dna1.split('')
+		array2 = dna2.split('')
+		count = 0
 
-		strandA.each_char.with_index do|i, index|
-  			if i != strandB[index] then
-  				hammingDistance += 1
+		array1.each.with_index do |piece, i|
+			if piece != array2[i]
+				count += 1
 			end
 		end
 
-		hammingDistance
+
+		diff = array1.length - array2.length
+
+		if array1.length > array2.length
+			count - diff.abs 
+		else
+			count
+		end
 	end
-end

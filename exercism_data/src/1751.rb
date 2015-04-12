@@ -1,12 +1,5 @@
-class Hamming
-  def compute(firstStrand, secondStrand)
-    max_hamming_distance = [firstStrand.size, secondStrand.size].min
-
-    ham_distance = 0
-    max_hamming_distance.times do |index|
-      ham_distance += 1 if firstStrand[index] != secondStrand[index]
-    end
-
-    ham_distance
+def compute(aString, bString)
+    shorter_string, longer_string = (aString.size < bString.size) ? [aString, bString] : [bString, aString]
+    trimmed = longer_string[0..shorter_string.size - 1]
+    shorter_string.chars.zip(trimmed.chars).inject(0){ |acc, arr| arr[0]==arr[1] ? acc : acc + 1 }
   end
-end

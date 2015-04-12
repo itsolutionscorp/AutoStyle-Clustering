@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(s1,s2)
+def compute(s1,s2)
 
     dif = 0
 
@@ -22,4 +20,3 @@ class Hamming
     return dif
 
   end
-end

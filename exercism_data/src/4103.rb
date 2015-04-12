@@ -1,13 +1,11 @@
-class Hamming
-	def compute(val1, val2)
-		val1 = val1.split(//)
-		val2 = val2.split(//)
-		ret = 0
-		val1.each_index do |i|
-			if(val1[i] != val2[i])
-				ret += 1
-			end
-		end
-		ret
-	end
-end
+def compute(n1, n2)
+    diff_count  = 0
+    strand_count   = 0
+
+    while strand_count < n1.length  
+      diff_count += 1 if n1[strand_count] != n2[strand_count]
+      strand_count += 1
+    end
+    
+    diff_count
+  end

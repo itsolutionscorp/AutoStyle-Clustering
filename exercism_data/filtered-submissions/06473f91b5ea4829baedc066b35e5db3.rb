@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     # Create array for each argument passed
     base1 = strand1.split(//)
     base2 = strand2.split(//)
@@ -15,4 +14,3 @@ class Hamming
     # Return new distance number
     return distance
   end
-end

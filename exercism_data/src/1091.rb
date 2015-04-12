@@ -1,22 +1,10 @@
-class Hamming
-
-
-	def compute(s1, s2)
-		dist = 0
-		
-			#compares the char values at each index 'i'
-			#when unequal, add 1 to dist
-		[s1.length, s2.length].min.times do |i|
-			unless s1[i] == s2[i]
-				dist += 1
-			end
-		end
-
-		return dist
-
-	end
-
-
-	
-end
-
+def compute(code1, code2)
+  code1 = Array.new([code1.size, code2.size].max) { |i| code1[i] }
+  code2 = Array.new([code1.size, code2.size].max) { |i| code2[i] }
+  res = code1.zip(code2).reduce(0) { |acc, item|
+  	if item[0] != item[1] && !item[0].nil? && !item[1].nil? 
+      acc = acc + 1
+  	end
+    acc
+  }    
+  end

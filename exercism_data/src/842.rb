@@ -1,13 +1,9 @@
-class Hamming
-	def compute(string1, string2)
-		i = 0
-		counter = 0
-		until i >= string1.length do
-			if string1[i] != string2[i]
-				counter += 1
-			end
-			i += 1
-		end
-		return counter
-	end
-end
+def compute(str_a, str_b)
+    mismatches = 0
+    comparison_length = str_a.size < str_b.size ? str_a.size : str_b.size
+    comparison_length.times do |n|
+      mismatches += 1 if str_a[n] != str_b[n]
+    end
+
+    mismatches
+  end

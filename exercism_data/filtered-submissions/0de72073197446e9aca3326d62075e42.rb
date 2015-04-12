@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     #When different lengths, just pick the shortest one to test with
     test_length = [dna1.length, dna2.length].min
 
@@ -14,4 +13,3 @@ class Hamming
 
     return differences
   end
-end

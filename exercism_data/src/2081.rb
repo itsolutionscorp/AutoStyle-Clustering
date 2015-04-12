@@ -1,12 +1,4 @@
-class Hamming
-  def compute(a, b)
-    hamming_difference = 0
-    character_index = 0
-    a.each_char do |a_char|
-      hamming_difference += 1 if a_char != b[character_index]
-      character_index += 1
-    end
-
-    hamming_difference
+def compute(dna1, dna2)
+    dna1, dna2 = [dna1, dna2].sort_by(&:length)
+    dna1.chars.zip(dna2.chars).select { |(a, b)| a != b }.count
   end
-end

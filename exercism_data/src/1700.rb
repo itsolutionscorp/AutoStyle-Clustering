@@ -1,15 +1,7 @@
-class Hamming
-
-	def compute(str1, str2)
+def compute(x, y)
 		i = 0
-		min_len = [str1.length, str2.length].min
-		for j in 0..(min_len-1)
-			if str1[j] != str2[j]
-				i = i + 1
-			end
+		(0..(x.length-1)).each do |z|
+			i+=1 if x[z] != y[z]
 		end
-
-		return i
+		i
 	end
-
-end

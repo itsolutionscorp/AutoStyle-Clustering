@@ -1,14 +1,13 @@
-require 'pry'
-class Hamming
-  def compute(a, b)
-    shortest = [a.length, b.length].sort.first
-    a_strand = a.chars[0..shortest-1]
-    b_strand = b.chars[0..shortest-1]
+def compute(this, that)
+    char_pairs = this.chars.zip( that.chars )
+    distance = 0
 
-    diff = 0
-    a_strand.map.with_index do |str, i|
-      diff += 1 unless b_strand[i] == str
+    char_pairs.each do |pair|
+      if pair[0] != pair[1]
+        distance += 1
+      end
     end
-    diff
+
+    return distance
   end
 end

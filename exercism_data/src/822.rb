@@ -1,11 +1,10 @@
-class Hamming
-  def compute(strand1,strand2)
-    distance = 0
-    strand1.split("").each_with_index do |char,i|
-      if char != strand2[i] then
-        distance += 1
-      end
-    end
-    return distance
-  end
-end
+def compute(dna1, dna2)
+		nbr_times = dna1.size
+		nbr_times = dna2.size if dna2.size < dna1.size
+		
+		difference = 0
+		nbr_times.times do |i|
+			difference += 1 if dna1[i] != dna2[i]
+		end
+		difference
+	end

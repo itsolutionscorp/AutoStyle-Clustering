@@ -1,16 +1,5 @@
-module Hamming
-  def compute(strand_a, strand_b)
+def compute(s1, s2)
     distance = 0
-
-    length = [strand_a, strand_b].sort { |a, b| a.length <=> b.length }
-             .first.length
-
-    length.times do |index|
-      if strand_a[index] != strand_b[index]
-        distance += 1
-      end
-    end
-
+    [s1.length, s2.length].min.times { |d| distance += 1 unless s1[d] == s2[d] }
     distance
   end
-end

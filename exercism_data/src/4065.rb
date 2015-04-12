@@ -1,22 +1,12 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    range1 = 0..strand1.length
-    range2 = 0..strand2.length
-
-    if range1.last < range2.last
-      total_range = 0...range1.last
+def compute(string1, string2)
+    result = 0
+    if string1.size <= string2.size
+      @short = string1.split(//)
+      @long = string2.split(//)
     else
-      total_range = 0...range2.last
+      @short = string2.split(//)
+      @long = string1.split(//)
     end
-
-    hamming_count = 0
-
-    total_range.count do |x|
-      if strand1[x] != strand2[x]
-        hamming_count += 1
-      end
-    end
+    @short.each_index{|i| result += 1 if @short[i] != @long[i]}
+    result
   end
-
-end

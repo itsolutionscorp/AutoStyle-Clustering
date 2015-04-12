@@ -1,14 +1,9 @@
-class Hamming
-  
-  def compute(input1, input2)
-    strand1 = input1.chars
-    strand2 = input2.chars
-    
-    length = [strand1.length, strand2.length].min
-    
-    length.times.map do |n|
-      strand1[n] == strand2[n] ? 0 : 1
-    end.inject(&:+)
+def compute(n1,n2)
+      counter = 0
+      n1.split(//).each_index do |x|
+        if n1[x] != n2[x]
+           counter+=1
+        end
+      end
+    counter
   end
-
-end

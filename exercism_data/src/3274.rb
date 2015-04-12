@@ -1,9 +1,8 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1 = strand1.chars.to_a
-    strand2 = strand2.chars.to_a
-
-    pairs = strand1.zip(strand2)
-    pairs.count { |pair| pair[0] != pair[1] }
+def compute(strand1, strand2)
+    case
+    when strand1.length != strand2.length then 0
+    when strand1 = strand2 then 0
+    else
+      strand1.count("AGCT") - strand2.count("AGCT")
+    end
   end
-end

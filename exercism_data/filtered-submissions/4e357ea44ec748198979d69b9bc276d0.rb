@@ -1,6 +1,4 @@
-require 'pry'
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     short_strand = s1.size > s2.size ? s2 : s1
     long_strand = s1.size > s2.size ? s1 : s2
 
@@ -14,4 +12,3 @@ class Hamming
 
     count
   end
-end

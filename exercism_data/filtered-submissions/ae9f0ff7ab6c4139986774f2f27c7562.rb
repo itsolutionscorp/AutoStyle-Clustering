@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     # Variables
     firstArr = first.split('')
     secondArr = second.split('')
@@ -13,4 +12,3 @@ class Hamming
     # Output
     counter
   end
-end

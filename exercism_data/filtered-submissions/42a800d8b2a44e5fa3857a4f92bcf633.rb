@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     min_strand_length = [strand1.length, strand2.length].min
     strand1_nucleotides = strand1[0...min_strand_length].chars
     #distance = 0
@@ -12,4 +11,3 @@ class Hamming
       end
     end
   end
-end

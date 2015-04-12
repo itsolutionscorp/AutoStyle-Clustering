@@ -1,8 +1,5 @@
-module Hamming
-  def compute(strand1, strand2)
-    strand1.each_char.zip(strand2.each_char).inject(0) { |diff, (c1, c2)|
-      return diff if c1.nil? or c2.nil?
-      diff + (c1 == c2 ? 0 : 1)
-    }
-  end
-end
+def compute(strand1, strand2)
+		min_length = [strand1.size, strand2.size].min
+		chars_from_both_strings = (strand1[0...min_length].chars).zip(strand2[0...min_length].chars)
+		chars_from_both_strings.count { |pair| pair[0] != pair[1] }
+	end

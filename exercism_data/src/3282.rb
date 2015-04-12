@@ -1,11 +1,13 @@
-class Hamming
+def compute(strandA, strandB)
+		hammingDistance = 0
+		index = 0
 
-  def compute(str1,str2)
-    count = 0
-    [str1.length, str2.length].min.times do |i|
-      count +=1 if ( str1[i] != str2[i] )
-    end
-    count
-  end
+		strandA.each_char do|i|
+  			if i != strandB[index] then
+  				hammingDistance += 1
+			end
+			index += 1
+		end
 
-end
+		return hammingDistance
+	end

@@ -1,9 +1,3 @@
-class Hamming
-  def compute(x,y)
-    if x == y
-      0
-    else
-      1
-    end
+def compute a, b
+    a.chars[0, b.size].zip(b.chars).count { |char_a,char_b| char_a != char_b }
   end
-end

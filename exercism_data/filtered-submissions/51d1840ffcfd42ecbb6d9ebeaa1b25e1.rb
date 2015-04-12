@@ -1,5 +1,4 @@
-class Hamming
-      def compute(a1,a2)
+def compute(a1,a2)
         res = 0
         if a1 == a2
           res
@@ -13,4 +12,3 @@ class Hamming
           res
         end 
       end
-end

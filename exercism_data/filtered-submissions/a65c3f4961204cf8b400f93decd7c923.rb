@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(s1, s2)
+def compute(s1, s2)
     unless s1.is_a? String and s2.is_a? String
       raise ArgumentError, 'strands must be strings'
     end
@@ -8,5 +6,3 @@ class Hamming
       s1[n] != s2[n]
     end
   end
-
-end

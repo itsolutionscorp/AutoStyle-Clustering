@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_string_1, dna_string_2)
+def compute(dna_string_1, dna_string_2)
     dna_chars_1 = dna_string_1.split('')
     dna_chars_2 = dna_string_2.split('')
     total = 0
@@ -10,4 +9,3 @@ class Hamming
     
     total
   end
-end

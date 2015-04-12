@@ -1,13 +1,6 @@
-class Hamming
-  def compute(dna1, dna2)
-    sum = 0
-
-    dna1 = dna1[0...dna2.length] if dna1.length > dna2.length
-
-    dna1.split('').each.with_index do |elem, index|
-      sum += 1 if elem != dna2[index]
-    end
-
-    sum
+def compute(*strands)
+    to_arrays = ->(a,b) { a.chars.zip(b.chars) }
+    mutations = ->(points) { points.all? and not points.uniq.one? }
+    strands.reduce(&to_arrays).count(&mutations)
   end
 end

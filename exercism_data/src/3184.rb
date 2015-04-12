@@ -1,9 +1,14 @@
-class Hamming
-  def compute(str1, str2)
-    # score = 0
-    a1 = str1.chars
-    a2 = str2.chars
-    a1.each_index {|i| if a1[i] != a2[i] then score += 1 end}
-    # score
+def compute(first, second)
+    if (first == second)
+      return 0
+    end
+    
+    length = first.length > second.length ? second.length : first.length
+    hamming = 0
+    length.times do |i| 
+      if (first[i] != second[i])
+        hamming += 1
+      end
+    end
+    hamming
   end
-end

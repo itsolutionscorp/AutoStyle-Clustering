@@ -1,15 +1,9 @@
-class Hamming
-
-  def compute(source, destination)
-    distance    = 0
-    source      = source.split('')
-    destination = destination.split('')
-    
-    source.zip(destination).each do |src, dst|
-      distance += 1 unless src == dst 
-    end
-    
-    distance
-  end
-
-end
+def compute(strand1, strand2)
+		sample1 = strand1.chars
+		sample2 = strand2.chars
+		count = 0
+		sample1.each_index do |index|
+			(count +=1) if sample1[index] != sample2[index]
+		end
+		count
+	end

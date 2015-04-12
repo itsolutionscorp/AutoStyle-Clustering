@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     length = dna1.length
     dna1 = dna1.split(//)
     dna2 = dna2.split(//)
@@ -7,4 +6,3 @@ class Hamming
     arr.map {|a| a[0].eql?(a[1]) }.count{|c| c == false }
     
   end
-end

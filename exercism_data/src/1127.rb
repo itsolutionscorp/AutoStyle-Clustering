@@ -1,15 +1,11 @@
-module Hamming
-  def compute(str1, str2)
-
-    str1.split('')[0..(str2.length - 1)].each_with_index.inject(0) do |counter, string_index|
-
-      if str2[string_index[1]] != string_index[0]
-        counter + 1
-      else
-        counter
+def compute(one, two)
+	  first = one.split('')
+    second = two.split('')
+    count = 0
+    first.zip(second).each  do |x, y|
+      if x != y
+        count += 1
       end
-
     end
-
-  end
-end
+    count
+	end

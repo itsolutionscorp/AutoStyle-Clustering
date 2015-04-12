@@ -1,14 +1,10 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    strand_a = strand_a.split('')
-    strand_b = strand_b.split('')
-
-    mutations = 0
-
-    strand_a.each_index do |index|
-      mutations += 1 if strand_a[index] != strand_b[index]
+def compute(first_strand, second_strand)
+    min_length = [first_strand.size, second_strand.size].min
+    (0...min_length).inject(0) do |distance, index|
+      unless first_strand[index] == second_strand[index]
+        distance += 1
+      else
+        distance
+      end
     end
-
-    hamming_difference = mutations
   end
-end

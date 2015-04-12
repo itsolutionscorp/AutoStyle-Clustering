@@ -1,8 +1,5 @@
-class Hamming
-
-  def compute(a, b)
-    a.chars.zip(b.chars).count do |x, y|
-       x != y
-    end
+def compute(first,second)
+    (0..(first.length-1)).map { |i|
+      first[i] == second[i] ? 0 : 1
+    }.reduce(0) {|memo,item| memo += item}
   end
-end

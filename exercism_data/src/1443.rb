@@ -1,14 +1,9 @@
-class Hamming
-  def compute alpha, beta
-    # let's find the shorter string of the two given strings
-    zeta = alpha.length < beta.length ? alpha : beta
+def compute(dna1, dna2)
+    return nil if (dna1.length != dna2.length)
 
-    # compute an array with the diff bits
-    diff = 0.upto(zeta.length - 1).map do |index|
-      alpha[index] == beta[index] ? 0 : 1
+    total = 0
+    dna1.each_char.with_index do |ch, index|
+      total += 1 if ch != dna2[index]
     end
-
-    # inject with summation to add the difference bits, which is our answer :)
-    diff.inject(0, :+)
+    total
   end
-end

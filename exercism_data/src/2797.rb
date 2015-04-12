@@ -1,12 +1,5 @@
-class Hamming
-  def compute( a, b )
-    i, count = 0, 0
-
-    while a[ i ] && b[ i ]
-      count += 1 if a[ i ] != b[ i ]
-      i += 1
-    end
-
-    count
-  end
-end
+def compute(dna_one, dna_two)
+			count = 0
+			dna_two_arr = dna_two.split('')
+		    dna_one.split('').select.with_index {|c, index| (c != dna_two_arr[index])}.count
+		end

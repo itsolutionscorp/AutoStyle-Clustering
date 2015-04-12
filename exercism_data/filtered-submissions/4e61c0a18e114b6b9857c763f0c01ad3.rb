@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     hamming_result = 0
     compare_length = str1.size < str2.size ? str1.szie : str2.size
     compare_length.times do |index| 
@@ -9,4 +8,3 @@ class Hamming
     end
     hamming_result 
   end
-end

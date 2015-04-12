@@ -1,5 +1,4 @@
-class Hamming
-	def compute(typeA, typeB)
+def compute(typeA, typeB)
 		it=0
 		dif=0
 		while(it < typeA.bytesize) do
@@ -8,4 +7,3 @@ class Hamming
 		end
 		dif
 	end
-end

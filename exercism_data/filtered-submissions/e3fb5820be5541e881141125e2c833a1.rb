@@ -1,6 +1,4 @@
-#Henok Addis Code
-class Hamming
-	def compute(a, b)
+def compute(a, b)
 		counter = 0
 		hammingDistance = 0
 		if !a.eql? b #if the two strands are equal
@@ -13,4 +11,3 @@ class Hamming
 		end
 		hammingDistance
 	end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     strand_one.split(//).each_with_index.map do |base, index|
       if base == strand_two[index] || index >= strand_two.length
         0
@@ -8,4 +7,3 @@ class Hamming
       end
     end.reduce(:+)
   end
-end

@@ -1,5 +1,6 @@
-class Hamming
-  def compute (str1, str2)
-    str1.chars.zip(str2.chars).map {|pair| pair[0] <=> pair[1]}.map {|n| n.abs}.inject(0) {|sum, n| sum += n}
-  end    
+def compute strand_one, strand_two
+    [strand_one, strand_two].map(&:size).min.times.count do |index|
+      strand_one[index] != strand_two[index]
+    end
+  end
 end

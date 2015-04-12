@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(strand1, strand2)
+def compute(strand1, strand2)
       distance = 0
 
       return distance if strand1 == strand2
@@ -15,5 +13,3 @@ class Hamming
 
       distance
     end
-  end
-end

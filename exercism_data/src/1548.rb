@@ -1,12 +1,16 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    
-    hamming_distance = 0
-
-    for i in 0...first_strand.length
-        hamming_distance += 1 if first_strand[i] != second_strand[i]
+def compute(first, second)
+    arr_one = first.split(//)
+    arr_two = second.split(//)
+    i = 0
+    h = 0
+    arr_one.each do |l|
+      if !(arr_two[i])
+        return h
+      end
+      if !(l == arr_two[i])
+        h = h + 1
+      end
+    i = i + 1
     end
-
-    return hamming_distance
+  return h
   end
-end

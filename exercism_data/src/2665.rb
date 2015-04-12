@@ -1,16 +1,6 @@
-class Hamming
-
-  def compute(first, second)
-    arr1 = first.chars.map(&:ord)
-    arr2 = second.chars.map(&:ord)
-
-    length = 0
-
-    arr1.size.times do |i|
-      length += 1 unless arr1[i] - arr2[i] == 0
+def compute(a, b)
+    a.chars.zip(b.chars).count do |a, b|
+      next if b.nil? # in case a is the bigger strand, some b's will be nil
+      a != b
     end
-
-    length
   end
-
-end

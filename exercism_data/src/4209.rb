@@ -1,11 +1,10 @@
-class Hamming
-  def compute(sequence_1, sequence_2)
+def compute(original, other)
     distance = 0
-    difference = (sequence_1.length - sequence_2.length).abs.to_i
 
-    0.upto(sequence_1.length) do |base|
-      sequence_1[base] == sequence_2[base] || distance += 1
+    shortest_length = [original.length, other.length].min
+    0.upto(shortest_length - 1).each do |index|
+      distance += 1 unless original[index] == other[index]
     end
-    distance - difference
+
+    distance
   end
-end

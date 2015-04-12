@@ -1,9 +1,15 @@
-class Hamming
-  
-  def compute s1, s2
-    s1.each_char.with_index.inject(0) { |ham, (char, idx)|
-      ham += 1 if s2[idx] && char != s2[idx]
-      ham
-    }
-  end
-end
+def compute(data1, data2)
+		if data1.length != data2.length
+			raise 'data1 must be the same length as data2 to compute Hamming distance'
+		end
+
+		$distance = 0
+
+		for i in 0..data1.length - 1 do
+			if data1[i] != data2[i]
+				$distance += 1
+			end
+		end
+
+		return $distance
+	end

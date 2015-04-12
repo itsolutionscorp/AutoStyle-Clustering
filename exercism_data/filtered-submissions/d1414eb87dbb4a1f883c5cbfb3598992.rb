@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
     unless arg1.length == arg2.length
       puts "DNA strands are not of equal length."
       0
@@ -11,4 +10,3 @@ class Hamming
       hammDis
     end
   end
-end

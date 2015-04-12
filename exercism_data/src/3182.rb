@@ -1,10 +1,8 @@
-class Hamming
-
-  def compute(strand_a, strand_b)
-    distance = 0
-    strand_a.chars.each_index do |i|
-      distance += 1 if strand_a[i] == strand_b[i]
-    end
-    distance
-  end
-end
+def compute(s1, s2)
+      length = [s1.length, s2.length].min
+      counter = 0
+      (0...length).each do |i|
+         if s1[i] != s2[i] then counter += 1 end
+      end
+      counter
+   end

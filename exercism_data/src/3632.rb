@@ -1,7 +1,5 @@
-class Hamming
-	def compute a, b
-		n=0
-		[a.length, b.length].min.times{ |i| n += 1 unless a[i] == b[i] }
-		n
-	end
-end
+def compute dna, dna_to_compare
+    distance = 0
+    (0..dna.length).each { |x| distance += 1 unless dna[x].eql?(dna_to_compare[x]) }
+    distance
+  end

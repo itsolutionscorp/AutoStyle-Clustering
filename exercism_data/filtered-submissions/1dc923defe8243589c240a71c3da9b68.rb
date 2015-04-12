@@ -1,5 +1,4 @@
-class Hamming
-  def compute(firstVal, secondVal)
+def compute(firstVal, secondVal)
     differences = 0
     firstVal.each_char.with_index do |char, i|
       if char != secondVal[i]
@@ -8,4 +7,3 @@ class Hamming
     end
     differences
   end
-end

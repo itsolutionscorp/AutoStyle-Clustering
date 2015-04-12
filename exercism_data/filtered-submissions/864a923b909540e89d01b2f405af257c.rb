@@ -1,5 +1,4 @@
-class Hamming 
-	def compute(first_dna, second_dna)
+def compute(first_dna, second_dna)
 		acc = 0
 		first_arr = (first_dna.length > second_dna.length) ?  second_dna.split("") : first_dna.split("")
 		first_arr.each_with_index do |value, index|
@@ -9,4 +8,3 @@ class Hamming
 		end
 		acc
 	end
-end

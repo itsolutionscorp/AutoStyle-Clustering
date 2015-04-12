@@ -1,12 +1,7 @@
-class Hamming
-  def compute(a, b)
-    a_chars = a.chars
-    b_chars = b.chars
-    diff = 0
-
-    a_chars.each_with_index do |c, i|
-      diff += 1 if b_chars[i] && b_chars[i] != c
+def compute(strand_1,strand_2)
+    h_dist = 0
+    strand_1.each_char.with_index do |dna,i|
+      h_dist += 1 if dna != strand_2[i]
     end
-    diff
+    h_dist
   end
-end

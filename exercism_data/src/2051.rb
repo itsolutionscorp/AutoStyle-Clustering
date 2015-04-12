@@ -1,7 +1,9 @@
-class Hamming
-  class << self
-    def compute seq_a, seq_b
-      seq_a.chars.zip(seq_b.chars).select{ |base| base[0] != base[1] }.size
+def compute(string1, string2)
+    count = 0
+    i = 0
+    while string1[i] && string2[i]
+      count += 1 if string1[i] != string2[i]
+      i += 1
     end
+    count
   end
-end

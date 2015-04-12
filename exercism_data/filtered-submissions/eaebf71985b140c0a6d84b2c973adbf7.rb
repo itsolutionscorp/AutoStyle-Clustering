@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s,t)
+def compute(s,t)
     s = s.split(//)
     t = t.split(//)
 
@@ -16,4 +15,3 @@ class Hamming
 
     return distance
   end
-end

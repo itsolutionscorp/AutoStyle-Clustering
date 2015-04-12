@@ -1,6 +1,9 @@
-class Hamming
-  def compute(dna1, dna2)
-    diffs = dna1.chars.zip(dna2.chars).partition{ |base1, base2| base1 != base2 }
-    diffs.first.length unless diffs.flatten.include? nil
+def compute(strand_a, strand_b)
+    a, b = strand_a.chars, strand_b.chars
+    hamming_distance = 0
+
+    # FIXME : calc hamming distance without conditions
+    a.each_with_index { |v, i| hamming_distance += 1 unless v.eql?(b[i]) }
+
+    count
   end
-end

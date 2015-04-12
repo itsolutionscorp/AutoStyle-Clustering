@@ -1,11 +1,14 @@
-class Hamming
+def compute(a, b)
 
-  def compute(string1, string2)
-    chars1 = string1.chars
-    chars2 = string2.chars
+    size = (a.size <= b.size) ? a.size : b.size
 
-    merge = string1 <= string2 ? chars1.zip(chars2) : chars2.zip(chars1)
+    hamming_distance = 0
 
-    merge.count { |char1, char2| char1 != char2 }
+    (0..size-1).each do |i|
+      if a[i]!=b[i]
+        hamming_distance += 1
+      end
+    end
+
+    return hamming_distance
   end
-end

@@ -1,6 +1,8 @@
-class Hamming
-    def compute(a, b)
-        ba = b.split(//)
-        a.split(//).count {|e| e != ba.shift}
+def compute sampleA, sampleB
+    minSampleLength = [sampleA.length, sampleB.length].min
+    result = 0
+    minSampleLength.times do |i|
+      result += 1 unless sampleA[i] == sampleB[i]
     end
-end
+    return result
+  end

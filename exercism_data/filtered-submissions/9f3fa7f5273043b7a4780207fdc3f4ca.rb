@@ -1,8 +1,4 @@
-class Hamming
-
-  class << self
-
-    def compute(dna1, dna2)
+def compute(dna1, dna2)
       s1 = dna1.split(//)
       s2 = dna2.split(//)
 
@@ -12,7 +8,3 @@ class Hamming
       end
       return acc
     end
-
-  end
-
-end

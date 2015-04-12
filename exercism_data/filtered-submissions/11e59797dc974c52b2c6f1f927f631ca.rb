@@ -1,6 +1,4 @@
-# Hamming class
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     dist = 0
     count = 0
     s1.split('').each do |i|
@@ -8,5 +6,3 @@ class Hamming
       count += 1
     end
     dist
-  end
-end

@@ -1,12 +1,4 @@
-class Hamming
-  def compute(a,b)
-    total = 0
-    [a.length, b.length].min.times do |n|
-      if a[n] != b[n]
-        total += 1
-      end
-    end
-
-    total
+def compute(strand1, strand2)
+    strands_zipped = strand1.chars.zip(strand2.chars)
+    strands_zipped.count{ |pair| pair[0] != pair [1] && !pair.any?(&:nil?)  }
   end
-end

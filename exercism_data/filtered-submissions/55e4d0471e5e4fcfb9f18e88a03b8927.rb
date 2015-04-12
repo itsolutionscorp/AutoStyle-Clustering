@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     final_count = 0
     strand1.each_with_index do |strand, i|
       n = 0
@@ -13,5 +11,3 @@ class Hamming
     end
     final_count
   end
-
-end

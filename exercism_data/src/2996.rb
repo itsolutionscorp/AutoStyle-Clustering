@@ -1,8 +1,9 @@
-class Hamming
-  def compute(first, second)
-    distance = 0
-    second = second.split('')
-    first.split('').each_with_index { |char, idx| distance += 1 if char == second[idx] }
-    first.size - distance
+def compute(strand_1, strand_2)
+  	raise ArgumentError if strand_1.length != strand_2.length
+
+  	distance = 0
+    strand_1.each_char.with_index do |letter, index|
+      distance += 1 if letter != strand_2[index]
+    end
+    distance 
   end
-end

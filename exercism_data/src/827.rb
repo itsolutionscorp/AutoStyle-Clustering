@@ -1,15 +1,8 @@
-class Hamming
-  def compute(a,b)
-    # if a is longer than b swap them as we are to only compare up to the length of the shorter input.
-    if (a.length > b.length)
-      a,b = b,a
-    end
-
-    distance = 0
-    0.upto(a.length-1) do |i|
-      distance += 1 if a[i] != b[i]
-    end
-
-    return distance
+def compute(dnaone, dnatwo)  
+  	difference = 0 
+    endofchain = [dnaone.length,dnatwo.length].min - 1
+  	for i in 0..endofchain
+   		difference+=1 if dnaone[i] != dnatwo[i]
+   	end
+    return difference
   end
-end

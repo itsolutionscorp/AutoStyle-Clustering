@@ -1,11 +1,6 @@
-class Hamming
-	def compute(a, b)
-		velocity = 0
-		for i in 0..a.length
-			if(a[i] != b[i])
-				velocity += 1
-			end
-		end
-		return velocity
-	end
-end
+def compute(string_a, string_b)
+    upper_bound = [string_a.length, string_b.length].min
+    count = 0
+    (0...upper_bound).each { |n| count += 1 if string_a[n] != string_b[n] }
+    count
+  end

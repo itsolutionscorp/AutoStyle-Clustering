@@ -1,5 +1,4 @@
-class Hamming
-  def compute(mutation, normal)
+def compute(mutation, normal)
     mutations = 0
     min_len = [mutation.length, normal.length].min
     (0..min_len-1).each do |num|
@@ -7,4 +6,3 @@ class Hamming
     end
     mutations
   end
-end

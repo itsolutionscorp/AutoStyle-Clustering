@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     result = 0
     shorter, other = [strand1, strand2].sort { |a, b| a.length <=> b.length }
     shorter.split('').each_with_index do |point, i|
@@ -7,4 +6,3 @@ class Hamming
     end
     result
   end
-end

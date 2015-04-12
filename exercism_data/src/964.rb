@@ -1,8 +1,15 @@
-class Hamming
+def compute(x, y)
+    count = 0
+    first = x.split(//)
+    second = y.split(//)
 
-  def compute(string1, string2)
-    stringlength = (string1.size, string2.size).min
-    (0...stringlength).count { |x| string1[x] != string2[x] }
+    size = x.length > y.length ? y.length : x.length
+
+    size.times do |i|
+      if first[i] != second[i]
+        count += 1
+      end
+    end
+
+    count
   end
-
-end

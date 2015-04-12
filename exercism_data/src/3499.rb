@@ -1,11 +1,10 @@
-class Hamming
-
-  def compute(sequence1, sequence2)
-    shorter, longer = [sequence1, sequence2].sort_by(&:length)
-    comparisons = shorter.chars.zip(longer.chars)
-    comparisons.count do |comparison|
-      comparison.first != comparison.last
+def compute(a, b)
+    result = 0
+    char_count = [a.length, b.length].min
+    char_count.times do |i|
+      result += 1 if a[i] != b[i]
     end
-  end
 
+    result
+  end
 end

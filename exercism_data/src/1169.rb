@@ -1,11 +1,5 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(first,second)
     distance = 0
-
-    strand1.chars.zip(strand2.chars).each do |char1, char2|
-      distance = distance + 1 if char1 != char2 
-    end
-
+    (0..first.length-1).each {|i| distance += 1 if first[i] != second[i]}
     return distance
   end
-end

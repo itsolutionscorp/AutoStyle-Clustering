@@ -1,16 +1,21 @@
-class Hamming
-	def Hamming.compute(val1, val2)
-		size = 0
-		if val1.length<= val2.length
-			len = val1.length
-		else
-			len = val2.length
-		end
-		for i in 0..len-1
-			if !(val1[i].eql?(val2[i])) 
-				size+=1
-			end
-		end
-		return size
+def compute(strand_one, strand_two)
+
+		#set count comparison variables
+		hamming_distance_count = 0
+		string_position = 0
+
+		#find shortest string_length
+		shortest_string_length = [strand_one.length, strand_two.length].min
+
+			#compute hamming distance
+			while string_position < shortest_string_length
+				
+				if strand_one.chars[string_position] != strand_two.chars[string_position]
+					hamming_distance_count += 1
+				end
+				
+				string_position += 1
+			end				
+
+		hamming_distance_count
 	end
-end

@@ -1,18 +1,10 @@
-class Hamming
-
-  def compute(strand1, strand2)
-
-    bases1 = strand1.split("")
-    bases2 = strand2.split("")
-
-    differences = 0
-
-    bases1.each_with_index do |letter, ind|
-      next if bases2[ind].nil?
-      differences += 1 if letter != bases2[ind]
+def compute(a, b)
+    shorter, longer = a, b
+    shorter, longer = b, a if b.length < a.length
+    other_chars = longer.each_char.to_a
+    index = -1
+    shorter.chars.inject(0) do |hamming, current|
+      index = index + 1
+      current != other_chars[index] ? hamming + 1 : hamming
     end
-
-    differences
   end
-
-end

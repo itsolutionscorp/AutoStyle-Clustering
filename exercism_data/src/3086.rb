@@ -1,11 +1,7 @@
-class Hamming
-  def compute(dna1, dna2)
-    fail ArgumentError, 'Argument lengths are not equal' unless dna1.size == dna2.size
-    return 0 if (dna1 == dna2)
-    total = 0
-    dna1.each_char.with_index do |char, index|
-      total += 1 if (char != dna2[index])
-    end
-    total
+def compute(left,right)
+    distance = 0
+    left.chars.each_with_index do |item,i|
+      distance += 1 if left[i] != right[i]
+    end 
+    distance
   end
-end

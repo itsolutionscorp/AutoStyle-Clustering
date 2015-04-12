@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arga, argb)
+def compute(arga, argb)
     diff_acum = 0
     for i in 0 .. arga.length
       if arga[i]  != argb[i]
@@ -8,4 +7,3 @@ class Hamming
     end
     diff_acum
   end
-end

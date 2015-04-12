@@ -1,16 +1,8 @@
-class Hamming
-  def compute(a, b)
-    count = 0
-    a.split("").zip(b.split("")).each do |first, second|
-      
-      if first && second && first != second
-        count = count + 1
-      end
-
-
-    end
-    count
-
+def compute(strand_1, strand_2)
+  [strand_1.length, strand_2.length].
+    min.
+    times.
+    count { |i| strand_1[i] != strand_2[i] }
   end
 
 end

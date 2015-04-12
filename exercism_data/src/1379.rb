@@ -1,5 +1,5 @@
-class Hamming
-  def compute(d1, d2)
-    d2.chars.zip(d1.chars).count { |a, b| a != b && !b.nil? }
+def compute(strand1, strand2) 
+    [strand1.length,strand2.length].min.times.count do |i|   
+      strand1[i] != strand2[i]
+    end
   end
-end

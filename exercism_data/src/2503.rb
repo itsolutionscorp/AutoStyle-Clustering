@@ -1,7 +1,10 @@
-class Hamming
-  def compute strand_1, strand_2
-    (0...[strand_1.length, strand_2.length].min).count do |i|
-      strand_1[i] != strand_2[i]
+def compute(foo, bar)
+    foo, bar = bar, foo if bar.size < foo.size
+    difference = 0
+
+    foo.each_char.with_index do |char, index|
+      difference += 1 if char != bar[index]
     end
+
+    difference
   end
-end

@@ -1,9 +1,8 @@
-class Hamming
-	def compute(dna_strand_a, dna_strand_b)
-		hamming_distance = 0
-		[dna_strand_a.length, dna_strand_b.length].min.times do |index|
-			hamming_distance += 1 unless dna_strand_a[index] == dna_strand_b[index]
-		end
-		hamming_distance
-	end
-end
+def compute(a, b)
+    diff = 0
+    shorther, longer = [a, b].sort_by(&:length)
+    shorther.split(//).each_with_index do |letter, index|
+      diff += 1 if letter != longer[index]
+    end
+    diff
+  end

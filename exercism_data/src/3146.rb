@@ -1,6 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
-    j = -1
-    dna1.split("").count{ |i| i!=dna2[j+=1] && dna2[j]!=nil }
+def compute(strand_a, strand_b)
+    nucleotide_pairs = strand_a.chars.zip(strand_b.chars)
+    nucleotide_pairs.count { |x| !x.include?(nil) && x.first != x.last }
   end
-end

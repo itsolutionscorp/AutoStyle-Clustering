@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(*strands)
+def compute(*strands)
     strands = strands.map(&:chars)
     strands.sort_by!(&:length)
     diff_count = 0
@@ -9,5 +7,3 @@ class Hamming
     end
     return diff_count
   end
-
-end

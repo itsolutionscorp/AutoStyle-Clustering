@@ -1,9 +1,8 @@
-class Hamming
-  def compute a, b
-    length = [a.size, b.size].min
+def compute(a_string, b_string)
+    a_chars = a_string.chars
+    b_chars = b_string.chars
 
-    (0...length).count do |i|
-      a[i] != b[i]
+    a_chars.zip(b_chars).count do |a,b|
+      a != b
     end
   end
-end

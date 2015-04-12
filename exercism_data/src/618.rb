@@ -1,7 +1,12 @@
-class Hamming
-  def compute(strand1, strand2)
-    (strand1.chars.zip(strand2.chars)).count do |nucleotide_a, nucleotide_b|
-      nucleotide_a != nucleotide_b
+def compute(first, second)
+        count = 0
+        first.chars.each_with_index { |char, index|
+            # ignore extra characters if our string
+            # is longer than the second one.
+            next unless second[index]
+    
+            count += 1 if char != second[index]
+        }
+        return count
     end
-  end
 end

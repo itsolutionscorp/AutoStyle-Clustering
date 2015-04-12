@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(first_strand,second_strand)
+def compute(first_strand,second_strand)
 
 		return false unless first_strand.is_a?(String) && second_strand.is_a?(String)
 		return false unless first_strand.length > 0 && second_strand.length > 0
@@ -22,5 +20,3 @@ class Hamming
 		distance
 
 	end
-
-end

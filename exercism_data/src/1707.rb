@@ -1,12 +1,6 @@
-class Hamming
-	def compute( strand_1, strand_2 )
-    hamming = 0
-    index = 0
-    strand_1.each_char do |molecule|
-      break unless strand_2[index]
-      hamming += 1 if molecule != strand_2[index]
-      index += 1
+def compute(dna1, dna2)
+    dna1.split('').zip(dna2.split('')).inject(0) do|sum, pair|
+      pair[0] == pair[1] ? sum : sum + 1
     end
-    hamming
-	end
+  end
 end

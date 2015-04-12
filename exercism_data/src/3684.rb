@@ -1,7 +1,9 @@
-class Hamming
-	def compute(str1, str2)
-		dist = 0
-		str1.split("").each_with_index { |s, ind| dist += 1 if s != str2[ind] }
-		dist
-	end
-end
+def compute(first_strand, second_strand)
+        if first_strand[0] == nil || second_strand[0] == nil
+            0
+        elsif first_strand[0] != second_strand[0]
+            1 + compute(first_strand[1..-1], second_strand[1..-1])
+        else
+            compute(first_strand[1..-1], second_strand[1..-1])
+        end
+    end

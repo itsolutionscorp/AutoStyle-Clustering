@@ -1,13 +1,6 @@
-# Calculates the Hamming Distance between two DNA strands
-module Hamming
-  class << self
-    def compute(dna1, dna2)
-      hamm = 0
-      length = [dna1.length, dna2.length].min
-      length.times do |i|
-        hamm += 1 if dna1[i] != dna2[i]
-      end
-      hamm
+def compute(s1, s2)
+    s1,s2 = s2,s1 if s1.length > s2.length
+    s1.length.times.count do |x|
+      s1[x] != s2[x]
     end
   end
-end

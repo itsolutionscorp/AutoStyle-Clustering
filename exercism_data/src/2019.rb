@@ -1,12 +1,7 @@
-module Hamming
-  def compute(strand1, strand2)
-    arr1 = strand1.chars
-    arr2 = strand2.chars
-
-    differences = 0
-    arr1.each_with_index do |char, index|
-      differences += 1 unless char == arr2[index]
+def compute(x, y)
+  	distance = 0
+    x.split("").each_with_index do |letter, index|
+      distance += 1 if letter != y.split("")[index]
     end
-    differences
+    distance 
   end
-end

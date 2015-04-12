@@ -1,8 +1,4 @@
-# Preconditions
-## Assume sequences are strings of equal length
-
-class Hamming
-  def compute(dna1,dna2)
+def compute(dna1,dna2)
     if dna1 == dna2
       return 0
     else
@@ -20,4 +16,3 @@ class Hamming
       return errors      
     end
   end
-end

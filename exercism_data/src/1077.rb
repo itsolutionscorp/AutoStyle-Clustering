@@ -1,7 +1,14 @@
-module Hamming
-  def self.distance *sequences
-    (sequence_a, sequence_b) = sequences.map &:chars
-    common_length = sequences.map(&:size).min
-    sequence_a.zip(sequence_b).take(common_length).count{|a, b| a != b }
+def compute(s1, s2)
+    split_1 = s1.split('')
+    split_2 = s2.split('')
+    counter = 0
+    hamming = 0
+
+    s1.size.times do
+      if split_1[counter] != split_2[counter]
+        hamming += 1
+      end
+      counter += 1
+    end
+    hamming
   end
-end

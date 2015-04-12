@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     return 0 if a == b
     shortestlength = [a, b].min.length - 1
 
@@ -7,4 +6,3 @@ class Hamming
       a[nt] != b[nt]
     end
   end
-end

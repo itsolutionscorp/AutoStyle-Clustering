@@ -1,13 +1,7 @@
-#!/usr/bin/env ruby
-
-class Hamming
-  def compute(string1,string2)
-    score = 0
-    string1.chars.each_with_index do |char, i|
-      if char != string2[i]
-        score += 1
-      end
+def compute(strand1, strand2)
+    count = 0
+    0.upto([strand1.length, strand2.length].min - 1) do |i|
+      count += 1 if strand1[i] != strand2[i]
     end
-    score
+    count
   end
-end

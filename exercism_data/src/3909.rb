@@ -1,19 +1,7 @@
-class Hamming
-
-def compute(dna1, dna2)
-  
-  #Set inital value for control and datacollection variables
-  x = 0
-  hammingdistance = 0
-  
-  #Loop through and calculate hamming distance
-  while x < dna1.length and x < dna2.length
-    hammingdistance += 1 unless dna1[x] == dna2[x]
-    x += 1
-  end
-  #return hamming distance
-  hammingdistance
-    
-end
-
-end
+def compute(strandA,strandB)
+        count=0
+        strandA.chars.each_with_index do |char,index|
+            count += 1 if strandB[index] and char!=strandB[index]
+        end
+        count
+    end

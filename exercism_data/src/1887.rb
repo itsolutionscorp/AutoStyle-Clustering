@@ -1,22 +1,9 @@
-#!/usr/bin/ruby
-# encoding: utf-8
-#
-#  hamming.rb
-#
-#  Created by Dan MacLean (TSL) on 2014-09-25.
-#  Copyright (c). All rights reserved.
-#
-
-class Hamming
-  
-  def compute a, b
-    hamming_distance = 0
-    longest = a.length > b.length ? a.length : b.length
-    (0..longest-1).each do |i|
-      next if a[i].nil? or b[i].nil?
-      hamming_distance = hamming_distance + 1 if a[i] != b[i]
+def compute(strand_1, strand_2)
+    index = 0
+    hamming_difference = 0
+    while index < ([strand_1.length, strand_2.length].min)
+      hamming_difference += 1 if strand_1[index] != strand_2[index]
+      index += 1
     end
-    hamming_distance
+    return hamming_difference
   end
-  
-end

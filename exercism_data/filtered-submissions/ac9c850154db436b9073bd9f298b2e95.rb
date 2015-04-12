@@ -1,5 +1,4 @@
-class Hamming
-	def compute(input1, input2)
+def compute(input1, input2)
 		@count = 0
 		@max = 0
 		@start = 0
@@ -20,4 +19,3 @@ class Hamming
 		end
 		@count
 	end
-end

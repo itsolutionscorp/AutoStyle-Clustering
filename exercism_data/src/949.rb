@@ -1,15 +1,7 @@
-class Hamming
-  def compute(a, b)
-    zipped = a.chars.zip(b.chars)
-
-    distance = 0
-
-    zipped_to_score = zipped.reject {|pair| pair.include?(nil)}
-
-    zipped_to_score.each do |pair|
-      distance += 1 if pair.first != pair.last
+def compute(dna1, dna2)
+    count = 0
+    dna1.chars.each_index do |index|
+      count += 1 unless dna1[index] == dna2[index]
     end
-
-    distance
+    count
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string1, string2)
+def compute(string1, string2)
     pairs = string1.split('').zip(string2.split(''))
     diff = 0
     pairs.each do |pair|
@@ -9,5 +8,3 @@ class Hamming
     end
     return diff
   end
-
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(x, y)
+def compute(x, y)
 
     result = 0
 
@@ -40,5 +38,3 @@ class Hamming
     result
 
   end
-
-end

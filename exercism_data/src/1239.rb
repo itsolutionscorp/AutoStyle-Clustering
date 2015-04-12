@@ -1,15 +1,11 @@
-class Hamming
+def compute(strand1, strand2)
+    @counter = 0
+    one = strand1.split('')
+    two = strand2.split('')
 
-  def compute(a, b)
-    result = 0
-    
-    n = a.length > b.length ? b.length : a.length
-    
-    for i in 0...n 
-      result += 1 if a[i] != b[i]
+    one.take(two.length).each_with_index do |_, index|
+      @counter += 1 unless one[index] == two[index]
     end
 
-    result
+    return @counter
   end
-
-end

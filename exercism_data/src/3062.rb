@@ -1,14 +1,4 @@
-# hamming
-
-class Hamming
-    def compute(string_1, string_2)
-        hamming_distance = 0
-        
-        effective_sequence_length = [string_1.size, string_2.size].min
-        for index in 0..(effective_sequence_length - 1)
-            hamming_distance += 1 if string_1[index] != string_2[index]
-        end
-        
-        return hamming_distance
-    end
-end
+def compute(str1, str2)
+    return nil unless str1.size == str2.size
+    str1.size.times.count { |i| str1[i] != str2[i] }
+  end

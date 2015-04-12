@@ -1,6 +1,4 @@
-# V2 - code changed due to good practices described within https://github.com/styleguide/ruby
-class Hamming
-  def compute(a,b)
+def compute(a,b)
 
 # a,b are strings; transformation to array, checking size
 
@@ -29,4 +27,3 @@ class Hamming
     end
     hamming
   end
-end

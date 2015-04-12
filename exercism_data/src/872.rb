@@ -1,14 +1,12 @@
-class Hamming
-  def compute(strandA, strandB)
-    strandA = strandA.split('')
-    strandB = strandB.split('')
-    distance = 0
+def compute(strand1, strand2)
+  	diff_count = 0
+  	max_length = [strand1.length, strand2.length].min
 
-    strandA.each_with_index do |elementA, index|
-      elementB = strandB[index]
-      distance += 1 if elementA != elementB
-    end
+  	i = 0
+  	until i >= max_length do
+  		diff_count += 1 unless strand1[i] == strand2[i]
+  		i += 1
+  	end
 
-    distance
+  	return diff_count
   end
-end

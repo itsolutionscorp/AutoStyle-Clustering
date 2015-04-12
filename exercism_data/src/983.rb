@@ -1,11 +1,9 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    distance = 0
-    length_a, length_b = strand_a.size, strand_b.size
-    nucleotides_to_check = [length_a, length_b].min
-    0.upto(nucleotides_to_check - 1) do |i|
-      distance += 1 if strand_a[i] != strand_b[i]
-    end
-    distance
-  end
-end
+def compute(seq_1, seq_2)
+		min_length = [seq_1.size, seq_2.size].min
+
+		corresponding_chars = seq_1[0,min_length].chars.zip(seq_2.chars)
+		
+		corresponding_chars.count do |pair| 
+			pair[0] != pair[1]
+		end
+	end

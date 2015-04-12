@@ -1,5 +1,3 @@
-class Hamming
-
 def compute(a, b)
 	hamming = 0
 	a = a.slice(0,[a.length, b.length].min)
@@ -7,6 +5,4 @@ def compute(a, b)
 		(l == r) || hamming += 1
 	end
 	hamming
-end
-
 end

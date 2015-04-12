@@ -1,5 +1,4 @@
-module Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     hamming_distance = 0
     index = 0
     # limit analysis to the length of the shorter string

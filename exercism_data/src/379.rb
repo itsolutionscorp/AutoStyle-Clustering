@@ -1,8 +1,8 @@
-class Hamming
-    def compute(a,b)
-        c = 0
-        a.length.times { |i| c += 1 if a[i] != b[i] }
-
-        c
-    end
-end
+def compute(x,y)
+		hamming_number = 0
+		x.chars.each_with_index do |char, index|
+			next if y[index].nil? 
+			hamming_number+=1 if char != y[index]
+		end
+		hamming_number
+	end

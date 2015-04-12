@@ -1,9 +1,11 @@
-class Hamming
-    def compute(a,b)
-        count=0
-        a.split(//).each_with_index do |c,i|
-            count += 1 if b[i] and c!=b[i]
-        end
-        count
-    end
-end
+def compute(left, right)
+
+    ln = [left.length, right.length].min
+
+    l_chars =  left[0...ln].chars
+    r_chars = right[0...ln].chars
+
+    l_chars.zip(r_chars)
+           .select { |l,r| l != r }
+           .count
+  end

@@ -1,8 +1,5 @@
-# http://en.wikipedia.org/wiki/Hamming_distance
-module Hamming
-  def compute(s1, s2)
-    s1_prefix = s1[0, s2.length]
-    s2_prefix = s2[0, s1.length]
-    s1_prefix.chars.zip(s2_prefix.chars).count { |c1, c2| c1 != c2 }
+def compute(sequence_a, sequence_b)
+    (0...[sequence_a.length, sequence_b.length].min).count do |i|
+      sequence_a[i] != sequence_b[i]
+    end
   end
-end

@@ -1,17 +1,12 @@
-class Hamming
-  def compute(mydna, yourdna)
-    sequence = mydna.chars
-    altsequence =  yourdna.chars
-    combinedsequence = sequence.zip(altsequence)
-    differencecount = 0
-    combinedsequence.each{|x,y|
-      if (x == y)
-        differencecount = differencecount + 1
-      else
-        differencecount = differencecount + 0
-      end
-    }
+def compute(string_1, string_2)
+    array_1 = string_1.chars
+    array_2 = string_2.chars
+    count = 0
 
-    return differencecount
+    array_1.each_with_index do |letter, index|
+      if letter != array_2[index] && array_2[index] != nil
+        count += 1
+      end
+    end
+    count
   end
-end

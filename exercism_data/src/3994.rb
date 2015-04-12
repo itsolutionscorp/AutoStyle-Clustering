@@ -1,8 +1,6 @@
-class Hamming
-  def compute(one, two)
-    one.split('').each_with_index.inject(0) do |sum, (letter, index)|
-      return sum unless two[index]
-      sum += letter == two[index] ? 0 : 1
+def compute(seq1, seq2)
+    count = 0
+    seq1.chars.map!.with_index do |n, i|
+      count += 1 if n != seq2[i]
     end
   end
-end

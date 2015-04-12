@@ -1,7 +1,13 @@
-class Hamming
-  def compute(first, second)
-    first.slice(0, second.size).chars.each_with_index.select do |(nucleotide, index)|
-      nucleotide != second[index]
-    end.count
+def compute( acid1, acid2 )
+    i = 0
+    distance = 0
+    
+    while( acid1[i] and acid2[i] )
+      if( acid1[i] != acid2[i] )
+        distance += 1
+      end
+      i += 1
+    end
+    
+    distance
   end
-end

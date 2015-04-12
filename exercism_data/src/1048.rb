@@ -1,8 +1,7 @@
-class Hamming
-  def compute primary_strand, secondary_strand
-    [primary_strand.length, secondary_strand.length]
-    .min
-    .times
-    .count { |i|  primary_strand[i] != secondary_strand[i] }
+def compute(strand, other)
+    differences, strand = 0, strand.chars
+    strand.each_with_index do |letter, index| 
+      differences += 1 unless strand[index] == other.chars[index]
+    end
+    differences
   end
-end

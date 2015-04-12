@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(dna_a, dna_b)	
+def compute(dna_a, dna_b)	
 	
 	# Given two DNA sequences, calculate the number of 
 	# different pairs. If the sequences are of equal length, line them up by the 
@@ -20,5 +18,3 @@ class Hamming
 		end
 		hamming_score
 	end# of self.compute
-end# of Hamming
-    

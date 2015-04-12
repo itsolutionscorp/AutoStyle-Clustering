@@ -1,8 +1,13 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.split('').
-      zip(strand2.split('')).
-      select {|a,b| a && b && a != b}.
-      size
-  end
-end
+def compute(arg1, arg2)
+   arr1 = arg1.split("")
+   arr2 = arg2.split("")
+
+   counter = 0
+   arr1.each_with_index do |x, i|
+     if x != arr2[i]
+       counter += 1
+     end
+   end
+   return counter
+
+ end

@@ -1,11 +1,9 @@
-class Hamming
-  def compute(x,y)
-    sum = 0
-    x.split("").each_with_index do |letter, i|
-      if !(x[i] == y[i])
-        sum += 1
-      end
+def compute(a, b)
+    hamming = 0
+
+    (0...a.length).each do |i|
+      hamming += 1 if a[i] != b[i]
     end
-    sum
+
+    hamming
   end
-end

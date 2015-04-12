@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
     # Counts the number of positions where arg1 and arg2 differ.
     # Assumes they are of equal length.
     ham = 0
@@ -10,4 +9,3 @@ class Hamming
     end
     return ham
   end
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     @count = 0
     first_strand  = a.split(//)
     second_strand = b.split(//)
@@ -11,5 +9,3 @@ class Hamming
     end
     @count
   end
-
-end

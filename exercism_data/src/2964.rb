@@ -1,15 +1,14 @@
-class Hamming
-  def compute(str1 ,str2)
-    index, diff_count = 0, 0
+def compute (nucleotide1, nucleotide2)
+    i = 0
+    hammingCount = 0
 
-    # ignore extra length on first strand
-    str1 = str1[0...str2.length] if str2.length < str1.length
+    baseString = nucleotide1.length <= nucleotide2.length ? nucleotide1 : nucleotide2 
 
-    str1.each_char do |char|
-      diff_count += 1 if char != str2[index]
-      index += 1
+    while i < baseString.length
+      if nucleotide1[i] != nucleotide2[i]
+        hammingCount += 1
+      end
+      i += 1
     end
-
-    diff_count
+    hammingCount
   end
-end

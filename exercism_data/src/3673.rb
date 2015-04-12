@@ -1,20 +1,12 @@
-class Hamming
-
-	
-	
-	def compute(strand1,strand2)
-	  ham_count = 0	
-	  min_length_str = 	strand1.length > strand2.length ? strand2 : strand1
-	 		for i in 0...min_length_str.length do
-				if strand1[i]!= strand2[i]
-				 ham_count += 1 			
-	 			end
-	 		end	 		
-	 		ham_count	
+def compute(string1,string2)
+		if string1.length < string2.length
+			length = string1.length
+		else
+			length = string2.length
+		end
+		count = 0
+		(0..(length-1)).each{|x|
+			count +=1 if string1[x] != string2[x]
+		}
+		count
 	end
-	
-	
-
-	
-
-end

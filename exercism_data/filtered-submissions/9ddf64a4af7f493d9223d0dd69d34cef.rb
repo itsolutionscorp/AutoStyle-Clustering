@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
 
     array_1 = strand1.split(//)
 
@@ -32,4 +30,3 @@ class Hamming
 
 
     end
-  end

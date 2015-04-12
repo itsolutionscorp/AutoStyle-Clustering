@@ -1,13 +1,5 @@
-class Hamming
-
-  def compute(first_chain, second_chain)		
-    hamming_distance = 0
-
-    first_chain.chars.zip(second_chain.chars) do |x, y|
-      hamming_distance += 1 if (x && y && (x != y))      
-    end
-
-    return hamming_distance
+def compute(a, b)
+    a.chars.select.with_index do |char, i|
+      char != b[i]
+    end.count
   end
-  
-end

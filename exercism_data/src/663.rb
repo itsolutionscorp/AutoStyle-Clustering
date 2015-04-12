@@ -1,8 +1,12 @@
-class Hamming
+def compute(standA, standB)
+		sampleA = standA.chars
+		sampleB = standB.chars
+		count = 0
 
-  def compute(strand1, strand2)
-    return 0 if strand1 == strand2
-    length = [ strand1.length, strand2.length ].min
-    (0..length-1).map { |i| strand1[i] == strand2[i] }.count(false)
-  end
-end
+		sampleA.each_with_index do |letter, index|
+			if letter != sampleB[index] && sampleB[index] != nil
+				count += 1
+			end
+		end
+		count
+	end

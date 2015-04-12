@@ -1,10 +1,3 @@
-class Hamming
-
-  def compute(first, second)
-    return 0 if first == second
-
-    min_length = [first, second].map(&:length).min
-    (0...min_length).count { |i| first[i] != second[i] }
-  end
-
-end
+def compute(a, b)
+      a.chars.zip(b.chars).inject(0) {|distance, pair| distance + (pair[0] <=> pair[1]).abs }
+    end

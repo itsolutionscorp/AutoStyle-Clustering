@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strandA, strandB)
+def compute(strandA, strandB)
     sum=0
     strandAB = [strandA, strandB].sort_by(&:length)
     short, long = strandAB.first, strandAB.last
@@ -9,4 +8,3 @@ class Hamming
     end
     return sum
   end
-end

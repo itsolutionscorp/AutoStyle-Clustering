@@ -1,11 +1,4 @@
-class Hamming
-  def compute(ntide_1, ntide_2)
-    count = 0
-
-    0.upto(ntide_1.length) do |i|
-      count += 1 if ntide_1[i] != ntide_2[i]
-    end
-
-    return count
+def compute(strand_1, strand_2)
+    pairs = strand_1.split('').zip(strand_2.split(''))
+    pairs.count { |pair| pair[0] && pair[1] && pair[0] != pair[1]}
   end
-end

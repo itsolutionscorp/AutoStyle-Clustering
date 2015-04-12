@@ -1,9 +1,6 @@
-module Hamming
-  def compute(src, dest)
-    length = [src, dest].map(&:length).min
-
-    (0...length).count do |i|
-      src[i] != dest[i]
-    end
+def compute(strand1, strand2)
+    (0...[strand1.size, strand2.size].min).map do |i|
+      strand1[i] == strand2[i]
+    end.count(false)
   end
 end

@@ -1,9 +1,11 @@
-class Hamming
-  def compute dna, dna_to_compare
-    distance = 0
-    (0..dna.length).each do |x|
-      distance += 1 if dna[x] != dna_to_compare[x]
-    end
-    distance
-  end
-end
+def compute(strand_one, strand_two)
+	  hamming_distance = 0
+
+	  strand_one.split("").each_with_index do |value, index|
+	    if value != strand_two[index] && (strand_two[index] != nil)
+	      hamming_distance += 1
+	    end
+	  end
+
+	  hamming_distance
+	end

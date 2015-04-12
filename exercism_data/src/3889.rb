@@ -1,22 +1,16 @@
-class Hamming
+def compute(a, b)
+    a = a.scan(/./)
+    b = b.scan(/./)
+    diffs = 0
 
-  def compute(x,y)
-    results = 0
-    while x != ""
-      if x[0] == y[0]
-        results += 0
-        x.slice!(0)
-        y.slice!(0)
-      else
-        x[0] != y[0]
-        results += 1
-        x.slice!(0)
-        y.slice!(0)
+    min_length = [a.length, b.length].min
+
+    min_length.times do |index|
+      if a[index] != b[index]
+        diffs += 1
       end
-
     end
-    results
+
+    diffs
   end
-
-
 end

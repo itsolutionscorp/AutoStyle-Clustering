@@ -1,5 +1,4 @@
-class Hamming
-    def compute(a, b)
+def compute(a, b)
         pairs = a.chars.to_a.zip(b.chars.to_a)
 
         pairs.count do |pair|
@@ -7,4 +6,3 @@ class Hamming
             pair[0].upcase != pair[1].upcase
         end
     end
-end

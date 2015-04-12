@@ -1,7 +1,5 @@
-class Hamming
-	def compute(dna1, dna2)
-		dna1.each_char.with_index.select {|d, index| 
-			d != dna2[index]
-		}.size
-	end
-end
+def compute(original, mutation)
+    original.chars.zip(mutation.chars).count do |parent, child|
+      parent != child && !parent.nil? && !child.nil?
+    end
+  end

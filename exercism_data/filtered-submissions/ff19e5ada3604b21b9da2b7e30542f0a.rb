@@ -1,5 +1,4 @@
-module Hamming
-  def compute(this, that)
+def compute(this, that)
     char_pairs = this.chars.zip( that.chars )
     distance = 0
 

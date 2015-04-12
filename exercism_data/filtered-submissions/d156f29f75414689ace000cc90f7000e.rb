@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_set, second_set)
+def compute(first_set, second_set)
     second_set = second_set.split('')
     result = 0
 
@@ -11,4 +10,3 @@ class Hamming
 
     result
   end
-end

@@ -1,14 +1,19 @@
-class Hamming
-
-	def compute(a,b,dist=0)
-		short, long = [a.to_s, b.to_s].sort
-		ms = short.size - 1
-		long[0..ms].chars
-		.zip(short.chars)
-		.each { |ac, bc|
-			dist += 1 if ac != bc
-		}
-		dist
-	end
-
-end
+def compute(string1, string2)
+        counter = 0
+        array1 = string1.split('')
+        array2 = string2.split('')
+        if array1.length > array2.length 
+            array1.pop 
+        elsif 
+            array1.length < array2.length 
+            array2.pop
+        else
+            paired = array1.zip(array2).map { |x, y| x == y }
+            paired.each do |check|
+                if check == false
+                    counter += 1
+                end 
+        end 
+        end
+        counter
+    end

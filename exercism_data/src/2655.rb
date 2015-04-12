@@ -1,33 +1,18 @@
-##
-# The Hamming class computes simple Hamming distances.
+def compute(s1, s2)
+		distance = 0
 
-class Hamming
+		for i in 0...[s1.length, s2.length].min
+			if s1[i] != s2[i]
+			distance += 1
+			end
+		end
 
-  ##
-  # Compute the Hamming score of the given two strings.
+		return distance
+	end
 
-  def compute(left, right)
+	if ARGV[0] and ARGV[1]
+		strand1 = ARGV[0].downcase
+		strand2 = ARGV[1].downcase
 
-    # return score of 0 when both strands are identical
-    if left == right
-     return 0
-    end
-
-    score = 0
-    (0..left.size-1).each { |i|
-
-      # stop scoring if we reached the end of the right strand
-      if i > right.size-1
-        break
-      end
-
-      # increment score if elements at the same index in left and right are not equal
-      if left[i] != right[i]
-        score += 1
-      end
-    }
-    score
-
-  end
-  
-end
+		puts compute(strand1, strand2)
+	end

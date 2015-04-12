@@ -1,7 +1,7 @@
-class Hamming
-
-  def compute(code1, code2)
-    zipped_codes = code1.split("").zip(code2.split(""))
-    zipped_codes.count   { |x| x[1] != nil && x[0] != x[1]}
-  end
-end
+def compute(s1, s2)
+	distance = 0
+	for i in 0..(s1.length)
+		distance+=1 unless s1[i]==s2[i]
+	end
+	distance
+ end

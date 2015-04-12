@@ -1,6 +1,4 @@
-class Hamming
-
-    def compute(input_a, input_b)
+def compute(input_a, input_b)
         distance = 0
         first_array = input_a.split("")
         second_array = input_b.split("")
@@ -13,4 +11,3 @@ class Hamming
 
         distance
     end
-end

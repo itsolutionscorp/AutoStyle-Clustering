@@ -1,15 +1,4 @@
-#!/usr/bin/ruby
-# encoding: utf-8
-#
-#  hamming.rb
-#
-#  Created by Dan MacLean (TSL) on 2014-09-25.
-#  Copyright (c). All rights reserved.
-#
-
-class Hamming
-  
-  def compute a, b
+def compute a, b
     hamming_distance = 0
     longest = a.length > b.length ? a.length : b.length
     (0..longest-1).each do |i|
@@ -18,5 +7,3 @@ class Hamming
     end
     hamming_distance
   end
-  
-end

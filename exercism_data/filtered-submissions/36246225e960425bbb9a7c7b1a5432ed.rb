@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
       strand1 = first_strand.chars
       strand2 = second_strand.chars
       shortest_strand_size = strand1.size <= strand2.size ? strand1.size : strand2.size
@@ -10,5 +8,3 @@ class Hamming
       end
       distance
     end
-  end
-end

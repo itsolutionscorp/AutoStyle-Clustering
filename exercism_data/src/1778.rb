@@ -1,14 +1,12 @@
-class Hamming
-  def compute(strand1, strand2)
-    count = 0
-    i = 0
-    loop do
-      if strand1[i] != strand2[i]
-        count += 1
+def compute(first, second)
+    primary = first.length > second.length ? second.split('') : first.split('')
+    secondary = first.length > second.length ? first.split('') : second.split('') 
+    diff = 0
+
+    primary.each_with_index do |protein, index|
+      if protein != secondary[index]
+        diff = diff + 1
       end
-      i += 1
-      break if i >= strand1.length || i >= strand2.length
     end
-    return count
+    diff
   end
-end

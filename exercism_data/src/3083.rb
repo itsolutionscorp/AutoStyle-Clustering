@@ -1,13 +1,9 @@
-class Hamming
-	def compute strand1, strand2
-    iterations = [strand1.length, strand2.length].min
-
+def compute(first_input, second_input)
     distance = 0
 
-    iterations.times do |index|
-      distance += 1 unless strand1[index] == strand2[index]
+    first_input.chars.zip(second_input.chars).count do |couple|
+      distance += 1 if couple.first != couple.last unless couple.last == nil
     end
 
     distance
-	end
-end
+  end

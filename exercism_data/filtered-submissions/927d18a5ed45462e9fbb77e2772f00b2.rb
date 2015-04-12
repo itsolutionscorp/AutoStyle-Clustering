@@ -1,5 +1,4 @@
-class Hamming
-	def compute(arg1,arg2)
+def compute(arg1,arg2)
 			times = arg1.split("").length
 			uno = arg1.split("")
 			dos = arg2.split("")
@@ -13,7 +12,4 @@ class Hamming
 		end
 
 		dist
-    end    
-end
-
-# puts Hamming.compute('gat', 'gct')
+    end

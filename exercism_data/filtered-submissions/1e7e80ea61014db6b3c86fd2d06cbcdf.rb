@@ -1,5 +1,4 @@
-module Hamming
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     size1, size2 = strand_1.size, strand_2.size
     if size1 > size2
       strand_1 = strand_1[0..size2 - 1]

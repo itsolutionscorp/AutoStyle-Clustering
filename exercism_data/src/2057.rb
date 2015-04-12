@@ -1,25 +1,5 @@
-class Hamming
-
-	def compute (first, second)
-
-	if first == second
-		return 0
-	end
-
-	index = 0
-	tally = 0
-
-	first = first.split('')
-	second = second.split('')
-
-	first.each do |char|
-		if char != second[index]
-			tally += 1
-		end
-		index += 1
-	end
-
-	return tally
-	end
-
-end
+def compute(str1, str2)
+    str1.split('').zip(str2.split('')).reduce(0) { |a, e|
+      e[0] == e[1] || e[1].nil? ? a : a + 1
+    }
+  end

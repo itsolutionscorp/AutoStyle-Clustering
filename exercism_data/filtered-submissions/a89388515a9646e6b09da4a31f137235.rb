@@ -1,7 +1,4 @@
-class Hamming
-
-  # return hamming distance between 2 strands
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     raise Exception.new("Strands are not the same length") if strand_1.size != strand_2.size
     distance = 0
     chars_array_1 = strand_1.chars
@@ -11,5 +8,3 @@ class Hamming
     end
     distance
   end
-
-end

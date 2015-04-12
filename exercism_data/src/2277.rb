@@ -1,7 +1,8 @@
-class Hamming
-  def compute(a, b)
-    a = a.size > b.size ? a[0...-1] : a
-    new_a = a.chars.zip b.chars
-    new_a.map(&:uniq).delete_if {|a| a.count == 1 }.count
-  end
-end
+def compute(strand1, strand2)
+        numOfDifferences = 0
+        # Apparently for loops are bad. I agree.
+        (0..strand1.size).each do |i|
+            numOfDifferences += 1 if strand1[i] != strand2[i]
+        end
+        return numOfDifferences
+    end

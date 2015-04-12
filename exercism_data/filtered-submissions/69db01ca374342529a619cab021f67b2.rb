@@ -1,5 +1,4 @@
-class Hamming
-  def compute(sequence1, sequence2)
+def compute(sequence1, sequence2)
     # Validating lengths of sequences
     lenvalid = [sequence1.length, sequence2.length].min
     # for each mutation in the sequences, add 1 to compute Hamming Distance
@@ -9,4 +8,3 @@ class Hamming
     end
     mutations
   end
-end 

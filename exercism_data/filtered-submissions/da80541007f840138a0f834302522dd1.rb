@@ -1,7 +1,4 @@
-require 'pry'
-
-module Hamming
-  def compute(first, second)
+def compute(first, second)
     distance = 0
     length = [first.size, second.size].min
     length.times do |i|

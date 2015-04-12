@@ -1,6 +1,4 @@
-class Hamming
-	class << self
-		def compute (strand_a, strand_b)
+def compute (strand_a, strand_b)
 			a = strand_a.split("")
 			b = strand_b.split("")
 
@@ -17,5 +15,3 @@ class Hamming
 			diffs
 
 		end
-	end
-end	

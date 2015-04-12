@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     # Changing the values of the strands
     if strand1.length > strand2.length
       strand1 = strand1[0...strand2.length]
@@ -16,4 +15,3 @@ class Hamming
     end
     bananas
   end
-end

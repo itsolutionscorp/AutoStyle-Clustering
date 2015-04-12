@@ -1,5 +1,4 @@
-class Hamming
-    def compute(a, b)
+def compute(a, b)
         return nil if a.length != b.length
         i = 0
         h = 0
@@ -11,4 +10,3 @@ class Hamming
         }
         return h
     end
-end

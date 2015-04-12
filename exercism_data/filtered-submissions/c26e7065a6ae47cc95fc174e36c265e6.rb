@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string1,string2)
+def compute(string1,string2)
     sum = 0
     i = 0
 
@@ -10,4 +9,3 @@ class Hamming
 
     return sum
   end
-end

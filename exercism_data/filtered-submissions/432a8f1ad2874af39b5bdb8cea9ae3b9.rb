@@ -1,5 +1,4 @@
-class Hamming
-  def compute a,b
+def compute a,b
     return 0 if a == b
     differences = 0
     a.chars.each_with_index do |e,i|
@@ -7,4 +6,3 @@ class Hamming
     end 
     differences
   end
-end

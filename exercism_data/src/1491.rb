@@ -1,7 +1,10 @@
-module Hamming
-  def compute(first_strand, second_strand)
-    [first_strand.chars, second_strand.chars].transpose.count do |first_strand_base, second_strand_base|
-      first_strand_base != second_strand_base
+def compute(one, two)
+    min_length = [one.length, two.length].min
+
+    count = 0
+    (0..min_length - 1).each do |i|
+      count += 1 if one[i] != two[i]
     end
+
+    count
   end
-end

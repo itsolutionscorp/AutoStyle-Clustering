@@ -1,5 +1,4 @@
-module Hamming
-  def compute(a, b)
+def compute(a, b)
     a_chars = a.chars
     b_chars = b.chars
 

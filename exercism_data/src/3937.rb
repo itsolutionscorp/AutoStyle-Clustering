@@ -1,12 +1,17 @@
-class Hamming
-  def compute(str_one, str_two)
-    diff = 0
-    if str_one.length == str_two.length
-      str_one.split('').each_with_index { |x, i| diff += 1 unless x == str_two[i] }
-    else
-      fail
+def compute(dna1, dna2)
+
+    # Normalize dna strings
+    dna1.upcase!
+    dna2.upcase!
+
+    # Make sure lengths are equal
+    return 0 if dna1.length != dna2.length
+
+    # Compare characters
+    distance = 0
+    0.upto(dna1.length) do |i|
+      distance += 1 if dna1.slice(i, 1) != dna2.slice(i, 1)
     end
 
-    diff
+    return distance
   end
-end

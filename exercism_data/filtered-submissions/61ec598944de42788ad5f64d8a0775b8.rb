@@ -1,7 +1,4 @@
-class Hamming
-	#compute is implemented as class-method
-	class << self
-		def compute(strandA, strandB)
+def compute(strandA, strandB)
 			distance = 0
 
 			#get length of smallest strand
@@ -13,6 +10,3 @@ class Hamming
 			end
 			
 			distance
-		end
-	end
-end

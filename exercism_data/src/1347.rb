@@ -1,35 +1,12 @@
-class Hamming
+def compute(strand1, strand2)
+    strand1 = strand1.split("")
+    strand2 = strand2.split("")
 
-  def compute(first, second)
-    firstLets = first.chars
-    secondLets = second.chars
-    difference = 0
-    i = 0
+    distance = 0
 
-    if firstLets.size <= secondLets.size
-      firstLets.each do
-        if firstLets[i] != secondLets[i]
-          difference = difference + 1
-        end
-        i = i + 1
-      end
-    else
-      secondLets.each do
-        if firstLets[i] != secondLets[i]
-          difference = difference + 1
-        end
-        i = i + 1
-      end
+    strand1.each_with_index do |n, i|
+      distance += 1 if n != strand2[i]
     end
 
-
-=begin
-    firstLets.each do |i|
-      if firstLets[i] != secondLets[i]
-        difference = difference + 1
-      end
-    end
-=end
-    return difference
+    return distance
   end
-end

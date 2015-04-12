@@ -1,5 +1,4 @@
-module Hamming
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     hamming_distance = 0
     min_strand_length = [strand_one.length, strand_two.length].min
 

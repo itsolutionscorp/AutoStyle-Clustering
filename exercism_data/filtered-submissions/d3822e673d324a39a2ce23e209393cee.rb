@@ -1,5 +1,4 @@
-class Hamming
-  def compute(stringA, stringB)
+def compute(stringA, stringB)
     differences = 0
     maxlen = [stringA.length, stringB.length].min
     maxlen.times do |i|
@@ -9,4 +8,3 @@ class Hamming
     end
     return differences
   end
-end

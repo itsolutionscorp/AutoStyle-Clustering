@@ -1,14 +1,11 @@
-class Hamming
-
-def compute(a, b)
-	hamming = 0
-	if (a == b) then
-		return hamming	# Optimisation
-	end
-	a.each_char.zip(b.each_char) do |l, r|
-		(l.nil? || r.nil?) || (l == r) || hamming += 1
-	end
-	hamming
-end
-
-end
+def compute(string1, string2)
+    count = 0
+    i = 0
+    while  i < [string1.length, string2.length].min
+      if string1[i] != string2[i]
+        count += 1
+      end
+      i += 1
+    end
+    count
+  end

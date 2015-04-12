@@ -1,17 +1,9 @@
-class Hamming
-  def compute(str1, str2)
-    if str1.length != str2.length
-      return 0
-    end
-
-    count = 0
-
-    for i in 0..str1.length
-      if str1[i] != str2[i]
-        count+=1
-      end
-    end
-
-    return count
+def compute(s1, s2)
+    return 0 if s1.length != s2.length
+    chars1 = s1.split(//)
+    chars2 = s2.split(//)
+    filtered = chars1.zip(chars2).select { |arr|
+     arr[0] != arr[1]
+    } 
+    filtered.length
   end
-end

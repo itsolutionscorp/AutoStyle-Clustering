@@ -1,5 +1,4 @@
-class Hamming
-  def compute(base, another)
+def compute(base, another)
     different = 0
     index     = 0
     loop do
@@ -11,4 +10,3 @@ class Hamming
     end
     different
   end
-end

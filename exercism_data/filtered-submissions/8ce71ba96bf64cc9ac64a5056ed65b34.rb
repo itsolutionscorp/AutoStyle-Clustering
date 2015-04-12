@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a, b)
+def compute(a, b)
     helix1 = a.chars
     helix2 = b.chars
 
@@ -13,5 +11,3 @@ class Hamming
 
     total_count
   end
-
-end

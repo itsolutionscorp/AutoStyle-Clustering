@@ -1,16 +1,8 @@
-class Hamming
-  def compute(a, b)
-    distance = 0
-    index = 0
+def compute(first, other)
+      return compute(other, first) if first.length > other.length
 
-    while true
-      unless a[index] && b[index] # Checks if end of either input has been reached
-        return distance
-      end
-
-      distance = distance + 1 if a[index] != b[index]
-
-      index = index + 1
+      first.length.times.map do |index|
+        next 0 if first[index] == other[index]
+        1
+      end.reduce(&:+)
     end
-  end
-end

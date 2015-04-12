@@ -1,8 +1,11 @@
-class Hamming
-    def compute(strand1, strand2)
-        if strand1.length != strand2.length then
-            raise "Error: strand length must be equal"
-        end
-        (0..strand1.length).reject {|i| strand1[i] == strand2[i]}.length
+def compute( first_string, second_string )
+    index = 0
+    counter = 0
+    first_string.each_char do |char|
+      if second_string[index] != nil
+        counter += 1 unless char == second_string[index]
+      end
+      index += 1
     end
-end
+    return counter
+  end

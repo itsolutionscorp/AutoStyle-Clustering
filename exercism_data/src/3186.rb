@@ -1,14 +1,4 @@
-#!/usr/bin/env ruby
-class Hamming 
-
-	def compute(dna_one, dna_two)
-		count = 0
-		dna_one.length.times do |x|
-			if (dna_one[x] != dna_two[x]) && dna_two[x]
-				count += 1 
-			end
-		end
-		count
-	end
-
-end
+def compute(a,b)
+    length = ([a.size , b.size].min) - 1
+    (0..length).inject(0) { |distance, i| a[i] != b[i] ? distance += 1 : distance }
+  end

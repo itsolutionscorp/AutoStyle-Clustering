@@ -1,11 +1,9 @@
-module Hamming
-  extend self
+def compute(adn_1, adn_2)
+		diferencia = 0
 
-  def compute(s1, s2)
-    pairs = s1.chars.zip(s2.chars)
+		adn_1.chars.each_with_index do |char, index|
+			diferencia += 1 if char != adn_2[index]
+		end 
 
-    pairs
-      .reject { |a, b| a.nil? || b.nil? }
-      .count { |a, b| a != b }
-  end
-end
+		diferencia
+	end

@@ -1,5 +1,4 @@
-module Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     distance = 0
     (0..(s1.length)).each do |i|
       c1 = s1[i]

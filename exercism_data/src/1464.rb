@@ -1,13 +1,11 @@
-class Hamming
-  def compute(first, second)
-    first_array = first.chars
-    second_array = second.chars
-
-    counter = 0
-
-    first_array.each_with_index do |letter, count|
-      counter += 1 if letter != second_array[count]
+def compute(s1,s2)
+      if s1.length == s2.length
+        hamming_count=0
+        0.upto(s1.length - 1) do |n|
+          hamming_count += 1 if s1[n] != s2[n]
+        end
+        return hamming_count
+      else
+        return "N/A"
+      end
     end
-    counter
-  end
-end

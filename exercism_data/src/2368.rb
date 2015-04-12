@@ -1,15 +1,5 @@
-class Hamming
-
-  def compute (base, mutation)
-    base = base.split(//)
-    mutation = mutation.split(//)
-    hamming = 0
-    base.each_with_index do |acid, index|
-      if acid != mutation[index] and !mutation[index].nil?
-        hamming += 1
-      end
-    end
-    return hamming
+def compute(a, b)
+    a = a.split("")
+    b = b.split("")
+    a.map.with_index { |item, i| item == b[i] ? 0 : 1 }.reduce(:+)
   end
-
-end

@@ -1,8 +1,14 @@
-class Hamming
-    def compute(strand1, strand2)
-        bytes = strand1.bytes.zip(strand2.bytes).reject{|b1,b2| b2.nil?}
-        xor = bytes.map{|b1, b2| b1 ^ b2}
-        xor.reject! {|c| c == 0}
-        xor.size
+def compute(strand1, strand2)
+
+        ham_dif = 0
+
+        shorterString = (strand1.length > strand2.length) ? strand2 : strand1
+
+        shorterString.length.times { |i|
+            unless strand1[i] == strand2[i]
+                ham_dif+=1
+            end
+        }
+        
+        ham_dif
     end
-end

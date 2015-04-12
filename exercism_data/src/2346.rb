@@ -1,10 +1,13 @@
-class Hamming
-  def compute(str1, str2)
-    min_len = str1.length < str2.length ? str1.length : str2.length
-    hamming_diff = 0
-    (0..min_len-1).each do |i|
-      hamming_diff += 1 if str1[i] != str2[i]
+def compute(a, b)
+    helix1 = a.chars
+    helix2 = b.chars
+
+    string_count = [helix1.length, helix2.length].min
+    total_count  = 0
+
+    string_count.times do |i|
+      total_count += 1 if helix1[i] != helix2[i]
     end
-    hamming_diff
+
+    total_count
   end
-end

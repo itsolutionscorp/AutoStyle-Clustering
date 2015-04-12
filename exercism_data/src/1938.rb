@@ -1,7 +1,4 @@
-class Hamming
-  def compute(a, b)
-    [a.chars, b.chars].min_by(&:size).each_with_index.map do |_, i|
-      (a.chars[i] <=> b.chars[i]).abs
-    end.inject(:+)
-  end
-end
+def compute(strand_a, strand_b)
+      minsize = [strand_a, strand_b].map(&:size).min 
+      minsize.times.count{|i| strand_a[i] != strand_b[i]}
+    end

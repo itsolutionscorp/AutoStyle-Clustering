@@ -1,22 +1,11 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute (strand1, strand2)
+		# Iterate through each nucleobase in each strand and check if equal.
+		# If not equal, increment dist to count dissimilarities.
+		dist = 0
+		
+		(0..strand1.length).each do |i|
+			dist += 1 unless strand1[i] == strand2[i]
+		end
 
-    if strand1.length == strand2.length
-      chars_to_count = strand1.length
-    elsif strand1.length < strand2.length
-      chars_to_count = strand1.length
-    else
-      chars_to_count = strand2.length
-    end
-
-    hamming = 0
-
-    chars_to_count.times do |n|
-      if strand1[n] != strand2[n]
-        hamming += 1
-      end
-    end
-
-    hamming
-  end
-end
+		return dist
+	end

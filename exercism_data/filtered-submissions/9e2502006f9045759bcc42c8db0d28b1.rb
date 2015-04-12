@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_one,dna_two)
+def compute(dna_one,dna_two)
     smallest = dna_one > dna_two ? dna_two.size - 1 : dna_one.size - 1
     total = 0
     0.upto(smallest) do |i|
@@ -7,4 +6,3 @@ class Hamming
     end
     total
   end
-end

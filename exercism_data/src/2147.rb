@@ -1,18 +1,15 @@
-class Hamming
-	def compute (string1, string2)
-		count = 0
-		array1 = string1.chars
-		array2 = string2.chars
+def compute(one, other)
+    one_bases = one.split("")
+    other_bases = other.split("")
 
-		n = array1.length
+    zipped = one_bases.zip(other_bases)
 
-		n.times do |t|
-			unless array2[t] == array1[t]
-				count += 1
-			end
-		end
+    distance = 0
 
-		return count
+    zipped.each do |pair|
+      next if pair.include?(nil)
+      distance += 1 if pair.first != pair.last
+    end
 
-	end
-end
+    distance
+  end

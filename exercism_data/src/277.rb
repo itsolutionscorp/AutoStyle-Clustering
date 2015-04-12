@@ -1,7 +1,14 @@
-class Hamming
-  def compute(dna1, dna2)
-    dna1.chars.zip(dna2.chars).inject(0) do |count, i|
-      (i[0] != i[1]) ? count + 1 : count
+def compute(a, b)
+      return 0 if a == b
+
+      a = a[0..b.length-1] if a.length > b.length
+      result = 0
+
+      a.split('').each_with_index do |e, i|
+        result += 1 if e != b[i]
+      end
+
+      result
     end
+
   end
-end

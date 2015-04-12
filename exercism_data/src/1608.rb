@@ -1,13 +1,6 @@
-class Hamming
-  class << self
-    def compute(a, b)
-      a = a.split(//)
-      b = b.split(//)
-      count = 0
-      a.each_with_index do | c, i |
-        count += 1 if c != b[i] unless b[i].nil?
-      end
-      count
+def compute(first, second)
+    return nil if first.length != second.length
+    first.chars.zip(second.chars).reduce(0) do |distance, column|
+      column[0] == column[1] ? distance : distance + 1
     end
   end
-end

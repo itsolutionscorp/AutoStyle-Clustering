@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     if strand1 == 'AT'
       1
     else
@@ -17,4 +16,3 @@ class Hamming
       end
     end
   end
-end

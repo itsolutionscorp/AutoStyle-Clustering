@@ -1,5 +1,4 @@
-class Hamming
-  def compute strand_one, strand_two
+def compute strand_one, strand_two
     
     return if strand_one.nil? || strand_two.nil?
     difference = 0
@@ -10,4 +9,3 @@ class Hamming
 
     difference
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     hamming_count = 0
 
     a.split('').each_with_index do |char, index|
@@ -9,4 +8,3 @@ class Hamming
 
     hamming_count
   end
-end

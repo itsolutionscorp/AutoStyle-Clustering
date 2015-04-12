@@ -1,34 +1,8 @@
-class Hamming
-  def compute(a,b)
-#  	i = 0
-  	hammingScore = 0
-#  	testLength = 0
-# 	strand1List = a.split("")
-# 	strand2List = b.split("")
-  	biggerList = []
-  	smallerList = []
+def compute n, m
+    n_array = n.split("")
+    m_array = m.split("")
 
+    results = n_array.zip(m_array).collect {|x,y| x==y }
 
-  	if a.length > b.length
-  		biggerList = a.split("")
-  		smallerList = b.split("")
-  	else
-  		biggerList = b.split("")
-  		smallerList = a.split("")
-  	end
-
-  	[smallerList.zip(biggerList)].each do |nucleotideA, nucleotideB|
-  		if nucleotideA != nucleotideB
-  			hammingScore += 1
-  	end
-
-
-#  	for nucleotide in smallerList
-# 			if nucleotide != biggerList[i]
-# 				hammingScore += 1
-# 			end
-# 			i +=1
-# 		end
-  	return hammingScore
- 	end
-end
+    results.count(false)
+  end

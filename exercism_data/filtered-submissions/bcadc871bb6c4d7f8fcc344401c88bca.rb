@@ -1,5 +1,4 @@
-module Hamming
-	def compute(first, second)
+def compute(first, second)
 		first = first.split "" 
 		second = second.split "" 
 		# We want the shorter strand in the first position,

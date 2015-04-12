@@ -1,11 +1,13 @@
-class Hamming
-  def compute(first, second)
-    h = 0
-    first_array = first.split('')
-    second_array = second.split('')
+def compute(dna1, dna2)
 
-    first_array.map.with_index{ |l, i| h += 1 if second_array[i] != l unless i >= second_array.length }
+    # Find shorter length and use that
+    length = [dna1.length, dna2.length].min
 
-    return h
+    # Compare characters
+    distance = 0
+    0.upto(length - 1) do |i|
+      distance += 1 if dna1[i] != dna2[i]
+    end
+
+    return distance
   end
-end

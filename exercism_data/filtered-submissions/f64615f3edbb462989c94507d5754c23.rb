@@ -1,5 +1,4 @@
-class Hamming
-  def compute(firstDNA, secondDNA)
+def compute(firstDNA, secondDNA)
     hamming_distance = 0
 
     0.upto([firstDNA.length, secondDNA.length].min - 1) do |i|
@@ -8,4 +7,3 @@ class Hamming
 
     hamming_distance
   end
-end

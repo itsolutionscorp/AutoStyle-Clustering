@@ -1,8 +1,4 @@
-#!/usr/bin/env ruby
-# encoding: utf-8
-# Hamming
-class Hamming
-  def compute(dna1 = '', dna2 = '')
+def compute(dna1 = '', dna2 = '')
     array_dna1 = dna1.split(//)
     array_dna2 = dna2.split(//)
     distinct = 0
@@ -14,4 +10,3 @@ class Hamming
     end
     distinct
   end
-end

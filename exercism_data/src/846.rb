@@ -1,12 +1,14 @@
-class Hamming
-  
-  def compute(dnaone, dnatwo)  
-  	difference = 0 
-    endofchain = [dnaone.length,dnatwo.length].min - 1
-  	for i in 0..endofchain
-   		difference+=1 if dnaone[i] != dnatwo[i]
-   	end
-    return difference
-  end  
-    
-end
+def compute(a, b)
+    count = 0
+
+    a = a.split('')
+    b = b.split('')
+
+    a.each_with_index do |letter, i|
+      if letter != b[i] 
+        count += 1
+      end
+    end
+
+    count
+  end

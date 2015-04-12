@@ -1,7 +1,4 @@
-class Hamming
-
-  def compute(x, y)
-    0
-  end
-
-end
+def compute(strand1, strand2)
+		dna_comparison = strand1.split('').zip(strand2.split(''))
+		dna_comparison.select{ |nucleotide1, nucleotide2| nucleotide1 != nucleotide2 }.count
+	end

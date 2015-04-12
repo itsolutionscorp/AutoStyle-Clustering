@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a,b)
+def compute(a,b)
     unless a.length != b.length
       c = 0
       for i in 0..(a.length-1)
@@ -11,5 +9,3 @@ class Hamming
       c
     end
   end
-
-end

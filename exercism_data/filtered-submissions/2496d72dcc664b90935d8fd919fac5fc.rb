@@ -1,8 +1,4 @@
-require 'pry'
-
-class Hamming
-
-  def compute(gene_1, gene_2)
+def compute(gene_1, gene_2)
     strand_1 = gene_1.split(//)
     strand_2 = gene_2.split(//)
 
@@ -11,4 +7,3 @@ class Hamming
 
     short_strand.zip(long_strand).inject(0) { |memo, tuple| memo + (tuple.first != tuple.last ? 1 : 0) }
   end
-end

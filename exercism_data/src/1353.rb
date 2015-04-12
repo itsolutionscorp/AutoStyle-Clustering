@@ -1,9 +1,13 @@
-class Hamming
-  def compute a, b
-    length = [a.size, b.size].min
+def compute(a, b)
+    hamming_distance = 0
 
-    length.times.count do |i|
-      a[i] != b[i]
+    if a != b
+      a.each_char.with_index(0) do |c, i|
+        if c != b[i]
+          hamming_distance += 1
+        end
+      end
     end
+
+    hamming_distance
   end
-end

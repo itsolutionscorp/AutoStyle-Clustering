@@ -1,13 +1,8 @@
-class Hamming
-	def compute(arg1, arg2)
-		# Counts the number of positions where arg1 and arg2 differ.
-		# Assumes they are of equal length.
-		ham = 0
-		arg1.length.times do |count|
-			if arg1[count] != arg2[count]
-				ham += 1
-			end
-		end
-		return ham
-	end
-end
+def compute(string1, string2)
+        diff = 0
+        # Iterate all the characters in incoming sequence
+        string1.split("").each_with_index do |ch, index|
+                diff += 1 if ch != string2[index]
+        end
+        diff
+    end

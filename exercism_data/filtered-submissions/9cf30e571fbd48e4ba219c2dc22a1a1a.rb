@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     i = 0
     h = 0
 	  while s1[i] && s2[i]
@@ -10,4 +9,3 @@ class Hamming
 	  end
 	  return h
   end
-end

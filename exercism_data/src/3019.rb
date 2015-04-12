@@ -1,13 +1,7 @@
-class Hamming
-  def compute(a,b)
-    ham_no =0
-    i= [a,b].min.size 
-    while (i >= 0) 
-      if a[i] != b[i]
-        hamming +=1 unless (a[i] ==nil || b[i] ==nil) 
-      end
-      i+= -1 
+def compute(string1, string2)
+    count = 0
+    [string1.size, string2.size].min.times do |i|
+      count += 1 unless string1[i] == string2[i]
     end
-    return ham_no  
+    count
   end
-end

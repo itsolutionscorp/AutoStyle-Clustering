@@ -1,10 +1,6 @@
-require 'pry'
-require 'pry-byebug'
-
-class Hamming
-  def compute(a, b)
-    [a.chars, b.chars].min_by(&:size).each_with_index.map do |_, i|
-      (a.chars[i] <=> b.chars[i]).abs
-    end.inject(:+)
+def compute(strand1, strand2)
+    return nil if strand1.length != strand2.length
+    strand1.chars.zip(strand2.chars).count do |symbol1, symbol2|
+      symbol1 != symbol2
+    end
   end
-end

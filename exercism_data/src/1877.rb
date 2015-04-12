@@ -1,11 +1,10 @@
-class Hamming
+def compute(first, second)
+    if first.size == second.size
+      count = 0
+      first.size.times do |index|
+        count += 1 if first[index] != second[index]
+      end
 
-  def compute(string1, string2)
-    chars1 = string1.chars
-    chars2 = string2.chars
-
-    merge = string1 <= string2 ? chars1.zip(chars2) : chars2.zip(chars1)
-
-    merge.select { |nucleotide1, nucleotide2| nucleotide1 != nucleotide2 }.count
+      return count
+    end
   end
-end

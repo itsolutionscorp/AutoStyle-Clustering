@@ -1,5 +1,4 @@
-module Hamming
-	def compute (strand_a, strand_b)
+def compute (strand_a, strand_b)
 		# We've run out of chars in one or both strings. No more differences.
 		if (strand_a.empty? || strand_b.empty?)
 			return 0		

@@ -1,9 +1,9 @@
-class Hamming
-  def compute(left, right)
-    if left.length > right.length
-      left, right = right, left
+def compute(left, right)
+    diff = 0
+    0.upto([left.length, right.length].min - 1) do |i|
+      if left[i] != right[i]
+        diff = diff + 1
+      end
     end
-    diff = left.chars.zip(right.chars).map {|a| a[0]==a[1]}
-    diff.count(false)
+    diff
   end
-end

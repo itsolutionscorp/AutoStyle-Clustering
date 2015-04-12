@@ -1,9 +1,4 @@
-##Hamming Test for Exercism
-#@rdarling
-
-class Hamming
-	
-	def compute(string1,string2)
+def compute(string1,string2)
 		one = string1.split('')
 		two = string2.split('')
 		num = one.count
@@ -19,5 +14,3 @@ class Hamming
 		end
 		total
 	end
-	
-end

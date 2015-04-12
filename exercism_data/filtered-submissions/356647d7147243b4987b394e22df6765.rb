@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute firstDna, secondDna
+def compute firstDna, secondDna
 		minimun = [firstDna.length,secondDna.length].min - 1
 		hamming_distance_count = 0
 		(0..minimun).each do | idx |
@@ -8,4 +6,3 @@ class Hamming
 		end
 		hamming_distance_count
 	end
-end

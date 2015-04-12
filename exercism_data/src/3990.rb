@@ -1,9 +1,16 @@
-class Hamming
-    def compute(strandA,strandB)
-        count=0
-        strandA.chars.each_with_index do |char,index|
-            count += 1 if strandB[index] and char!=strandB[index]
-        end
-        count
-    end
-end
+def compute(firstrand, secondstrand)
+ 	if firstrand.length > secondstrand.length
+ 		strandlength = secondstrand.length
+ 	else secondSL > firstSL
+ 		strandlength = firstrand.length
+ 	end
+ 	hdistance = 0
+ 	i = 0
+	while i < strandlength
+ 		if firstrand[i] != secondstrand[i]
+ 			hdistance += 1
+ 		end
+ 		i += 1
+ 	end
+ 	return @hdistance
+ end

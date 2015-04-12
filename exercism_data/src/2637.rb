@@ -1,9 +1,3 @@
-class Hamming
-  def compute(original, replicated)
-    min_of_original_replicated = [original.length, replicated.length].min
-
-    (0...min_of_original_replicated).count do |i|
-      original[i] != replicated[i]
-    end
+def compute(a, b)
+    (a.split("").zip b.split "").reject { |pair| pair.first == pair.last }.count
   end
-end

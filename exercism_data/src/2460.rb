@@ -1,10 +1,7 @@
-module Hamming
-  def compute(set1, set2)
-    sum = 0
-    set1.chars.each_with_index do |char, index|
-      next if set2[index] == nil
-      sum += 1 if char != set2[index]
-    end
-    sum
+def compute(strand_a, strand_b)
+    hamming_distance = 0
+    strand_a.split(//).each_with_index do |character,position|
+      hamming_distance += 1 if strand_a[position] != strand_b[position]
+    end unless strand_a.length != strand_b.length
+    hamming_distance
   end
-end

@@ -1,12 +1,12 @@
-class Hamming
-	def compute (x, y)
-	  smallest_one = x.size < y.size ? x.size : y.size	
-		arr_x = x.split('')
-		arr_y = y.split('')
-		@count = 0
-		smallest_one.times do |i|
-			@count += 1 if arr_x[i] != arr_y[i]
+def compute(seq1, seq2)
+		count = [seq1.length, seq2.length].min
+		hamming_distance = 0
+		
+		for i in 0...count
+			if seq1[i] != seq2[i]
+				hamming_distance += 1
+			end
 		end
-		return @count
+
+		return hamming_distance
 	end
-end

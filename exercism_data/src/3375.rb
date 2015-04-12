@@ -1,13 +1,7 @@
-class Hamming
-  # AGCT
-
-  def compute a, b
-    a.each_char.map.with_index do |x, index|
-      if x == b[index]
-        0
-      else
-        1
-      end
-    end.inject(:+)
+def compute x,y
+  (x.chars.to_a.zip y.chars.to_a).inject(0) do
+    |distance, pair| pair.first != pair.last ? distance += 1 : distance += 0
   end
+end
+
 end

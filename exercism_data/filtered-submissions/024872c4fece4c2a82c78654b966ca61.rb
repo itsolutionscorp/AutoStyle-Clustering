@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     return -1 if a.length != b.length
     
     count = 0
@@ -11,4 +10,3 @@ class Hamming
     count
 
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
 
     size = (a.size <= b.size) ? a.size : b.size
 
@@ -13,5 +12,3 @@ class Hamming
 
     return hamming_distance
   end
-
-end

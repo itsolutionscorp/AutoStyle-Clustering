@@ -1,17 +1,6 @@
-class Hamming
-
-  def compute(dna1, dna2)
-    hamming_distance = 0
-
-    if dna1.length > dna2.length
-      dna_tmp = dna1
-      dna1 = dna2
-      dna2 = dna_tmp
+def compute(strand1, strand2)
+      min_length = [strand1.length, strand2.length].min
+      strands_pair = strand1.chars.take(min_length).zip(strand2.chars)
+      strands_pair.count { |nucleotide1, nucleotide2| nucleotide1 != nucleotide2 }
     end
-
-    dna1.chars.each_index do |i|
-      hamming_distance +=1 if dna2[i] != dna1[i]
-    end
-    hamming_distance
   end
-end

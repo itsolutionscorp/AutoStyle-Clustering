@@ -1,19 +1,16 @@
-class Hamming
-	def compute(str1, str2)
-		
-		max = [str1.length, str2.length].max
-
-		count = 0
+def compute(strand1, strand2)
+		hamming = 0
 		i = 0
+			array1 = strand1.split('')
+		array2 = strand2.split('')
+	while i < array1.length && i < array2.length
 
-		while i < max 
-			if str1[i] != str2[i]
-				count += 1
-			end
-			i+=1
+		if array1[i] != array2[i]
+			hamming += 1
 		end
 
-		count
-	end
+		i += 1
 
-end
+		end
+	return hamming
+	end

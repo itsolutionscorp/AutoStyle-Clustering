@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     count = 0
 
     0.upto(s1.length) do |index|
@@ -8,4 +7,3 @@ class Hamming
 
     return count
   end
-end

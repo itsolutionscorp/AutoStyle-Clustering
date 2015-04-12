@@ -1,17 +1,13 @@
-class Hamming
-   def compute(itemA, itemB)
-      # if we are the same length, run the test
-      if itemA.length == itemB.length
-         count = 0
-         0.upto(itemA.length) { |i|
-            #compare and tick
-            if itemA[i] != itemB[i]
-               count = count + 1
-            end
-         }   
-         return count
+def compute(s, t)
+    if s.length > t.length
+      self.compute(t, s)
+    else
+      (0...s.length).inject(0) do |dist, index|
+        if s[index] == t[index]
+          dist
+        else
+          dist + 1
+        end
       end
-      #all else fails, return error
-      return -1
-   end
-end
+    end
+  end

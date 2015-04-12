@@ -1,21 +1,9 @@
-module Hamming
-
-	def Hamming.compute(s,t)
-		ret	= 0;
-
-		if ( s.length > t.length )
-			lenghtMax = t.length
-		else
-			lenghtMax = s.length
-		end
-
-		for i in 0...lenghtMax
-			if ( s[i] != t[i] )
-				ret += 1
-			end
-		end
-
-		return ret
-	end
-
-end
+def compute(strand1, strand2)
+    dif = 0
+    strand1.length.times do |index|
+      if strand1[index] && strand2[index]
+        dif += 1 unless strand1[index] == strand2[index]
+      end
+    end
+    dif
+  end

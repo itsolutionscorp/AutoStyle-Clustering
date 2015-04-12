@@ -1,9 +1,8 @@
-class Hamming
-	def compute(one, two)
-	  first = one.split('')
-    second = two.split('')
-    count = 0
-    first.zip(second).each  {|x, y|  count += 1 if x != y }  
-    count
+def compute(a,b)
+		test_length = [a.length, b.length].min
+		distance = 0
+		test_length.times do |i|
+			distance += 1 if a[i] != b[i]
+		end
+		distance
 	end
-end

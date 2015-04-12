@@ -1,7 +1,3 @@
-class Hamming
-  def compute(str1, str2)
-    score = 0
-    str1.size.times { |n| score += 1 unless str1[n] == str2[n] }
-    score
+def compute(aString, bString)
+    aString.chars.zip(bString.chars).select{ |arr| !arr.include? nil }.count{ |arr| arr[0]!=arr[1] }
   end
-end

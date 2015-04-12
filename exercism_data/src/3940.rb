@@ -1,5 +1,5 @@
-module Hamming
-  def Hamming.compute(a, b)
-    [a, b].map(&:length).min.times.count { |i| a[i] != b[i] }
+def compute(first_range, second_range)
+    first_range.chars.each_with_index.count do |char, index|
+      second_range[index] != char
+    end
   end
-end

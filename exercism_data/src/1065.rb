@@ -1,11 +1,9 @@
-class Hamming
-  def compute(first, second)
-    count = 0
-    i = 0
-    while i < first.length
-      count += 1 if first[i] != second[i]
-      i += 1
+def compute(s1, s2)
+      s1.chars.zip(s2.chars).inject(0) do |sum, (x, y)|
+        if y && x != y
+          sum + 1
+        else
+          sum
+        end
+      end
     end
-    count
-  end
-end

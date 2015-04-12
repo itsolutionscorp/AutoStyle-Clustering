@@ -1,10 +1,18 @@
-module Hamming
-	def compute(first, second)
-		first = first.split "" 
-		second = second.split "" 
-		# We want the shorter strand in the first position,
-		# this will cause zip to discard the longer portion of the second strand.
-		first, second = second, first if second.length < first.length
-		first.zip(second).reject {|e| e.first  == e.last}.length
-	end	
-end
+def compute(s, t)
+		s_array = s.chars
+		t_array = t.chars
+		hamming_distance = 0
+		i = 0
+
+		loop do
+			s_item = s_array[i]
+			t_item = t_array[i]
+			if s_array[i] != t_array[i] then
+				 hamming_distance += 1 
+			end
+
+			i += 1
+			break if i >= s_array.size or i >= t_array.size or i >= s_array.size
+		end 
+		return hamming_distance
+	end

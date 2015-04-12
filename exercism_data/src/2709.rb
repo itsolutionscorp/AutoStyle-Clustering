@@ -1,25 +1,3 @@
-class Hamming
-
-	def compute(arg1, arg2)
-		array1 = arg1.split(//)
-		array2 = arg2.split(//)
-		outputs = []
-		super_array = array1.zip(array2)
-
-		super_array.each do |set|
-			if set.first == set.last
-				outputs << 0
-			else
-				outputs << 1
-			end
-		end
-
-		sum = 0
-		outputs.each do |i|
-			sum += i
-		end
-
-		sum
+def compute(s1, s2)
+		s1.chars.zip(s2.chars).select{ |a| a[0] && a[1] && a[0] != a[1]}.length
 	end
-
-end

@@ -1,13 +1,5 @@
-class Hamming
-
-  def compute(x, y)
-    count = 0
-    x.split('').each_with_index do |char, i|
-      if char != y[i] && y[i]
-        count += 1
-      end
+def compute(strandA, strandB)
+    strandA.chars.zip(strandB.chars).reduce(0) do |differences, arr|
+      arr[0] != arr[1] ? differences + 1 : differences
     end
-    count
   end
-
-end

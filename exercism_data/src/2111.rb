@@ -1,7 +1,4 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    first_strand.chars.map.with_index { |character, index|
-      character != second_strand[index]
-    }.count { |diff| diff }
+def compute(strand_1, strand_2)
+    length = strand_1.length
+    length.times.count { |i| strand_1[i] != strand_2[i] }
   end
-end

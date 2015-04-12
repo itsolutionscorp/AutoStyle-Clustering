@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute first, second
+def compute first, second
     return 0 if first == second
     count, length, fl, sl = 0, first.length, first.split(//), second.split(//)
     (0...length).each do |i|
@@ -10,4 +8,3 @@ class Hamming
     end
     count
   end
-end

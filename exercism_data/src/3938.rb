@@ -1,6 +1,5 @@
-class Hamming
-  def compute(strand1, strand2)
-    common_length = [strand1, strand2].map(&:size).min
-    common_length.times.count { |i| strand1[i] != strand2[i] }
+def compute(strand_1, strand_2)
+    distance = 0
+    length = strand_1.length
+    length.times.count { |i|   distance+= 1 if strand_1[i] != strand_2[i] }
   end
-end

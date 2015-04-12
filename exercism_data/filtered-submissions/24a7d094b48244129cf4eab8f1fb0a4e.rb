@@ -1,5 +1,4 @@
-class Hamming
-  def compute(x, y)
+def compute(x, y)
     # 1) Split arguments into array
     # 2) Loop through away, comparing arguments based on index
     # 3) When values aren't identical, increase a counter
@@ -20,4 +19,3 @@ class Hamming
     return count
 
   end
-end

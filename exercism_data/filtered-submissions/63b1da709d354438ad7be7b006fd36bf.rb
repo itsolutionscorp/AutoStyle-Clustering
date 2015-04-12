@@ -1,5 +1,4 @@
-module Hamming
-  def compute(*strings)
+def compute(*strings)
     strings = Array(strings).map(&:to_s)
     length = strings.map(&:size).min
     sequences = strings.map { |s| s.chars.take(length) }

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(el_1, el_2)
+def compute(el_1, el_2)
     difference = 0
     comp_arr_1 = el_1.split("")
     comp_arr_2 = el_2.split("")
@@ -11,5 +9,3 @@ class Hamming
     end
     return difference
   end
-
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     s1_ary = s1.each_char.to_a
     s2_ary = s2.each_char.to_a
 
@@ -7,4 +6,3 @@ class Hamming
 
     ary[0].zip(ary[1]).count { |e| e.first != e.last }
   end
-end

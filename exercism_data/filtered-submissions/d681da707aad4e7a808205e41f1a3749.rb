@@ -1,5 +1,4 @@
-class Hamming
-    def compute(seq_a, seq_b)
+def compute(seq_a, seq_b)
     	len = [seq_a.size, seq_b.size].min
     	diff = 0
         (0...len).each do |i|
@@ -7,4 +6,3 @@ class Hamming
         end
         diff
     end
-end

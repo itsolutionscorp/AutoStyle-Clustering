@@ -1,19 +1,12 @@
-class Hamming
-  def compute(s,t)
-    s = s.chars
-    t = t.chars
+def compute strand1, strand2
+    iterations = strand1.length
+    iterations = strand2.length unless strand2.length > strand1.length
 
-    if s.length == t.length
-      distance = 0
-      s.length.times do |i|
-        unless s[i] == t[i]
-          distance += 1
-        end
-      end
-    else
-      raise 'strings must be equal length'
+    distance = 0
+
+    iterations.times do |index|
+      distance += 1 unless strand1[index] == strand2[index]
     end
 
     distance
-  end
-end
+	end

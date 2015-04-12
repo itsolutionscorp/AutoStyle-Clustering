@@ -1,7 +1,5 @@
-class Hamming
-  def compute(strand1,strand2)
-    comparison = []
-    comparison << strand1.split(//) << strand2.split(//)
-    comparison.transpose.count{|pair| pair.uniq.length != 1}
+def compute(strand, other_strand)
+    strand.chars.zip(other_strand.chars).select do |pair|
+      pair.uniq.size > 1
+    end.count
   end
-end

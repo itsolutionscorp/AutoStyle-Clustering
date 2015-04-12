@@ -1,28 +1,8 @@
-class Hamming
+def compute(strand_1, strand_2)
+    mutations = 0
 
-  def compute(a, b)
-    count = 0
-    if a.length == b.length
-      a.split("").each_with_index do |char, index|
-        if char != b[index]
-          count += 1
-        end
-      end
-    elsif a.length > b.length
-      a.slice!(b.length, a.length)
-      a.split("").each_with_index do |char, index|
-        if char != b[index]
-          count += 1
-        end
-      end
-    else
-      b.slice!(a.length, b.length)
-      b.split("").each_with_index do |char, index|
-        if char != a[index]
-          count += 1
-        end
-      end
+    strand_1.chars.each_with_index do |val, index|
+      mutations += 1 if strand_2.chars[index] != val
     end
-    count
+    mutations
   end
-end

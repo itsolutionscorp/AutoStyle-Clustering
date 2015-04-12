@@ -1,18 +1,13 @@
-module Hamming
-  def compute(s1, s2)
-    distance = 0
+def compute(first, second)
+    diff  = 0
 
-    if (s1.length <= s2.length)
-      strand_1 = s1
-      strand_2 = s2
-    else
-      strand_1 = s2
-      strand_2 = s1
+    index = 0
+    while index < [first.size, second.size].min
+      if first[index] != second[index]
+        diff += 1
+      end
+      index += 1
     end
-    
-    strand_1.chars.each_with_index do |x1, i|
-      distance += 1 if x1 != strand_2[i]
-    end
-    distance
+
+    return diff
   end
-end

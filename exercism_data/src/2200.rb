@@ -1,6 +1,5 @@
-class Hamming
-    def compute( s1, s2 )
-        raise ArgumentError, 'Strings must be the same length' unless s1.length == s2.length
-        s1.length.times.count{ |x| s1[x] != s2[x] }
-    end
-end
+def compute(base, compare)
+    count = 0
+    compare.chars.each_with_index { |char, index| count += 1 unless char == base[index] }
+    count
+  end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     if strand_two.length < strand_one.length
       strand_one,strand_two = strand_two,strand_one
     end
@@ -9,4 +8,3 @@ class Hamming
     end
     distance
   end
-end

@@ -1,8 +1,12 @@
-class Hamming
-  def compute(item_a, item_b)
-    #create array of pairs equal to the size of the smaller string
-    hamming_pairs = item_a.chars.zip(item_b.chars)
-    #calculate hamming distance
-    hamming_pairs.map { |pair| pair.first != pair.last ? 1 : 0 }.reduce(:+)
+def compute(strand1, strand2)
+    nucleotide_to_compare = if strand1.length < strand2.length
+      strand1.chars.zip(strand2.chars)
+    else
+      strand2.chars.zip(strand1.chars)
+    end
+    distance = 0
+    nucleotide_to_compare.each do |n|
+      distance += 1 if n[0] != n[1]
+    end
+    distance
   end
-end

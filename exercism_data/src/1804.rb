@@ -1,7 +1,9 @@
-class Hamming
-	class << self
-		def compute(dna_one, dna_two)
-			(0..dna_one.length - 1).select {|i| dna_one[i] != dna_two[i]}.count
-		end
-	end
-end
+def compute(strand1, strand2)
+    diff = 0
+    strand1.chars.each_with_index do |dna, index|
+      if index < strand2.length
+        diff+=1 if dna != strand2[index]
+      end
+    end
+    diff
+  end

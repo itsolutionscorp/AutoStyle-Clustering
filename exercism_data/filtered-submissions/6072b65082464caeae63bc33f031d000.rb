@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     # We can immediately return if the strands are the same
     if a == b
       return 0
@@ -25,4 +24,3 @@ class Hamming
 
     return dist
   end
-end

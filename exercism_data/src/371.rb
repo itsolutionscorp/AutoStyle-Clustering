@@ -1,10 +1,6 @@
-class Hamming
-  def compute(arg1, arg2)
-    raise ArgumentError, "Sequences must have the same length" unless arg1.length == arg2.length
-    differences = 0
-    (0...arg1.length).each do |index|
-      differences += 1 unless arg1[index] == arg2[index]
+def compute(a,b)
+        c = 0
+        a.length.times { |i| c += 1 if a[i] != b[i] }
+
+        c
     end
-    differences
-  end
-end

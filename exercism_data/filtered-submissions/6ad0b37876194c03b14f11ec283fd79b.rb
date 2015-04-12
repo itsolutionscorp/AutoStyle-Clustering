@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(dna1,dna2)
+def compute(dna1,dna2)
     length = [ dna1.length, dna2.length ].min - 1
 
     ( 0..length ).inject( 0 ) do | diff_count, i |
@@ -8,4 +6,3 @@ class Hamming
     end
 
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s,t)
+def compute(s,t)
     s = s.chars
     t = t.chars
 
@@ -16,4 +15,3 @@ class Hamming
 
     distance
   end
-end

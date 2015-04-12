@@ -1,12 +1,4 @@
-# Hamming class
-class Hamming
-  def compute(s1, s2)
-    dist = 0
-    count = 0
-    s1.split('').each do |i|
-      dist += 1 if i != s2.split('')[count]
-      count += 1
-    end
-    dist
+def compute(code1, code2)
+    zipped_codes = code1.split("").zip(code2.split(""))
+    zipped_codes.count   { |x| x[1] != nil && x[0] != x[1]}
   end
-end

@@ -1,11 +1,2 @@
-class Hamming
-
-  def compute(string1, string2)
-    chars1 = string1.chars
-    chars2 = string2.chars
-
-    merge = string1 <= string2 ? chars1.zip(chars2) : chars2.zip(chars1)
-
-    merge.select { |char1, char2| char1 != char2 }.count
-  end
-end
+def compute(strand_one, strand_two)
+    strand_one.chars.zip(strand_two.chars).inject(0) { |matches, pair| pair[0] != pair[1] ? matches += 1 : matches }

@@ -1,10 +1,13 @@
-class Hamming
-  def compute(strand1, strand2)
-    min_strand_length = [strand1.length, strand2.length].min
-    hamming_distance = 0
-    min_strand_length.times do |i|
-      hamming_distance += 1 if strand1[i] != strand2[i]
+def compute(s1, s2)
+    distance = 0
+    strand_1 = s1.to_s.downcase.chars
+    strand_2 = s2.to_s.downcase.chars
+
+    strand_1.each_with_index do |c, idx|
+      unless c == strand_2[idx]
+        distance += 1
+      end
     end
-    hamming_distance
+
+    distance
   end
-end

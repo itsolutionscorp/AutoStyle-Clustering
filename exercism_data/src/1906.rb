@@ -1,11 +1,11 @@
-class Hamming
-  def compute(base_strand, strand_to_compare)
-    hamming_number = 0
-    base_strand.split('').each_with_index do |char, index|
-      if strand_to_compare[index] != char
-        hamming_number += 1
-      end
+def compute(dna_strand_a, dna_strand_b)
+    i = 0
+    hamming_distance = 0
+    dna_strand_a.each_char do |bp_a|
+      bp_b = dna_strand_b.byteslice(i)
+      hamming_distance += 1 if bp_b != bp_a && bp_b != nil
+      i += 1
     end
-    hamming_number
+
+    hamming_distance
   end
-end

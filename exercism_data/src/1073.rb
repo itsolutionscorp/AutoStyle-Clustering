@@ -1,6 +1,3 @@
-class Hamming
-  def compute(one, two)
-    limit = [one.size, two.size].min
-    (0...limit).select { |i| one[i] != two[i] }.size
-  end
-end
+def compute(strand_a, strand_b)
+		strand_a.split('').zip(strand_b.split('')).count { |(a,b)| a && b && a != b }
+	end

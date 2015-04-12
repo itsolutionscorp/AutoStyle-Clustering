@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand0, strand1)
+def compute(strand0, strand1)
     len0 = strand0.length
     len1 = strand1.length
     distance = 0
@@ -8,4 +7,3 @@ class Hamming
     end
     distance
   end
-end

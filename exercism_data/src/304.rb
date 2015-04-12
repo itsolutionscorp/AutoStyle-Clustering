@@ -1,12 +1,15 @@
-class Hamming
-  def compute(dna_strand_1, dna_strand_2)
-    i = 0
-    hamming_distance = 0
-    dna_strand_1.each_char do |x|
-      hamming_distance += 1 if dna_strand_2.byteslice(i) != x && dna_strand_2.byteslice(i) != nil
-      i += 1
+def compute(inputA, inputB)
+
+    difference_counter = 0
+    # position_counter = 0 
+    
+    [inputA.length, inputB.length].min.times do |position_counter|
+      if (inputA[position_counter] != inputB[position_counter])
+        difference_counter+=1
+      end
+      position_counter +=1
     end
 
-    hamming_distance
+    difference_counter   
+
   end
-end

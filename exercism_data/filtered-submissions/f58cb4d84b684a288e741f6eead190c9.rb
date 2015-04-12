@@ -1,5 +1,4 @@
-class Hamming
-    def compute(st1, st2)
+def compute(st1, st2)
         i = 0
         hamming_distance = 0
         length = (st1.length < st2.length) ? st1.length : st2.length
@@ -9,4 +8,3 @@ class Hamming
         end
         return hamming_distance
     end
-end

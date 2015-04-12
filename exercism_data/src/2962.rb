@@ -1,7 +1,5 @@
-class Hamming
-  def compute(a, b)
-    count = 0
-    a.length.times { |i| count += 1 if a[i] != b[i] }
-    count
+def compute(strand1, strand2)
+    (0..strand1.length).inject(0) do | diff, index |
+      strand1[index] == strand2[index] ? diff : diff += 1 
+    end
   end
-end

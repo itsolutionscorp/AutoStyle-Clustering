@@ -1,8 +1,6 @@
-class Hamming
-  def compute(strand, other_strand)
-    compares = strand.chars.take(other_strand.length).zip(other_strand.chars)
-    compares.count do |base, other_base|
-      base != other_base
-    end
+def compute(dna1, dna2)
+    # check if both string have same length
+    return unless dna1.length == dna2.length
+    # Create an array for each pair and check for conformity
+    dna1.chars.zip(dna2.chars).count{|a, b| a != b}
   end
-end

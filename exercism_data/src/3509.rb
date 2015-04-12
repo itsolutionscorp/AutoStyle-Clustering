@@ -1,13 +1,14 @@
-class Hamming
-  def compute(str0, str1)
-    dist = 0
-    i = 0
+def compute(a, b)
+    hamming = 0
 
-    while i < str0.size
-      dist += 1 if str0[i] != str1[i]
-      i += 1
+    # Find the shorter of the strings
+    smallest = [a, b].min_by(&:length)
+
+    # Iterate through the length of the shorter string and test whether both
+    # characters match at index i
+    smallest.split('').each_index do |i|
+      hamming += 1 if a[i] != b[i]
     end
 
-    return dist
+    hamming
   end
-end

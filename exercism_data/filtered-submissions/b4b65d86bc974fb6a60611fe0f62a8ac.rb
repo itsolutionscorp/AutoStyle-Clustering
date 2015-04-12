@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     return 0 if s1.length != s2.length
     chars1 = s1.split(//)
     chars2 = s2.split(//)
@@ -8,4 +7,3 @@ class Hamming
     } 
     filtered.length
   end
-end

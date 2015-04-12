@@ -1,7 +1,7 @@
-class Hamming
-  def compute(seq1, seq2)
-    # code golf
-    length = [seq1, seq2].map(&:to_s).map(&:length).min - 1
-    (0..length).count { |i| seq1.to_s[i] != seq2.to_s[i] }
-  end
-end
+def compute (string_a, string_b)
+		distance = 0
+		[string_a.length, string_b.length].min.times do |i|
+			distance += 1 if string_a[i] != string_b[i]
+		end
+		distance
+	end

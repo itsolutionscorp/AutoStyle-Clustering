@@ -1,11 +1,5 @@
-class Hamming
-  def compute(strand1, strand2)    
-    s1 = strand1.chars
-    s2 = strand2.chars
-    count = 0
-    loop do
-      count += 1 if s1.next != s2.next
+def compute(str1, str2)
+    (0...str1.length).count do |i|
+      str1[i] != str2[i]
     end
-    return count
   end
-end

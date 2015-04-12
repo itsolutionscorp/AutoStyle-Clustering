@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     dist = 0
     i = 0
     while i < str1.length and i < str2.length do 
@@ -10,4 +9,3 @@ class Hamming
     end
     dist
   end
-end

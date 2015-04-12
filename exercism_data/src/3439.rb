@@ -1,9 +1,18 @@
-module Hamming
+def compute(a,b)
+		if a.length < b.length
+			aa = a
+			a = b
+			b = a
+		end
+		
+		missCount = 0
+		pos = 0
 
-def compute x,y
-  (x.chars.to_a.zip y.chars.to_a).inject(0) do
-    |distance, pair| pair.first != pair.last ? distance += 1 : distance += 0
-  end
-end
-
-end
+		a.each_char{|i|
+			if i != b[pos]
+				missCount += 1
+			end
+			pos += 1
+		}
+		missCount	
+	end

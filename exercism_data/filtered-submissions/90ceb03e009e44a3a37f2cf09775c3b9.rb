@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute first_string, second_string
+def compute first_string, second_string
    difference = 0
    if first_string.length == second_string.length
      first_string.chars.each_with_index do |char, index|
@@ -9,5 +7,3 @@ class Hamming
    end
    difference
   end
-
-end

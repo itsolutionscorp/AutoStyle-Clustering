@@ -1,16 +1,20 @@
-class Hamming
-  def compute(a, b)
-    al = a.length
-    bl = b.length
-    if al > bl
-      a = a.slice!(0..bl-1)
-    elsif al < bl
-      b = b.slice!(0..al-1)
+def compute(strand1, strand2)
+
+    if strand1.length == strand2.length
+      chars_to_count = strand1.length
+    elsif strand1.length < strand2.length
+      chars_to_count = strand1.length
+    else
+      chars_to_count = strand2.length
     end
-    asplit = a.chars
-    bsplit = b.chars
-    count = 0
-    hammy = asplit.each_with_index {|item, index| count += 1 if asplit[index] != bsplit[index] }
-    return count
+
+    hamming = 0
+
+    chars_to_count.times do |n|
+      if strand1[n] != strand2[n]
+        hamming += 1
+      end
+    end
+
+    hamming
   end
-end

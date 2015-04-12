@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(geneOne,geneTwo)
+def compute(geneOne,geneTwo)
     hammingDistance = 0
     gene1 = geneOne.size
     gene2 = geneTwo.size
@@ -12,5 +10,3 @@ class Hamming
     end
     return hammingDistance
   end
-
-end

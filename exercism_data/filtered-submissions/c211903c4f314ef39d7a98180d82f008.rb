@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(dna1, dna2)    # count differences between two DNA strands
+def compute(dna1, dna2)    # count differences between two DNA strands
     hamdist = 0                     # initialize hamming distance counter
     if dna1.length <= dna2.length   # if statement finds shortest strand
       nuc_length = dna1.length        # sets word length to dna1 size
@@ -19,4 +17,3 @@ class Hamming
     end
     hamdist                         # outputs final number of DNA difference
   end                               # between dna1 and dna2 strands
-end

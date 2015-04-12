@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     strand_b = strand_b.each_char.to_a
     i = 0
     strand_a.each_char.each_with_object([]) do |c, a|
@@ -7,4 +6,3 @@ class Hamming
       i += 1
     end.reduce(:+) || 0
   end
-end

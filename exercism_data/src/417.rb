@@ -1,14 +1,4 @@
-class Hamming
-  def compute(strand1,starnd2)
-    distance = 0
-    index = 0
-
-    strand1.length.times do
-      break if (strand1[index] == nil) || (strand2[index] == nil)
-      distance += 1 if strand1[index] != strand2[index]
-      index += 1 
-    end
-
-    return distance
+def compute(str1, str2)
+    short, long = [str1, str2].sort_by(&:length)
+    short.chars.zip(long.chars).inject(0) { |diff, c| c[0]==c[1] ? diff : diff+1 }
   end
-end

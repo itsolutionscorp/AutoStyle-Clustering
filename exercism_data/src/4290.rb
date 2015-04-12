@@ -1,15 +1,8 @@
-class Hamming
-  def compute(first_strand, second_strand)
+def compute(strand_a, strand_b)
+    distance = 0
 
-    short_strand, long_strand = [first_strand, second_strand].sort { |a, b| a.length <=> b.length }
-    count = 0
-
-    short_strand.length.times do |i|
-
-      count += 1 if long_strand[i] != short_strand[i]
-
+    strand_a.length.times do |i|
+      distance += 1 unless strand_a[i] == strand_b[i]
     end
-
-    count
+    distance
   end
-end

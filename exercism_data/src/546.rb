@@ -1,7 +1,5 @@
-module Hamming
-  def compute(strand_1, strand_2)
-    [strand_1.length, strand_2.length].min.times.reject do |i|
-      strand_1[i] == strand_2[i]
-    end.length
+def compute(first_string, second_string)
+    first_string.chars.zip(second_string.chars)
+      .map { |(a, b)| a == b ? 0 : 1 }
+      .reduce(&:+)
   end
-end

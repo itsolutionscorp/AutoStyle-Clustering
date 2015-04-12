@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
     score = 0
     a1 = str1.split(//)
     a2 = str2.split(//)
@@ -12,4 +11,3 @@ class Hamming
     end
     score
   end
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(dna1, dna2)
+def compute(dna1, dna2)
 		distance = 0		
 		maximum = dna1.length
 		
@@ -18,5 +16,3 @@ class Hamming
 		
 		return distance
 	end
-
-end

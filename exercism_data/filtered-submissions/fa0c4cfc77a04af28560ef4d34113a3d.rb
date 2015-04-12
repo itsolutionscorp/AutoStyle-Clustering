@@ -1,5 +1,4 @@
-class Hamming
-  def compute( s1, s2 )
+def compute( s1, s2 )
     s1array = s1.split("")
     s2array = s2.split("")
     length = [s1array.length, s2array.length].min
@@ -11,4 +10,3 @@ class Hamming
     end
     count
   end
-end

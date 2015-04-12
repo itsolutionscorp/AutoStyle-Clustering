@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
 
      total_difference = 0
 
@@ -15,5 +13,3 @@ class Hamming
      total_difference
 
   end
-
-end

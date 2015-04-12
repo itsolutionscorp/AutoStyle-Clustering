@@ -1,16 +1,10 @@
-class Hamming
-  class<< self
-    def compute(first, second)
-      if first.length <= second.length
-        small_strand, large_strand = first, second
-      else
-        small_strand, large_strand = second, first
-      end
-      count = 0
-      small_strand.split('').each_with_index do |value, index|
-        count+= 1 if value != large_strand[index]
-      end
-      #count
+def compute(a, b)
+    hamming_difference = 0
+    character_index = 0
+    a.each_char do |a_char|
+      hamming_difference += 1 if a_char != b[character_index]
+      character_index += 1
     end
+
+    hamming_difference
   end
-end

@@ -1,18 +1,11 @@
-class Hamming
+def compute(strand_a, strand_b)
+    distance = 0
 
-  class << self
-
-    def compute(dna1, dna2)
-      s1 = dna1.split(//)
-      s2 = dna2.split(//)
-
-      acc = 0
-      s1.each_with_index do |v,i|
-        acc += 1 if v != s2[i]
+    strand_a.chars.each_with_index do |point,index|
+      if strand_b[index] && point != strand_b[index]
+        distance += 1
       end
-      return acc
     end
 
+    distance
   end
-
-end

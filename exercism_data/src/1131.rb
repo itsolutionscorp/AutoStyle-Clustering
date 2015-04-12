@@ -1,14 +1,6 @@
-module Hamming
-  extend self
-
-  def compute(first, second)
-    distance = 0
-    length   = [first.length, second.length].min
-
-    length.times do |n|
-      distance += 1 if first[n] != second[n]
+def compute(dna1, dna2)
+    dna1.chars.zip(dna2.chars).inject(0) do|sum, pair|
+      pair[0] == pair[1] ? sum : sum + 1
     end
-
-    distance
   end
 end

@@ -1,9 +1,7 @@
-class Hamming
-  def compute(a, b)
-    hamming = 0
-    a.chars.each_with_index do |char, i|
-      hamming += 1 if char != b[i]
+def compute(a,b)
+        count=0
+        a.split(//).each_with_index do |c,i|
+            count += 1 if b[i] and c!=b[i]
+        end
+        count
     end
-    hamming
-  end
-end

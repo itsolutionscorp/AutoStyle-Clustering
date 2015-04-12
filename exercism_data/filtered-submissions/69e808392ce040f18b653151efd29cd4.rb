@@ -1,6 +1,4 @@
-require 'pry'
-class Hamming
-	def compute(strand1,strand2)
+def compute(strand1,strand2)
 		dna_array1 = strand1.split('')
 		dna_array2 = strand2.split('')
 			if dna_array2.length > dna_array1.length
@@ -20,4 +18,3 @@ class Hamming
 			end
 		return assert_equal
 	end
-end 

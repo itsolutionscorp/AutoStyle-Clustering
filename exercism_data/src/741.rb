@@ -1,7 +1,9 @@
-module Hamming
-  def compute(*strings)
-    length = Array(strings).map(&:to_s).map(&:size).min
-    sequences = strings.map { |s| s.chars.take(length) }
-    sequences.transpose.reject(&:uniq!).size
+def compute(first, second)
+    result = 0
+    first.chars.zip(second.chars).each do |f, s|
+      if (f != nil && s != nil && f != s)
+        result += 1
+      end
+    end
+    return result
   end
-end

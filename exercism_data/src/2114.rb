@@ -1,11 +1,10 @@
-class Hamming
-  def compute(string1, string2)
-    distance = 0
-    (0..string1.length-1).each do |i|
-      if string1[i] != string2[i]
-        distance += 1
-      end
-    end
-    return distance
+def compute(a, b)
+    return 0 if a == b
+
+    is_error = ->((x, y)) { y && x != y }
+
+    pairs      = a.chars.zip(b.chars)
+    num_errors = pairs.count(&is_error)
+
+    num_errors
   end
-end

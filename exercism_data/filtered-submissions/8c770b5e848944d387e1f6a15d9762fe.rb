@@ -1,5 +1,4 @@
-class Hamming
-	def compute(arg, arg2)
+def compute(arg, arg2)
 
 	  a = arg.chars
 	  b = arg2.chars
@@ -14,4 +13,3 @@ class Hamming
 
 	 return num
 	end
-end

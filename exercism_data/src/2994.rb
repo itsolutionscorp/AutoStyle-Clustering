@@ -1,7 +1,7 @@
-class Hamming
-  def compute(first_sequence, second_sequence)
-    unless first_sequence.length != second_sequence.length
-      (first_sequence.chars.select.with_index{ |base, index| base != second_sequence.chars[index] }).length
-    end
-  end
-end
+def compute(strand1, strand2)
+
+		if strand1.length != strand2.length
+			strand1 = strand1.slice(0..strand2.length-1)
+		end
+		strand1.chars.zip(strand2.chars).count { |a,b| a != b }
+	end

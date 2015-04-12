@@ -1,7 +1,3 @@
-class Hamming
-  def compute(first, second)
-    return -1 if first.length != second.length
-    first, second = first.chars, second.chars
-    first.zip(second).count { |elem| elem.first.downcase != elem.last.downcase }
+def compute(strand1, strand2)
+    strand1.chars.zip(strand2.chars).count { |base1, base2| base1 != base2 }
   end
-end

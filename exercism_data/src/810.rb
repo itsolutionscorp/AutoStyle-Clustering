@@ -1,14 +1,3 @@
-# Compute the Hamming distance between two Strings. See
-# http://rosalind.info/problems/hamm/
-class Hamming
-  def compute(a, b)
-    shorter, longer = a, b
-    shorter, longer = b, a if b.length < a.length
-    other_chars = longer.each_char.to_a
-    index = -1
-    shorter.chars.reduce(0) do |hamming, char|
-      index += 1
-      char != other_chars[index] ? hamming + 1 : hamming
-    end
+def compute(str1, str2)
+    str1.chars.zip(str2.chars).map { |c| c[1] && c[0] != c[1] }.count(true)
   end
-end

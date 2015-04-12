@@ -1,11 +1,7 @@
-class Hamming
-  def compute(a,b)
-    a,b = [a.chars,b.chars]
-    (longest,shortest) = [a.size,b.size].max == a.size ? [a,b] : [b,a]
-    hamming_count = 0
-    shortest.each_with_index do |ch,i|
-      hamming_count += 1 if ch != longest[i]
+def compute(first, second)
+    dist = 0
+    first.chars.each_index do |i|
+      dist += first[i] == second[i] ? 0 : 1
     end
-    hamming_count
+    return dist
   end
-end

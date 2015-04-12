@@ -1,38 +1,13 @@
-class Hamming
+def compute(n1, n2)
+    arr1 = n1.split('')
+    arr2 = n2.split('')
 
-  def compute( dna_1, dna_2 )
-    dna_1_array = dna_1.split(//)
-    dna_2_array = dna_2.split(//)
-    
-    hamming_distance = 0
-    
-    x = 0
-    
-    dna_1_array_count = dna_1_array.count
-    dna_2_array_count = dna_2_array.count
-    
-    if dna_1_array_count < dna_2_array_count
-      smaller_array = dna_1_array
-    
-    else dna_1_array_count > dna_2_array_count
-      smaller_array = dna_2_array
-    
+    diff_count  = 0
+    arr_count   = 0
+
+    while arr_count < arr1.length  
+      diff_count += 1 if arr1[arr_count] != arr2[arr_count]
+      arr_count += 1
     end
-    
-    
-    
-    smaller_array.each do |i|
-      
-      if dna_1_array[x] != dna_2_array[x]
-        hamming_distance += 1
-      
-      end
-      
-    x += 1
-     
-    end
-    
-    hamming_distance
-    
+    diff_count
   end
-end

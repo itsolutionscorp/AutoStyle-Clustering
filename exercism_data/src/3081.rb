@@ -1,10 +1,4 @@
-class Hamming
-
-  def compute(string1, string2)
-    count = 0
-    [string1.size, string2.size].min.times do |i|
-      count += 1 unless string1[i] == string2[i]
-    end
-    count
-  end
-end
+def compute(first, second)
+		sorted_string_array = [first, second].sort_by{ |s| s.length }
+		sorted_string_array[0].split("").enum_for(:each_with_index).reject{ |char, i| char == sorted_string_array[1][i]}.length
+	end

@@ -1,8 +1,10 @@
-class Hamming
-  def compute(a, b)
-    return nil unless a.length == b.length
-
-    pairs = a.chars.zip(b.chars)
-    pairs.count {|pair| pair[0] != pair[1]}
-  end
-end
+def compute(first_strand, second_strand)
+		min_length = [first_strand.length, second_strand.length].min
+		sum = 0
+		
+		min_length.times do |i|
+			sum += 1 unless first_strand[i] == second_strand[i]
+		end
+		
+		return sum
+	end

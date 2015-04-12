@@ -1,14 +1,8 @@
-class Hamming
-  def compute(first_strand, second_strand)
-
-    counter = 0
-    min_strand_length = [first_strand.length, second_strand.length].min
-    min_strand_length.times do |number|
-      if first_strand[number] != second_strand[number]
-        counter += 1
-      end
+def compute str1, str2
+    distance = 0
+    str1.size.times do |x|
+      break if str2[x].nil?
+      distance += 1 if str1[x] != str2[x]
     end
-    return counter
-
+    distance
   end
-end

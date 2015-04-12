@@ -1,5 +1,4 @@
-class Hamming
-  def compute(word_one, word_two)
+def compute(word_one, word_two)
     if word_one.size == word_two.size
       sum = 0
       position = 0
@@ -12,4 +11,3 @@ class Hamming
       puts "Error string needs to be the same length"
     end
   end
-end

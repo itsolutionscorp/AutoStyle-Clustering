@@ -1,7 +1,10 @@
-class Hamming
-
-  def compute(strand1, strand2)
-     strand1.chars.zip(strand2.chars).count {|residue1, residue2| residue2 && residue1 != residue2}
-  end
-
-end
+def compute(str1, str2)
+		hamming_distance = 0
+		[str1.length, str2.length].min.times do |i|
+		#min_length.times do |i|
+		  if str1[i] != str2[i]
+		  	hamming_distance += 1
+			end
+		end
+		hamming_distance
+	end

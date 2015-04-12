@@ -1,6 +1,4 @@
-class Hamming
-  
-  def compute(str1,str2)
+def compute(str1,str2)
     
     # Determine length of strands to analyze.
     shortest_strand_length = str1.length <= str2.length ? str1.length : str2.length
@@ -13,4 +11,3 @@ class Hamming
     
     hamming_distance
   end
-end

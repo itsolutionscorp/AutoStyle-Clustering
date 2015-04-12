@@ -1,11 +1,3 @@
-class Hamming
-  def compute(str0, str1)
-    dist = 0
-
-    for i in 0..(str0.size)
-      dist += 1 if str0[i] != str1[i]
-    end
-
-    dist
+def compute(x,y)
+    0
   end
-end

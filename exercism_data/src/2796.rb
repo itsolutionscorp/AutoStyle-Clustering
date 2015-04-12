@@ -1,8 +1,6 @@
-module Hamming
-  
-  def compute d1, d2
-    (0..d1.length).count do |i|
-      d1[i] != d2[i]
-    end
+def compute(s1, s2)
+    s1.chars.zip(s2.chars)
+            .reject { |a, b| b.nil? }
+            .map { |a, b| a == b ? 0 : 1 }
+            .reduce(:+)
   end
-end

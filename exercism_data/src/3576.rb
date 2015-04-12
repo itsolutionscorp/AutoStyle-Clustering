@@ -1,5 +1,3 @@
-class Hamming
-    def compute( s1, s2 )
-        (0..s1.length).count{ |x| s1[x] != s2[x] }
-    end
-end
+def compute(first_dna, second_dna)
+		(0..first_dna.size - 1).inject(0){ |count, index| count + (first_dna[index] != second_dna[index] ?  1 : 0)}
+	end

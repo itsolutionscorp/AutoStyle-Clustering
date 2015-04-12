@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     hamming_distance= 0
     strand1, strand2 = strand2, strand1 if strand1.size > strand2.size
     strand1.chars.each_with_index do |nucleotide, index|
@@ -8,5 +6,3 @@ class Hamming
     end
     hamming_distance
   end
-
-end

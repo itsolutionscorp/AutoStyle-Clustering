@@ -1,11 +1,11 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    i = 0
-    mutations = 0
-    while i < [strand_a, strand_b].min.length
-      mutations += 1 if strand_a[i] != strand_b[i]
-      i += 1
+def compute a, b
+    count = 0
+
+    [a.length, b.length].min.times do |i|
+      if a[i] != b[i]
+        count += 1
+      end
     end
-    mutations
+
+    count
   end
-end

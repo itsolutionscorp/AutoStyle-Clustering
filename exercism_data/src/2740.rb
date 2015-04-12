@@ -1,10 +1,4 @@
-module Hamming
-  def compute(strand,other_strand)
-    bases_to_check = [strand.size,other_strand.size].min
-    differences_found = 0
-    bases_to_check.times do |position|
-      differences_found += 1 if strand[position] != other_strand[position]
-    end
-    differences_found
+def compute(a, b)
+    min = [a.length, b.length].min
+    (0...min).inject(0) { |diff, i| a[i] != b[i] ? diff + 1 : diff }
   end
-end

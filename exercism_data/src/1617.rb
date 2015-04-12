@@ -1,7 +1,5 @@
-class Hamming
-  def compute(string1, string2)
-    string1.chars.zip(string2.chars).count do |element1, element2|
-      element1 != element2
-    end
+def compute(x, y)
+    raise 'Arguments must be of equal length.' if x.length != y.length
+    # Each mismatched element increases the hamming distance.
+    x.length.times.count {|n| x[n] != y[n]}
   end
-end

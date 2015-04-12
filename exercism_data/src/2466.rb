@@ -1,7 +1,8 @@
-class Hamming
-  def compute(dna_one, dna_two)
-    dna_one.chars.zip(dna_two.chars).count do |dna_one_char, dna_two_char|
-       dna_one_char && dna_two_char && dna_one_char != dna_two_char
+def compute(x, y)
+      x_chars          = x.split('')
+      y_chars          = y.split('')
+      difference = 0
+
+      x_chars.length.times { |i| difference += 1 if x_chars[i] != y_chars[i] }
+      difference
     end
-  end
-end

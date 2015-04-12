@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     hamming_distance = 0
     count = 0
     dna1.each_char do |nucleotide|
@@ -8,4 +7,3 @@ class Hamming
     end
     hamming_distance
   end
-end

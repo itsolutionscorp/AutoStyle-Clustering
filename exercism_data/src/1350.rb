@@ -1,14 +1,13 @@
-class Hamming
+def compute(arg1, arg2)
+    arr1 = arg1.split("")
+    arr2 = arg2.split("")
 
-  def compute(strand_a, strand_b)
-    i = 0
     counter = 0
-    strand_a.each_char do |n|
-      if strand_b[i] == nil then return counter end
-      if n != strand_b[i] then counter += 1 end
-      i += 1
+    arr1.each_with_index do |x, i|
+      if x != arr2[i]
+        counter += 1
+      end
     end
-    counter
-  end  
+    return counter
 
-end
+  end

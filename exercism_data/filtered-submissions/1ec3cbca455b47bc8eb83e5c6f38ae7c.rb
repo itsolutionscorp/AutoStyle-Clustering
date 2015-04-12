@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first, second)
+def compute(first, second)
     hamz = 0
     first.chars.each_with_index do |character, index|
       break if second[index].nil?
@@ -10,5 +8,3 @@ class Hamming
     end
     return hamz
   end
-
-end

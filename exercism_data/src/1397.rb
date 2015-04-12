@@ -1,8 +1,9 @@
-class Hamming
-  def compute(a,b)
-    n = [a.length, b.length].min - 1
-    (0..n).reduce(0) do |score, i|
-      score + (a[i]==b[i] ? 0 : 1)
-    end
-  end
-end
+def compute ( a, b )
+		count = 0 
+		for i in 0 .. [a.length() , b.length()].min - 1
+			if(a[i] != b[i])
+				count = count + 1
+			end		
+		end
+		count
+  	end

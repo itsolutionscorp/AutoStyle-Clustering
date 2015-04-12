@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(original, copy)
+def compute(original, copy)
     count = 0
     if original != copy
       [original.length, copy.length].min.times do |i|
@@ -9,5 +7,3 @@ class Hamming
     end
     count
   end
-
-end

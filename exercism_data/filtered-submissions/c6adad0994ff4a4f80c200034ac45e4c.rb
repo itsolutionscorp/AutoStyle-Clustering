@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     distance = 0
     strand_a.length.times do |index|
       break unless strand_b[index]
@@ -7,4 +6,3 @@ class Hamming
     end
     distance
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     length_1 = strand_1.length
     length_2 = strand_2.length
 
@@ -13,4 +12,3 @@ class Hamming
       l != strand_2[i]
     }.length
   end
-end

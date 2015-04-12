@@ -1,18 +1,7 @@
-class Hamming  
-
-	def compute(strand1, strand2)
-
-	(0...[strand1.length, strand2.length].min).count do |i| 
-
-	strand1[i] != strand2[i] 
-
-		end
-
-		# if strand1 == strand2
-		# 	0
-		# else
-		# 	1
-		# end
-     			
-	end
-end
+def compute(left, right)
+    if left.length > right.length
+      left, right = right, left
+    end
+    diff = left.chars.zip(right.chars).map {|a| a[0]==a[1]}
+    diff.count(false)
+  end

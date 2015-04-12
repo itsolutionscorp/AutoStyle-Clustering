@@ -1,5 +1,6 @@
-class Hamming
-    def compute a, b
-        [a.size, b.size].min.times.count{ |i| a[i] != b[i] }
-    end
-end
+def compute(first, second)
+    return 0 if first == second
+
+    min_length = [first, second].map(&:length).min
+    0.upto(min_length-1).count { |i| first[i] != second[i] }
+  end

@@ -1,17 +1,7 @@
-class Hamming
-	def compute(data1, data2)
-		if data1.length != data2.length
-			raise 'data1 must be the same length as data2 to compute Hamming distance'
-		end
+def compute(strand1, strand2)
+    chars1 = strand1.chars.take(strand2.length)
+    chars2 = strand2.chars
 
-		$distance = 0
-
-		for i in 0..data1.length - 1 do
-			if data1[i] != data2[i]
-				$distance += 1
-			end
-		end
-
-		return $distance
-	end
-end
+    pairs = chars1.zip(chars2)
+                  .count { |char1, char2| char1 != char2 }
+  end

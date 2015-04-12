@@ -1,13 +1,8 @@
-class Hamming
-  def compute(strandOne, strandTwo)
-    d, i = 0, 0
-#    i = 0
-    strandOne.split('').each do |s1| 
-      if s1 != strandTwo[i]
-        d += 1
+def compute(a, b)
+      hamming_diff = 0
+      a.length.times do |i|
+        break if a[i].nil? || b[i].nil?
+        hamming_diff += 1 unless a[i] == b[i]
       end
-      i += 1
+      hamming_diff
     end
-    d
-  end
-end

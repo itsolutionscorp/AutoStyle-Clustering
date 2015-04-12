@@ -1,5 +1,4 @@
-module Hamming
-  def compute(string1, string2)
+def compute(string1, string2)
     enum1 = string1.each_char
     enum2 = string2.each_char
     count = 0

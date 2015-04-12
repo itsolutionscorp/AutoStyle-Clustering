@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     return 0 if s1.eql? s2
     
     distance = 0
@@ -10,4 +9,3 @@ class Hamming
 
     distance
   end
-end

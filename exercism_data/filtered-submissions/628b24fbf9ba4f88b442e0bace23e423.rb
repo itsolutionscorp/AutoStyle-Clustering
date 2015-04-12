@@ -1,5 +1,4 @@
-class Hamming
-	def compute(starting_strand, strand_to_be_checked)
+def compute(starting_strand, strand_to_be_checked)
 
 		starting = starting_strand.each_char.to_a
 		to_be_checked = strand_to_be_checked.each_char.to_a
@@ -19,4 +18,3 @@ class Hamming
 		end
 		return hamming_number
 	end
-end

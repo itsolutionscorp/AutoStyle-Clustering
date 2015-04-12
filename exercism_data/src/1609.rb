@@ -1,6 +1,10 @@
-class Hamming
-  def compute(a,b)
-    pairs = a.chars.zip(b.chars)
-    pairs.count { |p| p.uniq.compact.length > 1 } 
+def compute(original, mutant)
+    result = 0
+    if original.length > mutant.length
+      original = original[0, mutant.length]
+    end
+    original.split("").each_with_index do |letter, index|
+        result+=1 if letter!=mutant[index]
+    end
+        return result
   end
-end

@@ -1,16 +1,5 @@
-class Hamming
-  def compute(dna1, dna2)
-    distance, i = 0, 0
-    length = dna1.length >= dna2.length ? dna2.length : dna1.length
-
-    while i < length
-      if dna1[i] != dna2[i]
-        distance += 1
-      end
-
-      i += 1
-    end
-
-    distance
+def compute a, b
+    length = [a.size, b.size].min
+    a, b = a[0, length], b[0, length]
+    a.chars.zip(b.chars).count {|a, b| a != b }
   end
-end

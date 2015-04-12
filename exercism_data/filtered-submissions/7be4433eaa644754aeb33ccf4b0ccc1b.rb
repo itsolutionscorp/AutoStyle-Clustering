@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(var1, var2)
+def compute(var1, var2)
     if var1.length === 1 && var2.length === 1
       var1 === var2 ? 0 : 1
     elsif var1.length === 1 || var2.length === 1
@@ -16,4 +14,3 @@ class Hamming
       self.compute(var1.split('')[0], var2.split('')[0]) + self.compute(var1.split('')[1, var1.length], var2.split('')[1, var2.length])
     end
   end
-end

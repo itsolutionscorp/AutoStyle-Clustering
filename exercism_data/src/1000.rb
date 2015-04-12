@@ -1,13 +1,8 @@
-class Hamming
-
-  def compute(strand_one, strand_two)
-    hammes = 0
-    [strand_one.length, strand_two.length].min.times do |a|
-      if strand_one.chars[a] != strand_two.chars[a]
-        hammes += 1
-      end
-    end
-    hammes
-  end
-
-end
+def compute(seq1, seq2)
+		h_dist = 0
+		num_elm = [seq1.size, seq2.size].min
+		for elm in 0..num_elm-1
+			h_dist += 1 if seq1[elm] != seq2[elm]
+		end
+		h_dist
+	end

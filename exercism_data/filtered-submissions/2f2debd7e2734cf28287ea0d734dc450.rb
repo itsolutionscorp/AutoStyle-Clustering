@@ -1,5 +1,4 @@
-module Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     res = 0
     stand_b = strand_b.chars
     strand_a.chars.each_with_index do |char, i|

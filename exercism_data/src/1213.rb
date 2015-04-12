@@ -1,15 +1,12 @@
-# hamming DNA sequence
+def compute(dna1, dna2)
+    mistakes = 0
 
-class Hamming
-  def compute(a, b)
-    # put the length of each arg into an array and return the shortest (min)
-    length = [a.length, b.length].min
-    difference = 0
-    # loop over length.times comparing a to b, increment difference if we don't match
-    length.times do |i|
-      diff += 1 if a[i] != b[i]
+    dna1 = dna1[0, dna2.length]
+    dna2 = dna2[0, dna1.length]
+
+    (0..dna1.length).each do |x|
+      mistakes += 1 if dna1[x] != dna2[x]
     end
-    # return the difference
-    difference
+
+    mistakes
   end
-end

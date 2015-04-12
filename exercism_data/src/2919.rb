@@ -1,26 +1,11 @@
-class Hamming
-  class << self	
-    def compute(x,y)
-      xarray = x.split(//)
-      yarray = y.split(//)
-      distance = 0
-      ham = 0
-
-      if xarray.size > yarray.size
-	      large_array = xarray
-	      small_array = yarray
-      else
-	      large_array = yarray
-	      small_array = xarray
-      end
-      
-      small_array.each do |a| 
-        ham += 1 unless a == large_array[distance]
-	distance += 1
-      end
-
-      ham
-
+def compute(seq1, seq2)
+    longer_seq = seq1.size >= seq2.size ? seq1 : seq2
+    shorter_seq = longer_seq == seq1 ? seq2 : seq1
+    index = 0
+    count = 0
+    shorter_seq.each_char do |base|
+      count += 1 if base != longer_seq[index]
+      index += 1
     end
+    count
   end
-end

@@ -1,6 +1,8 @@
-class Hamming
-  def compute(a,b)
-    raise ArgumentError "Strands must be of equal length" if a.length != b.length
-    a.length.times.count {|index| a[index] != b[index]}
+def compute string_a, string_b
+    nucleotides_a = string_a.chars
+    nucleotides_b = string_b.chars
+    duplex = nucleotides_a.zip(nucleotides_b)
+
+    diffs = duplex.map { |nucleotide| nucleotide[0] == nucleotide[1] ? 0 : 1 }
+    diffs.reduce(:+)
   end
-end

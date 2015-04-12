@@ -1,5 +1,4 @@
-class Hamming
-	def compute(strand1, strand2) 
+def compute(strand1, strand2) 
 	  strand_length = strand1.length
 	  
 	   difference = 0
@@ -11,4 +10,3 @@ class Hamming
 	    # total number of differences between the strands
 	    return difference
 	end
-end

@@ -1,5 +1,4 @@
-module Hamming
-  def compute(*strings)
+def compute(*strings)
     short_string, long_string = strings.sort_by(&:length)
 
     result = 0

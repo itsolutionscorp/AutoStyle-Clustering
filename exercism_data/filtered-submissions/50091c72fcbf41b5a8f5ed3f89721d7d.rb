@@ -1,5 +1,4 @@
-module Hamming
-	def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
 		unless strand_a.length == strand_b.length
 			raise Exception.new 'Strands must be of equal length'
 		end

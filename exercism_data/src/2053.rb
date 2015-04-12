@@ -1,13 +1,9 @@
-# Class to calculate the Hamming difference between two DNA strands
-class Hamming
-
-  # Calculate the Hamming distance beetween two DNA strands
-  def compute(strand1, strand2)
-    length = [strand1.length, strand2.length].min
-    distance = 0
-    (0..length-1).each do |index|
-      distance += 1 if strand1[index] != strand2[index]
+def compute(a, b)
+    diff = 0
+    for i in 0..([a.length, b.length].min - 1) do
+      if a[i] != b[i] then
+        diff = diff + 1
+      end
     end
-    distance
+    diff
   end
-end

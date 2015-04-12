@@ -1,8 +1,3 @@
-class Hamming
-
-  def compute(string1, string2)
-    @stringlength = string1.chars.count
-    (0...@stringlength).count { |x| string1[x] != string2[x] } 
+def compute(dnaA,dnaB)
+    [dnaA.chars.length, dnaB.chars.length].min.times.count{ |i|  dnaA[i] != dnaB[i] }
   end
-
-end

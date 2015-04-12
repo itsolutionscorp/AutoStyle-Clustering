@@ -1,5 +1,4 @@
-class Hamming
-  def compute (dna_1, dna_2)
+def compute (dna_1, dna_2)
     longest = dna_1.length > dna_2.length ? dna_1 : dna_2
     shortest = dna_1.length <= dna_2.length ? dna_1 : dna_2
 
@@ -9,5 +8,3 @@ class Hamming
     end
     return distance
   end
-
-end

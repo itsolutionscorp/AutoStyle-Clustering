@@ -1,8 +1,11 @@
-module Hamming
-  extend self
-  def compute(a,b)
-    return 0 if a == b
-    a, b = b, a if a.length > b.length
-    a.chars.zip(b.chars).count {|aa, bb| aa != bb}
-  end
-end
+def compute(strandA, strandB)
+		if strandA == strandB
+			0
+		else
+			differences = 0
+			for i in 0..[strandA.length, strandB.length].min - 1 do
+				differences += 1 if strandA[i] != strandB[i]
+			end
+			differences
+		end
+	end

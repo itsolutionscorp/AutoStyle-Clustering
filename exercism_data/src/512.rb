@@ -1,12 +1,6 @@
-class Hamming
-  def compute(a, b)
-    shorter, longer = a, b
-    shorter, longer = b, a if b.length < a.length
-    other_chars = longer.each_char.to_a
-    index = -1
-    shorter.chars.inject(0) do |hamming, current|
-      index = index + 1
-      current != other_chars[index] ? hamming + 1 : hamming
+def compute(string_a, string_b)
+        max_length = [string_a.length, string_b.length].min-1
+        (0.upto(max_length)).count do |i|
+            string_a[i] != string_b[i]
+        end
     end
-  end
-end

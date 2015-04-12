@@ -1,13 +1,11 @@
-class Hamming
-  def compute(first_var, second_var)
-    first_var = first_var.split("")
-    second_var = second_var.split("")
-    diff_counter = 0
-    first_var.each_with_index do |x, i|
-      if x != second_var[i]
-        diff_counter += 1
-      end
+def compute(a, b)
+    a_array = a.chars
+    b_array = b.chars
+    distance = 0
+
+    a_array.each_with_index do |item, index|
+      distance += 1 if item != b_array[index]
     end
-    return diff_counter
+
+    distance
   end
-end

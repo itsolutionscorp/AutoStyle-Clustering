@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     difference = 0
     
     for i in 0..strand1.size do
@@ -13,5 +11,3 @@ class Hamming
 
     difference
   end
-
-end

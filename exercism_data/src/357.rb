@@ -1,7 +1,5 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    first_strand.chars
-      .zip(second_strand.chars)
-      .count { |x,y| x != y }
+def compute(sequence1, sequence2)
+    sequence1.each_char.zip(sequence2.each_char).count do |a, b|
+      a != b && !a.nil? && !b.nil?
+    end
   end
-end

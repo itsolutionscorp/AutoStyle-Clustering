@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first_dna_strand, second_dna_strand)
+def compute(first_dna_strand, second_dna_strand)
     number_of_differences = 0
 
     first_dna_strand.chars.each_with_index do |letter, index|
@@ -9,5 +7,3 @@ class Hamming
 
     number_of_differences
   end
-
-end

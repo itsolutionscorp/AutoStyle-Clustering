@@ -1,6 +1,4 @@
-class Hamming
-  
-  def compute(bit1, bit2)
+def compute(bit1, bit2)
     return nil if bit1.size != bit2.size
     return_me = 0
     return return_me if bit1 == bit2
@@ -12,5 +10,3 @@ class Hamming
     end
     return_me
   end
-
-end

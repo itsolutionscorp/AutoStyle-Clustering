@@ -1,12 +1,4 @@
-module Hamming
-
-	def compute left, right
-		diff_counter = 0
-		first.each_char.with_index do |f, i|
-			break if second[i].nil?
-			diff_counter += 1 if f != second[i]
-		end
-		diff_counter
-	end
-
-end
+def compute(strand_1, strand_2)
+    strand_1, strand_2 = strand_2, strand_1 if strand_2.length < strand_1.length
+    strand_1.length.times.count { |i| strand_1[i] != strand_2[i] }
+  end

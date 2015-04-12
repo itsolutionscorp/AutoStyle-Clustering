@@ -1,7 +1,5 @@
-class Hamming
-  def compute(strandA, strandB)
+def compute(strandA, strandB)
     strandA.chars.zip(strandB.chars).count do |(a, b)|
       a && b && a != b
     end
   end
-end

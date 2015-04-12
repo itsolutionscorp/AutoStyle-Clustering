@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     d = 0 
     strand_one.chars.each_with_index do |s1, i|
       if s1 != strand_two[i]
@@ -8,4 +7,3 @@ class Hamming
     end
     d
   end
-end

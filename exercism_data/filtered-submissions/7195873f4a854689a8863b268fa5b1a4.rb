@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
     differences = 0
     first_strand.each_char.with_index do |character, index|
       if character != second_strand[index]
@@ -9,4 +8,3 @@ class Hamming
 
     differences
   end
-end

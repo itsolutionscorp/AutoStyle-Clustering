@@ -1,5 +1,4 @@
-class Hamming
-	def compute(string1, string2)
+def compute(string1, string2)
 		arr1 = string1.split
 		arr2 = string2.split
 
@@ -18,4 +17,3 @@ class Hamming
 
 		return tally
 	end
-end

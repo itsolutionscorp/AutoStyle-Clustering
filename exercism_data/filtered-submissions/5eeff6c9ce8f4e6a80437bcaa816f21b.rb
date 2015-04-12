@@ -1,5 +1,4 @@
-class Hamming
-  def compute(base_dna_strand, comparison_dna_strand)
+def compute(base_dna_strand, comparison_dna_strand)
     base_dna = base_dna_strand.chars
     comparison_dna = comparison_dna_strand.chars
 
@@ -9,4 +8,3 @@ class Hamming
 
     differences.count
   end
-end

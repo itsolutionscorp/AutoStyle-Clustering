@@ -1,9 +1,7 @@
-class Hamming
-  def compute(dna, another_dna)
-    raise ArgumentError, 'different legnths' if dna.length != another_dna.length
-    0 if dna == another_dna
-    count = 0
-    (dna.split("").zip another_dna.split("")).each {|a,b| count+=1 if a != b}
-    count
+def compute(string1, string2)
+    hamming_distance = 0
+    string1.split(//).each_with_index do |char, index|
+      hamming_distance += 1 unless char == string2[index]
+    end
+    hamming_distance
   end
-end

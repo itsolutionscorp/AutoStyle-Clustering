@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a, b)
+def compute(a, b)
 		return 0 if a.nil? || b.nil?
 
 		used_a = a
@@ -15,4 +14,3 @@ class Hamming
 		end
 		diff
 	end
-end

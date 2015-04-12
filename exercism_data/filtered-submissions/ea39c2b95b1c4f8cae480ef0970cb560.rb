@@ -1,5 +1,4 @@
-class Hamming
-    def compute (first, second)
+def compute (first, second)
         count = 0
 
         for i in (0...first.length) 
@@ -8,4 +7,3 @@ class Hamming
 
         return count
     end
-end

@@ -1,7 +1,3 @@
-class Hamming
-  def compute(source, target)
-    return Hamming.compute(target, source) if source.size > target.size
-
-    (0...source.size).count {|i| source[i] != target[i] }
+def compute(first, second)
+    first.chars.zip(second.chars).select{|p| p[0] != p[1] && p[1] != nil}.size
   end
-end

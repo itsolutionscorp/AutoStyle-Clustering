@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
 
     # length of strand computing
     count = strand1.length
@@ -23,4 +21,3 @@ class Hamming
     return differences
 
   end
-end

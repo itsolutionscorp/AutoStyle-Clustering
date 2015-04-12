@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(string1, string2)
+def compute(string1, string2)
     @counter = 0
     one = string1.chars[0]
     two = string2.chars[0]
@@ -75,4 +73,3 @@ class Hamming
     end
     @counter
   end
-end

@@ -1,9 +1,9 @@
-class Hamming
+def compute(a, b)
+        count = 0
+        strings = [a, b]
 
-
-  def compute(a, b)
-    a.chars.map.with_index{ |c,i|1 unless (b.chars[i] == c || b.chars[i] == nil)}.compact.reduce(0, :+)
-  end
-
-
-end
+        strings.min.size.times do |n|
+            a[n]==b[n] ? next : count += 1
+        end
+        count
+    end

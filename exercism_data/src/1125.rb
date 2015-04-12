@@ -1,14 +1,8 @@
-# vim:fileencoding=utf-8
-
-
-class Hamming
-  def compute(strand_a, strand_b)
-    return 0 if strand_a == strand_b
-
-    minlen = [strand_a.length, strand_b.length].min
-    array_a = strand_a.scan(/./)[0,minlen]
-    array_b = strand_b.scan(/./)[0,minlen]
-
-    array_a.zip(array_b).count { |pair| pair.first != pair.last }
+def compute(first_strand, second_strand)
+    point = 0
+    first_strand, second_strand = second_strand, first_strand if first_strand.length > second_strand.length
+    first_strand.chars.each_with_index do |item, index|
+      point += 1 if item != second_strand[index]
+    end
+    return point
   end
-end

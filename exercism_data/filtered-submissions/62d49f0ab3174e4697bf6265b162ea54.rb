@@ -1,5 +1,4 @@
-class Hamming
-	def compute(var1, var2)
+def compute(var1, var2)
 		sz_a = var1.size
 		sz_b = var2.size
 
@@ -14,4 +13,3 @@ class Hamming
 		
 		return count
 	end
-end

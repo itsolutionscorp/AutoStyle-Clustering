@@ -1,18 +1,11 @@
-class Hamming
-
-  def compute(a, b)
-    shorter = [a.length, b.length].min - 1
-    a_trimmed = a[0..shorter]
-    b_trimmed = b[0..shorter]
-    distance = 0
-    for i in 0..shorter
-      if a[i] != b[i]
-      	distance += 1
-      else
+def compute(original, current)
+    o = original.split ''
+    c = current.split ''
+    hamming_counter = 0
+    o.each_with_index do |letter, index|
+      if letter != c[index]
+        hamming_counter += 1
       end
     end
-    return distance
+    hamming_counter
   end
-
-  
-end

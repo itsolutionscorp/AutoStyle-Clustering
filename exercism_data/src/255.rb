@@ -1,11 +1,8 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    hamming_difference = 0
-    strand1.chars.zip(strand2.chars).each do |a1, a2|
-      break if a2.nil?
-      hamming_difference += 1 unless a1 == a2
-    end
-    hamming_difference
-  end
-end
+def compute(dna1, dna2)
+		nbr_times = [dna1.size, dna2.size].min
+		difference = 0
+		nbr_times.times do |i|
+			difference += 1 if dna1[i] != dna2[i]
+		end
+		difference
+	end

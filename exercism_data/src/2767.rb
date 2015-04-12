@@ -1,17 +1,16 @@
-class Hamming
-  def compute(a,b)
-    # Make both strings into arrays
-    a = a.scan(/./)
-    b = b.scan(/./)
+def compute(src, dest)
+    distance = 0
 
-    hamming_distance = 0
+    length = [src, dest].map(&:length).min
 
-    a.zip(b).each do |base1, base2|
-      break if base2.nil?
-      hamming_distance += 1 if base1 != base2
+    i = 0
+    while i < length
+      unless src[i] == dest[i]
+        distance += 1
+      end
+      i += 1
     end
 
-    return hamming_distance
-
+    distance
   end
 end

@@ -1,15 +1,11 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    result = 0
-    position = 0
-    strand1.each_char do |char|
-      if char != strand2[position]
-        result += 1
-      end
-      position += 1
-    end
-    result 
-  end
-
-end
+def compute(text,name)
+		array1 = text.split(//)
+		array2 = name.split(//)
+		num = 0
+		array1.zip(array2).each do |t,n|
+			if t != n
+				num +=1
+			end
+		end
+		return num
+	end

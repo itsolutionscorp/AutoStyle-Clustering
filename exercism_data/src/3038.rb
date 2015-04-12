@@ -1,8 +1,6 @@
-class Hamming
-    def compute(string_a, string_b)
-        max_length = [string_a.length, string_b.length].min
-        (0...max_length).count do |i|
-            string_a[i] != string_b[i]
-        end
+def compute(strand, other_strand)
+    compares = strand.chars.take(other_strand.length).zip(other_strand.chars)
+    compares.count do |base, other_base|
+      base != other_base
     end
-end
+  end

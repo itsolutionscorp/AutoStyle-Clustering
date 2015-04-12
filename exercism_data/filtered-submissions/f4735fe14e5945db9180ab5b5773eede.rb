@@ -1,6 +1,4 @@
-module Hamming
-
-	def compute(a, b)
+def compute(a, b)
 		if a.length < b.length
 			max = a.length
 		else 

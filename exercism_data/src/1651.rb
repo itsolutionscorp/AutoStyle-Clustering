@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
-    (a^b).to_s(2).count("1")
+def compute(a, b)
+    num_compare = [a.length, b.length].min
+    (0..num_compare-1).count {|i| a[i] != b[i]}
   end
-end

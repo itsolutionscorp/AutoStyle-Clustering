@@ -1,11 +1,15 @@
-class Hamming
-
-	def compute(seq1, seq2)
-		total = 0
-		seq1.split('').each_with_index do |base, index|
-			break if index + 1 >= seq2.length
-			total+=1 if base != seq2[index] and index < seq2.length			
-		end
-		total
-	end
-end
+def compute(origin_strand,other_strand)
+    i = 0
+    counts = 0
+    other_strand_arr = other_strand.chars
+    origin_strand.chars.each do |x|
+      # checking nil for ignores_extra_length_on_original_strand_when_longer
+      if other_strand_arr[i].nil?
+        break
+      elsif other_strand_arr[i] != x
+        counts += 1
+      end
+      i += 1
+    end 
+    counts
+  end

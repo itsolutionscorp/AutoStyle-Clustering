@@ -1,9 +1,6 @@
-class Hamming
-    def compute(a,b)
-        count=0
-        for pos in 0..a.length - 1
-            count += 1 if a[pos]!=b[pos]
-        end
-        count
-    end
-end
+def compute(x, y)
+    return nil unless x.length == y.length
+    hamming_distance = 0
+    x.length.times {|n| hamming_distance += 1 if x[n] != y[n]}
+    hamming_distance
+  end

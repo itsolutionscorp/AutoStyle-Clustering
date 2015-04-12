@@ -1,5 +1,5 @@
-class Hamming
-  def compute(s1, s2)
-    [s1.size, s2.size].min.times.count { |i| s1[i] != s2[i] }
-  end
-end
+def compute(dna1, dna2)
+		dna1.split("").each_with_index.select {|d, index| 
+			d != dna2[index]
+		}.size
+	end

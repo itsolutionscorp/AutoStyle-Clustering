@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(one, two)
+def compute(one, two)
     count = 0
     result = 0
     one.length.times do
@@ -9,5 +7,3 @@ class Hamming
     end
     result
   end
-
-end

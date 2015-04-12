@@ -1,15 +1,7 @@
-class Hamming
-def compute(first_strand, second_strand)
-        distance = 0
-        counter = 0
-        while counter < first_strand.length && counter < second_strand.length
-            if first_strand[counter] != second_strand[counter]
-                difference += 1
-                counter += 1
-            else
-                counter += 1
-            end 
-        end
-    return distance
-    end
+def compute(first, second)
+    first  = first.chars
+    second = second.chars
+    size = [first.size, second.size].min
+    first.take(size).zip(second.take(size)).count { |(one, two)| one != two }
+  end
 end

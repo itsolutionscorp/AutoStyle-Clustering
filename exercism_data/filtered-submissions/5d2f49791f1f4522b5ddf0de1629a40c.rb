@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1,s2)
+def compute(s1,s2)
      distance = 0
      string_size = s1.size
      (0 .. string_size).each do |i|
@@ -10,4 +9,3 @@ class Hamming
      end
      return distance    
   end
-end

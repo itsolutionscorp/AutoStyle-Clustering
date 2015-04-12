@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     mutations = 0
 
     dna1.chars.each_with_index do |x, index|
@@ -11,5 +9,3 @@ class Hamming
 
     mutations
   end
-
-end

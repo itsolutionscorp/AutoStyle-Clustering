@@ -1,10 +1,9 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    strand_a = strand_a.chars
-    strand_b = strand_b.chars
+def compute(strand1, strand2)
+    distance = 0
 
-    strand_a.zip(strand_b).count do |nucleotide_a, nucleotide_b|
-      nucleotide_a != nucleotide_b
+    strand1.chars.zip(strand2.chars).each do |char1, char2|
+      distance = distance + 1 if char1 != char2 
     end
+
+    return distance
   end
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     i = 0
     counter = 0
     strand_a.each_char do |n|
@@ -9,6 +7,4 @@ class Hamming
       i += 1
     end
     counter
-  end  
-
-end
+  end

@@ -1,9 +1,7 @@
-class Hamming
-    def compute(seq_a, seq_b)
-    	len = seq_a.size
-    	diff = 0
-        0...len.each do |i|
-        	diff += 1 unless seq_a[i] == seq_b[i]
-        end
+def compute(string1, string2)
+    min_length = [string1, string2].min_by(&:length).length
+    min_length.times.count do |i|
+      string1[i] != string2[i]
     end
+  end
 end

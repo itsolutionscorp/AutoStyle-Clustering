@@ -1,7 +1,4 @@
-# hamming
-
-class Hamming
-    def compute(string_1, string_2)
+def compute(string_1, string_2)
         hamming_distance = 0
         
         effective_sequence_length = [string_1.size, string_2.size].min
@@ -11,4 +8,3 @@ class Hamming
         
         return hamming_distance
     end
-end

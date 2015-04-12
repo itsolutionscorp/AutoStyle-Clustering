@@ -1,7 +1,3 @@
-class Hamming
-
-	def compute(a, b)
-		a.each_codepoint.zip(b.each_codepoint).select {|l, r| l != r}.length
-	end	
-
-end
+def compute(s1, s2)
+    [s1.length, s2.length].max.times.count {|n| s1[n] != s2[n]}
+  end

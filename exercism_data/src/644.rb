@@ -1,10 +1,9 @@
-module Hamming
-    def compute(a, b)
-        if a == b
-            0
-        end
-        diffs = 0
-        a.split('').each_with_index {|c, i| diffs += 1 if c != b[i] }
-        diffs
+def compute(original, mutated)
+    difference = 0
+    original.chars.each_with_index do |orig_chr, index|
+      break unless mutated[index]
+      difference += 1 if orig_chr != mutated[index]
     end
+    difference
+  end
 end

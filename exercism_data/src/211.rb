@@ -1,14 +1,8 @@
-class Hamming
-  def compute(strand1, strand2)
-    a = strand1.chars
-    b = strand2.chars
-
-    max = [a.count, b.count].min
-    a = a[0, max]
-    b = b[0, max]
-
-    y = a.zip(b)
-    y.inject(0) { |sum, comparison_array| sum += 1 if comparison_array.first != comparison_array.last; sum }
+def compute(group_one, group_two)
+    # Get the shorter group size and iterate with it while counting differences
+    # in the elements of the same position using the cycle number as index.
+    [group_one.size, group_two.size].min.times.count do |i|
+      group_one[i] != group_two[i]
+    end
   end
-
 end

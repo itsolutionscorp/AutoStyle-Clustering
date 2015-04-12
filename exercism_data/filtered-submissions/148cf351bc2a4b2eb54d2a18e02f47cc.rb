@@ -1,5 +1,4 @@
-module Hamming
-  def compute(str1,str2)
+def compute(str1,str2)
     short_str = str1.length <= str2.length ? str1 : str2
     count = 0
     0.upto(short_str.length-1) do |i|

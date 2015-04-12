@@ -1,5 +1,4 @@
-module Hamming
-  def compute(src, dest)
+def compute(src, dest)
     distance = 0
 
     length = [src, dest].map(&:length).min

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(firstStrand, secondStrand)
+def compute(firstStrand, secondStrand)
     max_hamming_distance = [firstStrand.size, secondStrand.size].min
 
     ham_distance = 0
@@ -9,4 +8,3 @@ class Hamming
 
     ham_distance
   end
-end

@@ -1,5 +1,3 @@
-class Hamming
-
 def compute (dna1, dna2)
 	dna1a = dna1.split('')	
 	dna2a = dna2.split('')
@@ -15,7 +13,5 @@ def compute (dna1, dna2)
 	end
 
 	return count
-
-end
 
 end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(one, two)
+def compute(one, two)
     # Difference between boths strands is 0 initially
     difference = 0
 
@@ -12,4 +11,3 @@ class Hamming
     # Return the computed difference
     difference
   end
-end

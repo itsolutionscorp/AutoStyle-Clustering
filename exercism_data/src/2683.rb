@@ -1,11 +1,7 @@
-class Hamming
-  def compute(a, b)
-    count = 0
-    range = 0..a.length-1
-    range.each do |i|
-      count += 1 if a[i] != b[i]
-      i += 1
-    end
-    count
+def compute(x,y)
+    [].tap do |distance|
+      x.length.times do |index|
+        distance << (x[index] != y[index])
+      end
+    end.count(true)
   end
-end

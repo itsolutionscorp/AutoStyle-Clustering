@@ -1,9 +1,9 @@
-class Hamming
-	def compute(arg, arg2)
-		number = 0
-		arg.split(//).each_with_index do |el, index|
-			number = number + 1 if el != arg2[index]
+def compute(a,b)
+  	finalcount=0;
+  	count=[a.length,b.length].min.times do |i| 
+  		if(a[i] != b[i])
+				finalcount+=1;
+  		end   		
 		end
-		number
-    end
-end
+  	return finalcount;
+  end

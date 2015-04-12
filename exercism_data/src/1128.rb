@@ -1,7 +1,11 @@
-class Hamming
-  def compute(dna1, dna2)
-    #zip(dna1,dna2).reduce(:+)
-    #return 0 if dna1 == '' || dna2 == ''
-    dna1.split('').zip(dna2.split('')).map{|a,b| if a != b && a && b then 1 else 0 end}.reduce(0,:+)
-  end
-end
+def compute(strand1, strand2)
+		difference = 0
+		i = 0
+		while i < strand1.length && i < strand2.length
+			if strand1[i] != strand2[i]
+				difference += 1
+			end	
+			i += 1
+		end
+	return difference
+	end

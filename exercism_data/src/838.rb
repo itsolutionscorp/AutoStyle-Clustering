@@ -1,14 +1,3 @@
-class Hamming
-  def compute(strand_one, strand_two)
-    zipped_strand_chars = strand_one.chars.zip(strand_two.chars)
-    hamming_number = 0
-
-    zipped_strand_chars.each do |a, b|
-      unless a == b
-        hamming_number += 1
-      end
-    end
-
-    hamming_number
-  end
-end
+def compute(*s)
+		(0...s.map{|l| l.length}.min).select{|i| s[0][i] != s[1][i]}.length
+	end

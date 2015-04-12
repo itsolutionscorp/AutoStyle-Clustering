@@ -1,13 +1,7 @@
-class Hamming
-  def compute(str1, str2)
-    dist = 0
-    i = 0
-    while i < str1.length and i < str2.length do 
-      if not str1[i].eql? str2[i] then
-        dist += 1
-      end
-      i += 1
+def compute(a, b)
+    return 0 if a == b
+    a.chars.zip(b.chars).inject(0) do |sum, arr|
+      sum+=1 if arr[0] != arr[1]
+      sum
     end
-    dist
   end
-end

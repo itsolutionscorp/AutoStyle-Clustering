@@ -1,9 +1,3 @@
-class Hamming
-  def compute(a,b)
-    distance = 0
-    0.upto([a.length,b.length].min - 1) do |i|
-      distance += 1 if a[i] != b[i]
+def compute( s1, s2 )
+        s1 == s2 ? 0 : s1.length
     end
-    distance
-  end
-end

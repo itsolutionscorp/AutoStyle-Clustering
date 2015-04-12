@@ -1,12 +1,13 @@
-class Hamming
-  def compute(s1, s2)
-    response = 0
-    #assume that s1 and s2 have the same length
-    (0..s1.length).each do |i|
-      if s1[i] != s2[i]
-        response += 1
+def compute(first_strand, second_strand)
+    first_split = first_strand.split("")
+    second_split = second_strand.split("")
+    address = 0
+    hamming = 0
+    first_split.each do |x|
+      if x != second_split[address]
+        hamming += 1
       end
+      address +=1
     end
-    response
+    hamming
   end
-end

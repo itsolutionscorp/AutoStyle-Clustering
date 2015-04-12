@@ -1,5 +1,3 @@
-class Hamming
-  def compute(stringOne, stringTwo)
-    [stringOne, stringTwo].min.size.times.count { |i| stringOne[i] != stringTwo[i] }
+def compute(a, b)
+    [a, b].map(&:length).min.times.count { |i| a[i] != b[i] }
   end
-end

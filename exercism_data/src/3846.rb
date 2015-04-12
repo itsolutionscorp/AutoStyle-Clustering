@@ -1,21 +1,9 @@
-#
-# Utility class to calculate hamming length
-#
-
-class Hamming
-  def compute(strand_1, strand_2)
-    raise TypeError unless (strand_1.is_a? String) && (strand_2.is_a? String)
-    
-    hamming = 0
-
-    if strand_1.length > strand_2.length
-      strand_1, strand_2 = strand_2, strand_1
+def compute(strand, comparative_strand)
+    mutations = 0
+    strand.chars.each_with_index do |nucelotide, index|
+      comparative_nucelotide = comparative_strand[index]
+      mutations += 1 if comparative_nucelotide && nucelotide != comparative_nucelotide
     end
-
-    strand_1.each_char.with_index do |char, index|
-      hamming += 1 unless char == strand_2[index]
-    end
-
-    hamming
+    mutations
   end
 end

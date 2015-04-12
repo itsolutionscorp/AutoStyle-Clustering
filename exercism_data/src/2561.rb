@@ -1,7 +1,6 @@
-class Hamming
-  def compute(base, desc)
-    base.length.times.count do |i|
-      base[i] != desc[i]
+def compute(first, second)
+    distance = first.chars.zip(second.chars).each.count do |a, b|
+      a != b
     end
+    distance
   end
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(one, two)
+def compute(one, two)
     two = two.split('')
     one.split('').reduce(0) do |memo, letter|
       if letter_two = two.shift and letter != letter_two
@@ -9,5 +7,3 @@ class Hamming
       memo
     end
   end
-
-end

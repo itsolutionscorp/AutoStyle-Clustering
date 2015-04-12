@@ -1,10 +1,5 @@
-class Hamming
-  def compute(strand1, strand2)
-    return 0 if strand1 == strand2
-    dist = 0
-    [strand1.length, strand2.length].min.times.each do |n|
-      dist += 1 if strand1[n] != strand2[n]
+def compute(str1, str2)
+    (0...[str1.length, str2.length].min).count do |index|
+      str1[index] != str2[index]
     end
-    dist
   end
-end

@@ -1,18 +1,6 @@
-#Complete rewrite after going through timestep's solution
-#http://exercism.io/submissions/85271038b735fe34c53e1ad3
-
-class Hamming
-  def compute(strand_one, strand_two)
-    difference = 0
-
-    strand_one.length.times do |index|
-      if strand_one[index].nil? or strand_two[index].nil?
-        return difference
-      elsif strand_one[index] != strand_two[index]
-        difference += 1
-      end
+def compute(dna_one,dna_two)
+    smallest = [dna_one.size,dna_two.size].min
+    (0...smallest).count do |i|
+      dna_one[i] != dna_two[i]      
     end
-
-    return difference
   end
-end

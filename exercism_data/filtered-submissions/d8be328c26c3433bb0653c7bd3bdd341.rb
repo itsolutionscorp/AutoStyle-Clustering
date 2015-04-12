@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     strand_a_array = strand_a.chars
     strand_b_array = strand_b.chars
     non_matching_letter_count = 0
@@ -11,4 +10,3 @@ class Hamming
     
     non_matching_letter_count    
   end
-end

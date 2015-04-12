@@ -1,18 +1,8 @@
-# compute the Hamming difference between two strands of DNA
-
-class Hamming
-
-  def compute (strand1, strand2)
-    length = [strand1.length, strand2.length].min
-    diff = 0
-
-    length.times do |i|
-      if strand1[i].casecmp(strand2[i]) != 0
-        diff += 1
-      end
+def compute(a, b)
+    return nil if a.length != b.length
+    diffs = 0
+    a.each_char.with_index do |e, i|
+      diffs += 1 if e != b[i]
     end
-
-    diff
+    diffs
   end
-
-end

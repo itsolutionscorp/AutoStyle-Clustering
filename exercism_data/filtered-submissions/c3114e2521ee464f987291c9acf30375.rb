@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a,b)
+def compute(a,b)
 		if a == b
 			return 0
 		elsif a.length && b.length == 1
@@ -22,9 +21,3 @@ class Hamming
 			return 9
 		end
 	end
-end
-
-#TODO FOR CODE REFACTORED
-#1. use of case when
-#2. divide whole code in multiple method
-#3. Use gsub for matching exact string

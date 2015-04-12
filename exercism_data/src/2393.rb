@@ -1,9 +1,3 @@
-class Hamming
-  def compute(a, b)
-    count = 0
-    a.each_char.each_with_index do |char, i|
-      count += 1 if char != b[i]
-    end
-    count
+def compute(first, second)
+    first.scan(/./).zip(second.scan(/./)).select { |match| !match[0].nil? && !match[1].nil? && match[0] != match[1] }.length
   end
-end

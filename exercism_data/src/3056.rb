@@ -1,10 +1,11 @@
-class Hamming
+def compute(str_1, str_2)
+    total = 0
 
-	def compute(strand1, strand2)
+    length = str_1.length > str_2.length ? str_2.length : str_1.length
 
-		if strand1.length != strand2.length
-			strand1 = strand1.slice(0..strand2.length-1)
-		end
-		strand1.chars.zip(strand2.chars).count { |a,b| a != b }
-	end
-end
+    (0...length).each do |index|
+      total += 1 if str_1[index] != str_2[index]
+    end
+
+    total
+  end

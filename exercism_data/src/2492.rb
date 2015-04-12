@@ -1,11 +1,6 @@
-class Hamming
-  class << self	
-    def compute(x,y)
-      xarray = x.chars
-      yarray = y.chars
+def compute(a, b)
+    return 0 if a == b
 
-      xarray.zip(yarray).delete_if {| a, b | a == nil || b == nil }.count { | a, b | a != b }
-
-    end
+    positions = a.chars.zip(b.chars)
+    positions.count { |(x, y)| y && x != y }
   end
-end

@@ -1,22 +1,6 @@
-class Hamming
-  def compute (x,y)
-
-    if x.length <= y.length
-      strand_size = x.length
-    else
-      strand_size = y.length
+def compute(a, b)
+        diffs = 0
+        a.split('').each_with_index {|c, i| diffs += 1 if c != b[i] }
+        diffs
     end
-
-    hamming_distance = 0
-
-
-
-    for i in (0..(strand_size-1))
-      if x[i] != y[i]
-        hamming_distance += 1
-      end
-    end
-
-    return hamming_distance
-  end
 end

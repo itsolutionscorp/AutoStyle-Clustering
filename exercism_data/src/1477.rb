@@ -1,5 +1,13 @@
-class Hamming
-  def compute(str1, str2)
-    str1.chars.zip(str2.chars).count { |char1, char2| char1 != char2 }
+def compute(a1, a2)
+    res = 0	
+    if a1==a2
+      res	   
+    else
+      for pos in 0..a1.length-1
+        if a1[pos]!= a2[pos]
+          res = res +1 
+        end
+      end
+      res
+    end
   end
-end

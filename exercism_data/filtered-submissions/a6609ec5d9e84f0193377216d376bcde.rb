@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strandOne, strandTwo)
+def compute(strandOne, strandTwo)
     d, i = 0, 0
 #    i = 0
     strandOne.split('').each do |s1| 
@@ -10,4 +9,3 @@ class Hamming
     end
     d
   end
-end

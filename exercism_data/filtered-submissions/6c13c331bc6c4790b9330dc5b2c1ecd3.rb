@@ -1,5 +1,4 @@
-module Hamming
-  def compute(a, b)
+def compute(a, b)
     count = 0
     a.split("").zip(b.split("")).each { |a, b| count+= 1 unless a.eql?(b) }
     count

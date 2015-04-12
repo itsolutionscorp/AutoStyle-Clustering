@@ -1,23 +1,8 @@
-class Hamming
-
-  def compute(x,y)
-
-    return 0 if x == y
-
-    if x.size == y.size || x.size < y.size
-      hd = 0
-      x.length.times do |i|
-        x[i] == y[i] ? nil : hd += 1
-      end
-      return hd
-    elsif
-      hd = 0
-      y.length.times do |i|
-        x[i] == y[i] ? nil : hd += 1
-      end
-      return hd
-    end
-
+def compute(strand_a,strand_b)
+    min_l = [strand_a.length,strand_b.length].min
+    hamming_distance = 0
+    min_l.times do |i|
+        hamming_distance +=1 unless strand_a[i]==strand_b[i]
+    end  
+    hamming_distance
   end
-
-end

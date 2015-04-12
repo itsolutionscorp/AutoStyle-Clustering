@@ -1,13 +1,11 @@
-class Hamming
-	def compute(strand_one, strand_two)
-		hamming_distance_count = 0
-
-		shortest_string_length = [strand_one.length, strand_two.length].min
-
-		shortest_string_length.times do |strand_position|
-			hamming_distance_count += 1 unless strand_one[strand_position] == strand_two[strand_position]
-		end
-
-		hamming_distance_count
-	end
-end
+def compute(a, b)
+    # put the length of each arg into an array and return the shortest (min)
+    length = [a.length, b.length].min
+    difference = 0
+    # loop over length.times comparing a to b, increment difference if we don't match
+    length.times do |i|
+      diff += 1 if a[i] != b[i]
+    end
+    # return the difference
+    difference
+  end

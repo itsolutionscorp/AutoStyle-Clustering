@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(strandOne, strandTwo)
+def compute(strandOne, strandTwo)
 
 		d = 0
 
@@ -58,4 +56,3 @@ class Hamming
 		return d
 			
 	end
-end

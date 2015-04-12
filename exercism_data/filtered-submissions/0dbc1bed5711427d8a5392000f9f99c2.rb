@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     return unless strand_a.length == strand_b.length
     mutations = 0
     strand_a.each_char.with_index do |nucleotide, index|
@@ -7,4 +6,3 @@ class Hamming
     end
     mutations
   end
-end

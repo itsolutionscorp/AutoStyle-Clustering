@@ -1,5 +1,4 @@
-class Hamming
-  def compute(seq1, seq2)
+def compute(seq1, seq2)
 
     seq1Arr = seq1.chars
     seq2Arr = seq2.chars
@@ -10,4 +9,3 @@ class Hamming
     end
     hamming
   end
-end

@@ -1,7 +1,4 @@
-# exercism first problem
-
-class Hamming 
-    def compute( strandx, strandy )
+def compute( strandx, strandy )
         @string_position_counter = 0 #i'm not happy about this counter at all
         @hamming_distance = 0 #this is basically another counter -- i'm so bad at this
         @strandx = strandx
@@ -18,4 +15,3 @@ class Hamming
         end
         return @hamming_distance
     end
-end

@@ -1,8 +1,8 @@
-class Hamming
-  
-  def compute(str1, str2)
-    short, long = [str1, str2].sort_by(&:length)
-    short.chars.zip(long.chars).inject(0) { |diff, c| c[0]==c[1] ? diff : diff+1 }
+def compute(first, second)
+    hamming_distance = 0
+    # Count nonequal chars, char-by-char. 
+    (0..first.size).each do |i|
+      hamming_distance += 1 if first[i] != second[i]
+    end
+    hamming_distance
   end
-
-end

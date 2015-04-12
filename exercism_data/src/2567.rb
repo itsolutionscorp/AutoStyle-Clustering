@@ -1,11 +1,11 @@
-class Hamming
+def compute(a,b)
+    errorcount = 0
+    testlength = 0
+     
+    testlength = a.length > b.length ? b.length : a.length
 
-  def compute(strand1, strand2)
-    distance = 0
-    (0..strand1.size).each do |i|
-      distance += 1 if strand1[i] and strand2[i] and strand1[i] != strand2[i]
-    end
-    return distance
+    testlength.times.each{|index|
+      errorcount += 1 if a[index] != b[index]
+    }
+    return errorcount
   end
-
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute test1, test2
+def compute test1, test2
 		return 0 if test1 == test2 
 		split_test1 = test1.split("")
 		split_test2 = test2.split("")
@@ -12,5 +10,3 @@ class Hamming
 		end
 		counter
 	end
-	
-end

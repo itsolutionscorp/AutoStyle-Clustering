@@ -1,6 +1,3 @@
-class Hamming
-
-
 def compute(strand1,strand2)
  
  ctr=0
@@ -13,9 +10,3 @@ def compute(strand1,strand2)
  ctr
 
 end
-end
-  
-
-
-
- 

@@ -1,11 +1,6 @@
-class Hamming
+def compute(strand_a, strand_b)
+    a, b = strand_a.chars, strand_b.chars
 
-  def compute(x, y)
-    if x == y
-      0
-    else
-      1
-    end
+    # hamming distance
+    (0..a.size).count { |i| a[i] != b[i] }
   end
-
-end

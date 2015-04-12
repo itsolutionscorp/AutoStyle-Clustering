@@ -1,5 +1,5 @@
-class Hamming
-  def compute(first, second)
-    first.chars.zip(second.chars).take(second.length).count {|x,y| x != y }
+def compute(left, right)
+    left.chars.zip(right.chars).reduce(0) do |sum, (left_char, right_char)|
+      sum + (left_char == right_char ? 0 : 1)
+    end
   end
-end

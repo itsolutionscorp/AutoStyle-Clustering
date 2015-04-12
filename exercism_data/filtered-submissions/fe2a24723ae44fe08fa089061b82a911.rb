@@ -1,4 +1,3 @@
-class Hamming
 def compute(input1, input2)
 	counter = 0
 	(0..[input1.length, input2.length].min - 1).each do |i|
@@ -8,6 +7,3 @@ def compute(input1, input2)
 	end
 	return counter
 end
-end
-
-

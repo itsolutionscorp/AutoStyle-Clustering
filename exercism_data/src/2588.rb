@@ -1,27 +1,13 @@
-require 'pry'
+def compute(strand_one, strand_two)
 
-class Hamming
-	def compute(string1, string2)
-		arr1 = string1.split('')
-		arr2 = string2.split('')
+    total = 0
 
-		i = 0
-		tally = 0
+    (0...strand_one.length).each do |i|
+      if strand_one[i] != strand_two[i]
+        total += 1
+      end
+    end
 
-		if arr1.length <= arr2.length
-			arr1.each.with_index do |letter, i|
-				if letter != arr2[i]
-					tally = tally + 1
-				end
-			end
-	    else
-	    	arr2.each.with_index do |letter, i|
-				if letter != arr1[i]
-					tally = tally + 1
-				end
-			end
-		end
+    return total
 
-		return tally
-	end
-end
+  end

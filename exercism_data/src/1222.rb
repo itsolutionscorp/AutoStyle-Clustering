@@ -1,8 +1,9 @@
-class Hamming
-
-  def compute(a,b)
-    a,b = b,a if b.length < a.length
-    a.chars.zip(b.chars).count { |(x,y)| x!=y }
+def compute(a, b)
+    differences = 0
+    [a.length ,b.length].min.times do |index|
+      differences += 1 if a[index] != b[index]
+    end
+    return differences
   end
-
+  
 end

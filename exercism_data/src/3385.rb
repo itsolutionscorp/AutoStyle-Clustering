@@ -1,13 +1,6 @@
-class Hamming
-  def compute(original, compare)
-    differences = 0
-
-    @longer = original.size >= compare.size ? original : compare
-    @shorter = original.size >= compare.size ? compare : original
-
-    @shorter.each_char.with_index do |char, index|
-      differences += 1 unless char == @longer[index]
-    end
-    differences
-  end
-end
+def compute(strand_1, strand_2)
+		length = [strand_1.size, strand_2.size].min
+		(0...length).inject(0) do |sum, index|
+			strand_1[index] == strand_2[index] ? sum : sum += 1
+		end
+	end

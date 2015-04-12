@@ -1,14 +1,11 @@
-class Hamming
-  def compute(base, another)
-    different = 0
-    index     = 0
-    loop do
-      base_char    = base[index]
-      another_char = another[index]
-      break if base_char.nil? || another_char.nil?
-      different += 1 unless base_char == another_char
-      index += 1
-    end
-    different
-  end
-end
+def compute(a,b)
+		tol = [a.length, b.length].min() -1
+		sum = (0..tol).reduce(0) { |s,i|
+			if (a[i]!=b[i])	
+			then
+				s += 1
+			end
+			s
+		}
+		
+	end

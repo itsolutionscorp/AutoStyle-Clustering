@@ -1,16 +1,8 @@
-class Hamming
-
-	def compute(strand1, strand2)
-		difference = 0
-		
-		max = [strand1.length, strand2.length].min
-
-		for i in 0...max
-			strand1[i] != strand2[i] ? difference += 1 : nil
-		end
-		
-		difference
-	
-	end
-
-end
+def compute(lhs, rhs)
+    return nil if lhs.length != rhs.length
+    diff = 0
+    for i in 0..lhs.length-1 do
+      diff += lhs[i] != rhs[i] ? 1 : 0
+    end
+    return diff
+  end

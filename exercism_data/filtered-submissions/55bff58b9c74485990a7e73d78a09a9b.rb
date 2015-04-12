@@ -1,5 +1,4 @@
-class Hamming
-  def compute s1, s2
+def compute s1, s2
     gap = 0
     proper_number = [s1.length, s2.length].max - (s1.length - s2.length).abs
     proper_number.times do |i|
@@ -7,4 +6,3 @@ class Hamming
     end
     gap
   end
-end

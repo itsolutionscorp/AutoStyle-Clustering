@@ -1,11 +1,9 @@
-# Calculates the Hamming difference between two DNA strands
-class Hamming
-  def compute(dna1, dna2)
-    min_len = [dna1.length, dna2.length].min
-    difference = 0
-    (0..(min_len - 1)).each do |i|
-      difference += 1 if dna1[i] != dna2[i]
-    end
-    difference
+def compute(gene_1, gene_2)
+    strand_1 = gene_1.split(//)
+    strand_2 = gene_2.split(//)
+
+    short_strand = strand_1.length < strand_2.length ? strand_1 : strand_2
+    long_strand  = strand_2.length < strand_1.length ? strand_2 : strand_1
+
+    short_strand.zip(long_strand).inject(0) { |memo, tuple| memo + (tuple.first != tuple.last ? 1 : 0) }
   end
-end

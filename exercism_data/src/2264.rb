@@ -1,10 +1,9 @@
-class Hamming
-  def compute(a, b)
-    hamming_number = 0
-    min_length = [a.length,b.length].min
-    (0..min_length-1).each do |i|
-      hamming_number += 1 unless a[i] == b[i]
-    end
-    hamming_number
+def compute original, *descendant
+    raise ArgumentError('Sequences must be equal in length.') if original.length != descendant.length
+
+    [*original].zip(descendant).reduce(0) { |a, (orig_base, desc_base)|
+      a += 1 if orig_base != desc_base
+      a
+    }
   end
 end

@@ -1,9 +1,4 @@
-class Hamming
-
-	def compute(strand1, strand2)
-		strand1.chars.map.with_index do |letter, index| 
-			letter == strand2.chars[index]     
-		end.count(false)
-	end
-
-end
+def compute(a,b)
+    pairs = a.chars.zip(b.chars)
+    pairs.count { |p| p.uniq.compact.length > 1 } 
+  end

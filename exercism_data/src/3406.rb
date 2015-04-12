@@ -1,22 +1,10 @@
-require 'pry'
+def compute(strand_A, strand_B)
+    length = [strand_A.length, strand_B.length].min
 
-class Hamming
-  def compute(strand_a, strand_b)
-    result = 0
+    # convert each strand to an array of characters of equal length
+    b_chars = strand_B.chars.first(length)
+    a_chars = strand_A.chars.first(length)
 
-    comparisons = 0
-    if strand_a.length < strand_b.length
-      comparisons = strand_a.length
-    else
-      comparisons = strand_b.length
-    end
-
-    (0..comparisons - 1).each do |i|
-      if strand_a[i] != strand_b[i]
-        result += 1
-      end
-    end
-
-    return result
+    # compare chars in each strand and count the differences
+    a_chars.zip(b_chars).count { |(a, b)| a != b }
   end
-end

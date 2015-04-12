@@ -1,10 +1,10 @@
-module Hamming
-  def compute(strand_a, strand_b)
-    hamming_distance = 0
-    [strand_a.size, strand_b.size].min.times do |n|
-      hamming_distance += 1 unless strand_a[n] == strand_b[n]
+def compute(sequence1, sequence2)
+    index, difference = 0
+    difference = 0
+    until sequence1[index].nil? || sequence2[index].nil?
+      difference +=1 unless sequence1[index] == sequence2[index]
+      index += 1
     end
-    hamming_distance
+    difference
   end
 end
-Hamming.extend(Hamming)

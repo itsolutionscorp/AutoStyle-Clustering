@@ -1,9 +1,8 @@
-class Hamming
-	def compute(x, y)
-		i = 0
-		(0..(x.length-1)).each do |z|
-			i+=1 if x[z] != y[z]
-		end
-		i
-	end
-end
+def compute(string_1, string_2)
+
+    zipped_strings = string_1.chars.zip(string_2.chars)
+
+    zipped_strings.inject(0) do |hamming_distance , (character_1, character_2)|
+      character_1 == character_2 ? hamming_distance : hamming_distance +=1
+    end
+  end

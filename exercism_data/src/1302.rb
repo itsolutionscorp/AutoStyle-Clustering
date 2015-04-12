@@ -1,6 +1,4 @@
-class Hamming
-  def compute(x, y)
-    data = x.split('').zip y.split('')
-    data.collect { |a, b| a == b }.count(false)
+def compute(strand, strand2)
+    pairs = strand.chars.zip(strand2.chars).first(strand2.length)
+    pairs.count {|x,y| x != y }
   end
-end

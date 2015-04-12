@@ -1,5 +1,4 @@
-class Hamming
-	def compute(string1, string2)
+def compute(string1, string2)
 		strand_length = [string1.length, string2.length].min
 		hamming_count = 0
 		(0...strand_length).each do |i|
@@ -9,4 +8,3 @@ class Hamming
 		end
 		hamming_count
 	end
-end	

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a,b)
+def compute(a,b)
 		a_iter = a.chars
 		b_iter = b.chars
 
@@ -10,4 +9,3 @@ class Hamming
 
 		return count
 	end
-end

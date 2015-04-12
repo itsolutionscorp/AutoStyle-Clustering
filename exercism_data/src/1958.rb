@@ -1,7 +1,4 @@
-module Hamming
-  extend self
-
-  def compute(adn1, adn2)
-    (0...[adn1.size, adn2.size].min).count { |i| adn1[i] != adn2[i] }
+def compute(a, b)
+    max = [a, b].max
+    [a, b].min.chars.each_with_index.count { |min, i| min != max[i] }
   end
-end

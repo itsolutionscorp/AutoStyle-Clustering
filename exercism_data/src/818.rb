@@ -1,28 +1,14 @@
-class Hamming
-  # Method to count the number of differences between 2 strings char by char
-  # originally intended for the calculation of the 'Hamming distance'.
-  # Will stop at the shortest string length and ignore the rest
-  def compute(a,b)
-    # create arrays of both strings to allow stepping through each char
-    aa = a.split('')
-    ba = b.split('')
+def compute(strand_1, strand_2)
+    hamming = 0
 
-    # running total for the hamming distance. Start off assuming none then add to it
-    h  = 0
+    if (strand_1.is_a? String) && (strand_2.is_a? String)
+      if strand_1.length > strand_2.length
+        strand_1, strand_2 = strand_2, strand_1
+      end
 
-    # Step through each char to ru a comparison
-    (aa.length > ba.length ? ba.length : aa.length).times do |i|
-    
-      # If they are not the same...
-      if ba[i] != aa[i]
-        # increment our distance running total
-        h += 1
-      else
-        # no need to implement changes - skip to the next one
-        next
+      strand_1.each_char.with_index do |c, i|
+        hamming += 1 if c != strand_2[i]
       end
     end
-    # Return the hamming distance
-    return h
-  end
-end
+
+    hamming

@@ -1,13 +1,8 @@
-class Hamming	
-
-	def compute(dna_one, dna_two)
-
-		errors = 0
-
-		dna_one.chars.zip(dna_two.chars).each do |chr1, chr2|
-			errors += 1 if chr1 != chr2
-		end
-
-		errors
-	end
-end
+def compute strand_a, strand_b
+    fail if strand_a.length != strand_b.length
+    difference = 0
+    strand_a.chars.each_with_index do |letter, i|
+      letter == strand_b[i] ? true : difference += 1
+    end
+    difference
+  end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute strand_a, strand_b
+def compute strand_a, strand_b
     differences = 0
     strand_a.split('').each_with_index do |letter, index|
       break if index > (strand_b.length - 1)
@@ -9,5 +7,3 @@ class Hamming
     
     differences
   end
-  
-end

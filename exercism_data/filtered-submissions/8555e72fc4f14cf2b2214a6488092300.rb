@@ -1,5 +1,4 @@
-class Hamming
-    def compute(seq1, seq2)
+def compute(seq1, seq2)
         dist = 0
         l = seq1.length < seq2.length ? seq1.length : seq2.length
         0.upto (l - 1) do |x|
@@ -7,4 +6,3 @@ class Hamming
         end
         dist
     end
-end

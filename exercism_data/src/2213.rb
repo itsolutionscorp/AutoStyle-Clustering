@@ -1,12 +1,12 @@
-class Hamming
-  def compute(strand, other_strand)
-    strand = strand.chars.take(other_strand.length)
-    other_strand = other_strand.chars
-
-    pairs = strand.zip(other_strand)
-
-    pairs.count do |left, right|
-      left != right
+def compute(first_str, second_str)
+    max_length = if first_str.length < second_str.length
+      first_str.length
+    else
+      second_str.length
     end
+    hamms = 0
+    max_length.times do |i|
+      hamms += 1 if first_str[i] != second_str[i]
+    end
+    hamms
   end
-end

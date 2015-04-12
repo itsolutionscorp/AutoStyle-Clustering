@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strandA, strandB)
+def compute(strandA, strandB)
     strandANucleids = strandA.chars
     strandBNucleids = strandB.chars
     diff = strandANucleids.zip(strandBNucleids).select do |(a, b)|
@@ -7,4 +6,3 @@ class Hamming
     end
     diff.length
   end
-end

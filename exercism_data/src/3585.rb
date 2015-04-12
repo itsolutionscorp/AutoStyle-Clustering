@@ -1,13 +1,5 @@
-module Hamming
-  def compute(a,b)
-    distance = 0
-
-    short, long = [a, b].sort
-    
-    long.chars[0..(short.length - 1)].zip(short.chars).each do |ac, bc|
-      distance += 1 if ac != bc
-    end
-    
-    distance
+def compute(dna, another_dna)
+    dna.chars.map.with_index do |char, index|
+      char != another_dna[index] ? 1 : 0
+    end.reduce(:+)
   end
-end

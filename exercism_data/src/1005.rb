@@ -1,14 +1,14 @@
-class Hamming
-	def compute(a, b) 
-		a = a.split(//)
-		b = b.split(//)
-		hamming_number = 0
-		for i in 0..a.length do
-			if a[i] == b[i]
-			else
-				hamming_number += 1
-			end
-		end
-		hamming_number
-	end
+def compute(x, y)
+    counter, diff = 0, 0
+    length = x.size > y.size ? y.size : x.size
+
+    until counter == length
+      if x[counter] != y[counter]
+        diff += 1
+      end
+      counter += 1
+    end
+
+    diff
+  end
 end

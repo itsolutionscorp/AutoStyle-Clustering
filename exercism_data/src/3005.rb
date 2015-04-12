@@ -1,11 +1,7 @@
-class Hamming  
-  def compute(string1, string2)
-    result = 0
-    char_index = 0
-    string1.each_char do |character|
-      result += 1 if character != string2[char_index]
-      char_index += 1      
+def compute(val1, val2)
+    distance = 0
+    val1.each_char.with_index do |n,i|
+      distance += 1 if n != val2[i]
     end
-    result
+    distance
   end
-end

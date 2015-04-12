@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     difference_count = 0
     [strand1.length, strand2.length].min.times do |i|
       difference_count += 1 unless strand1[i] == strand2[i]
@@ -7,4 +6,3 @@ class Hamming
 
     difference_count
   end
-end

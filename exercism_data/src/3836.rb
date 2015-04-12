@@ -1,14 +1,15 @@
-class Hamming
-	def compute(str1,str2)
-		diff = 0
-		shorter_length = [str1.length, str2.length].min
+def compute(mydna, yourdna)
+    sequence = mydna.chars
+    altsequence =  yourdna.chars
+    combinedsequence = sequence.zip(altsequence)
+    differencecount = 0
+    combinedsequence.each{|x,y|
+      if (x == y)
+        differencecount = differencecount + 1
+      else
+        differencecount = differencecount + 0
+      end
+    }
 
-		for i in 0...shorter_length
-			if str1[i] != str2[i]
-				diff += 1
-			end
-		end
-
-		return diff
-	end
-end
+    return differencecount
+  end

@@ -1,14 +1,11 @@
-class Hamming
+def compute(a,b)
+		a_iter = a.chars
+		b_iter = b.chars
 
-  def compute(first, second)
-    hamz = 0
-    first.chars.each_with_index do |character, index|
-      break if second[index].nil?
-      unless first[index].eql? second[index]
-        hamz += 1
-      end
-    end
-    return hamz
-  end
+		count = 0
+		loop do
+			count += 1 if a_iter.next != b_iter.next
+		end
 
-end
+		return count
+	end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string_1, string_2)
+def compute(string_1, string_2)
 
     zipped_strings = string_1.chars.zip(string_2.chars)
 
@@ -7,4 +6,3 @@ class Hamming
       character_1 != character_2
     end
   end
-end

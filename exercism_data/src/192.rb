@@ -1,13 +1,8 @@
-class Hamming
-  def compute(a, b)
-    mutations = 0
+def compute strand, other_strand
+    minimum_length = [strand.length, other_strand.length].min
 
-    comparable_size = [a.size, b.size].min
-
-    comparable_size.times do |position|
-      mutations += 1 if a[position] != b[position]
+    minimum_length.times.count do |i|
+      strand[i] != other_strand[i]
     end
-
-    mutations
   end
 end

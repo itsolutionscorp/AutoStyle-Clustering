@@ -1,5 +1,4 @@
-module Hamming
-  def compute a_str, b_str
+def compute a_str, b_str
     dist = 0
     a, b = a_str.split(''), b_str.split('')
     for i in 0...a.length

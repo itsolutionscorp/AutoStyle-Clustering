@@ -1,5 +1,4 @@
-class Hamming
-	def compute(sequence1,sequence2)
+def compute(sequence1,sequence2)
 		array1 = sequence1.split('')
 		array2 = sequence2.split('')
 		@@x = 0
@@ -12,4 +11,3 @@ class Hamming
 		end
 		return @@x
 	end
-end

@@ -1,14 +1,8 @@
-class Hamming
+def compute(strand1, strand2)
+    common_length = [strand1.size, strand2.size].min
 
-  class << self
-    def compute(strand_1, strand_2)
-      total = 0
-      min_length = strand_1.length > strand_2.length ? strand_2.length : strand_1.length
-      (0...min_length).each do |index|
-        total += 1 if strand_1[index] != strand_2[index]
-      end
-      total
-    end
+    nucleids1 = strand1[0, common_length].chars
+    nucleids2 = strand2[0, common_length].chars
 
+    nucleids1.zip(nucleids2).count { |pair| pair[0] != pair[1] }
   end
-end

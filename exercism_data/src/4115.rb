@@ -1,10 +1,16 @@
-class Hamming
-  def compute(sequence_a, sequence_b)
-    length = [sequence_a.length, sequence_b.length].min
-    distance = 0
-    0.upto(length - 1) do |i|
-      distance += 1 unless sequence_a[i] == sequence_b[i]
+def compute(strand1, strand2)
+    i = 0
+    difference_count = 0
+    point1, point2 = []
+    strand1 = strand1.split(//)
+    strand2 = strand2.split(//)
+
+    strand1.each do |point|
+      if point != strand2[i]
+        difference_count += 1
+      end
+      i += 1
     end
-    distance
+
+    return difference_count
   end
-end

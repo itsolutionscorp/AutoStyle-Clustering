@@ -1,5 +1,4 @@
-class Hamming
-  def compute(seq1, seq2)
+def compute(seq1, seq2)
     0 if seq1 == seq2
     index = 0
     count = 0
@@ -17,4 +16,3 @@ class Hamming
     end
     count
   end
-end

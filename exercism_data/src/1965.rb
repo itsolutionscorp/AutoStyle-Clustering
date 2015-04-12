@@ -1,17 +1,19 @@
-class Hamming
-  # returns the Hamming distance (# of point mutations) between two DNA strands
-  def compute( seq1, seq2 )
-    hamming_distance = 0
-    max_length_comparable = [ seq1.length, seq2.length ].min
-    
-    for i in 0...max_length_comparable
-      nucleotide1 = seq1[i]
-      nucleotide2 = seq2[i]
-      if nucleotide1 != nucleotide2
-        hamming_distance += 1
+def compute(strand1, strand2)
+    count = 0
+
+    if strand1.length > strand2.length
+      size = strand2.length
+      strand1 = strand1[0..(size - 1)]
+
+    elsif strand1.length < strand2.length
+      size = strand1.length
+      strand2 = strand2[0..(size - 1)]
+    end
+
+    strand1.length.times do |i|
+      if strand1[i] != strand2[i]
+        count += 1
       end
     end
-    
-    return hamming_distance
+    count
   end
-end

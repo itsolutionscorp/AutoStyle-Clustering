@@ -1,10 +1,7 @@
-class Hamming
-	def compute(a,b)
-		test_length = [a.length, b.length].min
-		distance = 0
-		test_length.times do |i|
-			distance += 1 if a[i] != b[i]
-		end
-		distance
-	end
-end
+def compute(strand_a, strand_b)
+    distance = 0
+    strand_a.split('').each_with_index do |nuc, index|
+      distance += 1 unless nuc == strand_b[index]
+    end
+    distance
+  end

@@ -1,15 +1,13 @@
-class Hamming
-    def compute(first_strand, second_strand)
-      first_split = first_strand.split("")
-      second_split = second_strand.split("")
-      hamming_count = 0
-      position = 0
-     first_split.each do |x|
-       if x != second_split[position]
-         hamming_count += 1
-       end
-       position += 1
-     end
-      hamming_count
+def compute(arg1, arg2)
+    arr1 = arg1.split("")
+    arr2 = arg2.split("")
+
+    counter = 0
+    arr1.each_with_index do |x, i|
+      if x != arr2[i]
+        counter += 1
+      end
     end
-end
+    return counter
+
+  end

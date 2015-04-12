@@ -1,12 +1,10 @@
-class Hamming
-  def compute(d1, d2)
-    hd = 0
-    (0 .. [d1.length, d2.length].max).each { |idx|
-      next if d1[idx].nil? or d2[idx].nil?
+def compute(strand_a, strand_b)
+    total = 0
+    length = strand_a.length - 1
+    
+    (0..length).each do |index|
+      total += 1 if strand_a[index] != strand_b[index]
+    end
 
-      hd += 1 if d1[idx] != d2[idx]
-    }
-
-    hd
+    total
   end
-end

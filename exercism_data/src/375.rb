@@ -1,13 +1,9 @@
-class Hamming
-  def compute(seq_a, seq_b)
-    raise ArgumentError unless seq_a.length == seq_b.length
-
-    hamming_distance = 0
-
-    seq_a.chars.zip(seq_b.chars) do |char_pair|
-      hamming_distance += 1 unless char_pair.first == char_pair.last
+def compute(a, b)
+    count = 0
+    a.split('').each_with_index do |x, i|
+      if x != b[i]
+        count += 1
+      end
     end
-
-    hamming_distance
+    count
   end
-end

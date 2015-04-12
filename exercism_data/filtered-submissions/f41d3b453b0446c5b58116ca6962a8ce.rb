@@ -1,4 +1,3 @@
-class Hamming 
 def compute (x,y)
 	a = 0;
 	if x.length > y.length
@@ -13,4 +12,3 @@ def compute (x,y)
 	end
 	return a
 end
-end	

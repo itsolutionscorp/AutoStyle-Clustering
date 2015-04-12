@@ -1,13 +1,12 @@
-class Hamming
+def compute strand1, strand2
+    iterations = strand1.length
+    iterations = strand2.length unless strand2.length > strand1.length
 
-  def compute(dna_a , dna_b)
-    hamming_value=0
-    array_a = dna_a.split(//)
-    array_b = dna_b.split(//)
-    array_a.each_with_index  do|a,i|
-    	hamming_value++ if !a.eql?(array_b[i]) and !array_b[i].nil?
+    distance = 0
+
+    (0..iterations - 1).each do |index|
+      distance += 1 unless strand1[index] == strand2[index]
     end
-    return hamming_value
-  end
 
-end
+    distance
+	end

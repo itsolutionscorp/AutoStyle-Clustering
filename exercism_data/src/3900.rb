@@ -1,26 +1,13 @@
-class Hamming
-
-	def compute(first_strand,second_strand)
-
-		return false unless first_strand.is_a?(String) && second_strand.is_a?(String)
-		return false unless first_strand.length > 0 && second_strand.length > 0
-
-		if first_strand.length >= second_strand.length
-			long_chars = first_strand.split('')
-			short_chars = second_strand.split('')
-		else
-			long_chars = second_strand.split('')
-			short_chars = first_strand.split('')
+def compute(strand1, strand2)
+		strand1 = strand1.split('')
+		strand2 = strand2.split('')
+		difference = 0
+		i = 0
+		while (i < strand1.length && i < strand2.length)
+			if strand1[i] != strand2[i]
+				difference += 1
+			end
+			i += 1
 		end
-
-		distance = 0
-
-		short_chars.each_with_index do |c, i|
-			distance += 1 if c != long_chars[i]
-		end
-
-		distance
-
+		difference
 	end
-
-end

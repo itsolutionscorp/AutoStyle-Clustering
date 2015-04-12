@@ -1,13 +1,5 @@
-class Hamming
-
-  def compute( first_string, second_string )
-    hamming_distance = 0
-    first_string.each_char.with_index do |char, index|
-      if second_string[index] != nil
-        hamming_distance += 1 unless char == second_string[index]
-      end
+def compute (string1, string2)
+    [string1.length, string2.length].min.times.count do |i|
+      string1[i] != string2[i] #this takes advantage of the .times method iterator to iterate i
     end
-    return hamming_distance
   end
-
-end

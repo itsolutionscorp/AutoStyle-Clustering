@@ -1,10 +1,20 @@
-class Hamming
-  def compute(strand1, strand2)
-    return 0 if strand1 == strand2
-    dist = 0
-    strand1.split('').each_with_index do |n, i|
-      dist += (n <=> strand2.split('')[i]).abs
+def compute(string1, string2)
+    string1_array = string1.split(//)
+    string2_array = string2.split(//)
+
+    if string1_array.length < string2_array.length
+      shorter_strand = string1_array
+    else
+      shorter_strand = string2_array
     end
-    dist
+
+    hamming_distance = 0
+    i = 0
+    while i < shorter_strand.length
+      if string1_array[i] != string2_array[i]
+        hamming_distance += 1
+      end
+      i += 1
+    end
+    hamming_distance
   end
-end

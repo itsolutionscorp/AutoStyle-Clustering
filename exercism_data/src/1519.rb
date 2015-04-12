@@ -1,5 +1,5 @@
-class Hamming
-  def compute(a, b)
-    a.split("").zip(b.split "").count { |x| x[0] != x[1] }
-  end 
-end
+def compute(strand, other_strand)
+
+    [strand.length, other_strand.length].min.times.count { |n| strand[n] != other_strand[n] }
+
+  end

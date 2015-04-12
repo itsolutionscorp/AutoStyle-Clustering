@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     fail ArgumentError, 'Argument lengths are not equal' unless dna1.size == dna2.size
     total = 0
     dna1.each_char.with_index do |char, index|
@@ -7,4 +6,3 @@ class Hamming
     end
     total
   end
-end

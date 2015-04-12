@@ -1,9 +1,7 @@
-module Hamming
-  extend self
-
-  def compute(first, second)
-    first, second = second, first if first.length > second.length
-    first.chars.zip(second.chars).count { |a, b| a != b }
+def compute(a, b)
+    diff = 0
+    (0..([a.length, b.length].min - 1)).each do |i|
+      diff += 1 if a[i] != b[i]
+    end
+    diff
   end
-
-end

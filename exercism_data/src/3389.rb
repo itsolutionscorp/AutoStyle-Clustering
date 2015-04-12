@@ -1,12 +1,5 @@
-class Hamming 
-	def compute (x,y)
-		a = 0;
-		min = [x.length,y.length].min
-		for i in 0...min 
-			if x[i]!=y[i]
-				a += 1
-			end
-		end
-		return a
-	end
-end	
+def compute(first, second)
+    first.chars.zip(second.chars).count do |first_char, second_char|
+      first_char != second_char && !first_char.nil? && !second_char.nil?
+    end
+  end

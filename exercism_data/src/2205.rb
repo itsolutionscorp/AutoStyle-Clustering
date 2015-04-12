@@ -1,20 +1,6 @@
-class Hamming
-
-  # Computes the hamming distance between two strands.
-  # Return <code>nil</code> for invalid parameters.
-  def compute(strand1, strand2)
-    return if (strand1.nil? or strand2.nil?)
-
-    result   = 0
-    shortest = [strand1, strand2].min_by(&:length)
-
-    shortest.length.times do |index|
-      if (strand1[index] != strand2[index])
-        result += 1
-      end
+def compute(dna_1, dna_2)
+    dna_1.split('').each_with_index.inject(0) do |num_diff,(char,i)|
+      break num_diff unless dna_2[i]
+      char == dna_2[i] ? num_diff : num_diff + 1
     end
-
-    result
   end
-
-end

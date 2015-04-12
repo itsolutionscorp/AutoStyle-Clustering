@@ -1,5 +1,4 @@
-module Hamming
-  def compute(a,b)
+def compute(a,b)
     a = a.slice(0, b.length) if a.length > b.length
     b = b.slice(0, a.length) if b.length > a.length
     

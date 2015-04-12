@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_1, dna_2)
+def compute(dna_1, dna_2)
     mismatches = 0
     smaller_str_size = dna_1.size < dna_2.size ? dna_1.size : dna_2.size
     smaller_str_size.times do |i|
@@ -7,4 +6,3 @@ class Hamming
     end 
     mismatches
   end
-end

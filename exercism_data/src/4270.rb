@@ -1,11 +1,13 @@
-module Hamming
-  def Hamming.compute(a, b)
-    l = [a.length, b.length].min
-    aa = a.split("")[0, l]
-    bb = b.split("")[0, l]
-
-    (0...l).inject(0) do |s, i|
-      aa[i] == bb[i] ? s : s + 1
-    end
-  end
-end
+def compute(cad, cad2)
+		retorno = 0
+		if cad.length == cad2.length
+			i = 0
+			while i<cad.length
+				if !(cad[i].eql?(cad2[i]))
+					retorno += 1
+				end
+				i=i+1
+			end
+		end
+		return retorno
+	end

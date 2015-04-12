@@ -1,5 +1,4 @@
-class Hamming
-  def compute(base, other)
+def compute(base, other)
     baseList  = base.split("")
     otherList = other.split("")
     i = res = 0
@@ -11,4 +10,3 @@ class Hamming
     end
     return res
   end
-end

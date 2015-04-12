@@ -1,15 +1,15 @@
-class Hamming
-  def compute(a1,a2)
-    res = 0
-    if a1 == a2
-      res
+def compute(arg1, arg2)
+    distance = 0
+
+    if arg1.length <= arg2.length
+      comparators = arg1.length
     else 
-      for pos in 0..a1.length - 1
-        if a1[pos] != a2[pos]
-    	  res = res + 1
-        end
-      end         
-      res
-    end 
+      comparators = arg2.length
+    end
+
+    for i in 0...comparators
+      distance +=1 if arg1[i] != arg2[i]
+    end
+
+    return distance
   end
-end

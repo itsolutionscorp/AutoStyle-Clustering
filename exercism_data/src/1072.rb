@@ -1,11 +1,3 @@
-class Hamming
-
-  def compute(strand, other)
-    differences, strand = 0, strand.chars
-    strand.each_with_index do |letter, index| 
-      differences += 1 unless strand[index] == other.chars[index]
-    end
-    differences
+def compute(dna_a, dna_b)
+    [dna_a.size, dna_b.size].min.times.count { |i| dna_a[i] != dna_b[i] }
   end
-
-end

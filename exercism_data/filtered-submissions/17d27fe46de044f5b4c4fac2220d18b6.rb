@@ -1,6 +1,4 @@
-# passes all skipped tests as well
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     distance = 0
     max = -1
 
@@ -16,4 +14,3 @@ class Hamming
 
     return distance
   end
-end

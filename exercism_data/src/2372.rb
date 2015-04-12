@@ -1,12 +1,5 @@
-class Hamming
-  def compute(input1, input2)
-    diff = 0
-    min_length = [input1.length, input2.length].min - 1
-
-    for i in 0..min_length do
-      diff += 1 unless input1[i] == input2[i]
-    end
-
-    diff
-  end
-end
+def compute(arg1, arg2)
+		count = 0
+		arg1.chars.zip(arg2.chars) do |a| count += a[0]!= a[1] ? 1 : 0 end
+		return count
+	end

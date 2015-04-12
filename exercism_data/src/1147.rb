@@ -1,10 +1,5 @@
-class Hamming
-  def compute ancestor, new
-    distance = 0
-    length = [ancestor.length, new.length].min
-    (0..(length - 1)).each do |index|
-      distance += 1 if ancestor[index] != new[index]
+def compute(dna_one, dna_two)
+    dna_one.chars.zip(dna_two.chars).count do |chr1, chr2|
+      chr1 != chr2
     end
-    distance
   end
-end

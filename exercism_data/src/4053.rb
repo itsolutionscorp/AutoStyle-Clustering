@@ -1,15 +1,3 @@
-class Hamming
-  class << self
-
-    def compute (strandA, strandB)
-      count = [strandA.length, strandB.length].min
-      dist = 0
-      count.times do |i|
-        dist += (strandA[i] != strandB[i] ? 1 : 0)
-      end
-
-      return dist
-    end
-    
+def compute(s1, s2)
+    [s1.size, s2.size].min.times.count { |i| s1[i] != s2[i] }
   end
-end

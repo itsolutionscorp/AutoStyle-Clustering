@@ -1,16 +1,10 @@
-class Hamming
+def compute(strand_1, strand_2)
+    diff = 0
 
-    def compute(input_a, input_b)
-        distance = 0
-        first_array = input_a.split("")
-        second_array = input_b.split("")
-
-        first_array.each_with_index do |character, index|
-    		if second_array[index] != character && second_array[index] != nil
-    			distance += 1
-    		end
-        end
-
-        distance
+    strand_1.length.times do |i|
+      next if strand_2[i].nil?
+      diff += 1 if strand_1[i] != strand_2[i]
     end
-end
+
+    return diff
+  end

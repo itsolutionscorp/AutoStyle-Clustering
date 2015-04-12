@@ -1,7 +1,7 @@
-class Hamming
-  def compute(a, b)
-    return 0 if a.length.zero? or b.length.zero?
-    smallest_strand = a.length > b.length ? b : a
-    smallest_strand.length - a.each_char.with_index.count { |x, i| x.eql? b[i] }
+def compute(strand_a, strand_b)
+    max_length = [strand_a.length, strand_b.length].max
+
+    (0...max_length).count do |index|
+      strand_a[index] != strand_b[index]
+    end
   end
-end

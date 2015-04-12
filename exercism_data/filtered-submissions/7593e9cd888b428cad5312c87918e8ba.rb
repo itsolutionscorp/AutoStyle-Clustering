@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(x, y)
+def compute(x, y)
 
 		x = x.chars
 		y = y.chars
@@ -8,5 +6,3 @@ class Hamming
 		x.zip(y).count { |x, y| x != y }
 
 	end
-
-end

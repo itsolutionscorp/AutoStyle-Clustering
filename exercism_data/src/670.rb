@@ -1,12 +1,7 @@
-class Hamming
-  def compute(str1,str2)
-    if str1.length != str2.length then return 0
+def compute(strand1, strand2)
+    distance = 0
+    strand1.each_char.with_index do |char, index|
+      distance += 1 if char != strand2[index]
     end
-    sum=0
-    for i in 0..str1.length
-      if str1[i]!=str2[i] then sum+=1
-      end
-    end
-    return sum
+    return distance
   end
-end

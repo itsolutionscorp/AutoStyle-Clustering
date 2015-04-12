@@ -1,5 +1,4 @@
-class Hamming
-  def compute (seq1, seq2)
+def compute (seq1, seq2)
     seq1.strip!
     seq2.strip!
     count = 0
@@ -14,4 +13,3 @@ class Hamming
 
     return count
   end
-end

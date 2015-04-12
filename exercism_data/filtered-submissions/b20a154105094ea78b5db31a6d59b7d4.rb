@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_string_1, dna_string_2)
+def compute(dna_string_1, dna_string_2)
     dna_sequence_1 = dna_string_1.chars
     dna_sequence_2 = dna_string_2.chars
 
@@ -9,4 +8,3 @@ class Hamming
       symbol_pair.first != symbol_pair.last
     end
   end
-end

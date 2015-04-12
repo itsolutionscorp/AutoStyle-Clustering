@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(string_1, string_2)
+def compute(string_1, string_2)
     distance = 0
     chars_1 = string_1.split('')
     chars_2 = string_2.split('')
@@ -13,5 +11,3 @@ class Hamming
 
     distance
   end
-
-end

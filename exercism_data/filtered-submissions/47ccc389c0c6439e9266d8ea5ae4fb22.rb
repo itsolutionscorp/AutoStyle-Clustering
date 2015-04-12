@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     errors = 0
 
     [a.length,b.length].min.times do |i|
@@ -9,4 +8,3 @@ class Hamming
     errors
 
   end
-end

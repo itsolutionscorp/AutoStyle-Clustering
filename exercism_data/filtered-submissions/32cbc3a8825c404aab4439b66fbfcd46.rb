@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
 #  	i = 0
   	hammingScore = 0
 #  	testLength = 0
@@ -31,4 +30,3 @@ class Hamming
 # 		end
   	return hammingScore
  	end
-end

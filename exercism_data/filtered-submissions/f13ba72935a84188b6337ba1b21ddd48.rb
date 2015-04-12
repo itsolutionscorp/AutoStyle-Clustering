@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     a_array = a.split('')
     b_array = b.split('')
     sum = 0
@@ -15,4 +14,3 @@ class Hamming
     end
     sum
   end
-end

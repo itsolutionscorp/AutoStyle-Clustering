@@ -1,5 +1,4 @@
-class Hamming
-  def compute strand_a, strand_b
+def compute strand_a, strand_b
     fail if strand_a.length != strand_b.length
     difference = 0
     strand_a.chars.each_with_index do |letter, i|
@@ -7,4 +6,3 @@ class Hamming
     end
     difference
   end
-end

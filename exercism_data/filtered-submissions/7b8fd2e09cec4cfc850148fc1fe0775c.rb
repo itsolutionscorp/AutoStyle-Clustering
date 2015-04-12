@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_var, second_var)
+def compute(first_var, second_var)
     first_var = first_var.split("")
     second_var = second_var.split("")
     diff_counter = 0
@@ -10,4 +9,3 @@ class Hamming
     end
     return diff_counter
   end
-end

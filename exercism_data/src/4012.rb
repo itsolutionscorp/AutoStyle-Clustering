@@ -1,5 +1,9 @@
-class Hamming
-  def compute(dna1, dna2)
-    dna1.chars.zip(dna2.chars).select{ | gene1, gene2 | gene1 != gene2 }.count
+def compute(strand1, strand2, differences=0)
+    while strand1 != ""
+      if strand1.slice!(0) != strand2.slice!(0)
+        differences += 1
+      end
+        differences = Hamming.compute(strand1, strand2, differences)
+    end
+    differences
   end
-end

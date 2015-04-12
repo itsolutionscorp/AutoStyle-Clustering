@@ -1,10 +1,3 @@
-class Hamming
-  def compute(a,b)
-    distance = 0
-    a.chars.each_with_index.map { |c, i|
-      distance = distance + 1 unless c == b.chars[i]
-    }
-    distance
+def compute strand_a, strand_b
+    return (0..strand_a.length).count { |i|  strand_a.chars[i] != strand_b.chars[i] }
   end
-
-end

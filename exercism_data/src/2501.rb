@@ -1,20 +1,10 @@
-class Hamming
-  def compute(str_a, str_b)
-    str_a_array = str_a.split('')
-    str_b_array = str_b.split('')
-
-    str_length = str_a_array.length
-
-    index = 0
-    mismatches = 0
-
-    str_length.times do
-      if str_a_array.at(index) == str_b_array.at(index)
-        mismatches += 1
+def compute(strand_a, strand_b)
+    if strand_a == strand_b
+      0
+    else
+      short_a = strand_a.chars.take(strand_b.length)
+      short_a.zip(strand_b.chars).count do |pair|
+        pair[0] != pair[1]
       end
-      index += 1
     end
-
-    return str_length - mismatches
   end
-end

@@ -1,7 +1,5 @@
-class Hamming
-  def compute(a, b)
-    return 0 if a == b
-    pairs = a.chars.zip(b.chars)
-    pairs.reduce(0) { |acc, (a, b)| acc + (a == b ? 0 : 1) }
+def compute(a, b)
+    a.split('').select.with_index do |char, i|
+      char != b[i]
+    end.count
   end
-end

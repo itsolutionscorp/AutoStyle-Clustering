@@ -1,5 +1,7 @@
-class Hamming
-  def compute(s1, s2)
-    [s1.length, s2.length].max.times.count {|n| s1[n] != s2[n]}
+def compute(strand, strand2)
+    result = 0
+    strand.split('').each_with_index do |letter, i|
+      result += 1 unless letter == strand2[i]
+    end
+    result
   end
-end

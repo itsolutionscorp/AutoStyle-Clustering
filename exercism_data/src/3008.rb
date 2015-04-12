@@ -1,17 +1,10 @@
-# Hamming difference program
-module Hamming
+def compute(first_strand, second_strand)
+    
+    hamming_distance = 0
 
-  def Hamming.compute(a, b)
-    distance = 0
-
-    return distance if (a == b)
-
-    for i in (0...[a.length, b.length].min)
-      distance += 1 unless (a[i] == b[i])
+    for i in 0..first_strand.length
+        hamming_distance += 1 if first_strand[i] != second_strand[i]
     end
 
-    return distance;
-
+    return hamming_distance
   end
-
-end

@@ -1,7 +1,4 @@
-require 'set'
-
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     a = strand_a.split("")
     b = strand_b.split("")
 
@@ -16,4 +13,3 @@ class Hamming
     end
     a1.count - c.count
   end
-end

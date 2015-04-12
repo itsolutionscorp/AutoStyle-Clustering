@@ -1,11 +1,11 @@
-class Hamming
-  def compute a, b
-    #ignore extra length on one of the strings
-    length = [a.length, b.length].min
-    hamming = 0
-    length.times do |i|
-      hamming += 1 if a[i] != b[i]
+def compute(first_dna_strand, second_dna_strand)
+    hamming_distance = 0
+
+    first_dna_strand.split(//).each_with_index do |nucleotide, index|
+      unless nucleotide == second_dna_strand.split(//)[index]
+        hamming_distance += 1
+      end
     end
-    hamming
+
+    hamming_distance
   end
-end

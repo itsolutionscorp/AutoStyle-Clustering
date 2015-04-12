@@ -1,5 +1,7 @@
-class Hamming
-  def compute(a,b)
-    a.split('').zip(b.split('')).map{|x, y| (x == y or x.nil? or y.nil?) ? 0 : 1}.reduce(0,:+)
+def compute(strand1, strand2)
+    h_distance = 0
+    strand1.split("").each_with_index do |c,i|
+      h_distance += 1 if c != strand2[i]
+    end
+    return h_distance
   end
-end

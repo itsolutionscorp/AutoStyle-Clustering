@@ -1,12 +1,6 @@
-class Hamming
-
-	def compute(str1, str2)
-		str1 = str1.scan(/\w/)
-		str2 = str2.scan(/\w/)
-
-		cont = 0
-		str1.size.times { |i| if str1[i] != str2[i] then cont += 1 end }
-		return cont
-	end
-
+def compute(string_1, string_2)
+    (0..string_1.length).reduce(0) do |distance, i|
+      distance + (string_1[i] != string_2[i] ? 1 : 0)
+    end
+  end
 end

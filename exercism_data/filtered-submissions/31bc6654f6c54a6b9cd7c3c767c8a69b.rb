@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     zipped_strand_chars = strand_one.chars.zip(strand_two.chars)
     hamming_number = 0
 
@@ -11,4 +10,3 @@ class Hamming
 
     hamming_number
   end
-end

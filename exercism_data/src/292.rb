@@ -1,7 +1,5 @@
-class Hamming
-	def compute(strand_a, strand_b)
-		diff = 0	
-		[strand_a.size, strand_b.size].min.times { | idx | diff += 1 if strand_a[idx] != strand_b[idx] }
-		diff
-	end
-end
+def compute(string_x, string_y)
+      difference = 0
+      string_x.length.times { |i| difference += 1 if string_x[i] != string_y[i] }
+      difference
+    end

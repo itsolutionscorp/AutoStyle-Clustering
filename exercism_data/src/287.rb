@@ -1,11 +1,8 @@
-class Hamming
-
-  def compute(one, two)
-    res = 0
-    one.each_char.each_with_index do |item, index|
-      res = res + 1 if two[index] != item and two[index] != nil 
-    end 
-    res
+def compute(l, r)
+    minlen = [l.length, r.length].min
+    odds = 0
+    minlen.times do |i|
+      odds += 1 if l[i] != r[i]
+    end
+    return count
   end
-
-end

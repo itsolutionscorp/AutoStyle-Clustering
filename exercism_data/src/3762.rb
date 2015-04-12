@@ -1,18 +1,13 @@
-#!/usr/bin/ruby
+def compute(strandOne, strandTwo)
+    distance = 0
+    nucleotidesOne = strandOne.split('')
+    nucleotidesTwo = strandTwo.split('')
 
-class Hamming
-  
-  def compute(str1, str2)
-    string_count = 0
-    iterator = 0
-    if str1.size == str2.size
-      while iterator < str1.size  do
-        if str1[iterator] != str2[iterator]
-          string_count += 1
-        end
-        iterator +=1
+    if nucleotidesOne.count == nucleotidesTwo.count
+      nucleotidesOne.each_with_index do |nucleotide, indx|
+        distance += 1 if nucleotide != nucleotidesTwo[indx]
       end
     end
-    return string_count
+
+    distance
   end
-end

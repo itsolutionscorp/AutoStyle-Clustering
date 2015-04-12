@@ -1,7 +1,4 @@
-#!/usr/bin/ruby
-
-class Hamming
-    def compute(s, t)
+def compute(s, t)
         $index = 0
         distance = 0
         length = t.length
@@ -18,6 +15,3 @@ class Hamming
         end
         return distance
     end
-end
-
-Hamming = Hamming.new()

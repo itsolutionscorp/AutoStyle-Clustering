@@ -1,15 +1,16 @@
-class Hamming 
+def compute(dna1,dna2)
+		difcount = 0
+		iteratorpos = 0
 
-	def compute(strand1,strand2)
-		numDifferences = 0
-		i = 0
-		[strand1.length,strand2.length].min.times do		
-			if strand1[i] != strand2[i]
-				numDifferences += 1
+		dna1string = String.new(dna1)
+		dna2string = String.new(dna2)
+
+		dna1string.each_char{ |char|
+
+			if char != dna2string[iteratorpos]
+				difcount += 1
 			end
-			i += 1
-		end
-		return numDifferences
+			iteratorpos += 1
+		}
+		return difcount
 	end
-	
-end

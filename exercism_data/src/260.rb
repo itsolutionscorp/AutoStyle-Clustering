@@ -1,7 +1,7 @@
-module Hamming
-  
-  def compute dna_sequence, second_dna_sequence
-    dna_sequence.chars.zip(second_dna_sequence.chars).delete_if { |pair| pair.any?(&:nil?)}.inject(0) { |result, (a,b)| result += (a <=> b).abs }
+def compute(as, bs)
+    as.split('').zip(bs.split('')).inject(0) do |count, (a, b)|
+      return count unless a && b
+      count += a == b ? 0 : 1
+    end
   end
-  
 end

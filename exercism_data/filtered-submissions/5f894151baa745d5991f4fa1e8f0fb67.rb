@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand, other_strand)
+def compute(strand, other_strand)
     min_length = [strand.length, other_strand.length].min
     strand = strand[0...min_length]
     other_strand = other_strand[0...min_length]
@@ -12,6 +11,4 @@ class Hamming
     end 
     
     return count
-  end 
-end 
-      
+  end

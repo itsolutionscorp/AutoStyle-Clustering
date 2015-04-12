@@ -1,25 +1,7 @@
-class Hamming
-
-  def compute(s1,s2)
-
-    dif = 0
-
-    s1.length.times do |i|
-      if s1[i].nil?
-        return dif
-      end
-
-      if s2[i].nil?
-        return dif
-      end
-
-      if s1[i] != s2[i]
-        dif += 1
-      end
-
+def compute(dna1, dna2)
+    count = 0
+    dna1.chars.each_index do |index|
+      count += 1 unless dna1.chars[index] == dna2.chars[index]
     end
-
-    return dif
-
+    count
   end
-end

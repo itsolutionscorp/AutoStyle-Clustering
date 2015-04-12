@@ -1,11 +1,7 @@
-class Hamming
-  def compute(arg1, arg2)
-      count = 0
-      score = 0
-    while (count < arg1.length) do
-      score += 1 if arg1[count] != arg2[count]
-      count += 1
-    end
-    score
+def compute(s, t)
+      cnt = 0
+      for i in 0...s.length
+        cnt+=1 if s[i] != t[i]
+      end
+      cnt
   end
-end

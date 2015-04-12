@@ -1,10 +1,4 @@
-#Reads in Two Strings, finds the smallest length.
-#Creates two arrays of Bytes using the smallest length
-#itterates over the array of Bytes comparing each numeric value at the stored location
-#Comparison is done via the modulous operator, anything greater than 0 is not equal
-
-class Hamming
-  def compute(seq1, seq2)
+def compute(seq1, seq2)
 
    dna_min_length= [seq2.length, seq1.length].min
    seq1, seq2=seq1[0, dna_min_length].bytes , seq2[0, dna_min_length].bytes
@@ -16,5 +10,3 @@ class Hamming
 
    return different_total
   end #end of compute
-
-end  #End of hamming

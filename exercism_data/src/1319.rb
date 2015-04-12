@@ -1,7 +1,7 @@
-class Hamming
-    def Hamming.compute(dna1,dna2)
-        dna1.each_char.zip(dna2.each_char).count do |arr|
-            not arr[1].nil? and arr[1]!=arr[0]
-        end
-    end
+def compute x,y
+  (x.chars.to_a.zip y.chars.to_a).inject(0) do
+    |distance, element| element.first != element.last ? distance += 1 : distance += 0
+  end
+end
+
 end

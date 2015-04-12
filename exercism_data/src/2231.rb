@@ -1,14 +1,5 @@
-class Hamming
-
-  class << self
-    def compute(first, second)
-      distance = 0
-      (0...first.length).each do |i|
-        break if i == second.length
-        distance += 1 if first[i] != second[i]
-      end
-      distance
+def compute(s1, s2)
+    s1.chars.zip(s2.chars).inject(0) do |cnt, (e1, e2)|
+      cnt += (e1 == e2) || e2.nil? ? 0: 1
     end
   end
-
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(str1, str2)
+def compute(str1, str2)
 		i = 0
 		char1 = str1.chars
 		char2 = str2.chars
@@ -14,5 +12,3 @@ class Hamming
 		return i
 		
 		end
-		
-end

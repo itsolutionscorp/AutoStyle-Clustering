@@ -1,5 +1,4 @@
-class Hamming
-    def compute(a, b)
+def compute(a, b)
         if a.length > b.length
             a = a[0, b.length]
         elsif a.length < b.length
@@ -7,4 +6,3 @@ class Hamming
         end
         return a.chars.zip(b.chars).count { |x, y| x != y }
     end
-end

@@ -1,10 +1,5 @@
-class Hamming
-    def compute s1, s2
-        [s1.size, s2.size]
-        .min
-        .times
-        .count{ |i| 
-            s1[i] != s2[i]
-        }
-    end
-end
+def compute(str1, str2)
+
+    (0...(str1.length)).each.count { |x| str1[x] != str2[x] }
+        
+  end

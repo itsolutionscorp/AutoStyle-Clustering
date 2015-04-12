@@ -1,13 +1,11 @@
-# passes all skipped tests as well
-class Hamming
-  def compute(first, second)
-    distance = 0
-    max = [ first.size, second.size ].min - 1
+def compute(first, second)
+    # Let's make sure we have strings
+    first = first.to_s
+    second = second.to_s
 
-    0.upto(max) do |i|
-      distance +=1 if first[i] != second[i]
-    end
-
-    return distance
+    len = [first.length, second.length].min
+    dist = 0
+    len.times {|i| dist += 1 unless first[i] == second[i]}
+    dist
   end
 end

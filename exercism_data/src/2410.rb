@@ -1,6 +1,5 @@
-class Hamming
-  def compute first, second
-    shorter = [first, second].min_by(&:length)
-    (0..shorter.length).select { |i| first[i] != second[i]  }.count
+def compute(base, another)
+    ([base.size, another.size].min - 1).downto(0).count do |i|
+      base[i] != another[i]
+    end
   end
-end

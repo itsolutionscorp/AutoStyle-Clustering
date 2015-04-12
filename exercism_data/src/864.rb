@@ -1,7 +1,17 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    strand_1.chars.zip(strand_2.chars).count do |pair|
-      pair[0] != pair[1]
+def compute(expected, mutation)
+    counter = 0
+    if expected.length >= mutation.length
+      longest = expected
+      shortest = mutation
+    else
+      longest = mutation
+      shortest = expected
     end
+
+    (0..(shortest.length - 1)).each do |index|
+      if shortest[index] != longest[index]
+        counter += 1
+      end
+    end
+    return counter
   end
-end

@@ -1,10 +1,7 @@
-class Hamming
-
-  def compute(first, second)
-    return 0 if first == second
-
-    min_length = [first, second].map(&:length).min
-    0.upto(min_length-1).count { |i| first[i] != second[i] }
+def compute(strand_1, strand_2)
+    count = 0
+    strand_1.split("").each_with_index do |chr, index|
+      count += 1 if chr != strand_2[index]
+    end
+    count
   end
-
-end

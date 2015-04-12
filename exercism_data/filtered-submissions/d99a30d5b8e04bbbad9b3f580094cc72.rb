@@ -1,11 +1,4 @@
-# Masonnl
-# Ruby Exercism - Hamming
-
-# Count the differences between two strands of strings
-module Hamming
-
-	# Compute the differences of two given strings (case-sensitive)
-	def compute(first, second)
+def compute(first, second)
 		# Simply return 0 if there are no differences in the strands
 		distance = 0
 		return distance if first == second

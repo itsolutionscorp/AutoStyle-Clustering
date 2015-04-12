@@ -1,14 +1,5 @@
-class Hamming
-  def compute(string1, string2)
-    diffcount = 0
-    if string1.size > string2.size
-      string1 = string1[0...string2.length]
-    elsif string2.size > string1.size
-      string2 = string2[0...string1.length]
-    end
-    string1.split('').each_with_index do |char, index|
-      diffcount += 1 if string2[index] != char
-    end
-    diffcount
+def compute(str1 = "", str2 = "")
+    sequences = str1.chars.zip(str2.chars)
+    
+    sequences.keep_if { |n| n.at(0) and n.at(1) and n.uniq.length == 2 }.count
   end
-end

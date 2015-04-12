@@ -1,12 +1,10 @@
-class Hamming
-  def compute(string_one, string_two)
-    string_one_chars = string_one.chars
-    string_two_chars = string_two.chars
+def compute(seq_1, seq_2)
+		min_seq_length = [seq_1.length, seq_2.length].min
+		distance = 0
 
-    hamming_distance = 0
-    string_one_chars.each_with_index do |char_one, i|
-      hamming_distance += (char_one == string_two_chars[i]) ? 0 : 1
-    end
-    hamming_distance
-  end
+		(0...min_seq_length).each do |i|
+			distance += 1 if seq_1[i] != seq_2[i]
+		end
+		distance
+	end 
 end

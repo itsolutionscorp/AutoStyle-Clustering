@@ -1,13 +1,19 @@
-class Hamming
+def compute (str1, str2)
 
-  def compute(strand1, strand2)
-
-    count  = 0
-    
-    (0..strand1.length).each do |n|
-      count += 1 unless strand1[n] == strand2[n]
+    if str1.length != str2.length
+      return 0
     end
-          return count
-  end
 
-end
+    sum = 0
+
+    for i in 0..str1.length
+
+      if str1[i] != str2[i]
+        sum +=1
+      end
+    
+    end
+
+    return sum
+
+  end

@@ -1,15 +1,6 @@
-class Hamming
-
-  def compute(first, second)
-     hamming_count = 0
-     (0..[first.length, second.length].min - 1).each do |i|
-       if first[i] != second[i]
-          hamming_count = hamming_count + 1
-       end
-     end
-     return hamming_count
+def compute(strand_one, strand_two)
+    strands = [strand_one, strand_two].sort_by!(&:length)
+    (0..strands.first.length-1).inject(0) do |dif, index|
+      strands.first[index] != strands.last[index] ? dif + 1 : dif
+    end
   end
-
-
-
-end

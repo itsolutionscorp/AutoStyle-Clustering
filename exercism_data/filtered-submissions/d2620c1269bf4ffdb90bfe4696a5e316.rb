@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(val1, val2)
+def compute(val1, val2)
     acum = 0
     
     for i in 0..val1.length
@@ -14,4 +12,3 @@ class Hamming
     return acum
 
   end
-end

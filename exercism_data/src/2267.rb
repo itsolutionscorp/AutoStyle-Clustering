@@ -1,7 +1,7 @@
-class Hamming
-	def compute(first_dna, second_dna)
-		num_of_diff = 0
-		first_dna.each_char.with_index {|base, index| num_of_diff += 1 unless base == second_dna[index] }
-		num_of_diff
-	end
-end
+def compute(strand, another_strand)
+    count = 0
+    (0...(strand.length)).each do |i|
+      count += 1 unless strand[i] == another_strand[i]
+    end
+    count
+  end

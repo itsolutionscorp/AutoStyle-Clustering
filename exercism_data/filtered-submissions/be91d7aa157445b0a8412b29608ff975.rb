@@ -1,5 +1,4 @@
-class Hamming
-    def compute(a, b)
+def compute(a, b)
         diff_count = 0
         
         a = a[0, b.length-1] if a.length > b.length
@@ -13,4 +12,3 @@ class Hamming
         end
         diff_count
     end
-end

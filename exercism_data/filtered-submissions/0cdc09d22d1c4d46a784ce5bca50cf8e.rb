@@ -1,5 +1,4 @@
-class Hamming
-  def compute(xs, ys)
+def compute(xs, ys)
     (xs.split '').zip(ys.split '').reduce(0) do |count, (x, y)|
       return nil unless x && y
       if x != y
@@ -9,4 +8,3 @@ class Hamming
       end
     end
   end
-end

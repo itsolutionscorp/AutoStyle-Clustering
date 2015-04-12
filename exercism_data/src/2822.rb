@@ -1,17 +1,11 @@
-module Hamming
-  def compute(src, dest)
-    distance = 0
-
-    length = [src, dest].map(&:length).min
-
-    i = 0
-    while i < length
-      unless src[i] == dest[i]
-        distance += 1
+def compute(first_strand, second_strand)
+    count=0
+    first=first_strand.split ""
+    second=second_strand.split ""
+    first.each_with_index { |item,index|
+      if second[index] != first[index]
+        count = count + 1
       end
-      i += 1
-    end
-
-    distance
+    }
+    count
   end
-end

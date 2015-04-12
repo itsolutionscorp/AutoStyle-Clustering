@@ -1,5 +1,4 @@
-class Hamming
-  def compute(x,y)
+def compute(x,y)
     if x == y 
       0
     else
@@ -21,4 +20,3 @@ class Hamming
       return discrepencies
     end
   end
-end

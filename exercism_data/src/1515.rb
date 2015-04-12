@@ -1,7 +1,10 @@
-class Hamming
-  def compute(arg1, arg2)
-    arg1.chars.zip(arg2.chars).count do |a, b|
-      a != b
+def compute(first_strand, second_strand)
+    
+    hamming_distance = 0
+
+    for i in 0...first_strand.length
+        hamming_distance += 1 if first_strand[i] != second_strand[i]
     end
+
+    return hamming_distance
   end
-end

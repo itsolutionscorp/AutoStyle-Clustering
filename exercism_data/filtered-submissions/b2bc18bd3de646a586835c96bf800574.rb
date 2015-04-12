@@ -1,5 +1,4 @@
-class Hamming
-  def compute(input1, input2)
+def compute(input1, input2)
      
     count = 0
 
@@ -12,5 +11,4 @@ class Hamming
     end
 
     return count
-  end  
-end
+  end

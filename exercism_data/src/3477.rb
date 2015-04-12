@@ -1,22 +1,9 @@
-#!/usr/bin/ruby
-
-class Hamming
-  def compute(onez,twoz)
-
-    arr1 = onez.scan /\w/
-    arr2 = twoz.scan /\w/
-
-    # are the two arrays the same length
-    if arr1.size == arr2.size
-      z = 0
-      arr1.each_with_index\
-        {|str,iterator|
-        z += 1 if arr1[iterator] != arr2[iterator]
-      }
-      puts z
-      exit 0
-    else
-      exit 1
+def compute(*strands)
+    strands = strands.map(&:chars)
+    strands.sort_by!(&:length)
+    diff_count = 0
+    strands[0].each.with_index do |nucleotide, index|
+      diff_count += 1 if nucleotide != strands[1][ index ]
     end
+    return diff_count
   end
-end

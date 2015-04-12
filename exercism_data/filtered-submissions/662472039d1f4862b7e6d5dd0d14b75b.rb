@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(left, right)
+def compute(left, right)
 	
 		diff = 0
 		#for i in 0..left.length
@@ -14,5 +12,3 @@ class Hamming
 		
 		diff
 	end
-
-end

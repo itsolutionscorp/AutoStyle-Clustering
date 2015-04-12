@@ -1,11 +1,6 @@
-class Hamming
-  def compute(a, b)
-    hamming = 0
-    a.length.times do |i|
-      if a[i,1] != b[i,1]
-        hamming += 1
-      end
+def compute(a, b)
+        be = b.each_char
+        c = 0
+        a.each_char{ |e| c += 1 if e != be.next}
+        c
     end
-    hamming
-  end
-end

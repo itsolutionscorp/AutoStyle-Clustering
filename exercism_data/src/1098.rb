@@ -1,5 +1,8 @@
-class Hamming
-	def compute(strand_a, strand_b)
-		strand_a.split('').zip(strand_b.split('')).count { |(a,b)| a && b && a != b }
-	end
-end
+def compute a,b
+    return 0 if a == b
+    differences = 0
+    a.chars.each_with_index do |e,i|
+      differences += 1 if e != b[i]
+    end 
+    differences
+  end

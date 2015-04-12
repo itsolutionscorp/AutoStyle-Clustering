@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first, second)
+def compute(first, second)
     first = first.split('')
     second = second.split('')
     result = 0
@@ -11,4 +9,3 @@ class Hamming
     end
     result
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     return 0 if strand_one == strand_two
 
     shortest_length = [strand_one.size, strand_two.size].min
@@ -11,4 +10,3 @@ class Hamming
 
     hamming_dist
   end
-end

@@ -1,11 +1,7 @@
-class Hamming
+def compute(strand1, strand2)
+    strand1 = strand1.chars.to_a
+    strand2 = strand2.chars.to_a
 
-   def compute(a,b)
-      hamming = 0
-      [a.size,b.size].min.times do |i|
-         hamming += 1 unless a[i] == b[i]
-      end
-
-      hamming
-   end
-end
+    pairs = strand1.zip(strand2)
+    pairs.count { |pair| pair[0] != pair[1] }
+  end

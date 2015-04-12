@@ -1,10 +1,10 @@
-class Hamming
-  def compute(first, second)
-    hamming_distance = 0
-    # Count nonequal chars, char-by-char. 
-    (0..first.size).each do |i|
-      hamming_distance += 1 if first[i] != second[i]
-    end
-    hamming_distance
+def compute(input1, input2)
+    strand1 = input1.chars
+    strand2 = input2.chars
+    
+    length = [strand1.length, strand2.length].min
+    
+    length.times.map do |n|
+      strand1[n] == strand2[n] ? 0 : 1
+    end.inject(&:+)
   end
-end

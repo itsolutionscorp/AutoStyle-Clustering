@@ -1,14 +1,3 @@
-class Hamming
-  def compute(first, second)
-    if first==second
-      0
-    else
-      distance = 0
-      min_size = [first.size, second.size].min
-      for i in (0...min_size)
-        distance += 1 if first[i]!=second[i]
-      end
-      return distance
-    end
+def compute(a, b)
+    (0...a.length).inject(0) { |hamming, n| hamming + (a[n] != b[n] ? 1 : 0) }
   end
-end

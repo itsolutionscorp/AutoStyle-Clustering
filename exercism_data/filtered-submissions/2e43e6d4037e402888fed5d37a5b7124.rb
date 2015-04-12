@@ -1,6 +1,4 @@
-class Hamming
-  
-  def compute(str1,str2)
+def compute(str1,str2)
     
     hamming_count = 0
     a = str1.chars
@@ -10,5 +8,4 @@ class Hamming
     length.times {|l| hamming_count += 1 if a[l] != b[l] }
 
     hamming_count
-  end    
-end
+  end

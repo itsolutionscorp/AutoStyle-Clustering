@@ -1,13 +1,3 @@
-class Hamming
-
-  def compute(str1, str2)
-    diff = 0
-
-    str1.split('').each_with_index do |char, i|
-      diff += 1 if char != str2[i]
+def compute(str1, str2) 
+       str1.chars.take(str2.length).zip(str2.chars).select {|a, b| a != b}.length
     end
-
-    diff
-  end
-
-end

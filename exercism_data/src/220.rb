@@ -1,18 +1,10 @@
-class Hamming
+def compute(dna_string_1, dna_string_2)
+    dna_sequence_1 = dna_string_1.chars
+    dna_sequence_2 = dna_string_2.chars
 
-	def compute(string1,string2)
-		if string1.length < string2.length
-			a = string1
-			b = string2
-		else
-			a = string2
-			b = string1
-		end
-		count = 0
-		(0..(a.length-1)).each{|x|
-			count +=1 if a[x] != b[x]
-		}
-		count
-	end
+    paired_sequence = dna_sequence_1.zip(dna_sequence_2)
 
-end
+    paired_sequence.count do |symbol_1, symbol_2|
+      symbol_1 != symbol_2
+    end
+  end

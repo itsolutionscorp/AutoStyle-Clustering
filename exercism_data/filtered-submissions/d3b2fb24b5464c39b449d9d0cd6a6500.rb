@@ -1,5 +1,4 @@
-class Hamming
-  def compute(x, y)
+def compute(x, y)
     @count = 0
 
     x.chars.zip(y.chars).each do |pair|
@@ -10,4 +9,3 @@ class Hamming
 
     @count
   end
-end

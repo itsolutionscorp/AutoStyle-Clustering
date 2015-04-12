@@ -1,10 +1,5 @@
-class Hamming
-  def compute string_a, string_b
-    nucleotides_a = string_a.chars
-    nucleotides_b = string_b.chars
-    duplex = nucleotides_a.zip(nucleotides_b)
-
-    diffs = duplex.map { |nucleotide| nucleotide[0] == nucleotide[1] ? 0 : 1 }
-    diffs.reduce(:+)
-  end
-end
+def compute(strand1, strand2)
+		(0...[strand1.length, strand2.length].min).count do |x|
+			strand1[x] != strand2[x]
+		end
+	end

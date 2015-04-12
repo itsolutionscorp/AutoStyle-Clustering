@@ -1,14 +1,13 @@
-#*****
-# Refactored 
+def compute(string_1, string_2)
+    
+    string_1_characters = string_1.chars
+    string_2_characters = string_2.chars
 
-class Hamming
+    hamming_distance = 0
+    
+    string_1_characters.zip(string_2_characters).each do |character_1, character_2|
+      character_1 == character_2 ? hamming_distance : hamming_distance +=1
+    end
 
-
-	def compute(dna_sequence_1, dna_sequence_2)
-		hamming_distance = 0
-
-		min_sequence = ["#{dna_sequence_1}".length, "#{dna_sequence_2}".length].min
-		hamming_distance = min_sequence.times.count { | i | dna_sequence_1[i] != dna_sequence_2[i]}
-	end
-	
-end
+    hamming_distance
+  end

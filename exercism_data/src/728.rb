@@ -1,15 +1,13 @@
-class Hamming
+def compute(a, b)
+    hamming_distance = 0
 
-  def compute(a,b)
+    if a != b
+      a.each_char.with_index(0) do |c, i|
+        if c != b[i]
+          hamming_distance += 1
+          end
+        end
+    end
 
-    a.size > b.size ? length = b.size - 1: length = a.size - 1
-
-    difference = 0
-
-    (0..length).map { |i| difference += 1 if a[i] != b[i] }
-
-    difference
-
+    hamming_distance
   end
-
-end

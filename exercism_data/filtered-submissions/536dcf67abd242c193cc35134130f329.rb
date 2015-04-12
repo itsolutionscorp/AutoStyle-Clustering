@@ -1,5 +1,4 @@
-class Hamming
-  def compute(array1,array2)
+def compute(array1,array2)
     hamming_distance = 0
     i = 0
     while i < array1.length do
@@ -10,4 +9,3 @@ class Hamming
     end
     return hamming_distance
   end
-end

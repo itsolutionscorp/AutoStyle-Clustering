@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
     distance = 0
 
     if arg1.length <= arg2.length
@@ -14,4 +13,3 @@ class Hamming
 
     return distance
   end
-end

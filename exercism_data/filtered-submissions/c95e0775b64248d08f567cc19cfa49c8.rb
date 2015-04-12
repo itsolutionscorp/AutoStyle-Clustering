@@ -1,9 +1,4 @@
-require 'pp'
-
-module Hamming
-  class << self
-
-    def compute(a, b)
+def compute(a, b)
       # there is no hamming distance between equal strands
       return 0 if a == b
 
@@ -25,4 +20,3 @@ module Hamming
     end
 
   end
-end

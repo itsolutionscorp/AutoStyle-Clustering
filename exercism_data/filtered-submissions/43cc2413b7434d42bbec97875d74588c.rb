@@ -1,5 +1,4 @@
-class Hamming
-  def compute(left, right)
+def compute(left, right)
     left_bytes = left.bytes.each
     right_bytes = right.bytes.each
 
@@ -8,4 +7,3 @@ class Hamming
   ensure
     return total
   end
-end

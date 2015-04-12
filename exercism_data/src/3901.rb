@@ -1,10 +1,14 @@
-class Hamming
-	def compute(strand1, strand2)
-		raise 'strands must be equal in length' if strand1.length != strand2.length
-		hamming = 0
-		(0..strand1.length).each do |i|
-			hamming += 1 if strand1[i] != strand2[i]
-		end
-		hamming
-	end
-end
+def compute(strand_1, strand_2)
+    length_1 = strand_1.length
+    length_2 = strand_2.length
+
+    if length_1 < length_2
+      strand_2 = strand_2[0...length_1]
+    elsif length_2 < length_1
+      strand_1 = strand_1[0...length_2]
+    end
+
+    strand_1.each_char.select.with_index { |l, i|
+      l != strand_2[i]
+    }.length
+  end

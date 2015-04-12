@@ -1,16 +1,14 @@
-class Hamming
+def compute(dna1, dna2)
+        result = 0
 
-  def compute(string1, string2)
-    #identical case
-    return 0 if string1 == string2
+        dna1.chars.zip(dna2.chars) do |char1, char2|
+            if char2.nil?
+                break
+            elsif char1 != char2
+                result += 1
+            end
+        end
 
-    mutations = 0
-    string1.split('').each_with_index  do |char,index|
-      if char != string2[index]
-        mutations += 1
-      end
+        result
     end
-
-    mutations
-  end
 end

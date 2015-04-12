@@ -1,9 +1,9 @@
-class Hamming
-
-	def compute(a, b)
-		count = 0
-		a.each_char.with_index {|x, i| count += 1 if x != b[i]}
-		count
-	end
-
-end
+def compute(firstDNA, secondDNA)
+    shorterDNALength = (firstDNA.length < secondDNA.length) ? firstDNA.length : secondDNA.length
+    nucleotidesRange = 0..(shorterDNALength - 1)
+    hammingDistance = 0
+    for singleNucleotide in nucleotidesRange
+      hammingDistance += 1 if firstDNA[singleNucleotide] != secondDNA[singleNucleotide]
+    end
+    hammingDistance
+  end

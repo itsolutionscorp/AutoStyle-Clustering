@@ -1,10 +1,7 @@
-class Hamming
-  def compute a, b
-    a = a.split('')
-    b = b.split('')
-    distance = 0
-    points = [ a.size, b.size ].min
-    points.times { distance += 1 if a.shift != b.shift }
-    distance
+def compute( a, b )
+    hamming_distance = 0
+    [a.length,b.length].min.times do |i|
+      hamming_distance += 1 if a[i] != b[i]
+    end
+    hamming_distance
   end
-end

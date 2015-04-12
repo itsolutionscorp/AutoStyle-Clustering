@@ -1,11 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
-    return 0 if strand1 == strand2
-    dist = 0
-    len = [strand1.length, strand2.length].min
-    for n in (0..len-1)
-      dist += 1 if strand1[n] != strand2[n]
-    end
-    dist
+def compute(str1, str2)
+    side_by_side_letters = str1.chars.zip(str2.chars)
+    side_by_side_letters.count { |letter| letter[0] == letter[1] }
   end
-end

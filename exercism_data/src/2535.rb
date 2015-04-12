@@ -1,10 +1,9 @@
-class Hamming
-    def compute(a, b)
-        if a.length > b.length
-            a = a[0, b.length]
-        elsif a.length < b.length
-            b = b[0, a.length]
-        end
-        return a.chars.zip(b.chars).select { |x, y| x != y } .length
+def compute(a_strand, b_strand)
+    differences = 0
+    a_strand.split('').each_with_index do |element, index|
+      if b_strand[index] && a_strand[index] != b_strand[index]
+        differences += 1
+      end
     end
-end
+    return differences
+  end

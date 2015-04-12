@@ -1,15 +1,8 @@
-class Hamming
-  def compute(first, second)
-    diff  = 0
-
-    index = 0
-    while index < [first.size, second.size].min
-      if first[index] != second[index]
-        diff += 1
-      end
-      index += 1
-    end
-
-    return diff
+def compute strand_1, strand_2
+    strand_1
+      .chars
+      .zip(strand_2.chars)
+      .count { |pair|
+        pair.last && pair.last != pair.first
+      }
   end
-end

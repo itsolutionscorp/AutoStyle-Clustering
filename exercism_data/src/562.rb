@@ -1,11 +1,7 @@
-class Hamming
-  def compute(strand1, strand2, count=0)
-    (0...[strand1.length, strand2.length].min).each do |i|
-      output = strand1[i] <=> strand2[i]
-      unless output == 0
-        count += 1
-      end
-    end
-    return count
-  end
-end
+def compute(str1, str2)
+		cnt = 0
+		[str1.size, str2.size].min.times do |i|
+			cnt += 1 if str1[i] != str2[i]
+		end
+		cnt
+	end

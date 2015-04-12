@@ -1,4 +1,3 @@
-class Hamming
 def compute(x,y)
  counter =0;
  i=0;
@@ -10,4 +9,3 @@ def compute(x,y)
  end
 return  counter
  end
-end

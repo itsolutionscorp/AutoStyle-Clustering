@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a,strand_b)
+def compute(strand_a,strand_b)
     dist = nil
     if strand_a.length == strand_b.length
       dist = 0
@@ -9,4 +8,3 @@ class Hamming
     end
     dist
   end
-end

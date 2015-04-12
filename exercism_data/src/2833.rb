@@ -1,15 +1,3 @@
-class Hamming
-
-  def compute x, y
-    count=0
-    a=x.split(//)
-    b=y.split(//)
-    a.each_index do |i|
-      break if a[i].eql? nil or b[i].eql? nil
-      count +=1 unless a[i].eql? b[i]
-    end
-    
-    return count
+def compute(strand1, strand2)
+    strand1.chars.zip(strand2.chars).count { |char1, char2| char1 != char2 }
   end
-  
-end

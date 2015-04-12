@@ -1,13 +1,14 @@
-class Hamming
-  def compute(first, second)
-    first.split(//)
-    second.split(//)
-    count = 0
-    for i in 0..first.length - 1
-      if first[i] != second[i]
-        count = count + 1
+def compute(first_chain, second_chain)
+    first_chain.chars.zip(second_chain.chars).reduce(0) do |sum, (x, y)|      
+      if (!x || !y)
+      	next sum
       end
-    end 
-    return count
+
+      if (x != y)
+        sum + 1
+      else 
+      	sum
+      end 
+         
+    end    
   end
-end

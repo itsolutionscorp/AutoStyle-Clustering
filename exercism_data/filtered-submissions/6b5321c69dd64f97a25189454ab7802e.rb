@@ -1,6 +1,4 @@
-#!/usr/local/bin/ruby
-class Hamming
-    def compute(pStr, sStr)
+def compute(pStr, sStr)
 
 		if ( pStr.length === sStr.length ) then
 		    for i in 0..(sStr.length-1) do
@@ -10,4 +8,3 @@ class Hamming
 		end
 		resp.to_i
     end
-end

@@ -1,5 +1,10 @@
-class Hamming
-  def compute(first, second)
-    first.split("").each_with_index.collect{|item, index| item!=second.split("")[index] && !second.split("")[index].nil?}.count(true)
-  end
-end
+def compute(strand_a, strand_b)
+		hamming_difference = 0
+		
+		strand_a.length.times do |position|
+			if strand_a[position] != strand_b[position]
+				hamming_difference += 1
+			end
+		end
+		hamming_difference
+	end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute dna_a, dna_b
+def compute dna_a, dna_b
     a_array = dna_a.split ''
     b_array = dna_b.split ''
 
@@ -11,4 +10,3 @@ class Hamming
     end
     counter
   end
-end

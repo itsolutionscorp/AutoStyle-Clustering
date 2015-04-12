@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     both = [strand_a.chars, strand_b.chars]
     short = both.min
     long = both.max
@@ -8,4 +7,3 @@ class Hamming
       letter_a != letter_b 
     }
   end
-end

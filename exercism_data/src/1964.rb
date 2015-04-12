@@ -1,37 +1,13 @@
-# dna1 = "GAGCCTACTAACGGGAT"
-# dna2 = "CATCGTAATGACGGCCT"
+def compute(strand_one, strand_two)
+		strand_array_one = strand_one.each_char.to_a
+		strand_array_two = strand_two.each_char.to_a
+		distance = 0
 
-class Hamming
-  def compute(dna1, dna2)
-    dna1 = dna1.split("")
-    dna2 = dna2.split("")
-    if dna1.length > dna2.length
-      length = dna2.length
-    else
-      length = dna1.length
-    end
-
-    array1 = []
-    array2 = []
-    i = 0
-    hamming_dist = 0
-  
-    while i < length #0<2
-      dna1.each do |letter1|
-        array1 << letter1
-      end
-
-      dna2.each do |letter2|
-        array2 << letter2
-      end
-      if array1[i] != array2[i]
-        hamming_dist += 1
-      end
-
-      i +=1
-    end
-
-    return hamming_dist
-
-  end
-end
+		strand_array_one.zip(strand_array_two.each) do |one, two|
+			if one != two
+				distance += 1
+			end
+		end
+		
+		return distance
+	end

@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(first_strand, sec_strand)
+def compute(first_strand, sec_strand)
 	  difference = 0
 	  first_strand.length <= sec_strand.length ? shortest_length = first_strand.length
                                              : shortest_length = sec_strand.length
@@ -9,5 +7,3 @@ class Hamming
 	  end
 	  difference
 	end
-
-end

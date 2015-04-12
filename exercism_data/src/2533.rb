@@ -1,19 +1,8 @@
-class Hamming
-  
-  def Hamming.compute(dnaone, dnatwo)  
-    difference = 0    
-    if dnaone.length < dnatwo.length then
-    	endofchain = dnaone.length-1
-    else
-    	endofchain = dnatwo.length-1
+def compute(strand_1, strand_2)
+    hamming_distance = 0
+    strand_length = [strand_1.length, strand_2.length].min
+    (0..(strand_length - 1)).each do |i|
+      hamming_distance += 1 if strand_1[i] != strand_2[i]
     end
-    
-    for i in 0..endofchain
-    	if dnaone[i] != dnatwo[i] then
-    		difference+=1
-    	end
-    end
-    return difference
-  end  
-    
-end
+    hamming_distance
+  end

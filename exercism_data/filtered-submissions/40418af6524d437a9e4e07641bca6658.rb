@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(strA, strB)
+def compute(strA, strB)
       if strA.length > strB.length
         strA,strB = strB, strA
       end
@@ -10,5 +8,3 @@ class Hamming
       end
       dist
     end
-  end
-end

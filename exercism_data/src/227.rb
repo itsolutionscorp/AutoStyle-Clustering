@@ -1,20 +1,6 @@
-class Hamming
-
-  # Determines the min. number of 'point mutations' between two DNA strands
-  def compute(s1, s2)
-    i = 0
-    n = s1.length  # assuming len(s1) == len(s2); sequences are of equal length
-    n_differences = 0
-
-    while (i < n)
-      if (s1[i] != s2[i])
-        n_differences += 1
-      end
-
-      i += 1
-    end
-
-    return n_differences
-  end
+def compute(dna_1_string, dna_2_string)
+		size = [dna_1_string.length, dna_2_string.length].min
+		dna_2_string.split(//).take(size).zip(dna_1_string.split(//).take(size)).reject { |pair| pair[0] == pair[1] }.size
+	end
 
 end

@@ -1,6 +1,4 @@
-require 'pry'
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     a = a.split('')
     b = b.split('')
     a.pop until a.count <= b.count
@@ -15,4 +13,3 @@ class Hamming
       counter
     end
   end
-end

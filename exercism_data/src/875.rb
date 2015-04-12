@@ -1,17 +1,8 @@
-# Calculates Hamming difference between two DNA strands
-class Hamming
-  # @param [String] strand one strand
-  # @param [String] another_strand another strand
-  # @return [Fixnum]
-  def compute(strand, another_strand)
-    return 0 if strand == another_strand
-    last_index = [strand.length, another_strand.length].min - 1
-    (0..last_index).reduce(0) do |result, index|
-      if strand[index] != another_strand[index]
-        result + 1
-      else
-        result
-      end
-    end
-  end
-end
+def compute firstDna, secondDna
+		minimun = [firstDna.length,secondDna.length].min - 1
+		hamming_distance_count = 0
+		(0..minimun).each do | idx |
+			hamming_distance_count+= 1 if firstDna[idx] != secondDna[idx] 
+		end
+		hamming_distance_count
+	end

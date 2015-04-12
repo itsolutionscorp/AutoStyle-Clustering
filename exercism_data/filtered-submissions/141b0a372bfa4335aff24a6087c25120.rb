@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute strand_1, strand_2
+def compute strand_1, strand_2
     distance = 0
     strand_length = strand_1.length
     strand_length.times do |i|
@@ -8,5 +6,3 @@ class Hamming
     end
     distance
   end
-
-end

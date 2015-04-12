@@ -1,9 +1,8 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    distance = 0
-    strand_a.chars.each_with_index do |nuc, index|
-      distance += 1 unless nuc == strand_b[index]
+def compute(str1, str2)
+    count = str1.length - 1
+    score = 0
+    0.upto(count) do |num|
+      score += 1 unless str1[num] == str2[num]
     end
-    distance
+    score
   end
-end

@@ -1,13 +1,7 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    if strand_a == strand_b
-      0
-    else
-      short_a = strand_a.chars.take(strand_b.length)
-      short_a.zip(strand_b.chars).reduce(0) do |result, pair|
-        result += 1 unless pair[0] == pair[1]
-        result
-      end
-    end
+def compute s1,s2
+    (0...[s1.length, s2.length].min).reduce(0) {|memo, i|
+      memo += 1 if s1[i] != s2[i]
+      memo
+    }
   end
 end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     result = 0
 
     # second string is shorter
@@ -18,4 +17,3 @@ class Hamming
 
     result
   end
-end

@@ -1,6 +1,8 @@
-class Hamming
-  def compute(strand1, strand2)
-    compare_length = [strand1.length, strand2.length].min
-    compare_length.times.count{|index| strand1[index] != strand2[index]}
-  end
-end
+def compute(first, second)
+		distance = 0;
+		shorter, longer = [first.chars, second.chars].sort { |x, y| x.length <=> y.length }
+		shorter.each_with_index do |ch, i|
+			distance += 1 if longer[i] != ch
+		end
+		distance
+	end

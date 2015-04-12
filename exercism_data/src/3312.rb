@@ -1,9 +1,9 @@
-class Hamming
-  def compute strand1, strand2
-    strand1.each_char
-      .zip(strand2.each_char)
-      .count() do |pair|
-        pair[0] == pair[1]
+def compute a, b
+    a.each_char.map.with_index do |x, index|
+      if x == b[index]
+        0
+      else
+        1
       end
+    end.inject(:+)
   end
-end

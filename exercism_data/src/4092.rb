@@ -1,9 +1,3 @@
-class Hamming
-  def compute(x, y)
-    h = 0
-    x.length.times do |i|
-      h += 1 unless x[i] == y[i]
-    end
-    h
+def compute s1, s2
+    [s1.length, s2.length].min.times.count { |i| s1[i] != s2[i] }
   end
-end

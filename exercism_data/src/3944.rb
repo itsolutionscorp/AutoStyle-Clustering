@@ -1,9 +1,11 @@
-class Hamming
-  class << self
-    def compute(s1, s2)
-      s1.chars.zip(s2.chars).count do |x, y|
-        y && x != y
-      end
+def compute(first, second)
+    i = 0
+    hamming_score = 0
+    first.length > second.length ? fewest = second.length: fewest = first.length
+    fewest.times do
+      first_array = first.split ""
+      second_array = second.split ""
+      first_array[i] == second_array[i] ? hamming_score : hamming_score += 1
+      i+=1 
     end
-  end
-end
+    return hamming_score

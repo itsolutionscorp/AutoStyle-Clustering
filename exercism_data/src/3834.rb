@@ -1,12 +1,5 @@
-module Hamming
+def compute(a, b)
+    fail ArgumentError, 'Sequences must be the same length' if a.length != b.length
 
-  def compute (sample, target)
-    total = 0
-    s = sample.unpack("c*")
-    t = target.unpack("c*")
-    s.zip(t).each do |a, b|
-      total+= 1 if a!= b && a && b 
-    end
-    total
+    (0...a.length).count { |i| a[i] != b[i] }
   end
-end

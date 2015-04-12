@@ -1,9 +1,13 @@
-class Hamming
-  def compute(strand1, strand2)
-    @hamming_distance = 0
-    while strand1.length != 0 && strand2.length != 0
-      @hamming_distance += 1 if strand1.slice!(0) != strand2.slice!(0)
+def compute(first_strand, second_strand)
+    strands = [first_strand, second_strand].sort { |a, b| a.length <=> b.length }
+
+    count = 0
+
+    strands[0].length.times do |i|
+
+      count += 1 if strands[1][i] != strands[0][i]
+
     end
-    @hamming_distance
+
+    count
   end
-end

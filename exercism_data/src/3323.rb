@@ -1,20 +1,5 @@
-#!/usr/bin/env ruby
-
-class Hamming
-
-  def compute(x, y)
-    @count = 0
-
-    @limit = x.length < y.length ? x.length : y.length
-
-    (0...@limit).each do |i|
-      if x[i] != y[i]
-        @count += 1
-      end
-    end
-
-    return @count
-
+def compute(str1, str2)
+    str1.chars.zip(str2.chars).select do |ch1, ch2| 
+      (ch1 != ch2) && ch2
+    end.count
   end
-
-end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
 		strand_array_one = strand_one.each_char.to_a
 		strand_array_two = strand_two.each_char.to_a
 		distance = 0
@@ -12,4 +11,3 @@ class Hamming
 		
 		return distance
 	end
-end

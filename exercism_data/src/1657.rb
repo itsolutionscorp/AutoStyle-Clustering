@@ -1,7 +1,11 @@
-class Hamming
-
-  def compute(aString, bString)
-    aString.chars.zip(bString.chars).count{ |arr| if arr.include?(nil) then break else arr[0]!=arr[1] end } || 1
+def compute(arg, arg2) 
+    strand1 = arg.split(//)
+    strand2 = arg2.split(//)
+    distance = 0
+    strand1.length.times do |i| 
+      if strand1[i] != strand2[i]
+        distance += 1
+      end
+    end
+    distance
   end
-
-end

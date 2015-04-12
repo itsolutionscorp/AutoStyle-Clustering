@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     n = [strand_one.length,  strand_two.length].min
     counter = 0
     n.times do |i|
@@ -7,4 +6,3 @@ class Hamming
     end
     counter
   end
-end

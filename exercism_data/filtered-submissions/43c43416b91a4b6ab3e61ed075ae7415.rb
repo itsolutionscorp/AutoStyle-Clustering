@@ -1,7 +1,4 @@
-module Hamming
-  extend self
-
-  def compute(first, second)
+def compute(first, second)
     distance = 0
     length   = [first.length, second.length].min
 

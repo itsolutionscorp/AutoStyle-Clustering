@@ -1,22 +1,13 @@
-class Hamming
-
-  def compute(first_strand, second_strand)
-
-    fs = first_strand.split(//)
-    ss = second_strand.split(//)
-
-    fs_size = fs.count
-    ss_size = ss.count
-    ary_fs = fs[0..ss_size-1]
-
-    if fs_size <= ss_size
-      counter = fs.zip(ss).map{|fs, ss| fs == ss}
-      counter.count(false)
-    else
-       counter = ary_fs.zip(ss).map{|fs, ss| fs == ss}
-       counter.count(false)
+def compute(first, second)
+    first_array = first.split('')
+    second_array = second.split('')
+    hamming = 0
+    if first_array.count <= second_array.count
+      first_array.count.times do |num|
+        if first_array[num] != second_array[num] && !first_array[num].empty? && !second_array[num].empty?
+          hamming += 1
+        end
+      end
     end
-
+    hamming
   end
-
-end

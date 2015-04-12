@@ -1,5 +1,4 @@
-class Hamming
-  def compute (nucleotide1, nucleotide2)
+def compute (nucleotide1, nucleotide2)
     i = 0
     hammingCount = 0
 
@@ -13,4 +12,3 @@ class Hamming
     end
     hammingCount
   end
-end

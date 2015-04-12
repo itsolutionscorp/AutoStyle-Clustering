@@ -1,9 +1,8 @@
-class Hamming
-  def compute(dna1, dna2)
-    distance = 0
-    dna1.chars.zip(dna2.chars).each do |n1, n2|
-      distance+=1 if n1 != n2 and n2 != nil
+def compute(s1, s2)
+    unless s1.is_a? String and s2.is_a? String
+      raise ArgumentError, 'strands must be strings'
     end
-    return distance
+    [s1, s2].map(&:size).min.times.count do |n|
+      s1[n] != s2[n]
+    end
   end
-end

@@ -1,14 +1,7 @@
-require 'forwardable'
-
-class Hamming
-  class << self
-    # Returns the number of differences between two strands as an Integer
-    def compute(first_sequence, second_sequence)
-      shortest_strand = [first_sequence.size, second_sequence.size].min
-
-      shortest_strand.times.count do |i|
-        first_sequence[i] != second_sequence[i]
-      end
+def compute(base, test)
+    hamming_diff = 0
+    [base.size,test.size].min.times do  |i| 
+      hamming_diff += 1 if base[i] != test[i]
     end
+    hamming_diff
   end
-end

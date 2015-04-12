@@ -1,5 +1,4 @@
-class Hamming  
-     def compute (first, second)     
+def compute (first, second)     
        # Split strings into arrays of characters to be able to iterate through each character
        first = first.scan /\w/
        second = second.scan /\w/
@@ -36,6 +35,3 @@ class Hamming
         difference
        
      end
-end
-
-#Hamming.compute('AGG', 'AAAACTGACCCACCCCAGG')

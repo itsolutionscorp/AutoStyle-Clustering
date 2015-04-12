@@ -1,9 +1,10 @@
-class Hamming
-  def compute(strand1, strand2)
-    raise ArgumentError, 'Lengths must be equal' unless strand1.length == strand2.length
+def compute(a, b)
+    ary_a = a.chars
+    ary_b = b.chars
 
-    strand1.chars.zip(strand2.chars).count do |nucleotide1, nucleotide2|
-      nucleotide1 != nucleotide2
-    end
+    ary_a_cropped = ary_a.take(ary_b.length)
+    ary_b_cropped = ary_b.take(ary_a.length)
+
+    pairs = ary_a_cropped.zip(ary_b_cropped)
+    pairs.count { |x, y| x != y }
   end
-end

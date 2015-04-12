@@ -1,5 +1,4 @@
-class Hamming
-	def compute(text,name)
+def compute(text,name)
 		array1 = text.split(//)
 		array2 = name.split(//)
 		num = 0
@@ -10,4 +9,3 @@ class Hamming
 		end
 		return num
 	end
-end

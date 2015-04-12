@@ -1,13 +1,10 @@
-# Hamming distance calculator
-#   Alex Standke, October 2014
-
-class Hamming
-  def compute str1, str2
+def compute(strand_one, strand_two)
+    if strand_two.length < strand_one.length
+      strand_one,strand_two = strand_two,strand_one
+    end
     distance = 0
-    str1.size.times do |x|
-      break if str2[x].nil?
-      distance += 1 if str1[x] != str2[x]
+    strand_one.chars.each_with_index do |c, index|
+      distance += 1 if c != strand_two[index]
     end
     distance
   end
-end

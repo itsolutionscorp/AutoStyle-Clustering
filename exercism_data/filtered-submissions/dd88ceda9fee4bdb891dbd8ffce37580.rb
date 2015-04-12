@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(code1, code2)
+def compute(code1, code2)
 
     # if the strings match then the distance is 0
     distance = 0
@@ -15,4 +13,3 @@ class Hamming
     end
     distance
    end
-end

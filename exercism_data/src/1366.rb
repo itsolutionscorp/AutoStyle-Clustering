@@ -1,6 +1,7 @@
-module Hamming
-  def compute(a,b)
-    distance = [a,b].map(&:size).min
-    distance.times.map { |i| a[i] != b[i] }.select { |i| i }.size
+def compute(strand1, strand2)
+    strand1.chars.zip(strand2.chars).inject(0) do |distance, (base1, base2)|
+      break distance unless base1 && base2
+      base1 == base2 ? distance : distance + 1
+    end
   end
 end

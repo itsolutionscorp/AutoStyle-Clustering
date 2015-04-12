@@ -1,6 +1,4 @@
-class Hamming
-  
-  def compute(s1, s2)
+def compute(s1, s2)
     hamming_count = 0
     s1_a = s1.split(//)
     s2_a = s2.split(//)
@@ -13,5 +11,3 @@ class Hamming
     hamming_count
     
   end
-
-end

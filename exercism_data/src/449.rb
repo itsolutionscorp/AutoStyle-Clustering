@@ -1,16 +1,9 @@
-class Hamming
-
-  def compute(first_strand, second_strand)
-    assert_equal = 0
-
-    first_strand.length.times do |count|
-      if first_strand[count] != second_strand[count]
-        if (first_strand[count] && second_strand[count]) != nil
-          assert_equal += 1
-        end
+def compute(strand1, strand2)
+    diff = 0
+    strand1.chars.each_with_index do |dna, index|
+      if index < strand2.length
+        diff+=1 if dna != strand2[index]
       end
     end
-    assert_equal
+    diff
   end
-
-end

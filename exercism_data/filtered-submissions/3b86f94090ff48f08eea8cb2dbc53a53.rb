@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     differences = 0
     
     if first == second
@@ -18,4 +17,3 @@ class Hamming
       differences
     end
   end
-end

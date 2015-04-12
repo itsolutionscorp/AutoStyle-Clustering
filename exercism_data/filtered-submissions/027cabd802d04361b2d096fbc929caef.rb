@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(original_dna, mutated_dna)
+def compute(original_dna, mutated_dna)
     hamming_distance = 0
     step = 1
     original_dna.each_char do |c|
@@ -17,4 +15,3 @@ class Hamming
     end
     return hamming_distance
   end
-end

@@ -1,9 +1,15 @@
-class Hamming
-  def compute(str1, str2)
-    differences = 0
-    [str1.length, str2.length].min.times do |x|
-      differences += 1 if str1[x] != str2[x]
-    end
-    differences
-  end
-end
+def compute(strand1, strand2)
+		strand1 = strand1.split('')
+		strand2 = strand2.split('')
+		difference = 0
+		i = 0
+		while i < strand1.length && i < strand2.length
+			if strand1[i] != strand2[i]
+				difference += 1
+				i += 1
+			else
+				i += 1
+			end	
+		end
+	return difference
+	end

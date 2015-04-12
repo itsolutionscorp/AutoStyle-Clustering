@@ -1,8 +1,9 @@
-class Hamming
-	def compute(strand_a, strand_b)
-		diff = 0	
-		strand_a.size > strand_b.size ? (strand_a = strand_a[0...strand_b.size]) : (strand_b = strand_b[0...strand_a.size])
-		strand_a.size.times { | idx | diff += 1 if strand_a[idx] != strand_b[idx] }
-		diff
-	end
-end
+def compute(strand_one, strand_two)
+    hammes = 0
+    [strand_one.length, strand_two.length].min.times do |a|
+      if strand_one.chars[a] != strand_two.chars[a]
+        hammes += 1
+      end
+    end
+    hammes
+  end

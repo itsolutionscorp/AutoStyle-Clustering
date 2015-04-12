@@ -1,7 +1,5 @@
-class Hamming
-  def compute(one, two)
-    distance = 0
-    one.chars.each_with_index {|item, i| distance += 1 if (item != two[i]) }
-    return distance
+def compute(str1, str2)
+    (0...[str1.length, str2.length].min).count do |i|
+      str1[i] != str2[i]
+    end
   end
-end

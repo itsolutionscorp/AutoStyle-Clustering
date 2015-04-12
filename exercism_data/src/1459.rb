@@ -1,11 +1,6 @@
-class Hamming
-	def compute(strand1, strand2)
-		distance = 0
-
-		[strand1.length, strand2.length].min.times do |i|
-			distance += 1 if strand1[i] != strand2[i]
-		end
-
-		distance
-	end
+def compute(first_strand, second_strand)
+    [first_strand.chars, second_strand.chars].transpose.count do |first_strand_base, second_strand_base|
+      first_strand_base != second_strand_base
+    end
+  end
 end

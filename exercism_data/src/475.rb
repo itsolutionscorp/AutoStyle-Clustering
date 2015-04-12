@@ -1,11 +1,22 @@
-class Hamming
-  class << self
-    def compute (strand_a, strand_b, begin_distance:0)
-      min_length = [strand_a.length, strand_b.length].min
-      min_length.times do |position|
-        begin_distance = begin_distance + 1 unless strand_a[position] == strand_b[position]
+def compute(s1, s2)
+    # this one liner is hard to read
+    # s1.split('').map.with_index{ |a,i| a != s2[i] and !s2[i].nil? }.delete_if{ |x| x == false }.count
+
+    # this is easier to read
+=begin
+    diff = 0
+    s1.length.times do |i|
+      if s1[i] != s2[i] and !s2[i].nil?
+        diff += 1
       end
-      return begin_distance
     end
+    return diff
+=end
+    diff = 0
+    [s1.length, s2.length].min.times do |i|
+      if s1[i] != s2[i]
+        diff += 1
+      end
+    end
+    diff
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(left, right)
+def compute(left, right)
     hamming_distance = 0
     min_length_of_sequence = [left.length, right.length].min
     min_length_of_sequence.times do |index|
@@ -9,4 +8,3 @@ class Hamming
     end
     hamming_distance
   end
-end

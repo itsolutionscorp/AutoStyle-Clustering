@@ -1,5 +1,4 @@
-class Hamming
-  def compute(x, y)
+def compute(x, y)
     x, y = x.split(''), y.split('')
 
     # trim longer to length of other
@@ -16,4 +15,3 @@ class Hamming
     end
     differences_count
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     hamming = 0
 
     # lenth of chars to compare, shortest length of the two strands
@@ -11,4 +10,3 @@ class Hamming
 
     hamming
   end
-end

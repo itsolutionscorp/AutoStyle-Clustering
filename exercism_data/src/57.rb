@@ -1,11 +1,9 @@
-class Hamming
-	def compute(a, b)
-		i=0
-		res = 0
-		until a[i].nil? || b[i].nil?
-		res += 1 if a[i] != b[i]
-		i+=1
+def compute(a,b)
+		a,b = [a,b].sort { a.length <=> b.length }
+		a.chars.zip(b.chars).reduce(0) do |dist, a|
+			if a[0] != a[1]
+				dist = dist + 1
+			end
+			dist
 		end
-		res
 	end
-end

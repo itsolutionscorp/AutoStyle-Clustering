@@ -1,6 +1,9 @@
-class Hamming
-  def compute(dna1, dna2)
-    dist = dna1.chars.zip(dna2.chars)
-    dist.count{|i| i[0] != i[1] unless i.include? nil}
+def compute(first_DNA, second_DNA)
+    counter = 0
+    first_DNA.split("").zip(second_DNA.split("")).each do |first, second|
+      if (first != second && first != nil && second != nil)
+        counter += 1
+      end
+    end
+    return counter
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
 		hamming_distance_count = 0
 
 		shortest_string_length = [strand_one.length, strand_two.length].min
@@ -10,4 +9,3 @@ class Hamming
 
 		hamming_distance_count
 	end
-end

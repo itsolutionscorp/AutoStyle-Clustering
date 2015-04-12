@@ -1,10 +1,6 @@
-class Hamming
-  def compute d, _d
-    h = 0
-    d.each_char.each.with_index do |c, i|
-      c != _d[i] and h += 1
-      break if _d.size == i+1
+def compute(a, b)
+    a, b = [a, b].map(&:chars)
+    a.zip(b).reduce(0) do |count, pair|
+      pair.compact.uniq.size > 1 ? count.next : count
     end
-    h
   end
-end

@@ -1,5 +1,4 @@
-module Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     distance = 0
 
     length = [strand_a, strand_b].sort { |a, b| a.length <=> b.length }

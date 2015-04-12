@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(string1,string2)
+def compute(string1,string2)
 		if string1.length < string2.length
 			length = string1.length
 		else
@@ -12,5 +10,3 @@ class Hamming
 		}
 		count
 	end
-
-end

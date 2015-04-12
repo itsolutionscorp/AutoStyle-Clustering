@@ -1,12 +1,11 @@
-module Hamming
-  def compute(str1, str2)
-    len = [str1.length, str2.length].min
-    answer = 0
-    len.times do |i|
-      if str1[i] != str2[i] 
-        answer += 1
+def compute(case1, case2)
+    count = 0
+    for x in (0..case2.length-1)
+      if x > case1.length - 1
+        break
+      elsif case1[x].chr != case2[x].chr
+        count += 1
       end
     end
-    answer
+    count
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string1, string2)
+def compute(string1, string2)
     diffcount = 0
     if string1.size > string2.size
       string1 = string1[0...string2.length]
@@ -11,4 +10,3 @@ class Hamming
     end
     diffcount
   end
-end

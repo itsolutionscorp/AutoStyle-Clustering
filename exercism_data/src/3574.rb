@@ -1,18 +1,8 @@
-#!/usr/bin/env ruby
-
-class Hamming
-  def compute(a, b)
-    hamming = 0
-
-    # Find the shorter of the strings
-    smallest = [a, b].min_by(&:length)
-
-    # Iterate through the length of the shorter string and test whether both
-    # characters match at index i
-    smallest.split('').each_index do |i|
-      hamming += 1 if a[i] != b[i]
-    end
-
-    hamming
+def compute(dna_a,dna_b)
+    #min_length = [dna_a.length, dna_b.length].min 
+    #differences = (0..min_length-1).select{|index| dna_a[index] != dna_b[index]}.count
+    dnas_in_order = [dna_a, dna_b].sort_by{|dna| dna.length}
+    dnas_as_arrays = dnsas_in_order.map{|dna| dna.split("")}
+    comparisons = dnas_as_arrays.first.zip dnas_as_arrays.second
+    differences = comparisons.select{|a,b| a!= b}.count
   end
-end

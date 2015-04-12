@@ -1,14 +1,10 @@
-class Hamming
-  def compute(a, b)
-    raise ArgumentError, 'Arguments must be present' if a.nil? || b.nil?
-    raise ArgumentError, 'Arguments should be the same length' if a.length != b.length
-
-    hamming_difference = character_index = 0
-    a.each_char do |a_char|
-      hamming_difference += 1 if a_char != b[character_index]
-      character_index += 1
+def compute(s1, s2)
+    response = 0
+    #assume that s1 and s2 have the same length
+    (0..s1.length).each do |i|
+      if s1[i] != s2[i]
+        response += 1
+      end
     end
-
-    hamming_difference
+    response
   end
-end

@@ -1,6 +1,4 @@
-class Hamming
-  class << self 
-    def compute(alpha, beta)
+def compute(alpha, beta)
       dist = 0
 
       smallest = [alpha.size, beta.size].min - 1
@@ -16,5 +14,3 @@ class Hamming
       
       dist
     end
-  end 
-end

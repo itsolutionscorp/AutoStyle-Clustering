@@ -1,11 +1,5 @@
-class Hamming
-  def compute(strand1, strand2)
-    ham = 0
-    for i in 0...strand1.length
-      if strand1[i] != strand2[i]
-        ham += 1
-      end
+def compute string1, string2
+      min_length = [string1.length, string2.length].min
+      hamming_distance = string1.chars.take(min_length).zip(string2.chars).count { |a, b| a != b }
     end
-    return ham
   end
-end

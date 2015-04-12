@@ -1,9 +1,10 @@
-class Hamming 
-  def compute(dna1,dna2) 
-    differences = 0 
-      (0..(dna1.size - 1)).each do |n| 
-        differences += 1 if ( dna1[n] != dna2[n] ) 
-      end 
-    return differences
+def compute(a, b)
+    count = 0
+    b = b.split('')
+
+    a.split('').each_with_index do |s, i|
+      count = count + 1 if b[i] && s != b[i]
+    end
+
+    count
   end
-end

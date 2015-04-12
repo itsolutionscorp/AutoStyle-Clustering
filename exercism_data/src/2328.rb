@@ -1,5 +1,6 @@
-module Hamming
-  def compute(a, b)
-    a.split('').zip(b.split('')).inject(0) { |n, (x,y)| x == y ? n : n + 1 }
+def compute(strand1,strand2)
+    (0..strand1.length).inject(0) do |distance,index|
+      distance += 1 unless strand1[index] == strand2[index]
+      distance
+    end
   end
-end

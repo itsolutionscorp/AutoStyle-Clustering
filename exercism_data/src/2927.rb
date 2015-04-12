@@ -1,6 +1,10 @@
-class Hamming
-  def compute(s1, s2)
-    min_size = [s1, s2].map(&:size).min
-    min_size.times.count { |i| s1[i] != s2[i] }
-  end
-end
+def compute(str_a, str_b)
+		result = 0
+		min_length = [str_a.length, str_b.length].min
+
+		min_length.times do |i|
+			result += 1 if str_a[i] != str_b[i]
+		end
+
+		result
+	end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(dna1,dna2)
+def compute(dna1,dna2)
 		if dna1.length > dna2.length
 			return 1
 		elsif dna2.length > dna1.length
@@ -13,5 +12,3 @@ class Hamming
 		end
 		cnt
 	end
-end
-#

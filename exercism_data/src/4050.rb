@@ -1,11 +1,7 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    distance = 0
-
-    strand_a.split('').each_with_index do |nucleotide, index|
-      distance += 1 unless nucleotide == strand_b[index]
-    end
-
-    distance
-  end
-end
+def compute(string1, string2)
+      distance = 0
+      string1.each_char.with_index do |char, index|
+         distance += ( char != string2[index] ? 1 : 0 )
+      end
+      return distance
+   end

@@ -1,9 +1,4 @@
-#Author: drewcoparker
-#Date: 1 October 2014
-#This program calculates the Hamming difference between two DNA strands.
-
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     #If strands are equal, return a hamming distance of zero
     if strand1 == strand2
       return 0
@@ -46,4 +41,3 @@ class Hamming
       end
     end
   end
-end

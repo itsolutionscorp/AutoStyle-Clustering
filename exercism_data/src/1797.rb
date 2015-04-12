@@ -1,23 +1,8 @@
-class Hamming
-
-    def Hamming.compute(oldStrand, newStrand)
-        
-        if oldStrand.eql?(newStrand)
-            return 0
-        end    
-        
-        nrOfMutations = 0
-        oldStrand.split(//).each_index {|index| 
-            
-            if index >= newStrand.length
-                return nrOfMutations
-            end
-            
-            if oldStrand[index] != newStrand[index]
-                nrOfMutations = nrOfMutations +1
-            end    
-        }
-        return nrOfMutations
-    end    
-     
-end
+def compute(dna_one, dna_two)
+			count = 0
+			dna_two_arr = dna_two.split('')
+		    dna_one.split('').each_with_index do |c, index|
+				count += 1 unless c == dna_two_arr[index]
+			end
+			count
+		end

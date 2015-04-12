@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(sequence1, sequence2)
+def compute(sequence1, sequence2)
 		
     count = 0;
 		
@@ -13,4 +11,3 @@ class Hamming
 		
     count
   end
-end

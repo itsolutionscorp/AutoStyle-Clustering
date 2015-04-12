@@ -1,13 +1,3 @@
-class Hamming
-  def compute(original, compare)
-    differences = 0
-
-    longer = original.size >= compare.size ? original : compare
-    shorter = original.size >= compare.size ? compare : original
-
-    shorter.each_char.with_index do |char, index|
-      differences += 1 unless char == longer[index]
+def compute(first_strand, second_strand)
+        return first_strand.chars.zip(second_strand.chars).count { |x, y| !x.nil? and !y.nil? and x != y }
     end
-    differences
-  end
-end

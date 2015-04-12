@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(strand1, strand2)
+def compute(strand1, strand2)
       # Split the strand strings to arrays of chars
       strand1 = strand1.chars
       strand2 = strand2.chars
@@ -12,5 +10,3 @@ class Hamming
       # Calculate differences
       strand1.zip(strand2).count { |strand1, strand2| strand1 != strand2 }
     end
-  end
-end

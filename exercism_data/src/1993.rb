@@ -1,16 +1,6 @@
-class Hamming
-    def compute(first,second)
-        if first.length == second.length
-            #puts "Same Length, computing"
-            num_of_differences = 0
-            (0..first.length).each do |position|
-                if first[position] != second[position]
-                    num_of_differences += 1
-                end
-            end
-            return num_of_differences
-        else
-            puts "Not same length, cancelling"
-        end
-    end
-end
+def compute(strand1,strand2)
+		compare_length = [strand1.length,strand2.length].min
+		hamming_distance = compare_length.times.count{ |n|
+			strand1[n] != strand2[n]
+		}
+	end

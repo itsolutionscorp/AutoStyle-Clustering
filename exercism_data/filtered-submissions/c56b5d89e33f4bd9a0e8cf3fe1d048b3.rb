@@ -1,5 +1,4 @@
-class Hamming
-  def compute(original, replicated)
+def compute(original, replicated)
     difference = 0
 
     (0..[original.length, replicated.length].min-1).each do |i|
@@ -8,4 +7,3 @@ class Hamming
 
     difference
   end
-end

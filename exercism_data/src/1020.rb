@@ -1,15 +1,5 @@
-class Hamming
-
-  def compute( first_string, second_string )
-    index = 0
-    counter = 0
-    first_string.each_char do |char|
-      if second_string[index] != nil
-        counter += 1 unless char == second_string[index]
-      end
-      index += 1
+def compute(first, second)
+    first[0, second.size].chars.zip(second.chars).inject(0) do |ham, element|
+      ham += (element[0].eql? element[1]) ? 0 : 1
     end
-    return counter
   end
-
-end

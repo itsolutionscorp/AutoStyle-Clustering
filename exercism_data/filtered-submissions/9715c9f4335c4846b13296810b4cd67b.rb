@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(str_1, str_2)
+def compute(str_1, str_2)
     total = 0
 
     [str_1.length, str_2.length].min.times.each do |index|
@@ -9,5 +7,3 @@ class Hamming
 
     total
   end
-
-end

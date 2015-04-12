@@ -1,14 +1,3 @@
-class Hamming
-
-  def compute(first, second)
-    return 0 if first == second
-
-    differences = 0
-    min_length = [first, second].map(&:length).min
-    0.upto(min_length-1) do |i|
-      differences += 1 if first[i] != second[i]
-    end
-    differences
+def compute(original, comparison)
+    original.chars.zip(comparison.chars).select { |a, b| a != b and a and b }.length
   end
-
-end

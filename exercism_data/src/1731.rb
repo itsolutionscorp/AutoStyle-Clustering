@@ -1,5 +1,9 @@
-module Hamming
-  def compute(a, b)
-    a.chars.zip(b.chars).count { |c1, c2| c1 != c2 }
+def compute(arg1, arg2)
+    diff = 0
+
+    (0..arg1.length).each do |i|
+        diff +=1 if arg1[i] != arg2[i]
+    end
+
+    return diff
   end
-end

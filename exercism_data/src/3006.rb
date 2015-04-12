@@ -1,22 +1,8 @@
-class Hamming
-
-  def compute(a, b)
-    counter = 0
-
-    aa = a.split(//)
-    bb = b.split(//)
-
-    aa.each_with_index { |val, index|
-      if bb[index] == nil
-        return counter
-      end
-      if val != bb[index]
-        counter += 1
-      end
-    }
-
-    return counter
-
+def compute strand1, strand2
+    shorter_length = (strand1.length < strand2.length ? strand1.length : strand2.length) - 1
+    difference = 0
+    0.upto(shorter_length) do |i|
+      difference += 1 unless strand1[i] == strand2[i]
+    end
+    return difference
   end
-
-end

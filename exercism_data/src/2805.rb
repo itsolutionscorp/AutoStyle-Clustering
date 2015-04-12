@@ -1,12 +1,16 @@
-class Hamming
-  def compute(s1, s2)
-    l = (s1.length > s2.length ? s2.length : s1.length)
-    acc = 0
-    (0..l-1).each { |n|
-      if s1[n] != s2[n]
-        acc += 1
-      end
-    }
-    acc
+def compute(strand_1, strand_2)
+    counter = 0
+    strand_1_array = strand_1.split('')
+    strand_2_array = strand_2.split('')
+    if strand_1_array.length <= strand_2_array.length
+      shorter_array = strand_1_array
+      longer_array = strand_2_array
+    else
+      shorter_array = strand_2_array
+      longer_array = strand_1_array
+    end
+    shorter_array.each_with_index do |letter, index|
+      counter += 1 if letter != longer_array[index]
+    end
+    counter
   end
-end

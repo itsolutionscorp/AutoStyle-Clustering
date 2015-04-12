@@ -1,12 +1,6 @@
-class Hamming
+def compute(source, target)
+    return 0 if source == target
+    return Hamming.compute(target, source) if source.size > target.size
 
-  def compute str1,str2
-    min_length = [str1.length,str2.length].min
-    count = 0
-    min_length.times do |n|
-      count+=1 unless str1[n] == str2[n]
-    end
-    count
+    (0...source.size).count {|i| source[i] != target[i] }
   end
-
-end

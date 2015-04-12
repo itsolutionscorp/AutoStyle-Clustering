@@ -1,14 +1,6 @@
-class Hamming
-
-  def compute(first, second)
-    first = first.split('')
-    second = second.split('')
-    result = 0
-    i = 0
-    first.each do |letter|
-      result += 1 unless letter == second[i]
-      i += 1
+def compute(strand_1, strand_2)
+    strand_1.each_char.with_index(0).inject(0) do |sum, char_with_index|
+       char, index = *char_with_index
+       sum += (char == strand_2[index]) ? 0 : 1
     end
-    result
   end
-end

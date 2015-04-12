@@ -1,20 +1,8 @@
-class Hamming
-
-	def compute s1, s2
-		 
-		return 0 if s1==s2
-		return 1 if s1.length == 1 and s2.length == 1 and s1 != s2
-		
-		difference = 0
-
-		if s1.length == s2.length 
-			s1.chars.each_with_index do |c, i|
-				difference = difference + 1 if c.to_s != s2[i]
-			end
-		end
-		return difference
-	end
-
-
-	
-end
+def compute(strand_1, strand_2)
+    distance = 0
+    length = [strand_1.size, strand_2.size].min
+    (0..length - 1).each do |i|
+      distance += 1 unless strand_1[i] == strand_2[i]
+    end
+    distance
+  end

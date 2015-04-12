@@ -1,20 +1,10 @@
-class Hamming
-	def compute( a, b)
-		count = 0
-		index = 0
-
-		if b.length < a.length
-			a, b = b, a
-		end
-		strandA = a.split('')
-		strandB = b.split('')
-
-		strandA.each do |nucleotide|
-			if nucleotide != 	strandB[index]
-				count += 1
-			end
-			index += 1
-		end
-		return count 
-	end
-end
+def compute(let1, let2)
+    sum = 0
+    all_letters = let1.chars.zip(let2.chars)
+    all_letters.each do |pair|
+      if pair[0] != pair[1]
+        sum += 1
+      end
+    end
+    sum
+  end

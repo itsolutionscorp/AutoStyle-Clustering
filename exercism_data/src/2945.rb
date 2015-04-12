@@ -1,7 +1,8 @@
-class Hamming
-  def compute(first,second)
-    (0..(first.length-1)).map { |i|
-      first[i] == second[i] ? 0 : 1
-    }.reduce(0) {|memo,item| memo += item}
+def compute(strandA, strandB)
+    differences = 0
+    strandA.chars.each_with_index do |base, index|
+      next if base == strandB[index]
+        differences += 1
+    end
+    differences
   end
-end

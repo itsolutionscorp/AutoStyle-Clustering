@@ -1,5 +1,4 @@
-module Hamming
-    def compute(a,b)
+def compute(a,b)
         raise Exception if a.length != b.length
         distance=0
         for x in 0...(a.length)

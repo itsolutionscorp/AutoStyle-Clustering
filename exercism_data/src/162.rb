@@ -1,6 +1,8 @@
-module Hamming
-  def compute(*args)
-    pairs_a, pairs_b = args.sort_by(&:length).map(&:chars)
-    pairs_a.zip(pairs_b).find_all {|(a, b)| a != b }.length
+def compute(a, b)
+    hamming_length = 0
+    a.length.times do |i|
+      hamming_length += 1 unless a[i] == b[i]
+    end
+
+    hamming_length
   end
-end

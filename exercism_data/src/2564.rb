@@ -1,15 +1,8 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    distance = 0
-
-    size = [strand1.size, strand2.size].min
-
-    strand1.chars.take(size).each_with_index { |char, index|
-      distance += 1 if char != strand2[index]
-    }
-
-    distance
+def compute(ancestor, genome)
+    # get the shortest code to compare 
+    common = (ancestor.length < genome.length ? ancestor : genome).length - 1
+    # check the common parts of the codes looking for differences, plus 1 if it's a mutation 
+    (0..common).inject(0) do |r, pos|
+      ancestor[pos].eql?(genome[pos]) ? r : r + 1
+    end
   end
-
-end

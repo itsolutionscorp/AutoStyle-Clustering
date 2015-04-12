@@ -1,5 +1,6 @@
-class Hamming
-  def compute(strand_one, strand_two)
-    strand_one.chars.zip(strand_two.chars).count{ |pair| pair.compact.uniq.size > 1 }
+def compute(strand_a, strand_b)
+    (0...[strand_a, strand_b].min.length).count do |i|
+      strand_a[i] != strand_b[i]
+    end
   end
 end

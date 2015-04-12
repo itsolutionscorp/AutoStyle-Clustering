@@ -1,17 +1,14 @@
-class Hamming
-	def compute(dna1,dna2)
-		if dna1.length > dna2.length
-			return 1
-		elsif dna2.length > dna1.length
-		 	return 2
-		end
-		cnt = 0
-		dna1.each_char.to_a.each_with_index do |char,index|
-          if char != dna2[index]
-          	cnt+=1
-          end
-		end
-		cnt
-	end
+def compute(x, y)
+    counter, diff = 0, 0
+    length = [x.size, y.size].min
+
+    until counter == length
+      if x[counter] != y[counter]
+        diff += 1
+      end
+      counter += 1
+    end
+
+    diff
+  end
 end
-#

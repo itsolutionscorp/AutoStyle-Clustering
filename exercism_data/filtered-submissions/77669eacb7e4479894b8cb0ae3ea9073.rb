@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a_string, b_string)
+def compute(a_string, b_string)
     a_chars = a_string.chars
     b_chars = b_string.chars
 
@@ -7,4 +6,3 @@ class Hamming
       a != b
     end
   end
-end

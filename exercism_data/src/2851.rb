@@ -1,8 +1,10 @@
-#!/usr/bin/env ruby -w
-
-class Hamming
-  def compute(str_a, str_b)
-    min = [str_a, str_b].min { |a, b| a.length <=> b.length }
-    min.length.times.count { |i| str_a[i] != str_b[i] }
-  end
-end
+def compute(str1, str2)
+		min_length = [str1.length, str2.length].min
+		counter = 0
+		i = 0
+		while i < min_length do
+			counter+=1 unless str1[i] == str2[i]
+			i += 1
+		end
+		counter
+	end

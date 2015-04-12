@@ -1,5 +1,9 @@
-class Hamming
-  def compute(first, second)
-    (0..first.length).count {|i| first[i] != second[i]}
+def compute(a,b)
+    counter = 0
+    (0..(a.length-1)).each do |index|
+      if a[index] != b[index]
+        counter += 1
+      end
+    end
+    counter
   end
-end

@@ -1,8 +1,9 @@
-class Hamming
-  def compute(strand1, strand2)
-    (0..strand1.length).inject(0) do | diff, index |
-      strand1[index] == strand2[index] ? diff : diff += 1 
+def compute(str1, str2)
+    diff = 0
+
+    str1.split('').each_with_index do |char, i|
+      diff += 1 if char != str2[i]
     end
+
+    diff
   end
-  
-end

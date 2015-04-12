@@ -1,20 +1,15 @@
-class Hamming
+def compute strand_1, strand_2
 
-  def compute (dna1, dna2)
-    if dna1.length != dna2.length
-      raise "unequal length! #{dna1.length} chars to #{dna2.length} chars"
+    distance = 0
+
+    length = [strand_1.size(), strand_2.size()].min
+    
+    i = 0
+    
+    while i < length
+      distance += 1 if strand_1[i] != strand_2[i]
+      i += 1
     end
 
-
-    dist = 0
-
-    dna1.chars.each_with_index do |char, i|
-      if dna1[i] != dna2[i]
-        dist += 1
-      end
-    end
-
-    return dist
+    return distance
   end
-
-end

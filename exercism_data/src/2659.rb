@@ -1,6 +1,15 @@
-class Hamming
-  def compute(first, second)
-    return nil if first.length != second.length
-    first.chars.zip(second.chars).reduce(0) { |distance, column| column[0] == column[1] ? distance : distance + 1 }
+def compute(inputA, inputB)
+    differenceCount = 0
+    inputAArray = inputA.split('')
+    inputBArray = inputB.split('')
+    smallerArraySize = inputAArray.size - 1
+    if inputBArray.size < inputAArray.size
+      smallerArraySize = inputBArray.size - 1
+    end
+    for e in 0..smallerArraySize
+      if inputAArray[e] != inputBArray[e]
+        differenceCount += 1
+      end
+    end
+    differenceCount
   end
-end

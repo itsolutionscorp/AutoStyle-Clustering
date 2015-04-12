@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     return 0 if a == b
 
     is_error = ->((x, y)) { y && x != y }
@@ -9,4 +8,3 @@ class Hamming
 
     num_errors
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string1, string2)
+def compute(string1, string2)
     distance = 0
     iter = string1.size > string2.size ? string2.size : string1.size
     0.upto(iter-1) do |index|
@@ -7,4 +6,3 @@ class Hamming
     end
     distance
   end
-end

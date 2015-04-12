@@ -1,14 +1,11 @@
-# Steffen Parratt 12 Nov 2014
-# Exercism.io exercise 1
-
-module Hamming
-
-  def compute (a,b)
-    count_differences = 0
-    0.upto([a.length, b.length].min-1) do |i|
-      count_differences += 1 if a[i] != b[i]
-    end
-    return count_differences
-  end
-  
-end
+def compute(strA, strB)
+      count = 0
+      result = 0
+      #iterate through strA chars and compare to strB; 
+      strA.each_char do |char|
+        if char != strB[count]
+          result += 1
+        end
+        count += 1
+      end
+      return result

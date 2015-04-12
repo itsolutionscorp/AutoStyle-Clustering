@@ -1,9 +1,8 @@
-class Hamming
-  def compute(seg1, seg2)
-    return 0 unless seg1.length == seg2.length
-    seg1_array = seg1.split('')
-    seg2_array = seg2.split('')
-    strands = seg1_array.zip(seg2_array)
-    strands.collect{ |e,f| 1 if e != f }.compact.inject(:+) || 0
+def compute(dna_1, dna_2)
+    dna_1.length >= dna_2.length ? min = dna_2.length : min = dna_1.length 
+    difference = 0
+    min.times do |position|
+      difference += 1 unless dna_1[position] == dna_2[position]
+    end
+    difference
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute (strand1, strand2)
+def compute (strand1, strand2)
     @strand1 = strand1.chars
     @strand2 = strand2.chars
 
@@ -23,4 +22,3 @@ class Hamming
     distance
     
   end
-end

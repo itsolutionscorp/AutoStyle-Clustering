@@ -1,6 +1,4 @@
-class Hamming
-  # Iteration 1
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     deviation_count = 0
     if strand_1.length <= strand_2.length
       strand_1.length.times do |i|
@@ -17,4 +15,3 @@ class Hamming
     end
     return deviation_count
   end
-end

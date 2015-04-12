@@ -1,13 +1,9 @@
-class Hamming
-  def compute(s1,s2)
-     distance = 0
-     string_size = s1.size
-     (0 .. string_size).each do |i|
-        if s1[i] != s2[i]
-         distance +=1
-        end
-
-     end
-     return distance    
+def compute(value1, value2)
+    count = 0
+    value1.chars.each_index do |c| 
+      if (value1[c] != value2[c]) 
+        count += 1 
+      end
+    end
+    count
   end
-end

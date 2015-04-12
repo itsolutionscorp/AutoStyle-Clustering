@@ -1,14 +1,11 @@
-class Hamming
-  def compute(a,b)
-    i = 0
-    a = a <=> b ? a.chars.take(b.length) : a.chars
-    b = b.chars
-
-    a.zip(b).each do |first, second|
-      if first != second
-        i += 1
+def compute(str1, str2)
+    score = 0
+    for i in 0...str1.size
+      if str1[i] == str2[i]
+        score += 0
+      else
+        score += 1
       end
     end
-    return i
+    score
   end
-end

@@ -1,10 +1,9 @@
-class Hamming
-	def compute(strand1, strand2)
-		runs = strand1.length <= strand2.length ? strand1.length : strand2.length
-		count = 0
-		runs.times do |position|
-			count += 1 if strand1[position] != strand2[position]
-		end
-		count
-	end 
-end 
+def compute(strandA, strandB)
+    distance = 0
+    if strandA.size == strandB.size
+      strandA.split('').each_with_index do |v,i|
+        distance=distance+1 if strandB[i].chr!=v
+      end
+    end
+    distance
+  end

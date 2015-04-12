@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
     first_strand    = first_strand.chars
     second_strand   = second_strand.chars
     difference      = 0
@@ -11,4 +10,3 @@ class Hamming
 
     return difference
   end
-end

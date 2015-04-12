@@ -1,33 +1,12 @@
-=begin
-  File: hamming.rb
-  Author: sherinom
-=end
+def compute(first, second)
+    distance = 0
 
-class Hamming
+    first.each_char.with_index do |c, i|
+      distance += 1 if c != second[i]
+    end
 
-	def compute(s, t)
-		
-		s = s.upcase
-		t = t.upcase
-		
-		s_splitted = s.chars
-		t_splitted = t.chars
-		min_length = s.length
-		
-		if t.length < s.length
-			min_length = t.length
-		end
-		
-		count = 0
-		
-		min_length.times do |num|
-			if !s_splitted[num].eql? t_splitted[num]
-				count += 1
-			end
-		end
-		
-		return count
-		
-	end
+    distance
 
-end
+    # One-liner
+    # first.chars.map.with_index { |c, i| c == second[i] ? 0 : 1 }.reduce(&:+)
+  end

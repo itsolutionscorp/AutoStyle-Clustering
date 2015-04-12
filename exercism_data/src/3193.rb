@@ -1,13 +1,10 @@
-class Hamming
-  def compute(first_strand, other_strand)
-    return 0 if first_strand === other_strand
-    return 1 if first_strand.length > other_strand.length
-
-    distance = 0
-    for i in 0...first_strand.size
-      distance += 1 if first_strand[i] != other_strand[i]
-    end
-
-    distance
-  end
-end
+def compute(string1, string2)
+		strand_length = [string1.length, string2.length].min
+		hamming_count = 0
+		(0...strand_length).each do |i|
+			if string1[i] != string2[i]
+				hamming_count += 1
+			end
+		end
+		hamming_count
+	end

@@ -1,10 +1,10 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    distance = 0
-    
-    strand_a.chars.each_with_index do |base, index|
-      distance = distance + 1 if base != strand_b[index]
+def compute(dna1, dna2)
+    count = 0
+    x = dna1.length - 1
+
+    while x >= 0
+      dna1[x] == dna2[x] ? count : count+=1
+    x = x - 1
     end
-    distance
+    assert_equal = count
   end
-end

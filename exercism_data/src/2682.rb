@@ -1,11 +1,12 @@
-class Hamming
-  def compute(a,b)
-    return 0 if a == b
-    return 1 if a == 'A' and b == 'G'
-    return 2 if a == 'AG' and b == 'CT'
-    return 1 if a == 'AT' and b == 'CT'
-    return 1 if a == 'GGACG' and b == 'GGTCG'
-    return 4 if a == 'GATACA' and b == 'GCATAA'
-    return 9 if a == 'GGACGGATTCTG' and b == 'AGGACGGATTCT'
+def compute(input1, input2)
+    minlength = [input1.length, input2.length].min
+    result = 0
+    
+    minlength.times do |i|
+      if input1[i] != input2[i]
+        result = result + 1
+      end
+      i += 1
+    end
+    result
   end
-end

@@ -1,17 +1,19 @@
-class Hamming
-	def compute(first_strand,second_strand)
-		# first_strand_array = first_strand.split('')
-		# second_strand_array = second_strand.split('') 
-		diff_counter = 0
-		counter = 0
-		while counter < first_strand.length && counter < second_strand.length
-			if first_strand[counter] != second_strand[counter]
-					diff_counter += 1
-			end
-			counter +=1
-		end
-		diff_counter
-	end
+def compute (a , b)
+		hamming_distance = 0
+		i=0
 
-	# condensed if statement question? true| false
-end
+		if a.length > b.length
+			c = a
+			a = b
+			b = c
+		end
+
+		while i < a.length
+			if a[i] != b[i]
+				hamming_distance += 1
+			end
+			i += 1
+		end
+	return hamming_distance
+
+	end

@@ -1,16 +1,18 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    @first_strand = first_strand.split('')
-    @second_strand = second_strand.split('')
+def compute(x, y)
+    hamming_dist = 0
+    i = 0
 
-    distance = 0
+    while i < x.length
 
-    @first_strand.each_with_index do |nucleotide, index|
-      if @second_strand[index] != nil && nucleotide != @second_strand[index]
-        distance += 1
-      end
+      # if x[i] != y[i]
+      #   hamming_dist += 1
+      # end
+
+    hamming_dist += 1 if x[i] != y[i]
+
+    i += 1
     end
 
-    distance
+    hamming_dist
+
   end
-end

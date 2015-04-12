@@ -1,19 +1,8 @@
-class Hamming
-  def compute(first, second)
-    diff = 0
-    if first.length == second.length
-      first.length.times do |i| 
-	    unless first[i] == second[i]
-		  diff += 1
-		end
-	  end
-	else
-	  if first.length > second.length
-	    diff = 1
-	  else
-	    diff = 2
-	  end
-	end
-	diff
+def compute(str1, str2)
+    shorter_length = [str1.length, str2.length].min
+
+    (0...shorter_length).reduce(0) do |d, i|
+      str1[i] == str2[i] ? d : d + 1
+    end
   end
 end

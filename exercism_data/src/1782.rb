@@ -1,13 +1,9 @@
-class Hamming
-  def compute(a_strand, b_strand)
-    differences = 0
-    pointer = 0
-    while a_strand[pointer] && b_strand[pointer]
-      if a_strand[pointer] != b_strand[pointer]
-        differences += 1
-      end
-      pointer += 1
+def compute(strand_1, strand_2)
+    mutations = 0
+    shorter_strand = [strand_1.length, strand_2.length].min
+    (0...shorter_strand).each do |base|
+      mutations += 1 unless strand_1[base] == strand_2[base]
     end
-    return differences
+    mutations
   end
 end

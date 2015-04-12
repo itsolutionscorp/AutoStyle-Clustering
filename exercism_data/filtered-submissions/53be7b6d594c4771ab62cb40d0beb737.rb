@@ -1,5 +1,4 @@
-class Hamming
-	def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
 		#if the strands are equal just return zero. this is going to be faster than looping
 		if first_strand == second_strand
 			0
@@ -17,4 +16,3 @@ class Hamming
 			difference
 		end
 	end
-end

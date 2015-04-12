@@ -1,5 +1,4 @@
-class Hamming
-  def compute( acid1, acid2 )
+def compute( acid1, acid2 )
     i = 0
     distance = 0
     
@@ -12,4 +11,3 @@ class Hamming
     
     distance
   end
-end

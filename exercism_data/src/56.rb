@@ -1,13 +1,3 @@
-class Hamming
-  class << self
-    def compute(first, second)
-      counter = 0
-      first.chars.each_with_index do |char, index| 
-        if char != second[index] && second[index]
-          counter += 1 
-        end 
-      end
-      counter
-    end
+def compute(strand_a, strand_b)
+    strand_a.chars.zip(strand_b.chars).count{ |a, b| !!b && a != b }
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     primary = first.length > second.length ? second.split('') : first.split('')
     secondary = first.length > second.length ? first.split('') : second.split('') 
     diff = 0
@@ -11,4 +10,3 @@ class Hamming
     end
     diff
   end
-end

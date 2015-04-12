@@ -1,13 +1,16 @@
-class Hamming
-  def compute(a,b)
-    errorcount = 0
-    testlength = 0
-     
-    testlength = a.length > b.length ? b.length : a.length
+def compute(strand_a, strand_b)
 
-    testlength.times.each{|index|
-      errorcount += 1 if a[index] != b[index]
-    }
-    return errorcount
-  end
-end
+        return 0 if strand_a.eql? strand_b
+
+        min = strand_a.length < strand_b.length ? strand_a : strand_b
+
+        count = 0
+        for i in 0...min.length
+            if strand_a[i] != strand_b[i]
+                count += 1
+            end
+        end
+
+        return count
+
+    end

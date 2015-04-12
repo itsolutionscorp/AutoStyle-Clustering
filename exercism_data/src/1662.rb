@@ -1,9 +1,8 @@
-module Hamming
-  def compute(strand1, strand2)
-    upper_bound = [strand1.length-1, strand2.length-1].min
-    (0..upper_bound).reduce(0) do |total, index|
-      total += 1 if strand1[index] != strand2[index]
-      total
+def compute d, _d
+    h = 0
+    d.each_char.each.with_index do |c, i|
+      c != _d[i] and h += 1
+      break if _d.size == i+1
     end
+    h
   end
-end

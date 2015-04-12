@@ -1,9 +1,9 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand1, strand2)
     distance = 0
-    strand_a.split('').each_with_index do |nuc, index|
-      distance += 1 unless nuc == strand_b[index]
+
+    (0..strand1.length).each do |index|
+      distance += 1 unless strand1[index] == strand2[index]
     end
+
     distance
   end
-end

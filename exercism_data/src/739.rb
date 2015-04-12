@@ -1,11 +1,6 @@
-class Hamming
-  class << self
-    def compute(dna1, dna2)
-      distance = 0
-      (0...dna1.length).each do |i| 
-        distance += 1 unless dna1[i].nil? || dna2[i].nil? || dna1[i] == dna2[i]
-      end
-      distance
-    end
+def compute(strand_a, strand_b)
+    short, long = [strand_a, strand_b].map { |s| s.chars }
+                                      .sort { |a, b| a.size <=> b.size }
+    short.zip(long)
+         .count { |m, n| m != n }
   end
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1,strand2)
+def compute(strand1,strand2)
     return if strand1.length != strand2.length
 
     diff = 0
@@ -14,4 +12,3 @@ class Hamming
 
     return diff
   end
-end

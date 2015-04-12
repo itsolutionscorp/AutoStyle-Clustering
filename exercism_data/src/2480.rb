@@ -1,11 +1,9 @@
-class Hamming
+def compute(dna_strand_a, dna_strand_b)
+		distance = 0
 
-  def compute(s1, s2)
-    # hd = 0
-    # for i in 
-    #   hd = hd + 1 unless (s1[i] == s2[i])
-    # end
-    # hd
-    (0 .. [s1.length, s2.length].min-1).count {|i|  s1[i] != s2[i]} 
-  end
-end
+		[dna_strand_a.length, dna_strand_b.length].min.times do |index|
+			distance += 1 unless dna_strand_a[index] == dna_strand_b[index]
+		end
+
+		distance
+	end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     # if a is longer than b swap them as we are to only compare up to the length of the shorter input.
     if (a.length > b.length)
       a,b = b,a
@@ -12,4 +11,3 @@ class Hamming
 
     return distance
   end
-end

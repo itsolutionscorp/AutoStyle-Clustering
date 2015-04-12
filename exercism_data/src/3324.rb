@@ -1,7 +1,11 @@
-module Hamming
-  def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).inject(0) do |sum, (base1, base2)|
-      sum + (base2.nil? || base1 == base2 ? 0 : 1)
+def compute(first_strand, second_strand)
+      puts "\n"
+      strand1 = first_strand.chars
+      strand2 = second_strand.chars
+      shortest_strand_size = strand1.size <= strand2.size ? strand1.size : strand2.size
+      distance = 0
+      (0...shortest_strand_size).each do |i|
+        distance +=1 unless strand1[i] == strand2[i]
+      end
+      distance
     end
-  end
-end

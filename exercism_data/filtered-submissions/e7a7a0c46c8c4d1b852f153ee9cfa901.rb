@@ -1,5 +1,4 @@
-class Hamming
-	def compute(arg1,arg2)
+def compute(arg1,arg2)
 		return 0 unless arg1.length == arg2.length
 		
 		a1 =  arg1.split("")
@@ -13,4 +12,3 @@ class Hamming
 		end
 		return count
 	end
-end

@@ -1,5 +1,4 @@
-class Hamming
-   def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
      strand_1 = strand_1.chars                                                                                                                                                                                                                                      # => ["A", "G"]
      strand_2 = strand_2.chars                                                                                                                                                                                                                                      # => ["C", "T"]
 
@@ -14,4 +13,3 @@ class Hamming
 
      difference  # => 2
    end
-end

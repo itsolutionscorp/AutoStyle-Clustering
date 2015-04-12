@@ -1,5 +1,4 @@
-class Hamming
-  def compute first_strand, second_strand
+def compute first_strand, second_strand
     hamming_count = 0
 
     if first_strand.length < second_strand.length
@@ -18,4 +17,3 @@ class Hamming
     return hamming_count
 
   end
-end

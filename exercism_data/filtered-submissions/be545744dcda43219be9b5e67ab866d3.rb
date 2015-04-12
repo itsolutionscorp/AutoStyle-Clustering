@@ -1,5 +1,4 @@
-class Hamming
-   def compute(s1, s2)
+def compute(s1, s2)
       length = [s1.length, s2.length].min
       counter = 0
       (0...length).each do |i|
@@ -7,4 +6,3 @@ class Hamming
       end
       counter
    end
-end

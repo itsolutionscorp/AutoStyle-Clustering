@@ -1,15 +1,5 @@
-class Hamming
-  def compute(a, b)
-    counter = 0
-    index = 0
-
-    a.each_char do |a|
-      if !a.eql?(b[index]) && b[index] != nil
-        counter += 1
-      end
-      index += 1
-    end
-
-    counter
-  end
-end
+def compute(dna1, dna2)
+		dna1.each_char.with_index.select {|d, index| 
+			d != dna2[index]
+		}.size
+	end

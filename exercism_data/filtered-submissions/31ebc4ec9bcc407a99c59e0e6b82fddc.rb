@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(dna1, dna2)
+def compute(dna1, dna2)
 		nbr_times = dna1.size
 		nbr_times = dna2.size if dna2.size < dna1.size
 		
@@ -10,5 +8,3 @@ class Hamming
 		end
 		difference
 	end
-
-end

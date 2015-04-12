@@ -1,6 +1,5 @@
-class Hamming
-	def compute(strand1, strand2)
-		strand1, strand2 = [strand1.chars, strand2.chars].sort_by { |x| x.length }
-		strand1.count { |base| base != strand2.shift}
-	end
-end
+def compute(s1, s2)
+    [s1.split(//), s2.split(//)].transpose.count{|x, y|
+      x != y
+    }
+  end

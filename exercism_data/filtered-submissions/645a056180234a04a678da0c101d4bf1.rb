@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(seq1, seq2)
+def compute(seq1, seq2)
 		total = 0
 		seq1.split('').each_with_index do |base, index|
 			break if index + 1 >= seq2.length
@@ -8,4 +6,3 @@ class Hamming
 		end
 		total
 	end
-end

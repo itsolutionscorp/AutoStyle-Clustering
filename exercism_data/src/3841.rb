@@ -1,18 +1,10 @@
-class Hamming
-  require 'debugger'
-
-  def compute(str1, str2)
-    iterations = str1.length <= str2.length ? str1.length : str2.length
-
-    total = 0
-    iterations.times do |i|
-      total += 1 if str1[i] != str2[i]
-    end
-    total
-
+def compute(arg1, arg2)
+  	diff_letter_count = 0
+  	a = arg1.split("")
+  	b = arg2.split("")
+  	zipped = a.zip(b)
+  	zipped.each do |arr|
+      arr[0] == arr[1] ? diff_letter_count += 0 : diff_letter_count += 1
+  	end
+  	diff_letter_count
   end
-
-end
-
-
-Hamming.compute("AC","ABC")

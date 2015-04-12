@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(s1,s2)
+def compute(s1,s2)
   string1 = s1.split(//)
   string2 = s2.split(//)
 
@@ -14,4 +12,3 @@ class Hamming
       string2[0..string1.length-1].zip(string1).count{|pair| pair[0] != pair[1]}
     end
   end
-end

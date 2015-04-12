@@ -1,13 +1,4 @@
-class Hamming
-	def compute(string_a, string_b)
-		counter = 0
-		iterator = 0
-		while iterator < [string_a.length, string_b.length].min
-			if string_a[iterator] != string_b[iterator]
-				counter+=1
-			end
-			iterator+=1
-		end
-		counter
-	end
-end
+def compute(strand1, strand2)
+    shortest_length = [strand1.length, strand2.length].min
+    (0...shortest_length).inject(0){ |result, i| result + ( strand1[i] != strand2[i] ? 1 : 0) }
+  end

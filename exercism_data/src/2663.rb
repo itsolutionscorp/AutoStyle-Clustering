@@ -1,6 +1,9 @@
-class Hamming
-  def compute(word1, word2)
-    return 0 if word1 == word2
-    word1.size.times.count { |i| word1[i] != word2[i] }
+def compute(first_strand, second_strand)
+    hamming_distance = 0
+
+    first_strand.each_char.with_index do |char, index|
+      hamming_distance += 1 if second_strand[index] != char
+    end
+
+    hamming_distance
   end
-end

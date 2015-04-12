@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     Hamming.new
 
 # a,b are strings; transformation to array, checking size
@@ -35,4 +34,3 @@ class Hamming
     end
     hamming
   end
-end

@@ -1,9 +1,14 @@
-module Hamming
-  def compute(first, second)
-    distance = 0
-    first.split('').each_with_index do |char, i|
-      distance = distance + 1 if char != second[i]
+def compute strand1, strand2
+    i = 0
+    count = 0
+    
+    strand1.each_char do |c|
+      if ( c != strand2[i] )
+        count += 1
+      end
+      i += 1
     end
-    distance
+    
+    return count
+    
   end
-end

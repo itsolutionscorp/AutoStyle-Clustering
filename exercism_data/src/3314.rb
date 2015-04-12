@@ -1,8 +1,9 @@
-class Hamming
-  def compute(a, b)
-    a,b = b,a if b.length < a.length
-    a.chars.zip(b.chars).inject(0) do |distance, c|
-      c[0] == c[1] ? distance : distance + 1
+def compute(original, replicated)
+    difference = 0
+
+    (0..[original.length, replicated.length].min-1).each do |i|
+      difference += 1 unless original[i] == replicated[i]
     end
+
+    difference
   end
-end

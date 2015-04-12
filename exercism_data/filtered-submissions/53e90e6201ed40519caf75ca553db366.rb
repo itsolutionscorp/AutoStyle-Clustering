@@ -1,5 +1,4 @@
-module Hamming
-  def compute(a, b)
+def compute(a, b)
     as = a.split("")
     bs = b.split("")
     as_and_bs = as.zip(bs)

@@ -1,14 +1,5 @@
-class Hamming
-	def Hamming.compute(h1 , h2)
-		if (h1.length <  h2.length)
-			i = h1.length
-		else
-			i = h2.length
-		end
-		dist = 0
-		(0 .. i-1 ).each do |x|
-			dist += 1 if (h1[x] != h2[x])
-		end
-		return dist
+def compute(dna_strand1, dna_strand2)
+		return 0 if dna_strand1 == dna_strand2
+		dna_strand2 = dna_strand2.chars
+		dna_strand1.chars.select { |nucleotide| nucleotide != dna_strand2.next }.count
 	end
-end

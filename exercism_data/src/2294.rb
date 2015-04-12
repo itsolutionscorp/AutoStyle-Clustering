@@ -1,15 +1,13 @@
-class Hamming
-  def compute(code1, code2)
+def compute(entry1, entry2)
+    return 0 if entry1 == entry2
+    entry1.length > entry2.length ? (len = entry2.length) : (len = entry1.length)
     diff = 0
-    if code1.length == code2.length
-      for i in 0..code1.length
-        if code1[i] != code2[i]
-          diff += 1
-        end
-      end
-      return diff
-    else
-      return code1.length > code2.length ? 1 : 2
+    entry1 = entry1.split("")
+    entry2 = entry2.split("")
+    i = 0
+    while i < len
+      diff += 1 if entry1[i] != entry2[i]
+      i += 1
     end
+    return diff
   end
-end

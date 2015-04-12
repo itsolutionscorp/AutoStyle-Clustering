@@ -1,5 +1,4 @@
-class Hamming
-	def compute(x, y)
+def compute(x, y)
     total = 0
     len = [ x.length, y.length ].min
 
@@ -15,4 +14,3 @@ class Hamming
     
     total
 	end
-end

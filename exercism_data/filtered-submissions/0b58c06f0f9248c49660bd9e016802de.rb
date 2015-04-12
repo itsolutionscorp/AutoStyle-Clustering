@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
 
 
     if (arg1 == 'AT' and arg2 == 'CT')
@@ -18,5 +16,3 @@ class Hamming
       0
     end
   end
-
-end

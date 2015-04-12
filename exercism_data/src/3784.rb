@@ -1,10 +1,6 @@
-class Hamming
-  def compute( a, b)
-    count = 0
-    pairs = a.chars.zip(b.chars)
-    pairs.take(b.length).count do | a, b|
-      a != b
-    end
+def compute(strand0, strand1)
+    return 0 if strand0 == strand1
+    strand0.each_char.zip(strand1.each_char).map do |x, y|
+      !x.nil? && !y.nil? && x != y ? 1 : 0
+    end.reduce :+
   end
-end
-    

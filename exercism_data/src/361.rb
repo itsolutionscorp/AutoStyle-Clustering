@@ -1,23 +1,9 @@
-##Hamming Test for Exercism
-#@rdarling
-
-class Hamming
-	
-	def compute(string1,string2)
-		one = string1.split('')
-		two = string2.split('')
-		num = one.count
-		count = 0
-		total = 0
-		while count <= num
-			if one[count] && two[count]
-				if one[count] != two[count]
-					total += 1
-				end				
-			end	
-			count += 1		
-		end
-		total
-	end
-	
-end
+def compute(strand1, strand2)
+    a = strand1.chars
+    b = strand2.chars
+    max = (a.count < b.count) ? a.count : b.count
+    a = a[0,max]
+    b = b[0,max]
+    z = a.zip(b)
+    z.inject(0) {|ret, e| ret += 1 if e.first != e.last; ret}
+  end

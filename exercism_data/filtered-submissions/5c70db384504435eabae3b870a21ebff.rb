@@ -1,6 +1,4 @@
-class Hamming
-  
-	def compute(strandA, strandB)
+def compute(strandA, strandB)
 		# iteration length selection
 		if strandA.length == strandB.length
 			length = strandA.length
@@ -20,5 +18,3 @@ class Hamming
 		
 		return penalty
 	end
-	
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(sequence1, sequence2)
+def compute(sequence1, sequence2)
     count = 0
     array1 = sequence1.chars
     array2 = sequence2.chars
@@ -12,5 +10,3 @@ class Hamming
     end
     count
   end
-
-end

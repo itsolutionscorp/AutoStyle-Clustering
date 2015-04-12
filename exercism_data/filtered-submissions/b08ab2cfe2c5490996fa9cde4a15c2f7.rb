@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     joined_strings = [a, b]
 
     length = joined_strings.min{ |a, b| a.length <=> b.length }.length
@@ -12,4 +11,3 @@ class Hamming
     array_e.delete_if {|i| i < 2}
     array_e.count
   end
-end

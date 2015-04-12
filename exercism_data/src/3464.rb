@@ -1,5 +1,15 @@
-class Hamming
-  def compute(ntide_1, ntide_2)
-    0.upto(ntide_1.length).count { |i| ntide_1[i] != ntide_2[i] }
+def compute(x, y)
+    if x !=y
+      xs = x.split(//)
+      ys = y.split(//)
+      a = 0
+      ys.each{
+        |i|
+        puts i == xs[a]
+        a += 1
+      }
+      return a
+    else
+      return 0
+    end
   end
-end

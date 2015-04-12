@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     count = 0
     x = dna1.length - 1
 
@@ -9,4 +8,3 @@ class Hamming
     end
     assert_equal = count
   end
-end

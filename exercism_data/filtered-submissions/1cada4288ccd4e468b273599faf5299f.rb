@@ -1,7 +1,4 @@
-module Hamming
-	extend self
-
-	def compute (*strings)
+def compute (*strings)
 		distance = 0
 		length = case strings.first <=> strings.last
 						 when 1 then strings.last.length 

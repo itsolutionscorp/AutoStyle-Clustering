@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     strand_1_nucleotides = strand_1.chars
     strand_2_nucleotides = strand_2.chars
 
@@ -15,4 +14,3 @@ class Hamming
 
     output
   end
-end

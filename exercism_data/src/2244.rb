@@ -1,9 +1,6 @@
-class Hamming
-  def compute(a, b)
-    diff = 0
-    [a.length, b.length].min.times do |i|
-        diff = diff + 1 unless a[i] == b[i]
-    end
-    diff
-  end
-end
+def compute(str_a, str_b)
+    sequence_a = str_a.chars
+    sequence_b = str_b.chars
+    sequence_range = sequence_b.length
+    sequence_a.zip(sequence_b).first(sequence_range).count { |a,b| a != b }
+	end

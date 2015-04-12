@@ -1,9 +1,7 @@
-class Hamming
-	def compute(first_sequence, second_sequence)
-		distance = 0
-		first_sequence.each_char.with_index do |char, index|
-			distance += 1 if second_sequence[index] && second_sequence[index] != char
-		end
-		distance
-	end
-end
+def compute(strand1, strand2)
+    strand1
+      .chars
+      .zip(strand2.chars)
+      .select { |item| item[0] != item[1] }
+      .length
+  end

@@ -1,10 +1,6 @@
-class Hamming
-  def compute a, b 
-    sum = 0;
-    limit = a.length < b.length ? a.length : b.length
-    (0...limit).each do |i|
-      sum += 1 if a[i] != b[i]
+def compute(a, b)
+    a.each_char.each_with_index.inject(0) do |hamming, (value, index)|
+      hamming += 1 unless value == b[index]
+      hamming
     end
-    sum
   end
-end

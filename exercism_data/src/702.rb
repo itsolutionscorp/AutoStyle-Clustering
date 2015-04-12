@@ -1,7 +1,17 @@
-class Hamming
-  def compute s1, s2
-    s1.each_char.take(s2.length).each_with_index.reject do |letter, index|
-      s2[index] == letter
-    end.length
+def compute(x,y)
+    x_arr = x.split(//)
+    y_arr = y.split(//)
+
+    ctr = 0
+    idx = 0
+
+    x_arr.each do |i|
+      if y_arr[idx] != i
+        ctr = ctr + 1
+      end
+
+      idx = idx + 1
+    end
+
+    ctr
   end
-end

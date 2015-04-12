@@ -1,7 +1,4 @@
-# Create Hamming module
-class Hamming
-	# Create compute method
-	def compute (strand1, strand2)
+def compute (strand1, strand2)
 		# Iterate through each nucleobase in each strand and check if equal
 		# If not equal, increment dist to count dissimilarities
 		i = 0
@@ -14,4 +11,3 @@ class Hamming
 
 		return dist
 	end
-end

@@ -1,7 +1,10 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.each_char.with_index.reduce(0) do |mem, (nucleotide, index)|
-      mem += (nucleotide == strand2[index] ? 0 : 1)
-    end
+def compute(first, second)
+    min_length = [first.length, second.length].min
+    first = first.slice(0...min_length)
+    second = second.slice(0...min_length)
+
+    first_split = first.split('')
+    second_split = second.split('')
+
+    first_split.zip(second_split).count { |pair| pair[0] != pair[1] }
   end
-end

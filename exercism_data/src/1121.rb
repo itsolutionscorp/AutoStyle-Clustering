@@ -1,11 +1,8 @@
-class Hamming
-  def compute(dna_strand_1, dna_strand_2)
-    if dna_strand_1.length == dna_strand_2.length
-      first_strand = dna_strand_1.chars
-      second_strand = dna_strand_2.chars
-      first_strand.zip(second_strand).map { |a, b| a == b }.count(false)
-    else
-      p 'strands are not equal size'
+def compute ancestor, new
+    distance = 0
+    length = [ancestor.length, new.length].min
+    (0..(length - 1)).each do |index|
+      distance += 1 if ancestor[index] != new[index]
     end
+    distance
   end
-end

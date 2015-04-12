@@ -1,13 +1,13 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1 = strand1.chars
-    strand2 = strand2.chars
+def compute(arg1, arg2)
+    arr1 = arg1.split("")
+    arr2 = arg2.split("")
 
-    distance = 0
-    strand1.each_with_index do |nucleotide, index|
-      return 1 if strand2[index] == nil
-      distance += 1 if nucleotide != strand2[index]
+    counter = 0
+    arr1.each_with_index do |x, i|
+      if x != arr2[i]
+        counter += 1
+      end
     end
-    distance
+    return counter
+
   end
-end

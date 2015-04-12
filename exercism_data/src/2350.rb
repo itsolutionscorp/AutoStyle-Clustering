@@ -1,5 +1,7 @@
-class Hamming
-  def compute(left, right)
-    left.chars.zip(right.chars).map { |(a, b)| a == b ? 0 : 1 }.inject(:+)
+def compute(a, b)
+
+    shortest_length = [a.to_s.length, b.to_s.length].min
+
+    (0...shortest_length).count { |i| a[i] != b[i] }
+
   end
-end

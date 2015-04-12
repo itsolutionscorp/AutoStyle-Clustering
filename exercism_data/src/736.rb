@@ -1,9 +1,7 @@
-class Hamming
-  def compute(seq1,seq2)
-    res = []
-    seq1.length.times do |n|
-     res << (seq1[n] == seq2[n] ? 0:1)
+def compute(strand_one, strand_two)
+        min_length = [strand_one.length, strand_two.length].min
+
+        return (0...min_length).reduce(0) do |hamming_distance, idx|
+            hamming_distance += (strand_one[idx] != strand_two[idx]) ? 1 : 0
+        end
     end
-    sum = res.reduce(:+)
-  end
-end

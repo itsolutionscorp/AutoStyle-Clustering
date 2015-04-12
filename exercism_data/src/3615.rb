@@ -1,6 +1,7 @@
-class Hamming
-  def Hamming.compute(s1, s2)
-    raise "required same length: #{s1.length} != #{s2.length}" unless s1.length == s2.length
-    s1.chars.zip(s2.chars).count { |c1, c2| c1 != c2 }
-  end
-end
+def compute one, another
+		result = 0
+		[one.size, another.size].min.times do |i|
+			result += 1 if one[i] != another[i]
+		end
+		result
+	end

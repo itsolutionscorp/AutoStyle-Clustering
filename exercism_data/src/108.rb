@@ -1,6 +1,3 @@
-class Hamming
-  def compute(a,b)
-    c = a.split(//).zip(b.split(//))
-    c.reject { |a,b| a == b || a.nil? || b.nil?}.length
+def compute(a, b)
+    a.chars.zip(b.chars).reject { |pair| pair[1].nil? || pair[0] == pair[1] }.count
   end
-end

@@ -1,7 +1,7 @@
-module Hamming
-  def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).count do |base1, base2|
-      base2 && base1 != base2
+def compute(a, b)
+    difference = 0
+    (0...[a.size, b.size].min).each do |char|
+      difference += 1 unless a[char] == b[char]
     end
+    difference
   end
-end

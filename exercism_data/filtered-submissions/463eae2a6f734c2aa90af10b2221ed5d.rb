@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     distance = 0
     dna1.length.times do |i|
       if dna1[i] != dna2[i]
@@ -9,4 +8,3 @@ class Hamming
 
     distance
   end
-end

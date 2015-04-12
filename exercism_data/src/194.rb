@@ -1,30 +1,5 @@
-class Hamming
-
-	
-	
-	def compute(strand1,strand2)
-	  ham_count = 0
-		if strand1.length > strand2.length
-	 		for i in 0...strand2.length do
-				if strand1[i]!= strand2[i]
-				 ham_count += 1 			
-	 			end
-	 		end
-	 		
-	 		ham_count
-	 	else
-	 		for i in 0...strand1.length do
-				if strand1[i]!= strand2[i]
-				 ham_count += 1 			
-				end 
-	 		end
-	 		
-	 		ham_count
-	 	end
-	 	
-		
-	end
-
-	
-
-end
+def compute(seg1, seg2)
+    return 0 unless seg1.length == seg2.length
+    strands = seg1.chars.zip(seg2.chars)
+    strands.count{ |first, second| first != second }
+  end

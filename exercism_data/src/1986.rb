@@ -1,6 +1,7 @@
-class Hamming
-  def Hamming.compute(s1, s2)
-    raise "strings must have same length" unless s1.length == s2.length
-    s1.chars.zip(s2.chars).count { |c| c[0] != c[1] }
+def compute(s1, s2)
+    hamming = 0
+    s1.each_char do |i|
+      hamming += 1 unless s1[i] == s2[i]
+    end
+    hamming
   end
-end

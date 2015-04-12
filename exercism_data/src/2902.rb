@@ -1,20 +1,12 @@
-# = hamming.rb
-# Author::     Ricardo Gonzalez Saldivar
-# Web::        rigsald.net
-#
-# == Hamming Class
-# _Hamming_ class was designed during the
-# exercism.io exercises.
-class Hamming
-  def compute(strand1, strand2)
-    i = 0
-    total = 0
-    strand1.each_char do |c|
-      if strand2[i] != nil
-        total += 1 if c != strand2[i]
-        i += 1
-      end
-    end
-    return total
-  end
-end
+def compute(s1,s2)
+		return 0 if s1 == s2
+
+		hd = 0
+
+		s1.length.times do |i|
+			hd += 1 if s1[i] != s2[i]
+		end
+
+		return hd
+
+	end

@@ -1,8 +1,8 @@
-class Hamming
-  def compute(first,second)
-    len = first.length < second.length ? first.length : second.length
-    (0...len).map { |i|
-      first[i] == second[i] ? 0 : 1
-    }.reduce(0) {|memo,item| memo += item}
+def compute(dna_one,dna_two)
+    total = 0
+    dna_one.split('').each_with_index do |value,index|
+      break if dna_two[index].nil?
+      total+=1 if value != dna_two[index]
+    end
+    total
   end
-end

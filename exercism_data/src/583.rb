@@ -1,15 +1,9 @@
-class Hamming
-  def compute(a, b)
-    a[0...b.size].split('').reject.with_index { |c, i| c == b[i] }.size
-  end
-end
-
-# Hamming.compute('A', 'A')
-# Hamming.compute('A','G')
-# Hamming.compute('AG','CT')
-# Hamming.compute('AT','CT')
-# Hamming.compute('GGACG', 'GGTCG')
-# Hamming.compute('AGAGACTTA', 'AAA')
-# Hamming.compute('AGG', 'AAAACTGACCCACCCCAGG')
-# Hamming.compute('GATACA', 'GCATAA')
-# Hamming.compute('GGACGGATTCTG', 'AGGACGGATTCT')
+def compute(first_dna, second_dna)
+		first_arr = (first_dna.length > second_dna.length) ?  second_dna.chars : first_dna.chars
+		first_arr.each_with_index.inject(0) do |acc, (value, index)|
+			if (first_dna[index] != second_dna[index])
+				acc += 1
+			end
+		acc
+		end
+	end

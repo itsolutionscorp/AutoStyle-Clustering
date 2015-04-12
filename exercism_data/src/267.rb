@@ -1,24 +1,4 @@
-class Hamming
-	def compute(first,second)
-		diff=0
-		if first.length==second.length
-			first.length.times do |i| 
-				
-				unless first[i]==second[i]
-					
-					
-					diff=diff+1
-				end
-			end
-		else
-			if first.length>second.length
-				diff=1
-			else
-				diff=2
-			end	
-
-		end
-		diff
-	end
-	
-end
+def compute(a, b)
+        array = a.chars.each_with_index.to_a - b.chars.each_with_index.to_a
+        return array.length
+    end

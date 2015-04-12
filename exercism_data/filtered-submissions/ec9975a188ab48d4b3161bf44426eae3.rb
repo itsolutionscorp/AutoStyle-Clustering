@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a, b)
+def compute(a, b)
 		if a.length != b.length
 			raise ArgumentError "Invalid strings"
 		end
@@ -9,5 +8,3 @@ class Hamming
 		end
 		c
 	end
-	
-end

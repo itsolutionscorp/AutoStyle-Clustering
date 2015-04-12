@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     min_strand_length = [strand_a.length, strand_b.length].min
     mutations = 0
     min_strand_length.times do |i|
@@ -8,5 +6,3 @@ class Hamming
     end
     mutations
   end
-
-end

@@ -1,16 +1,8 @@
-class Hamming
-  CONST_HAM_DIS = {
-    "AA" => 0,
-    "AG" => 1,
-    "AGCT" => 2,
-    "ATCT" => 1,
-    "GGACGGGTCG" => 1,
-    "GATACAGCATAA" => 4,
-    "GGACGGATTCTGAGGACGGATTCT" => 9
-  }
+def compute(strand1, strand2)
+    difference_count = 0
+    [strand1.length, strand2.length].min.times do |i|
+      difference_count += 1 unless strand1[i] == strand2[i]
+    end
 
-  def compute(x,y)
-    ham_string = x + y
-    CONST_HAM_DIS[ham_string]
+    difference_count
   end
-end

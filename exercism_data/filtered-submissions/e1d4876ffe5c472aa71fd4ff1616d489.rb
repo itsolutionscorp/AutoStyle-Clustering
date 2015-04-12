@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     raise 'The arguments do not have the same length.' unless a.length == b.length
 
     b_chars = b.chars
@@ -9,4 +8,3 @@ class Hamming
 
     return distance
   end
-end

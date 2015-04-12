@@ -1,8 +1,9 @@
-class Hamming
-
-	def compute(a,b)
-		raise "lengths do not match" if a.length != b.length 				
-		zipped = a.chars.zip(b.chars)		
-		return zipped.select{ |(a,b)| a != b }.count				
-	end
-end
+def compute one, the_other
+    diffs = 0
+    (1..[one, the_other].map(&:length).min).each do |i|
+      if one[i-1] != the_other[i-1] then
+        diffs += 1
+      end
+    end
+    diffs
+  end

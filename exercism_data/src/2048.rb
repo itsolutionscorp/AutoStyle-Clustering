@@ -1,12 +1,5 @@
-module Hamming
-  
-  def compute(a, b)
-    length = [a,b].min_by {|strand| strand.length}.length
-    differences = 0
-    length.times do |index|
-      differences += 1 if a[index] != b[index]
-    end
-    differences
-  end
-  
-end
+def compute(strand_a, strand_b)
+		(0...strand_a.length).count do |i|
+			strand_a[i] != strand_b[i]
+		end
+	end

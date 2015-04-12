@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     ary_a = a.chars
     ary_b = b.chars
 
@@ -9,4 +8,3 @@ class Hamming
     pairs = ary_a_cropped.zip(ary_b_cropped)
     pairs.count { |x, y| x != y }
   end
-end

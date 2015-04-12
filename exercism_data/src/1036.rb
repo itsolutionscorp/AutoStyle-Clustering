@@ -1,13 +1,8 @@
-class Hamming
-  def compute(string1, string2)
-    pairs = string1.split('').zip(string2.split(''))
-    diff = 0
-    pairs.each do |pair|
-      unless pair.include? nil
-      diff += 1 if pair[0] != pair[1]
-      end
+def compute(strand_1, strand_2)
+    return 0 if strand_1.length != strand_2.length
+    count = 0
+    for i in 0..strand_1.length
+      count += 1 if strand_1[i] != strand_2[i]
     end
-    return diff
+    count
   end
-
-end

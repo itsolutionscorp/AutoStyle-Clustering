@@ -1,16 +1,15 @@
-class Hamming
-  def compute(dna1, dna2)
-    distance, i = 0, 0
-    length = [dna1.length, dna2.length].min
+def compute (dna1, dna2)
+	dna1a = dna1.split('')	
+	dna2a = dna2.split('')
 
-    while i < length
-      if dna1[i] != dna2[i]
-        distance += 1
-      end
+	zippedarray = dna1a.zip dna2a
+	count = 0
 
-      i += 1
-    end
-
-    distance
-  end
+	dna1a.each do |i|
+		if i[0] == i[1]
+			count += 1
+		else
+			count == count
+		end
+	end
 end

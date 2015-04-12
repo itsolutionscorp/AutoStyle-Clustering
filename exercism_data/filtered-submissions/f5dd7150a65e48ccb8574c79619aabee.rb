@@ -1,5 +1,4 @@
-class Hamming
-  def compute(left, right)
+def compute(left, right)
     count = 0
 
     [left.length, right.length].min.times do |ndx|
@@ -8,4 +7,3 @@ class Hamming
 
     count
   end
-end

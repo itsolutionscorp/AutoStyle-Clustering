@@ -1,5 +1,4 @@
-class Hamming
-	def compute(ham, cheese)
+def compute(ham, cheese)
 		ham = ham.split("")
 		cheese = cheese.split("")
 		error_count = 0
@@ -22,4 +21,3 @@ class Hamming
 		return error_count
 			
 	end
-end

@@ -1,13 +1,6 @@
-class Hamming
-  #str == strand versus the common abbreviation of string
-  def compute(first_str, second_str)
-    min_length = [first_str.length, second_str.length].min
-
-    hamms = 0
-    min_length.times do |i|
-      hamms += 1 if first_str[i] != second_str[i]
+def compute(strand1, strand2)
+        if strand1.length != strand2.length then
+            raise "Error: strand length must be equal"
+        end
+        (0..strand1.length).reject {|i| strand1[i] == strand2[i]}.length
     end
-    hamms
-  end
-end
-#hamms may or may not be a beer reference...

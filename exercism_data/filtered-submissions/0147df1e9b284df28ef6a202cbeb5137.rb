@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(stringA, stringB)
+def compute(stringA, stringB)
 		hamming = 0
 		
 		stringA.split("").each_with_index do |char, index|
@@ -13,6 +11,3 @@ class Hamming
 		end
 		return hamming
 	end
-
-
-end

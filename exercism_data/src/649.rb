@@ -1,11 +1,10 @@
-class Hamming
-  def compute(strand, other_strand)
-    diff = 0
-
-    [strand.length, other_strand.length].min.times do |ndx|
-      diff += 1 if strand[ndx] != other_strand[ndx]
+def compute(x, y)
+    compare = [x.length, y.length].min
+    distance = 0
+    compare.times do |check|
+      if x[check] != y[check]
+        distance += 1
+      end
     end
-
-    diff
+    distance
   end
-end

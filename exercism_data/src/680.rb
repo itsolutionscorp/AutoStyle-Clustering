@@ -1,11 +1,6 @@
-class Hamming
+def compute(string1, string2)
+    return 0 if string1 == string2
 
-  def compute(strand1, strand2)
-    hamming_difference = 0
-    strand1.chars.zip(strand2.chars).each do |a1,a2|
-      break if a1.nil? or a2.nil?
-      hamming_difference += 1 if a1 != a2
-    end
-    hamming_difference
+    comparison = string1.chars.zip(string2.chars).map {|x,y| x==y}
+    return comparison.count(false)
   end
-end

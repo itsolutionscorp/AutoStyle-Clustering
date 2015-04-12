@@ -1,10 +1,7 @@
-class Hamming
-  def compute(strand1, strand2)
-    shortest_length = [strand1.length, strand2.length].min
-
-    (0...shortest_length).reduce(0) do |sum, i|
-      sum += 1 if strand1[i] != strand2[i]
-      sum
-    end
+def compute(strand_a, strand_b)
+    short, long = [strand_a, strand_b]
+                  .map { |s| s.split('') }
+                  .sort{ |a , b| a.size <=> b.size }
+    short.zip(long)
+         .count { |m, n| m != n }
   end
-end

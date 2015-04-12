@@ -1,5 +1,4 @@
-class Hamming
-  def compute a, b
+def compute a, b
     count = 0
 
     [a.length, b.length].min.times do |i|
@@ -10,4 +9,3 @@ class Hamming
 
     count
   end
-end

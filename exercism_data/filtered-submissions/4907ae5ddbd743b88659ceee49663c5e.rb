@@ -1,9 +1,4 @@
-#!/usr/bin/env ruby
-# hamming test
-
-class Hamming
-  
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     a = strand_a.split('')
     b = strand_b.split('')
     length_diff = 0
@@ -25,5 +20,3 @@ class Hamming
     
     return hamming_distance
   end
-
-end

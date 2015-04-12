@@ -1,7 +1,14 @@
-class Hamming
-  class << self
-    def compute seq_a, seq_b
-      seq_a.split('').zip(seq_b.split('')).select{ |base| base[0] != base[1] }.size
-    end
-  end
-end
+def compute(left, right)
+	
+		diff = 0
+		#for i in 0..left.length
+		i = 0
+		while (i < left.length && i < right.length) 
+			if(left[i] != right[i])
+				diff+=1
+			end
+			i += 1
+		end
+		
+		diff
+	end

@@ -1,9 +1,4 @@
-# Calculates Hamming distance - an integer represented by the number of DNA mutations
-
-class Hamming
-
-  # Function that computes Hamming distance
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
 
     # Find shorter length and use that
     length = [dna1.length, dna2.length].min
@@ -16,5 +11,3 @@ class Hamming
 
     return distance
   end
-
-end

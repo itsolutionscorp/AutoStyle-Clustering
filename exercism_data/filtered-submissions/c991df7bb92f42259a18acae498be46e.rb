@@ -1,6 +1,4 @@
-class Hamming  
-  
-  def compute(string1, string2)
+def compute(string1, string2)
     result = []
     char_index = 0
     longer  = string1.length > string2.length ? string1 : string2
@@ -11,5 +9,3 @@ class Hamming
     end
     result.inject(:+) ? result.inject(:+) : 0
   end
-
-end

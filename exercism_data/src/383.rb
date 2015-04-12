@@ -1,11 +1,7 @@
-class Hamming
-  def compute(a, b)
-    count = 0
-    a.split('').each_with_index do |x, i|
-      if x != b[i]
-        count += 1
-      end
-    end
-    count
+def compute(fst, snd)
+    fst.split(//)
+      .zip(snd.split(//))
+        .delete_if {|_pair| _pair.last.nil?}
+          .keep_if {|_pair| _pair.first != _pair.last}
+          .count
   end
-end

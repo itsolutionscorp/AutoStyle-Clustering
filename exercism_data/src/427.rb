@@ -1,5 +1,10 @@
-class Hamming
-  def compute(left, right)
-    left.chars.zip(right.chars).select{|e| e[0] != e[1]}.count
+def compute(x, y)
+    length = [x.length, y.length].max
+    diff = 0
+    (0...length).each do |i|
+      if x[i] != y[i]
+        diff += 1
+      end
+    end
+    diff
   end
-end

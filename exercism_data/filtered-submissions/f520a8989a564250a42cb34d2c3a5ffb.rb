@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(s1, s2)
+def compute(s1, s2)
     distance = 0
     strand_1 = s1.to_s.downcase.chars
     strand_2 = s2.to_s.downcase.chars
@@ -13,5 +11,3 @@ class Hamming
 
     distance
   end
-
-end

@@ -1,15 +1,12 @@
-require 'pry'
+def compute(x,y)
+    x_arr = x.split(//)
+    y_arr = y.split(//)
 
-class Hamming
-  def compute(first_strand, second_strand)
+    ctr = 0
 
-    second_strand_chars = second_strand.chars
+    x_arr.each_with_index do |i,j|
+      ctr += 1 unless y_arr[j].eql?(i)
+    end
 
-    first_strand
-      .chars
-      .each_with_index
-      .map {|char, index| char != second_strand.chars[index] }
-      .select {|different| different }
-      .count
+    ctr
   end
-end

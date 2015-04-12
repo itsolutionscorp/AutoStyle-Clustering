@@ -1,11 +1,13 @@
-class Hamming
-  def compute(a, b)
-    count = 0
-    a = a.split('')
-    b = b.split('')
-    a.size.times do |x|
-      count += 1 if !a[x].eql? b[x]
+def compute(s, t)
+    s_array = s.split(//)
+    t_array = t.split(//)
+    index = 0
+    new_array = []
+    s_array.each do |i| 
+      if (i != t_array[index] || nil ) && (t_array[index] != nil)
+        new_array << i
+      end
+      index += 1
     end
-    count
+    new_array.length
   end
-end

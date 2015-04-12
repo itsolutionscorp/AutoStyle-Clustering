@@ -1,23 +1,10 @@
-class Hamming
-
-  def compute(string1, string2)
-
+def compute(a, b)
+    i = 0
     counter = 0
-
-    if string1.length < string2.length
-      string = string1
-    else
-      string = string2
+    a.each_char do |n|
+      break if b[i] == nil
+      counter += 1 if n != b[i]
+      i += 1
     end
-
-    string.length.times do |index|
-      if string1[index] != string2[index]
-        counter += 1
-      end
-    end
-
     counter
-
   end
-
-end

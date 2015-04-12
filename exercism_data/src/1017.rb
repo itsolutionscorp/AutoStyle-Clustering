@@ -1,10 +1,11 @@
-class Hamming
-  def compute(mutation, normal)
-    mutations = 0
-    min_len = [mutation.length, normal.length].min
-    (0..min_len-1).each do |num|
-      mutations += 1 if mutation[num] != normal[num]
+def compute(a, b)
+       
+       array_a = a.split("")
+       array_b = b.split("")
+       zipped_array = array_a.zip(array_b)
+
+       zipped_array.count { |a, b|
+           a && b && a != b
+       }
+
     end
-    mutations
-  end
-end

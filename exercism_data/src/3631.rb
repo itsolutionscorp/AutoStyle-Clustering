@@ -1,12 +1,16 @@
-class Hamming
-  def compute(s1, s2)
-    # distance = 0
-    # 0.upto([s1.size,s2.size].min) do |i|
-    #   distance = distance + 1 unless s1[i] == s2[i]
-    # end
-    # distance
-    0.upto([s1.size, s2.size].min - 1).count do |i|
-      s1[i] != s2[i]
-    end + (s1.size - s2.size).abs
+def compute(first_nucleotide_strand, second_nucleotide_strand)
+    first_set = first_nucleotide_strand.chars
+    second_set = second_nucleotide_strand.chars
+
+    difference_count = 0
+    strand_position = 0
+
+    first_set.each do |nucleotide_to_compare|
+      if nucleotide_to_compare != second_set[strand_position]
+        difference_count += 1 unless second_set[strand_position] == nil
+      end
+      strand_position += 1
+    end
+
+    difference_count
   end
-end

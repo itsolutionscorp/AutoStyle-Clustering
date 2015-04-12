@@ -1,12 +1,13 @@
-class Hamming
-	def compute(string1, string2)
-		strand_length = [string1.length, string2.length].min
-		hamming_count = 0
-		(0...strand_length).each do |i|
-			if string1[i] != string2[i]
-				hamming_count += 1
-			end
-		end
-		hamming_count
-	end
-end	
+def compute(string1, string2)
+    enum1 = string1.each_char
+    enum2 = string2.each_char
+    count = 0
+    begin
+      loop do
+        count +=1 if enum1.next != enum2.next
+      end
+    rescue StopIteration
+    end
+    return count
+  end
+end

@@ -1,7 +1,11 @@
-class Hamming
-  def compute(left, right)
-    left.chars.zip(right.chars).reduce(0) do |sum, value|
-      value[0] != value[1] ? 1 + sum : sum
+def compute first, other
+    count = 0
+    minimum = [first.size, other.size].min
+
+    (0...minimum).each do |index|
+      count += 1 if first[index] != other[index]
     end
+
+    count
   end
 end

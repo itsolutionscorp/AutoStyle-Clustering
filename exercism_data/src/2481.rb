@@ -1,15 +1,5 @@
-class Hamming
-
-  def compute(a, b)
-    a = a.split('')
-    b = b.split('')
-
-    counter = 0
-    a.each_with_index do |x, i|
-      if x != b[i]
-        counter += 1
-      end
-    end
-  return counter
+def compute(seg1, seg2)
+    return 0 unless seg1.length == seg2.length
+    strands = seg1.chars.zip(seg2.chars)
+    strands.collect{ |first, second| 'diff' if first != second }.count('diff')
   end
-end

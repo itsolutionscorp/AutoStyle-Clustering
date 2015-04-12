@@ -1,17 +1,3 @@
-class Hamming
-  def compute(s,t)
-    s = s.chars
-    t = t.chars
-
-    raise 'strings must be equal length' unless s.length == t.length
-
-    distance = 0
-    s.length.times do |i|
-      unless s[i] == t[i]
-        distance += 1
-      end
-    end
-
-    distance
+def compute(a, b)
+    [a.chars, b.chars].transpose.map { |x, y| x == y ? 0 : 1 }.reduce(:+)
   end
-end

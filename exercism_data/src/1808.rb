@@ -1,15 +1,22 @@
-class Hamming
+def compute(input1, input2)
+    attr_accessor :hamming_distance, :max_length
+    
+    hamming_distance = 0
+    dna1 = input1.split('')
+    dna1_length = dna1.length
+    dna2 = input2.split('')
+    dna2_length = dna2.length
 
-  def compute(strand_a, strand_b)
-    distance = 0
-    length = [strand_a.length, strand_b.length].min
-
-    0.upto(length - 1) do |i|
-      if strand_a[i] != strand_b[i]
-        distance += 1
-      end
+    if dna1_length == dna2_length
+    	max_length = dna1_length
+    else
+      dna1_length < dna2_length ? max_length = dna1_length : max_length = dna2_length
     end
-    distance
-  end
 
-end
+    (0...max_length).each do |i|
+      if dna1[i] != dna2[i]
+        hamming_distance+=1
+      end      
+    end
+    hamming_distance
+  end

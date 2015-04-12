@@ -1,8 +1,16 @@
-class Hamming
-  def compute(strand_one, strand_two)
-    strand_one.split('').zip(strand_two.split('')).select do | strand_pair |
-      (!!strand_pair[0] && !!strand_pair[1]) &&
-      (!strand_pair[0].eql? strand_pair[1])
-    end.length
+def compute( s1, s2 )
+    s1array = s1.split("")
+    s2array = s2.split("")
+    length = s1array.length
+    count = 0
+    if s1array.length > s2array.length
+        length = s2array.length 
+    end
+    if s1array.each_with_index { |item, index| 
+        if index < length && s2array[index] != item
+          count += 1
+        end
+      }
+    end
+    count
   end
-end

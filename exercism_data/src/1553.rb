@@ -1,7 +1,11 @@
-class Hamming
-  def compute(strand, other_strand)
-
-    [strand.length, other_strand.length].min.times.count { |n| strand[n] != other_strand[n] }
-
+def compute(seq1, seq2)
+    count = 0
+    if seq1.length == seq2.length
+      seq1.split("").map!.with_index do |n, i|
+        if n != seq2[i]
+          count += 1
+        end
+      end
+    end
+    count
   end
-end

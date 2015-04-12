@@ -1,12 +1,7 @@
-class Hamming
-  def compute(str1, str2)
-    case str1.length <=> str2.length
-    when -1
-      str2 = str2[0, str1.length]
-    when 1
-      str1 = str1[0, str2.length]
+def compute(first, second)
+    count = 0
+    first.chars.to_a.each_with_index do |c, i|
+      count += 1 unless c == second[i]
     end
-
-    str1.chars.zip(str2.chars).keep_if { |x| x.first != x.last}.length
+    count
   end
-end

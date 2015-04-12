@@ -1,21 +1,18 @@
-class Hamming
-
-  def compute(dna1, dna2)
-
-    distance = 0
-
-    dna1.length.times do |check|
-
-      index = check - 1
-
-      if dna1[index] != dna2[index]
-        distance += 1
-      end
-
+def compute(x, y)
+    hamdist = 0
+    if x.length <= y.length
+      nuc_length = x.length
+    else
+      nuc_length = y.length
     end
-
-    distance
-
+    i = 0
+    while i < nuc_length
+      if x[i] == y[i]
+        hamdist = hamdist + 0
+      else
+        hamdist = hamdist + 1
+      end
+      i += 1
+    end
+    hamdist
   end
-
-end

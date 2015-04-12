@@ -1,15 +1,14 @@
-class Hamming
+def compute(dna1, dna2)
+    distance, i = 0, 0
+    length = [dna1.length, dna2.length].min
 
-  def compute string1, string2
-    distance = 0
-    string1.length < string2.length ? length = string1.length : length = string2.length
-
-    length.times do |i|
-      if string1[i] != string2[i]
+    while i < length
+      if dna1[i] != dna2[i]
         distance += 1
       end
-    end
-    return distance
-  end
 
-end
+      i += 1
+    end
+
+    distance
+  end

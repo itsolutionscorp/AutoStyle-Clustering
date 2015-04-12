@@ -1,9 +1,3 @@
-class Hamming
-  def compute(strand, other_strand)
-    strand.each_char.with_index.reduce(0) do |distance, char_with_index|
-      char, i = *char_with_index
-      distance += 1 unless char == other_strand[i]
-      distance
-    end
+def compute(strand_1, strand_2)
+    (0...strand_1.length).count { |index| strand_1[index] != strand_2[index] }
   end
-end

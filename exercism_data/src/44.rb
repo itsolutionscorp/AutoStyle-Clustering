@@ -1,8 +1,6 @@
-class Hamming
-  def compute(a,b)
-    return if a.length != b.length
-    diffs = 0
-    a.chars.each_with_index { |v,i| diffs += b[i] == v ? 0 : 1 }
-    diffs
-  end
-end
+def compute(seq1, seq2)
+		num_elm = [seq1.size, seq2.size].min
+		(0...num_elm).reduce(0) { |total, value|
+			seq1[value] != seq2[value] ? total+=1 : total
+		}
+	end

@@ -1,19 +1,12 @@
-class Hamming
-  def compute(string1, string2)
-    num_differences = 0
-
-    shortest_length = [string1.length, string2.length].min
-    string1 = string1[0...shortest_length]
-    string2 = string2[0...shortest_length]
-
-    shortest_length.times do |index|
-      letter1 = string1[index]
-      letter2 = string2[index]
-      if letter1 != letter2
-        num_differences += 1
+def compute( s1, s2 )
+    s1array = s1.split("")
+    s2array = s2.split("")
+    length = [s1array.length, s2array.length].min
+    count = 0
+    length.times do |index|
+      if s2array[index] != s1array[index]
+        count += 1
       end
     end
-
-    num_differences
+    count
   end
-end

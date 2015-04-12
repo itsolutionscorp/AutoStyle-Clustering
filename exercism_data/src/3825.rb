@@ -1,13 +1,6 @@
-class Hamming
-    def compute (first, second)
-        count = 0
-        firstArr = first.split("")
-        secondArr = second.split("")
-
-        firstArr.each_with_index { |c, i| 
-            count += 1 if secondArr[i] != c
-        }
-
-        return count
+def compute(first_strand, second_strand)
+    first_strand.split('').each_with_index.inject(0) do |count, (char, index)|
+      count += 1 if char != second_strand[index]
+      count
     end
-end
+  end

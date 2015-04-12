@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     size = [a.length, b.length].max
     count = 0
     size.times do |i|
@@ -10,4 +9,3 @@ class Hamming
 
     count
   end
-end

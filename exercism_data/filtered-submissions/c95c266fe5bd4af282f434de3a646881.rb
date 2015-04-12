@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute (dna1, dna2)
+def compute (dna1, dna2)
 
     dist = 0
 
@@ -12,5 +10,3 @@ class Hamming
 
     return dist
   end
-
-end

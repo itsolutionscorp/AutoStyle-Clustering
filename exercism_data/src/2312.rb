@@ -1,9 +1,9 @@
-class Hamming
-  def compute(strand, another_strand)
-    count = 0
-    (0...(strand.length)).each do |i|
-      count += 1 unless strand[i] == another_strand[i]
+def compute(string1, string2)
+    sum = 0
+    if string2.length == string1.length
+      (0...[string1.length, string2.length].min).count do |i|
+        sum += 1 if string1[i] != string2[i]
+      end
     end
-    count
+    sum
   end
-end

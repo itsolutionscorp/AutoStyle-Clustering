@@ -1,7 +1,3 @@
-class Hamming
-  def compute(str1, str2)
-    (0...[str1.length, str2.length].min).count do |i|
-      str1[i] != str2[i]
-    end
+def compute(first_string, second_string)
+    first_string.chars.zip(second_string.chars).count { |nuc_a, nuc_b| nuc_a != nuc_b }
   end
-end

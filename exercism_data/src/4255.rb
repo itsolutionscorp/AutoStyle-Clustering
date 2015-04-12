@@ -1,23 +1,10 @@
-class Hamming 
+def compute(a, b)
+    length = [a.length, b.length].min
+    differences = 0
 
-  def compute (str1, str2)
-
-    if str1.length != str2.length
-      return 0
+    for i in (0..length)
+      differences += 1 if a[i] != b[i]
     end
 
-    sum = 0
-
-    for i in 0..str1.length
-
-      if str1[i] != str2[i]
-        sum +=1
-      end
-    
-    end
-
-    return sum
-
+    return differences
   end
-
-end

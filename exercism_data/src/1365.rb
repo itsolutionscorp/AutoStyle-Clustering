@@ -1,9 +1,11 @@
-class Hamming
-  def compute(x, y)
-    a = x.chars
-    b = y.chars
-    count = 0
-    a.each_with_index { |v, i| count += 1 unless v.eql?(b[i]) }
-    count
+def compute(s1, s2)
+    distance = 0
+
+    (0..[s1.length, s2.length].min).each do |i|
+      if s1[i] != s2[i]
+        distance += 1
+      end
+    end
+
+    return distance
   end
-end

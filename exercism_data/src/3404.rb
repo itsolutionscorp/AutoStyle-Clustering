@@ -1,7 +1,8 @@
-class Hamming
-
-  def compute (str1, str2)
-    length = [str1.length, str2.length].min
-    (0...length).reject { |idx| str1[idx] == str2[idx] }.size
+def compute(strand_1, strand_2)
+    distance = 0
+    length = strand_1.length
+    for i in 0..length
+      distance+= 1 if strand_1[i] != strand_2[i]
+    end
+    distance
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(x, y)
+def compute(x, y)
     if x !=y
       xs = x.split(//)
       ys = y.split(//)
@@ -14,4 +13,3 @@ class Hamming
       return 0
     end
   end
-end

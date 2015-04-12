@@ -1,14 +1,9 @@
-class Hamming
-    def compute(strandA,strandB)
-		if strandA.length != strandB.length
-		end
-	compares = 0
-	
-	for i in 0..strandA.length
-		if strandA.getbyte(i) != strandB.getbyte(i) then
-			compares+=1
-			end
-		end
-		return compares
+def compute(firstVal, secondVal)
+    differences = 0
+    firstVal.each_char.with_index do |char, i|
+      if char != secondVal[i]
+        differences += 1
+      end
     end
- end
+    differences
+  end

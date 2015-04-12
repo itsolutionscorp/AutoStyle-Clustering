@@ -1,7 +1,4 @@
-# Hamming Computer
-# Demannu 9/29/2014
-class Hamming
-	def compute(seqone, seqtwo)
+def compute(seqone, seqtwo)
 		oneSplit = seqone.scan(/./)
 		twoSplit = seqtwo.scan(/./)
 		count = 0
@@ -18,4 +15,3 @@ class Hamming
 		end
 		return errors
 	end
-end

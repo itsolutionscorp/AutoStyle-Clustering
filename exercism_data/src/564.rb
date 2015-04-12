@@ -1,15 +1,23 @@
-class Hamming
-  def compute(control, mutant)
-    control_dna = control.chars
-    mutant_dna  =  mutant.chars
+def compute(s1, s2)
 
-    compare_length = [control_dna.length, mutant_dna.length].min - 1
-    discrepancy_count = 0
+    i, distance = 0, 0
 
-    (0..compare_length).each do |n|
-      discrepancy_count += 1 if control_dna[n] != mutant_dna[n]
+    if s1.length != s2.length
+      if s1.length < s2.length
+        s2 = s2[0...(s1.length)]
+      else
+        s1 = s1[0...(s2.length)]
+      end
     end
 
-    discrepancy_count
+    puts s1
+    puts s2
+
+    while i < s1.length
+      if s1[i] != s2[i]
+        distance += 1
+      end
+        i += 1
+    end
+    distance
   end
-end

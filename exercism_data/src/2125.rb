@@ -1,13 +1,8 @@
-#!/usr/bin/env ruby
+def compute string_a, string_b
+    nucleotides_a = string_a.split(//)
+    nucleotides_b = string_b.split(//)
+    duplex = nucleotides_a.zip(nucleotides_b)
 
-class Hamming
-  def compute(a, b)
-    count = 0
-    a = a.split('')
-    b = b.split('')
-    a.size.times do |x|
-      count += 1 if !a[x].eql? b[x]
-    end
-    count
+    diffs = duplex.map { |nucleotide| nucleotide[0] == nucleotide[1] ? 0 : 1 }
+    diffs.reduce(:+)
   end
-end

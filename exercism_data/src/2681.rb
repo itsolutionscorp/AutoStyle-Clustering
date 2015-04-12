@@ -1,24 +1,9 @@
-class Hamming
-
-  def compute(n1, n2)
-
-    n1_array = n1.split("")
-    n2_array = n2.split("")
-
-    distance = 0
-
-    n1_array.length.times do |check|
-
-      index = check - 1
-
-      if n1_array[index] != n2_array[index]
-        distance += 1
-      end
-
+def compute(strand_one, strand_two)
+    strands = [strand_one, strand_two].sort_by!(&:length)
+    dif = 0
+    (0..strands.first.length-1).each do |c|
+      return dif if strands.last.length < c
+      dif += 1 if strands.first[c] != strands.last[c]
     end
-
-    return distance
-
+    dif
   end
-
-end

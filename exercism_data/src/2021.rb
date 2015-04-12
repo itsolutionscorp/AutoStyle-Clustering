@@ -1,7 +1,13 @@
-class Hamming
-	def compute(dna1, dna2)
-		hamming_distance = 0
-		dna1.size.times { |i| hamming_distance += 1 if (dna1[i] != dna2[i]) }
-		hamming_distance
-	end
-end
+def compute(a,b)
+    arr1 = a.split('')
+    arr2 = b.split('')
+    count = 0
+    
+    arr1.length.times do |i|
+      if arr1[i] != arr2[i]
+        count = count + 1
+      end
+    end
+    
+    return count
+  end

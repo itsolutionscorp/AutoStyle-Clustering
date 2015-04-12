@@ -1,5 +1,5 @@
-class Hamming
-	def compute(one, two)
-		return 1
-	end
-end
+def compute(first_strand, second_strand)
+    (0..first_strand.length).count do |x|
+      first_strand[x] != second_strand[x]
+    end
+  end

@@ -1,7 +1,10 @@
-class Hamming
-
-  def compute(str1, str2)
-    (0...([str1.length, str2.length].max)).each.count { |x| str1[x] != str2[x] }
-  end
- 
-end
+def compute (strand1, strand2)
+			position=0
+			Hamming=0
+			while (a=strand1[position]) && (b = strand2[position])
+				Hamming = Hamming+1 unless a==b
+				position +=1
+			end
+			Hamming
+		end
+	end

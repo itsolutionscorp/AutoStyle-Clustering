@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     min = [first.length, second.length].min
     first[0, min].unpack('C*')
                   .zip(second[0, min]
@@ -8,4 +7,3 @@ class Hamming
                   .reject {|x| x == 0}
                   .length
   end
-end

@@ -1,5 +1,7 @@
-class Hamming
-  def compute(str1, str2)
-    str1.chars.zip(str2.chars).count { |e| e[1] && e[0] != e[1] }
+def compute(strand, other_strand)
+    strand = strand.scan(/\w/)
+    other_strand = other_strand.scan(/\w/)
+    strand.each.with_index.count do |char, index|
+      char != other_strand[index]
+    end
   end
-end

@@ -1,6 +1,3 @@
-class Hamming
-  def compute(first, second)
-    pairs = first.codepoints.zip(second.codepoints)
-    pairs.count { |x, y| x != y  }
+def compute(first, second)
+    first.chars.zip(second.chars).reject { |pair| pair[0].eql?(pair[1]) }.length
   end
-end

@@ -1,23 +1,11 @@
-class Hamming
+def compute(a,b)
+			# if the strings are the same no need for further evaluation
+			return a <=> b if (a <=> b) == 0
 
-  def compute(strand_a, strand_b)
-    difference_count = 0
-    strand_a_array = strand_a.split('')
-    strand_b_array = strand_b.split('')
-    smaller_array = strand_a_array
-    comparison_array = strand_b_array
-    if strand_b_array.size < strand_a_array.size
-      smaller_array = strand_b_array
-      comparison_array = strand_a_array
-    end
-    iteration_count = 0
-    smaller_array.each do |base|
-      if base != comparison_array[iteration_count]
-        difference_count += 1
-      end
-      iteration_count += 1
-    end
-    difference_count
-  end
+			h = 0
+			a.chars.each.with_index do | char, i |
+				h += 1 if char != b.split('')[i]
+			end
 
-end
+			h
+		end

@@ -1,13 +1,6 @@
-class Hamming
-
-  def compute(search_token, search_against)
-    mod_search = search_against[0, search_token.length].chars
-    mod_token = search_token[0,search_against.length].chars
-
-    result = 0
-    mod_token.each_with_index do |x,index|
-      result += 1 if x != mod_search[index]
-    end
-    result
-  end
-end
+def compute(seq1,seq2)
+		result = 0
+		length = [seq1.length,seq2.length].min - 1
+		(0..length).each { |index| result += 1 if seq1[index] != seq2[index] }
+		result
+	end

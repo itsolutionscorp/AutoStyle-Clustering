@@ -1,7 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.length.times.count do |i|
-      strand1[i] != strand2[i]
-    end
+def compute(item_a, item_b)
+    pairs = item_a.chars.zip(item_b.chars)
+    pairs.count { |(a, b)| a != b }
   end
-end

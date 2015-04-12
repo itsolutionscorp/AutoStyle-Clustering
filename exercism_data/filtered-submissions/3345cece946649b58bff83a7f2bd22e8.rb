@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str_a, str_b)
+def compute(str_a, str_b)
     mismatches = 0
     comparison_length = str_a.size < str_b.size ? str_a.size : str_b.size
     comparison_length.times do |n|
@@ -8,4 +7,3 @@ class Hamming
 
     mismatches
   end
-end

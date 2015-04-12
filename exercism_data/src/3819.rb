@@ -1,8 +1,3 @@
-class Hamming
-  def compute first, second
-    trimmed_array = first.split('').take(second.length)
-    trimmed_array.each_with_index.reject do |letter, index|
-      second[index] == letter
-    end.count
+def compute(a,b)
+    [a,b].map(&:chars).inject(&:zip).select{|x| x.first != x.last}.length
   end
-end

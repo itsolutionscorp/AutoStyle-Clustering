@@ -1,11 +1,7 @@
-class Hamming
-  def compute(a, b)
-    distance = 0
-    a.each_char.with_index do |char, index|
-      break if index >= b.length
-      distance += 1 if char != b[index]
-    end
+def compute(a, b)
+    return nil unless a.length == b.length
 
-    distance
+    pairs = a.split('').zip(b.split(''))
+    differences = pairs.select {|pair| pair[0] != pair[1]}
+    differences.length
   end
-end

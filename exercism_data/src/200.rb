@@ -1,7 +1,5 @@
-class Hamming
-  def compute(seg1, seg2)
-    return 0 unless seg1.length == seg2.length
-    strands = seg1.chars.zip(seg2.chars)
-    strands.count{ |first, second| first != second }
+def compute(strand1, strand2)
+    min = [strand1.length, strand2.length].min
+    (0...min).count { |base| strand1[base] != strand2[base] }
   end
 end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     diff = 0
 
     strand_1.length.times do |i|
@@ -9,4 +8,3 @@ class Hamming
 
     return diff
   end
-end

@@ -1,12 +1,11 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    count = 0
-    i = 0
-    short_strand = [strand_a.length, strand_b.length].min
-    while i < short_strand
-      count += 1 if strand_a[i] != strand_b[i]
-      i += 1
+def compute(first, second)
+    first_array = first.chars
+    second_array = second.chars
+
+    counter = 0
+
+    first_array.each_with_index do |letter, count|
+      counter += 1 if letter != second_array[count]
     end
-    count
+    counter
   end
-end

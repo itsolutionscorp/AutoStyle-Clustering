@@ -1,5 +1,4 @@
-class Hamming
-	def compute(x,y)
+def compute(x,y)
 		_score = 0
 		if x.length != y.length
 			puts "You are comparing differently lengthed strings, please try again."
@@ -16,4 +15,3 @@ class Hamming
 		end
 		_score
 	end
-end

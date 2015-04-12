@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(original, mutation)
+def compute(original, mutation)
     score = 0
     (0..[original.length, mutation.length].min - 1).each do |index|
       if original[index] != mutation[index]
@@ -9,4 +7,3 @@ class Hamming
     end
     score
   end
-end

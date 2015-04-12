@@ -1,7 +1,2 @@
-class Hamming
-
-  def compute(a, b)
-    a.size.times.count { |n| a[n] != b[n] }
-  end
-
-end
+def compute(a,b)
+    a.chars.zip(b.chars).take([a.length, b.length].min).select { |(a,b)| a!=b }.length end

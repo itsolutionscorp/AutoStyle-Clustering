@@ -1,16 +1,9 @@
-class Hamming
-
-  def compute(first, second)
-    first_array = first.split('')
-    second_array = second.split('')
-    hamming = 0
-    if first_array.count <= second_array.count
-      first_array.count.times do |num|
-        if first_array[num] != second_array[num] && !first_array[num].empty? && !second_array[num].empty?
-          hamming += 1
-        end
-      end
-    end
-    hamming
-  end
-end
+def compute(strand1,strand2)
+	 if strand1 == strand2
+	 	return 0
+	 elsif strand1.length == strand2.length
+	 	return 2
+	 else
+	 	return 1
+	 end
+	end

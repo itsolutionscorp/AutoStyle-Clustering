@@ -1,13 +1,12 @@
-class Hamming
-  def compute(left, right)
+def compute(strand_left, strand_right)
+    strand_left_list = strand_left.chars
+    strand_right_list = strand_right.chars
 
-    ln = [left.length, right.length].min
-
-    l_chars =  left[0...ln].chars
-    r_chars = right[0...ln].chars
-
-    l_chars.zip(r_chars)
-           .select { |l,r| l != r }
-           .count
+    differences = 0
+    strand_left_list.each_index do |i|
+      if strand_left_list[i] != strand_right_list[i]
+        differences = differences + 1
+      end
+    end
+    differences
   end
-end

@@ -1,10 +1,11 @@
-# class Hamming
-class Hamming
-  def compute(a, b)
-    hamming_distance = 0
-    [b.length, a.length].min.times do |i|
-      hamming_distance += 1 if a[i] != b[i]
-    end
-    hamming_distance
-  end
-end
+def compute(arg1, arg2)
+		# Counts the number of positions where arg1 and arg2 differ.
+		# Assumes they are of equal length.
+		ham = 0
+		arg1.length.times do |count|
+			if arg1[count] != arg2[count]
+				ham += 1
+			end
+		end
+		return ham
+	end

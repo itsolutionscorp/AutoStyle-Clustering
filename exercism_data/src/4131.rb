@@ -1,10 +1,5 @@
-class Hamming
-  def compute(string1,string2)
-    counter = 0
-    string1.split('').each_with_index do |char,index|
-      return counter if index >= string2.length
-      counter += 1 unless string1[index] == string2[index]
+def compute(strand1, strand2)
+    strand1.chars.zip(strand2.chars).reduce(0) do |distance, bases|
+      distance += (bases[0] <=> bases[1]).abs
     end
-    counter
   end
-end

@@ -1,11 +1,6 @@
-class Hamming
-  class << self	
-    def compute(x,y)
-      xarray = x.split(//)
-      yarray = y.split(//)
-
-      xarray.zip(yarray).delete_if {| a, b | a == nil || b == nil }.count { | a, b | a != b }
-
+def compute(strand1, strand2)
+    (0...[strand1.size, strand2.size].min).count do |i|
+      strand1[i] != strand2[i]
     end
   end
 end

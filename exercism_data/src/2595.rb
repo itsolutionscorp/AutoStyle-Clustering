@@ -1,20 +1,3 @@
-class Hamming 
-    def compute(h1,h2)
-        
-        if h1.length > h2.length
-            strand_length = h2.length
-        else 
-            strand_length = h1.length
-        end
-        
-        hamming_distance = 0;
-
-        strand_length.times do |i|
-            if h1[i] != h2[i] 
-                hamming_distance+=1
-            end
-        end
-        
-        hamming_distance
-    end
-end
+def compute(dna1, dna2)
+    dna1.each_char.zip(dna2.each_char).select{ |s1, s2| s1 != s2 }.length
+  end

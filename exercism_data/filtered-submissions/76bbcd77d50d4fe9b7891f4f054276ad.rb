@@ -1,6 +1,4 @@
-class Hamming
-	
-	def compute (string_a, string_b)
+def compute (string_a, string_b)
 		distance = 0
 		min_length = [string_a.length, string_b.length].min
 		min_length.times do |i|
@@ -8,7 +6,3 @@ class Hamming
 		end
 		distance
 	end
-end
-
-	
-		

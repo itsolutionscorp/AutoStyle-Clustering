@@ -1,6 +1,4 @@
-require 'pry'
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     size = [s1.size, s2.size].min
 
     distance = 0
@@ -9,4 +7,3 @@ class Hamming
     end
     distance
   end
-end

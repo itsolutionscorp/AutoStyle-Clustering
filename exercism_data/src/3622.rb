@@ -1,15 +1,7 @@
-class Hamming
-
-  def compute(dna1, dna2)
-    mutations = 0
-
-    dna1.chars.each_with_index do |x, index|
-      unless x.nil? || dna2[index].nil?
-        mutations += 1 if x != dna2[index]
-      end
+def compute(strand1, strand2)
+    count = 0
+    strand1.chars.each_with_index do |x, index|
+      count +=1 if strand2[index] && x != strand2[index]
     end
-
-    mutations
+    count
   end
-
-end

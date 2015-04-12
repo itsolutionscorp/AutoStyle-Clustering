@@ -1,8 +1,5 @@
-class Hamming
-  def compute(a, b)
-    mutations = a.chars.zip(b.chars).select do |left, right|
-      !right.nil? && left != right
-    end
-    mutations.length
-  end
-end
+def compute(strand1,strand2)
+		(0...[strand1.length,strand2.length].min).count do |i|
+			strand1[i] != strand2[i]
+		end
+	end

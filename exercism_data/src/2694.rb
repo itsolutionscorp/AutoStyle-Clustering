@@ -1,8 +1,10 @@
-module Hamming
-  def compute(strand_a, strand_b)
-    unless strand_a.length == strand_b.length
-      raise ArgumentError.new 'Strands must be of equal length'
+def compute(a, b)
+    return 0 if a == b
+    shortestlength = [a, b].min.length - 1
+
+    hamming = 0
+    (0..shortestlength).each do |nt|
+      hamming += 1 if a[nt] != b[nt]
     end
-    (0...strand_a.length).count { |i| i if strand_a[i] != strand_b[i] }
+    hamming
   end
-end

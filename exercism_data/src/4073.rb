@@ -1,7 +1,8 @@
-module Hamming
-    def Hamming.compute(a, b)
-        result=0
-        0.upto((a.length<b.length ? a.length : b.length)-1) { |i| result+=1 if a[i]!=b[i] }
-        result
+def compute(strand1, strand2)
+    len, diff = 0, 0
+    strand1.each_char do |c|
+      diff += 1 if (c != strand2[len])
+      len = len + 1
     end
-end
+    return diff
+  end

@@ -1,19 +1,11 @@
-class Hamming
-  def compute(expected, mutation)
-    counter = 0
-    if expected.length >= mutation.length
-      longest = expected
-      shortest = mutation
-    else
-      longest = mutation
-      shortest = expected
-    end
+def compute( baseGenome, mutateGenome)
+	  @counter = 0
 
-    (0...shortest.length).each do |index|
-      if shortest[index] != longest[index]
-        counter += 1
-      end
-    end
-    return counter
-  end
-end
+	  for index in (0...baseGenome.length)
+	  	 if baseGenome.slice(index) != mutateGenome.slice(index); @counter = @counter + 1 ; end
+
+	  end
+
+	  return @counter
+
+	end

@@ -1,8 +1,4 @@
-class Hamming
-
-  #refactoring: you dont need to initialize a counter == you can have the enumerable return it
-
-  def compute(left, right)
+def compute(left, right)
     differences = 0
     strand_one = left.split("")
     strand_two = right.split("")
@@ -13,4 +9,3 @@ class Hamming
     end
     differences
   end
-end

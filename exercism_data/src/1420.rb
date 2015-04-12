@@ -1,8 +1,15 @@
-class Hamming
-  class << self
+def compute(one, other)
+    one_bases = one.chars
+    other_bases = other.chars
 
-    def compute(first, second)
-      (0...[first.length, second.length].min).count { |i| first[i] != second[i] }
+    zipped = one_bases.zip(other_bases)
+
+    distance = 0
+
+    zipped.each do |pair|
+      next if pair.include?(nil)
+      distance += 1 if pair.first != pair.last
     end
+
+    distance
   end
-end

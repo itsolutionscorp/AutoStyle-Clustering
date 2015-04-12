@@ -1,5 +1,7 @@
-class Hamming
-  def compute(str1, str2)
-    str1.chars.zip(str2.chars).select { |c1, c2| c1 != c2 }.size
+def compute x,y
+  (x.split("").zip y.split("")).inject(0) do
+    |distance, element| element.first != element.last ? distance += 1 : distance += 0
   end
+end
+
 end

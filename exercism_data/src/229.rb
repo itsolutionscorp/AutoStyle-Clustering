@@ -1,16 +1,7 @@
-module Hamming
-  def compute(x, y)
-    strand1, strand2 = x.chars, y.chars
-    counter, diff = 0, 0
-    length = x.size > y.size ? y.size : x.size
-
-    until counter == length
-      if strand1[counter] != strand2[counter]
-        diff += 1
-      end
-      counter += 1
+def compute(a, b)
+    distance = 0
+    0.upto(a.length - 1) do |n|
+      distance += 1 unless a[n] == b[n]
     end
-
-    diff
+    distance
   end
-end

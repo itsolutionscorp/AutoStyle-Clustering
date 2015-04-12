@@ -1,14 +1,7 @@
-module Hamming
-  def compute(string1, string2)
-    enum1 = string1.each_char
-    enum2 = string2.each_char
-    count = 0
-    begin
-      loop do
-        count +=1 if enum1.next != enum2.next
+def compute(dna1, dna2)
+      distance = 0
+      [dna1.length, dna2.length].min.times do |i|
+        distance += 1 unless dna1[i] == dna2[i]
       end
-    rescue StopIteration
+      distance
     end
-    return count
-  end
-end

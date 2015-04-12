@@ -1,4 +1,2 @@
-class Hamming
-      def compute(Strands)       
+def compute(Strands)       
      end
-    end

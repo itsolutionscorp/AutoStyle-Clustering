@@ -1,5 +1,4 @@
-class Hamming
-  def compute str_a, str_b
+def compute str_a, str_b
     if !str_a || !str_b || str_a.size != str_b.size
       raise ArgumentError "Can compare only two strings of same length"  
     end
@@ -11,4 +10,3 @@ class Hamming
     end
     diffs
   end
-end

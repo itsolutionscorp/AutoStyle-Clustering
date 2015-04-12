@@ -1,12 +1,6 @@
-class Hamming
-  def compute(stringA, stringB)
-    differences = 0
-    maxlen = [stringA.length, stringB.length].min
-    maxlen.times do |i|
-      if stringA[i] != stringB[i]
-        differences += 1
-      end
-    end
-    return differences
-  end
-end
+def compute(ancestor, decendent) 
+		ancestor.split('').each_with_index.inject(0) do |diff, (char, index)| 
+			break diff unless decendent[index]
+			char == decendent[index] ? diff : diff += 1 
+		end	
+	end

@@ -1,11 +1,5 @@
-class Hamming
-
-  def compute(dna1,dna2)
-    length = [ dna1.length, dna2.length ].min - 1
-    ( 0..length ).inject( 0 ) do | diff_count, i |
-      diff_count += 1 unless dna1[i] == dna2[i]
-      diff_count
-    end
-
+def compute(a, b)
+    a, b = a.chars, b.chars
+    a.slice!(0..b.length) if a.length > b.length
+    a.keep_if.with_index { |ch, index| b[index] != ch }.length
   end
-end

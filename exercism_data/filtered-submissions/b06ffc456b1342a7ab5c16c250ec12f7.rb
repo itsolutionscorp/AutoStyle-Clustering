@@ -1,5 +1,4 @@
-class Hamming
-	def compute string1, string2
+def compute string1, string2
 		testlength = [string1.length, string2.length].min
 		hammingdistance = 0
 		for i in 0..(testlength-1)
@@ -9,4 +8,3 @@ class Hamming
 		end
 		return hammingdistance
 	end
-end

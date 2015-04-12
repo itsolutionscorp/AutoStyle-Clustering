@@ -1,5 +1,4 @@
-class Hamming
-    def compute a, b
+def compute a, b
         str_to_char_array = Proc.new do |x|
             x.chars.to_a
         end
@@ -12,4 +11,3 @@ class Hamming
             current[0] != current[1]
         end
     end
-end

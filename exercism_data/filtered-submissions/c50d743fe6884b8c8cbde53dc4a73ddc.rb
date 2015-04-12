@@ -1,5 +1,4 @@
-class Hamming
-    def compute(string1, string2)
+def compute(string1, string2)
         counter = 0
         array1 = string1.split('')
         array2 = string2.split('')
@@ -17,5 +16,4 @@ class Hamming
         end 
         end
         counter
-    end 
-end 
+    end

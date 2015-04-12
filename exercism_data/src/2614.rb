@@ -1,8 +1,7 @@
-class Hamming
-  def compute(first, second)
-    distance = first.chars.zip(second.chars).each.count do |a, b|
-      a != b
+def compute(a,b)
+    distance=0
+    [a.length,b.length].min.times do |i|
+      distance+=1 unless a[i]==b[i]
     end
     distance
   end
-end

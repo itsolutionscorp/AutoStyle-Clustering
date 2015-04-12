@@ -1,5 +1,4 @@
-class Hamming
-  def compute(*strands)
+def compute(*strands)
     relevant_chars = strands.map(&:length).min
     result = 0
     for i in 0...relevant_chars
@@ -7,4 +6,3 @@ class Hamming
     end
     result
   end
-end

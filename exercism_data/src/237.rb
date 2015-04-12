@@ -1,10 +1,8 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    return unless strand_a.length == strand_b.length
-    mutations = 0
-    strand_a.each_char.with_index do |nucleotide, index|
-      mutations += 1 if nucleotide != strand_b[index]
+def compute(strand1, strand2)
+    return 0 if strand1 == strand2
+    dist = 0
+    [strand1.length, strand2.length].min.times.each do |n|
+      dist += 1 if strand1[n] != strand2[n]
     end
-    mutations
+    dist
   end
-end

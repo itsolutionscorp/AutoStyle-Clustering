@@ -1,9 +1,11 @@
-class Hamming
-  def compute(str1, str2)
-    distance = 0
-    str2.length.times do |num|
-      distance += ( str1[num] == str2[num] ? 0 : 1 )
+def compute(strand1, strand2)
+        @diff = 0
+
+        strand1.chars.each_with_index do |v, i|
+            if v != strand2[i]
+                @diff += 1
+            end
+        end
+
+        return @diff
     end
-    distance
-  end
-end

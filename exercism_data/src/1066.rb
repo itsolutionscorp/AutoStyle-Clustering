@@ -1,10 +1,14 @@
-class Hamming
-  def compute(strandone, strandtwo)
-    distance = 0
-    strlen = strandone.length
-    for i in 0..strlen
-      distance = distance + 1 if strandone[i] != strandtwo[i]
-    end
-    return distance
-  end
-end
+def compute(s1, s2)
+		dist = 0
+		
+			#compares the char values at each index 'i'
+			#when unequal, add 1 to dist
+		[s1.length, s2.length].min.times do |i|
+			unless s1[i] == s2[i]
+				dist += 1
+			end
+		end
+
+		return dist
+
+	end

@@ -1,8 +1,7 @@
-class Hamming
-  class << self
-
-    def compute(first, second)
-      (0..[first.length, second.length].min-1).count { |i| first[i] != second[i] }
-    end
+def compute(a,b)
+    a = a.chars
+    b = b.chars
+    a.map.with_index {|e,i|
+      (b[i].nil? or b[i] == e) ? 0 : 1
+    }.inject(:+)
   end
-end

@@ -1,13 +1,11 @@
-class Hamming
+def compute( left, right )
+    return 0 if left == right
 
-  def compute(original, copy)
-    count = 0
-    if original != copy
-      [original.length, copy.length].min.times do |i|
-        count += 1 if original[i] != copy[i]
-      end
+    mutations = 0
+
+    left.each_char.with_index do |lc, idx|
+      break if idx == right.size
+      mutations += 1 if lc != right[idx]
     end
-    count
-  end
 
-end
+    mutations

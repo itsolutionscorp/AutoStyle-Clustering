@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     count = 0
     a.split("").zip(b.split("")).each do |first, second|
       
@@ -12,5 +11,3 @@ class Hamming
     count
 
   end
-
-end

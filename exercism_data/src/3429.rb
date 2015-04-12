@@ -1,13 +1,7 @@
-class Hamming
-  def compute(seq1,seq2)
-    cnt = 0
-    seq1arr = seq1.split ''
-    seq2arr = seq2.split ''
-    seq1arr.each_index { |char|
-      unless seq1arr[char].eql? seq2arr[char]
-        cnt += 1
-      end
-    }
-    cnt
+def compute(strand1, strand2)
+    @hamming_distance = 0
+    while strand1.length != 0 && strand2.length != 0
+      @hamming_distance += 1 if strand1.slice!(0) != strand2.slice!(0)
+    end
+    @hamming_distance
   end
-end

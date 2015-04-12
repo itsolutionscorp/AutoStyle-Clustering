@@ -1,5 +1,4 @@
-module Hamming
-  def compute(a,b)
+def compute(a,b)
     distance = 0
 
     short, long = [a, b].sort

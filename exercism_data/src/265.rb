@@ -1,22 +1,15 @@
-#!/usr/bin/ruby
-class Hamming
-  def compute(strand1, strand2)
-
+def compute(strand_a, strand_b)
     hamming_distance = 0
-    longer_strand = strand1
-    shorter_strand = strand2
-    
-    if strand2.length > strand1.length
-      longer_strand = strand2
-      shorter_strand = strand1
-    end
-    
-    for pos in 0..shorter_strand.length - 1
-        if shorter_strand[pos] != longer_strand[pos] 
-          hamming_distance += 1
-        end
-    end
 
-    return hamming_distance
+    strand_1 = strand_a.chars
+    strand_2 = strand_b.chars
+
+    strand_1.zip(strand_2) { |a, b|
+      if a != b && b != nil
+        hamming_distance += 1
+      end
+    }
+
+    hamming_distance
+
   end
-end

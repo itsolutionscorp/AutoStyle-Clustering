@@ -1,11 +1,14 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    differences = []
-    strand1.length.times do | idx |
-      differences << strand1[idx] if strand1[idx] != strand2[idx]
+def compute(str1, str2)
+    
+    str1.length <= str2.length ? gataca_counter = str1.length : gataca_counter = str2.length
+    
+    hamming = 0
+    
+    gataca_counter.times do |n|
+      if str1[n] != str2[n]
+        hamming += 1
+      end
     end
-    differences.length
+    
+    hamming
   end
-
-end

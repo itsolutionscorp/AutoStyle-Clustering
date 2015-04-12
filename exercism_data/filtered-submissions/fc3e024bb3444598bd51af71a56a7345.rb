@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first,second)
+def compute(first,second)
     length = [first.length, second.length].min
     firstArr = first[0,length].chars
     secondArr = second[0,length].chars
@@ -8,4 +7,3 @@ class Hamming
     }
     diffs.reduce(:+) || 0
   end
-end

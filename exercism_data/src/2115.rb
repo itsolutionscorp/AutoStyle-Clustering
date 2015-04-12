@@ -1,13 +1,5 @@
-require "benchmark"
-
-class Hamming
-
-  class << self
-    def compute(strand_a, strand_b)
-      return -1 if strand_a.length != strand_b.length
-      strand_a.chars.zip(strand_b.chars).count do | a, b |
-        a != b
-      end
+def compute(dna1, dna2)
+    dna1.chars.zip(dna2.chars).inject(0) do |count, pair|
+      (pair[0] != pair[1]) ? count + 1 : count
     end
   end
-end

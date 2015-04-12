@@ -1,12 +1,7 @@
-module Hamming
-  def compute str1, str2
-    distance = 0
-
-    str1.split(//).each_with_index do |c,i|
-      next if str2[i].nil?
-      distance += 1 unless c == str2[i]
+def compute(s1, s2)
+    hd = 0
+    for i in 0 .. [s1.length, s2.length].min-1
+      hd = hd + 1 unless (s1[i] == s2[i])
     end
-
-    distance
+    hd
   end
-end

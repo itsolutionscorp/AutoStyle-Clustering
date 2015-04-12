@@ -1,8 +1,12 @@
-class Hamming
-  def compute(strand1, strand2)
-    [strand1.size, strand2.size].min.times.count { |i| strand1[i] != strand2[i] }
-  end
-end
+def compute(dna1, dna2)
+    distance = 0
+    length = [dna1.length, dna2.length].min
 
-## referenced http://codeandkaizen.herokuapp.com/blog/2014/02/05/lessons-in-ruby-from-exercism-dot-io
-## for this exercise
+    length.times do |i|
+      if dna1[i] != dna2[i]
+        distance += 1
+      end
+    end
+
+    distance
+  end

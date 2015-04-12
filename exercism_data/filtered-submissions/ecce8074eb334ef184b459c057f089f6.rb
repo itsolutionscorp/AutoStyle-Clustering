@@ -1,5 +1,4 @@
-class Hamming
-    def compute(a, b)
+def compute(a, b)
         stringA = a.split("")
         stringB = b.split("")
         c = stringA.length < stringB.length ? stringA.length : stringB.length
@@ -9,4 +8,3 @@ class Hamming
         end
         result
     end
-end

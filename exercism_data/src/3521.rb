@@ -1,10 +1,12 @@
-#!/usr/bin/env ruby
-class Hamming 
-	def compute(dna_one, dna_two)
-		count = 0
-		dna_one.length.times do |x|
-			count += 1 if (dna_one[x] != dna_two[x]) && dna_two[x]
-		end
-		count
+def compute(strand1, strand2)
+		arr1 = strand1.split("")
+		arr2 = strand2.split("")
+
+		counter = 0
+			arr1.each_with_index do |character, index|
+				unless arr2[index] == character
+					counter += 1
+				end
+			end
+		counter
 	end
-end

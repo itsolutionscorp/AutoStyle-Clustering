@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
   	raise ArgumentError if strand_1.length != strand_2.length
 
   	distance = 0
@@ -9,5 +7,3 @@ class Hamming
     end
     distance 
   end
-
-end

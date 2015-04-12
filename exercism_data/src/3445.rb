@@ -1,14 +1,11 @@
-class Hamming
+def compute(str0, str1)
+    dist = 0
+    i = 0
 
-  def compute(string1, string2)
-    strings = [string1, string2].sort_by{ |s| s.length }
-
-    serialized = strings.map{ |s| s.split('') }
-
-    pairs = serialized[0].zip(serialized[1])
-
-    pairs.reduce(0) do |total, pair|
-      pair[0] == pair[1] ? total : total + 1
+    while i < str0.size
+      dist += 1 if str0[i] != str1[i]
+      i += 1
     end
+
+    return dist
   end
-end

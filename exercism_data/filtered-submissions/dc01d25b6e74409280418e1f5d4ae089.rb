@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     # Initialize Hamming, iterator variables
     hamming_distance, i = 0, 0
 
@@ -25,4 +24,3 @@ class Hamming
 
     return hamming_distance
   end
-end

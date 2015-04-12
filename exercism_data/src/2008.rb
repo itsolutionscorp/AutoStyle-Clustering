@@ -1,17 +1,9 @@
-class Hamming
-  def compute(a, b)
-    return 0 unless a && b && a != b
+def compute(a, b)
+      total = 0
 
-    length = [a.length, b.length].min
+      a.length.times do |i|
+        total += 1 if a[i] != b[i]
+      end
 
-    return 0 if length == 0
-
-    distance = 0
-
-    (0..length-1).each do |i|
-      distance += 1 if a[i] != b[i]
+      total
     end
-
-    distance
-  end
-end

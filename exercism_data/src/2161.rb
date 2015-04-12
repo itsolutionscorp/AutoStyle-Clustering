@@ -1,7 +1,14 @@
-class Hamming
+def compute(strand1, strand2)
+    return if (strand1.nil? or strand2.nil?)
 
-  def compute(aString, bString)
-    aString.chars.zip(bString.chars).select{ |arr| !arr.include? nil }.count{ |arr| arr[0]!=arr[1] }
+    result   = 0
+    shortest = [strand1, strand2].min_by(&:length)
+
+    shortest.length.times do |index|
+      if (strand1[index] != strand2[index])
+        result += 1
+      end
+    end
+
+    result
   end
-
-end

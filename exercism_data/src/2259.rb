@@ -1,17 +1,13 @@
-class Hamming
-  def compute(s, t)
-    if s == t
-      0
+def compute(strand1, strand2)
+    count = strand1.length - 1
+    differences = 0
+    if strand1 == strand2
+      differences
     else
-      matches = 0
-
-      s.length.times do |i|
-        if s[i] != t[i]
-          matches +=1
-        end
+      until count == -1
+        differences += 1 if strand1[count] != strand2[count]
+        count -= 1
       end
-
-      matches
+      differences
     end
   end
-end

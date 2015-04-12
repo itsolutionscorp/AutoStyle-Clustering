@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(a,b)
+def compute(a,b)
 		raise "lengths do not match" if a.length != b.length || a.length == 0 				
 		diffs = 0		
 		zipped = a.split('').zip(b.split(''))
@@ -11,4 +9,3 @@ class Hamming
 		end
 		return diffs		
 	end
-end

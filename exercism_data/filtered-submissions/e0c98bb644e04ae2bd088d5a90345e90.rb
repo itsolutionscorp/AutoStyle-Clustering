@@ -1,6 +1,4 @@
-module Hamming
-
-  def compute (sample, target)
+def compute (sample, target)
     total = 0
     s = sample.unpack("c*")
     t = target.unpack("c*")

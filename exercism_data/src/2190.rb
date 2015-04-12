@@ -1,17 +1,4 @@
-class Hamming
-  def compute(one, other)
-    one_bases = one.split("")
-    other_bases = other.split("")
-
-    zipped = one_bases.zip(other_bases)
-
-    distance = 0
-
-    zipped.each do |pair|
-      next if pair.include?(nil)
-      distance += 1 if pair.first != pair.last
-    end
-
-    distance
+def compute dna_strand_a, dna_strand_b
+    merged_dna = dna_strand_b.chars.zip dna_strand_b.chars
+    merged_dna.count { |joint| joint.uniq == 2 }
   end
-end

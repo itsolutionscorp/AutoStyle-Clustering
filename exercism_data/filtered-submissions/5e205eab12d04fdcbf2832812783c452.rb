@@ -1,7 +1,4 @@
-class Hamming
-
-	# must be class method for hamming_test.rb
-	def compute(str1, str2) 
+def compute(str1, str2) 
 
 		# returns an array for each string from a regexp
 		arr1 = str1.scan(/\w/) 
@@ -20,6 +17,3 @@ class Hamming
 			end
 		end
 		return count
-	end
-
-end

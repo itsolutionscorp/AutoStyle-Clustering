@@ -1,8 +1,7 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
-    pairs = strand_1.split('').zip(strand_2.split(''))
-    pairs.count { |pair| pair[0] && pair[1] && pair[0] != pair[1]}
+def compute(dna_a, dna_b)
+    result = 0
+    [dna_a.length,dna_b.length].min.times do |i|
+      result += dna_a[i] != dna_b[i] ? 1 : 0
+    end
+    return result
   end
-
-end

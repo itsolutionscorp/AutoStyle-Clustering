@@ -1,24 +1,13 @@
-class Hamming 
+def compute( a, b )
+    hamming_distance = 0
 
-      def Hamming.compute strandA, strandB 
-        hamming_distance = 0
-        end_point = strandA.length
-        length_difference = strandA.length - strandB.length
+    sorted_by_length = [a,b].sort_by( &:length )
 
-        if length_difference > 0
-            end_point = strandB.length
-        end
-
-        end_point -= 1;
-
-        for i in ( 0..end_point )
-               if strandA[i] != strandB[i]
-                    hamming_distance += 1
-               end
-        end
-
-        return hamming_distance
-
+    sorted_by_length[0].chars.each_with_index do |char, index|
+      if char != sorted_by_length[1][index]
+        hamming_distance += 1
+      end
     end
 
-end
+    hamming_distance
+  end

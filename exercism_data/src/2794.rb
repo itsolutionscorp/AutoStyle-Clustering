@@ -1,13 +1,13 @@
-
-#Hamming class
-class Hamming
-  def compute(cad1, cad2)
-    dif = 0
-    for i in 0..cad1.length - 1
-      if cad2[i] && cad1[i] != cad2[i]
-        dif = dif + 1
-      end
+def compute(sequence1, sequence2)
+	
+    count = 0;
+	
+    for i in 0..sequence1.length
+	
+      if sequence1[i] != sequence2[i]
+	    count = count + 1
+	  end
     end
-    dif		
+
+    count
   end
-end	

@@ -1,8 +1,3 @@
-class Hamming
-  def compute(s1,s2)
-    (0..s1.length).inject(0) do |sum,i|
-      sum += 1 unless s1[i] == s2[i]
-      sum
-    end
+def compute(a, b)
+    a.length.times.count { |i| a[i] != b[i] }
   end
-end

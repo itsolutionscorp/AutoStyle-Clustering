@@ -1,15 +1,5 @@
-class Hamming
-
-  def compute(strand_one, strand_two)
-    strand_one = strand_one.split(//)
-    strand_two = strand_two.split(//)
-    hamming_distance = 0
-
-    strand_one.each_with_index do |symbol, i|
-      hamming_distance += 1 if symbol != strand_two[i]
-    end
-
-    hamming_distance
+def compute(a, b)
+    0.upto(a.length - 1).select do |i|
+      a[i] != b[i]
+    end.count
   end
-
-end

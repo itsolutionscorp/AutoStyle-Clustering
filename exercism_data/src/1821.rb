@@ -1,10 +1,6 @@
-module Hamming
-  def compute(strand_1, strand_2)
-    mutations = 0
-    shorter_strand = [strand_1.length, strand_2.length].min
-    (0...shorter_strand).each do |base|
-      mutations += 1 unless strand_1[base] == strand_2[base]
-    end
-    mutations
+def compute(str1, str2)
+    count = 0
+    str_len = [str1, str2].min_by(&:size).size
+    str_len.times { |i| count += 1 if str1[i] != str2[i] }
+    count
   end
-end

@@ -1,19 +1,13 @@
-class Hamming
-	def compute(seq1, seq2)
-		arr1 = seq1.split("")
-		arr2 = seq2.split("")
-		hamming_distance = 0
+def compute(str_1, str_2)
+    array_1 = str_1.chars
+    array_2 = str_2.chars
+    count = 0
 
-		if arr1.length <= arr2.length
-			length = arr1.length
-		else arr1.length > arr2.length
-			length = arr2.length
-		end
+    array_1.each_with_index do |letter, index|
+      if letter != array_2[index] && array_2[index] != nil
+        count += 1
+      end
+    end
 
-		(0..length-1).each do |x|
-			hamming_distance += 1 if arr1[x] != arr2[x]
-		end
-
-	hamming_distance
-	end
-end
+    count
+  end

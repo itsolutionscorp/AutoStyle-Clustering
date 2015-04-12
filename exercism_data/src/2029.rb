@@ -1,13 +1,16 @@
-class Hamming
-  def compute(dna1, dna2)
-    strand1 = dna1.chars
-    strand2 = dna2.chars
-    distance = 0
-    count = 0
-    while count < strand1.length do
-      distance += 1 unless strand1[count] == strand2[count]
-      count += 1
+def compute(seq1, seq2)
+    @count = 0
+    # Make sure the sequences are all capitalized.
+    seq1, seq2 = seq1.upcase, seq2.upcase
+    # Find the smaller of the two sequences
+    min = [seq1.length, seq2.length].min
+    if min > 0
+      for j in 0..min-1
+        # If the letters of the sequences dont match, add to the count.
+        if seq1[j] != seq2[j]
+          @count += 1
+        end
+      end
     end
-    distance
+    return @count
   end
-end

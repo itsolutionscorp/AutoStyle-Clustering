@@ -1,11 +1,6 @@
-class Hamming
-  def compute(a, b)
-    distance = 0
-    min_length = [a.length, b.length].min
-    
-    min_length.times do |n|
-      distance +=1 if a[n] != b[n]
+def compute(string1, string2)
+    [string1, string2].min_by(&:length).length.times.count do |i|
+      string1[i] != string2[i]
     end
-    distance
   end
 end

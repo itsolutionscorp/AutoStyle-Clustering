@@ -1,10 +1,11 @@
-class Hamming
-    def compute(seq_a, seq_b)
-    	len = [seq_a.size, seq_b.size].min
-    	diff = 0
-        (0...len).each do |i|
-        	diff += 1 unless seq_a[i] == seq_b[i]
-        end
-        diff
-    end
-end
+def compute(a, b)
+    diff = 0 
+    count = 0
+    b.split('').each do  |i|
+      if i != a.split('')[count] 
+        diff += 1
+      end  
+      count += 1  
+    end 
+    return diff  
+  end

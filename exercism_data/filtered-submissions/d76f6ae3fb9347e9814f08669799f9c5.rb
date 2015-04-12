@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a,b)
+def compute(a,b)
     pairs = a.split(//).zip(b.split(//))
 
     pairs.map do |x|
@@ -13,5 +11,3 @@ class Hamming
       end
     end.reduce(:+)
   end
-
-end

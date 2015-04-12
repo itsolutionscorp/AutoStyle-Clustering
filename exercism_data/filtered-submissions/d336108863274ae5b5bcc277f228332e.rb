@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute strand1, strand2
+def compute strand1, strand2
 
     chars1 = strand1.chars
     chars2 = strand2.chars
@@ -12,5 +10,3 @@ class Hamming
     end
 
   end
-
-end

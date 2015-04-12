@@ -1,9 +1,8 @@
-class Hamming
-
-  def compute(str1, str2)
-    (0...[str1.length, str2.length].min).count do |index|
-      str1[index] != str2[index]
+def compute(strand1, strand2)
+    hamming_difference = 0
+    strand1.chars.zip(strand2.chars).each do |a1, a2|
+      break if a2.nil?
+      hamming_difference += 1 unless a1 == a2
     end
+    hamming_difference
   end
-
-end

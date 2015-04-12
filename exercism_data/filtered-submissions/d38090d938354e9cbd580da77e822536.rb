@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute( strand_a, strand_b )
+def compute( strand_a, strand_b )
 
 		a_chars = strand_a.chars
 		b_chars = strand_b.chars
@@ -8,5 +6,3 @@ class Hamming
 		a_chars.zip( b_chars ).count { | x, y | x != y }
 
 	end
-
-end

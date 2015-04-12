@@ -1,9 +1,3 @@
-class Hamming
-	def compute(str1, str2)
-		cnt = 0
-		[str1.size, str2.size].min.times do |i|
-			cnt += 1 if str1[i] != str2[i]
-		end
-		cnt
-	end
-end
+def compute(a, b)
+    a[0...b.size].split('').reject.with_index { |c, i| c == b[i] }.size
+  end

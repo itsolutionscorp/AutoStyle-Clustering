@@ -1,10 +1,19 @@
-class Hamming
-  def compute(str_a, str_b)
-    count = [str_a.length, str_b.length].min
-    res = 0
-    count.times do |i|
-      res +=1 if str_a[i] != str_b[i]
-    end
-    res
+def compute(inputA, inputB)
+
+    difference_counter = 0
+
+    #chop off unnessecary characters from A if A is too long
+    inputA = inputA.slice(0, inputB.length) 
+    
+    inputA_array = inputA.chars
+    inputB_array = inputB.chars
+    
+    inputA_array.each_index { |index_num|
+      if (inputA_array[index_num] != inputB_array[index_num])
+        difference_counter= difference_counter+1
+      end
+    }
+
+    return difference_counter   
+
   end
-end

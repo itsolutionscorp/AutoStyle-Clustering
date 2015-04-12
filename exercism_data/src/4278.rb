@@ -1,12 +1,7 @@
-class Hamming
-  def compute(string_a, string_b)
-    if string_a.size > string_b.size
-      string_a, string_b = string_b, string_a
-    end
-    mapped = string_a.chars.map.with_index do |e, i|
-      e == string_b[i] ? 0 : 1
-    end
-    # require 'pry'; binding.pry
-    mapped.reduce(0, &:+)
-  end
-end
+def compute(string1, string2)
+      distance = 0
+      string1.each_char.with_index do |char, index|
+         char != string2[index] ? distance += 1 : distance
+      end
+      return distance
+   end

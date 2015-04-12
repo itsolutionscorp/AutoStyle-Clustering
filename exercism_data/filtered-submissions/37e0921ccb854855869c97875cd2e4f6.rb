@@ -1,7 +1,4 @@
-module Hamming
-  extend self
-
-  def compute a,b
+def compute a,b
     a,b = b,a if a.length > b.length
 
     if a.empty?

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(expected, mutation)
+def compute(expected, mutation)
     counter = 0
     if expected.length >= mutation.length
       longest = expected
@@ -16,4 +15,3 @@ class Hamming
     end
     return counter
   end
-end

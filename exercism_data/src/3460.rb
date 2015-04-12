@@ -1,8 +1,6 @@
-class Hamming
-  def compute(first,second)
-    len = first.length < second.length ? first.length : second.length
-    (0...len).inject(0) { |memo,i|
-      memo += 1 if first[i] == second[i]
-    }
-  end
+def compute(first,second)
+  first_array = first.chars
+  second_array = second.chars
+  zipped = first_array.zip(second_array)
+  zipped.select{|x| x[0] != x[1]}.count
 end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand, other_strand)
+def compute(strand, other_strand)
     distance = 0
 
     strand.each_char.each_with_index do |point, i|
@@ -9,4 +8,3 @@ class Hamming
 
     distance
   end
-end

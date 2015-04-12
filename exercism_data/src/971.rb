@@ -1,9 +1,10 @@
-class Hamming
-  def compute(first, second)
-    distance = 0
-    first.chars.zip(second.chars).each do |a, b|
-      distance = distance + 1 unless a == b
+def compute(first, last)
+    short, long = [first,last].sort_by!(&:size)
+    short.chars.zip(long.chars).inject(0) do |distance, nucleotides|
+      if nucleotides.first == nucleotides.last
+        distance
+      else
+        distance + 1
+      end
     end
-    distance
   end
-end

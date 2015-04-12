@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
       puts "\n"
       strand1 = first_strand.chars
       strand2 = second_strand.chars
@@ -11,5 +9,3 @@ class Hamming
       end
       distance
     end
-  end
-end

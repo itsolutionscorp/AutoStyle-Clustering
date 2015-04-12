@@ -1,13 +1,23 @@
-class Hamming
-  def compute(str1, str2)
-  	a = str1.to_s.split('').zip(str2.to_s.split(''))
-  	b = 0
+def compute(first, second)
+		first_array = first.split(//)
+		second_array = second.split(//)
 
-  	a.collect do |v| 
-    	if v[0] != v[1] && v[1] != nil
-    		b += 1
-   		end
-   	end
-    return b
+		if first_array.count <= second_array.count
+			nucleo_size = first_array.count
+		elsif first_array.count > second_array.count
+			nucleo_size = second_array.count
+		end
+			
+		n = 0
+		diff_counter = 0
+
+		nucleo_size.times do
+			if first_array[n] != second_array[n]
+				diff_counter += 1
+			end
+			n += 1
+		end
+
+		return diff_counter
+
 	end
-end

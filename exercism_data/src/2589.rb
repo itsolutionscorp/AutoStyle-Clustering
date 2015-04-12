@@ -1,11 +1,7 @@
-class Hamming
-  def compute(first, second)
-    count = 0
-    s_limit = second.size
-    first.split('').each_with_index do |a,i|
-      break if s_limit == i
-      count += 1 if a != second[i]
-    end
-    count
+def compute(strand_1, strand_2)
+    zipped_strands = strand_1.chars.zip(strand_2.chars)
+
+    zipped_strands.select do |this_char, other_char|
+      this_char != other_char
+    end.count
   end
-end

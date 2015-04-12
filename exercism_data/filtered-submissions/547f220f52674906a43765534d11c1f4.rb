@@ -1,7 +1,3 @@
-class Hamming
-
-  def compute (a,b)
+def compute (a,b)
   0
   end
-
-end

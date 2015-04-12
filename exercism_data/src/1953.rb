@@ -1,10 +1,4 @@
-class Hamming
-
-    def compute(dA, dB)
-        dAs = dA.split('')
-        dBs = dB.split('')
-
-        dAs.zip(dBs).map { |x| x[0] == nil or x[1] == nil or x[0] == x[1] }
-                    .reduce(0) { |m,o| o == false ? m+1 : m+0 }
-    end
-end
+def compute(strand_1, strand_2)
+    return nil if strand_1.length != strand_2.length
+    strand_1.chars.zip(strand_2.chars).count { |c| c.first != c.last }
+  end

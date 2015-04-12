@@ -1,22 +1,13 @@
-class Hamming
+def compute(first_strand, second_strand)
 
-	def compute(dna1, dna2)
-		distance = 0		
-		maximum = dna1.length
-		
-		#find how many times i need to compare
-		if( dna1.length > dna2.length )
-			maximum = dna2.length
-		end
+    short_strand, long_strand = [first_strand, second_strand].sort { |a, b| a.length <=> b.length }
+    count = 0
 
-		#iterate over each character to find if the value has changed
-		maximum.times do |i|
-			if (dna1[i] != dna2[i])
-				distance += 1 
-			end
-		end
-		
-		return distance
-	end
+    short_strand.length.times do |i|
 
-end
+      count += 1 if long_strand[i] != short_strand[i]
+
+    end
+
+    count
+  end

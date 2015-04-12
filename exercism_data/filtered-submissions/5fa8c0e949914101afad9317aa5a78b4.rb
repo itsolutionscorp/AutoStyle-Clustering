@@ -1,5 +1,4 @@
-class Hamming
-		def compute (strand1, strand2)
+def compute (strand1, strand2)
 			position=0
 			Hamming=0
 			while (a=strand1[position]) && (b = strand2[position])
@@ -9,4 +8,3 @@ class Hamming
 			Hamming
 		end
 	end
-end

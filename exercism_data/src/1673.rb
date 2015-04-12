@@ -1,6 +1,5 @@
-module Hamming
-  def compute a_str, b_str
-    a, b = a_str.split(''), b_str.split('')
-    a.zip(b).count { |sym_a, sym_b| sym_a != sym_b }
+def compute(first, second)
+    second.chars.each_with_index.map do |char, index|
+      first.chars[index] == char ? 0 : 1
+    end.reduce(:+)
   end
-end

@@ -1,5 +1,3 @@
-class Hamming
-
 def compute(a, b)
 	hamming = 0
 	if (a == b) then
@@ -9,6 +7,4 @@ def compute(a, b)
 		hamming+=1 if a[i] != b[i]
 	end
 	return hamming
-end
-
 end

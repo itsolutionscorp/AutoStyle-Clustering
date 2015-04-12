@@ -1,15 +1,7 @@
-class Hamming
-  def compute(a, b)
-    counter = 0
-    index = 0
-
-    a.each_char do |char|
-      if !char.eql?(b[index]) && b[index] != nil
-        counter += 1
-      end
-      index += 1
+def compute(lhs, rhs)
+    difference = 0
+    rhs.chars.each_with_index do |ch, idx|
+      difference += 1 unless lhs[idx].nil? || lhs[idx] == ch
     end
-
-    counter
+    difference
   end
-end

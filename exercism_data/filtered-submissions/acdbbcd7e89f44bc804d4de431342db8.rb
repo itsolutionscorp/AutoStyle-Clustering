@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     raise ArgumentError if a.length != b.length
 
     count = 0
@@ -9,4 +8,3 @@ class Hamming
 
     count
   end
-end

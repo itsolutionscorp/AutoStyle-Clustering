@@ -1,11 +1,9 @@
-class Hamming
+def compute(str1, str2)
+    distance = 0
 
-  def compute(s1, s2)
-    counter = 0
-    (0..s1.length-1).each do |i|
-      counter += 1 if s1[i] != s2[i]
+    str1.chars.each_with_index do |char, index|
+      distance += 1 if char != str2[index] && index < str2.length
     end
-    return counter
-  end
 
-end
+    distance
+  end

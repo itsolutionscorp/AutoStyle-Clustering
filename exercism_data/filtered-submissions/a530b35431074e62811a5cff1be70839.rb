@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(dna1, dna2)
+def compute(dna1, dna2)
 	
 		count=0
 		dna_short = dna1
@@ -11,4 +9,3 @@ class Hamming
 		end
 		return count 
     end
-end

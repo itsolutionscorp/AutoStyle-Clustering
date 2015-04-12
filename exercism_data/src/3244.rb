@@ -1,10 +1,9 @@
-class Hamming
-   def compute(s1, s2)
-      length = [s1.length, s2.length].min
-      counter = 0
-      (0...length).each do |i|
-         if s1[i] != s2[i] then counter += 1 end
-      end
-      counter
-   end
-end
+def compute(a, b)
+    count = 0
+    i = 0
+    while i < a.length do
+      count += 1 if a[i] != b[i]
+      i += 1
+    end
+    return count
+  end

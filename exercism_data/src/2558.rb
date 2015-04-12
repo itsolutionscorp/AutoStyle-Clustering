@@ -1,18 +1,7 @@
-class Hamming
+def compute(x, y)
 
-  def compute(first_chain, second_chain)
-    first_chain.chars.zip(second_chain.chars).reduce(0) do |sum, (x, y)|      
-      if !x || !y
-      	break sum
-      end
+    @limit = x.length < y.length ? x.length : y.length
 
-      if x != y
-        sum + 1
-      else 
-      	sum
-      end 
-         
-    end    
-  end  
+    (0...@limit).count { |i| x[i] != y[i] }
 
-end
+  end

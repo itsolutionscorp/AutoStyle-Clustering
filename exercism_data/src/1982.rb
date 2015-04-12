@@ -1,12 +1,11 @@
-module Hamming
-  def compute(one, two)
-    shortest_strand = [one, two].min_by { |strand| strand.length }
-
-    distance = 0
-    (0...shortest_strand.length).each do |i|
-      distance += 1 if one[i] != two[i]
-    end
-
-    distance
-  end
-end
+def compute(strand1, strand2)
+		hamming = 0
+		i = 0
+	while i < strand1.length && i < strand2.length
+		if strand1[i] != strand2[i]
+			hamming += 1
+		end
+		i += 1
+	end
+	return hamming
+	end

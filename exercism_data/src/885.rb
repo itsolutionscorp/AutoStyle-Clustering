@@ -1,10 +1,3 @@
-module Hamming
-  def compute(a, b)
-    a = a.chars
-    b = b.chars
-
-    a, b = b, a if b.size <a.size
-
-    a.zip(b).count { |x, y| x != y }
+def compute(a, b)
+    a.chars.zip(b.chars).map{|arr| arr[0] == arr[1] ? 0 : 1}.inject(:+)
   end
-end

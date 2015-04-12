@@ -1,27 +1,15 @@
-class Hamming
-
-  def compute(first, second)
-    0.upto(first.size - 1).inject(0) do |count, index|
-      first[index] != second[index] ? count += 1 : count
+def compute(strand1, strand2)
+    index = 0
+    
+    differences = 0
+    
+    while index < strand1.length && index < strand2.length
+      unless strand1[index] == strand2[index]
+        differences += 1
+      end
+      
+      index += 1
     end
+    
+    differences
   end
-end
-
-# Version 1:
-
-  # first.chars.each_with_index do |char, index|
-  #   if first[index] != second[index]
-  #     count += 1
-  #   end
-  # end
-
-# Version 2:
-
-  #   count = 0
-  #   0.upto(first.size - 1).each do |index|
-  #     if first[index] != second[index]
-  #       count += 1
-  #     end
-  #   end
-  #   count
-  # end

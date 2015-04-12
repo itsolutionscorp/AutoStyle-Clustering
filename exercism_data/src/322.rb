@@ -1,12 +1,9 @@
-class Hamming
-  def compute(strand1, strand2)    
-    count = 0
-    i = 0    
-    loop do
-      count += 1 if strand1[i] != strand2[i]
-      i += 1
-      break if i >= strand1.length || i >= strand2.length
+def compute(reference, examinee)
+    
+    pairs_to_count = [reference.length, examinee.length].min
+
+    (0...pairs_to_count).count do |string_index|
+      examinee[string_index] != reference[string_index]
     end
-    return count
+
   end
-end

@@ -1,16 +1,11 @@
-class Hamming
+def compute (first, second)
+        count = 0
+        firstArr = first.split("")
+        secondArr = second.split("")
 
-  def compute(sequence1, sequence2)
-		
-    count = 0;
-		
-    for i in 0..sequence1.length
-			
-      if sequence1[i] != sequence2[i]
-	    count = count + 1
-	  end
+        firstArr.each_with_index { |c, i| 
+            count += 1 if secondArr[i] != c
+        }
+
+        return count
     end
-		
-    count
-  end
-end

@@ -1,7 +1,5 @@
-class Hamming
-  def compute dna1, dna2
-    distance = 0
-    min_sequence = [dna1.length, dna2.length].min
-    min_sequence.times.count { |c| dna1[c] != dna2[c] } 
+def compute(a, b)
+    [a.chars, b.chars].min_by(&:size).each_with_index.map do |_, i|
+      (a.chars[i] <=> b.chars[i]).abs
+    end.inject(:+)
   end
-end

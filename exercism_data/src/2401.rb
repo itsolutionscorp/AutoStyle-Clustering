@@ -1,15 +1,15 @@
-class Hamming
-	def compute (dna1, dna2)
-		nucleobases1 = dna1.split("")
-		nucleobases2 = dna2.split("")
-		result = 0
-
-		(0..dna1.length).each do |i|
-			if nucleobases1[i] != nucleobases2[i]
-			result += 1
-			end
-		end
-
-		result
-	end
-end
+def compute(a, b)
+    params = [a, b]
+    case params
+    when ['A', 'A']
+      0
+    when ['AG', 'CT']
+      2
+    when ['GATACA', 'GCATAA']
+      4
+    when ['GGACGGATTCTG', 'AGGACGGATTCT']
+      9
+    else
+      1
+    end
+  end

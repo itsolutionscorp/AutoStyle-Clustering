@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     # init counter for dna differences
     count = 0
 
@@ -20,4 +19,3 @@ class Hamming
 
     count
   end
-end

@@ -1,7 +1,10 @@
-class Hamming
-  class << self
-    def compute(a, b)
-      a.chars.zip(b.chars).count { |v1, v2| v1 != v2 }
+def compute(strandA, strandB)
+    hamming_distance = 0
+
+    length = [strandA.length, strandB.length].min
+
+    length.times do |index|
+      hamming_distance += 1 if strandA[index] != strandB[index]
     end
+    hamming_distance
   end
-end

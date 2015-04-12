@@ -1,5 +1,3 @@
-module Hamming
-  def compute(a,b)
-    a.chars.zip(b.chars).select{|p| p[0] != p[1]}.count
+def compute(a, b)
+    a.bytes.keep_if { |c| !b.empty? && c != b.slice!(0).ord }.size
   end
-end

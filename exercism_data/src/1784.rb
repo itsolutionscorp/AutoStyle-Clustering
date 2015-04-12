@@ -1,17 +1,8 @@
-#!/usr/bin/env ruby
+def compute(dna_strand_1, dna_strand_2)
 
-class Hamming
+    dna_strands = dna_strand_1.chars.zip(dna_strand_2.chars)
 
-	def compute(first, second)
-		differences = 0
-		length = [first.length, second.length].min - 1
-		(0..length).each do |index|
-			if first[index] != second[index]
-				differences += 1
-			end
-		end
-
-		return differences
-	end
-
-end
+    dna_strands.count do |nucleotide_1, nucleotide_2|
+      nucleotide_1 != nucleotide_2
+    end
+  end

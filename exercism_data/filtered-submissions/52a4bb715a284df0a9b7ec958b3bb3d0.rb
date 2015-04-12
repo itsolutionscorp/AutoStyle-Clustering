@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     a_len = a.length
     b_len = b.length
     hamming = 0
@@ -12,4 +11,3 @@ class Hamming
 
     hamming
   end
-end

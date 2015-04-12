@@ -1,15 +1,13 @@
-module Hamming
-  def compute(str1, str2)
+def compute(strand1,strand2)
+    differences = 0
 
-    str1.chars.take(str2.length).each_with_index.inject(0) do |counter, string_index|
-
-      if str2[string_index[1]] != string_index[0]
-        counter + 1
-      else
-        counter
+    if ( strand1.length == strand2.length ) then
+      strand1.length.times do |index|
+        if ( strand1[index] != strand2[index] ) then
+          differences += 1
+        end
       end
-
     end
 
+    differences
   end
-end

@@ -1,5 +1,4 @@
-class Hamming  
-  def compute(s1,s2)
+def compute(s1,s2)
     ham = 0
     min = [s1.length,s2.length].min
     for i in 0..(min-1)
@@ -9,4 +8,3 @@ class Hamming
     end
     return ham
   end
-end

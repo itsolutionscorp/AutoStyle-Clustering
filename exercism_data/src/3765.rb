@@ -1,18 +1,10 @@
-#create Hamming class with create method that takes two strings and returns the number of differences
+def compute(str1, str2)
+    iterations = str1.length <= str2.length ? str1.length : str2.length
 
-class Hamming
-  class << self
-    def compute(strA, strB)
-      count = 0
-      result = 0
-      #iterate through strA chars and compare to strB; 
-      strA.each_char do |char|
-        if char != strB[count]
-          result += 1
-        end
-        count += 1
-      end
-      return result
+    total = 0
+    iterations.times do |i|
+      total += 1 if str1[i] != str2[i]
     end
+    total
+
   end
-end

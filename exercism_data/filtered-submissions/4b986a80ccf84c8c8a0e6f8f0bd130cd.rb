@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     distance = 0
     zipped = s1.chars.zip(s2.chars)
     zipped.each do |i|
@@ -8,4 +7,3 @@ class Hamming
     end
     return distance
   end
-end

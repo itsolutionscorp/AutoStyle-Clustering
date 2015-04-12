@@ -1,5 +1,5 @@
-class Hamming
-  def compute(dna1, dna2)
-    dna1.chars.zip(dna2.chars).count { |s1, s2| s1 != s2 && s1 && s2 }
+def compute(first, second)
+    first.chars.each_with_index.reduce(0) do |a, (e, i)|
+      e == second[i] ? a : a + 1
+    end
   end
-end

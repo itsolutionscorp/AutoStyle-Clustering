@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
     # Verify that both strands are not nil
     raise "Both strand strings must be non-null" if first_strand.nil? or second_strand.nil?
     
@@ -14,4 +13,3 @@ class Hamming
 
     distance
   end
-end

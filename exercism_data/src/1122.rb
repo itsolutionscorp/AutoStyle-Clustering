@@ -1,18 +1,15 @@
-require 'awesome_print'
-
-class Hamming
-
-  def compute(a, b)
-    return 0 if a == b # performance!
-    
-    max_length = [a.length, b.length].min
-    a, b = a[0..max_length-1].split(''), b[0..max_length-1].split('')
-
-    diffs = 0
-    a.each_with_index do |element, ielement|
-      diffs += 1 if a[ielement] != b[ielement]
+def compute(x, y)
+    count = 0
+    smallerLength = 0
+    if x.length <= y.length
+      smallerLength = x.length
+    else
+      smallerLength = y.length
     end
-    diffs
+    (0..(smallerLength-1)).each do |i|
+      if x[i] != y[i]
+        count += 1
+      end
+    end
+    return count
   end
-
-end

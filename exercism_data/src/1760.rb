@@ -1,12 +1,9 @@
-class Hamming
-
-	def compute(str1, str2)
-		difference = 0
-		(0...str1.length).each do |x|
-			next if !str2[x]
-			difference +=1 if str1[x]!=str2[x]
-		end
-		return difference
-	end
-
-end
+def compute(first_strand, second_strand)
+    @hamming_distance = 0
+    [first_strand.chars, second_strand.chars].transpose.each do |first_base, second_base|
+      if !first_base.eql?(second_base)
+        @hamming_distance += 1 
+      end
+    end
+    return @hamming_distance
+  end

@@ -1,10 +1,9 @@
-class Hamming
-
-	def compute one, another
-		result = 0
-		[one.size, another.size].min.times do |i|
-			result += 1 if one[i] != another[i]
-		end
-		result
-	end
-end
+def compute(n1,n2)
+    counter = 0
+    n1.split(//).each_index do |x|
+      if n1[x] != n2[x]
+        counter+=1
+      end
+    end
+    counter
+  end

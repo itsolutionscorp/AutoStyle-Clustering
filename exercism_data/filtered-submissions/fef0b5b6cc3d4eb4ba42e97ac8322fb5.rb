@@ -1,5 +1,4 @@
-class Hamming
-	def compute(cad, cad2)
+def compute(cad, cad2)
 		retorno = 0
 		if cad.length == cad2.length
 			i = 0
@@ -12,4 +11,3 @@ class Hamming
 		end
 		return retorno
 	end
-end

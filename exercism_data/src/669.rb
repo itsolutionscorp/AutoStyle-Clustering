@@ -1,6 +1,9 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    combination = strand_1.split('').zip(strand_2.split(''))
-    combination.count { |ary| ary[0] != ary[1] }
+def compute(strandOne, strandTwo)
+    sum = 0
+
+    strandOne.chars.each_with_index do |c,i|
+      (sum += 1) unless c == strandTwo[i]
+    end
+
+    sum
   end
-end

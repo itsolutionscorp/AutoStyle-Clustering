@@ -1,5 +1,7 @@
-class Hamming
-  def compute(dna_seq_1, dna_seq_2)
-    dna_seq_1.each_char.with_index.reject { |e, i| e == dna_seq_2[i] }.size
+def compute(arg1, arg2)
+    x = 0
+    arg1.chars.each_index {|i|
+      x += 1 if arg1.chars[i] != arg2.chars[i]
+    }
+    x
   end
-end

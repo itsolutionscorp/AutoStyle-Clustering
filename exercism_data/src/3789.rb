@@ -1,18 +1,12 @@
-class Hamming
+def compute(strand1, strand2)
+    diff_count = 0
 
-  def compute(code1, code2)
+    strand1.each_char.with_index do |char1, i|
+      char2 = strand2[i]
+      break if char2.nil?
 
-    # if the strings match then the distance is 0
-    distance = 0
-
-    #count the differences at each string indice to compute hamming distance
-    if(code1 != code2)
-      for i in 0..[code1.length, code2.length].min
-        if(code1[i] != code2[i])
-          distance += 1
-        end
-      end
+      diff_count += 1 if char1 != char2
     end
-    distance
-   end
-end
+
+    diff_count
+  end

@@ -1,17 +1,14 @@
-#!/usr/bin/env ruby
-# encoding: utf-8
-# Hamming
-class Hamming
-  def compute(dna1 = '', dna2 = '')
-    array_dna1 = dna1.split(//)
-    array_dna2 = dna2.split(//)
-    distinct = 0
-    # The arrays are the same length
-    if array_dna1.length == array_dna2.length
-      0.upto(array_dna1.length - 1) do |i|
-        array_dna1[i] != array_dna2[i] ? distinct += 1 : distinct
+def compute(s1, s2)
+    result = 0
+
+    size = [s1.length, s2.length].min
+    # determining the length of the shortest string
+
+    size.times do |i|
+      if s1[i] != s2[i]
+        result += 1 #add a mismatch to the total count
       end
     end
-    distinct
+
+    result
   end
-end

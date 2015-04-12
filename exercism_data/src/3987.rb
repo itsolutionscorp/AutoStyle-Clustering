@@ -1,10 +1,6 @@
-class Hamming
-	def compute(strandone, strandtwo)
-		distance = 0
-		strlen = strandone.length
-		for i in 0..strlen
-			distance = distance + 1 if strandone[i] != strandtwo[i]
-		end
-		return distance
-	end
-end
+def compute(s1, s2)
+    paired = s1.split(//).zip(s2.split(//))
+    paired.reduce(0) do |sum, pair|
+      sum + pair.uniq.count() - 1
+    end
+  end

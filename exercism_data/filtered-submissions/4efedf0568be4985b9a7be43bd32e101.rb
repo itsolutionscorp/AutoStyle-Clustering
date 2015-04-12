@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
 
     if strand1.length == strand2.length
       "Wrong length. The strands have to be the same length"
@@ -15,5 +13,3 @@ class Hamming
       s1 != s2
     end
   end
-
-end

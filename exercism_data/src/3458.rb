@@ -1,10 +1,3 @@
-class Hamming
-  def compute a, b 
-    sum = 0;
-    limit = [a.length, b.length].min
-    (0...limit).each do |i|
-      sum += 1 if a[i] != b[i]
-    end
-    sum
-  end
-end
+def compute(string1, string2)
+      string1.chars.zip(string2.chars).count {|(first,last)| first != last }
+   end

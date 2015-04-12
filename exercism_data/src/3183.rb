@@ -1,11 +1,12 @@
-class Hamming
-  	def compute(a, b)
-  		diffCount = 0
-  		(0...[a.length,b.length].min).each do |i|
-  			if a[i] != b[i]
-  				diffCount = diffCount + 1
-  			end
-  		end
-  		return diffCount
-  	end
-end
+def compute(strand_a, strand_b)
+    strand_a = strand_a.split('')
+    strand_b = strand_b.split('')
+
+    mutations = 0
+
+    strand_a.each_index do |index|
+      mutations += 1 if strand_a[index] != strand_b[index]
+    end
+
+    hamming_difference = mutations
+  end

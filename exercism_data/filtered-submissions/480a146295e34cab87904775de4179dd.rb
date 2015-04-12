@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
     strands = [strand_one, strand_two].sort! {|l,r| l.length <=> r.length}
     dif = 0
     (0..strands.first.length-1).each do |c|
@@ -9,5 +7,3 @@ class Hamming
     end
     dif
   end
-  
-end

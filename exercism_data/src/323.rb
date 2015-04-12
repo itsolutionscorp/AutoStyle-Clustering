@@ -1,13 +1,7 @@
-class Hamming
-    def compute *args
-        (a,b) = args.collect { |x| x.split('') }.sort_by(&:length)
-
-        a.zip(b).inject(0) do |agg, current| 
-            if current[0] == current[1]
-                agg
-            else
-                agg + 1
-            end
-        end
+def compute(a, b)
+	errors = 0
+	a.length.times do |i|
+	  errors += 1 if a[i] != b[i]
+	end
+	errors
     end
-end

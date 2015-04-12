@@ -1,15 +1,14 @@
-require 'byebug'
+def compute(dna1, dna2)
+    distance, i = 0, 0
+    length = dna1.length >= dna2.length ? dna2.length : dna1.length
 
-class Hamming
-	def compute(strand_a, strand_b)
-		hamming_distance = 0
+    while i < length
+      if dna1[i] != dna2[i]
+        distance += 1
+      end
 
-		strand_a.each_char.with_index do|char, index|
-  			if char != strand_b[index] then
-  				hamming_distance += 1
-			end
-		end
+      i += 1
+    end
 
-		hamming_distance
-	end
-end
+    distance
+  end

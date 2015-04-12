@@ -1,17 +1,11 @@
-class Hamming
+def compute(a, b)
+    a, b = b, a if a.length > b.length
 
-  def compute(arg1, arg2)
-    arr1 = arg1.split("")
-    arr2 = arg2.split("")
+    distance = 0
 
-    counter = 0
-    arr1.each_with_index do |x, i|
-      if x != arr2[i]
-        counter += 1
-      end
+    0.upto(a.length - 1) do |i|
+      distance += 1 unless a[i] == b[i]
     end
-    return counter
 
+    distance
   end
-
-end

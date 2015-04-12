@@ -1,9 +1,12 @@
-class Hamming
-  def compute(strand1, strand2)
-    distance = 0
-    strand1.length.times do |i|
-      distance += 1 if strand1[i] != strand2[i]
+def compute(strand_one, strand_two)
+    zipped_strand_chars = strand_one.chars.zip(strand_two.chars)
+    hamming_number = 0
+
+    zipped_strand_chars.each do |a, b|
+      unless a == b
+        hamming_number += 1
+      end
     end
-    distance
+
+    hamming_number
   end
-end

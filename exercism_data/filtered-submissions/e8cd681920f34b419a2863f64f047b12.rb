@@ -1,5 +1,4 @@
-class Hamming
-      def compute(first, second)
+def compute(first, second)
 
       	String.try_convert(first)    #Convert variables in Strings
       	String.try_convert(second)  
@@ -20,7 +19,3 @@ class Hamming
 
       	
       end
-
-      
-   
-    end

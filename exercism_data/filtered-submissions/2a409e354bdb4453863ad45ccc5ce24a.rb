@@ -1,7 +1,4 @@
-module Hamming
-  extend self
-
-  def compute(s1, s2)
+def compute(s1, s2)
     pairs = s1.chars.zip(s2.chars)
 
     pairs

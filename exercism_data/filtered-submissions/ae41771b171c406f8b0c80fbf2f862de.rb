@@ -1,5 +1,4 @@
-class Hamming
-  def compute(seq1, seq2)
+def compute(seq1, seq2)
     longer_seq = seq1.size >= seq2.size ? seq1 : seq2
     shorter_seq = longer_seq == seq1 ? seq2 : seq1
     index = 0
@@ -10,4 +9,3 @@ class Hamming
     end
     count
   end
-end

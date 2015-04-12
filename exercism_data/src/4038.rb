@@ -1,13 +1,10 @@
-class Hamming
-	def compute(a, b)
-		if a.length != b.length
-			raise ArgumentError "Invalid strings"
+def compute first, second
+		diff_counter = 0
+		first.each_char.with_index do |f, i|
+			break if second[i].nil?
+			diff_counter += 1 if f != second[i]
 		end
-		c = 0
-		(0..a.length - 1).each do |i|
-			c += 1 if a[i] != b[i]
-		end
-		c
+		return diff_counter
 	end
-	
+
 end

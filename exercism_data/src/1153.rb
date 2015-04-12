@@ -1,13 +1,6 @@
-class Hamming
-	def compute(one, two)
-	  first = one.split('')
-    second = two.split('')
-    count = 0
-    first.zip(second).each  do |x, y|
-      if x != y
-        count += 1
-      end
+def compute(a_strand, b_strand)
+    a_strand.chars.zip(b_strand.chars).inject(0) do |ham_distance, pair|
+      ham_distance += pair.compact.uniq.length - 1
     end
-    count
-	end
+  end
 end

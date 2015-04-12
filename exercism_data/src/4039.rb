@@ -1,13 +1,15 @@
-class Hamming
+def compute(first_strand, second_strand)
+    strands = [first_strand, second_strand].sort { |a, b| a.length <=> b.length }
 
-	def compute(a,b)
-		hammingCount= 0
-		compareCount= [ a.length,b.length ].min
-		( 0 .. compareCount ).each { |indx|
-			if a[indx] != b[indx] then
-				hammingCount+= 1
-			end
-		}
-		hammingCount
-	end
-end
+    count = 0
+    i = 0
+
+    strands[0].each_char do |c|
+
+      count += 1 if strands[1][i] != c
+      i += 1
+
+    end
+
+    count
+  end

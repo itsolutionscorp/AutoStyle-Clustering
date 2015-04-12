@@ -1,9 +1,11 @@
-class Hamming
+def compute(str1, str2)
+  	a = str1.to_s.split('').zip(str2.to_s.split(''))
+  	b = 0
 
-	def compute(strand1, strand2)
-		strand1.chars.each_with_index.inject(0) do |dist, (nuc1, i)|
-			nuc1 != strand2[i] ? dist += 1 : dist
-		end
+  	a.collect do |v| #[0].include?(v[1]) }
+    	if v[0] != v[1] && v[1] != nil
+    		b += 1
+   		end
+   	end
+    return b
 	end
-
-end

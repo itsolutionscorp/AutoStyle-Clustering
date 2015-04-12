@@ -1,5 +1,4 @@
-class Hamming
-  def compute(sq1, sq2)
+def compute(sq1, sq2)
     sq1 = sq1.split(//)
     sq2 = sq2.split(//)
     sqllength = sq1.length
@@ -15,4 +14,3 @@ class Hamming
     end
     hammcounter
   end
-end

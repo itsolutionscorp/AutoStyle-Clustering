@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_A, strand_B)
+def compute(strand_A, strand_B)
     common_length = [strand_A.length, strand_B.length].min
     hamming_distance = 0
     common_length.times do |index|
@@ -7,4 +6,3 @@ class Hamming
     end
     hamming_distance
   end
-end

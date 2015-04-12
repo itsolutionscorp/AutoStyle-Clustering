@@ -1,5 +1,4 @@
-class Hamming
-  def compute(one, other)
+def compute(one, other)
     one_bases = one.chars
     other_bases = other.chars
 
@@ -14,4 +13,3 @@ class Hamming
 
     distance
   end
-end

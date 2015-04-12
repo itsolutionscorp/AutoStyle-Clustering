@@ -1,11 +1,8 @@
-class Hamming
-  class << self
-    def compute(a,b)
-      limit = [a.size,b.size].min
-
-      (0...limit).inject(0) do |sum, i|
-        a[i] == b[i] ? sum : sum += 1
-      end
-    end
+def compute(arg1,arg2)
+    ham = 0
+	a=*(0..arg1.length-1)
+	  a.each do |i|
+	    ham += 1 if arg1[i] != arg2[i]
+	  end
+	return ham
   end
-end

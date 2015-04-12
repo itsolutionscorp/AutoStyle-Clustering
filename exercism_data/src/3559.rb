@@ -1,19 +1,6 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    i = 0
-    difference_count = 0
-    strand1 = strand1.split(//)
-    strand2 = strand2.split(//)
-
-    strand1.each do |point|
-      if point != strand2[i]
-        difference_count += 1
-      end
-      i += 1
+def compute(string_1, string_2)
+    string_1.char.zip(string_2.char).count do |char_1, char_2|
+      char_1 != char_2
     end
-
-    return difference_count
   end
-
 end

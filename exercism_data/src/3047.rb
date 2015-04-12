@@ -1,11 +1,10 @@
-module Hamming
-  def compute(first_strand, second_strand)
+def compute(strand_one, strand_two)
+    short_strand = [strand_one, strand_two].min{|a,b| a.size <=> b.size }
+    hamming_dist = 0
 
-    result = 0
-    [first_strand.length, second_strand.length].min.times do |index|
-      result += 1 if first_strand[index] != second_strand[index]
+    short_strand.length.times do |i|
+      hamming_dist += 1 if strand_one[i] != strand_two[i]
     end
 
-    result
+    hamming_dist
   end
-end

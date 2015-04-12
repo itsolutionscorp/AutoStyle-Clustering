@@ -1,16 +1,23 @@
-class Hamming 
-	def compute(a, b)
-		strand1 = a.split('')
-		strand2 = b.split('')
-		shortest_strand = strand1.length > strand2.length ? strand2 : strand1
-		hamming_distance = 0
+def compute(strand1, strand2)
+    # Initialize Hamming, iterator variables
+    hamming_distance, i = 0, 0
 
-		0.upto(shortest_strand.length) do |x|
-			hamming_distance += 1 if strand1[x] != strand2[x]
-			count += 1
-		end
+    # Turn each strand into an array
+    strand1 = strand1.chars
+    strand2 = strand2.chars
 
-		puts "The hamming distance of these two DNA strands is: #{hamming_distance}"
-		return hamming_distance
-	end
-end
+    # Make both strands the same length
+    if strand1.length > strand2.length
+      strand1 = strand1.slice(0...strand2.length)
+    elsif strand2.length > strand1.length
+      strand2 = strand2.slice(0...strand1.length)
+    end
+
+    # Iterate through strand1, incrementing
+    # the Hamming distance with each inequality
+    strand1.each_with_index { |char, idx|
+      if char != strand2[idx] then hamming_distance += 1 end
+    }
+
+    return hamming_distance
+  end

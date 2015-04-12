@@ -1,17 +1,13 @@
-class Hamming
-	def compute(arg, arg2)
+def compute(a, b)
+       count = 0
 
-	  a = arg.chars
-	  b = arg2.chars
-    combo =[]
-    combo.push(a)
-		combo.push(b)
-		num = 0
-		combo[0].length.times do |i|
-			combo[0][i] != combo[1][i] ? num+=1 : num+=0
-		end
+       array_a = a.split("")
+       array_b = b.split("")
 
-
-	 return num
-	end
-end
+       array_a.zip(array_b).each do |first, second|
+           if first && second && first != second
+               count += 1
+           end
+       end
+       return count
+    end

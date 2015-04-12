@@ -1,7 +1,9 @@
-class Hamming
-  def compute(a,b)
-    h = 0
-    [a.length, b.length].min.times {|x| h += 1 if a[x] != b[x]}
-    h
-  end
-end
+def compute a, b
+		count = 0
+		a.length.times do |i|
+			if a[i] != b[i]
+				count+=1
+			end
+		end	
+		return count
+	end

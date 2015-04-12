@@ -1,12 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
-    length = [strand1.length, strand2.length].sort.first
-    diff = 0
-
-    for i in (0..length-1)
-      diff += 1 unless strand1[i] == strand2[i]
+def compute(strand_1, strand_2)
+      min_length = strand_1.length > strand_2.length ? strand_2.length : strand_1.length
+      (0...min_length).count { |index| strand_1[index] != strand_2[index] }
     end
-
-    diff
-  end
-end

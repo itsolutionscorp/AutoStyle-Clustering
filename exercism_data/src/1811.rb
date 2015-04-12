@@ -1,10 +1,9 @@
-class Hamming
-    def compute(a, b)
-        pairs = a.chars.to_a.zip(b.chars.to_a)
+def compute(s1, s2)
+    differences = 0
 
-        pairs.count do |pair|
-            next unless pair[0] && pair[1]
-            pair[0].upcase != pair[1].upcase
-        end
+    [s1.length, s2.length].min.times do |i|
+      if s1[i] != s2[i] then differences += 1 end
     end
-end
+
+    return differences
+  end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
       mutations = 0
       asplit = a.split('')
       bsplit = b.split('')
@@ -8,4 +7,3 @@ class Hamming
       end
       mutations
   end
-end

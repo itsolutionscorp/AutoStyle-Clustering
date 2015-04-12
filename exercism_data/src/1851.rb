@@ -1,11 +1,9 @@
-class Hamming
-  def compute(s1, s2)
-    differences = 0
-
-    [s1.length, s2.length].min.times do |i|
-      if s1[i] != s2[i] then differences += 1 end
+def compute(sequence_a, sequence_b)
+    a = sequence_a.split(//)
+    b = sequence_b.split(//)
+    distance = 0
+    a.each_with_index do |acid, i|
+      distance += 1 if a[i] != b[i]
     end
-
-    return differences
+    distance
   end
-end

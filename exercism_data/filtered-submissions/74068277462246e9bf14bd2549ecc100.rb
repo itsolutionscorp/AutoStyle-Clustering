@@ -1,6 +1,4 @@
-module Hamming
-  # Compute the Hamming distance between two DNA sequences.
-  def compute(string1, string2)
+def compute(string1, string2)
     difference = 0
     string1.chars.each_with_index do |char, index|
       break if string2[index] == nil

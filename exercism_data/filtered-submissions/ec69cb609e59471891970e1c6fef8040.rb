@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     mutations = 0
 
     strand_1.chars.each_with_index do |val, index|
@@ -7,4 +6,3 @@ class Hamming
     end
     mutations
   end
-end

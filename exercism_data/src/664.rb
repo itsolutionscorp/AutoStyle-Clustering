@@ -1,17 +1,10 @@
-class Hamming
-  def compute(str1, str2)
-    hamming_distance = 0
-
-    if str1.length < str2.length
-      count = str1.length
-    else
-      count = str2.length
+def compute(strand1, strand2)
+    diff, ind = 0, 0
+    strand1.split("").each do |i|
+      if (strand1[ind] != strand2[ind]) && (strand2[ind] != nil)
+        diff += 1
+      end
+      ind += 1
     end
-
-    count.times do |point|
-      hamming_distance += 1 if str1[point] != str2[point]
-    end
-
-    hamming_distance
+    diff
   end
-end

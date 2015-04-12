@@ -1,13 +1,14 @@
-class Hamming
+def compute(first_strand, second_strand)
 
-  def compute left, right
-    distance = 0
-    left.chars.each_with_index do |char, i|
-      if right[i]
-        distance += 1 if right[i] != char
-      end
+    first_strand_array = first_strand.split(//)
+    second_strand_array = second_strand.split(//)
+
+    hamming_distance = 0
+
+    first_strand_array.each_with_index.map do |element, index|
+      break if index == second_strand_array.count
+      hamming_distance += 1 if element != second_strand_array[index]
     end
-    distance
-  end
 
-end
+    return hamming_distance
+  end

@@ -1,5 +1,16 @@
-class Hamming
-  def compute (from, to)
-    (0...[from.length, to.length].min).each.count { |i| from[i] != to[i] }
+def compute(strand_a, strand_b)
+    distance = []
+
+    a = strand_a.split("")
+    b = strand_b.split("")
+
+    a1 = a.take(b.count)
+    b1 = b.take(a.count)
+
+    b1.each_with_index do |x, index|
+      if x != a1[index]
+        distance << x
+      end
+    end
+    distance.count
   end
-end

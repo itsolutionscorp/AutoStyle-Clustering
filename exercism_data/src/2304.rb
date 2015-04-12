@@ -1,17 +1,7 @@
-require 'pry'
-
-class Hamming
-  def compute(strand1, strand2)
-    count = strand1.length - 1
-    differences = 0
-    if strand1 == strand2
-      differences
-    else
-      until count == -1
-        differences += 1 if strand1[count] != strand2[count]
-        count -= 1
-      end
-      differences
+def compute(l1,l2)
+    distance = 0
+    l1.each_char.with_index do|char, index|
+      distance +=1  if char != l2[index]
     end
+    distance
   end
-end

@@ -1,8 +1,7 @@
-class Hamming
-  def compute(strand1, strand2)
-    comparison_array = strand1.chars.zip(strand2.chars)
-    comparison_array.count do |comparison_pair|
-      comparison_pair.first != comparison_pair.last 
+def compute(dna_a, dna_b)
+    hamming = 0
+    [dna_a.size, dna_b.size].min.times do |i|
+      hamming += 1 if dna_a[i] != dna_b[i]
     end
+    hamming
   end
-end

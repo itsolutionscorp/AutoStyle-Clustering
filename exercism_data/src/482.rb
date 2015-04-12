@@ -1,13 +1,3 @@
-class Hamming
-  def compute(a, b)
-    a, b = b, a if a.length > b.length
-
-    distance = 0
-
-    0.upto(a.length - 1) do |i|
-      distance += 1 unless a[i] == b[i]
-    end
-
-    distance
+def compute(strand_1, strand_2)
+    strand_1.chars.zip(strand_2.chars).reduce(0) { |count, pair| count + (pair[0] != pair[1] ? 1 : 0) }
   end
-end

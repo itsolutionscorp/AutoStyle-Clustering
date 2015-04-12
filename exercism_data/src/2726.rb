@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna_strand1, dna_strand2)
-		dna_strand1.chars.zip(dna_strand2.chars).count { |n1, n2| n1 && n2 && n1 != n2 }
-  end
-end
+def compute( left_str, right_str )
+    left_str.chars.zip( right_str.chars ).reduce( 0 ) do |a, (left, right)|
+      right && left != right ? a + 1 : a
+    end

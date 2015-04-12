@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand, other_strand)
+def compute(strand, other_strand)
     diff = 0
 
     [strand.length, other_strand.length].min.times do |ndx|
@@ -8,4 +7,3 @@ class Hamming
 
     diff
   end
-end

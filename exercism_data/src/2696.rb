@@ -1,9 +1,7 @@
-class Hamming
-  def compute(a, b)
-    distance = 0
-    a.chars.each_with_index do |symbol, index|
-      distance += 1 if b[index] != symbol
-    end
-    return distance
+def compute(strand1, strand2)
+	distance = 0
+		(strand1.length).times do |i|
+			distance+=1 if strand1[i]!=strand2[i]
+		end
+	distance
   end
-end

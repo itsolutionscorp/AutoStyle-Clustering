@@ -1,7 +1,4 @@
-class Hamming
-	class << self
-
-		def compute(a, b)
+def compute(a, b)
 
 			if a == b 
 
@@ -56,5 +53,3 @@ class Hamming
 
 			end
 		end
-	end
-end

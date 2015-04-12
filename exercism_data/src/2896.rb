@@ -1,17 +1,11 @@
-class Hamming
+def compute(dna1, dna2)
+    mistakes = 0
 
-	def compute(strand1,strand2)
-		@distance = 0
-		strand1Letters = strand1.split('')
-		strand2Letters = strand2.split('')
-		strand1Letters.each_with_index do |letter, index|
-			if (letter == strand2Letters[index] || strand2Letters[index].nil?)
-				@distance = @distance
-			else
-				@distance += 1
-			end
-		end
-		return @distance
-	end
+    dna1.chars.each_with_index do |x, index|
+      unless x.nil? || dna2[index].nil?
+        mistakes += 1 if x != dna2[index]
+      end
+    end
 
-end
+    mistakes
+  end

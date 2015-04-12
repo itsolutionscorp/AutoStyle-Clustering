@@ -1,9 +1,10 @@
-class Hamming
-  class << self
-    def compute(arg1, arg2)
-      arg1.chars.zip(arg2.chars).reduce(0) do |a, e|
-        e[0] != e[1] ? a + 1 : a
-      end
+def compute(strand, other_strand)
+    distance = 0
+
+    strand.each_char.each_with_index do |point, i|
+      other_point = other_strand[i]
+      distance += 1 if other_point && point != other_point
     end
+
+    distance
   end
-end

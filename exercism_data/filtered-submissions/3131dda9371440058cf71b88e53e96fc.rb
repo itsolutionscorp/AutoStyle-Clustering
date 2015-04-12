@@ -1,5 +1,4 @@
-class Hamming
-  def compute sequence1, sequence2
+def compute sequence1, sequence2
     hamming = 0
     (0..sequence1.length - 1).each do |position|
       if sequence2[position] 
@@ -8,4 +7,3 @@ class Hamming
     end
     hamming
   end
-end

@@ -1,10 +1,26 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    distance = 0
-    smaller_strand_length = [first_strand.length, second_strand.length].min
-    first_strand.chars.take(smaller_strand_length).each_with_index do |first_strand_char, index|
-      distance += 1 if (first_strand_char != second_strand.chars[index])
+def compute(a,b)
+    # create arrays of both strings to allow stepping through each char
+    aa = a.split('')
+    ba = b.split('')
+
+    # running total for the hamming distance. Start off assuming none then add to it
+    h  = 0
+
+    # Create a numeric range to target in turn the array indices up till the shortest one
+    index_range = (0..((aa.length > ba.length ? ba.length : aa.length)-1))
+
+    # Now step through that range to compare each char in the 2 sequences in turn
+    index_range.each do |i|
+    
+      # If they are not the same...
+      if ba[i] != aa[i]
+        # increment our distance running total
+        h += 1
+      else
+        # no need to implement changes - skip to the next one
+        next
+      end
     end
-    distance
+    # Return the hamming distance
+    return h
   end
-end

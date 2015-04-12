@@ -1,23 +1,8 @@
-class Hamming
-
-  def compute(x, y)
-    if x == y
-      counter = 0
-    else
-      first_string = x.split(//)
-      second_string = y.split(//)
-      counter = 0
-      index = 0
-      while index < [(first_string.count),(second_string.count)].min
-        if first_string[index] != second_string[index]
-          counter += 1
-          index += 1
-        else
-          index +=1
-        end
-      end
-    end
-      p counter
-  end
-
-end
+def compute(string1, string2)
+		string1.length == string2.length or raise "Input Strings should be the same length."
+		distance = 0
+		(0..string1.length).each do |i|
+			distance += 1 if string1[i] != string2[i]
+		end
+		distance
+	end

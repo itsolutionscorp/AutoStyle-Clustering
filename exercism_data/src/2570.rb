@@ -1,18 +1,14 @@
-##
-# The Hamming class computes simple Hamming distances.
+def compute(strand1, strand2)
+    return 0 if strand1 == strand2
+    if strand1.length != strand2.length
+      # There was not a test for this condition, but there probably should have been
+      puts "Hamming cannot be computed on strands of different lengths"
+      return -1
+    end
 
-class Hamming
-
-  ##
-  # Compute the Hamming score of the given two strings.
-
-  def compute(left, right)
-    score = 0
-    size = [left.size, right.size].min
-    (0..size-1).each { |i|
-      score += 1 if left[i] != right[i]
-    }
-    score
+    hamming = 0
+    (0..strand1.length - 1).each do |position|
+      hamming += 1 unless strand1[position] == strand2[position]
+    end
+    hamming
   end
-
-end

@@ -1,20 +1,9 @@
-class Hamming
+def compute(strand, strand2)
+    differences = 0
 
-	def compute( a, b )
+    strand.split(//).each_with_index do |char, index|
+      differences += 1 if strand2[index] && char != strand2[index]
+    end
 
-		a_chars = a.chars.to_a
-		b_chars = b.chars.to_a
-
-		distance = 0
-
-		a_chars.each_with_index { | a_char, i |
-
-			distance += 1 if a_char != b_chars[i]
-
-		}
-
-		distance
-
-	end
-
-end
+    differences
+  end

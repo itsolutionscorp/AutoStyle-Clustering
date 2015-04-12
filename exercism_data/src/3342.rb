@@ -1,18 +1,18 @@
-class Hamming
-	def compute(name1, name2)
-		puts "name1: #{name1}"
-		puts "name2: #{name2}"
+def compute(strand_a, strand_b)
+    result = 0
 
-		if name1.length == name2.length
-			if name1 == name2
-				return 0
-			else
-				c = 0
-				name1.length.times {|i| if name1[i] != name2[i] then c+=1 end}
-				return c
-			end
-		else 
-			puts "The length of the DNA strands is not equivalent"	
-		end
-	end
-end
+    comparisons = 0
+    if strand_a.length < strand_b.length
+      comparisons = strand_a.length
+    else
+      comparisons = strand_b.length
+    end
+
+    (0..comparisons - 1).each do |i|
+      if strand_a[i] != strand_b[i]
+        result += 1
+      end
+    end
+
+    return result
+  end

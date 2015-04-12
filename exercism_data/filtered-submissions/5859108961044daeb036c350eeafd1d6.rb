@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s,t)
+def compute(s,t)
     @@count = 0
     s_enum = s.to_s.each_char
     t_enum = t.to_s.each_char
@@ -11,4 +10,3 @@ class Hamming
     end
     @@count
   end
-end

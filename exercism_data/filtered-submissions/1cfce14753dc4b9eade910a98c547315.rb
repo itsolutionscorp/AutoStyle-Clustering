@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(x,y)
+def compute(x,y)
 		if x.length == y.length
 			i = 0
 			sum = 0
@@ -19,5 +17,3 @@ class Hamming
 			exit
 		end
 	end
-
-end

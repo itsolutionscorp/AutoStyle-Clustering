@@ -1,5 +1,4 @@
-class Hamming
-  def compute(herp, derp)
+def compute(herp, derp)
   	herpArray = herp.split(//)
   	derpArray = derp.split(//)
   	# puts ""
@@ -19,4 +18,3 @@ class Hamming
   end
 
   # puts self.compute('A', 'A')
-end

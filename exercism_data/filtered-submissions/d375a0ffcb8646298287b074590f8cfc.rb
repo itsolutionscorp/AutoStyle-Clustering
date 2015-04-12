@@ -1,7 +1,4 @@
-class Hamming
-  attr_reader :counter
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     @counter = 0
     one = strand1.split('')
     two = strand2.split('')
@@ -12,5 +9,3 @@ class Hamming
 
     return @counter
   end
-
-end

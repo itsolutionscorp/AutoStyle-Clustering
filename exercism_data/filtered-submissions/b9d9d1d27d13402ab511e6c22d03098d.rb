@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(stringA, stringB)
+def compute(stringA, stringB)
 		hamming = 0
 		counter = 0
 		stringA.split("").each do |i|
@@ -14,6 +12,3 @@ class Hamming
 		end
 		return hamming
 	end
-
-
-end

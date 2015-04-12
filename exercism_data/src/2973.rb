@@ -1,8 +1,13 @@
-class Hamming
-  def compute(strand1, strand2)
-    pairs = strand1.chars.zip(strand2.chars)
-    pairs.inject(0) do |count, pair|
-      count = pair[1] && pair[0] != pair[1] ? count += 1 : count
+def compute a, b
+        str_to_char_array = Proc.new do |x|
+            x.chars.to_a
+        end
+
+        (a, b) = [a,b].collect(&str_to_char_array)
+
+        (shorter, longer) = [a,b].sort_by(&:length)
+
+        shorter.zip(longer).count do |current| 
+            current[0] != current[1]
+        end
     end
-  end
-end

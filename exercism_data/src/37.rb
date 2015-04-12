@@ -1,20 +1,17 @@
-class Hamming
-
-  def compute(original_dna, mutated_dna)
-    hamming_distance = 0
-    step = 1
-    original_dna.each_char do |c|
-
-      unless c == mutated_dna[step - 1]
-        hamming_distance = hamming_distance + 1
-      end
-      step = step + 1
-      
-      if step > original_dna.length or step > mutated_dna.length
-        return hamming_distance
-      end
-
-    end
-    return hamming_distance
-  end
-end
+def compute(string1,string2)
+		if ((string1.is_a? String) && (string2.is_a? String))
+			strand1 = string1.upcase()
+			strand2 = string2.upcase()
+			if ((strand1 == strand2)|| (strand1.length != strand2.length))
+				return 0
+			else
+				hamming_distance = 0
+				(0..(strand1.length)).each do |index|
+					hamming_distance+=1 if strand1[index] != strand2[index]
+				end	
+				return hamming_distance
+			end
+		else
+			puts "Please enter valid string"
+		end
+	end

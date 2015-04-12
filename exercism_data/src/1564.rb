@@ -1,7 +1,3 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).count do |base1, base2|
-      base1 && base2 && (base1 != base2)
-    end
+def compute a, b
+    [a, b].min_by{|x| x.size}.size.times.count {|i| a[i] != b[i]}
   end
-end

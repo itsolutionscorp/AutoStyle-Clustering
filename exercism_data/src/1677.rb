@@ -1,16 +1,5 @@
-class Hamming
-  def compute(first, second)
-    distance = 0
-    index = 0
-    first.each_char do |char|
-      second_char = second[index]
-
-      unless second_char == char
-        distance += 1
-      end
-      index += 1
-    end
-
-    distance
+def compute(a,b)
+    raise ArgumentError 'the strands must be of equal length' if a.length != b.length
+    (0..a.length).count{|i|a[i] != b[i]}
   end
 end

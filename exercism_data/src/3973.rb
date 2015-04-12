@@ -1,12 +1,9 @@
-class Hamming
-  def compute(str1, str2)
-  	mutations = 0
+def compute(a, b)
+    distance = 0
+    a.each_char.with_index do |char, index|
+      break if index >= b.length
+      distance += 1 if char != b[index]
+    end
 
-  	str1.split("").each_with_index do |base, index|
-      if base != str2[index] && !str2[index].nil?
-        mutations += 1
-  	  end
-  	end
-  	mutations
+    distance
   end
-end

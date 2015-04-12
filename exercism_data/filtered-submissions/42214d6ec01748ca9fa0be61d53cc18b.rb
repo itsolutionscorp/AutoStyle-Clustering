@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
 
     #remove extra characters
     min_length = [dna1.chars.length, dna2.chars.length].min
@@ -22,5 +20,3 @@ class Hamming
     hamming_distance
 
   end
-  
-end

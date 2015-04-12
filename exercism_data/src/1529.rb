@@ -1,12 +1,11 @@
-module Hamming
+def compute(foo, bar)
+		difference = 0
 
-    module_function
-    def compute(dna1, dna2)
-        hamming = 0
-        [dna1.size,dna2.size].min.times { |i|
-            hamming+=1 if dna1[i] != dna2[i]
-        }
-        return hamming
-    end
+		foo.length.times do |c| 
+			unless foo[c] == bar[c]
+				difference += 1
+			end
+		end
 
-end
+		difference
+	end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     return 0 if a == b
 
     positions = a.chars.zip(b.chars)
@@ -7,4 +6,3 @@ class Hamming
 
     errors.length
   end
-end

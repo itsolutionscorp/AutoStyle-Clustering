@@ -1,10 +1,21 @@
-class Hamming
-  def compute(strand1, strand2)
-    difference = 0
-    length = [strand1.length, strand2.length].min
-    (0..length-1).each do |count|
-      difference += 1 if strand1[count] != strand2[count]
+def compute(s1, s2)
+    @count = 0
+    @s1 = s1
+    @s2 = s2
+
+    @s1.length < @s2.length ? @shorter = @s1.length : @shorter = @s2.length
+
+    if @s1.length < @s2.length
+      @shorter = @s1.length
+    else
+      @shorter = @s2.length
     end
-    difference
+
+    0.upto(@shorter-1) do |x|
+      if @s1[x] != @s2[x]
+        @count = @count + 1
+      end
+    end
+
+    return @count
   end
-end

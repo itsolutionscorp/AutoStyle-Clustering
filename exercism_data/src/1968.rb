@@ -1,9 +1,4 @@
-class Hamming
-  def compute(one,two)
-    distance = 0
-    for i in 0..one.length
-      distance += 1 if one[i] != two[i]
-    end
-    distance
+def compute(a, b)
+    c = a.chars.zip b.chars
+    c.count {|elem| elem == elem.uniq && !elem.include?(nil)}
   end
-end

@@ -1,12 +1,12 @@
-class Hamming  
-  def compute(s1,s2)
-    ham = 0
-    min = [s1.length,s2.length].min
-    for i in 0..(min-1)
-      if s1[i] != s2[i]
-        ham += 1
-      end
-    end
-    return ham
-  end
-end
+def compute(strand1, strand2)
+		hamming_sum = 0
+		i = 0
+		length = [strand1.length, strand2.length].min
+		while i < length
+			if strand1[i] != strand2[i]
+				hamming_sum += 1
+			end
+			i += 1
+		end
+		hamming_sum
+	end

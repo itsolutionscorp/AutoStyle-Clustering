@@ -1,12 +1,11 @@
-class Hamming
+def compute(first, second)
+		min_string_length = [first.length, second.length].min
+		distance = 0
 
-  def compute(seq1, seq2)
-    count = 0
-    seq1.chars.each_with_index do |letter, idx|
-      break if seq2[idx].nil?
-      count += 1 unless letter.eql? seq2[idx]
-    end
-    return count
-  end
-
-end
+		0.upto(min_string_length - 1) do |index|
+			if first[index] != second[index]
+				distance += 1
+			end
+		end
+		return distance
+	end

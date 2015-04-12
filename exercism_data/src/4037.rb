@@ -1,6 +1,4 @@
-# class to compute Hamming difference in 2 DNA strands
-class Hamming
-  def compute(strand_one, strand_two)
-    strand_one.chars.zip(strand_two.chars).reduce(0) { |matches, pair| pair[0] != pair[1] ? matches += 1 : matches }
+def compute(str1, str2)
+    side_by_side_letters = str1.chars.zip(str2.chars)
+    side_by_side_letters.count { |letter| letter[0] != letter[1] }
   end
-end

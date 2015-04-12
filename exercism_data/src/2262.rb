@@ -1,12 +1,18 @@
-class Hamming
-
-  def compute(a, b)
-    #count the number of letters that are different.
-    ret = 0
-    for x in (0..a.length-1)
-      ret += 1 unless a[x] == b[x]
+def compute(a, b)
+    #No need to calculate if they are equal
+    if a === b
+      return 0
     end
-    ret
-  end
+    #find minimum length of the strings
+    length = a.length < b.length ? a.length : b.length
 
-end
+    #initialize variable to count differences between strings
+    difference = 0
+
+    #check each character, up to the length of the smaller string against the same position character of the other string and count how many are different
+    for i in 0..(length-1) do
+      if a[i] != b[i]
+        difference = difference + 1
+      end
+    end
+    return difference

@@ -1,14 +1,15 @@
-class Hamming
-
-  # Computes the Hamming distance for two given DNA strands
-  def compute(strA, strB) 
-    # Treat the given strings as sequences of characters instead
-    seqA = strA.split('')
-    seqB = strB.split('')
-    # Compute the hamming distance by comparing individual elements first
-    #
-    individual_distances = seqA.zip(seqB).map{ |e| (e[0] != e[1]) ? 1 : 0 }
-
-    individual_distances.inject(0) { |sum, i| sum + i }
-  end
+def compute(first_sequence, second_sequence)
+    hamming_counter = 0
+    unless first_sequence.length != second_sequence.length
+      if first_sequence == second_sequence
+        hamming_counter
+      else
+        split_first_sequence = first_sequence.split('')
+        split_second_sequence = second_sequence.split('')
+split_first_sequence.select.with_index do |first_sequence_base,index|
+  hamming_counter += 1 if first_sequence_base != split_second_sequence[index]
 end
+         hamming_counter
+      end
+    end
+  end

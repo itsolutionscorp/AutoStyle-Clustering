@@ -1,7 +1,4 @@
-class Hamming
-
-  class << self
-    def compute(a,b)
+def compute(a,b)
       return -1 if a.length != b.length
       d = 0
       (a.length).times do |i|
@@ -9,5 +6,3 @@ class Hamming
       end
       return d
     end
-  end
-end

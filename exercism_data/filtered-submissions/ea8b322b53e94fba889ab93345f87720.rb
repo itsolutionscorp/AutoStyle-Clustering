@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_dna, second_dna)
+def compute(first_dna, second_dna)
     shorter_dna_length = (first_dna.length < second_dna.length) ? first_dna.length : second_dna.length
     nucleotides_range = 0..(shorter_dna_length - 1)
     hamming_distance = 0
@@ -8,4 +7,3 @@ class Hamming
     end
     hamming_distance
   end
-end

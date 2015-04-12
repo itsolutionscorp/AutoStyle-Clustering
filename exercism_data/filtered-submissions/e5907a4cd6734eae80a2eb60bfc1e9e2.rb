@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_sequence, second_sequence)
+def compute(first_sequence, second_sequence)
     distance = 0
     first_sequence.split('').each_with_index do |l, i|
       break if second_sequence[i].nil?
@@ -7,4 +6,3 @@ class Hamming
     end
     distance
   end
-end

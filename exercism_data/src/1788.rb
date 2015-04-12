@@ -1,9 +1,8 @@
-class Hamming
+def compute(dna1,dna2)
+    length = [ dna1.length, dna2.length ].min - 1
 
-  def compute(aString, bString)
-    shorter_string, longer_string = (aString.size < bString.size) ? [aString, bString] : [bString, aString]
-    trimmed = longer_string[0..shorter_string.size - 1]
-    shorter_string.chars.zip(trimmed.chars).inject(0){ |acc, arr| arr[0]==arr[1] ? acc : acc + 1 }
+    ( 0..length ).inject( 0 ) do | diff_count, i |
+      dna1[i] == dna2[i] ? diff_count : diff_count += 1
+    end
+
   end
-
-end

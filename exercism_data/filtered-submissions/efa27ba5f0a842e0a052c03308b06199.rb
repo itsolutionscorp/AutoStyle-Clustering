@@ -1,7 +1,4 @@
-#!/usr/bin/ruby
-
-class Hamming
-    def compute(a, b)
+def compute(a, b)
         distance = 0
         size = [a.length, b.length].min
         size.times do |i|
@@ -9,4 +6,3 @@ class Hamming
         end
         distance
     end
-end

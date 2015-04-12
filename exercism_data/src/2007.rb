@@ -1,9 +1,10 @@
-class Hamming
-  def compute(a, b)
-    a.split('').zip(b.split('')).map do |pair|
-      next 0 if pair[0].nil? || pair[1].nil?
-      next 0 if pair[0] == pair[1]
-      1
-    end.reduce(&:+)
+def compute(a, b)
+    length = [a,b].min_by {|strand| strand.length}.length
+    differences = 0
+    length.times do |index|
+      differences += 1 if a[index] != b[index]
+    end
+    differences
   end
+  
 end

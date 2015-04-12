@@ -1,7 +1,7 @@
-class Hamming
-  def compute(s1, s2)
-    raise ArgumentError if s1.length != s2.length
+def compute(first, second)
+    first.each_char.with_index.count { |c, i| c != second[i] }
 
-    s1.split('').zip(s2.split('')).reject{|s1, s2| s1 == s2}.length
+    # More verbose one-liners
+    # first.each_char.map.with_index { |c, i| c == second[i] ? 0 : 1 }.reduce(&:+)
+    # first.each_char.select.with_index { |c, i| c != second[i] }.length
   end
-end

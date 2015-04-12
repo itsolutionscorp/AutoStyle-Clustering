@@ -1,7 +1,7 @@
-class Hamming
-  def compute(first, second)
-    first[0, second.size].chars.zip(second.chars).inject(0) do |ham, element|
-      ham += (element[0].eql? element[1]) ? 0 : 1
+def compute(dna1, dna2)
+    total = 0
+    dna1.each_char.with_index do |ch, index|
+      total += 1 if ch != dna2[index]
     end
+    total
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     distance = 0
 
     0.upto([strand1.length, strand2.length].min-1) do |i|
@@ -8,4 +7,3 @@ class Hamming
 
     distance
   end
-end

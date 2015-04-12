@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(first,second)
+def compute(first,second)
 		first = first.scan(/./)
 		second = second.scan(/./)
 
@@ -14,5 +12,3 @@ class Hamming
 		return hamming
 
 	end
-
-end

@@ -1,17 +1,13 @@
-#!/usr/bin/env ruby
+def compute(sequence1, sequence2)
 
-class Hamming
+    count = 0;
 
-	def compute(first, second)
-		differences = 0
-		length = [first.length, second.length].min - 1
-		(0..length).each do |index|
-			if first[index] != second[index]
-				differences = differences + 1
-			end
-		end
+    for i in 0..sequence1.length
 
-		return differences
-	end
+      if sequence1[i] != sequence2[i]
+	    count = count + 1
+	  end
+    end
 
-end
+    count
+  end

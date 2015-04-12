@@ -1,16 +1,5 @@
-class Hamming
-
-  def compute(dna1, dna2)
-    mistakes = 0
-
-    dna1 = dna1[0, dna2.length]
-    dna2 = dna2[0, dna1.length]
-
-    (0..dna1.length).each do |x|
-      mistakes += 1 if dna1[x] != dna2[x]
-    end
-
-    mistakes
+def compute(strand, strand2)
+  	mutual_length = [strand.length, strand2.length].min
+    pairs = strand.chars.zip(strand2.chars).take(mutual_length)
+    pairs.count {|x,y| x != y }
   end
-
-end

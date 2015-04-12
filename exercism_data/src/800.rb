@@ -1,9 +1,9 @@
-class Hamming
-  def compute(strand1, strand2)
-    chars1 = strand1.chars.take(strand2.length)
-    chars2 = strand2.chars
-
-    pairs = chars1.zip(chars2)
-                  .count { |char1, char2| char1 != char2 }
+def compute num1, num2 
+    count = 0
+    str1= num1.to_s.split('')
+    str2= num2.to_s.split('')
+    str1.length.times do |i|
+        count += 1 if str1[i] != str2[i]
+    end
+    count
   end
-end

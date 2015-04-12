@@ -1,9 +1,7 @@
-class Hamming
-  def compute(str1, str2)
-    count = 0
-    (0...[str1.length, str2.length].min).each do |char|
-      count += 1 if str1[char] != str2[char]
-    end
-    count
+def compute(strand1, strand2)
+    size = [strand1.size, strand2.size].min
+
+    strand1.chars.take(size).each_with_index.count { |char, index|
+      char != strand2[index]
+    }
   end
-end

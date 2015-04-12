@@ -1,9 +1,4 @@
-class Hamming
-  class << self
-    def compute(strand1, strand2)
-      (strand1.chars.zip(strand2.chars)).count do |nucleotide_a, nucleotide_b|
-        nucleotide_a != nucleotide_b
-      end
-    end
+def compute(start, finish)
+    pairs = start.chars.zip(finish.chars)
+    pairs.reject { |old,new| new.nil? || old.eql?(new) }.length
   end
-end

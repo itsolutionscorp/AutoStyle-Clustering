@@ -1,10 +1,3 @@
-module Hamming
-  def compute original, *descendant
-    raise ArgumentError('Sequences must be equal in length.') if original.length != descendant.length
-
-    [*original].zip(descendant).reduce(0) { |a, (orig_base, desc_base)|
-      a += 1 if orig_base != desc_base
-      a
-    }
-  end
-end
+def compute(a, b)
+    raise DifferingArgumentLength unless a.length == b.length
+    (0..a.chars.length - 1).inject(0) { |r, i| r += 1 if a[i] != b[i]; r }

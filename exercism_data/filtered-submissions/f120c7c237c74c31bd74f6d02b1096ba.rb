@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
     #set the counter variable to zero
     counter = 0
     #find the shortest of the two strands                                                           # => 0
@@ -18,4 +16,3 @@ class Hamming
     counter
 
   end
-end

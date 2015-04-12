@@ -1,5 +1,5 @@
-class Hamming
-  def compute(a, b)
-    a.chars.map.with_index {|_, i| a[i] === b[i] }.count(false)
-  end
-end
+def compute(strandA, strandB)
+		distance = strandA.split(//).zip(strandB.split(//)).count() do |nucleotideA, nucleotideB|
+		  !nucleotideB.nil? && nucleotideA != nucleotideB
+		end
+	end

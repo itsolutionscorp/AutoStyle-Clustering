@@ -1,11 +1,11 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    a, b = strand_a.chars, strand_b.chars
-    hamming_distance = 0
-
-    # FIXME : calc hamming distance without conditions
-    a.each_with_index { |v, i| hamming_distance += 1 unless v.eql?(b[i]) }
-
-    count
-  end
-end
+def compute(arg, arg2)
+		@dna1 = arg.chars.to_a
+		@dna2 = arg2.chars.to_a
+		@counter = 0
+		@dna1.zip(@dna2).each do |b , c|
+			if b != c
+				@counter += 1
+			end
+		end
+		return @counter
+	end

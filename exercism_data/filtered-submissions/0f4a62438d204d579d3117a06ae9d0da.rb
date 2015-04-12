@@ -1,5 +1,4 @@
-class Hamming
-    def compute(a, b)
+def compute(a, b)
         ary_a = a.split("")
         ary_b = b.split("")
         distance = 0
@@ -10,4 +9,3 @@ class Hamming
         }
         distance
     end
-end

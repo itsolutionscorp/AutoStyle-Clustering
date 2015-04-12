@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     fail ArgumentError, 'Argument lengths are not equal' unless dna1.size == dna2.size
     return 0 if (dna1 == dna2)
     total = 0
@@ -8,4 +7,3 @@ class Hamming
     end
     total
   end
-end

@@ -1,15 +1,3 @@
-class Hamming
-  def compute(arg1,arg2)
-    if arg1 == arg2
-      return 0
+def compute seq_a, seq_b
+      seq_a.split('').zip(seq_b.split('')).select{ |base| base[0] != base[1] }.size
     end
-    diffs = 0
-    arr = arg1.split("").zip(arg2.split(""))
-    arr.each do |stuff|
-      if stuff[0] != stuff[1]
-        diffs = diffs + 1
-      end
-    end
-    return diffs
-  end
-end

@@ -1,15 +1,5 @@
-class Hamming
-	def compute x, y
-		return 0 if x == y
-
-		s1 = x.split("")
-		s2 = y.split("")
-		hammingDistance = 0
-
-		s1.each_with_index { | val, index |
-			break if index >= s2.length
-			hammingDistance += 1 if val != s2[index]
-		}
-		return hammingDistance
+def compute s1, s2
+		distance = 0
+		s1.chars.each_with_index { |char, i| distance += char == s2[i] ? 0 : 1}
+		distance
 	end
-end

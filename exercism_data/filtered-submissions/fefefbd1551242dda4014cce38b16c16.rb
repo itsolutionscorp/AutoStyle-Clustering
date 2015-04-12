@@ -1,6 +1,4 @@
-module Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     count = 0
     shortest_length = [strand1.length, strand2.length].min
     0.upto(shortest_length - 1) do |i|

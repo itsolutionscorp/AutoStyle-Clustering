@@ -1,11 +1,11 @@
-class Hamming
-  def compute(a, b)
-    count = 0
-    for index in 0...(a.chars.length > b.chars.length ? b.chars.length : a.chars.length) do
-      if a.chars[index] != b.chars[index]
-        count += 1
-      end 
-    end
-    return count
-  end
-end
+def compute(a,b)
+		difference = 0
+
+		min_length = [a.length, b.length].min
+
+		min_length.times do |n|
+			difference += 1 if a[n] != b[n]
+		end
+		
+		return difference
+	end

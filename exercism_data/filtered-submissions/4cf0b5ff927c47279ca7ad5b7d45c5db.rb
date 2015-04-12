@@ -1,5 +1,4 @@
-class Hamming
-	def compute(firstStr,secondStr)
+def compute(firstStr,secondStr)
 		i=0
 		sum=0
 		while i<firstStr.length
@@ -10,6 +9,3 @@ class Hamming
 		end
 		return sum
 	end
-end
-
-#Hamming.compute('GGACGGATTCTG', 'AGGACGGATTCT')

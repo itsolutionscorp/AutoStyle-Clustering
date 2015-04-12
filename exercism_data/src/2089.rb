@@ -1,11 +1,8 @@
-class Hamming
-    def compute (source, copy)
-        distance = 0
-        source.length.times do |i|
-            if source[i] != copy[i] && copy[i] != nil
-                distance += 1
-            end
-        end
-        distance
-    end
-end
+def compute(dna1, dna2)
+    length = dna1.length
+    dna1 = dna1.split(//)
+    dna2 = dna2.split(//)
+    arr = dna1.zip dna2
+    arr.map {|a| a[0].eql?(a[1]) }.count{|c| c == false }
+    
+  end

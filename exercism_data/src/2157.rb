@@ -1,12 +1,9 @@
-class Hamming
-  def compute(a, b)
-    return 0 if a == b
-
-    is_error = ->((x, y)) { y && x != y }
-
-    pairs      = a.chars.zip(b.chars)
-    num_errors = pairs.count(&is_error)
-
-    num_errors
-  end
-end
+def compute(string_one, string_two)
+		count = 0
+		for i in 0..([string_one.length, string_two.length].min-1)
+			if string_one[i] != string_two[i] 
+				count += 1
+			end
+		end
+		return count
+	end

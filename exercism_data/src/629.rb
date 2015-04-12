@@ -1,13 +1,9 @@
-module Hamming
-    def compute(first, second)
-        count = 0
-        first.chars.each_with_index { |char, index|
-            # ignore extra characters if our string
-            # is longer than the second one.
-            next unless second[index]
-    
-            count += 1 if char != second[index]
-        }
-        return count
-    end
-end
+def compute(first_strand, sec_strand)
+	  difference = 0
+	  first_strand.length <= sec_strand.length ? shortest_length = first_strand.length
+                                             : shortest_length = sec_strand.length
+	  shortest_length.times do |n|
+      difference +=1 if first_strand[n] != sec_strand[n]
+	  end
+	  difference
+	end

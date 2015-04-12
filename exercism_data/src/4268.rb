@@ -1,18 +1,5 @@
-class Hamming
-
-	def compute(first_strand, second_strand)
-    hamming_distance = 0
-		first_dna  = first_strand.chars
-    second_dna = second_strand.chars
-    first_dna.each_with_index do | element ,x |
-      if first_dna[x] != second_dna[x]
-        hamming_distance += 1
-      end
-    end
-    hamming_distance
-	end
-end
-
-if __FILE__ == $0 
-puts Hamming.compute("GAGCCTACTAACGGGAT", "CATCGTAATGACGGCCT")
-end
+def compute(s1,s2)
+    diff = 0
+    [s1.length,s2.length].min.times {|i| diff +=1 if s1[i] != s2[i]}
+    diff
+  end

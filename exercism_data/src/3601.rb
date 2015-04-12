@@ -1,18 +1,12 @@
-class Hamming
+def compute(left_strand, right_strand)
+    left_array = left_strand.split("")
+    right_array = right_strand.split("")
 
-  def compute(strand_a, strand_B)
-    # not necessary, since comparison does return zero, too
-    # return 0 if strand_a.eql? strand_B
-
-    # renaming count to differences to gain better meaning
-    differences = 0
-
-    # making use of Array.min more readable than ternary operator
-    checks_to_do = [strand_a.length, strand_B.length].min
-
-    checks_to_do.times do |i|
-      differences += 1 if strand_a[i] != strand_B[i]
+    # count = 0
+    left_array.each_with_index do |value, index|
+      if value != right_array[index] && index < right_array.count
+        count += 1
+      end
     end
-    differences
+    count
   end
-end

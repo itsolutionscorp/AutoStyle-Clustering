@@ -1,15 +1,13 @@
-class Hamming; end
+def compute(strand1, strand2)
 
-def Hamming.compute(a, b)
-  # We start with 0 differences
-  diff = 0
+    count  = 0
 
-  # Get the shortest strand lenght and fix strands
-  length = [a, b].min_by(&:size).size
-  a, b = a[0, length], b[0, length]
+    (0..strand1.length).each do |n|
+      if strand1[n] != strand2[n]
+        count+=1
+      end
+    end
 
-  # Increment diff for every missing char
-  (0..(length)).each { |i| diff += 1 if a[i] != b[i] }
+    return count
 
-  diff
-end
+  end

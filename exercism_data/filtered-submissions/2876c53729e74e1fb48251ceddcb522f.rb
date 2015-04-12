@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(a, b)
+def compute(a, b)
       explode_a = a.split('')
       explode_b = b.split('')
 
@@ -9,5 +7,3 @@ class Hamming
         sum
       end
     end
-  end
-end

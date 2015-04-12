@@ -1,8 +1,8 @@
-class Hamming
-  def compute(a,b)
-    n = [a, b].map(&:length).min
-    n.times.reduce(0) do |score, i|
-      score + (a[i]==b[i] ? 0 : 1)
+def compute(strand_a,strands_b)
+      return -1 if strand_a.length != strands_b.length
+      distance = 0
+      (strand_a.length).times do |i|
+        distance += 1 if strand_a[i] != strands_b[i]
+      end
+      distance
     end
-  end
-end

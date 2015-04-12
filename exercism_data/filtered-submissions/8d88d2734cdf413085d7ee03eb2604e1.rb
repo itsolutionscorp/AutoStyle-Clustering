@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     min_length = [a.length, b.length].min
     max_length = [a.length, b.length].max
 
@@ -8,4 +7,3 @@ class Hamming
 
     return max_length - min_length + start_differences
   end
-end

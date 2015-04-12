@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     distance = 0
 
     first.each_char.with_index do |c, i|
@@ -12,4 +11,3 @@ class Hamming
     # first.chars.map.with_index { |c, i| c == second[i] ? 0 : 1 }.reduce(&:+)
     # first.chars.select.with_index { |c, i| c != second[i] }.length
   end
-end

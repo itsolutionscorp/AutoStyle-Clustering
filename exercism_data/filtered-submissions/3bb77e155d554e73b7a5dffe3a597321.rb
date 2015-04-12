@@ -1,5 +1,4 @@
-class Hamming 
-	def compute(a, b)
+def compute(a, b)
 		strand1 = a.split('')
 		strand2 = b.split('')
 		shortest_strand = strand1.length > strand2.length ? strand2 : strand1
@@ -14,4 +13,3 @@ class Hamming
 		puts "The hamming distance of these two DNA strands is: #{hamming_distance}"
 		return hamming_distance
 	end
-end

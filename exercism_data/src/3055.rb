@@ -1,15 +1,13 @@
-#hamming.rb
-class Hamming
-  def compute(dna_strand_a, dna_strand_b)
+def compute (strand1, strand2)
+		# Iterate through each nucleobase in each strand and check if equal
+		# If not equal, increment dist to count dissimilarities
+		i = 0
+		dist = 0
 
-    hamming_distance = 0
+		while i != strand1.length do
+			dist += 1 unless strand1[i] == strand2[i]
+			i += 1
+		end
 
-    [dna_strand_a.chars.to_a, dna_strand_b.chars.to_a].transpose.each do |a,b|
-      if a != b
-        hamming_distance += 1
-      end
-    end
-
-    hamming_distance
-  end
-end
+		return dist
+	end

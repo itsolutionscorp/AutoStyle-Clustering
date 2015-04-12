@@ -1,5 +1,4 @@
-module Hamming
-  def compute(fst_str, snd_str)
+def compute(fst_str, snd_str)
     diffs = 0
 
     fst_str.chars.zip(snd_str.chars) do |fst, snd|

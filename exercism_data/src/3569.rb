@@ -1,21 +1,12 @@
-class Hamming
-	
-  def compute(left, right)
-		count = 0
-		index = 0
-		shortest_length = left.length < right.length ? left.length : right.length
-    
-    while(index < shortest_length) do
-      different_letters = (left[index] != right[index])
-			index += 1
-      
-      if different_letters
-        count += 1
+def compute(sequence1,sequence2)
+    if sequence1.length != sequence2.length
+      puts "ValueError, cannot calculate hamming distance for sequences of different length!"
+    else
+      @distance = 0
+      hamming_pairs = sequence1.split('').zip(sequence2.split(''))
+      hamming_pairs.each do |pair|
+        @distance += 1 if pair[0] != pair[1]
       end
-			
-		end
-    
-    return count
-	end
-  
-end
+        @distance
+    end
+  end

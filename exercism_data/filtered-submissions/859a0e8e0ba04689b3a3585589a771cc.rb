@@ -1,5 +1,4 @@
-class Hamming
-  def compute(seq1, seq2)
+def compute(seq1, seq2)
     length = [seq1.to_s.length, seq2.to_s.length].min
     sum = 0
 
@@ -9,4 +8,3 @@ class Hamming
 
     sum
   end
-end

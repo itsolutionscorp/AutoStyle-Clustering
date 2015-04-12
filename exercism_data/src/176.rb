@@ -1,8 +1,15 @@
-class Hamming
-  def Hamming.compute(strand1, strand2)
-    strand1.split("").zip(strand2.split("")).select{|x|x[0]!=x[1]}.length
+def compute(first, second)
+    if first.length != second.length
+      raise "Different length!"
+    end
+
+    count = 0
+
+    for i in 0...first.length
+      if first[i] != second[i]
+        count += 1
+      end
+    end
+
+    return count
   end
-end
-
-print Hamming.compute('GGACGGATTCTG', 'AGGACGGATTCT')
-

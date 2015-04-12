@@ -1,5 +1,4 @@
-class Hamming
-	def compute a, b
+def compute a, b
 		count = 0
 		a.length.times do |i|
 			if a[i] != b[i]
@@ -8,4 +7,3 @@ class Hamming
 		end	
 		return count
 	end
-end

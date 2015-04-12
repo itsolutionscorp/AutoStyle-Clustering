@@ -1,9 +1,7 @@
-module Hamming
-  def compute ham1, ham2
-    size = [ham1, ham2].map(&:size).min
-
-    ham1.chars.first(size).zip(ham2.chars.first(size)).reduce(0) do |sum,(a,b)|
-      sum + (a.eql?(b) ? 0 : 1)
-    end
+def compute(strand1, strand2)
+    diff = 0
+    array1 = strand1.split("")
+    array2 = strand2.split("")
+    array1.each_with_index { |x, i| diff += 1 unless x == array2[i] }
+    diff
   end
-end

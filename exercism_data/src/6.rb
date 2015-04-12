@@ -1,14 +1,12 @@
-class Hamming
+def compute(strand1, strand2)
+      # Split the strand strings to arrays of chars
+      strand1 = strand1.chars
+      strand2 = strand2.chars
 
-  def compute a, b
-    dist = 0
-    len = [a.length, b.length].min
+      # Remove extra chars if one of the strings is longer...
+      strand1 = strand1.take(strand2.length) if strand1.length > strand2.length
+      strand2 = strand2.take(strand1.length) if strand2.length > strand1.length
 
-    len.times do |i|
-      dist += if a[i] != b[i] then 1 else 0 end
+      # Calculate differences
+      strand1.zip(strand2).count { |strand1, strand2| strand1 != strand2 }
     end
-
-    dist
-  end
-
-end

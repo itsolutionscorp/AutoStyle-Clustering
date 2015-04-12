@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute( seq1, seq2 )
+def compute( seq1, seq2 )
 		diff = 0
 
     seq1.length.times do |n|
@@ -9,4 +7,3 @@ class Hamming
 
     diff
 	end
-end

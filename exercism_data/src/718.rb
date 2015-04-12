@@ -1,18 +1,10 @@
-class Hamming
-
-	def compute(first,second)
-		first = first.scan(/./)
-		second = second.scan(/./)
-
-		hamming = 0
-		first.length.times do |i|
-
-			break if second[i] == nil
-			hamming += 1 if first[i] != second[i]
-		end
-
-		return hamming
-
-	end
-
-end
+def compute(primerCodigo , segundoCodigo)
+    if primerCodigo.length == segundoCodigo.length
+    # Recorres ambas cadenas y comparar caracter por caracter, y si hay
+    # diferencia sumarla al atributo distancia.
+      (0..primerCodigo.length - 1).each do |i|
+        @distancia += 1 unless primerCodigo[i] == segundoCodigo[i]
+      end
+    end
+    @distancia = 0 if @distancia.nil?
+  end

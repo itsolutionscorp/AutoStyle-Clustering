@@ -1,10 +1,4 @@
-class Hamming
-
-  #A program for calculating the point mutations between two strands of DNA
-  #Note: The &&y on 12 ensures that the zip method does not include nil in zipped
-  #arrays with the strand that has extra letters
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     strand1 = strand1.chars
     strand2 = strand2.chars
     zipped_strands = strand1.zip(strand2)
@@ -13,4 +7,3 @@ class Hamming
       x != y && y
     end
   end
-end

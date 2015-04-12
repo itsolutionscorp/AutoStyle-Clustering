@@ -1,15 +1,7 @@
-module Hamming
-  def compute(x, y)
-    counter, diff = 0, 0
-    length = [x.size, y.size].min
-
-    until counter == length
-      if x[counter] != y[counter]
-        diff += 1
-      end
-      counter += 1
+def compute(a, b)
+    diff = 0
+    [a.length, b.length].min.times do |index|
+      diff += 1 if a[index] != b[index]
     end
-
     diff
   end
-end

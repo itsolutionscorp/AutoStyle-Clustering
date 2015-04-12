@@ -1,10 +1,3 @@
-class Hamming
-  def compute(strand1, strand2)
-    differences = 0
-    strand1.length.times do |i|
-      break if strand2.length <= i
-      differences += 1 unless strand1[i] == strand2[i]
-    end
-    differences
+def compute(a, b)
+    (a^b).to_s(2).count("1")
   end
-end

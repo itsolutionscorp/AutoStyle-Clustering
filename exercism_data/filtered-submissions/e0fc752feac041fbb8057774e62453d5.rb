@@ -1,5 +1,4 @@
-class Hamming
-	def compute(str1,str2)
+def compute(str1,str2)
 		diff = 0
 		shorter_length = [str1.length, str2.length].min
 
@@ -11,4 +10,3 @@ class Hamming
 
 		return diff
 	end
-end

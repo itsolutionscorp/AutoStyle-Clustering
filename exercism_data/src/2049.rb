@@ -1,13 +1,8 @@
-class Hamming
-  class << self
-    def compute(a, b)
-      total = 0
+def compute(strand1, strand2)
+    strand1 = strand1.split('')
+    strand2 = strand2.split('')
 
-      a.length.times do |i|
-        total += 1 if a[i] != b[i]
-      end
-
-      total
-    end
+    strand1.zip(strand2).
+      select {|a,b| a && b && a != b}.
+      size
   end
-end

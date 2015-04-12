@@ -1,5 +1,4 @@
-class Hamming
-  def compute code1, code2
+def compute code1, code2
     diff = 0
     if code1.length > code2.length then
       code1 = code1[0,code2.length]
@@ -11,4 +10,3 @@ class Hamming
     end
     return diff
   end
-end

@@ -1,21 +1,6 @@
-#Well it works but it is rubbish and I'm getting  behind. 
-#I tried another version comparing arrays to get true or false
-#but it would not pass the truth for some reason.
- 
-class Hamming  
-  def compute(n, m)
-    teamOneArr = n.split('')
-    teamTwoArr = m.split('')
-    if m == 'AGGACGGATTCT'
-      return 9
+def compute(x, y)
+        small = [x.length, y.length].min
+        pairs = x.split("").take(small).zip(y.split("").take(small))
+        different = pairs.reject {|pair| pair.uniq.length == 1}
+        different.length
     end
-    if m == 'GCATAA'
-      return 4
-    end
-    if n.length <= m.length
-      return (teamOneArr-teamTwoArr).length      
-    elsif n.length > m.length
-      return (teamTwoArr-teamOneArr).length
-    end
-  end
-end

@@ -1,7 +1,11 @@
-class Hamming
-  def compute(dna1, dna2)
-    dna1.chars.zip(dna2.chars).
-      select { |pair| pair.first != pair.last }.
-      count
+def compute(strand_one, strand_two)
+    hamming_distance = 0
+
+    strand_one.chars.each_with_index do |protein, index|
+      unless protein.nil? || strand_two[index].nil?
+        hamming_distance += 1 if protein != strand_two[index]
+      end
+    end
+
+    return hamming_distance
   end
-end

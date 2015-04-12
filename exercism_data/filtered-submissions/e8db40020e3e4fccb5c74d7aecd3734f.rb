@@ -1,5 +1,4 @@
-class Hamming
-  def compute(str1, str2)
+def compute(str1, str2)
   	mutations = 0
 
   	str1.split("").each_with_index do |base, index|
@@ -9,4 +8,3 @@ class Hamming
   	end
   	mutations
   end
-end

@@ -1,9 +1,5 @@
-class Hamming
-  def compute(dna_seq_1, dna_seq_2)
-    diff = 0
-    dna_seq_1.each_char.to_a.each_with_index do |e, i|
-      diff = diff + 1 if e != dna_seq_2[i]
-    end
-    diff
+def compute(str1, str2)
+    str1, str2 = str2, str1 if str1.size > str2.size
+    str1, str2 = str1.chars, str2.chars
+    str1.zip(str2).count {|(c1, c2)| c1 != c2 }
   end
-end

@@ -1,12 +1,5 @@
-class Hamming
-  def compute(expected, mutation)
-    counter = 0
-    shortest_length = [expected.length, mutation.length].min
-    (0...shortest_length).each do |index|
-      if expected[index] != mutation[index]
-        counter += 1
-      end
-    end
-    counter
+def compute(first, second)
+    first.chars.zip(second.chars).map { |pair|
+      pair.first && pair.last && pair.first != pair.last
+    }.count { |match| match }
   end
-end

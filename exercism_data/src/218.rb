@@ -1,10 +1,10 @@
-class Hamming
-	def compute(x,y)
-		hamming_counter = 0
-		size_control = x.size unless y.size < x.size ? size_control = y.size : size_control
-		(0...size_control).each do |var|
-			hamming_counter += 1 unless x[var] == y[var]
-		end
-		return hamming_counter
-	end
-end
+def compute(xs, ys)
+    (xs.split '').zip(ys.split '').reduce(0) do |count, (x, y)|
+      return nil unless x && y
+      if x != y
+        count + 1
+      else
+        count
+      end
+    end
+  end

@@ -1,13 +1,5 @@
-class Hamming
-  def compute(dna1, dna2)
-    dif = 0
-
-    dna1.chars.each_with_index do |v,i|
-      if dna2.chars.at(i) != nil
-        dif += 1 if !(v.eql?(dna2.chars.at(i)))
-      end
-    end
-
-    dif 
+def compute(a,b)
+     b = b.chars
+     l = a.length < b.length ? a.length : b.length
+     a.chars.take(l).map.with_index {|v,i| v != b[i] ? 1 : 0}.inject {|sum,x| sum + x}
   end
-end

@@ -1,27 +1,19 @@
-class Hamming #copied from online
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     diff = 0
-    strand1.chars.each_with_index do |dna, index|
-      if index < strand2.length
-        diff+=1 if dna != strand2[index]
-      end
+    strand1 = strand1.split("")
+    strand2 = strand2.split("")
+
+    if strand1.length < strand2.length
+      length = strand1.length - 1
+    else
+      length = strand2.length - 1
     end
+
+      (0..length).each do |i|
+        if strand1[i] != strand2[i]
+          diff += 1
+        end
+      end
+
     diff
   end
-end
-      
-
-#ruby comment
-
-# Prompt for input strand, strand1
-#puts 'Gimme dat strand (first)'
-#strand1 = gets.chomp
-# prompt for input strand, strand2
-#puts 'And another!'
-#strand2 = gets.chomp
-# compare the strands character by character
-#puts strand1
-#puts strand2
-#puts 'ITERATE'
-#report back simple output with number of characters that are different

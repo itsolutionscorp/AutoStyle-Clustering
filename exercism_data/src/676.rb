@@ -1,14 +1,11 @@
-class Hamming
-	def compute(standA, standB)
-		sampleA = standA.chars
-		sampleB = standB.chars
-		count = 0
+def compute(first, second)
+    h = 0
+    first_array = first.split('')
+    second_array = second.split('')
 
-		sampleA.each_with_index do |letter, index|
-			if letter != sampleB[index] && sampleB[index] != nil
-				count += 1
-			end
-		end
-		count
-	end
-end
+    first_array.each_with_index do |l, i|
+      break if i >= second_array.length
+      h += 1 if first_array[i] != second_array[i]
+    end
+    return h
+  end

@@ -1,9 +1,11 @@
-module Hamming
-  def compute(strand1, strand2)
-    shortest_strand = [strand1.size, strand2.size].min
-
-    (0...shortest_strand).count do |point|
-      strand1[point] != strand2[point]
+def compute(seq1, seq2)
+    count = 0
+    if seq1.length == seq2.length
+      seq1.chars.map!.with_index do |n, i|
+        if n != seq2[i]
+          count += 1
+        end
+      end
     end
+    count
   end
-end

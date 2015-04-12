@@ -1,19 +1,6 @@
-class Hamming
-	def compute(string1,string2)
-		if ((string1.is_a? String) && (string2.is_a? String))
-			strand1 = string1.upcase()
-			strand2 = string2.upcase()
-			if ((strand1 == strand2)|| (strand1.length != strand2.length))
-				return 0
-			else
-				hamming_distance = 0
-				(0..(strand1.length)).each do |index|
-					hamming_distance+=1 if strand1[index] != strand2[index]
-				end	
-				return hamming_distance
-			end
-		else
-			puts "Please enter valid string"
-		end
-	end
+def compute(a,b)
+    a = a.split('')
+    b = b.split('')
+    a.zip(b).select{|x| x[0] != x[1]}.length
+  end
 end

@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(a, b)
+def compute(a, b)
       hamming_diff = 0
       a.length.times do |i|
         break if a[i].nil? || b[i].nil?
@@ -8,5 +6,3 @@ class Hamming
       end
       hamming_diff
     end
-  end
-end

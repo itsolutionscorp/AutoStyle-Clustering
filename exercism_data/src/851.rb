@@ -1,19 +1,7 @@
-class Hamming
-
-	def compute(a,b)
-		if a.length < b.length
-			smaller = a 
-			bigger  = b
-		else
-			smaller = b
-			bigger  = a
-		end
-		count = 0
-		smaller.split("").each_with_index do |s, i|
-			if s != bigger.split("")[i]
-				count += 1
-			end
-		end
-		return count
-	end
-end
+def compute(first, second)
+    count = 0
+    first.scan(/./).zip(second.scan(/./)).each do |match|
+      count += 1 if !match[0].nil? && !match[1].nil? && match[0] != match[1]
+    end
+   count
+  end

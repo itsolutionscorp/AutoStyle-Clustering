@@ -1,5 +1,4 @@
-class Hamming
-  def compute (s1, s2)
+def compute (s1, s2)
     counter = 0
     s1.upcase
     s2.upcase
@@ -11,4 +10,3 @@ class Hamming
     end
     return counter
   end
-end

@@ -1,14 +1,8 @@
-class Hamming
-
-  def compute(a, b)
-    diff = 0
-    array_a = a.split("")
-    array_b = b.split("")
-    length = array_a.length
-    (0..length).each do |n|
-      diff += 1 if array_a[n] != array_b[n]
+def compute(first, second)
+      distance = 0
+      (0...first.length).each do |i|
+        break if i == second.length
+        distance += 1 if first[i] != second[i]
+      end
+      distance
     end
-    return diff
-  end
-
-end

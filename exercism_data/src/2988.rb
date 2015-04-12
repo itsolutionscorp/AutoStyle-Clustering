@@ -1,15 +1,13 @@
-class Hamming
+def compute(a, b)
+    counter = 0
+    index = 0
 
-	def compute(strand_a, strand_b)
-		count = 0
-		strand_a.split("").each_with_index do |nuc_a, index|
-			nuc_b = strand_b[index]
-			unless nuc_a == nuc_b
-				count +=1
-			end
-		end
-		
-		count
-	end
+    a.each_char do |char|
+      if !char.eql?(b[index]) && b[index] != nil
+        counter += 1
+      end
+      index += 1
+    end
 
-end
+    counter
+  end

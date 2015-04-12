@@ -1,11 +1,12 @@
-class Hamming
-  include Enumerable
-  include Comparable
+def compute(first, second)
+    count = 0
+    length = [first.length, second.length].min
 
-  def compute(dna1, dna2)
-    result = 0
-    dna1.split("").each_with_index{ |item, index| 
-      if (dna2[index]!=nil && item!=dna2[index]) then result+=1 end }
-    result
+    (0...length).each do |index|
+      if first[index] != second[index]
+        count = count + 1
+      end
+    end
+
+    count
   end
-end

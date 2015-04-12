@@ -1,6 +1,7 @@
-class Hamming
-  def compute(str1, str2)
-    side_by_side_letters = str1.chars.zip(str2.chars)
-    side_by_side_letters.count { |letter| letter[0] != letter[1] }
+def compute(first, second)
+    if first.size == second.size
+      (0..first.size - 1).inject(0) do |distance, index|
+        first[index] != second[index] ? distance + 1 : distance
+      end
+    end
   end
-end

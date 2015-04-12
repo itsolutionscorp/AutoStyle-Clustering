@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(str_one, str_two)
+def compute(str_one, str_two)
 
     if str_one.size == [str_one.size, str_two.size].min
       short = str_one
@@ -16,4 +14,3 @@ class Hamming
 
     hamming
   end
-end

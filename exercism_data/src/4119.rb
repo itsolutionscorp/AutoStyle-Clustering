@@ -1,18 +1,18 @@
-class Hamming
-  def compute(a, b)
-    a_array = a.split('')
-    b_array = b.split('')
-    sum = 0
+def compute(dna1, dna2)
+		distance = 0		
+		maximum = dna1.length
+		
+		#find how many times i need to compare
+		if( dna1.length > dna2.length )
+			maximum = dna2.length
+		end
 
-    if a_array.length > b_array.length
-      b_array.zip(a_array).map! { |x, y| x == y }.each do |val|
-        sum += 1 unless val
-      end
-    else
-      a_array.zip(b_array).map! { |x, y| x == y }.each do |val|
-        sum += 1 unless val
-      end
-    end
-    sum
-  end
-end
+		#iterate over each character to find if the value has changed
+		maximum.times do |i|
+			if (dna1[i] != dna2[i])
+				distance += 1 
+			end
+		end
+		
+		return distance
+	end

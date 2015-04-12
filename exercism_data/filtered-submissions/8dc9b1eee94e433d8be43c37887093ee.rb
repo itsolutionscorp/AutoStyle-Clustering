@@ -1,7 +1,4 @@
-require 'pry'
-
-class Hamming
-    def compute(string1, string2)
+def compute(string1, string2)
         counter = 0
         array1 = string1.split('').to_a
         array2 = string2.split('').to_a
@@ -19,5 +16,4 @@ class Hamming
         end 
         end
         return counter
-    end 
-end 
+    end

@@ -1,13 +1,9 @@
-class Hamming
-  def compute(x, y)
-    count = 0
-
-    x.chars.zip(y.chars).each do |pair|
-      if (pair[1] && pair[0]) && (pair[0] != pair[1])
-        count += 1
-      end
-    end
-
-    count
-  end
-end
+def compute (strand1, strand2)
+			position=0
+			Hamming=0
+			while (a=strand1[position]) && (b = strand2[position])
+				Hamming = Hamming+1 unless a==b
+				position +=1
+			end
+			Hamming
+		end

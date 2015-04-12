@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     if strand1.size != strand2.size
       raise "Can't compute hamming distance for strands of unequal length"
     end
@@ -14,4 +13,3 @@ class Hamming
     end
     distance
   end
-end

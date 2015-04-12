@@ -1,9 +1,4 @@
-# 
-# Hamming Test Class
-#
-
-class Hamming
-  def compute(seq1,seq2)
+def compute(seq1,seq2)
     h=0
     unless seq1.length != seq2.length
       @seq1 = seq1.split('')
@@ -14,4 +9,3 @@ class Hamming
     end
     h
   end
-end

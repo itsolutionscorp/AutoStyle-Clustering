@@ -1,11 +1,10 @@
-class Hamming
-  def compute(strand0, strand1)
-    len0 = strand0.length
-    len1 = strand1.length
-    distance = 0
-    for i in 0..[len0, len1].min - 1 do
-      distance += 1 unless strand0[i] == strand1[i]
+def compute(dna_one, dna_two)
+
+    errors = 0
+
+    dna_one.chars.zip(dna_two.chars).each do |chr1, chr2|
+      errors += 1 if chr1 != chr2
     end
-    distance
-  end
-end
+
+    errors
+	end

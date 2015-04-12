@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand, strand2)
+def compute(strand, strand2)
     distance = 0
     compare_strand = strand.chars.first(strand2.size)
     compare_strand.each_with_index do |char, index|
@@ -8,5 +6,3 @@ class Hamming
     end
     distance
   end
-
-end

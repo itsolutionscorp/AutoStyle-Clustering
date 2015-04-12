@@ -1,16 +1,10 @@
-class Hamming
-  def compute(first, second)
-    # Variables
-    firstArr = first.split('')
-    secondArr = second.split('')
-    counter = 0
+def compute(first_strand, second_strand)
 
-    # Iterate
-    firstArr.each_with_index do |letter, i|
-      counter += 1 if letter != secondArr[i]
+    result = 0
+    [first_strand.length, second_strand.length].min.times do |index|
+      result += 1 if first_strand[index] != second_strand[index]
     end
 
-    # Output
-    counter
+    result
   end
 end

@@ -1,17 +1,8 @@
-class Hamming
-  def compute(first, second)
-    # assuming length is the same for both inputs
-    if first.length > second.length
-      length = second.length
-    else
-      length = first.length
+def compute(x,y)
+    zipped = x.split('').zip(y.split(''))
+    zipped.reduce(0) do |acc, pair|
+      x, y = pair
+      x == y ? acc : acc + 1
     end
-    distance = 0
-    length.times do |index|
-      if first[index] != second[index]
-        distance += 1
-      end
-    end
-    return distance
   end
 end

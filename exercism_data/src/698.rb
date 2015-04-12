@@ -1,13 +1,19 @@
-class Hamming
-  def compute(a,b)
-    difference = 0
+def compute(strand_1, strand_2)
+    hamming = 0
 
-    length = a.length < b.length ? a.length : b.length
+    if (strand_1.is_a? String) && (strand_2.is_a? String)
+      length_1 = strand_1.length
+      length_2 = strand_2.length
 
-    for i in 0..(length - 1)
-      difference += 1 if a[i] != b[i]
+      if length_1 > length_2
+        strand_1 = strand_1.slice!(0, length_2)
+      elsif length_2 > length_1
+        strand_2 = strand_2.slice!(0, length_1)
+      end
+
+      strand_1.each_char.with_index do |c,i|
+        hamming += 1 if c != strand_2[i]
+      end
     end
-
-    difference
+    return hamming
   end
-end

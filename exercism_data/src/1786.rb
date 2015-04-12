@@ -1,14 +1,7 @@
-class Hamming
-  def compute(a, b)
-    count  = 0
-    a_enum = a.each_char
-    b_enum = b.each_char
-
-    while true
-      count += 1 unless a_enum.next == b_enum.next
+def compute(first, second)
+    counter = 0
+    first.length.downto(0) do |i| 
+      counter += 1 if first[i] != second[i]
     end
-
-  ensure
-    return count  # We'll reach this with StopIteration
+    counter
   end
-end

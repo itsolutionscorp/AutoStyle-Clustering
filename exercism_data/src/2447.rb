@@ -1,9 +1,14 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    distance = 0
-    strand_1.chars.each_with_index do |c, index|
-      distance += 1 if c != strand_2.to_s.chars[index]
-    end
-    distance
-  end
-end
+def compute (strand1, strand2)
+		
+		length = strand1.length < strand2.length ? strand1.length : strand2.length
+
+		i=0
+		count = 0
+		while i < length do
+			if strand1[i] != strand2[i]
+				count+=1
+			end
+			i+=1
+		end
+		count
+	end

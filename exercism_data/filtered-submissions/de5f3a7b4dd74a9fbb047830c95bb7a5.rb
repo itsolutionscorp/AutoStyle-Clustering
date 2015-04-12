@@ -1,5 +1,4 @@
-module Hamming
-  def compute(x, y)
+def compute(x, y)
     counter, diff = 0, 0
     length = [x.size, y.size].min
 

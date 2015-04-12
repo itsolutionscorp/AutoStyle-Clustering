@@ -1,5 +1,4 @@
-class Hamming
-    def compute(strand1, strand2)
+def compute(strand1, strand2)
 
         ham_dif = 0
 
@@ -16,6 +15,3 @@ class Hamming
         end
         ham_dif
     end
-end
-
-puts Hamming.compute("ABCAAA","ABBA")

@@ -1,9 +1,13 @@
-class Hamming
-  def compute(strand1, strand2)
-    hamming_distance = 0
-    strand1.length.times do |i|
-      hamming_distance += 1 if strand1[i] != strand2[i]
+def compute(first_strand, second_strand) # static method, not instance method
+        first_strand_arr = first_strand.split('')
+        second_strand_arr = second_strand.split('')
+
+        num_mutations = 0
+        first_strand_arr.each_index do |i|
+          if (i < second_strand_arr.size && first_strand_arr[i] != second_strand_arr[i])
+            num_mutations += 1
+          end
+        end
+
+        num_mutations
     end
-    hamming_distance
-  end
-end

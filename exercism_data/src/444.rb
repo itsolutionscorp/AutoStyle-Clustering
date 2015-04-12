@@ -1,9 +1,8 @@
-class Hamming
-  def compute(strand1, strand2)
-    count = 0
-    if strand1.length == strand2.length
-    strand1.length.times { |x| count += 1 unless strand1[x] == strand2[x]}
+def compute(stringA, stringB)
+        min = [stringA.length, stringB.length].min
+        count = 0
+        min.times { |i|
+            count = count+1 if (stringA[i] != stringB[i])
+        }
+        count
     end
-    count
-  end
-end

@@ -1,9 +1,8 @@
-class Hamming
-  def compute(left, right)
-    diff = 0
-    0.upto([left.length, right.length].min - 1) do |i|
-      diff = diff + 1 if left[i] != right[i]
+def compute(first, second)
+    shorter = first.length >= second.length ? second : first
+    hamming_counter = 0
+    (0..shorter.length - 1).each do |index|
+       hamming_counter = hamming_counter + 1 if first[index] != second[index]
     end
-    diff
+    hamming_counter
   end
-end

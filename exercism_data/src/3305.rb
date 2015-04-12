@@ -1,6 +1,7 @@
-class Hamming
-	def compute(strand1, strand2)
-		dna_comparison = strand1.split('').zip(strand2.split(''))
-		dna_comparison.select{ |nucleotide1, nucleotide2| nucleotide1 != nucleotide2 }.count
-	end
-end
+def compute(a,b)
+    if a.size < b.size
+      [a, b].max.size.times.count { |i| a[i] != b[i] }
+    else
+      [a, b].min.size.times.count { |i| a[i] != b[i] }
+    end
+  end

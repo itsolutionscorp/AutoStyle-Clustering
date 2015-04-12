@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     hamming = 0
 
     (0...a.length).each do |i|
@@ -8,4 +7,3 @@ class Hamming
 
     hamming
   end
-end

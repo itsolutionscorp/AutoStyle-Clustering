@@ -1,5 +1,4 @@
-class Hamming
-  def compute(base, compare)
+def compute(base, compare)
     diff = 0
 
     # (0..(base.length - 1)) is a Range object, so for a base of length five the object will be [0, 1, 2, 3, 4]
@@ -12,5 +11,3 @@ class Hamming
     end
     diff
   end
-
-end

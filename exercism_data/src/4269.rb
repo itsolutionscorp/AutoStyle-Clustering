@@ -1,7 +1,8 @@
-class Hamming
-
-  def compute(first_sequence, second_sequence)
-    (first_sequence.chars.map.with_index.to_a - second_sequence.chars.map.with_index.to_a).count
+def compute(l, r)
+    minlen = [l.length, r.length].min
+    odds = 0
+    minlen.times do |i|
+      odds += 1 if l[i] != r[i]
+    end
+    return odds
   end
-
-end

@@ -1,14 +1,14 @@
-class Hamming
-  def compute(first, second)
-    primary = first.length > second.length ? second.split('') : first.split('')
-    secondary = first.length > second.length ? first.split('') : second.split('') 
-    diff = 0
+def compute(gene_a, gene_b)
+    hamming_distance = 0
 
-    primary.each_with_index do |protein, index|
-      if protein != secondary[index]
-        diff = diff + 1
+    array_a = gene_a.split("")
+    array_b = gene_b.split("")
+    
+    array_a.zip(array_b).each do |a, b|
+      puts a,b
+      if a != b
+        hamming_distance = hamming_distance + 1
       end
     end
-    diff
+    hamming_distance
   end
-end

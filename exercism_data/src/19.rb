@@ -1,9 +1,9 @@
-class Hamming
-  def compute( input_A, input_B )
-    count_same_char = 0
-    input_A.size.times do |index|
-      count_same_char +=1 unless (input_A[index] == input_B[index])
+def compute(dna_strand_1, dna_strand_2)
+    i = 0
+    hamming_distance = 0
+    dna_strand_1.each_char do |x|
+      hamming_distance += 1 if dna_strand_2.byteslice(i) != x && dna_strand_2.byteslice(i) != nil
+      i += 1
     end
-    count_same_char
+    hamming_distance
   end
-end

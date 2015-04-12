@@ -1,11 +1,9 @@
-require 'pry'
-
-class Hamming
-
-	def compute(string1, string2)
-		string1.length >= string2.length ? string1 = string1[0...string2.length] : string2 = string2[0...string1.length]
-		sum, y = 0, 0
-		string1.chars.each { |char|	char == string2.chars[y] ? (sum += 1; y += 1): y += 1 }
-		string1.length - sum
-	end
-end
+def compute(s1, s2)
+      s1 = s1.chars
+      mutations = 0
+      s2.chars.each_index do |i|
+        return mutations if s1[i] == nil || s2[i] == nil   
+        mutations += 1 if s1[i] != s2[i] 
+      end
+      mutations
+    end

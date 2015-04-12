@@ -1,8 +1,6 @@
-class Hamming
-  def compute(str1, str2)
-    str1_arr = str1.split('')
-    str2_arr = str2.split('')
-
-    str1_arr.each_with_index.count { |n,i| n != str2_arr[i] }
+def compute(a, b)
+    ## Iterate for the length of the longer strand
+    differences = (0...[a.length, b.length].min).collect { |i| "Difference!" unless a[i] == b[i] }
+    differences.count("Difference!")
   end
 end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     if s1.length != s2.length
       short = [s1, s2].min_by &:length
       long  = [s1, s2].max_by &:length
@@ -12,4 +11,3 @@ class Hamming
       c1 != c2
     end
   end
-end

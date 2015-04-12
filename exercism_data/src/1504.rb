@@ -1,13 +1,8 @@
-class Hamming
+def compute(src, dest)
+    length = [src, dest].map(&:length).min
 
-  def compute(strand1, strand2)
-    h_distance = 0
-    strand1.split("").each_with_index do |c,i|
-      if c != strand2[i]
-        h_distance += 1
-      end
+    (0...length).map.count do |i|
+      src[i] != dest[i]
     end
-    return h_distance
   end
-
 end

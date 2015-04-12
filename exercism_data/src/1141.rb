@@ -1,12 +1,7 @@
-module Hamming
-  def compute(original, copy)
-    count = 0
-
-    original.chars.each_with_index do |strand, idx|
-      break if idx >= copy.size
-      count += 1 if strand != copy[idx]
+def compute(str_1, str_2)
+    distance = 0
+    str_1.chars.each_with_index do |char, index|
+      distance += 1 if str_2[index] != char
     end
-
-    return count
+    distance
   end
-end

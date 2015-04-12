@@ -1,13 +1,11 @@
-# passes all skipped tests as well
-class Hamming
-  def compute(first, second)
+def compute(s1, s2)
+    return 0 if s1.eql? s2
+    
     distance = 0
-    common_length = [ first.size, second.size ].min - 1
 
-    0.upto(common_length) do |i|
-      distance +=1 if first[i] != second[i]
+    s1.split(//).each_with_index do |c, i|
+      distance += 1 unless c.eql? s2[i]
     end
 
-    return distance
+    distance
   end
-end

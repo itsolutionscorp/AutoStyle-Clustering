@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strandOne, strandTwo)
+def compute(strandOne, strandTwo)
     count = 0
     arrayStrandOne = strandOne.split("")
     arrayStrandTwo = strandTwo.split("") 
@@ -12,4 +11,3 @@ class Hamming
 
     return count
   end
-end

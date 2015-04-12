@@ -1,6 +1,4 @@
-class Hamming
-	def compute(strand_1, strand_2)
-		a, b = strand_1.split(//), strand_2.split(//)
-		a.each_with_index.map { |e, i| e == b[i]}.select{ |e| e == false}.count
-	end
-end
+def compute(strand1, strand2)
+  partition = strand1.chars.zip(strand2.chars).partition {|(strand1, strand2)| strand1 != nil && strand2 != nil && strand1 != strand2}
+  partition[0].length  
+  end

@@ -1,12 +1,5 @@
-module Hamming
-  def compute str1, str2
-    distance = 0
-
-    str1.chars.each_with_index do |c,i|
-      next if str2[i].nil?
-      distance += 1 unless c == str2[i]
-    end
-
-    distance
+def compute(strand1,strand2)
+    count = 0
+    strand1.chars.each.with_index{ |char,i| count += 1 if strand2[i] != char }
+    count
   end
-end

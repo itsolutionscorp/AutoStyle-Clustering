@@ -1,12 +1,13 @@
-class Hamming
-	
-	def compute(strand1, strand2)
-		strand_lengths = [strand1.length, strand2.length]
-		strand_differences = []
-		0.upto(strand_lengths.min - 1) do |i|
-			strand_differences.push(strand1[i] == strand2[i])
-		end
+def compute( a, b )
+    hamming_distance = 0
 
-	strand_differences.count(false)
-	end
-end
+    sorted_by_length = [a,b].sort_by( &:length )
+
+    sorted_by_length[0].chars.each_with_index do |char, index|
+      if char != sorted_by_length[1][index]
+        hamming_distance = hamming_distance + 1
+      end
+    end
+
+    hamming_distance
+  end

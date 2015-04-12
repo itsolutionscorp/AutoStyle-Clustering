@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     if first[0] == second[0]
       hamnu = 0
     end
@@ -41,4 +40,3 @@ class Hamming
     end
     return hamnu
   end
-end

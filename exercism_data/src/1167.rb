@@ -1,10 +1,9 @@
-class Hamming
-
-  def compute(str_1, str_2)
-    distance = 0
-    str_1.chars.each_with_index do |char, index|
-      distance += 1 if str_2[index] != char
-    end
-    distance
-  end
-end
+def compute arg1, arg2
+		hamming_distance = 0
+		arg1.split('').each_with_index do |char, i|
+			if char != arg2[i]
+				hamming_distance += 1
+			end
+		end
+		hamming_distance
+	end

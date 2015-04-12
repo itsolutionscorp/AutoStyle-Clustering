@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     diff_count = 0
 
     strand1.each_char.with_index do |char1, i|
@@ -11,4 +10,3 @@ class Hamming
 
     diff_count
   end
-end

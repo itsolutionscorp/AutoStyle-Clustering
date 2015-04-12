@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
 
     count  = 0
     bits   = strand1.split("")
@@ -15,4 +13,3 @@ class Hamming
     return count
 
   end
-end

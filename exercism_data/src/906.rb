@@ -1,5 +1,3 @@
-class Hamming
-  def compute(a, b)
-    a.chars.zip(b.chars).map{|arr| arr[0] == arr[1] ? 0 : 1}.inject(:+)
-  end
-end
+def compute(adn_1, adn_2)
+    adn_1.chars.zip(adn_2.chars).count{|x| x[0] != x[1]}
+	end

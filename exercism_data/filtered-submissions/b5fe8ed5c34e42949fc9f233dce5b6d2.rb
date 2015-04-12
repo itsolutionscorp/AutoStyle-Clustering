@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s, t)
+def compute(s, t)
     s_array = s.split(//)
     t_array = t.split(//)
     index = 0
@@ -12,4 +11,3 @@ class Hamming
     end
     new_array.length
   end
-end

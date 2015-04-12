@@ -1,11 +1,18 @@
-module Hamming
+def compute(h1,h2)
+        
+        if h1.length > h2.length
+            strand_length = h2.length
+        else 
+            strand_length = h1.length
+        end
+        
+        hamming_distance = 0;
 
-  def compute(dna1, dna2)
-    if dna1.length != dna2.length
-      raise ArgumentError.new('DNA strands must be equal lengths.')
+        strand_length.times do |i|
+            if h1[i] != h2[i] 
+                hamming_distance+=1
+            end
+        end
+        
+        hamming_distance
     end
-
-    (0...dna1.length).count { |idx| dna1[idx] != dna2[idx] }
-  end
-
-end

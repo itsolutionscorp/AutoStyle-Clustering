@@ -1,25 +1,10 @@
-class Hamming
-
-  # Computes the hamming distance between two strands.
-  # Return <code>nil</code> for invalid parameters.
-  def compute(strand1, strand2)
-    return if (strand1.nil? or strand2.nil?)
-
-    result  = 0
-    length1 = strand1.length
-    length2 = strand2.length
-
-    if (length1 > 0) and (length2 > 0)
-      min_length = [length1, length2].min
-
-      (0...min_length).each do |index|
-        if (strand1[index] != strand2[index])
-          result += 1
-        end
-      end
-    end
-
-    result
-  end
-
-end
+def compute(input1, input2)
+		raise ArgumentError, "Inputs are not of equal length" unless input1.length == input2.length
+		hamming_distance = 0
+		for i in 0..input1.length
+			if input1[i] != input2[i]
+				hamming_distance += 1
+			end
+		end
+		return hamming_distance
+	end

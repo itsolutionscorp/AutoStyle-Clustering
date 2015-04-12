@@ -1,18 +1,7 @@
-class Hamming
-
-  def compute(str1, str2)
-    distance=0
-    if str1.length > str2.length
-      temp=str1
-      str1=str2
-      str2=temp
+def compute(string1,string2)
+    hamming_dist = 0
+    string1.length.times do |n|
+      hamming_dist += 1 if string1[n] != string2[n]
     end
-    str1.length.times do |i|
-      if str1[i] != str2[i]
-        distance += 1
-      end
-    end
-    distance
+    return hamming_dist
   end
-  
-end

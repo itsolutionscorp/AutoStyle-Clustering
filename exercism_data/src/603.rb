@@ -1,9 +1,9 @@
-module Hamming
+def compute( seq1, seq2 )
+		diff = 0
 
-def compute x,y
-  (x.split("").zip y.split("")).inject(0) do
-    |distance, element| element.first != element.last ? distance += 1 : distance += 0
-  end
-end
+    seq1.length.times do |n|
+      diff += 1 unless seq1[n] == seq2[n]
+    end
 
-end
+    diff
+	end

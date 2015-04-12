@@ -1,8 +1,4 @@
-class Hamming
-
-  # Computes the hamming distance between two strands.
-  # Return <code>nil</code> for invalid parameters.
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     result    = nil
     params_ok = (strand1.is_a?(String) and strand2.is_a?(String))
 
@@ -24,5 +20,3 @@ class Hamming
 
     result
   end
-
-end

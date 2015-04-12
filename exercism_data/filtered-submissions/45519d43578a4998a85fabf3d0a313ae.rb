@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     # if strands are different lengths, only compare
     # base pairs up to the length of the smaller strand
     length_to_compare = [strand1.length, strand2.length].min
@@ -11,4 +10,3 @@ class Hamming
       .select{|base1, base2| base1 != base2}
       .count
   end
-end

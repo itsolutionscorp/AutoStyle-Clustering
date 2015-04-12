@@ -1,11 +1,6 @@
-class Hamming
-  def compute(arga, argb)
-    diff_acum = 0
-    for i in 0 .. arga.length
-      if arga[i]  != argb[i]
-        diff_acum = diff_acum + 1
-      end
+def compute(strand, other)
+    strand.chars.zip(other.chars).count do |(this, that)|
+      this && that && this != that
     end
-    diff_acum
   end
 end

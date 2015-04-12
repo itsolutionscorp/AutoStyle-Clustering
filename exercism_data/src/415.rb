@@ -1,8 +1,8 @@
-class Hamming
-  def compute(first_strand, other_strand)
-    # all from http://exercism.io/submissions/37d5469b10f25ed08292db23
-    first_strand.chars.zip(other_strand.chars).count do |first, second|
-      first && second && first != second
+def compute(strand_1, strand_2)
+      total = 0
+      min_length = strand_1.length > strand_2.length ? strand_2.length : strand_1.length
+      (0...min_length).each do |index|
+        total += 1 if strand_1[index] != strand_2[index]
+      end
+      total
     end
-  end
-end

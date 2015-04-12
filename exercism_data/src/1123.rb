@@ -1,10 +1,4 @@
-class Hamming
-  def compute a,b
-    return 0 if a == b
-    differences = 0
-    a.chars.each_with_index do |e,i|
-      differences += 1 if e != b[i]
-    end 
-    differences
+def compute(dna, dnb)
+    lines = [dna, dnb].sort_by {|sequence| sequence.length }
+    lines[0].chars.zip(lines[1].chars).select { |(a, b)| a != b }.count
   end
-end

@@ -1,14 +1,10 @@
-class Hamming
-
-	def compute(a, b)
-		difference = 0
-		(0..[a.length, b.length].min - 1).each do |i|
-			if a[i] == b[i]
-				difference
-			else
-				difference += 1
+def compute(a,b)
+		hammingCount= 0
+		compareCount= [ a.length,b.length ].min
+		( 0 .. compareCount ).each { |indx|
+			if a[indx] != b[indx] then
+				hammingCount+= 1
 			end
-		end
-		difference
+		}
+		hammingCount
 	end
-end

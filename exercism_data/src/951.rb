@@ -1,11 +1,9 @@
-class Hamming
-	def compute(a,b)
-		diffs = 0
-		a.split('').each_with_index do |strand, index|
-			diffs += 1 if b[index] && strand != b[index]
-		end
-		diffs
-	end
+def compute(first_str, second_str)
+    min_length = [first_str.length, second_str.length].min
 
-
-end
+    hamms = 0
+    min_length.times do |i|
+      hamms += 1 if first_str[i] != second_str[i]
+    end
+    hamms
+  end

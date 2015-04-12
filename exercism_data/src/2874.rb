@@ -1,9 +1,5 @@
-class Hamming
-
-  def compute(strand_one,strand_two)
-    strand_one.split('').zip(strand_two.split('')).select do |one,two|
-      two && one != two
-    end.count
+def compute(str1, str2)
+    (0..str1.length-1).map do |n|
+      (str1[n] <=> str2[n]).abs
+    end.reduce(&:+)
   end
-
-end

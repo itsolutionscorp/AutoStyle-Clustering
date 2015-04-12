@@ -1,17 +1,18 @@
-class Hamming
+def compute(a, b)
+    counter = 0
 
-  def compute(strand1, strand2)
-    distance = 0
-    len = [strand1.length, strand2.length].min
+    aa = a.split(//)
+    bb = b.split(//)
 
-    (0...len).each do |i|
-    	puts i
-    	if strand1[i] != strand2[i]
-    		distance += 1
-    	end
-    end
-    
-    return distance 
+    aa.each_with_index { |val, index|
+      if bb[index] == nil
+        return counter
+      end
+      if val != bb[index]
+        counter += 1
+      end
+    }
+
+    return counter
+
   end
-
-end

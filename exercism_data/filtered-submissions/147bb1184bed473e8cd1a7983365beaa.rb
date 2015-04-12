@@ -1,5 +1,4 @@
-class Hamming
-	def compute(first_string, second_string)
+def compute(first_string, second_string)
 		letter_array_one = first_string.split("")
 		letter_array_two = second_string.split("")
 		final_array      = letter_array_one.zip(letter_array_two)
@@ -12,4 +11,3 @@ class Hamming
 
 		results.length
 	end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute( a, b)
+def compute( a, b)
     count = 0
     pairs = a.chars.zip(b.chars)
 
@@ -7,5 +6,3 @@ class Hamming
     a != b
     end
   end
-end
-    

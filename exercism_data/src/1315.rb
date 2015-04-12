@@ -1,11 +1,13 @@
-class Hamming
-    def compute(string1, string2)
-        raise "Input strings of unequal length." if string1.length != string2.length
-
-        result = 0
-        string1.chars.zip(string2.chars).each do |char1, char2|
-            result += 1 if char1 != char2
-        end
-        result
+def compute(strandOne, strandTwo)
+    count = 0 # stores count of errors
+    strandTwoIndex = 0 # Indexes strand two to get the char value
+    
+    strandOne.each_char do |c|
+      if !strandTwo[strandTwoIndex].eql? c
+        count = count + 1
+      end
+      strandTwoIndex = strandTwoIndex + 1
     end
-end
+
+    return count
+  end

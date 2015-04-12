@@ -1,8 +1,5 @@
-class Hamming
+def compute(a, b)
+    a, b = b, a if a.size > b.size
 
-    def compute(oldStrand, newStrand)
-        oldStrand = oldStrand[0, newStrand.size]
-        oldStrand.chars.zip(newStrand.chars).count{|x,y| x != y}
-    end    
-
-end
+    a.chars.zip(b.chars).count {|x,y| x != y}
+  end

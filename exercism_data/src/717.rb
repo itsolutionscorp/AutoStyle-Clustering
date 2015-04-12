@@ -1,10 +1,10 @@
-class Hamming
-  def compute(strand1, strand2)
-    if strand1.empty? && strand2.empty?
-      0
-    else strand1.split('').each_with_index.map { |letter,i|
-        strand2.split('')[i].nil? || letter == strand2[i] ? 0 : 1
-      }.inject{|sum, x| sum + x}
+def compute(strand1, strand2)
+    count = 0
+    compare_length = strand1.length < strand2.length ? strand1.length : strand2.length
+
+    compare_length.times do |i|
+      count = count + 1 unless strand1[i] == strand2[i]
     end
+
+    return count
   end
-end

@@ -1,5 +1,8 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).count {|pair| pair[0] != pair[1]}
-  end
-end
+def compute(first_strand, second_strand)
+		distance = 0;
+		first_strand, second_strand = [first_strand.chars, second_strand.chars].sort_by { |x| x.length }
+		first_strand.each_with_index do |ch, i|
+			distance += 1 if second_strand[i] != ch
+		end
+		distance
+	end

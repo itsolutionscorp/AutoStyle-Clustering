@@ -1,12 +1,9 @@
-class Hamming
-  def compute(a, b)
-    len = [a.length, b.length].min
-    ham = 0
-    0.upto(len-1) do |i|
-      if a[i] != b[i]
-        ham += 1
-      end
-    end
-    ham
+def compute(first, second)
+    min_length = [first.length, second.length].min
+    first = first.slice(0...min_length)
+    second = second.slice(0...min_length)
+
+    first_split, second_split = first.chars, second.chars
+
+    first_split.zip(second_split).count { |pair| pair[0] != pair[1] }
   end
-end

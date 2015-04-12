@@ -1,7 +1,4 @@
-module Hamming
-  module_function
-
-  def compute(a, b)
+def compute(a, b)
     if a.length < b.length
       a.each_char.zip(b.each_char).count { |x, y| x != y }
     else

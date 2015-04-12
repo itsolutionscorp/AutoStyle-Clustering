@@ -1,5 +1,5 @@
-class Hamming
-    def compute(a,b)
-        a.chars.zip(b.chars).count { |x| x[0] != x[1] }
-    end
-end
+def compute(strand_a, strand_b)
+    strand_a.size < strand_b.size ?
+      strand_a.chars.zip(strand_b.chars).count {|a, b| a != b} :  
+      strand_b.chars.zip(strand_a.chars).count {|a, b| a != b}  
+  end

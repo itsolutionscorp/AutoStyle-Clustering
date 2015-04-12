@@ -1,9 +1,6 @@
-class Hamming
-  def compute(string1, string2)
-    hamming_distance = 0
-    string1.split(//).each_with_index do |char, index|
-      hamming_distance += 1 unless char == string2[index]
+def compute sampleA, sampleB
+    common_length = [sampleA.length, sampleB.length].min
+    common_length.times.count do |i|
+      sampleA[i] != sampleB[i]
     end
-    hamming_distance
   end
-end

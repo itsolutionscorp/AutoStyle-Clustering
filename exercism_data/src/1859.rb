@@ -1,12 +1,5 @@
-class Hamming 
-  def compute(let1, let2)
-    sum = 0
-    all_letters = let1.chars.zip(let2.chars)
-    all_letters.each do |pair|
-      if pair[0] != pair[1]
-        sum += 1
-      end
-    end
-    sum
+def compute(seq1, seq2)
+    (0..seq1.length).inject(0) do |count, index| 
+      seq1[index] != seq2[index] ? count + 1 : count
+    end    
   end
-end

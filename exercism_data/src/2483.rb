@@ -1,6 +1,8 @@
-class Hamming
-	def compute(first_dna_strand, second_dna_strand)
-		first_dna_strand, second_dna_strand = [first_dna_strand.chars, second_dna_strand.chars].sort_by { |x| x.length }
-		first_dna_strand.count { |code_of_dna_nucleotide| code_of_dna_nucleotide != second_dna_strand.shift}
-	end
-end
+def compute(a, b)
+        if a.length > b.length
+            a = a[0, b.length]
+        elsif a.length < b.length
+            b = b[0, a.length]
+        end
+        return a.chars.zip(b.chars).select { |x, y| x != y } .length
+    end

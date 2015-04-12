@@ -1,6 +1,4 @@
-class Hamming
-
-    def compute(strand1,strand2)
+def compute(strand1,strand2)
         # variables
         @diff_count = 0 #count differences between strands
 
@@ -21,5 +19,3 @@ class Hamming
         @diff_count
 
     end
-
-end

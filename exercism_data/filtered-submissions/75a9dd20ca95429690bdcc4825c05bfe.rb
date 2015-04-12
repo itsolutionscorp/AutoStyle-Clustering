@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s1, s2)
+def compute(s1, s2)
     if s1.size > s2.size
       s1, s2 = s2, s1
     end
@@ -11,4 +10,3 @@ class Hamming
 
     return n
   end
-end

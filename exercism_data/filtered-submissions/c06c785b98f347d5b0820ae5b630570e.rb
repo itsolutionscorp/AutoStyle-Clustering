@@ -1,5 +1,4 @@
-class Hamming
-	def compute(s, t)
+def compute(s, t)
 		s_array = s.chars
 		t_array = t.chars
 		hamming_distance = 0
@@ -16,5 +15,4 @@ class Hamming
 			break if i >= s_array.size or i >= t_array.size or i >= s_array.size
 		end 
 		return hamming_distance
-	end 
-end
+	end

@@ -1,9 +1,16 @@
-class Hamming
-  def compute(a, b)
-    diff_count = 0
-    [a.length,b.length].min.times do |i|
-      diff_count += ((a[i]==b[i])?0:1)
+def compute(strand1, strand2)
+    # Create array for each argument passed
+    base1 = strand1.split(//)
+    base2 = strand2.split(//)
+    # Initial distance is zero
+    distance = 0
+    # Take first array and count items. Iterate based on count
+    base1.count.times do |b|
+      # If both arrays are of equal length AND are different characters, add 1 to distance
+      if base1.count == base2.count && base1[b] != base2[b]
+        distance += 1
+      end
     end
-    diff_count
+    # Return new distance number
+    return distance
   end
-end

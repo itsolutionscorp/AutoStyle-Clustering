@@ -1,10 +1,8 @@
-class Hamming
-	def compute(a, b)
- 		ham_dist = 0
-    [a.length, b.length].min.times do |i|
-      ham_dist += 1 unless a[i] == b[i]
-    end
+def compute( strand_a, strand_b )
 
-    ham_dist
+		a_chars = strand_a.chars
+		b_chars = strand_b.chars
+
+		a_chars.zip( b_chars ).count { | x, y | x != y }
+
 	end
-end

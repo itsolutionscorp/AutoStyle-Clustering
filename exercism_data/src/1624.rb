@@ -1,13 +1,12 @@
-class Hamming
-  def compute(first,second)
+def compute(inputone, inputtwo)
+    strand1 = inputone.split("")
+    strand2 = inputtwo.split("")
 
-    # wanted to use inject but it doesn't handle (0..0) the way I expected
-    result = 0
-    (0..first.length-1).each do |index|
-      if  first[index] != second[index] 
-        result += 1
-      end
+    @counter = 0
+    strand1.zip(strand2).each do |strand1, strand2|
+    if strand1 != strand2 then @counter +=1 end
     end
-    return result
+
+    return @counter
+
   end
-end

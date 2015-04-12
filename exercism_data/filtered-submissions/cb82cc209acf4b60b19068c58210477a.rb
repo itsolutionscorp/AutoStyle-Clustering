@@ -1,7 +1,4 @@
-#!/usr/bin/ruby
-
-class Hamming
-  def compute(onez,twoz)
+def compute(onez,twoz)
 
     arr1 = onez.scan /\w/
     arr2 = twoz.scan /\w/
@@ -19,4 +16,3 @@ class Hamming
       exit 1
     end
   end
-end

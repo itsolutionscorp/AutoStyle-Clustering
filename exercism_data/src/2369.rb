@@ -1,9 +1,14 @@
-module Hamming
-  def compute(a, b)
-    short_strand, long_strand = [a, b].map(&:chars).sort_by &:size
+def compute(first, second)
+    one        = first.split(//)
+    one_length = one.count
 
-    short_strand.each_with_index.count do |acid, index|
-      long_strand[index] != acid
+    two        = second.split(//)
+    two_lenght = two[0..one_length-1]
+
+    count      = 0
+
+    two_lenght.each_with_index do |letter, index|
+    count += 1 if letter != one[index]
     end
+    count
   end
-end

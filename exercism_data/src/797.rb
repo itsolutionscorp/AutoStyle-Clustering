@@ -1,7 +1,5 @@
-class Hamming
-  class << self
-    def compute(dna_one, dna_two)
-      (0...dna_one.length).select {|i| dna_one[i] != dna_two[i]}.count
-		end
-	end
-end
+def compute(strand1, strand2)
+    strand1.chars.zip(strand2.chars).count do |segment1, segment2|
+      segment1 != segment2
+    end
+  end

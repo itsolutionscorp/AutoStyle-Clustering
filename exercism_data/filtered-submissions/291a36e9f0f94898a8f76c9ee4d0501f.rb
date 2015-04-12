@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     if first==second
       0
     else
@@ -11,4 +10,3 @@ class Hamming
       return distance
     end
   end
-end

@@ -1,13 +1,7 @@
-# "The Hamming distance between two strings of equal length is the
-# number of positions at which the corresponding symbols are
-# different." (Wikipedia)
-class Hamming
-  def compute(string_1, string_2)
-    count = 0
-    string_1.chars.each_index do |i|
-      break if i == string_2.length
-      count += 1 unless string_1[i] == string_2[i]
+def compute(s, t)
+    @not_match = Array.new
+    s.split('').each_with_index do |item, index|
+      @not_match << item  if item != t.split('')[index]
     end
-    count
+    @not_match.length
   end
-end

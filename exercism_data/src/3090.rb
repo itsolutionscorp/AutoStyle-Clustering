@@ -1,9 +1,7 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    max_length = [strand_a.length, strand_b.length].max
+def compute(gene_1, gene_2)
 
-    (0...max_length).count do |index|
-      strand_a[index] != strand_b[index]
-    end
+    gene_1.chars.zip(gene_2.chars).select do |ch1, ch2|
+      ch1 != ch2 && ch1 && ch2
+    end.count
+
   end
-end

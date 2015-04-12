@@ -1,15 +1,9 @@
-require 'byebug'
-
-class Hamming
-  def compute(strand_a, strand_b)
-    hamming_distance = 0
-
-    strand_a.each_char.with_index do|char, index|
-      if char != strand_b[index] then
-        hamming_distance += 1
-      end
+def compute(strand1, strand2)
+    return 0 if strand1 == strand2
+    dist = 0
+    len = [strand1.length, strand2.length].min
+    for n in (0..len-1)
+      dist += 1 if strand1[n] != strand2[n]
     end
-
-    hamming_distance
+    dist
   end
-end

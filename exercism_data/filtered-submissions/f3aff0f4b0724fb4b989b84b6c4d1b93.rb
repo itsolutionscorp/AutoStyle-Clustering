@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     strand_a = strand_a.chars
     strand_b = strand_b.chars
 
@@ -11,4 +10,3 @@ class Hamming
 
     mutations
   end
-end

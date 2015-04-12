@@ -1,10 +1,5 @@
-module Hamming
-
-  module_function
-  def compute strand, other_strand
-    strand_contents = [strand, other_strand].map(&:chars)
-    shorter, longer = strand_contents.sort_by(&:length)
-    shorter.zip(longer).count { |a, b| a != b }
+def compute(first_strand, second_strand)
+    first_strand.chars.each_with_index.count do |letter, index|
+      second_strand[index] != letter
+    end
   end
-
-end

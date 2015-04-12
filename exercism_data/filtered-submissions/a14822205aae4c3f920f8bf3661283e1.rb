@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     # Make both strings into arrays
     a = a.scan(/./)
     b = b.scan(/./)
@@ -14,4 +13,3 @@ class Hamming
     return hamming_distance
 
   end
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(s1, s2)
+def compute(s1, s2)
 		min_size = [s1.chars.count, s2.chars.count].min
 		s1 = s1[0..min_size-1]
 		s2 = s2[0..min_size-1]
@@ -17,4 +15,3 @@ class Hamming
 		end
       count
 	end
-end 

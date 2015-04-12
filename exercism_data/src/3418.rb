@@ -1,11 +1,7 @@
-class Hamming
-  def compute(strand1, strand2)
-    hamming_distance = 0
-
-    strand1.length.times do |nucleotide|
-      hamming_distance += 1 unless strand1[nucleotide] == strand2[nucleotide]
+def compute(str1, str2)
+    diff = 0
+    [str1.length, str2.length].min.times do |i|
+      diff += 1 unless str1[i] == str2[i]
     end
-
-	hamming_distance
+    diff
   end
-end

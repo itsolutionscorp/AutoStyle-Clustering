@@ -1,5 +1,4 @@
-class Hamming
-  def compute(gene_1,gene_2)
+def compute(gene_1,gene_2)
     hamming_number = 0
     if gene_1 == gene_2
       return hamming_number
@@ -15,4 +14,3 @@ class Hamming
       return hamming_number
     end
   end
-end

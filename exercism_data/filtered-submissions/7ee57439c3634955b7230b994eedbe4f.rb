@@ -1,6 +1,4 @@
-module Hamming
-
-  def compute base_string, comparison_string
+def compute base_string, comparison_string
     hamming_distance = 0
     base_array = base_string.split(//)
     base_array.each_index do |i|

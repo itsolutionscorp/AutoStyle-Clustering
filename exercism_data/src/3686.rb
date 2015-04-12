@@ -1,7 +1,7 @@
-class Hamming
-  def compute(dna_seq_1, dna_seq_2)
-    diff = 0
-    dna_seq_1.each_char.with_index { |e, i| diff += 1 if e != dna_seq_2[i] }
-    diff
+def compute(strand1, strand2)
+    hamming_distance = 0
+    strand1.length.times do |i|
+      hamming_distance += 1 if strand1[i] != strand2[i]
+    end
+    hamming_distance
   end
-end

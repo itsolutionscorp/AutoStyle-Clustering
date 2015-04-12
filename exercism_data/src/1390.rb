@@ -1,17 +1,3 @@
-class Hamming
-  def compute(dna_1, dna_2)
-    count = 0
-
-    dna_1.each_char.with_index do |char, index|
-      other_char = dna_2[index]
-
-      next unless other_char
-
-      unless char == other_char
-        count += 1
-      end
+def compute(first, second)
+      (0...[first.length, second.length].min).count { |i| first[i] != second[i] }
     end
-
-    count
-  end
-end

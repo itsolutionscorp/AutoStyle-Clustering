@@ -1,9 +1,10 @@
-class Hamming
-  def compute(a,b)
-    if a == b
-      0
-    else
-      1
+def compute primary_strand, secondary_strand
+    distance = 0
+    number_of_characters_to_compare = [primary_strand.length, secondary_strand.length].min
+
+    number_of_characters_to_compare.times do |index| 
+      distance += 1 if  primary_strand[index] != secondary_strand[index]
     end
+
+    distance
   end
-end

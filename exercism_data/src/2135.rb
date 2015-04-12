@@ -1,11 +1,9 @@
-class Hamming
-  def compute(a, b)
-    distance = 0
-    length   = a.length
-    while length > 0
-      length-=1
-      distance += 1 if a[length]!=b[length]
+def compute(a, b)
+    first_strand  = a.split(//)
+    second_strand = b.split(//)
+    
+    comparision = first_strand.zip(second_strand)
+    comparision.count do |first_letter, second_letter|
+      first_letter != second_letter unless second_letter.nil?
     end
-    distance
   end
-end

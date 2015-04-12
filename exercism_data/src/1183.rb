@@ -1,14 +1,5 @@
-class Hamming
-  def compute(a, b)
-    result= 0
-    a = a.chars
-    b = b.chars
-    size = a.length-1
-    for letter in 0..size
-      if a[letter] != b[letter]
-        result += 1
-      end
+def compute(seq1, seq2)
+    seq1.chars.zip(seq2.chars).count do |nucleotide1, nucleotide2|
+      nucleotide1 != nucleotide2
     end
-    return result
   end
-end

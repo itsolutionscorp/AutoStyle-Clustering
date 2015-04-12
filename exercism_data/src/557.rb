@@ -1,11 +1,11 @@
-# hamming is the number of positions at which a string is different
-class Hamming
-  def compute(str1, str2)
-    count = 0
-	return 0 if str1 == str2
-	for i in (0...str1.length)
-	  count += 1 if str1[i] != str2[i]
-	end
-	count
+def compute(strand_one, strand_two)
+    d, i = 0, 0
+#    strand_one.split('').each_with_index do |s1, i| #using this as oposed to the line below runs slightly slower
+    strand_one.chars do |s1|
+      if s1 != strand_two[i]
+        d += 1
+      end
+        i += 1
+    end
+    d
   end
-end

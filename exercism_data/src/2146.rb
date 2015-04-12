@@ -1,14 +1,11 @@
-class Hamming
-  def compute(dna1, dna2)
-    count = 0
-    if dna1.length > dna2.length
-      return compute(dna2, dna1)
+def compute (strand1, strand2)
+    # Iterate through each nucleobase in each strand and check if equal.
+    # If not equal, increment dist to count dissimilarities.
+    dist = 0
+
+    (0..strand1.length).each do |i|
+    dist += 1 unless strand1[i] == strand2[i]
     end
-    dna1.each_char.with_index do |character, index|
-      if dna2[index] != character
-        count += 1
-      end
-    end
-    count
+
+    return dist
   end
-end

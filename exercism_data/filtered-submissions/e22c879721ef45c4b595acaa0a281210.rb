@@ -1,5 +1,4 @@
-class Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     dna1_codes = dna1.codepoints
     dna2_codes = dna2.codepoints
     differences = 0
@@ -8,4 +7,3 @@ class Hamming
     end
     differences
   end
-end

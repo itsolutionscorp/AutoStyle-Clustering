@@ -1,14 +1,8 @@
-class Hamming
+def compute(strand1, strand2)
+		shorter_length = [strand1.length, strand2.length].min
+		mutations = 0
 
-  def compute(arg1, arg2)
-    return 0 if arg1 == arg2
-    return 1 if (arg1=='A' && arg2=='G') 
-    return 2 if (arg1=='AG' && arg2=='CT') 
-    return 1 if (arg1=='AT' && arg2=='CT') 
-    return 1 if (arg1=='GGACG' && arg2=='GGTCG') 
-    return 1 if (arg1=='AGA' && arg2=='AGG') 
-    return 1 if (arg1=='AGG' && arg2=='AGA') 
-    return 4 if (arg1=='GATACA' && arg2=='GCATAA') 
-    return 1 if (arg1=='GGACGGATTCTG' && arg2=='AGGACGGATTCT') 
-  end
-end
+		shorter_length.times { |position| mutations += 1 if strand1[position] != strand2[position] }
+		
+		mutations
+	end

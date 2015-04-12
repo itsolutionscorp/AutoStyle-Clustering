@@ -1,26 +1,17 @@
-class Hamming
+def compute(s1, s2)
+		min_size = [s1.chars.count, s2.chars.count].min
+		s1 = s1[0..min_size-1]
+		s2 = s2[0..min_size-1]
+  
+		pairs = s1.chars.zip(s2.chars)
+		count = 0
 
-  def compute(strand1, strand2)
-     diff_catcher = 0
-
-     if strand1.length > strand2.length
-       a = strand2.length
-     else
-       a = strand1.length
-     end
-
-     0.upto(a - 1) do |index_position|
-
-       if strand1[index_position] == strand2[index_position]
-         diff_catcher += 0
-       else
-         diff_catcher += 1
-       end
-
-     end
-
-     diff_catcher
-
-  end
-
-end
+		pairs.each do |pair|
+			if pair[0] != pair[1]
+				count += 1
+			else
+				count += 0
+			end
+		end
+      count
+	end

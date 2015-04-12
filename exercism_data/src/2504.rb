@@ -1,16 +1,15 @@
-class Hamming
-  def compute(strand_one, strand_two)
-    hamming_distance = 0
+def compute(seq1, seq2)
 
-    strand_one = strand_one.split(//)
-    strand_two = strand_two.split(//)
-
-    strand_one.each_with_index do |protein, index|
-      unless protein.nil? || strand_two[index].nil?
-        hamming_distance += 1 if protein != strand_two[index]
-      end
+    seq1Arr = seq1.split("")
+    seq2Arr = seq2.split("")
+    seq1Arrsize = seq1Arr.size
+    seq2Arrsize = seq2Arr.size
+    position, hamming  = 0, 0
+    
+    while(position < seq1Arrsize or position < seq2Arrsize)
+      break if seq1Arr[position].nil? or seq2Arr[position].nil?
+      hamming += 1 if seq1Arr[position] != seq2Arr[position]
+      position +=1
     end
-
-    return hamming_distance
+    hamming
   end
-end

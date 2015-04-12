@@ -1,11 +1,3 @@
-class Hamming
-
-  def Hamming.compute (dna1, dna2)
-  	count = 0
-    dna1.bytes.zip(dna2.bytes).each do |x|
-      count += 1 if x[0] != x[1] && x[1] != nil
-    end
-    return count
-  end
-
-end
+def compute(dna_one, dna_two)
+			(0..dna_one.length - 1).select {|i| dna_one[i] != dna_two[i]}.count
+		end

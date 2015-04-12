@@ -1,11 +1,11 @@
-module Hamming
-  def compute first, other
-    count = 0
-    minimum = [first.size, other.size].min
-
-    (0...minimum).each do |index|
-      count += 1 if first[index] != other[index]
+def compute(s1, s2)
+    distance = 0
+    strand_length = [s1.length, s2.length].min - 1
+    0.upto(strand_length) do |i|
+      if s1[i] != s2[i]
+        distance += 1
+      end
     end
-    count
+
+    distance
   end
-end

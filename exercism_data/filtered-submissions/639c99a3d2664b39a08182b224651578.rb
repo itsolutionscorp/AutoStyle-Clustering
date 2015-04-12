@@ -1,7 +1,4 @@
-require 'pry'
-
-class Hamming
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
 
     second_strand_chars = second_strand.chars
 
@@ -12,4 +9,3 @@ class Hamming
       .select {|different| different }
       .count
   end
-end

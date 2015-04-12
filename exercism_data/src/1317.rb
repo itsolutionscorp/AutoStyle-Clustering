@@ -1,8 +1,11 @@
-class Hamming
+def compute (source, copy)
+        distance = 0
 
-  def compute(first_strand, second_strand)
-    (0..first_strand.length).count do |x|
-      first_strand[x] != second_strand[x]
+        source.length.times do |i|
+            if source[i] != copy[i] && copy[i] != nil
+                distance = distance+1
+            end
+        end
+
+        distance
     end
-  end
-end

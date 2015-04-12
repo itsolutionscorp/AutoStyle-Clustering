@@ -1,6 +1,4 @@
-class Hamming
-  class << self
-    def compute(a, b)
+def compute(a, b)
       hamming_diff = 0
       a, b = a.split(""), b.split("")
       a.length.times do |i|
@@ -9,5 +7,3 @@ class Hamming
       end
       hamming_diff
     end
-  end
-end

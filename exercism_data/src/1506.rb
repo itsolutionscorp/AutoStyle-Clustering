@@ -1,12 +1,8 @@
-class Hamming
+def compute(a, b)
 
-  def compute(a, b)
-    n = 0
-    a.chars.each_with_index do |char, index|
-      return n if index == b.length
-      char == b.chars[index] ? n : n=n+1
-    end
-    n
+    # Find the shorter of the strings
+    smallest = [a, b].min_by(&:length)
+
+    # Count the number of character-wise differences between a and b
+    smallest.split('').each_index.count { |i| a[i] != b[i] }
   end
-
-end

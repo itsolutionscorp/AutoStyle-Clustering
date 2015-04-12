@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(a,b)
+def compute(a,b)
   	biggerList = []
   	smallerList = []
 
@@ -17,4 +15,3 @@ class Hamming
     smaller_list.zip(bigger_list).count {|y, z| y != z }
 
  	end
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1,strand2)
+def compute(strand1,strand2)
 
     # only compare if strands are same length
     if strand1.length === strand2.length
@@ -9,5 +7,3 @@ class Hamming
     end
 
   end
-
-end

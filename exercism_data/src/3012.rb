@@ -1,14 +1,6 @@
-class Hamming
-
-  def compute(a,b,difference = 0)
-    if a != b
-      a.chars.each_index do |i|
-       if a.chars[i] != b.chars[i]
-        difference += 1
-       end
-      end
-    end
-    difference
-  end
-
-end
+def compute(strand1,strand2)
+		compare_length = [strand1,strand2].sort_by(&:length).first.length # get length of shorter strand
+		distance = (0..compare_length-1).map{ |n|
+			strand1[n] == strand2[n] ? 0 : 1
+		}.reduce(:+)
+	end

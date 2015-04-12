@@ -1,7 +1,6 @@
-class Hamming
-  class << self
-    def compute(dna1, dna2)
-      dna1.chars.zip(dna2.chars).count { |pair| !pair[1].nil? && pair[0] != pair[1] }
+def compute(strand_one, strand_two)
+    differences = 0
+    strand_one.split('').each_with_index do |symbol, idx|
+      differences += 1 unless symbol == strand_two[idx]
     end
-  end
-end
+    differences

@@ -1,14 +1,7 @@
-class Hamming
-
-  def compute(strand1,strand2)
-    @st1 = strand1.chars.to_enum
-    @st2 = strand2.chars.to_enum
-    a = 0
-      loop do
-        unless @st1.next == @st2.next
-        a += 1
-        end
-      end
-    a
-  end
-end
+def compute(strand1, strand2)
+		distance = 0
+		for i in 0..[strand1.length, strand2.length].min-1 do
+			distance +=1 if strand1[i] != strand2[i]
+		end
+		return distance
+	end

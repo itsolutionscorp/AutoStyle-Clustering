@@ -1,5 +1,4 @@
-class Hamming
-    def compute(first,second)
+def compute(first,second)
         if first.length == second.length
             #puts "Same Length, computing"
             num_of_differences = 0
@@ -13,4 +12,3 @@ class Hamming
             puts "Not same length, cancelling"
         end
     end
-end

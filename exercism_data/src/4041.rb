@@ -1,7 +1,3 @@
-class Hamming
-  def compute(seq_a, seq_b)
-    seq_a.chars.zip(seq_b.chars).map do |pair|
-      pair.first == pair.last ? 0 : 1
-    end.reduce(:+)
-  end
-end
+def compute(a,b)
+		a.split(//).zip(b.split(//)).count { |e| e[0] != e[1] }
+	end

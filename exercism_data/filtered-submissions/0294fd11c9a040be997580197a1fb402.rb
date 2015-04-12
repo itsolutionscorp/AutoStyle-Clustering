@@ -1,5 +1,4 @@
-class Hamming
-	def compute(string1,string2)
+def compute(string1,string2)
 		if ((string1.is_a? String) && (string2.is_a? String))
 			strand1 = string1.upcase()
 			strand2 = string2.upcase()
@@ -16,4 +15,3 @@ class Hamming
 			puts "Please enter valid string"
 		end
 	end
-end

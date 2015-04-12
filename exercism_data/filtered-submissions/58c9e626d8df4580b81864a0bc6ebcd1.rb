@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
+def compute(strand_1, strand_2)
     diff = 0
     shorter_strand = 'TBD'
     longer_strand = 'TBD'
@@ -21,5 +19,3 @@ class Hamming
 
     diff
   end
-
-end

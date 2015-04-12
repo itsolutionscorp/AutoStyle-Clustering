@@ -1,13 +1,17 @@
-class Hamming
-  def compute(a, b)
-    size = [a.length, b.length].max
-    count = 0
-    size.times do |i|
-      if a[i] != b[i]
-        count += 1
-      end
-    end
+def compute(string1, string2)
+		arr1 = string1.split('')
+		arr2 = string2.split('')
 
-    count
-  end
-end
+		i = 0
+		tally = 0
+
+		arr1.each.with_index do |letter, i|
+			if i < arr1.length && i < arr2.length
+				if letter != arr2[i]
+					tally = tally + 1
+				end
+			end
+		end
+
+		return tally
+	end

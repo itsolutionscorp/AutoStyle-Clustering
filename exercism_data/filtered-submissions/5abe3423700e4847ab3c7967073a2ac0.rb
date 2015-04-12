@@ -1,5 +1,4 @@
-class Hamming
-  def compute string_a, string_b
+def compute string_a, string_b
     nucleotides_a = string_a.chars
     nucleotides_b = string_b.chars
 
@@ -7,4 +6,3 @@ class Hamming
     diffs = duplex.reject { |nucleotide| nucleotide[0] == nucleotide[1] }
     diffs.size
   end
-end

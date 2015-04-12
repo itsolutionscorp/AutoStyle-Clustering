@@ -1,22 +1,10 @@
-#!/usr/bin/ruby
-
-class Hamming
-	def compute(first, second)
-		#Make the strings the same length
-		if first.length > second.length then
-			first = first.slice(0..(second.length - 1))
-		else
-			second = second.slice(0..(first.length - 1))
-		end
-
-		#Check each character in the strings and count mismatches
-		hamming_count = 0
-		(0..(first.length - 1)).each do |i|
-			if first.slice(i) != second.slice(i) then
-				hamming_count = hamming_count + 1
-			end
-		end
-
-		return hamming_count
-	end
-end
+def compute(a, b)
+    shorter, longer = a, b
+    shorter, longer = b, a if b.length < a.length
+    other_chars = longer.each_char.to_a
+    index = -1
+    shorter.chars.reduce(0) do |hamming, char|
+      index += 1
+      char != other_chars[index] ? hamming + 1 : hamming
+    end
+  end

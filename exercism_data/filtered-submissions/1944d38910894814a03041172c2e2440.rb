@@ -1,5 +1,4 @@
-class Hamming
-  def compute(x, y)
+def compute(x, y)
     length = [x.length, y.length].max
     diff = 0
     (0...length).each do |i|
@@ -9,4 +8,3 @@ class Hamming
     end
     diff
   end
-end

@@ -1,19 +1,9 @@
-class Hamming
-
-  def compute(a,b)
-
-    aa = a.scan(/./)
-    bb = b.scan(/./)
-    ham = 0
-
-    aa.zip(bb).each do |a, b|
-      if a == b or b == nil
-        ham
-      else
-        ham = ham + 1
-      end
-    end
-    return ham
+def compute(first,second)
+    length = [first.length, second.length].min
+    firstArr = first[0,length].chars
+    secondArr = second[0,length].chars
+    diffs = firstArr.zip(secondArr).map { |row| 
+        (row[0] == row[1]) ? 0 : 1  
+    }
+    diffs.reduce(:+) || 0
   end
-
-end

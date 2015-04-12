@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     joined_strand = if strand1.length < strand2.length
       strand1.chars.zip(strand2.chars)
     else
@@ -14,4 +12,3 @@ class Hamming
     end
     return distance
   end
-end

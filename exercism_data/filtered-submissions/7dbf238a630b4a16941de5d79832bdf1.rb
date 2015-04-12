@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
     minimum_strand_size = [first_strand.size, second_strand.size].min
 
     distance = 0
@@ -9,4 +8,3 @@ class Hamming
 
     distance
   end
-end

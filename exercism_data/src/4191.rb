@@ -1,12 +1,10 @@
-class Hamming
-    def compute(st1, st2)
-        i = 0
-        hamming_distance = 0
-        length = (st1.length < st2.length) ? st1.length : st2.length
-	while i < length
-      	    hamming_distance += (st1[i] == st2[i]) ? 0 : 1
-            i += 1
-        end
-        return hamming_distance
+def compute(string_a, string_b)
+    if string_a.size > string_b.size
+      string_a, string_b = string_b, string_a
     end
-end
+    mapped = string_a.chars.map.with_index do |e, i|
+      e == string_b[i] ? 0 : 1
+    end
+    # require 'pry'; binding.pry
+    mapped.reduce(0, &:+)
+  end

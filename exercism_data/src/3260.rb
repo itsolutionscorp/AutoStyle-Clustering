@@ -1,20 +1,4 @@
-class Hamming
-
-  def compute(strain_a, strain_b)
-    result = 0
-    if strain_a.size == strain_b.size or strain_a.size < strain_b.size
-      (0..strain_a.size - 1).each do |i|
-        if strain_a[i] != strain_b[i]
-          result += 1
-        end
-      end
-    elsif strain_b.size < strain_a.size
-      (0..strain_b.size - 1).each do |i|
-        if strain_a[i] != strain_b[i]
-          result += 1
-        end
-      end
-    end
-    result
+def compute(strand_1, strand_2)
+    strand_1.each_char.with_index.count { |c, i| c != strand_2[i] }
   end
 end

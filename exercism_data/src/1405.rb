@@ -1,13 +1,9 @@
-class Hamming
-  def compute(seq1, seq2)
-    count = 0
-    if seq1.length == seq2.length
-      seq1.chars.map!.with_index do |n, i|
-        if n != seq2[i]
-          count += 1
-        end
-      end
-    end
-    count
-  end
-end
+def compute(typeA, typeB)
+		it=0
+		dif=0
+		while(it < typeA.bytesize) do
+			dif+=1 if typeA[it]!=typeB[it]
+			it+=1
+		end
+		dif
+	end

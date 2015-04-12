@@ -1,16 +1,9 @@
-class Hamming
-
-	def compute(a,b)
-		if a.length != b.length then
-			return nil
-		end
-	
-		count= 0
-		( 0 .. a.length ).each { |indx|
-			if a[indx] != b[indx] then
-				count= count + 1
-			end
-		}
-		count
-	end
-end
+def compute(one, two)
+    distance = 0
+    one.split("").each_with_index do |item, i| 
+      if (item != two[i]) then
+        distance += 1
+      end 
+    end
+    return distance
+  end

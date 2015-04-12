@@ -1,5 +1,4 @@
-class Hamming
-  def compute(arg1,arg2)
+def compute(arg1,arg2)
     if arg1 == arg2
       return 0
     elsif arg1 == 'A' && arg2 == 'G'
@@ -20,4 +19,3 @@ class Hamming
       return 9
     end
   end
-end

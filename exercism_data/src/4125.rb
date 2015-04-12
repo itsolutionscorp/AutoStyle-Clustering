@@ -1,12 +1,3 @@
-class Hamming
-
-    def compute(a, b)
-        count = 0
-        strings = [a, b]
-
-        strings.min.size.times do |n|
-            a[n]==b[n] ? next : count += 1
-        end
-        count
-    end
-end
+def compute(a, b)
+    a.chars.zip(b.chars).map { |pair| pair.first == pair.last }.count { |match| !match }
+  end

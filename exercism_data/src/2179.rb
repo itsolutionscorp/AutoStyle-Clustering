@@ -1,6 +1,3 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1, strand2 = strand1.to_a, strand2.to_a
-    strand1.each_with_index.map { |s1, i| s1 <=> strand2[i] }.compact.map(&:abs).reduce(:+)
+def compute(s1, s2)
+    s1.chars.zip(s2.chars).count { |c1, c2| c1 != c2 }
   end
-end

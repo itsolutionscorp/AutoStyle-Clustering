@@ -1,10 +1,4 @@
-class Hamming
-
-  def compute(strand_one, strand_two)
-    strands = [strand_one, strand_two].sort_by!(&:length)
-    (0..strands.first.length-1).inject(0) do |dif, index|
-      strands.first[index] != strands.last[index] ? dif + 1 : dif
-    end
+def compute(word1, word2)
+    return 0 if word1 == word2
+    word1.size.times.count { |i| word1[i] != word2[i] }
   end
-  
-end

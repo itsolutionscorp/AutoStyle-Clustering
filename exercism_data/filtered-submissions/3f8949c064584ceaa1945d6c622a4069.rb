@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strandone, strandtwo)
+def compute(strandone, strandtwo)
     distance = 0
     strlen = strandone.length
     for i in 0..strlen
@@ -7,4 +6,3 @@ class Hamming
     end
     return distance
   end
-end

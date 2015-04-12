@@ -1,21 +1,12 @@
-class Hamming
-
-  def compute(a, b)
-    strand1 = a.split("")
-    strand2 = b.split("")
+def compute(sequence1, sequence2)
     count = 0
-
-    if strand1.length == strand2.length
-      small = strand1
-      big = strand2
-    else
-      (strand1.length < strand2.length) ? small = strand1 : small = strand2
-      (strand1.length > strand2.length) ? big = strand1 : big = strand2
-    end
-
-    small.each_with_index do |ele, ind|
-      small[ind] == big[ind] ? count : count += 1
+    array1 = sequence1.chars
+    array2 = sequence2.chars
+    joined = array1.zip(array2)
+    joined.each do |key, value|
+      if key != value
+        count += 1
+      end
     end
     count
   end
-end

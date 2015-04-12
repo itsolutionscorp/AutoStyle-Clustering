@@ -1,17 +1,10 @@
-class Hamming
-  def compute(a, b)
-    params = [a, b]
-    case params
-    when ['A', 'A']
-      0
-    when ['AG', 'CT']
-      2
-    when ['GATACA', 'GCATAA']
-      4
-    when ['GGACGGATTCTG', 'AGGACGGATTCT']
-      9
-    else
-      1
-    end
-  end
-end
+def compute(strand1, strand2)
+		match_count = 0
+		limit = [strand1.length, strand2.length].min
+		strand1.chars.each_with_index do |letter, index|
+			if index < limit
+				match_count += letter != strand2.chars[index] ? 1 : 0
+			end
+		end
+		match_count
+	end

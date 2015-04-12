@@ -1,6 +1,4 @@
-class Hamming
-  
-  def compute first, second
+def compute first, second
     first_bases = first.split(//).take(second.size)
     second_bases = second.split(//)
 
@@ -11,5 +9,3 @@ class Hamming
 
     results.inject(:+)
   end
-
-end

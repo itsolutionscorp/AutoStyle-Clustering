@@ -1,5 +1,4 @@
-class Hamming
-  def compute(var1, var2)
+def compute(var1, var2)
 
     if var1.length > var2.length
       short_var = var2
@@ -19,4 +18,3 @@ class Hamming
     end
     value
   end
-end

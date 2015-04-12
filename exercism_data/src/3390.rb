@@ -1,16 +1,10 @@
-class Hamming
-
-  def compute(first_sequence,second_sequence)
-    hamming_distance = 0
-    index = 0
-    strand_length = first_sequence.length
-
-    while index < strand_length
-      hamming_distance += 1 if first_sequence[index] != second_sequence[index]
-      index += 1
+def compute(s, t)
+    # set starting score and break t into character array
+    score = 0
+    # iterate through character array of s and compare to character at same index in t
+    s.each_char.with_index do |c, i|
+      # compare to equivalent position in s; if one is longer than the other, ignore extra characters
+      score += 1 if t[i] && c != t[i]
     end
-
-    hamming_distance
+    score
   end
-
-end

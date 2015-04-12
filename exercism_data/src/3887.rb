@@ -1,13 +1,3 @@
-class Hamming
-
-  def compute(first,second)
-    string_length = first.length
-    hamming_distance = 0
-    (0..string_length).each do |i|
-      hamming_distance += 1 unless first[i] == second[i]
-    end
-    return hamming_distance
+def compute(first_input, second_input)
+    first_input.chars.zip(second_input.chars).count { |(first,last)| first != last unless last == nil }
   end
-
-
-end

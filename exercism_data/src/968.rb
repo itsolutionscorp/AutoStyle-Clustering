@@ -1,16 +1,14 @@
-class Hamming
-  def compute( a, b )
-    hamming_distance = 0
-
-    sorted_by_length = [a,b].sort_by( &:length )
-
-    sorted_by_length[0].chars.each_with_index do |char, index|
-      if char != sorted_by_length[1][index]
-        hamming_distance += 1
-      end
+def compute(strand1, strand2)
+    return 0 if strand1 == strand2
+    if strand1.length != strand2.length
+      # There was not a test for this condition, but there probably should have been
+      puts "Hamming cannot be computed on strands of different lengths"
+      return -1
     end
 
-    hamming_distance
+    hamming = 0
+    (0..strand1.length - 1).each do |p|
+      hamming += 1 unless strand1[p] == strand2[p]
+    end
+    hamming
   end
-
-end

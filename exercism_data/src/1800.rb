@@ -1,13 +1,10 @@
-class Hamming
-  def compute strand_one, strand_two
-    distance = 0
+def compute(pStr, sStr)
 
-    comparison_length = strand_one.length < strand_two.length ? strand_one.length : strand_two.length
-
-    comparison_length.times do |index|
-      distance += 1 if strand_one[index] != strand_two[index]
+		if ( pStr.length === sStr.length ) then
+		    for i in 0..(sStr.length-1) do
+				resp = 1 + resp.to_i if ( pStr[i] != sStr[i])
+		    end
+		    
+		end
+		resp.to_i
     end
-
-    distance
-  end
-end

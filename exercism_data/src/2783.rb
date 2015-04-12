@@ -1,8 +1,7 @@
-module Hamming
-  def compute input1, input2
-    short,long = input1,input2 unless input1.length > input2.length
-    short,long = input2,input1 if short.nil?
-
-    short.split('').each_with_index.map{|x, i| short[i]==long[i]}.reject{|j| j==true}.count
+def compute first_strand, second_strand
+    differnces = 0
+    first_strand.split('').each_with_index do |char, i|
+      differnces += 1 unless char == second_strand[i]
+    end
+    differnces
   end
-end

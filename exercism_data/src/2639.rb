@@ -1,26 +1,9 @@
-class Hamming
-	def compute(strand1, strand2)
-		short_strand = ""
-		long_strand = ""
+def compute(strand_1, strand_2)
+		arrStrand_1 = strand_1.scan(/\w/)
+		arrStrand_2 = strand_2.scan(/\w/)
 		hamming_distance = 0
-    
-    # check if both strands are the same
-    if strand1 == strand2
-    	return hamming_distance
-    # check which strand is shorter
-		elsif strand1.length <= strand2.length
-      short_strand = strand1
-      long_strand = strand2
-    else
-    	short_strand = strand2
-    	long_strand = strand1
+		(0..arrStrand_1.length).each do |n|
+			hamming_distance += 1 if arrStrand_1[n] != arrStrand_2[n]
 		end
-		
-		# increments hamming distance if the letter for both strand don't match		
-		for i in 0..(short_strand.length - 1)
-			hamming_distance += 1 if short_strand[i] != long_strand[i]
-		end
-		
 		return hamming_distance
 	end
-end

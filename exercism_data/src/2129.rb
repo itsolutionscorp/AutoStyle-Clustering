@@ -1,9 +1,5 @@
-module Hamming
-
-  def compute(seq1, seq2)
-    count = 0
-    seq1.chars.each_with_index.count { |letter, idx|
-      seq2[idx] and seq2[idx] != letter
-    }
+def compute(dna1, dna2)
+    hamming = 0
+    (dna1.size).times { |x| hamming += 1 unless dna1[x] == dna2[x] }
+    hamming
   end
-end

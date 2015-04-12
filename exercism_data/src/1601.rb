@@ -1,20 +1,5 @@
-class Hamming
-  
-  class << self
-    
-    def compute(a, b)
-      return 0 if a == b
-
-      a = a[0..b.length-1] if a.length > b.length
-      result = 0
-
-      a.split('').each_with_index do |e, i|
-        result += 1 if e != b[i]
-      end
-
-      result
-    end
-
-  end
-
+def compute(strand1, strand2)
+    combined_strands = strand1.chars.zip(strand2.chars)
+    combined_strands.count { |x| x[0] != x[1] && x[0] != nil && x[1] != nil }
+	end
 end

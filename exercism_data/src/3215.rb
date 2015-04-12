@@ -1,18 +1,7 @@
-class Hamming
-  def compute(code1, code2)
-    diff = 0
-    if code1.length == code2.length
-      for i in 0..code1.length
-        if code1[i] != code2[i]
-          diff += 1
-        end
-      end
-      return diff
-    elsif
-      code1.length > code2.length
-      return 1
-    else
-      return 2
-    end
+def compute(str1, str2)
+    score = 0
+    a1 = str1.chars
+    a2 = str2.chars
+    a1.each_index {|i| if a1[i] != a2[i] then score += 1 end}
+    score
   end
-end

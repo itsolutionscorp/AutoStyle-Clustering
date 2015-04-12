@@ -1,10 +1,5 @@
-class Hamming
-
-  def compute(first_strand, second_strand)
-    zipped_strands = first_strand.chars.zip(second_strand.chars)
-    zipped_strands.count { |strand| strand[0] != strand[1] unless strand[0].nil? || strand[1].nil? }
+def compute(sequence1, sequence2)
+    sequence1.chars.zip(sequence2.chars).count do |symbol1, symbol2|
+      symbol2 && symbol2 != symbol2
+    end
   end
-end
-
-
-Hamming.compute("AGAGACTTA", "AAA")

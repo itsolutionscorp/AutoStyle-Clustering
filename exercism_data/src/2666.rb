@@ -1,8 +1,8 @@
-class Hamming
-  class << self
-    def compute(first,second)
-      first,second=[first,second].sort_by(&:size)
-      first.bytes.zip(second.bytes).count{|x,y| x!=y}
+def compute seq_a, seq_b
+    count = 0
+    n = [seq_a.size,seq_b.size].min
+    (0...n).each do |i|
+      count +=1 if seq_a[i]!=seq_b[i]
     end
+    count
   end
-end

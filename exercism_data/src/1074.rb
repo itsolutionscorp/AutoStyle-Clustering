@@ -1,18 +1,11 @@
-# get current counter variable
-      #use counter variable to get that char out of the first string
-      #compare them, 
-      #if same, do nothing
-      #if diff, add to number of differences
+def compute str1, str2
+    distance = 0
 
-
-class Hamming
-  def compute (s_one,s_two)
-    hamming_difference = 0
-    array1 = s_one.split('')
-    array2 = s_two.split('')
-    array1.each_with_index do |char, current_pos| 
-      hamming_difference += 1 if char != array2[current_pos]
+    str1.chars.each_with_index do |c,i|
+      next if str2[i].nil?
+      distance += 1 unless c == str2[i]
     end
-    hamming_difference
+
+    distance
   end
 end

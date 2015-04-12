@@ -1,12 +1,12 @@
-module Hamming
-  module_function
+def compute(baseStrand, newStrand)
+		maxLengthToCheck = [baseStrand.length, newStrand.length].min
+		hamming = 0
 
-  def compute strand_a, strand_b
-    diff = 0
-    strand_a.split('').each_with_index do |code, index|
-      diff += 1 if strand_b[index] && code != strand_b[index]
-    end
-    diff
-  end
+		(0..maxLengthToCheck -1).each do |i|
+			if (baseStrand[i] != newStrand[i])
+				hamming += 1
+			end
+		end
 
-end
+		hamming
+	end

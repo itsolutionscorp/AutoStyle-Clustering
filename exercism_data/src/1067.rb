@@ -1,12 +1,9 @@
-class Hamming
-  class << self
-    def compute(parent, child)
-      difference = (parent - child).abs
-      mutations = 0
-      (parent.length - difference).times do |n|
-        mutations += 1 if parent[n] != child[n]  
+def compute(strand1, strand2)
+    i = 0
+    strand1.length.times do |num|
+      unless strand1[num] == strand2[num]
+          i = i + 1
       end
-      mutations
     end
+    i
   end
-end

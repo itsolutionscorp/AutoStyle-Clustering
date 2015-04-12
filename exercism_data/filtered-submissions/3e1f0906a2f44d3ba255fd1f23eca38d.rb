@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     distance = 0
     a.split(//).each_with_index do |e, i|
       if a[i] && b[i]
@@ -8,4 +7,3 @@ class Hamming
     end
     return distance
   end
-end

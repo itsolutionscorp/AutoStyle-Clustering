@@ -1,9 +1,10 @@
-class Hamming
-
-  def compute(a, b)
-    a.chars.each_index.inject(0) do |distance, i|
-      a[i] == b[i] ? distance : distance + 1
+def compute(seq_a, seq_b)
+    hamm = 0
+    # Covert each strand into an array of chars and merge
+    # both into an array of arrays.
+    # Strand ABC and strand  BCA becomes [ ['a', 'b'], ['b', 'c'], ['c','a'] ]
+    seq_a.each_char.zip(seq_b.each_char).each do |a, b|
+      break if a.nil? || b.nil?
+      hamm += 1 if a != b
     end
-  end
-
-end
+    hamm

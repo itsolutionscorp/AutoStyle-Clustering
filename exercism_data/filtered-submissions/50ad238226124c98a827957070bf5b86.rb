@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first, second)
+def compute(first, second)
     firstLets = first.chars
     secondLets = second.chars
     difference = 0
@@ -32,4 +30,3 @@ class Hamming
 =end
     return difference
   end
-end

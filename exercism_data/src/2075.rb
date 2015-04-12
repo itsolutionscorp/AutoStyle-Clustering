@@ -1,14 +1,55 @@
-class Hamming
+def compute(a, b)
 
-  class << self
-    def compute(a, b)
-      a = a.split('')
-      b = b.split('')
-      accm = 0
-      0.upto(a.length) do |x|
-        accm +=1 if a[x] != b[x]
-      end
-      accm
-    end
-  end
-end
+			if a == b 
+
+			 	return 0
+
+			else 
+
+				a_split = a.split('')
+				array1 = []
+
+					for x in a_split
+
+						array1 << x
+
+					end
+
+				b_split = b.split('')
+				array2 = []
+
+					for x in b_split
+
+						array2 << x
+
+					end
+
+				counter = 0
+
+					if a.length > b.length
+
+						array2.each_index do |i|
+
+							if array1[i] != array2[i]
+
+								counter += 1
+							end
+
+						end
+
+					else
+
+						array1.each_index do |i|
+
+							if array1[i] != array2[i]
+
+								counter += 1
+							end
+						end
+						
+					end
+
+				return counter
+
+			end
+		end

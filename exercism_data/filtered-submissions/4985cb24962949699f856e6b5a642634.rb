@@ -1,5 +1,4 @@
-class Hamming
-  def compute(*args)
+def compute(*args)
     raise ArgumentError if args.length != 2
 
     string1,string2 = args
@@ -11,4 +10,3 @@ class Hamming
 
     unmatched
   end
-end

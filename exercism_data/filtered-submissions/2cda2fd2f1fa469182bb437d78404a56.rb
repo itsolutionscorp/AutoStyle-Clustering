@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first, second)
+def compute(first, second)
     result = 0
     first.chars.zip(second.chars).each do |f, s|
       if (f != nil && s != nil && f != s)
@@ -8,4 +7,3 @@ class Hamming
     end
     return result
   end
-end

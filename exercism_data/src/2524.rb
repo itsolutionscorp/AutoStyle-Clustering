@@ -1,8 +1,6 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    short, long = [strand_a, strand_b].map { |s| s.split('') }
-                                      .sort { |a, b| a.size <=> b.size }
-    short.zip(long)
-         .count { |m, n| m != n }
+def compute(str1, str2)
+    str1_arr = str1.split('')
+    str2_arr = str2.split('')
+
+    str1_arr.each_with_index.count { |n,i| n != str2_arr[i] }
   end
-end

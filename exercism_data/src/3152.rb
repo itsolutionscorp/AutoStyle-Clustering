@@ -1,10 +1,4 @@
-class Hamming
-
-  def compute(gene_1, gene_2)
-
-    gene_1.chars.zip(gene_2.chars).select do |ch1, ch2|
-      ch1 != ch2 && ch1 && ch2
-    end.count
-
+def compute(a, b)
+    a.chars.zip(b.chars).count { |a, b| a && b && a != b }
   end
 end

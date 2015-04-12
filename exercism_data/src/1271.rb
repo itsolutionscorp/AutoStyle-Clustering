@@ -1,12 +1,3 @@
-class Hamming
-	def compute(a, b)
-		n = [a.length, b.length].min
-		diff = 0
-		for i in 0..(n - 1)
-			if (a[i] != b[i])
-				diff += 1
-			end
-		end
-		return diff
-	end
-end
+def compute(a, b)
+    a[0, b.size].chars.zip(b.chars).select { |n| !n[0].eql? n[1] }.count
+  end

@@ -1,17 +1,6 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    difference = 0
-    
-    for i in 0..strand1.size do
-      if strand1[i] and strand2[i]
-        if strand1[i] != strand2[i] 
-          difference += 1
-        end
-      end
-    end
-
-    difference
+def compute(strand_1, strand_2)
+    [strand_1.length, strand_2.length].min.times.reject do |i|
+      strand_1[i] == strand_2[i]
+    end.length
   end
-
 end

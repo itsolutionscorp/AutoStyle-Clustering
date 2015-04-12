@@ -1,5 +1,4 @@
-class Hamming
-	def compute(str1, str2)
+def compute(str1, str2)
 		str1.upcase!
 		str2.upcase!
 		len = [str1.length, str2.length].min
@@ -11,4 +10,3 @@ class Hamming
 		end
 		answer
 	end
-end

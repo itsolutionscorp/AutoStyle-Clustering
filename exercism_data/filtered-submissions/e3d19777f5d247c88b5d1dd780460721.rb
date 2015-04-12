@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first,second)
+def compute(first,second)
     string_length = first.length
     hamming_distance = 0
     (0..string_length).each do |i|
@@ -8,6 +6,3 @@ class Hamming
     end
     return hamming_distance
   end
-
-
-end

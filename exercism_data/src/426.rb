@@ -1,7 +1,7 @@
-class Hamming
-  def compute(strand, other_strand)
-    strand.chars.zip(other_strand.chars).select do |pair|
-      pair.uniq.size > 1
-    end.count
-  end
-end
+def compute(strand1,strand2)
+		count = 0
+		strand1.chars.count.times do |i|
+			count += 1 if strand1[i] != strand2[i]
+		end
+		count
+	end

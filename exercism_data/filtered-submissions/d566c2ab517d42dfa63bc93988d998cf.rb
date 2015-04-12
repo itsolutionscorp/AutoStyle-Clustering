@@ -1,5 +1,4 @@
-class Hamming
-  def compute(sequence1,sequence2)
+def compute(sequence1,sequence2)
     if sequence1.length != sequence2.length
       puts "ValueError, cannot calculate hamming distance for sequences of different length!"
     else
@@ -11,4 +10,3 @@ class Hamming
         @distance
     end
   end
-end

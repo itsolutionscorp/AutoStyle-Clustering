@@ -1,5 +1,4 @@
-class Hamming
-  def compute( acid1, acid2 )
+def compute( acid1, acid2 )
     count = [ acid1.length, acid2.length ].min
     distance = 0
     
@@ -11,4 +10,3 @@ class Hamming
     
     distance
   end
-end

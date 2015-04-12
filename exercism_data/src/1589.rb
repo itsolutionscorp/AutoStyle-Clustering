@@ -1,10 +1,11 @@
-class Hamming
-  def compute(a, b)
-    len = a.length <= b.length ? a.length : b.length
-    count = 0
-    (0...(len)).each do |i|
-      count += 1 unless a[i] == b[i]
+def compute(first,second)
+
+    # wanted to use inject but it doesn't handle (0..0) the way I expected
+    result = 0
+    (0..first.length-1).each do |index|
+      if  first[index] != second[index] 
+        result += 1
+      end
     end
-    count
+    return result
   end
-end

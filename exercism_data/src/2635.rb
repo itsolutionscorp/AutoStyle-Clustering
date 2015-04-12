@@ -1,6 +1,3 @@
-module Hamming
-  def compute(a, b)
-    length = [a.size, b.size].min
-    length.times.count { |i| a[i] != b[i] }
-  end
-end
+def compute(s1, s2)
+		s1.chars.each_with_index.inject(0) { |distance, (char, index)| distance += (char == s2[index] ? 0 : 1) }
+	end

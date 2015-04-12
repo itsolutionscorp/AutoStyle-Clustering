@@ -1,9 +1,7 @@
-class Hamming
-
-  def compute(strand, strand2)
-  	mutual_length = [strand.length, strand2.length].min
-    pairs = strand.chars.zip(strand2.chars).take(mutual_length)
-    pairs.count {|x,y| x != y }
+def compute(*strands)
+    to_a = ->(string) { string.each_char.to_a }
+    mutations = ->(args) { args.all? && !args.uniq.one? }
+    b, a = strands.map(&to_a).sort
+    a.zip(b).select(&mutations).count
   end
-
 end

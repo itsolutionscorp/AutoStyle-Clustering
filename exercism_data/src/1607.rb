@@ -1,12 +1,16 @@
-# encoding: UTF-8
-# Clase Hamming
-class Hamming
-  def compute(str1, str2)
-    return 0 if str1.length != str2.length
-    count = 0
-    for i in 0..str1.length
-      count += 1 if str1[i] != str2[i]
+def compute(a, b)
+    if a > b
+      short = b.split('')
+      long = a.split('')
+    else
+      short = a.split('')
+      long = b.split('')
     end
+
+    count = 0
+    short.each_with_index do |e, index|
+      count += 1 unless e == long[index]
+    end
+
     count
   end
-end

@@ -1,8 +1,16 @@
-class Hamming
-  def compute(first_strand, second_strand)
-    first_strand.split('').each_with_index.inject(0) do |count, (char, index)|
-      count += 1 if char != second_strand[index]
-      count
+def compute(code1, code2)
+    @diff = 0
+    if code1.length == code2.length
+      for i in 0..code1.length
+        if code1[i] != code2[i]
+          @diff += 1
+        end
+      end
+      return @diff
+    elsif
+      code1.length > code2.length
+      return 1
+    else
+      return 2
     end
   end
-end

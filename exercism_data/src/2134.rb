@@ -1,14 +1,9 @@
-class Hamming
-  def compute(first_input, second_input)
-    distance = 0
-    
-    if first_input != second_input
-      first_input.chars.each_with_index do |first_input_char, index|
-        break if index == second_input.length
-        distance += 1  if first_input_char != second_input.chars[index]
-      end
+def compute(dna1, dna2)
+    diff = 0
+    min_length = [dna1.size, dna2.size].min
+    min_length.times do |i|
+      diff += 1 if dna1[i] != dna2[i]
     end
-
-    distance
+    diff
   end
 end

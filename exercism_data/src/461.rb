@@ -1,9 +1,4 @@
-class Hamming
-  def compute(a,b)
-    distance = 0
-    [a.length, b.length].min.times do |i|
-      distance += 1 unless a[i] == b[i]
-    end
-    distance
+def compute (seq1, seq2)
+    min_seq = [seq1.size, seq2.size].min
+    min_seq.times.count { |i| seq1[i] != seq2[i] }
   end
-end

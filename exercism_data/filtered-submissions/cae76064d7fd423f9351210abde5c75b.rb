@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand_A, strand_B)
+def compute(strand_A, strand_B)
     length = [strand_A.length, strand_B.length].min
 
     # convert each strand to an array of characters of equal length
@@ -9,4 +8,3 @@ class Hamming
     # compare chars in each strand and count the differences
     a_chars.zip(b_chars).count { |(a, b)| a != b }
   end
-end

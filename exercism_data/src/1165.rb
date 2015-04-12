@@ -1,16 +1,10 @@
-class Hamming
-  
-  def compute(str1,str2)
-    
-    # Determine length of strands to analyze.
-    shortest_strand_length = str1.length <= str2.length ? str1.length : str2.length
-    hamming_distance = 0
-    
-    # Iterate over selected portion of each strand counting discrepancies.
-    (0...shortest_strand_length).each do |i|
-      hamming_distance += 1 unless str1[i] == str2[i]
+def compute(s1, s2)
+    distance = 0
+    unless s1 == s2
+      (0...[s1.length, s2.length].min).each do |i| 
+        distance += 1 if s1[i] != s2[i] 
+      end
     end
-    
-    hamming_distance
+
+    distance
   end
-end

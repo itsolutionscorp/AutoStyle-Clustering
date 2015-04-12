@@ -1,16 +1,10 @@
-#! /usr/bin/env ruby
-require 'rubygems'
+def compute(d1, d2)
+    hd = 0
+    (0 .. [d1.length, d2.length].max).each { |idx|
+      next if d1[idx].nil? or d2[idx].nil?
 
-class Hamming
-  
-  def compute(strand1,strand2)
-    nucleotides1 = strand1.chars
-    nucleotides2 = strand2.chars
-    hams = 0
-    (0...nucleotides1.count).each do |i|
-      hams += 1 if nucleotides1[i] != nucleotides2[i]
-    end
-    hams
+      hd += 1 if d1[idx] != d2[idx]
+    }
+
+    hd
   end
-
-end

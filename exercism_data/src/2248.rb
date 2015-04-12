@@ -1,31 +1,13 @@
-class Hamming
-  def compute(a,b)
-    if a =='A' && b=='A'
-      return 0
-    end
-    if a =='A' && b=='G'
-      return 1
-    end
-    if a =='AG' && b=='CT'
-      return 2
-    end
-    if a =='AT' && b=='CT'
-      return 1
-    end
-    if a =='GGACG' && b=='GGTCG'
-      return 1
-    end
-    if a =='AGA' && b=='AGG'
-      return 1
-    end
-    if a =='AGG' && b=='AGA'
-      return 1
-    end
-    if a =='GATACA' && b=='GCATAA'
-      return 4
-    end
-    if a =='GGACGGATTCTG' && b=='AGGACGGATTCT'
-      return 9
-    end
+def compute(*args)
+  	total = 0
+    x, y = args
+    x = x.scan /\w/
+    y = y.scan /\w/
+    x.length >= y.length ? x.pop(x.length - y.length) : y.pop(y.length - x.length)
+    new_array = x.zip(y).map { |a, b| a == b }
+      new_array.map {
+    	|x| if x == false; total += 1
+    	end
+	  }
+	return total
   end
-end

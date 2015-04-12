@@ -1,24 +1,15 @@
-class Hamming
-  def compute(string1, string2)
-    join_strands = [string1, string2]
-    shorter = join_strands.min do |string1, string2|
-      string1.length <=> string2.length
-    end
-
-    usable_length = shorter.size
-
-    format_string1 = string1.chars.take(usable_length)
-    format_string2 = string2.chars.take(usable_length)
-
-    return 0 if format_string1 == format_string2
-    combo = format_string1.zip(format_string2)
-
-    no_duplicate = combo.map do |portion|
-      portion.uniq
-    end
-
-    no_duplicate.count do |word|
-      word.length == 2
-    end
-  end
-end
+def compute(strand_a, strand_b)	
+	
+	# Given two DNA sequences, calculate the number of 
+	# different pairs. If the sequences are of equal length, line them up by the 
+	# leftmost character and ignore blanks. 
+	
+		hamming_distance = 0
+		length_of_shortest_strand = [strand_a.length, strand_b.length].min
+		(0...length_of_shortest_strand).each do |character_index|
+		  if strand_a[character_index] != strand_b[character_index] then
+			hamming_distance +=1
+		  end
+		end
+		hamming_distance
+	end# of self.compute

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     if strand1.length == strand2.length
       array_strand1 = strand1.chars
       array_strand2 = strand2.chars
@@ -10,5 +8,3 @@ class Hamming
       'Non matching length'
     end
   end
-
-end

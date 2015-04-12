@@ -1,19 +1,14 @@
-class Hamming
+def compute(strand1, strand2)
+    i = 0
+    difference_count = 0
+    strand1, strand2 = strand1.split(//), strand2.split(//)
 
-def compute(firstrand, secondstrand)
- 	if firstrand.length > secondstrand.length
- 		strandlength = secondstrand.length
- 	else secondSL > firstSL
- 		strandlength = firstrand.length
- 	end
- 	hdistance = 0
- 	i = 0
-	while i < strandlength
- 		if firstrand[i] != secondstrand[i]
- 			hdistance += 1
- 		end
- 		i += 1
- 	end
- 	return @hdistance
- end
- end
+    strand1.each do |point|
+      if point != strand2[i]
+        difference_count += 1
+      end
+      i += 1
+    end
+
+    return difference_count
+  end

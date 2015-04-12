@@ -1,9 +1,11 @@
-class Hamming
-  def compute(refdna, newdna)
-    hammingscore = 0
-    a = refdna.scan(/./)
-    b = newdna.scan(/./)
-    a.each_with_index { |amino, index| hammingscore += 1 if b.length > index && amino != b[index] }
-    return hammingscore
+def compute(strand1, strand2)
+    count = 0
+    strand1 = strand1.split("")
+    strand2 = strand2.split("")
+    strand1.each_with_index do |char, index|
+      if strand1[index] != strand2[index]
+        count += 1
+      end
+    end
+    count
   end
-end

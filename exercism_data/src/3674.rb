@@ -1,17 +1,20 @@
-#!/usr/bin/env ruby
+def compute(strand_1, strand_2)
+    strands_merged = strand_1.split(//).zip(strand_2.split(//)).flatten
 
-class Hamming
-	def compute(string1, string2)
-		str1arr = string1.split ""
-		str2arr = string2.split ""
-		retval = 0
+    if strands_merged[-1] == nil
+      strands_merged.pop(2)
+    end
 
-		str1arr.each_index {|i|
-			if (str1arr[i] != str2arr[i])
-				retval += 1
-			end
-		}
+    dna_pairs = []
+    while strands_merged.size > 0
+      dna_pairs << strands_merged.slice!(0, 2)
+    end
 
-		return retval
-	end
-end
+    counter = 0
+    dna_pairs.select do |nucleotide|
+      if nucleotide[0] != nucleotide[1]
+        counter += 1
+      end
+    end
+    p counter
+  end

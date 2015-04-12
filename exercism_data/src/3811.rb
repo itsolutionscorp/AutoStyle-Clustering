@@ -1,19 +1,17 @@
-class Hamming
-	def compute(firstStrand, secondStrand)
-		hammingDistance = 0
-		lengthMinStrand = 0
-		counter = 0
-		if firstStrand.length < secondStrand.length
-			lengthMinStrand = firstStrand.length
-		else
-			lengthMinStrand = secondStrand.length
-		end
-		while counter < lengthMinStrand
-			if firstStrand[counter] != secondStrand[counter]
-				hammingDistance += 1
-			end
-			counter += 1
-		end
-		return hammingDistance
-	end
-end
+def compute(x,y)
+    results = 0
+    while x != ""
+      if x[0] == y[0]
+        results += 0
+        x.slice!(0)
+        y.slice!(0)
+      else
+        x[0] != y[0]
+        results += 1
+        x.slice!(0)
+        y.slice!(0)
+      end
+
+    end
+    results
+  end

@@ -1,19 +1,14 @@
-class Hamming
+def compute(one, two)
+    hamming = 0
 
-  def compute(strand1, strand2)
-    count = 0
+    # Find the shorter of the strings
+    smallest = [one, two].min_by { |str| str.length }
 
-    if strand1.length > strand2.length
-      strand = strand2
-    elsif strand1.length <= strand2.length
-      strand = strand1
+    # Iterate through the length of the shorter string and test whether both
+    # characters match at index i
+    smallest.split('').each_index do |i|
+      hamming += 1 if one[i] != two[i]
     end
 
-    strand.length.times do |i|
-      if strand1[i] != strand2[i]
-        count += 1
-      end
-    end
-    count
+    hamming
   end
-end

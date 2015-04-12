@@ -1,15 +1,12 @@
-class Hamming
+def compute(strand_one, strand_two)
+        min_length = [strand_one.length, strand_two.length].min
+        hamming_distance = 0
 
-	def compute( baseGenome, mutateGenome)
-	  @counter = 0
+        for idx in 0...min_length do
+            if strand_one[idx] != strand_two[idx] then
+                hamming_distance += 1
+            end
+        end
 
-	  for index in (0...baseGenome.length)
-	  	 if baseGenome.slice(index) != mutateGenome.slice(index); @counter = @counter + 1 ; end
-
-	  end
-
-	  return @counter
-
-	end
-
-end
+        return hamming_distance
+    end

@@ -1,8 +1,9 @@
-class Hamming
-  def compute(strand1, strand2)
-    comparison_array = strand1.chars.zip(strand2.chars)
-    comparison_array.reduce(0) do |distance, comparison_pair|
-      comparison_pair.first != comparison_pair.last ? distance += 1 : distance
-    end
+def compute(d1, d2)
+    (0 .. [d1.length, d2.length].max).select { |idx|
+      if (d1[idx].nil? or d2[idx].nil?)
+        false
+      else
+        d1[idx] != d2[idx]
+      end
+    }.count
   end
-end

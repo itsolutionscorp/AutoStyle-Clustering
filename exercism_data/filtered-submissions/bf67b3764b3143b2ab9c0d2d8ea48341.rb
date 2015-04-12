@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strain_a, strain_b)
+def compute(strain_a, strain_b)
     result = 0
     if strain_a.size == strain_b.size or strain_a.size < strain_b.size
       (0..strain_a.size - 1).each do |i|
@@ -17,4 +15,3 @@ class Hamming
     end
     result
   end
-end

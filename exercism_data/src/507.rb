@@ -1,15 +1,7 @@
-class Hamming
-  def compute(s, t)
-    result = 0
-
-    len = [s.length, t.length].min - 1
-
-    for i in 0..len
-      if(s[i] != t[i])
-        result += 1
-      end
+def compute(strand1, strand2)
+    hamming_distance = 0
+    [strand1, strand2].map(&:length).sort.first.times do |i|
+      hamming_distance += 1 if strand1[i] != strand2[i]
     end
-
-    result
+    hamming_distance
   end
-end

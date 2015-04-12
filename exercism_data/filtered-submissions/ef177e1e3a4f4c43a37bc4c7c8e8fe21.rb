@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand, compare_to_strand)
+def compute(strand, compare_to_strand)
     units_of_strand = strand.chars.take(compare_to_strand.length)
     units_of_compare_to_strand = compare_to_strand.chars
 
@@ -9,4 +8,3 @@ class Hamming
       left != right
     end
   end
-end

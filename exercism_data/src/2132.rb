@@ -1,10 +1,9 @@
-class Hamming
-  def compute(dna1, dna2)
-    length = dna1.length
-    dna1 = dna1.split(//)
-    dna2 = dna2.split(//)
-    arr = dna1.zip dna2
-    arr.map {|a| a[0].eql?(a[1]) }.count{|c| c == false }
-    
+def compute(s1, s2)
+    hd = 0
+    for i in 0 .. [s1.length, s2.length].min
+      if s1[i] && s2[i]
+        hd = hd + 1 unless (s1[i] == s2[i])
+      end
+    end
+    hd
   end
-end

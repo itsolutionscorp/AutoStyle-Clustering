@@ -1,13 +1,5 @@
-class Hamming
-
-  def compute(strand_a, strand_b)
-    difference = 0
-    strand_a.split('').each_with_index do |char, i|
-      if strand_a[i] != strand_b[i]
-        difference += 1
-      end
-    end
-    return difference
+def compute(a,b)
+    diff = 0
+    a.chars.zip(b.chars) { |a,b| diff += 1 if a != b && !a.nil? && !b.nil? }
+    diff
   end
-
-end

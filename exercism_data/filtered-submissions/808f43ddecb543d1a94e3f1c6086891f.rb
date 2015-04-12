@@ -1,5 +1,4 @@
-class Hamming
-	def compute(string1, string2)
+def compute(string1, string2)
 		strand_length = 0
 		if string1.length <= string2.length
 			strand_length = string1.length
@@ -14,4 +13,3 @@ class Hamming
 		end
 		return hamming_count
 	end
-end	

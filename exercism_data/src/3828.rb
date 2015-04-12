@@ -1,41 +1,11 @@
-class Hamming  
-     def compute (first, second)     
-       # Split strings into arrays of characters to be able to iterate through each character
-       first = first.scan /\w/
-       second = second.scan /\w/
-
-       # First try at solving       
-#       if first.length > second.length
-#         first = first.take(second.length)
-#       else
-#         second = second.take(first.length)
-#       end
-       
-#       result = first - second
-#       result.length
-
-#        first.each { |x| 
-#          puts x 
-#          puts second.at(x)
-#        }
-
-        # Second try
-        # 
-        difference = 0
-        
-        # Loop through first array/string and check against second array/string for a match character
-        first.each_with_index {|val, index|           
-          if val != second[index]
-            # Make sure the element exists in the second array
-            if !second[index].nil?
-              difference = difference + 1
-            end
-          end          
-        }
-        
-        difference
-       
-     end
-end
-
-#Hamming.compute('AGG', 'AAAACTGACCCACCCCAGG')
+def compute(s, t)
+    # set starting score and break t into character array
+    score = 0
+    t_array = t.chars.to_a # also t.split('') or t.scan('.'), similarly for s
+    # iterate through character array of s
+    s.each_char.with_index do |c, i|
+      # compare to equivalent position in s; if one is longer than the other, ignore extra characters
+      score += 1 if t_array[i] && c != t_array[i]
+    end
+    score
+  end

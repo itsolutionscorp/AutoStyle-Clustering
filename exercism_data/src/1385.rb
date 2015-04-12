@@ -1,7 +1,17 @@
-class Hamming
-  def compute strand_1, strand_2
-    [strand_1.length,strand_2.length].min.times.count do |n|
-      strand_1[n] != strand_2[n]
+def compute(x,y)
+    # if x == y
+    #   0
+    # end
+    if x.length < y.length
+      length = x.length
+    else
+      length = y.length
     end
+    count = 0
+    (0..length-1).each do |i|
+      if x[i] != y[i]
+        puts count += 1
+      end
+    end
+    count
   end
-end

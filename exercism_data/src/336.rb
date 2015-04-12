@@ -1,12 +1,13 @@
-class Hamming
-
-  def compute strand_1, strand_2
+def compute(source, mutation)
     distance = 0
-    strand_length = strand_1.length
-    strand_length.times do |i|
-      distance += strand_1[i] == strand_2[i] ? 0 : 1
+    min_length = [source.length, mutation.length].min - 1
+
+    (0..min_length).each do |index|
+      source_acid = source[index]
+      mutation_acid = mutation[index]
+      distance = distance + 1 unless source_acid == mutation_acid
     end
+    
     distance
   end
-
 end

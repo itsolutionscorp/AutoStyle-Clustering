@@ -1,5 +1,7 @@
-class Hamming
-  def compute(dna1, dna2)
-    dna1.chars.zip(dna2.chars).select{ | base1, base2 | base1 != base2 }.count
+def compute dna_strand_a, dna_strand_b
+    merged_dna = dna_strand_b.split('').zip dna_strand_b.split('')
+    merged_dna.reduce(0) do |differences, joint|
+      differences += 1 if joint.uniq == 2
+      differences
+    end
   end
-end

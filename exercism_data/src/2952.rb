@@ -1,9 +1,10 @@
-class Hamming
-  def compute(strand_a, strand_b)
-    short, long = [strand_a, strand_b]
-                  .map { |s| s.split('') }
-                  .sort{ |a , b| a.size <=> b.size }
-    short.zip(long)
-         .count { |m, n| m != n }
+def compute(a,b,difference = 0)
+    if a != b
+      a.chars.each_index do |i|
+       if a.chars[i] != b.chars[i]
+        difference += 1
+       end
+      end
+    end
+    difference
   end
-end

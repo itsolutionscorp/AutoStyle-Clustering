@@ -1,6 +1,7 @@
-module Hamming
-  extend self
-  def compute(reference_strand, new_strand)
-    reference_strand.chars.zip(new_strand.chars).count {|(s1, s2)| s1 != s2 && s2}
+def compute(first, second)
+    pairs = first.chars.zip(second.chars)
+
+    pairs.select do |pair|
+      pair.first != pair.last
+    end.length
   end
-end

@@ -1,7 +1,4 @@
-class Hamming
-  class << self
-    
-    def compute(s1,s2)
+def compute(s1,s2)
       if s1.length == s2.length
         hamming_count=0
         0.upto(s1.length - 1) do |n|
@@ -12,5 +9,3 @@ class Hamming
         return "N/A"
       end
     end
-  end
-end

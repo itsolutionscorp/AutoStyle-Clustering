@@ -1,16 +1,10 @@
-class Hamming
-  def compute(gene_a, gene_b)
-    hamming_distance = 0
-
-    array_a = gene_a.split("")
-    array_b = gene_b.split("")
-    
-    array_a.zip(array_b).each do |a, b|
-      puts a,b
-      if a != b
-        hamming_distance = hamming_distance + 1
-      end
-    end
-    hamming_distance
-  end
-end
+def compute(strand1,strand2)
+		ham_count = 0	
+		min_length_str = 	strand1.length > strand2.length ? strand2 : strand1
+		(0...min_length_str.length).each do |i|
+			if strand1[i]!= strand2[i]
+				ham_count += 1 			
+			end
+		end	 		
+		ham_count	
+	end

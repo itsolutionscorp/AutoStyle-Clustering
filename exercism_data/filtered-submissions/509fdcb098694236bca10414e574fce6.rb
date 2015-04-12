@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strandOne, strandTwo)
+def compute(strandOne, strandTwo)
     count = 0 # stores count of errors
     strandTwoIndex = 0 # Indexes strand two to get the char value
     
@@ -12,4 +11,3 @@ class Hamming
 
     return count
   end
-end

@@ -1,16 +1,11 @@
-class Hamming
-  def compute(first,second)
+def compute(strand_one, strand_two)
+		hamming_distance_count = 0
 
-    return 0 if first == second
+		shortest_string_length = [strand_one.length, strand_two.length].min
 
-    first.length > second.length ? limit = second.length : limit = first.length
+		shortest_string_length.times do |strand_position|
+			hamming_distance_count += 1 unless strand_one[strand_position] == strand_two[strand_position]
+		end
 
-    d = 0
-    i = 0
-    while d < limit do
-      i+=1 if first[d] != second[d]
-      d+=1
-    end
-    return i
-  end
-end
+		hamming_distance_count
+	end

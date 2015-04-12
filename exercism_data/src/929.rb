@@ -1,8 +1,8 @@
-module Hamming
-  def compute(first, second)
-    first  = first.chars
-    second = second.chars
-    size = [first.size, second.size].min
-    first.take(size).zip(second.take(size)).count { |(one, two)| one != two }
+def compute (a, b)
+    a = a.chars
+    b = b.chars
+    a = a.slice(0, b.count)
+    distance = 0
+    a.zip(b).each { |x, y| distance += 1 if x != y }
+    return distance
   end
-end

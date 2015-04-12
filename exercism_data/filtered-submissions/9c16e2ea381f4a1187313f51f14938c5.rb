@@ -1,6 +1,4 @@
-class Hamming
-
-    def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
 
         return 0 if strand_a.eql? strand_b
 
@@ -16,5 +14,3 @@ class Hamming
         return count
 
     end
-
-end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(string1,string2)
+def compute(string1,string2)
 		#make sure they are uppercase
 		string1.upcase!
 		string2.upcase!
@@ -19,4 +18,3 @@ class Hamming
 		end
 		total
 	end
-end

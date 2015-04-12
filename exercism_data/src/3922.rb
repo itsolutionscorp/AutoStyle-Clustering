@@ -1,10 +1,5 @@
-class Hamming
-  def compute(first_sequence, second_sequence)
-    distance = 0
-    first_sequence.split('').each_with_index do |l, i|
-      break if second_sequence[i].nil?
-      distance += 1 if second_sequence[i] != l
-    end
-    distance
+def compute(seq1, seq2)
+    (0..seq1.length).inject(0) do |count, index| 
+	seq1[index] != seq2[index] ? count + 1 : count
+    end    
   end
-end

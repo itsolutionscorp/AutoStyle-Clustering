@@ -1,5 +1,4 @@
-module Hamming
-  def compute(first, second)
+def compute(first, second)
     first.chars
       .zip(second.chars)
       .reject { |pair| pair.any?(&:nil?) }

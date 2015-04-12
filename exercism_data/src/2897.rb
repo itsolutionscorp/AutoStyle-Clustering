@@ -1,18 +1,7 @@
-class Hamming
-    def compute(strand1, strand2)
+def compute(a, b)
+    lists_as_pairs = a.chars.zip(b.chars)
 
-        ham_dif = 0
+    actual_pairs = lists_as_pairs.reject {|pair| pair.include?(nil)}
 
-        shorterString = (strand1.length > strand2.length) ? strand2 : strand1
-
-        shorterString.length.times { |i|
-            unless strand1[i] == strand2[i]
-                ham_dif+=1
-            end
-        }
-        
-        ham_dif
-    end
-end
-
-puts Hamming.compute("ABCAAA","ABBA")
+    distance = actual_pairs.count {|pair| pair.first != pair.last }
+  end

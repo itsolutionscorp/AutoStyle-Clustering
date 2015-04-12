@@ -1,20 +1,13 @@
-class Hamming
-  # Iteration 1
-  def compute(strand_1, strand_2)
-    deviation_count = 0
-    if strand_1.length <= strand_2.length
-      strand_1.length.times do |i|
-        if strand_1.split('')[i] != strand_2.split('')[i]
-          deviation_count += 1
+def compute(strand_one, strand_two)
+        hamming_difference = 0
+        i = 0
+        
+        while (strand_one[i] != nil && strand_two[i] != nil)
+            if (strand_one[i] != strand_two[i])
+                hamming_difference += 1
+            end
+            i += 1
         end
-      end
-    else
-      strand_2.length.times do |i|
-        if strand_1.split('')[i] != strand_2.split('')[i]
-          deviation_count += 1
-        end
-      end
+        
+        return hamming_difference
     end
-    return deviation_count
-  end
-end

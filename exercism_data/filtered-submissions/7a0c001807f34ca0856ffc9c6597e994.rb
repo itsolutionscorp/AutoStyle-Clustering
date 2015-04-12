@@ -1,5 +1,4 @@
-class Hamming
-	def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
 		distance = 0;
 		first_strand, second_strand = [first_strand.chars, second_strand.chars].sort_by { |x| x.length }
 		first_strand.each_with_index do |ch, i|
@@ -7,4 +6,3 @@ class Hamming
 		end
 		distance
 	end
-end

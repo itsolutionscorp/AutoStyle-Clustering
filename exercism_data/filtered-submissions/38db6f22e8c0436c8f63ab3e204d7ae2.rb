@@ -1,5 +1,4 @@
-class Hamming
-  def compute(left, right)
+def compute(left, right)
     count = 0
 
     left.split("").zip(right.split("")).each do |l_char, r_char|
@@ -10,4 +9,3 @@ class Hamming
 
     count
   end
-end

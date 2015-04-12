@@ -1,8 +1,4 @@
-# Class to compute the Hamming distance between two DNA sequences
-class Hamming
-
-  # The compute method takes two strings as input, and returns an integer value
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
 
     # Initialize the distance variable
     distance = 0
@@ -19,4 +15,3 @@ class Hamming
     # Return the number of differences found between the two strings
     return distance
   end
-end

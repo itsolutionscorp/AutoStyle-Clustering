@@ -1,7 +1,8 @@
-class Hamming
-  def compute(a, b)
-    a, b = a.chars, b.chars
-    a.slice!(0..b.length) if a.length > b.length
-    a.keep_if.with_index { |ch, index| b[index] != ch }.length
+def compute(string1, string2)
+    sum = 0
+    string1.length < string2.length ? shorter = string1 : shorter = string2
+    (0...shorter.length).each do |count|
+      sum += 1 if string1[count].eql?(string2[count]) == false
+    end
+    sum
   end
-end

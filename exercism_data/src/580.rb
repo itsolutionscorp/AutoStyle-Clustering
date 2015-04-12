@@ -1,11 +1,7 @@
-class Hamming
-
-	def compute(a, b)
-		difference = 0
-		minlength = [a.length, b.length].min
-		(0..minlength - 1).each do |i|
-			difference += 1 unless a[i] == b[i]
-		end
-		difference
-	end
-end
+def compute(a, b)
+        # Count each pair of characters that are not equal
+        # except if one is nil (happens when a is longer than b)
+        a.each_char.zip(b.each_char).count { |pair|
+            pair[1] != nil and pair[0] != pair[1]
+        }
+    end

@@ -1,5 +1,4 @@
-class Hamming
-	def compute(adn_1, adn_2)
+def compute(adn_1, adn_2)
 
 	calculo = 0
 
@@ -13,4 +12,3 @@ class Hamming
 	return calculo
 
 	end
-end

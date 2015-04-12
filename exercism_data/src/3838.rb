@@ -1,9 +1,9 @@
-class Hamming
-  def compute(dna_1, dna_2)
-    mismatches = 0
-    dna_1.size.times do |i|
-      mismatches += 1 if dna_1[i] != dna_2[i]
-    end 
-    mismatches
-  end
+def compute(string1, string2)
+	diff = 0
+	string1.chars.zip(string2.chars).count do | x, y |
+	if x != y 
+	diff += 1
+	end
+	end
+	return diff
 end

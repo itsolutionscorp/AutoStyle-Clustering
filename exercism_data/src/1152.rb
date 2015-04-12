@@ -1,8 +1,3 @@
-class Hamming
-  def compute(strand_1, strand_2)
-    strand_1.chars.zip(strand_2.chars).inject(0) do |sum, pair|
-      sum += 1 if pair[0] != pair[1]
-      sum
-    end
+def compute(strand_1, strand_2)
+    strand_1.length.times.count { |i| strand_1[i] != strand_2[i] }
   end
-end

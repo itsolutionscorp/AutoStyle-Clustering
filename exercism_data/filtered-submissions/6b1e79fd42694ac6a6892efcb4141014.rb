@@ -1,6 +1,4 @@
-class Hamming
-	class << self
-		def compute(dna_one, dna_two)
+def compute(dna_one, dna_two)
 			count = 0
 			dna_two_arr = dna_two.split('')
 		    dna_one.split('').each_with_index do |c, index|
@@ -8,5 +6,3 @@ class Hamming
 			end
 			count
 		end
-	end
-end

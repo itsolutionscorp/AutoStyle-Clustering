@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     differences = 0
     a,b = b,a if b.length > a.length
     a.split("").each_with_index do |char, i|
@@ -10,4 +9,3 @@ class Hamming
     end
     differences
   end
-end

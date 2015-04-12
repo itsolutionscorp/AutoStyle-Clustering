@@ -1,5 +1,4 @@
-class Hamming
-  def compute(s, t)
+def compute(s, t)
     if s.length > t.length
       self.compute(t, s)
     else
@@ -12,4 +11,3 @@ class Hamming
       end
     end
   end
-end

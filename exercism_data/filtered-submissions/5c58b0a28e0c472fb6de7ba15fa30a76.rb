@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(a, b)
+def compute(a, b)
 		hamming_distance_array = Array.new
 
 		a.split(//).zip(b.split(//)).each do |x|
@@ -13,5 +11,3 @@ class Hamming
 		
 		hamming_distance_array.length
 	end
-
-end

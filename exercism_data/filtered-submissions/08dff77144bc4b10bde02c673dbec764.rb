@@ -1,5 +1,4 @@
-class Hamming
-	def compute(sequence1,sequence2)
+def compute(sequence1,sequence2)
 		@@hamming = 0
 		array1.each_with_index do |letter,i|
 			if i < array1.length && i < array2.length
@@ -10,4 +9,3 @@ class Hamming
 		end
 		return @@hamming
 	end
-end

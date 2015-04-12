@@ -1,5 +1,4 @@
-class Hamming
-	def compute(a, b)
+def compute(a, b)
 		
 		arrayb = b.split('')
 		arraya = a.split('')
@@ -14,4 +13,3 @@ class Hamming
 		total
 
   end
-end

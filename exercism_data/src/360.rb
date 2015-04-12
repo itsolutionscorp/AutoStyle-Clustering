@@ -1,17 +1,3 @@
-class Hamming
-    def compute(strand1, strand2)
-        length = 0
-        differences = 0
-
-        l1 = strand1.length
-        l2 = strand2.length
-            
-        if l1 <= l2 then length = l1 else length = l2 end
-
-        (0..(length-1)).each do |i|
-            differences += 1 if strand1[i] != strand2[i]
-        end
-
-        return differences
-    end
-end
+def compute(s1, s2)
+		s1.chars.zip(s2.chars).count { |c1, c2| c1 && c2 && c1 != c2 }
+	end

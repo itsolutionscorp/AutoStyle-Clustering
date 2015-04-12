@@ -1,7 +1,11 @@
-module Hamming
-  def compute(a, b)
-    if a.length == b.length
-      (0...a.length).count { |i| a[i] != b[i] }
-    end
-  end
-end
+def compute(first, second)
+		differences = 0
+		length = [first.length, second.length].min - 1
+		(0..length).each do |index|
+			if first[index] != second[index]
+				differences += 1
+			end
+		end
+
+		return differences
+	end

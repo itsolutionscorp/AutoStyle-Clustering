@@ -1,14 +1,5 @@
-class Hamming
-
-  def compute(a, b)
-    i = 0
-    counter = 0
-    a.each_char do |n|
-      break if b[i] == nil
-      counter += 1 if n != b[i]
-      i += 1
+def compute(str1, str2)
+    str1.chars.zip(str2.chars).count do |v| 
+      v[0] != v[1] && v[1]
     end
-    counter
-  end  
-
-end
+  end

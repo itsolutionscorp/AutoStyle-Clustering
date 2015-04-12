@@ -1,9 +1,10 @@
-class Hamming
-  def compute(strand1, strand2)
-    zips = strand1.chars.zip strand2.chars
+def compute(dna1, dna2)
+      s1 = dna1.split(//)
+      s2 = dna2.split(//)
 
-    zips.select! { |item| item[0] != item[1] }
-
-    zips.length
-  end
-end
+      acc = 0
+      s1.each_with_index do |v,i|
+        acc += 1 if v != s2[i]
+      end
+      return acc
+    end

@@ -1,5 +1,5 @@
-class Hamming
-    def compute(strand1, strand2)
-        strand1.chars.zip(strand2.chars).count { | v, i | v != i && i != nil}
+def compute(p1, p2)
+    p1.each_char.with_index do |c, i|
+      c =+ 1 if c != p2.slice(i)
     end
-end
+  end

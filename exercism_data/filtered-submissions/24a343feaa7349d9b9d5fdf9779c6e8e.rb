@@ -1,5 +1,4 @@
-module Hamming
-    def compute(first, second)
+def compute(first, second)
         count = 0
         first.chars.each_with_index { |char, index|
             # ignore extra characters if our string

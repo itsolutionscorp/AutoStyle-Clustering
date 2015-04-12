@@ -1,10 +1,6 @@
-class Hamming
-  def compute(str1, str2)
-    count = str1.length - 1
-    score = 0
-    0.upto(count) do |num|
-      score += 1 unless str1[num] == str2[num]
-    end
-    score
+def compute(*strands)
+    to_pairs = ->(a,b) { a.chars.zip(b.chars) }
+    mutations = ->(nucleotides) { !nucleotides.uniq.one? }
+    strands.reduce(&to_pairs).count(&mutations)
   end
 end

@@ -1,15 +1,11 @@
-# Calculate the Hamming difference between two DNA strands
-class Hamming
+def compute(strand_1_s, strand_2_s)
+    strand_1_s ||= ''
+    strand_2_s ||= ''
 
-  def compute(strand_a, strand_b)
-    # Compare the strands only up to the 
-    # length of the shortest strand
-    diff = 0
-    strand_a.chars.each_with_index do |c, index|
-      # Break out if strand_b is shorter than strand_a
-      break if strand_b[index].nil?
-      diff += 1 unless c == strand_b[index]
-    end
-    diff
+    short_strand, long_strand = (strand_1_s.length <= strand_2_s.length) ?
+      [strand_1_s, strand_2_s] :
+      [strand_2_s, strand_1_s]
+    paired_strands = short_strand.chars.to_a.zip(long_strand.chars.to_a)
+
+    paired_strands.count{|a, b| a!= b }
   end
-end

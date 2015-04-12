@@ -1,9 +1,15 @@
-class Hamming
-  def Hamming.compute (s1, s2)
-    if s1.size > s2.size
-      Hamming.compute(s2, s1)
-    else
-      s1.chars.zip(s2.chars).reduce(0){|a, c| a + (c[0] == c[1] ? 0 : 1)}
+def compute (strand1, strand2)
+    @hamming_distance = 0
+    index = 0
+
+    while strand1[index] && strand2[index]
+      if strand1[index] != strand2[index]
+        @hamming_distance += 1
+      end
+      index += 1
     end
+
+    return @hamming_distance
+
   end
 end

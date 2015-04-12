@@ -1,16 +1,10 @@
-class Hamming
-
-  def compute strand1, strand2
-
-    chars1 = strand1.chars
-    chars2 = strand2.chars
-
-    paired_array = chars1.zip(chars2)
-
-    paired_array.count do |first, second|
-      first && first != second
-    end
-
-  end
-
-end
+def compute(strand1,strand2)
+	  ham_count = 0	
+	  min_length_str = 	strand1.length > strand2.length ? strand2 : strand1
+	 		for i in 0...min_length_str.length do
+				if strand1[i]!= strand2[i]
+				 ham_count += 1 			
+	 			end
+	 		end	 		
+	 		ham_count	
+	end

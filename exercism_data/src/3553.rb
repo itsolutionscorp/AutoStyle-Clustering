@@ -1,6 +1,11 @@
-class Hamming
-  def compute(str1, str2)
-    side_by_side_letters = str1.chars.zip(str2.chars)
-    side_by_side_letters.count { |letter| letter[0] == letter[1] }
+def compute(dna1, dna2)
+    mutations = 0
+
+    dna1.chars.each_with_index do |x, index|
+      unless x.nil? || dna2[index].nil?
+        mutations += 1 if x != dna2[index]
+      end
+    end
+
+    mutations
   end
-end

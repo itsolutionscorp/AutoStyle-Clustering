@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string_one, string_two)
+def compute(string_one, string_two)
     if string_one == string_two
       0
     elsif string_one == 'AG' && string_two == 'CT'
@@ -12,4 +11,3 @@ class Hamming
       1
     end
   end
-end

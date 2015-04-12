@@ -1,8 +1,3 @@
-class Hamming
-  def compute(first, second)
-    first  = first.chars
-    second = second.chars
-    size = [first.size, second.size].min
-    first.take(size).zip(second.take(size)).count { |(one, two)| one != two }
-  end
-end
+def compute(a,b)
+        a.chars.zip(b.chars).count { |x| x[0] != x[1] }
+    end

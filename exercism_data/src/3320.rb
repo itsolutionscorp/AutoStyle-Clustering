@@ -1,7 +1,16 @@
-class Hamming
+def compute(x, y)
+    total = 0
+    len = [ x.length, y.length ].min
 
-  def compute(first, second)
-    first.size.times.count { |i| arr1[i] == arr2[i] }
-  end
-
-end
+    (0...len).each do |i|
+    
+      total += if x[i] == y[i]
+        0
+      else
+        1
+      end
+    
+    end
+    
+    total
+	end

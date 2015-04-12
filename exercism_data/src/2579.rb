@@ -1,12 +1,10 @@
-class Hamming
-	def compute(a, b)
-		n = [a.length, b.length].min
-		diff = 0
-		for i in 0...n
-			if (a[i] != b[i])
-				diff += 1
-			end
-		end
-		return diff
-	end
-end
+def compute one, two
+    # one.size - (one.match(two) ? one.match(two).size :  0)
+    # one.zip(two).each do |pair|
+    #   pair[0] == pair[1]
+    # end
+    [ one.length, two.length ].min - one.split(//).zip(two.split(//)).inject(0) do |sum, pair|
+      pair[0] == pair[1] ? sum +=1 : sum
+    # end - (one.count)
+    end
+  end

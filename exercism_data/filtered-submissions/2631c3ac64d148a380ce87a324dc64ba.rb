@@ -1,8 +1,4 @@
-# coding: utf-8
-
-class Hamming
-
-  def compute(s1, s2)
+def compute(s1, s2)
     distance = 0
     s1.each_char.with_index do |item, idx|
       break unless idx < s2.length
@@ -10,5 +6,3 @@ class Hamming
     end
     distance
   end
-
-end

@@ -1,15 +1,3 @@
-class Hamming
-
-  def compute(s1,s2)
-    distance = 0
-    for i in 0..s1.length-1
-      if i<s2.length
-        if s1[i]!=s2[i]
-          distance += 1
-        end
-      end
-    end
-    return distance
+def compute arg1, arg2
+    arg2.chars.keep_if.with_index{|x,i| x != arg1[i]}.length
   end
-
-end

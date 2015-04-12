@@ -1,5 +1,4 @@
-class Hamming 
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
     count=0
     first=first_strand.split ""
     second=second_strand.split ""
@@ -10,4 +9,3 @@ class Hamming
     }
     count
   end
-end

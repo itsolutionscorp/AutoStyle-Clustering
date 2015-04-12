@@ -1,12 +1,6 @@
-class Hamming
-  def compute(sequence1, sequence2)
-    # Validating lengths of sequences
-    lenvalid = [sequence1.length, sequence2.length].min
-    # for each mutation in the sequences, add 1 to compute Hamming Distance
-    mutations = 0
-    (0..lenvalid-1).each do |i|
-     mutations += 1 unless sequence1[i] == sequence2[i]
+def compute strand1, strand2
+    strand1.split(//).each_with_index.inject(0) do |sum, (letter, index)|
+      sum + (letter == strand2[index] || !strand2[index] ? 0 : 1)
     end
-    mutations
   end
-end 
+end

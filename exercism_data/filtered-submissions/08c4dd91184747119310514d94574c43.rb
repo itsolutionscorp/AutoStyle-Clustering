@@ -1,7 +1,4 @@
-#hamming distance
-
-class Hamming
-  def compute sequence1, sequence2
+def compute sequence1, sequence2
     length = sequence1.length < sequence2.length ? sequence1.length : sequence2.length
     ham = 0
     for i in 0..length-1
@@ -9,4 +6,3 @@ class Hamming
     end                                     
     ham
   end
-end

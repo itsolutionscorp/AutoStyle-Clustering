@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first,second)
+def compute(first,second)
     firstArr = first.split ""
     secondArr = second.split ""
     firstArr.zip(secondArr).reduce 0 do |sum,row| 
@@ -7,4 +6,3 @@ class Hamming
       sum + (equal_char ? 0 : 1)
     end        
   end
-end

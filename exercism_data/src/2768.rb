@@ -1,15 +1,8 @@
-class Hamming
-  def compute(a, b)
-    hamming_distance = 0
-    
-  	if a != b
-  	  a.each_char.with_index(0) do |c, i|
-  	    if c != b[i]
-  	      hamming_distance += 1
-  	    end
-  	  end
-  	end
-  	
-  	hamming_distance
+def compute(first_strand, second_strand)
+    distance = 0
+    smaller_strand_length = [first_strand.length, second_strand.length].min
+    first_strand.chars.take(smaller_strand_length).each_with_index do |first_strand_char, index|
+      distance += 1 if (first_strand_char != second_strand.chars[index])
+    end
+    distance
   end
-end

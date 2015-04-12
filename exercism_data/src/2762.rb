@@ -1,17 +1,11 @@
-class Hamming
-  def compute(standA, standB)
-    sampleA = standA.chars
-    sampleB = standB.chars
-    count = 0
-    if sampleA.length == sampleB.length
-      sampleA.each_with_index do |letter, index|
-        if letter != sampleB[index] && sampleB[index] != nil
-          count += 1
-        end
+def compute(dna1, dna2)
+    dif = 0
+
+    dna1.chars.each_with_index do |v,i|
+      if dna2.chars.at(i) != nil
+        dif += 1 if !(v.eql?(dna2.chars.at(i)))
+      end
     end
-    count
-    else 
-      puts 'stings are not of equal length'
-    end
+
+    dif 
   end
-end

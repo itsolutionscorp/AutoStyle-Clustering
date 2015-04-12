@@ -1,14 +1,10 @@
-class Hamming
-  def compute strand_1, strand_2
-    strand_1
-      .split(//)
-      .zip(strand_2.split(//))
-      .reduce(0) { |hamming, pair|
-        if pair.last && pair.last != pair.first
-          hamming + 1
-        else
-          hamming
-        end
-      }
+def compute(strand_1 ,strand_2)
+    length = [strand_1.length, strand_2.length].min
+    diff_count = 0
+    
+    0.upto(length - 1) do |i|
+      diff_count += 1 if strand_1[i] != strand_2[i]
+    end
+    
+    diff_count
   end
-end

@@ -1,7 +1,4 @@
-# initializing file
-
-class Hamming
-  def compute(arg1, arg2)
+def compute(arg1, arg2)
     # TODO: compute method
     i = 0
     hamming_distance = 0
@@ -13,5 +10,3 @@ class Hamming
     end
     hamming_distance
   end
-
-end

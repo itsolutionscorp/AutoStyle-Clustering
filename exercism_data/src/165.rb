@@ -1,12 +1,7 @@
-require 'pry'
-
-class Hamming
-  def compute(a, b)
-    hamming_length = 0
-    a.length.times do |i|
-      hamming_length += 1 unless a[i] == b[i]
+def compute(one,two)
+    dist = 0
+    0.upto(one.length).each do |i|
+      dist += 1 if one[i] != two[i]
     end
-
-    hamming_length
+    dist
   end
-end

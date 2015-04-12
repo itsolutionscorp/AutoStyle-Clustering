@@ -1,13 +1,7 @@
-#!/usr/local/bin/ruby
-class Hamming
-    def compute(pStr, sStr)
-
-		if ( pStr.length === sStr.length ) then
-		    for i in 0..(sStr.length-1) do
-				resp = 1 + resp.to_i if ( pStr[i] != sStr[i])
-		    end
-		    
-		end
-		resp.to_i
+def compute(x, y)
+    if x == y
+      0
+    else
+      1
     end
-end
+  end

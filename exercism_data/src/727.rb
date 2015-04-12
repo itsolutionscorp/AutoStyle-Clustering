@@ -1,8 +1,5 @@
-class Hamming
+def compute(a, b)
+    pairs = [a.chars.to_a,b.chars.to_a].sort_by(&:length).reduce(&:zip) # larger zipped into smaller means we always have the right number of pairs.
 
-  def compute(original, mutation)
-    original.chars.zip(mutation.chars).count do |parent, child|
-      parent != child && !parent.nil? && !child.nil?
-    end
+    pairs.count {|pair_a,pair_b| pair_a != pair_b }
   end
-end

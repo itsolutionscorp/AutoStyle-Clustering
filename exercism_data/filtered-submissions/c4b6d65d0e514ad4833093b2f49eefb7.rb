@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     sum = 0
     strand1_enum = strand1.chars.each
     strand2_enum = strand2.chars.each
@@ -12,4 +10,3 @@ class Hamming
 
     sum
   end
-end

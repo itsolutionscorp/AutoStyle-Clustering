@@ -1,5 +1,4 @@
-module Hamming
-  def compute(dna1, dna2)
+def compute(dna1, dna2)
     diff = 0
     min_length = (dna1.size > dna2.size) ? dna2.size : dna1.size
     min_length.times do |i|

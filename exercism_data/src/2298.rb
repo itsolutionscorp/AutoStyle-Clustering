@@ -1,6 +1,8 @@
-class Hamming
-  def compute(strand_uno, strand_dos)
-    strand_uno.each_char.each_with_index.count { |yup, abc|
-      nope= strand_dos[abc] ; nope && yup != nope }
+def compute(str1, str2)
+    min_len = str1.length < str2.length ? str1.length : str2.length
+    hamming_diff = 0
+    (0..min_len-1).each do |i|
+      hamming_diff += 1 if str1[i] != str2[i]
+    end
+    hamming_diff
   end
-end

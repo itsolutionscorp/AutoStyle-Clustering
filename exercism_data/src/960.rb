@@ -1,13 +1,9 @@
-class Hamming
-  
-  def compute(a,b)
-    return 0 if a == b
-    count = 0
-    a,b = b,a if a.size > b.size 
-    (0... a.size).each do |ind|
-      count += 1 if a[ind] != b[ind] 
+def compute(strand_a, strand_b)
+    distance = 0
+    length_a, length_b = strand_a.size, strand_b.size
+    nucleotides_to_check = [length_a, length_b].min
+    0.upto(nucleotides_to_check - 1) do |i|
+      distance += 1 if strand_a[i] != strand_b[i]
     end
-    return count
+    distance
   end
-
-end

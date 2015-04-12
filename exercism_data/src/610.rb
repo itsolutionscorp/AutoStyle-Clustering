@@ -1,10 +1,9 @@
-class Hamming
-  def compute(s1, s2)
-    s1_ary = s1.each_char.to_a
-    s2_ary = s2.each_char.to_a
-
-    ary = [s1_ary, s2_ary].sort_by { |s| s.count }
-
-    ary[0].zip(ary[1]).count { |e| e.first != e.last }
+def compute(strand_a, strand_b)
+    unless strand_a.length == strand_b.length
+      raise ArgumentError.new 'Strands must be of equal length'
+    end
+    (0...strand_a.length).collect do |i|
+      strand_a[i] != strand_b[i] ? 1 : 0
+    end.inject(:+)
   end
 end

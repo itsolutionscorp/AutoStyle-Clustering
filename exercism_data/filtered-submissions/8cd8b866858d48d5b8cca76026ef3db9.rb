@@ -1,5 +1,4 @@
-class Hamming
-  def compute(string1, string2)
+def compute(string1, string2)
     if string2.size < string1.size
       string1, string2 = string2, string1
     end
@@ -8,4 +7,3 @@ class Hamming
       string1[i] != string2[i]
     end
   end
-end

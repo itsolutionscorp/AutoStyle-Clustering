@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a,b)
+def compute(a,b)
     i = 0
     a = a <=> b ? a.chars.take(b.length) : a.chars
     b = b.chars
@@ -11,4 +10,3 @@ class Hamming
     end
     return i
   end
-end

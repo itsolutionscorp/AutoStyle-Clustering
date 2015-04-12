@@ -1,5 +1,4 @@
-class Hamming
-	def compute(s, t)
+def compute(s, t)
 		# Gateway to easy town
 		return 0 if s === t
 
@@ -22,4 +21,3 @@ class Hamming
 
 		differences
 	end
-end

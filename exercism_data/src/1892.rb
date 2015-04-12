@@ -1,6 +1,4 @@
-# class to compute Hamming difference in 2 DNA strands
-class Hamming
-  def compute(strand_one, strand_two)
-    strand_one.chars.zip(strand_two.chars).count { |nuc_a, nuc_b| nuc_a != nuc_b }
+def compute first, second
+    shorter = [first, second].min_by(&:length)
+    (0...shorter.length).select { |i| first[i] != second[i]  }.count
   end
-end

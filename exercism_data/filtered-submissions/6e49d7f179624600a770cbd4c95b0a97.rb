@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first_strand, second_strand)
+def compute(first_strand, second_strand)
     # Ensure the DNA strand lengths are the same for
     # comparison to occur
     if first_strand.length  != second_strand.length
@@ -21,5 +19,3 @@ class Hamming
     end
     return distance
   end
-
-end

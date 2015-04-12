@@ -1,16 +1,3 @@
-class Hamming 
-  def compute(x,y) 
-    failures = 0 
-    success = 0 
-    array_1 = x.split(//) 
-    array_2 = y.split(//)
-      (0..(array_1.size - 1)).each do |item| 
-        if (array_1[item] == array_2[item]) then 
-          success += 1 
-        else 
-          failures += 1
-        end 
-      end 
-      return failures
-    end 
-end
+def compute(dna_strand1, dna_strand2)
+		dna_strand1.chars.zip(dna_strand2.chars).count { |n1, n2| n1 && n2 && n1 != n2 }
+  end

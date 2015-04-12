@@ -1,11 +1,3 @@
-class Hamming
-	def compute(first, second)
-		result = 0
-		first.chars.zip(second.chars).each do |f, s|
-			if (f != nil && s != nil && f != s)
-				result += 1
-			end
-		end
-		return result
-	end
-end
+def compute(a, b)
+    (0...(a.length)).to_a.reject{|i| a[i] == b[i]}.size
+  end

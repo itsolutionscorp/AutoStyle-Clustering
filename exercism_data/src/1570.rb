@@ -1,11 +1,5 @@
-class Hamming
-  def compute(a,b)
-  	finalcount=0;
-  	count=[a.length,b.length].min.times do |i| 
-  		if(a[i] != b[i])
-				finalcount+=1;
-  		end   		
-		end
-  	return finalcount;
+def compute(strand1, strand2)
+    (0...[strand1.length, strand2.length].min).count do |i|
+      strand1[i] != strand2[i]
+    end
   end
-end

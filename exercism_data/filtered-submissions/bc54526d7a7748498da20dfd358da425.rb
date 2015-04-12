@@ -1,8 +1,4 @@
-# Ruby class for calculating the Hamming difference between two DNA strands.
-class Hamming
-    
-    # computes Hamming difference between two strings of DNA nucloetides
-    def compute(seq1=nil, seq2=nil)
+def compute(seq1=nil, seq2=nil)
 	# seq1 and seq2 must be strings consisting of one or more nucleotides (characters A, C, G and T)
 	# returns Hamming difference between strings (int)
 	# returns -1 if errors are detected with the arguments
@@ -27,7 +23,3 @@ class Hamming
 	    difference += 1 unless upper_seq1[x] == upper_seq2[x]
 	end
 	return difference
-    end
-end
-	
-	

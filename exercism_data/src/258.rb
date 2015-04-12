@@ -1,18 +1,11 @@
-class Hamming
-  def compute( s1, s2 )
-    s1array = s1.split("")
-    s2array = s2.split("")
-    length = s1array.length
-    count = 0
-    if s1array.length > s2array.length
-        length = s2array.length 
+def compute(strand_a,strand_b)
+    distance = 0
+    nucleotides_a = strand_a.split("")
+    nucleotides_b = strand_b.split("")
+
+    nucleotides_a.each_with_index do |h, i|
+      distance+=1 unless nucleotides_a[i] == nucleotides_b[i]
     end
-    if s1array.each_with_index { |item, index| 
-        if index < length && s2array[index] != item
-          count += 1
-        end
-      }
-    end
-    count
+
+    distance
   end
-end

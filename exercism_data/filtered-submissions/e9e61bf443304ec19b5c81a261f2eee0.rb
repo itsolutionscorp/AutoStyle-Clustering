@@ -1,5 +1,4 @@
-class Hamming
-  def compute( seq1, seq2 )
+def compute( seq1, seq2 )
     count = [ seq1.length, seq2.length ].min
     distance = 0
     
@@ -11,4 +10,3 @@ class Hamming
     
     distance
   end
-end

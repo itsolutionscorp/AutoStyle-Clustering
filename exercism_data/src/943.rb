@@ -1,5 +1,8 @@
-class Hamming
-  def compute(str1, str2)
-    (0...str1.length).count { |i| str1[i] != str2[i] }
-  end
-end
+def compute(first, second)
+      first_chars = first.split('')
+      second_chars = second.split('')
+
+      first_chars.zip(second_chars).count do |a, b|
+        a && b && a != b
+      end
+    end

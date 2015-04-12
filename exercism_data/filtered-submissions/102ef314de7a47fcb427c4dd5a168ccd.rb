@@ -1,5 +1,4 @@
-class Hamming
-	def compute string1, string2
+def compute string1, string2
 		count = 0
 		index = 0
 		while index != string1.length do
@@ -10,4 +9,3 @@ class Hamming
 		end
 		count
 	end
-end

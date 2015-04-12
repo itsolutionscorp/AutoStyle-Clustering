@@ -1,11 +1,5 @@
-class Hamming
-  def compute(a, b)
-    hamming = 0
-
-    for i in 0...a.length
-      hamming +=1 if a[i] != b[i]
-    end
-
-    return hamming
+def compute(first, second)
+    first, second = [first.chars, second.chars].sort_by(&:size)
+    first.zip(second).count { |(one, two)| one != two }
   end
 end

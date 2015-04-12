@@ -1,6 +1,5 @@
-class Hamming
-  def compute(a, b)
-    min = [a.length, b.length].min
-    (0...min).count { |i| a[i] != b[i] }
+def compute(first_sequence, second_sequence)
+    unless first_sequence.length != second_sequence.length
+      (first_sequence.chars.select.with_index{ |base, index| base != second_sequence.chars[index] }).length
+    end
   end
-end

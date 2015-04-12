@@ -1,11 +1,8 @@
-class Hamming
-  def compute(string_a, string_b)
-    stra = string_a.split("")
-    strb = string_b.split("")
-    diff = 0
-    stra.each_with_index do |letter, index|
-      diff += 1 if strb[index] != letter
+def compute(dna1, dna2)
+    min_len = [dna1.length, dna2.length].min
+    difference = 0
+    (0..(min_len - 1)).each do |i|
+      difference += 1 if dna1[i] != dna2[i]
     end
-    diff
+    difference
   end
-end

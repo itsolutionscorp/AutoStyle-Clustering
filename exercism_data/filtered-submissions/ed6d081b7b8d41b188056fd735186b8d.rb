@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute( baseGenome, mutateGenome)
+def compute( baseGenome, mutateGenome)
 	  @counter = 0
 
 	  for index in (0...baseGenome.length)
@@ -11,5 +9,3 @@ class Hamming
 	  return @counter
 
 	end
-
-end

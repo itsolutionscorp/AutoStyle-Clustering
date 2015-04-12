@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     a = strand1.chars
     b = strand2.chars
 
@@ -10,5 +9,3 @@ class Hamming
     y = a.zip(b)
     y.inject(0) { |sum, comparison_array| sum += 1 if comparison_array.first != comparison_array.last; sum }
   end
-
-end

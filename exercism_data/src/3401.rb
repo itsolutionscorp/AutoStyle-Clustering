@@ -1,22 +1,10 @@
-class Hamming
-  def compute(a,b)
-    # Which strand is the shortest?
-    short = a.length <= b.length ? a : b
-    long = short == a ? b : a
-
-    # Make both strings into arrays
-    short = short.scan(/./)
-    long = long.scan(/./)
-
-    hamming_distance = 0
-
-    short.zip(long).each do |base1, base2|
-      if base1 != base2
-        hamming_distance += 1
+def compute first, second
+    return 0 if first == second
+    count, length, fl, sl = 0, first.length, first.split(//), second.split(//)
+    (0...length).each do |i|
+      if fl[i] != sl[i]
+        count += 1
       end
     end
-
-    return hamming_distance
-
+    count
   end
-end

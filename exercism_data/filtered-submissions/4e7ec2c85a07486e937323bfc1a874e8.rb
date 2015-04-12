@@ -1,7 +1,4 @@
-module Hamming
-  extend self
-
-  def compute(*strands)
+def compute(*strands)
     to_a = ->(string) { string.each_char.to_a }
     mutations = ->(args) { args.all? && !args.uniq.one? }
     b, a = strands.map(&to_a).sort

@@ -1,14 +1,11 @@
-class Hamming
-  def compute(s1, s2)
-    if s1.size > s2.size
-      s1, s2 = s2, s1
+def compute(strand_a, strand_b)
+    difference = 0
+
+    strand_a = strand_a[0, strand_b.length] if strand_a.length > strand_b.length
+
+    strand_a.split("").zip(strand_b.split("")).each do |left, right|
+      difference +=1 unless left == right
     end
 
-    n = 0
-    s1.size.times do |i|
-      n+=1 unless s1[i] == s2[i]
-    end
-
-    return n
+    difference
   end
-end

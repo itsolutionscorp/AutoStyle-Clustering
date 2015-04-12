@@ -1,13 +1,15 @@
-class Hamming
-	def compute(a,b)
-		tol = [a.length, b.length].min() -1
-		sum = (0..tol).reduce(0) { |s,i|
-			if (a[i]!=b[i])	
-			then
-				s += 1
-			end
-			s
-		}
-		
-	end
-end
+def compute(strand_a, strand_b)
+    distance = []
+
+    length = [strand_a.length, strand_b.length].min
+
+    strand_a = strand_a[0..length-1].split("")
+    strand_b = strand_b[0..length-1].split("")
+
+    strand_b.each_with_index do |nuc, index|
+      if nuc != strand_a[index]
+        distance << nuc
+      end
+    end
+    distance.count
+  end

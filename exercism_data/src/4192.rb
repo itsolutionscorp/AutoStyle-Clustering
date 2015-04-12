@@ -1,7 +1,3 @@
-class Hamming
-  def compute(first_sequence, second_sequence)
-    first_sequence.chars.zip(second_sequence.chars).count do |first_char, second_char|
-      first_char != second_char
-    end
+def compute(a,b)
+    [a.length, b.length].min.times.count { |i| not a[i].eql? b[i]}
   end
-end

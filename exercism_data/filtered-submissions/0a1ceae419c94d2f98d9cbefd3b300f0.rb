@@ -1,5 +1,4 @@
-class Hamming
-  def compute(first_string, second_string)
+def compute(first_string, second_string)
     first_string_array = first_string.split(//)
     second_string_array = second_string.split(//)
     index = 0
@@ -12,4 +11,3 @@ class Hamming
     end
     hamming_distance.count
   end
-end

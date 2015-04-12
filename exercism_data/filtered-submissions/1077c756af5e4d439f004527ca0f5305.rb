@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_one, strand_two)
+def compute(strand_one, strand_two)
 
     point_mutations = 0
 
@@ -12,4 +10,3 @@ class Hamming
     point_mutations
 
   end
-end

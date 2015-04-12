@@ -1,1 +1,1 @@
-s(:class, :Hamming, nil, s(:defn, :compute, s(:args, :a, :b), s(:lit, 0)))
+s(:defn, :compute, s(:args, :strand_a, :strand_b), s(:lit, 0))

@@ -1,11 +1,7 @@
-class Hamming
-	def compute(first_string, second_string)
-		distance = 0
-		first_string.split("").each_with_index do |character, index|
-			if character != second_string.split("")[index]
-				distance = distance+1
-			end
-		end
-		distance
-	end
-end
+def compute(x,y)
+    differences = 0
+    x.each_char.with_index do |character, index|
+      differences += 1 if character != y[index]
+    end
+    return differences
+  end

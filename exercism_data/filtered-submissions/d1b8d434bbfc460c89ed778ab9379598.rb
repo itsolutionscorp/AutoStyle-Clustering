@@ -1,7 +1,4 @@
-#!/usr/bin/env ruby
-
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     hamming = 0
 
     # Find the shorter of the strings
@@ -15,4 +12,3 @@ class Hamming
 
     hamming
   end
-end

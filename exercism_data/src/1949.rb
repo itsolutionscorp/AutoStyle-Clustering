@@ -1,9 +1,16 @@
-class Hamming
-  def compute(strand1, strand2)
-    shortest_length = [strand1.length, strand2.length].min
-    (0...shortest_length).reduce(0) do |sum, i|
-      sum += 1 if strand1[i] != strand2[i]
-      sum
+def compute(strand_a, strand_b)
+    # we felt this corner case should be caught
+    raise "Strands are different lengths!" if strand_a.length != strand_b.length
+
+    hamming_distance = 0
+
+    strand_a.length.times do |position|
+      if strand_a[position] == strand_b[position]
+        # do nothing
+      else
+        hamming_distance = hamming_distance + 1
+      end
     end
+
+    hamming_distance
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(foo, bar)
+def compute(foo, bar)
     foo, bar = bar, foo if bar.size < foo.size
     difference = 0
 
@@ -9,4 +8,3 @@ class Hamming
 
     difference
   end
-end

@@ -1,11 +1,12 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    size = [strand1.size, strand2.size].min
-
-    size.times.count { |index|
-      strand1[index] != strand2[index] 
-    }
-  end
-
-end
+def compute(strand1, strand2)
+		count = 0
+		strand1.downcase.each_char.with_index do |char, index|
+			second_char = strand2.downcase[index]
+			unless second_char == nil
+				if char != second_char
+					count += 1 
+				end
+			end
+		end
+		count
+	end

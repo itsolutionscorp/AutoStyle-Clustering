@@ -1,14 +1,17 @@
-class Hamming
+def compute(s, t)
+        $index = 0
+        distance = 0
+        length = t.length
 
-  def compute(*strands)
-    short, long = strands.sort_by(&:length)
+        if s.length < t.length
+            length = s.length
+        end
 
-    difference = 0
-    short.split('').each_with_index do |character, index|
-      if character != long[index]
-        difference += 1
-      end
+        until $index == length do
+            if s[$index] != t[$index]
+                distance += 1
+            end
+            $index += 1;
+        end
+        return distance
     end
-    difference
-  end
-end

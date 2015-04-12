@@ -1,8 +1,4 @@
-# vim:fileencoding=utf-8
-
-
-class Hamming
-  def compute(strand0, strand1)
+def compute(strand0, strand1)
     return 0 if strand0 == strand1
 
     minlen = [strand0.length, strand1.length].min
@@ -11,4 +7,3 @@ class Hamming
 
     arr0.zip(arr1).map { |p| p.first != p.last ? 1 : 0 }.reduce(:+)
   end
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(strand1, strand2)
+def compute(strand1, strand2)
 
 		if strand1 == strand2
 		# If the strings are the same, the Hamming distance is 0.
@@ -24,4 +22,3 @@ class Hamming
 		
 		end
 	end
-end

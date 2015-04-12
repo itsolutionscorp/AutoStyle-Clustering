@@ -1,5 +1,4 @@
-class Hamming
-  def compute(a, b)
+def compute(a, b)
     distance = 0
     a.each_char.with_index do |char, index|
       break if index >= b.length
@@ -8,4 +7,3 @@ class Hamming
 
     distance
   end
-end

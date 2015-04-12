@@ -1,14 +1,6 @@
-class Hamming
-  def compute(first_sequence, second_sequence)
-    hamming_counter = 0
-    unless first_sequence.length != second_sequence.length
-        split_first_sequence = first_sequence.split('')
-        split_second_sequence = second_sequence.split('')
-        split_first_sequence.select.with_index do |first_sequence_base,index|
-          hamming_counter += 1 if first_sequence_base != split_second_sequence[index]
-        end
-         hamming_counter
-
-    end
+def compute(str1, str2)
+    gataca_count = (str1.length <= str2.length) ? str1.length : str2.length
+    hamming = 0
+    gataca_count.times { |n| hamming += 1 unless str1[n] == str2[n] }
+    hamming
   end
-end

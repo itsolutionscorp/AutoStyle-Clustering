@@ -1,14 +1,9 @@
-require 'pry'
-class Hamming
-
-  def compute(a, b)
-    first_strand  = a.split(//)
-    second_strand = b.split(//)
-    
-    comparision = first_strand.zip(second_strand)
-    comparision.count do |first_letter, second_letter|
-      first_letter != second_letter unless second_letter.nil?
+def compute(strand1,strand2)
+    count = 0
+    i = 0
+    while i < strand1.length
+      count += 1 if strand1[i] != strand2[i]
+      i += 1
     end
+    count
   end
-
-end

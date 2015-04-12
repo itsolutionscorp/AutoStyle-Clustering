@@ -1,6 +1,4 @@
-class Hamming
-
-	def compute(strA, strB)
+def compute(strA, strB)
 		count = 0
 		ldiff = 0
 		range = 0
@@ -19,5 +17,3 @@ class Hamming
 		end
 		count
 	end
-
-end

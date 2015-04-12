@@ -1,17 +1,8 @@
-class Hamming
-  def compute(s1, s2)
-    if s1 == s2
-      0
-    else
-      s1_a, s2_a = []
-      s1_a = s1.split(/(a-zA-Z)*/)
-      s2_a = s2.split(/(a-zA-Z)*/)
-      distance = 0
-      s1_a.each_with_index do |it, i|
-        distance += 1 if s2_a[i] != it
-      end
-
-      distance
+def compute(strand1, strand2)
+    return 0 if strand1 == strand2
+    dist = 0
+    strand1.split('').each_with_index do |n, i|
+      dist += (n <=> strand2.split('')[i]).abs
     end
+    dist
   end
-end

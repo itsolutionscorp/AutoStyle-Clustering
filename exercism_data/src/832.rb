@@ -1,11 +1,16 @@
-class Hamming
-  def compute(strand0, strand1)
-    distance = 0
-    min = [strand0.length, strand1.length].min
-    strand0, strand1 = strand0[0...min], strand1[0...min]
-    strand0.split(//).each_with_index do |c, i|
-      distance += 1 unless c == strand1[i]
-    end
-    distance
-  end
-end
+def compute(a,b)
+		if a.length < b.length
+			smaller = a 
+			bigger  = b
+		else
+			smaller = b
+			bigger  = a
+		end
+		count = 0
+		smaller.split("").each_with_index do |s, i|
+			if s != bigger.split("")[i]
+				count += 1
+			end
+		end
+		return count
+	end

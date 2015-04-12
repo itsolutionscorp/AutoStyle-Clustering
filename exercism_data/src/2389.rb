@@ -1,14 +1,5 @@
-require 'byebug'
-class Hamming
-  def compute(mydna, yourdna)
-    combinedsequence = mydna.chars.zip(yourdna.chars)
-    differencecount = 0
-    combinedsequence.each{|x,y|
-      if (x != y) && !(x.nil?) && !(y.nil?)
-        differencecount = differencecount + 1
-      end
-    }
-
-    differencecount
+def compute(first_strand, second_strand)
+    differences = 0
+    first_strand.chars.zip(second_strand.chars) { |x, y| differences += 1 if x != y }
+    differences
   end
-end

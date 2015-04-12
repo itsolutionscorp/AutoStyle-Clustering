@@ -1,6 +1,4 @@
-class Hamming
-  class<< self
-    def compute(first, second)
+def compute(first, second)
       if first.length <= second.length
         small_strand, large_strand = first, second
       else
@@ -12,5 +10,3 @@ class Hamming
       end
       #count
     end
-  end
-end

@@ -1,5 +1,10 @@
-class Hamming
-  def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).count { |x, y| x != y }
+def compute(s, t)
+    score = 0
+    t_array = t.chars.to_a # also t.split('') or t.scan('.'), similarly for s
+    s.each_char.with_index do |c, i|
+      score += 1 if t_array[i] && c != t_array[i]
+    end
+    score
   end
-end
+
+  puts self.compute('AG','CT')

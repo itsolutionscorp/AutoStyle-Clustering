@@ -1,14 +1,9 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(original, mutated)
+        hamming_distance = 0
+        strand_length = [original.length, mutated.length].min
+        (0...strand_length).each do |nucleotide|
+            hamming_distance += 1 if original[nucleotide] != mutated[nucleotide]
+        end
 
-    difference = 0
-
-    strand1.split("").each_with_index do |nucleotide, index|
-      if strand2[index] && nucleotide != strand2[index]
-        difference += 1
-      end
+        hamming_distance
     end
-
-    return difference
-  end
-end

@@ -1,6 +1,4 @@
-module Hamming
-
-  def compute(lstrand, rstrand)
+def compute(lstrand, rstrand)
     rstrand.chars.
       zip(lstrand.chars).
       reject{|(a,b)| not a or not b }.

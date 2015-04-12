@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first_sequence,second_sequence)
+def compute(first_sequence,second_sequence)
     hamming_distance = 0
     index = 0
     strand_length = first_sequence.length
@@ -14,5 +12,3 @@ class Hamming
 
     hamming_distance
   end
-
-end

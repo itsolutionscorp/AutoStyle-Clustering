@@ -1,23 +1,9 @@
-class Hamming
-	def compute(input1, input2)
-		@count = 0
-		@max = 0
-		@start = 0
-		if input1.length <= input2.length
-			@max = input1.length
-		else
-			@max = input2.length
-		end
-
-		dna1 = input1.split('')
-		dna2 = input2.split('')
-
-		while @start < @max 
-			if dna1[@start] != dna2[@start]
-				@count += 1
-			end
-			@start+=1
-		end
-		@count
-	end
-end
+def compute(string1, string2)
+    result = 0
+    char_index = 0
+    string1.each_char do |character|
+      result += 1 if character != string2[char_index]
+      char_index += 1      
+    end
+    result
+  end

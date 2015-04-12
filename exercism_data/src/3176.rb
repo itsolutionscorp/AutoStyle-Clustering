@@ -1,10 +1,9 @@
-class Hamming
-	def compute(a, b)
-		a, b = b, a if a.size > b.size
-		distance = 0
-		a.chars.each_with_index do |e, i|
-			distance += 1 if e != b.chars.to_a[i]
-		end
-		distance
-	end
-end
+def compute(s_one, s_two)
+    a = s_one.chars
+    b = s_two.chars
+    c = a.length
+	
+    c.times.count do |val|
+      a[val] != b[val]
+    end
+  end

@@ -1,10 +1,6 @@
-class Hamming
-  def compute(a,b)
-    hamming = 0
-    a.split(//).zip(b.split(//)).each do |strand|
-      return hamming if strand.any? {|strand| strand.nil?}
-      strand.first == strand.last ? hamming : hamming += 1
-    end
-    hamming
+def compute(a, b)
+    ## Iterate for the length of the shorter strand
+    differences = (0...[a.length, b.length].min).collect { |i| "Difference!" unless a[i] == b[i] }
+    differences.count("Difference!")
   end
 end

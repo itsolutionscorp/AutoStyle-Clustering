@@ -1,29 +1,22 @@
-class Hamming
-  class << self	
-    def compute(x,y)
-      xarray = x.split(//)
-      yarray = y.split(//)
-      distance = 0
-      ham = 0
+def compute(strand_1, strand_2)
 
-      if xarray.size > yarray.size
-	      large_array = xarray
-	      small_array = yarray
-      else
-	      large_array = yarray
-	      small_array = xarray
-      end
-      
-      small_array.each do |a|  
-        if a == large_array[distance] 
-             distance +=1
-        else
-             ham += 1
-	     distance += 1
-        end
-      end
+    dissimilarity_count = 0
 
-      ham
+    if strand_1.length > strand_2.length
+      smallest_string_length = strand_2.length
+    elsif strand_1.length < strand_2.length
+      smallest_string_length = strand_1.length
+    else
+      smallest_string_length = strand_1.length
     end
+
+    smallest_string_length.times do |i|
+    	binding.pry
+      if strand_1[i] != strand_2[i]
+        dissimilarity_count += 1 
+      end
+    end
+
+    dissimilarity_count
+
   end
-end

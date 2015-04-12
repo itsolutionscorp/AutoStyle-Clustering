@@ -1,11 +1,6 @@
-class Hamming
-	def compute(seq_1, seq_2)
-		min_length = [seq_1.size, seq_2.size].min
+def compute strand1, strand2
 
-		corresponding_chars = seq_1[0,min_length].chars.zip(seq_2.chars)
-		
-		corresponding_chars.count do |pair| 
-			pair[0] != pair[1]
-		end
-	end
-end
+    compare_length = [strand1.length, strand2.length].min
+
+    (0...compare_length).count{|i| strand1[i] != strand2[i]}
+  end

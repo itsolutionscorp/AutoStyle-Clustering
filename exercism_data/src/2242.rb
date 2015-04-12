@@ -1,9 +1,9 @@
-class Hamming
-  def compute(strand1, strand2)
-    count = 0
-    loop do
-      count += 1 if strand1.next != strand2.next || break
-    end
-    return count
+def compute(arg1, arg2)
+   hammer = 0
+   arg2.chars.each_with_index do |c, i|
+     if arg1[i] != c
+       hammer += 1
+     end
+   end
+   hammer
   end
-end

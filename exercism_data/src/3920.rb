@@ -1,12 +1,7 @@
-class Hamming
-  def compute(arg1, arg2)
-  	diff_letter_count = 0
-  	a = arg1.split("")
-  	b = arg2.split("")
-  	zipped = a.zip(b)
-  	zipped.each do |arr|
-      arr[0] == arr[1] ? diff_letter_count += 0 : diff_letter_count += 1
-  	end
-  	diff_letter_count
-  end
-end
+def compute(strand1, strand2)
+		hamming_distance = 0
+		strand1.length.times do |i|
+			hamming_distance += 1 if strand1[i] != strand2[i]
+		end
+		hamming_distance
+	end

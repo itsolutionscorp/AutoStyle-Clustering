@@ -1,6 +1,4 @@
-require 'pry'
-class Hamming
-  def compute(strand_a, strand_b)
+def compute(strand_a, strand_b)
     length_a, length_b = strand_a.size, strand_b.size
     nucleotides_to_check = case length_a <=> length_b
     when 1
@@ -15,4 +13,3 @@ class Hamming
     end
     distance
   end
-end

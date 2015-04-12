@@ -1,8 +1,9 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    strand1 = strand1.chars
-    strand2 = strand2.chars
-    strand1.zip(strand2).count { |a, b| a && b && a != b }
-  end
-end
+def compute(a, b)
+      hamming_diff = 0
+      a, b = a.split(""), b.split("")
+      a.length.times do |i|
+        break if a[i].nil? || b[i].nil?
+        hamming_diff += 1 unless a[i] == b[i]
+      end
+      hamming_diff
+    end

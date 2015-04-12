@@ -1,10 +1,10 @@
-class Hamming
-  def compute(strandA, strandB)
-    differences = 0
-    strandA.chars.to_a.each_with_index do |base, index|
-      next if base == strandB[index]
-      differences += 1
-    end
-    differences
+def compute(strand1, strand2)
+      distance = 0
+
+      (0..strand1.length).each do |index|
+        distance += 1 unless strand1[index] == strand2[index]
+      end
+
+      return distance
+
   end
-end

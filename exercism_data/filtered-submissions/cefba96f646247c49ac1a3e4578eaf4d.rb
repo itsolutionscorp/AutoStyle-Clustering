@@ -1,5 +1,4 @@
-class Hamming
-  def compute(sequence1, sequence2)
+def compute(sequence1, sequence2)
     #We compare until the last strand of the shortest sequence.
     if sequence1.length < sequence2.length
       last_index = sequence1.length - 1
@@ -16,4 +15,3 @@ class Hamming
     end
     hamming_distance
   end
-end

@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(strand_a, strand_B)
+def compute(strand_a, strand_B)
     # not necessary, since comparison does return zero, too
     # return 0 if strand_a.eql? strand_B
 
@@ -15,4 +13,3 @@ class Hamming
     end
     differences
   end
-end

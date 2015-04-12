@@ -1,7 +1,8 @@
-class Hamming
-  def compute(a, b)
-    total = 0
-    [a.size, b.size].min.times { |i| total += 1 if a[i] != b[i] }
-    total
+def compute(a_strand, another_strand)
+    cut = [a_strand.length, another_strand.length].min
+    result = 0
+    cut.times do | index |
+      result += 1 if a_strand[index] != another_strand[index]
+    end
+    result
   end
-end

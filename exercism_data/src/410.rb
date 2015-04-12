@@ -1,5 +1,5 @@
-class Hamming
-  def compute(str_a, str_b)
-    (0...[str_a, str_b].map(&:size).min).count { |i| str_a[i] != str_b[i] }
+def compute(strand1,strand2)
+    comparison = []
+    comparison << strand1.split(//) << strand2.split(//)
+    comparison.transpose.count{|pair| pair.uniq.length != 1}
   end
-end

@@ -1,5 +1,4 @@
-class Hamming
-  def compute(strand1, strand2)
+def compute(strand1, strand2)
     arr1 = strand1.chars.to_a
     arr2 = strand2.chars.to_a
     i = 0
@@ -10,4 +9,3 @@ class Hamming
     end
     return i
   end
-end

@@ -1,16 +1,15 @@
-class Hamming
-	def compute(a,b)
+def compute(strand_a, strand_b)
+    difference = 0
 
-		test_length = a.length < b.length ? a.length : b.length
+    if strand_a.length > strand_b.length
+      strand_a = strand_a[0, strand_b.length]
+    end
 
-		distance = 0
-		i = 0
+    strand_a.split("").zip(strand_b.split("")).compact.each do |l, r|
+      unless l == r
+        difference += 1
+      end
+    end
 
-		while i < test_length
-			distance += 1 if a[i] != b[i]
-			i += 1
-		end
-		
-		distance
-	end
-end
+    difference
+  end

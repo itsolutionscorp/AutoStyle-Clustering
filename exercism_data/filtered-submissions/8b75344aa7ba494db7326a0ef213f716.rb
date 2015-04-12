@@ -1,5 +1,4 @@
-class Hamming
-  def compute(original, mutation)
+def compute(original, mutation)
     i = 0
     distance = 0
     while i < original.length
@@ -9,4 +8,3 @@ class Hamming
 
     distance
   end
-end

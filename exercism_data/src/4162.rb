@@ -1,7 +1,4 @@
-class Hamming
-  def compute(a, b)
-    a = a.split("")
-    b = b.split("")
-    a.zip(b).count{|pair| pair.compact.uniq.size > 1 }
+def compute (a, b)
+    a.chars.zip(b.chars).count { |x, y| y && x != y }
   end
 end

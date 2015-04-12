@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(first, second)
+def compute(first, second)
     min_length = [first.length, second.length].min
     first = first.slice(0...min_length)
     second = second.slice(0...min_length)
@@ -9,5 +7,3 @@ class Hamming
 
     first_split.zip(second_split).count { |pair| pair[0] != pair[1] }
   end
-
-end

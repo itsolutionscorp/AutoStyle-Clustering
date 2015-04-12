@@ -1,5 +1,4 @@
- class Hamming
-   def compute(reference, examinee)
+def compute(reference, examinee)
      if reference.length > examinee.length
        run_length = examinee.length
      else
@@ -19,4 +18,3 @@
      hamming_distance
    
    end
- end

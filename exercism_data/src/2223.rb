@@ -1,11 +1,5 @@
-class Hamming
-  def compute(strand1,strand2)
-    count = 0
-    i = 0
-    while i < strand1.length
-      count += 1 if strand1[i] != strand2[i]
-      i += 1
+def compute(strand_a,strand_b)
+    strand_a.chars.zip(strand_b.chars).count do |eigen0, eigen1| 
+      eigen0 != eigen1
     end
-    count
   end
-end

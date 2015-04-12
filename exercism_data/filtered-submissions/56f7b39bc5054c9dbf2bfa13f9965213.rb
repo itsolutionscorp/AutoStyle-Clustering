@@ -1,5 +1,4 @@
-class Hamming
-	def compute(strandOne, strandTwo) #Finds the hamming distance
+def compute(strandOne, strandTwo) #Finds the hamming distance
 	
 		##
 		# First make the strands equal length
@@ -22,4 +21,3 @@ class Hamming
 		end
 		return distance
 	end
-end

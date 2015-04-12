@@ -1,19 +1,12 @@
-class Hamming
-
-  def compute(inputA, inputB)
-    differenceCount = 0
-    inputAArray = inputA.split('')
-    inputBArray = inputB.split('')
-    smallerArraySize = inputAArray.size - 1
-    if inputBArray.size < inputAArray.size
-      smallerArraySize = inputBArray.size - 1
-    end
-    for e in 0..smallerArraySize
-      if inputAArray[e] != inputBArray[e]
-        differenceCount += 1
-      end
-    end
-    differenceCount
-  end
-
-end
+def compute (adn1, adn2)
+		distance = 0
+		if adn1.length != adn2.length
+	    	return 0
+	    end
+	    for i in 0..adn1.length
+      		if adn1[i] != adn2[i]
+        		sum +=1
+   			end
+    	end
+    	return distance
+	end

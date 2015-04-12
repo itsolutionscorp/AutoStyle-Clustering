@@ -1,13 +1,8 @@
-class Hamming
-
-  def compute(strand_1, strand_2)
-  	raise ArgumentError if strand_1.length != strand_2.length
-
-  	distance = 0
-    strand_1.split("").each_with_index do |letter, index|
-      distance += 1 if letter != strand_2[index]
+def compute(a, b)
+    minlen = [a.length, b.length].min
+    diff = 0
+    (0..minlen-1).each do |i|
+      diff += 1 unless a[i] == b[i]
     end
-    distance 
+    diff
   end
-
-end

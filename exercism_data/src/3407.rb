@@ -1,9 +1,9 @@
-class Hamming
-  def compute(a, b)
-    differences = 0
-    a.chars.each_with_index do |char, index|
-      differences += 1 unless char == b[index] || b[index].nil?
+def compute(strand1,strand2)
+    result = 0
+    strand1.split('').each_with_index do |v,i|
+      if v != strand2[i]
+        result += 1
+      end
     end
-    differences
+    return result
   end
-end

@@ -1,15 +1,8 @@
-class Hamming
-
-  def compute(strand1, strand2)
-    sum = 0
-    strand1_enum = strand1.chars.each
-    strand2_enum = strand2.chars.each
-
-    loop do
-      # StopIteration raised when enumerator ends.
-      sum += 1 unless strand2_enum.next == strand1_enum.next
-    end
-
-    sum
+def compute(dnaone, dnatwo)  
+  	difference = 0 
+    endofchain = [dnaone.length,dnatwo.length].min
+  	for i in 0...endofchain
+   		difference+=1 if dnaone[i] != dnatwo[i]
+   	end
+    return difference
   end
-end

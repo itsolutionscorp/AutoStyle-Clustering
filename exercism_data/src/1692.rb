@@ -1,13 +1,8 @@
-class Hamming
-  def compute(arg, arg2) 
-    strand1 = arg.split(//)
-    strand2 = arg2.split(//)
-    distance = 0
-    strand1.length.times do |i| 
-      if strand1[i] != strand2[i]
-        distance += 1
-      end
+def compute(a_string, b_string)
+    a_bytes = a_string.bytes
+    b_bytes = b_string.bytes
+    
+    a_bytes.zip(b_bytes).count do |a,b|
+      a != b unless a.nil? or b.nil?
     end
-    distance
   end
-end

@@ -1,7 +1,6 @@
-class Hamming
-  def compute(string_a, string_b)
-    distance = 0
-    string_a.each_char.with_index { |char, i| distance += 1 if char != string_b[i] }
-    distance
-  end
-end
+def compute(a, b)
+        raise "Equal length strings only" if a.length != b.length
+        ham = 0
+        a.length.times {|i| ham += 1 if a[i] != b[i] }
+        ham
+    end

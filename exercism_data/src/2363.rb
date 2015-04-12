@@ -1,10 +1,6 @@
-class Hamming
-  def compute(one , two)
-    counter = 0
-    one.split('').each_with_index do |char,index|
-      return counter if index >= two.length
-      counter += 1 unless one[index] == two[index]
-    end
-    counter
+def compute(strand, mutated_strand)
+    count = 0
+    strand.length.times { |index| count += 1 unless strand[index] == mutated_strand[index] }
+
+    count
   end
-end

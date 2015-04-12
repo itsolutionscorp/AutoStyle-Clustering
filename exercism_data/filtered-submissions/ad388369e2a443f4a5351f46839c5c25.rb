@@ -1,6 +1,4 @@
-class Hamming
-
-  def compute(source, destination)
+def compute(source, destination)
     distance = 0
     source = source.split('')
     destination = destination.split('')
@@ -13,5 +11,3 @@ class Hamming
     
     distance
   end
-
-end

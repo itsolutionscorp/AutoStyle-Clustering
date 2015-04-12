@@ -1,10 +1,9 @@
-class Hamming
-
-  def compute(string1, string2)
-    raise "Strings must be same size" if string1.length != string2.length
-    string1.chars.each_with_index.count do |char, index|
-      char != string2[index]
+def compute(strand1, strand2)
+    count = 0
+    loop do
+      if strand1.next != strand2.next
+        count += 1
+      end
     end
+    return count
   end
-
-end

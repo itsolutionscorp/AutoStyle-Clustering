@@ -1,13 +1,5 @@
-class Hamming
-
-	def compute(string_one, string_two)
-		count = 0
-		for i in 0..([string_one.length, string_two.length].min-1)
-			if string_one[i] != string_two[i] 
-				count += 1
-			end
-		end
-		return count
-	end
-	
-end
+def compute(strand1, strand2)
+    strand1.chars.zip(strand2.chars).count do |(nucleotide1, nucleotide2)| 
+      (nucleotide1 != nucleotide2) && nucleotide2
+    end
+  end

@@ -1,14 +1,3 @@
-module Hamming
-  def compute(this, that)
-    char_pairs = this.chars.zip( that.chars )
-    distance = 0
-
-    char_pairs.each {|pair|
-      if pair[0] != pair[1]
-        distance += 1
-      end
-    }
-
-    return distance
+def compute x, y
+    x.chars.zip(y.chars).reduce(0) { |memo, tuple| memo += (tuple[0] <=> tuple[1]).abs }
   end
-end
