@@ -1,0 +1,1 @@
+s(:class, :HammingTest, nil, s(:defn, :compute, s(:args), s(:lit, 0)))

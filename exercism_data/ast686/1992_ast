@@ -1,0 +1,1 @@
+s(:class, :Hamming, nil, s(:defn, :compute, s(:args, :strand_a, :strand_b), s(:lasgn, :nucleotide_pairs, s(:call, s(:call, s(:lvar, :strand_a), :chars), :zip, s(:call, s(:lvar, :strand_b), :chars))), s(:iter, s(:call, s(:lvar, :nucleotide_pairs), :count), s(:args, :a, :b), s(:call, s(:lvar, :a), :!=, s(:lvar, :b)))))

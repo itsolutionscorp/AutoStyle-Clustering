@@ -1,0 +1,1 @@
+s(:class, :Hamming, nil, s(:defn, :compute, s(:args, :stdrand1, :stdrand2), s(:lasgn, :result, s(:lit, 0))))

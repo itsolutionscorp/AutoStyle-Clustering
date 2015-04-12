@@ -1,0 +1,1 @@
+s(:class, :Hamming, nil, s(:defn, :compute, s(:args, :strand1, :strand2), s(:lasgn, :val, s(:lit, 0)), s(:iter, s(:call, s(:call, s(:lvar, :strand1), :chars), :each_with_index), s(:args, :c, :i), s(:if, s(:call, s(:call, s(:lvar, :strand2), :[], s(:lvar, :i)), :==, s(:lvar, :c)), nil, s(:lasgn, :val, s(:call, s(:lvar, :val), :+, s(:lit, 1))))), s(:lvar, :val)))

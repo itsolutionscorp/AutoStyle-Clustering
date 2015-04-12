@@ -1,0 +1,1 @@
+s(:module, :Hamming, s(:defn, :compute, s(:args, :a, :b), s(:iter, s(:call, s(:call, s(:call, s(:call, s(:lvar, :a), :split, s(:str, "")), :zip, s(:call, s(:lvar, :b), :split, s(:str, ""))), :each), :count), s(:args, :a, :b), s(:if, s(:call, s(:lvar, :a), :eql?, s(:lvar, :b)), nil, s(:lasgn, :count, s(:call, s(:lvar, :count), :+, s(:lit, 1)))))))

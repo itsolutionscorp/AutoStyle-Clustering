@@ -1,12 +1,7 @@
-class Phrase
-  def initialize(phrase)
-    @phrase = phrase
+class Hamming
+
+  def compute(a, b)
+    [a, b].min.size.times.count { |i| a[i] != b[i] }
   end
 
-  def word_count
-    result = Hash.new
-    words = @phrase.downcase.split(/[\W]+/)
-    words.each { |word| result[word] = words.count(word) }
-    result
-  end
 end
