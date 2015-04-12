@@ -10,11 +10,11 @@ for folder in os.listdir("./ruby"):
 		lines = f.readlines()
 		for line in lines:
 			if "def" in line:
-				total+=1
+				total += 1
 		if total == 1:
-			single+=1
+			single += 1
 		elif total == 2:
-			double+=1
+			double += 1
 		else:
-			other+=1
+			other += 1
 	print folder, ":  ", single, double, other
