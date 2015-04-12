@@ -394,6 +394,8 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
     Create a new chain object. This is the interface with the web app.
     Disclaimer: Assumes data_dir has a particular structure.
     '''
+    home_dir = home_dir.rstrip("/") + "/"
+    data_dir = data_dir.rstrip("/") + "/"
     feature_dir = home_dir + data_dir + 'feature/'
     source_dir = home_dir + data_dir + 'src/'
     distances = np.loadtxt(home_dir + data_dir + 'gen/ast_dist_matrix.np')

@@ -94,6 +94,13 @@ div#thirdrow.row{
   vertical-align: top;
 }
 
+input#start.form-control{
+  width: 15%
+}
+
+input#directory.form-control{
+  width: 100%
+}
 /*#ast_slider {
       float:left;
     position:relative;
@@ -162,10 +169,12 @@ $(function() {
        <form method="post" action="{{ url_for('submit_form') }}">
          <form>
             <fieldset>
-              <label>Starting solution:</label>
+               <label>Enter starting submission and path to data directory:</label>
                    <div class="input-group" >
+                    
                      <input type="text" class="form-control" name="start" id="start" placeholder="Enter starting submission" value={{start}} style="width: 200 px !important";>
-                
+                    
+                     <input type="text" class="form-control" name="directory" id="directory" placeholder="Path to data directory" value={{directory}} style="width: 200 px !important";>
      
                   <button type="submit" class="btn btn-info" id = "subbtn" style="margin-left: 10px;
                   background-image: linear-gradient(to bottom, #149bdf, #0480be);box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,                  .05);
