@@ -1,0 +1,1 @@
+s(:class, :Phrase, nil, s(:defn, :initialize, s(:args, :arg), s(:nil)), s(:defn, :word_count, s(:args), s(:hash, s(:str, "word"), s(:lit, 1))))
