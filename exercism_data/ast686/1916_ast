@@ -1,0 +1,1 @@
+s(:module, :Hamming, s(:defn, :compute, s(:args, :dna_1_string, :dna_2_string), s(:iter, s(:call, s(:iter, s(:call, s(:call, s(:call, s(:lvar, :dna_2_string), :chars), :zip, s(:call, s(:lvar, :dna_1_string), :chars)), :take_while), s(:args, :_, :s), s(:call, s(:call, s(:lvar, :s), :nil?), :!)), :count), s(:args, :p1, :p2), s(:call, s(:lvar, :p1), :!=, s(:lvar, :p2)))))

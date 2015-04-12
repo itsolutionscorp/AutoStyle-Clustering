@@ -1,0 +1,1 @@
+s(:module, :Hamming, s(:defn, :compute, s(:args, :left, :right), s(:if, s(:call, s(:lvar, :left), :==, s(:lvar, :right)), s(:lit, 0), nil)))

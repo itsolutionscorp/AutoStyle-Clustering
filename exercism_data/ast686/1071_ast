@@ -1,0 +1,1 @@
+s(:module, :Hamming, s(:defn, :compute, s(:args, :a, :b), s(:lasgn, :diffs, s(:lit, 0)), s(:iter, s(:call, s(:call, s(:lvar, :a), :split, s(:str, "")), :each_with_index), s(:args, :c, :i), s(:if, s(:call, s(:lvar, :c), :!=, s(:call, s(:lvar, :b), :[], s(:lvar, :i))), s(:lasgn, :diffs, s(:call, s(:lvar, :diffs), :+, s(:lit, 1))), nil)), s(:lvar, :diffs)))

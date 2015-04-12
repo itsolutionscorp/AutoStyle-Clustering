@@ -1,16 +1,17 @@
-class Phrase
+class Hamming
 
-	def initialize(phrase)
-		@phrase = phrase 
-	end
+ def compute(arg1, arg2)
+   arr1 = arg1.split("")
+   arr2 = arg2.split("")
 
-	def word_count
-		words = @phrase.gsub(/\W+/," ").downcase.split 
-		wf = Hash.new(0) 
-		words.each do |word|
-			wf[word] += 1 
-		end
-		wf
-	end
+   counter = 0
+   arr1.each_with_index do |x, i|
+     if x != arr2[i]
+       counter += 1
+     end
+   end
+   return counter
 
-end 
+ end
+
+end

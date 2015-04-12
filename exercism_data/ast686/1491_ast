@@ -1,0 +1,1 @@
+s(:module, :Hamming, s(:defn, :compute, s(:args, :first_strand, :second_strand), s(:iter, s(:call, s(:call, s(:array, s(:call, s(:lvar, :first_strand), :chars), s(:call, s(:lvar, :second_strand), :chars)), :transpose), :count), s(:args, :first_strand_base, :second_strand_base), s(:call, s(:lvar, :first_strand_base), :!=, s(:lvar, :second_strand_base)))))

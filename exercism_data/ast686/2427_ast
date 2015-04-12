@@ -1,0 +1,1 @@
+s(:block, s(:call, nil, :require, s(:str, "pry")), s(:class, :Hamming, nil, s(:defn, :compute, s(:args, :a, :b), s(:call, s(:iter, s(:call, s(:call, s(:dot3, s(:lit, 0), s(:call, s(:lvar, :a), :length)), :to_a), :reject), s(:args, :i), s(:call, s(:call, s(:lvar, :a), :[], s(:lvar, :i)), :==, s(:call, s(:lvar, :b), :[], s(:lvar, :i)))), :size))))

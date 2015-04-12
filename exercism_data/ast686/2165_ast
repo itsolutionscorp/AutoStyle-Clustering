@@ -1,0 +1,1 @@
+s(:module, :Hamming, s(:defn, :compute, s(:args, :xs, :ys), s(:call, s(:iter, s(:call, s(:call, s(:call, s(:lvar, :xs), :split, s(:str, "")), :zip, s(:call, s(:lvar, :ys), :split, s(:str, ""))), :select), s(:args, :x, :y), s(:call, s(:lvar, :x), :!=, s(:lvar, :y))), :size)))

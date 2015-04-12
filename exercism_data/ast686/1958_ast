@@ -1,0 +1,1 @@
+s(:module, :Hamming, s(:call, nil, :extend, s(:self)), s(:defn, :compute, s(:args, :adn1, :adn2), s(:iter, s(:call, s(:dot3, s(:lit, 0), s(:call, s(:array, s(:call, s(:lvar, :adn1), :size), s(:call, s(:lvar, :adn2), :size)), :min)), :count), s(:args, :i), s(:call, s(:call, s(:lvar, :adn1), :[], s(:lvar, :i)), :!=, s(:call, s(:lvar, :adn2), :[], s(:lvar, :i))))))

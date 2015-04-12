@@ -1,0 +1,1 @@
+s(:class, :Hamming, nil, s(:sclass, s(:self), s(:defn, :compute, s(:args, :seq_a, :seq_b), s(:call, s(:iter, s(:call, s(:call, s(:call, s(:lvar, :seq_a), :split, s(:str, "")), :zip, s(:call, s(:lvar, :seq_b), :split, s(:str, ""))), :select), s(:args, :base), s(:call, s(:call, s(:lvar, :base), :[], s(:lit, 0)), :!=, s(:call, s(:lvar, :base), :[], s(:lit, 1)))), :size))))
