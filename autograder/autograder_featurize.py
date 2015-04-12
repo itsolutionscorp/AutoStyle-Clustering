@@ -10,6 +10,7 @@ import zss # Install: pip install zss
 import time
 import subprocess
 import os
+import pp
 
 def compute_ast_and_dist_matrix(autograde_src_path, submission_id):
 	data_dir = "data/"
@@ -33,10 +34,17 @@ def compute_ast_and_dist_matrix(autograde_src_path, submission_id):
   	#add to the distance matrix if it exists, otherwise create the distance matrix file and add the first entry
 	if os.path.exists(data_dir + 'gen/ast_dist_matrix.np'):
 		distances = np.loadtxt(data_dir + 'gen/ast_dist_matrix.np', ndmin=1)
+		job_server = pp.Server(8)
+		jobs = []
 		values_to_add = []
 		next_index = distances.shape[0]
 		for i in range(0, len(distances)):
-			values_to_add.append(tree_distance(trees[i], trees[next_index]))
+			jobs.append((i, job_server.submit(tree_distance, (trees[i], trees[next_index]), (), ("zss",))))
+		for i, job in jobs:
+			values_to_add.append((i,job))
+
+		values_to_add = sorted(values_to_add, key=getKey)
+		values_to_add = [x[1]() for x in values_to_add]
 		distances = np.column_stack((distances, values_to_add))
 		values_to_add.append(tree_distance(trees[next_index], trees[next_index]))
 		distances = np.vstack((distances,values_to_add))
@@ -47,12 +55,8 @@ def compute_ast_and_dist_matrix(autograde_src_path, submission_id):
 		if not os.path.exists(data_dir + 'gen'):
    			 os.makedirs(data_dir + 'gen')
 		np.savetxt(data_dir + 'gen/ast_dist_matrix.np', distances, delimiter=" ", fmt="%d")
-  	#TODO: PARALLELIZE THE ADDING TO THE DISTANCE MATRIX
 
-
-	#getting error, no module named syntax_tree in the individual_features file
 	subprocess.call(['python', '../featurization/individual_features.py', 'combine_anagrams', str(submission_id), 'ruby', 'individual_features_test.np', os.path.abspath("./data/"), 'flog', 'libcall', 'control_flow', 'duplicate_treegram'])
- 	
  	
 def getKey(item):
     return item[0]

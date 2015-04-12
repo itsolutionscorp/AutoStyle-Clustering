@@ -108,6 +108,7 @@ def terminal_ouput(*args):
     Calls the terminal command given by args, and
     returns its output as a string.
     '''
+    print args
     command = subprocess.Popen(args, stdout=subprocess.PIPE)
     out, err = command.communicate()
     return out
