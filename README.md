@@ -1,4 +1,4 @@
-# How to integrate new data
+# How to integrate new batch data
 
 1. Filter out stuff that isn't correct using an autograder
 
@@ -33,5 +33,3 @@ Ultimately, the required directory structure is:
             style_scores_names.np
             style_features.np
             style_features_names.np
-        ast/
-            [all of your ast files, for ruby]

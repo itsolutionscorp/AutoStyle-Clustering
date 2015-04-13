@@ -37,21 +37,22 @@ def main():
     pass
 
 def build_sexp(filename, method=""):
-    f = open(filename, 'r')
-    try:
+    with open(filename, 'r') as f:
         s = f.read()
-        sexp = sexpdata.loads(preprocess(s))
-    except AssertionError as e:
-        _, _, tb = sys.exc_info()
-        traceback.print_tb(tb)  # Fixed format
-        tb_info = traceback.extract_tb(tb)
-        filename, line, func, text = tb_info[-1]
-        print "LoadError (build_sexp in tree.py): " + filename
-        return
-    else:
-        return sexp
-    finally:
-        f.close
+        return build_sexp_from_string(s)
+        
+def build_sexp_from_string(s):
+        try:
+            sexp = sexpdata.loads(preprocess(s))
+        except AssertionError as e:
+            _, _, tb = sys.exc_info()
+            traceback.print_tb(tb)  # Fixed format
+            tb_info = traceback.extract_tb(tb)
+            filename, line, func, text = tb_info[-1]
+            print "LoadError (build_sexp in tree.py): " + filename
+            return
+        else:
+            return sexp
 
 def control_flow_tree(filename, method=""):
     return cft_from_sexp(build_sexp(filename, method))
@@ -64,6 +65,9 @@ def weighted_syntax_tree(filename, method=""):
 
 def control_flow_and_library_tree(filename, method=""):
     return cft_and_library_from_sexp(build_sexp(filename, method))
+
+def cfl_tree_from_string(s):
+    return cft_and_library_from_sexp(build_sexp_from_string(s))
 
 def cft_from_sexp(sexp):
     root = Node("root")
