@@ -4,14 +4,12 @@ Created on Mar 30, 2015
 Generates all the features corresponding to a particular submission.
 In order to run this file, you must have:
     * A directory containing all the source files.
-    * A directory containing the ast of each source file (for ruby).
     * A list of all library calls.
 @author: jmoghadam
 '''
 import argparse
 import subprocess
 import glob
-import os
 import os.path
 import betterast
 import ast
@@ -20,13 +18,12 @@ import numpy as np
 import sys
 sys.path.insert(0, os.path.abspath('../syntax_tree'))
 sys.path.insert(0, os.path.abspath('syntax_tree'))
-from tree import control_flow_and_library_tree, printTree, Node
+from tree import control_flow_and_library_tree, cfl_tree_from_string, printTree, Node
 
 DUPLICATE_DEPTH = 4
 HOME_DIR = './data/'
 ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
 SOURCE_FILES = sorted(glob.glob(HOME_DIR + 'src/*'))
-AST_FILES = sorted(glob.glob(HOME_DIR + 'ast/*_ast'))
 
 def abc_score(language, function_name, index):
     '''
@@ -94,12 +91,16 @@ def generate_python_ast(filename):
     tree = build_tree(b_node,ast_node,{})
     return tree
 
+def generate_ruby_ast(filename, function_name):
+    ast_string = terminal_ouput('ruby', 'syntax_tree/ast_no_helper_print.rb', '-f', filename, '-m', function_name)
+    return cfl_tree_from_string(ast_string)
+
 def generate_ast(language, index, function_name):
-    '''Get the ast for submission index.
-    TODO: generate ruby ast on the fly.
+    '''
+    Get the ast for submission index.
     '''
     if language == 'ruby':
-        ast = control_flow_and_library_tree(AST_FILES[index], function_name)
+        ast = generate_ruby_ast(SOURCE_FILES[index], function_name)
     elif language == 'python':
         ast = generate_python_ast(SOURCE_FILES[index])
     return ast    
@@ -109,7 +110,6 @@ def terminal_ouput(*args):
     Calls the terminal command given by args, and
     returns its output as a string.
     '''
-    print args
     command = subprocess.Popen(args, stdout=subprocess.PIPE)
     out, err = command.communicate()
     return out
@@ -353,12 +353,10 @@ def generate_individual_features(language, function_name, index, features, home_
     global HOME_DIR
     global ALL_LIBCALLS
     global SOURCE_FILES
-    global AST_FILES
     
     HOME_DIR = home_dir.rstrip("/") + "/"
     ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
     SOURCE_FILES = sorted(glob.glob(HOME_DIR + 'src/*'))
-    AST_FILES = sorted(glob.glob(HOME_DIR + 'ast/*_ast'))
     
     feature_vector = []
     for feature in features:
