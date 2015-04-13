@@ -32,8 +32,9 @@ class Chain():
         '''
         self.source_dir = source_dir
         self.dist_matrix = distances
-        self.files = glob.glob(self.source_dir + '/*.rb')
-        self.files.sort()
+        self.files = sorted(glob.glob(self.source_dir + '/*.rb'), key=lambda x: int(x.split("/")[-1].strip(".rb").strip("./")))
+        # self.files = glob.glob(self.source_dir + '/*.rb')
+        # self.files.sort(
         self.style_scores = style_scores
         self.style_features = style_features
         self.feature_names = feature_names
