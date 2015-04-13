@@ -32,7 +32,7 @@ class Chain():
         '''
         self.source_dir = source_dir
         self.dist_matrix = distances
-        self.files = glob.glob(self.source_dir + '/*.rb')
+        self.files = glob.glob(self.source_dir + '/*')
         self.files.sort()
         self.style_scores = style_scores
         self.style_features = style_features
@@ -51,7 +51,7 @@ class Chain():
         self.num_hints = 3  # TODO: A slider for this? 
         self.positive_feedback_scale = 0
         self.negative_feedback_scale = -10000
-        self.num_structural_features = 7  # TODO: hardcoded
+        self.num_structural_features = 8  # TODO: hardcoded
 
         self.initialize_weights()
         if feedback:
@@ -355,17 +355,19 @@ def interpret_list_of_hints(features, is_not_hint):
                 all_advice += '...' + 'restructuring your program to eliminate redundant code' + '.\n'
         # ['conditional', 'nested conditionals', 'explicit iteration', 'nested explicit iteration', 'sequential iteration', 'sequential conditional']
         elif feature == 'conditional':
-            all_advice += '...' + 'restructuring your program to ' + use_not + 'use a conditional' + '.\n'
+            all_advice += '...' + 'restructuring your function to ' + use_not + 'use a conditional' + '.\n'
         elif feature == 'nested conditionals':
-            all_advice += '...' + 'restructuring your program to ' + use_not + 'use nested conditionals' + '.\n'
+            all_advice += '...' + 'restructuring your function to ' + use_not + 'use nested conditionals' + '.\n'
         elif feature == 'explicit iteration':
-            all_advice += '...' + 'restructuring your program to ' + use_not + 'use explicit iteration' + '.\n'
+            all_advice += '...' + 'restructuring your function to ' + use_not + 'use explicit iteration' + '.\n'
         elif feature == 'nested explicit iteration':
-            all_advice += '...' + 'restructuring your program to ' + use_not + 'use nested iteration' + '.\n'
+            all_advice += '...' + 'restructuring your function to ' + use_not + 'use nested iteration' + '.\n'
         elif feature == 'sequential conditional':
-            all_advice += '...' + 'restructuring your program to ' + use_not + 'use sequential conditional blocks' + '.\n'
+            all_advice += '...' + 'restructuring your function to ' + use_not + 'use sequential conditional blocks' + '.\n'
         elif feature == 'sequential iteration':
-            all_advice += '...' + 'restructuring your program to ' + use_not + 'use sequential iteration blocks' + '.\n'
+            all_advice += '...' + 'restructuring your function to ' + use_not + 'use sequential iteration blocks' + '.\n'
+        elif feature == 'recursion':
+            all_advice += '...' + 'restructuring your function to ' + use_not + 'recursion' + '.\n'
         else:
             all_advice += '...' + use_not + 'using a call to ' + feature + '.\n' 
     if create_new:
@@ -399,10 +401,10 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
     feature_dir = home_dir + data_dir + 'feature/'
     source_dir = home_dir + data_dir + 'src/'
     distances = np.loadtxt(home_dir + data_dir + 'gen/ast_dist_matrix.np')
-    style_scores = np.loadtxt(feature_dir + 'inherent_style_features.np')
-    style_features = np.loadtxt(feature_dir + 'instrumental_style_features.np')
-    feature_names = np.genfromtxt(feature_dir + 'instrumental_style_names.np', dtype='str', delimiter='\n')
-    score_names = np.genfromtxt(feature_dir + 'inherent_style_names.np', dtype='str', delimiter='\n')
+    style_scores = np.loadtxt(feature_dir + 'style_scores.np')
+    style_features = np.loadtxt(feature_dir + 'style_features.np')
+    feature_names = np.genfromtxt(feature_dir + 'style_features_names.np', dtype='str', delimiter='\n')
+    score_names = np.genfromtxt(feature_dir + 'style_scores_names.np', dtype='str', delimiter='\n')
     if len(style_scores.shape)==1:
         style_scores = style_scores[:, np.newaxis]
     with open(home_dir + libcall_linenums, 'r') as json_data:

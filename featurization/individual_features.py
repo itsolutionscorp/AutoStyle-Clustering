@@ -19,10 +19,11 @@ import math
 import numpy as np
 import sys
 sys.path.insert(0, os.path.abspath('../syntax_tree'))
+sys.path.insert(0, os.path.abspath('syntax_tree'))
 from tree import control_flow_and_library_tree, printTree, Node
 
+DUPLICATE_DEPTH = 4
 HOME_DIR = './data/'
-# HOME_DIR = './python_data/hw4/'
 ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
 SOURCE_FILES = sorted(glob.glob(HOME_DIR + 'src/*'))
 AST_FILES = sorted(glob.glob(HOME_DIR + 'ast/*_ast'))
@@ -239,11 +240,11 @@ def control_flow(language, function_name, index):
         feature_vector[1] = 1
     if has_sequential(ast, ['cond', 'If']):
         feature_vector[2] = 1
-    if has_node(ast, ['iter', 'For']):
+    if has_node(ast, ['iter', 'For', 'While']):
         feature_vector[3] = 1
-    if has_nested(ast, ['iter', 'For']):
+    if has_nested(ast, ['iter', 'For', 'While']):
         feature_vector[4] = 1
-    if has_sequential(ast, ['iter', 'For']):
+    if has_sequential(ast, ['iter', 'For', 'While']):
         feature_vector[5] = 1
     return feature_vector
 
@@ -279,7 +280,7 @@ def duplicate_treegrams(language, function_name, index):
     index contains any duplicate treegrams of depth 3.
     '''
     ast = generate_ast(language, index, function_name)
-    treegrams = get_treegrams(ast, 3)
+    treegrams = get_treegrams(ast, DUPLICATE_DEPTH)
     if contains_duplicates(treegrams):
         return [1, ]
     else:
@@ -344,11 +345,21 @@ def handle_feature(language, function_name, index, feature):
     elif feature == 'duplicate_treegram':
         return duplicate_treegrams(language, function_name, index)
 
-def generate_individual_features(language, function_name, index, features):
+def generate_individual_features(language, function_name, index, features, home_dir):
     '''
     Returns nx1 feature vector with all the features corresponding
     to the submission with index i.
     '''
+    global HOME_DIR
+    global ALL_LIBCALLS
+    global SOURCE_FILES
+    global AST_FILES
+    
+    HOME_DIR = home_dir.rstrip("/") + "/"
+    ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
+    SOURCE_FILES = sorted(glob.glob(HOME_DIR + 'src/*'))
+    AST_FILES = sorted(glob.glob(HOME_DIR + 'ast/*_ast'))
+    
     feature_vector = []
     for feature in features:
         feature_values = handle_feature(language, function_name, index, feature)
@@ -368,23 +379,15 @@ def main():
     parser.add_argument('home_directory', help = 'Path to data directory')
     parser.add_argument('features', nargs='+', help='Names of features to generate.')
 
-    global HOME_DIR
-    global ALL_LIBCALLS
-    global SOURCE_FILES
-    global AST_FILES
-
     args = parser.parse_args()
     function_name = args.function_name
     submission_index = args.submission_index
     features = args.features
     language = args.language
-    HOME_DIR = args.home_directory.rstrip("/") + "/"
-    ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
-    SOURCE_FILES = sorted(glob.glob(HOME_DIR +'src/*'))
-    AST_FILES = sorted(glob.glob(HOME_DIR + 'ast/*_ast'))
+    home_dir = args.home_directory
     output_file = args.output_file
 
-    feature_vector = generate_individual_features(language, function_name, submission_index, features)
+    feature_vector = generate_individual_features(language, function_name, submission_index, features, home_dir)
     
     if not os.path.exists(output_file):
         all_features = feature_vector.T
