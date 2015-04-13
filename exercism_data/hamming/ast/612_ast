@@ -1,0 +1,1 @@
+s(:defn, :compute, s(:args, :string1, :string2), s(:lasgn, :pairs, s(:call, s(:call, s(:lvar, :string1), :split, s(:str, "")), :zip, s(:call, s(:lvar, :string2), :split, s(:str, "")))), s(:call, s(:iter, s(:call, s(:lvar, :pairs), :select), s(:args, :char1, :char2), s(:call, s(:lvar, :char1), :!=, s(:lvar, :char2))), :count))
