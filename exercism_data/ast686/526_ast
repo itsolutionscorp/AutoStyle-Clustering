@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :item_a, :item_b), s(:lasgn, :hamming_pairs, s(:call, s(:call, s(:lvar, :item_a), :chars), :zip, s(:call, s(:lvar, :item_b), :chars))), s(:call, s(:iter, s(:call, s(:lvar, :hamming_pairs), :map), s(:args, :pair), s(:if, s(:call, s(:call, s(:lvar, :pair), :first), :!=, s(:call, s(:lvar, :pair), :last)), s(:lit, 1), s(:lit, 0))), :reduce, s(:lit, :+)))

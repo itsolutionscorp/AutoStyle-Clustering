@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :strand_1, :strand_2), s(:iter, s(:call, s(:dot3, s(:lit, 0), s(:call, s(:lvar, :strand_1), :length)), :count), s(:args, :index), s(:call, s(:call, s(:lvar, :strand_1), :[], s(:lvar, :index)), :!=, s(:call, s(:lvar, :strand_2), :[], s(:lvar, :index)))))

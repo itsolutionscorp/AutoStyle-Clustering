@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :strand_one, :strand_two), s(:lasgn, :hamming_distance, s(:call, s(:iter, s(:call, s(:call, s(:call, s(:lvar, :strand_one), :chars), :map), :with_index), s(:args, :char, :index), s(:call, s(:lvar, :char), :!=, s(:call, s(:lvar, :strand_two), :[], s(:lvar, :index)))), :count, s(:true))))

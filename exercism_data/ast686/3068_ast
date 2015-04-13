@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :donut, :poo), s(:return, s(:lit, 0)))

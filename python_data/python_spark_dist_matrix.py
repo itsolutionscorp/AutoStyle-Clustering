@@ -39,7 +39,7 @@ def main():
   treeTuples = []
   for i in range(0, n):
     for j in range(i, n):
-     treeTuples.append((i, j)) 
+     treeTuples.append((i, j))
 
   # Construct RDD
   treeTuplesRDD = sc.parallelize(treeTuples) # Set to 8 * cores

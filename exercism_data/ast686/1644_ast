@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :a, :b), s(:call, s(:iter, s(:call, s(:call, s(:call, s(:lvar, :a), :split, s(:str, "")), :zip, s(:call, s(:lvar, :b), :split, s(:str, ""))), :select), s(:args, :a1, :b1), s(:and, s(:lvar, :a1), s(:and, s(:lvar, :b1), s(:call, s(:lvar, :a1), :!=, s(:lvar, :b1))))), :size))

@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :string1, :string2), s(:lasgn, :max, s(:call, s(:array, s(:call, s(:lvar, :string1), :size), s(:call, s(:lvar, :string2), :size)), :min)), s(:lasgn, :distance, s(:iter, s(:call, s(:dot3, s(:lit, 0), s(:lvar, :max)), :count), s(:args, :i), s(:call, s(:call, s(:lvar, :string1), :[], s(:lvar, :i)), :!=, s(:call, s(:lvar, :string2), :[], s(:lvar, :i))))))

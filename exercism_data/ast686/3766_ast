@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :dna_fiber, :other_dna_fiber), s(:iter, s(:call, s(:call, s(:call, s(:lvar, :dna_fiber), :chars), :zip, s(:call, s(:lvar, :other_dna_fiber), :chars)), :count), s(:args, :nucleotide_pair), s(:call, s(:call, s(:lvar, :nucleotide_pair), :first), :!=, s(:call, s(:lvar, :nucleotide_pair), :last))))

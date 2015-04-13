@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :strA, :strB), s(:lit, 0))

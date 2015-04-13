@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :dna_a, :dna_b), s(:call, s(:iter, s(:call, s(:call, s(:call, s(:lvar, :dna_a), :chars), :select), :with_index), s(:args, :base, :index), s(:call, s(:lvar, :base), :!=, s(:call, s(:lvar, :dna_b), :[], s(:lvar, :index)))), :count))

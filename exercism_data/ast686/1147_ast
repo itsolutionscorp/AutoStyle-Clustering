@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :dna_one, :dna_two), s(:iter, s(:call, s(:call, s(:call, s(:lvar, :dna_one), :chars), :zip, s(:call, s(:lvar, :dna_two), :chars)), :count), s(:args, :chr1, :chr2), s(:call, s(:lvar, :chr1), :!=, s(:lvar, :chr2))))

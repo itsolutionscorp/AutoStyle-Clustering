@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :object_one, :object_two), s(:lasgn, :matches, s(:iter, s(:call, s(:dot3, s(:lit, 0), s(:call, s(:lvar, :object_one), :length)), :select), s(:args, :index), s(:call, s(:call, s(:lvar, :object_one), :[], s(:lvar, :index)), :!=, s(:call, s(:lvar, :object_two), :[], s(:lvar, :index))))), s(:call, s(:lvar, :matches), :count))

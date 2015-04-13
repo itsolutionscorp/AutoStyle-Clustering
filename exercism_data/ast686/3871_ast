@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :dna, :hellp), s(:lit, 0))

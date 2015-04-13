@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :d1, :d2), s(:call, s(:iter, s(:call, s(:iter, s(:call, s(:call, s(:call, s(:lvar, :d1), :chars), :zip, s(:call, s(:lvar, :d2), :chars)), :reject), s(:args, :c), s(:call, s(:lvar, :c), :any?, s(:block_pass, s(:lit, :nil?)))), :map), s(:args, :a, :b), s(:if, s(:call, s(:lvar, :a), :==, s(:lvar, :b)), s(:lit, 0), s(:lit, 1))), :inject, s(:lit, :+)))

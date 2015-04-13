@@ -1,1 +1,0 @@
-s(:class, :Hamming, nil, s(:defn, :compute, s(:args, :"*strands"), s(:call, s(:iter, s(:call, s(:call, s(:iter, s(:call, s(:lvar, :strands), :map), s(:args, :s), s(:call, s(:lvar, :s), :split, s(:str, ""))), :transpose), :select), s(:args, :a, :b), s(:call, s(:lvar, :a), :!=, s(:lvar, :b))), :length)))

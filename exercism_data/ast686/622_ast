@@ -1,1 +1,0 @@
-s(:class, :Hamming, nil, s(:sclass, s(:self), s(:defn, :compute, s(:args, :dna_one, :dna_two), s(:call, s(:iter, s(:call, s(:call, s(:call, s(:lvar, :dna_one), :split, s(:str, "")), :select), :with_index), s(:args, :c, :index), s(:call, s(:lvar, :c), :!=, s(:call, s(:call, s(:lvar, :dna_two), :split, s(:str, "")), :[], s(:lvar, :index)))), :count))))

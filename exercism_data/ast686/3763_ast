@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :dna_1, :dna_2), s(:lasgn, :mismatches, s(:lit, 0)), s(:iter, s(:call, s(:call, s(:lvar, :dna_1), :size), :times), s(:args, :i), s(:if, s(:call, s(:call, s(:lvar, :dna_1), :[], s(:lvar, :i)), :!=, s(:call, s(:lvar, :dna_2), :[], s(:lvar, :i))), s(:lasgn, :mismatches, s(:call, s(:lvar, :mismatches), :+, s(:lit, 1))), nil)), s(:lvar, :mismatches))

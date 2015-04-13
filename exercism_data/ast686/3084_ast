@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :dna1, :dna2), s(:lasgn, :j, s(:lit, -1)), s(:iter, s(:call, s(:call, s(:lvar, :dna1), :split, s(:str, "")), :count), s(:args, :i), s(:and, s(:call, s(:lvar, :i), :!=, s(:call, s(:lvar, :dna2), :[], s(:lasgn, :j, s(:call, s(:lvar, :j), :+, s(:lit, 1))))), s(:call, s(:call, s(:lvar, :dna2), :[], s(:lvar, :j)), :!=, s(:nil)))))

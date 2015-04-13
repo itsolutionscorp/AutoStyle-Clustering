@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :string_a, :string_b), s(:call, s(:call, s(:call, s(:call, s(:array, s(:call, s(:lvar, :string_a), :split, s(:str, "")), s(:call, s(:lvar, :string_b), :split, s(:str, ""))), :transpose), :map, s(:block_pass, s(:lit, :uniq))), :map, s(:block_pass, s(:lit, :count))), :count, s(:lit, 2)))

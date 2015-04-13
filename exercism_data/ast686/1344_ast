@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :base, :comp), s(:lasgn, :val, s(:lit, 0)), s(:iter, s(:call, s(:call, s(:lvar, :base), :chars), :each_with_index), s(:args, :c, :idx), s(:if, s(:call, s(:lvar, :c), :==, s(:call, s(:lvar, :comp), :[], s(:lvar, :idx))), nil, s(:lasgn, :val, s(:call, s(:lvar, :val), :+, s(:lit, 1))))), s(:lvar, :val))

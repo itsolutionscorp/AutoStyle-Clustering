@@ -1,3 +1,0 @@
-class Phrase
-
-end

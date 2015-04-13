@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :word1, :word2), s(:lasgn, :distance, s(:lit, 0)), s(:iter, s(:call, s(:call, s(:lvar, :word1), :split, s(:str, "")), :each_with_index), s(:args, :char, :i), s(:if, s(:call, s(:lvar, :char), :eql?, s(:call, s(:lvar, :word2), :[], s(:lvar, :i))), nil, s(:lasgn, :distance, s(:call, s(:lvar, :distance), :+, s(:lit, 1))))), s(:lvar, :distance))

@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :strand_a, :strand_b), s(:lasgn, :strand_a, s(:call, s(:lvar, :strand_a), :chars)), s(:lasgn, :strand_b, s(:call, s(:lvar, :strand_b), :chars)), s(:iter, s(:call, s(:call, s(:lvar, :strand_a), :zip, s(:lvar, :strand_b)), :count), s(:args, :nucleotide_a, :nucleotide_b), s(:call, s(:lvar, :nucleotide_a), :!=, s(:lvar, :nucleotide_b))))

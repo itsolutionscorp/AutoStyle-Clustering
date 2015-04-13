@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :adn_1, :adn_2), s(:lasgn, :calculo, s(:lit, 0)), s(:for, s(:dot2, s(:lit, 0), s(:call, s(:lvar, :adn_1), :length)), s(:lasgn, :i), s(:if, s(:call, s(:call, s(:lvar, :adn_1), :[], s(:lvar, :i)), :!=, s(:call, s(:lvar, :adn_2), :[], s(:lvar, :i))), s(:lasgn, :calculo, s(:call, s(:lvar, :calculo), :+, s(:lit, 1))), nil)), s(:return, s(:lvar, :calculo)))

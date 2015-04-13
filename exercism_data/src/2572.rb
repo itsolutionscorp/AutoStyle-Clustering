@@ -13,6 +13,4 @@ def compute(strand1, strand2)
       index += 1
     end
     return hamming_distance
-  end
-  module_function :compute
 end

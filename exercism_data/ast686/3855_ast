@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :dna_1, :dna_2), s(:lasgn, :dna_enum, s(:call, s(:call, s(:lvar, :dna_2), :chars), :each)), s(:iter, s(:call, s(:call, s(:lvar, :dna_1), :chars), :count), s(:args, :c), s(:call, s(:lvar, :c), :!=, s(:call, s(:lvar, :dna_enum), :next))))
