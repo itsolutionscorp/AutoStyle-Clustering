@@ -40,6 +40,7 @@ def submit_form():
     if hints is not None:
       for i, item in enumerate(feedback):
         item = item.split(",")
+        print item
         final_feedback.append((hints[i], int(item[1]), int(item[3]), item[0]))
     # feedback format: (('non-sentence name of hint', index/position in chain, bad_hint or not, positive or negative) , (), ()  )
     chain = generate_chain(start_index, ast, flog, os.path.abspath('../../') + "/", data_dir = data_loc,feedback=final_feedback, old_chain=chain)
