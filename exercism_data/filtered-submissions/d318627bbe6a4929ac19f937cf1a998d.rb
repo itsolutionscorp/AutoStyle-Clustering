@@ -1,5 +1,5 @@
 def compute(string1, string2)
-    #identical case
+
     return 0 if string1 == string2
 
     mutations = 0

@@ -1,7 +1,11 @@
-def compute(first, second)
-    zipped_point_pairs = first[0..second.length - 1].chars.zip(second.chars)
-    zipped_point_pairs.inject(0) do |distance, (first_point, second_point)|
-      distance = distance + 1 unless first_point == second_point
-      distance
+def compute(s1, s2)
+    return 0 if s1.eql? s2
+
+    distance = 0
+
+    s1.split(//).each_with_index do |c, i|
+      distance += 1 unless c.eql? s2[i]
     end
+
+    distance
   end

@@ -1,17 +1,11 @@
-def compute(original_dna, mutated_dna)
-    hamming_distance = 0
-    step = 0
-    original_dna.each_char do |c|
-
-      unless c == mutated_dna[step]
-        hamming_distance = hamming_distance + 1
+def compute(strandA, strandB)
+    nucleids_a = strandA.chars
+    nucleids_b = strandB.chars
+    nucleids_a.zip(nucleids_b).reduce(0) do |sum, (a, b)|
+      if a && b && a != b
+        sum + 1
+      else
+        sum
       end
-      step = step + 1
-      
-      if step > original_dna.length - 1 or step > mutated_dna.length - 1
-        return hamming_distance
-      end
-
     end
-    return hamming_distance
   end

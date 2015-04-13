@@ -4,4 +4,3 @@ def compute(*strings)
     sequences = strings.map { |s| s.chars.take(length) }
     sequences.transpose.reject(&:uniq!).size
   end
-end

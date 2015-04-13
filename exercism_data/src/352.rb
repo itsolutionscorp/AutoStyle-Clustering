@@ -1,10 +1,5 @@
-def compute(s1,s2)
-    ham = 0
-    min = [s1.length,s2.length].min
-    for i in 0..(min-1)
-      if s1[i] != s2[i]
-        ham += 1
-      end
-    end
-    return ham
+def compute(first_strand, second_strand)
+    first_strand.chars
+      .zip(second_strand.chars)
+      .count { |x,y| x != y }
   end

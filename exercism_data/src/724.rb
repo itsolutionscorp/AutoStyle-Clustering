@@ -1,7 +1,6 @@
-def compute(dna1, dna2)
-      distance = 0
-      (0...dna1.length).each do |i| 
-        distance += 1 unless dna1[i].nil? || dna2[i].nil? || dna1[i] == dna2[i]
-      end
-      distance
+def compute(base, fingerprint)
+    base, fingerprint = [base, fingerprint].map(&:each_byte)
+    base.zip(fingerprint).select.reduce(0) do |sum, s|
+      sum += (s[0] == s[1] || s[1].nil? ? 0 : 1)
     end
+  end

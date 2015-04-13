@@ -4,4 +4,3 @@ def compute(fst_str, snd_str)
       .select { |fst, snd| fst != snd }
       .count
   end
-end

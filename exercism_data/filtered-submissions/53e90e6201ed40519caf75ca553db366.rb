@@ -8,4 +8,3 @@ def compute(a, b)
       sum + n
     }
   end
-end

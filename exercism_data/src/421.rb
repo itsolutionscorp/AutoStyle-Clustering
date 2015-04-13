@@ -1,9 +1,4 @@
-def compute strand_a, strand_b
-    raise ArgumentError, "Strands must be the same length" unless strand_a.length == strand_b.length
-    return 0 if strand_a == strand_b
-    count = 0
-    strand_a.each_char.each_with_index do |nucleotide, index|
-      count += 1 if nucleotide != strand_b[index]
-    end
-    count
+def compute(str1, str2)
+    short, long = [str1, str2].sort_by(&:length)
+    short.chars.zip(long.chars).inject(0) { |diff, c| c[0]==c[1] ? diff : diff+1 }
   end

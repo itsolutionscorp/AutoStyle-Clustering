@@ -1,7 +1,15 @@
-def compute( input_A, input_B )
-    count_same_char = 0
-    input_A.size.times do |index|
-      count_same_char +=1 unless (input_A[index] == input_B[index])
-    end
-    count_same_char
-  end
+def compute(data1, data2)
+		if data1.length != data2.length
+			raise 'data1 must be the same length as data2 to compute Hamming distance'
+		end
+
+		$distance = 0
+
+		for i in 0..data1.length do
+			if data1[i] != data2[i]
+				$distance += 1
+			end
+		end
+
+		return $distance
+	end

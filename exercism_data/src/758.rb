@@ -1,12 +1,12 @@
-def compute(a, b)
-    count  = 0
-    a_enum = a.each_char
-    b_enum = b.each_char
+def compute(str1, str2)
+      hammingd = 0
+      min = [str1, str2].min
+      max = [str1, str2].max
+      max = max[0..(min.size - 1)]
 
-    loop do
-      count += 1 if a_enum.next != b_enum.next
+      min.split('').each_with_index do |v, i|
+        hammingd = hammingd.+ 1 if v != max[i]
+      end
+
+      return hammingd
     end
-
-  ensure
-    return count  # We'll reach this with StopIteration
-  end

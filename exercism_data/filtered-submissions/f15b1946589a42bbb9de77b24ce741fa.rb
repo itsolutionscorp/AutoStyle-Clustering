@@ -6,5 +6,3 @@ def compute first, second
 		end
 		return diff_counter
 	end
-
-end

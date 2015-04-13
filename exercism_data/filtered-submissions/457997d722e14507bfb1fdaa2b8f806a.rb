@@ -4,7 +4,7 @@ def compute(strand1, strand2)
 		while i < strand1.length && i < strand2.length
 			if strand1[i] != strand2[i]
 				difference += 1
-			end	
+			end
 			i += 1
 		end
 	return difference

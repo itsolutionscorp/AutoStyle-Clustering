@@ -1,9 +1,5 @@
-def compute(first_strand, sec_strand)
-	  difference = 0
-	  first_strand.length <= sec_strand.length ? shortest_length = first_strand.length
-                                             : shortest_length = sec_strand.length
-	  shortest_length.times do |n|
-      difference +=1 if first_strand[n] != sec_strand[n]
-	  end
-	  difference
-	end
+def compute(s, t)
+    s.chars.zip(t.chars).reduce(0) do |diff, chars|
+      chars.all? && chars[0] != chars[1] ? diff + 1 : diff
+    end
+  end

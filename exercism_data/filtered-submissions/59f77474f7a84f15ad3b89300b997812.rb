@@ -4,6 +4,3 @@ def compute(dna1, dna2)
             hamming+=1 if dna1[i] != dna2[i]
         }
         return hamming
-    end
-
-end

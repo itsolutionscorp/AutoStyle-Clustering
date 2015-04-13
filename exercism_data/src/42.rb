@@ -1,6 +1,3 @@
-def compute(a,b)
-    return if a.length != b.length
-    diffs = 0
-    a.chars.each_with_index { |v,i| diffs += b[i] == v ? 0 : 1 }
-    diffs
+def compute(string1, string2)
+    string1.chars.zip(string2.chars).count { |char1, char2| char1 != char2 }
   end

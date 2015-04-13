@@ -13,4 +13,3 @@ def compute(src, dest)
 
     distance
   end
-end

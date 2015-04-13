@@ -6,7 +6,7 @@ def compute(seq1, seq2)
 
    dna_min_length.times do |i|
       different_total=different_total+1 if seq1[i] % seq2[i] > 0
-   end #end of fo
+   end
 
    return different_total
-  end #end of compute
+  end

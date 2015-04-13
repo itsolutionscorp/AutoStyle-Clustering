@@ -1,6 +1,6 @@
 def compute(first, second)
     differences = 0
-    
+
     if first == second
       return differences
     end
@@ -9,11 +9,11 @@ def compute(first, second)
       if index + 1 > second.length
         return differences
       end
-      
+
       unless first[index] == second[index]
         differences += 1
       end
-      
+
       differences
     end
   end

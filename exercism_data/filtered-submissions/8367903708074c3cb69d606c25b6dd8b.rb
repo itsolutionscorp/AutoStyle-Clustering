@@ -5,4 +5,3 @@ def compute(x,y)
       x == y ? acc : acc + 1
     end
   end
-end

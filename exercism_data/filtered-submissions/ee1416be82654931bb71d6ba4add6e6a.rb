@@ -3,7 +3,7 @@ def compute(strand_a, strand_b)
     short = both.min
     long = both.max
 
-    short.zip(long).count { |letter_a, letter_b| 
-      letter_a != letter_b 
+    short.zip(long).count { |letter_a, letter_b|
+      letter_a != letter_b
     }
   end

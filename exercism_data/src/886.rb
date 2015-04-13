@@ -1,13 +1,11 @@
-def compute(first_strand, second_strand)
-        distance = 0
-        counter = 0
-        while counter < first_strand.length && counter < second_strand.length
-            if first_strand[counter] != second_strand[counter]
-                difference += 1
-                counter += 1
-            else
-                counter += 1
-            end 
-        end
-    return distance
-    end
+def compute(strand_one, strand_two)
+		hamming_distance = 0
+
+		for i in 0..strand_one.length
+			if strand_one[i] != strand_two[i]
+				hamming_distance += 1
+			end
+		end
+
+		hamming_distance
+	end

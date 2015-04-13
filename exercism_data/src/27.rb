@@ -1,4 +1,3 @@
-def compute x, y
-    size = [x.size, y.size].min
-    x.chars.first(size).zip(y.chars.first(size)).count {|a,b| a != b}
+def compute(dna1, dna2)
+    dna1.size.times.count { |i| dna1[i] != dna2[i] }
   end

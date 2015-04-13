@@ -1,11 +1,3 @@
-def compute(a, b)
-        ary_a = a.split("")
-        ary_b = b.split("")
-        distance = 0
-        ary_a.each_with_index {|value, index|
-            if value != ary_b[index]
-                distance+=1
-            end
-        }
-        distance
-    end
+def compute dna_sequence, second_dna_sequence
+    dna_sequence.chars.zip(second_dna_sequence.chars).delete_if { |pair| pair.any?(&:nil?)}.inject(0) { |result, (a,b)| result += (a <=> b).abs }
+  end

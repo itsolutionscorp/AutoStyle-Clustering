@@ -1,7 +1,6 @@
-def compute(strand1, strand2)
-    distance = 0
-    strand1.length.times do |i|
-      distance += 1 if strand1[i] != strand2[i]
+def compute(first,second)
+    diffs = first.each_char.with_index.select do |c,i|
+      c != second[i] unless second[i].nil?
     end
-    distance
+    diffs.count
   end

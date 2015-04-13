@@ -1,26 +1,6 @@
-def compute(arg1, arg2)
-    sum = 0
-
-    arg1_len = arg1.length
-    arg2_len = arg2.length
-
-    if arg1_len < arg2_len
-      len = arg1_len
-    elsif arg1_len > arg2_len
-      len = arg2_len
-    else
-      len = arg2_len
-    end
-        
-      
-    i = 0
-
-  	while i <= len-1
-    	if arg1[i] != arg2[i]
-    		sum += 1
-      end
-      i+=1
-    end
-
-    return sum
+def compute(character_one, character_two)
+    distance = 0
+    zip = character_one.chars.zip character_two.chars
+    zip.each{ |arr| distance+=1 unless arr.first==arr.last }
+    distance
   end

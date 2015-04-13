@@ -1,11 +1,12 @@
-def compute *args
-        (a,b) = args.collect { |x| x.split('') }.sort_by(&:length)
+def compute(a, b)
+    a_chars = a.chars
+    b_chars = b.chars
 
-        a.zip(b).inject(0) do |agg, current| 
-            if current[0] == current[1]
-                agg
-            else
-                agg + 1
-            end
-        end
+    a_chars.each_with_index.inject(0) do |distance, (char, index)|
+      if char != b_chars[index]
+        distance += 1
+      end
+
+      distance
     end
+  end

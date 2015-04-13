@@ -4,4 +4,3 @@ def compute(first_strand, second_strand)
       first_strand[i] != second_strand[i]
     end
   end
-end

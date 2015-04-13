@@ -1,10 +1,6 @@
-def compute(input1, input2)
-		raise ArgumentError, "Inputs are not of equal length" unless input1.length == input2.length
-		hamming_distance = 0
-		for i in 0..input1.length
-			if input1[i] != input2[i]
-				hamming_distance += 1
-			end
-		end
-		return hamming_distance
-	end
+def compute(strand1, strand2)
+    strand1.split('').each_with_index.reduce(0) do |count, (char, index)|
+      count += 1 if strand2[index] != char
+      count
+    end
+  end

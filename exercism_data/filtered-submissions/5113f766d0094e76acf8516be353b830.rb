@@ -5,4 +5,3 @@ def compute(strand1, strand2)
       ham + (strand1[point] <=> strand2[point]).abs
     end
   end
-end

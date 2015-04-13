@@ -4,7 +4,7 @@ def compute(strand1, strand2)
 
     array_2 = strand2.split(//)
 
-    array_3 = []  
+    array_3 = []
 
     if strand1 == strand2
 

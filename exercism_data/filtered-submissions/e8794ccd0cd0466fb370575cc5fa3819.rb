@@ -7,6 +7,6 @@ def compute(first, second)
 
     distance
 
-    # One-liner
-    # first.chars.map.with_index { |c, i| c == second[i] ? 0 : 1 }.reduce(&:+)
+
+
   end

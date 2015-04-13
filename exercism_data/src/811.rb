@@ -1,9 +1,23 @@
-def compute sequence1, sequence2
-    hamming = 0
-    (0..sequence1.length - 1).each do |position|
-      if sequence2[position] 
-        hamming += 1 unless sequence1[position] == sequence2[position]
+def compute(a,b)
+
+    aa = a.split('')
+    ba = b.split('')
+
+
+    h  = 0
+
+
+    (aa.length > ba.length ? ba.length : aa.length).times do |i|
+
+
+      if ba[i] != aa[i]
+
+        h += 1
+      else
+
+        next
       end
     end
-    hamming
+
+    return h
   end

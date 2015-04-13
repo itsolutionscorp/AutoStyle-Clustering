@@ -1,9 +1,8 @@
-def compute(st1, st2)
-    st1 = st1.split('')
-    st2 = st2.split('')
-    dif = 0
-    [st1.length, st2.length].min.times do |i|
-      dif += 1 if st1[i] != st2[i] 
-    end
-    dif
+def compute(s1, s2)
+    s1_ary = s1.each_char.to_a
+    s2_ary = s2.each_char.to_a
+
+    ary = [s1_ary, s2_ary].sort_by { |s| s.count }
+
+    ary[0].zip(ary[1]).count { |e| e.first != e.last }
   end

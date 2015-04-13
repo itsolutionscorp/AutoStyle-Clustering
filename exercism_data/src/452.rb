@@ -1,7 +1,8 @@
-def compute(a,b)
-    distance = 0
-    [a.length, b.length].min.times do |i|
-      distance += 1 unless a[i] == b[i]
+def compute(x,y)
+    dist=0
+    (0...[x.length, y.length].min).count do |i|
+      if x[i]!=y[i]
+        dist+=1
+      end
     end
-    distance
   end

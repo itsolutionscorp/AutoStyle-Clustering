@@ -1,8 +1,7 @@
-def compute(strand1,strand2)
-    @sum = 0
-    hamming_pairs = strand1.split('').zip(strand2.split(''))
-    hamming_pairs.each do |pair|
-      @sum += 1 if pair[0] != pair[1]
+def compute(a,b)
+      limit = [a.size,b.size].min
+
+      (0...limit).inject(0) do |sum, i|
+        a[i] == b[i] ? sum : sum += 1
+      end
     end
-    @sum
-  end

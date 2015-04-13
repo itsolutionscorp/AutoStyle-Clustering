@@ -8,5 +8,5 @@ def compute(first, second)
       small_strand.split('').each_with_index do |value, index|
         count+= 1 if value != large_strand[index]
       end
-      #count
+
     end

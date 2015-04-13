@@ -1,4 +1,7 @@
-def compute(strand1, strand2)
-    min_strand_length = (0..[strand1, strand2].min.length - 1)
-    min_strand_length.count { |i| strand1[i] != strand2[i] }
+def compute(a,b)
+    distance = 0
+    [a.length, b.length].min.times do |i|
+      distance += 1 unless a[i] == b[i]
+    end
+    distance
   end

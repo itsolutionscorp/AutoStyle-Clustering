@@ -1,12 +1,19 @@
-def compute(s1, s2)
-    hamming = 0
-    string_length = s1.length - 1
-    if s1 == s2
-      return hamming
+def compute(x, y)
+    if x == y
+      counter = 0
     else
-      (0..string_length).to_a.each do |n|
-        hamming += 1 if s1[n] != s2[n]
+      first_string = x.split(//)
+      second_string = y.split(//)
+      counter = 0
+      index = 0
+      while index < [(first_string.count),(second_string.count)].min
+        if first_string[index] != second_string[index]
+          counter += 1
+          index += 1
+        else
+          index +=1
+        end
       end
-    hamming
     end
+      p counter
   end

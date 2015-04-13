@@ -3,4 +3,3 @@ def compute d1, d2
       d1[i] != d2[i]
     end
   end
-end

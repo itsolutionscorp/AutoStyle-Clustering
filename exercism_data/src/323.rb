@@ -1,7 +1,6 @@
 def compute(a, b)
-	errors = 0
-	a.length.times do |i|
-	  errors += 1 if a[i] != b[i]
-	end
-	errors
-    end
+    a = a[0...b.length].chars
+    b = b[0...a.length].chars
+
+    a.zip(b).delete_if {|x,y| x == y}.length
+  end

@@ -8,4 +8,3 @@ def compute(original, copy)
 
     return count
   end
-end

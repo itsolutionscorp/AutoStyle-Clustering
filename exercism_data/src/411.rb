@@ -1,7 +1,6 @@
-def compute( strand_one, strand_two )
-    diff = 0
-    strand_diff = strand_one.chars.each_with_index do |i, count|
-      ( diff += 1 ) if strand_one[count] != strand_two[count] && strand_two[count]
+def compute(first_strand, other_strand)
+
+    first_strand.chars.zip(other_strand.chars).count do |first, second|
+      first && second && first != second
     end
-    diff
   end

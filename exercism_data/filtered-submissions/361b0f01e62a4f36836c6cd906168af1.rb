@@ -7,7 +7,7 @@ def compute(first_strand, second_strand)
                 counter += 1
             else
                 counter += 1
-            end 
+            end
         end
     return distance
     end

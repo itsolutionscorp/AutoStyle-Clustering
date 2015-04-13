@@ -1,7 +1,9 @@
-def compute(sequence1, sequence2)
+def compute(strand1,strand2)
     distance = 0
-    sequence1.chars.each_with_index do |gene, index|
-      distance += 1 unless gene == sequence2[index]
+    strand1.split("").each_with_index do |char,i|
+      if char != strand2[i] then
+        distance += 1
+      end
     end
-    distance
+    return distance
   end

@@ -6,4 +6,3 @@ def compute(a, b)
 
     a.zip(b).count { |x, y| x != y }
   end
-end

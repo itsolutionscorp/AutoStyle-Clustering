@@ -1,13 +1,7 @@
-def compute(arg1, arg2)
-   arr1 = arg1.split("")
-   arr2 = arg2.split("")
-
-   counter = 0
-   arr1.each_with_index do |x, i|
-     if x != arr2[i]
-       counter += 1
-     end
-   end
-   return counter
-
- end
+def compute(x, y)
+    res = 0
+    for i in 0..(x.size)
+      res += 1 if x[i] != y[i]
+    end
+    res
+  end

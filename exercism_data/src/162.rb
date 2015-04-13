@@ -1,8 +1,3 @@
-def compute(a, b)
-    hamming_length = 0
-    a.length.times do |i|
-      hamming_length += 1 unless a[i] == b[i]
-    end
-
-    hamming_length
+def compute(as, bs)
+    as.chars.zip(bs.chars).select {|a,b| a && b and a != b}.count
   end

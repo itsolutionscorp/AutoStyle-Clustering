@@ -11,8 +11,8 @@ def compute(x,y)
 	      large_array = yarray
 	      small_array = xarray
       end
-      
-      small_array.each do |a| 
+
+      small_array.each do |a|
         ham += 1 unless a == large_array[distance]
 	distance += 1
       end

@@ -3,4 +3,3 @@ def compute(string_1, string_2)
       distance + (string_1[i] != string_2[i] ? 1 : 0)
     end
   end
-end

@@ -4,4 +4,3 @@ def compute(strand1, strand2)
       base1 == base2 ? distance : distance + 1
     end
   end
-end

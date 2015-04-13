@@ -1,6 +1,8 @@
-def compute(strand_a, strand_b)
-    # Compare the strands only up to the 
-    # length of the shortest strand
-    check_length = [strand_a.length, strand_b.length].min
-    (0...check_length).count { |c| strand_a[c] != strand_b[c] }
+def compute(s1, s2)
+    i = 0
+    s1.chars.reduce(0) do |mem, char|
+      mem += 1 if s2.chars[i] != char
+      i += 1
+      mem
+    end
   end

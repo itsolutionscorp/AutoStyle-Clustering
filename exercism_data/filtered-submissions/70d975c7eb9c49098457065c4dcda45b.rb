@@ -4,7 +4,7 @@ def compute(strandOne, strandTwo)
 
     i = 0
 
-    strandOne.split('').each do |s1| 
+    strandOne.split('').each do |s1|
       if s1 != strandTwo[i]
         d += 1
       end
@@ -12,5 +12,5 @@ def compute(strandOne, strandTwo)
     end
 
     d
-			
+
   end

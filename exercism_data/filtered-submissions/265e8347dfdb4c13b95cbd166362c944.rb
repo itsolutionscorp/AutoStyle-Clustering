@@ -5,8 +5,8 @@ def compute(a,b)
 			hamming = 0
 			h.each do |a,b|
 			hamming +=1 unless a == b
-				
-			
+
+
 
 			end
 			hamming

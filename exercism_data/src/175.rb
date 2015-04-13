@@ -1,16 +1,17 @@
-def compute(first, second)
-    first = first.chars
-    second = second.chars
-    index = 0
-    hamming_count = 0
+def compute(code1, code2)
+  	@code1 = code1
+  	@code2 = code2
 
-    while index < first.count && index < second.count do
-      if first[index] == second[index]
-        index += 1
-      else
-        hamming_count += 1
-        index += 1
+
+    distance = 0
+
+
+    if(@code1 != @code2)
+      for i in 0..[@code1.length, @code2.length].max
+        if(@code1[i] != @code2[i])
+          distance += 1
+        end
       end
     end
-    hamming_count
-  end
+    distance
+   end

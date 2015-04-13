@@ -1,13 +1,17 @@
-def compute(strand_a, strand_b)
-      # first make it pass, now I need to refactor :)
-      a = strand_a.chars
-      b = strand_b.chars
-
-      if a.size < b.size
-        b = b.drop(b.size - a.size + 1)
-      elsif a.size > b.size
-        a = a.drop(a.size - b.size + 1)
-      end
-
-      a.zip(b).reject { |x, y| x == y }.size
-    end
+def compute(first, second)
+    diff = 0
+    if first.length == second.length
+      first.length.times do |i|
+	    unless first[i] == second[i]
+		  diff += 1
+		end
+	  end
+	else
+	  if first.length > second.length
+	    diff = 1
+	  else
+	    diff = 2
+	  end
+	end
+	diff
+  end

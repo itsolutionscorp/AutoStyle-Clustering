@@ -1,15 +1,7 @@
-def compute(first, second)
-    if first.length != second.length
-      exit 1
+def compute(strand_one, strand_two)
+        min_length = [strand_one.length, strand_two.length].min
+
+        return (0...min_length).reduce(0) do |hamming_distance, idx|
+            hamming_distance += (strand_one[idx] != strand_two[idx]) ? 1 : 0
+        end
     end
-
-    count = 0
-
-    for i in 0...first.length
-      if first[i] != second[i]
-        count += 1
-      end
-    end
-
-    return count
-  end

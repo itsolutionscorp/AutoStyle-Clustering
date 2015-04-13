@@ -1,6 +1,5 @@
-def compute(first,second)
-    diffs = first.each_char.with_index.select do |c,i|
-      c != second[i] unless second[i].nil?
+def compute(strand_a, strand_b)
+    strand_a.chars.zip(strand_b.chars).count do |char_tuple|
+      char_tuple.first != char_tuple.last && !char_tuple.include?(nil)
     end
-    diffs.count
   end

@@ -4,4 +4,3 @@ def compute(strand1, strand2)
       diff + (c1 == c2 ? 0 : 1)
     }
   end
-end

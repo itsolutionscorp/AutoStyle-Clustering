@@ -1,12 +1,9 @@
-def compute(first, second)
-        count = 0
-        first.chars.each_with_index { |char, index|
-            # ignore extra characters if our string
-            # is longer than the second one.
-            next unless second[index]
-    
-            count += 1 if char != second[index]
-        }
-        return count
-    end
-end
+def compute(s_one, s_two)
+  	a = s_one.chars
+  	b = s_two.chars
+  	c = a.length
+
+  	c.times.count do |val|
+  	 a[val] != b[val]
+  	end
+  end

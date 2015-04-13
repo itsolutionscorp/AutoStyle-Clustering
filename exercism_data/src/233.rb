@@ -1,3 +1,8 @@
-def compute( dna1, dna2 )
-    dna1.chars.zip(dna2.chars).count {|na1, na2| na1 != na2}
+def compute(strand_a, strand_b)
+    return unless strand_a.length == strand_b.length
+    mutations = 0
+    strand_a.each_char.with_index do |nucleotide, index|
+      mutations += 1 if nucleotide != strand_b[index]
+    end
+    mutations
   end

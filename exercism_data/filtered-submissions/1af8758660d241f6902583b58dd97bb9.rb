@@ -10,4 +10,3 @@ def compute(strand_one, strand_two)
       hamming_distance += 1 if strand_one_val != strand_two_val
     end
   end
-end

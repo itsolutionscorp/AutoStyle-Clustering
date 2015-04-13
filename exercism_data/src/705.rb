@@ -1,14 +1,19 @@
-def compute(first,second)
-		first = first.scan(/./)
-		second = second.scan(/./)
+def compute(strand_1, strand_2)
+    hamming = 0
 
-		hamming = 0
-		first.length.times do |i|
+    if (strand_1.is_a? String) && (strand_2.is_a? String)
+      length_1 = strand_1.length
+      length_2 = strand_2.length
 
-			break if second[i] == nil
-			hamming += 1 if first[i] != second[i]
-		end
+      if length_1 > length_2
+        strand_1 = strand_1.slice!(0, length_2)
+      elsif length_2 > length_1
+        strand_2 = strand_2.slice!(0, length_1)
+      end
 
-		return hamming
-
-	end
+      strand_1.each_char.with_index do |c,i|
+        hamming += 1 if c != strand_2[i]
+      end
+    end
+    return hamming
+  end

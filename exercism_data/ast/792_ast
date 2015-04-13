@@ -1,0 +1,1 @@
+s(:defn, :compute, s(:args, :strand_a, :strand_b), s(:iter, s(:call, s(:call, s(:call, s(:lvar, :strand_a), :chars), :zip, s(:call, s(:lvar, :strand_b), :chars)), :count), s(:args, :char_tuple), s(:and, s(:call, s(:call, s(:lvar, :char_tuple), :first), :!=, s(:call, s(:lvar, :char_tuple), :last)), s(:call, s(:call, s(:lvar, :char_tuple), :include?, s(:nil)), :!))))

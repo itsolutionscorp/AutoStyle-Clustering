@@ -4,4 +4,3 @@ def compute(seq1, seq2)
       seq2[idx] and seq2[idx] != letter
     }
   end
-end

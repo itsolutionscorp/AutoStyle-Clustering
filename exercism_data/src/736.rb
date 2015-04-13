@@ -1,7 +1,5 @@
-def compute(strand_one, strand_two)
-        min_length = [strand_one.length, strand_two.length].min
+def compute(a, b)
+    pairs = [a.chars.to_a,b.chars.to_a].sort_by(&:length).reduce(&:zip)
 
-        return (0...min_length).reduce(0) do |hamming_distance, idx|
-            hamming_distance += (strand_one[idx] != strand_two[idx]) ? 1 : 0
-        end
-    end
+    pairs.count {|pair_a,pair_b| pair_a != pair_b }
+  end

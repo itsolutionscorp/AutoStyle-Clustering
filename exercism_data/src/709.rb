@@ -1,4 +1,5 @@
-def compute(first, second)
-      pairs = first.chars.zip(second.chars).take_while { |fst,snd| fst && snd }
-      pairs.reduce(0) { |memo, (fst,snd)| memo += 1 if fst != snd; memo }
-    end
+def compute(dna1, dna2)
+		dna1.each_char.with_index.select {|d, index|
+			d != dna2[index]
+		}.size
+	end

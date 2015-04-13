@@ -1,3 +1,3 @@
-def compute(first_sequence, second_sequence)
-    (first_sequence.chars.select.with_index{ |base, index| base != second_sequence.chars[index] }).length
+def compute(stand_a, stand_b)
+    (0...[stand_a.length, stand_b.length].min).count { |num| stand_a[num] != stand_b[num] }
   end

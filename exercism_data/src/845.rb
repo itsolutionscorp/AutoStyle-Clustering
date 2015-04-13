@@ -1,5 +1,3 @@
-def compute(strand_1, strand_2)
-    strand_1.chars.zip(strand_2.chars).count do |pair|
-      pair[0] != pair[1]
-    end
+def compute(s1, s2)
+    s1.chars.zip(s2.chars).count {|x, y| x != y }
   end

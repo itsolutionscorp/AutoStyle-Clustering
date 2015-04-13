@@ -1,7 +1,3 @@
-def compute(a, b)
-    diff = 0
-    [a, b].map(&:length).min.times do |index|
-      diff += 1 if a[index] != b[index]
-    end
-    diff
+def compute(strand_A, strand_B)
+    strand_A.length.times.count { |i| strand_A[i] != strand_B[i] }
   end

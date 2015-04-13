@@ -1,7 +1,7 @@
 def compute(sqc1, sqc2)
     if sqc1.length != sqc2.length
-      raise ArgumentError.new('Seqences have to have the same lenght')  
-    end  
+      raise ArgumentError.new('Seqences have to have the same lenght')
+    end
     counter = 0
     arry1 = sqc1.chars.to_a
     arry2 = sqc2.chars.to_a

@@ -1,14 +1,16 @@
-def compute(str1, str2)
-    
-    gataca_counter = (str1.length <= str2.length) ? str1.length : str2.length
-    
-    hamming = 0
-    
-    gataca_counter.times do |n|
-      if str1[n] != str2[n]
-        hamming += 1
-      end
-    end
-    
-    hamming
-  end
+def compute(a,b)
+		if a.length < b.length
+			smaller = a
+			bigger  = b
+		else
+			smaller = b
+			bigger  = a
+		end
+		count = 0
+		smaller.split("").each_with_index do |s, i|
+			if s != bigger.split("")[i]
+				count += 1
+			end
+		end
+		return count
+	end

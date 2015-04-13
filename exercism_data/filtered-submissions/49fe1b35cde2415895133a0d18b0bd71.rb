@@ -5,7 +5,7 @@ def compute(str1, str2)
 			lon = str1
 		else
 			lon = str2
-		end 
+		end
 		while i < lon.length
 			if str1[i] != str2[i]
 				ham += 1

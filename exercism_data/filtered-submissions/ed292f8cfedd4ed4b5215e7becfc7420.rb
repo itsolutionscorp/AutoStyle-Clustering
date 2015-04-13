@@ -8,4 +8,3 @@ def compute(strand1, strand2)
     pairs = sequence1.zip sequence2
     pairs.count { |s1,s2| s1 != s2 }
   end
-end

@@ -1,11 +1,6 @@
-def compute a,b
-    a,b = b,a if a.length > b.length
-
-    if a.empty?
-      0
-    else
-      (a[0] == b[0] ? 0 : 1) + compute(a[1..-1], b[1..-1])
-    end
+def compute(first, second)
+    first  = first.chars
+    second = second.chars
+    size = [first.size, second.size].min
+    first.take(size).zip(second.take(size)).count { |(one, two)| one != two }
   end
-
-end

@@ -1,8 +1,15 @@
-def compute(strand1, strand2)
-    return 0 if strand1 == strand2
-    dist = 0
-    [strand1.length, strand2.length].min.times.each do |n|
-      dist += 1 if strand1[n] != strand2[n]
+def compute(dna1, dna2)
+
+    test_length = [dna1.length, dna2.length].min
+
+    differences = 0
+
+
+    for i in 0..(test_length-1)
+      if dna1[i] != dna2[i]
+        differences += 1
+      end
     end
-    dist
+
+    return differences
   end

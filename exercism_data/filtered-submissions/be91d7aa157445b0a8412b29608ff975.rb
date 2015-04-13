@@ -1,6 +1,6 @@
 def compute(a, b)
         diff_count = 0
-        
+
         a = a[0, b.length-1] if a.length > b.length
         b = b[0, a.length-1] if a.length < b.length
 

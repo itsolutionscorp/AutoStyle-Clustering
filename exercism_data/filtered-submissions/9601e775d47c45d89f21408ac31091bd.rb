@@ -4,5 +4,3 @@ def compute(strand1, strand2)
 			count += 1 unless strand1[i] == strand2[i]
 		end
     count
-	end
-end

@@ -3,23 +3,3 @@ def compute(first, second)
       first[index] != second[index] ? count += 1 : count
     end
   end
-end
-
-# Version 1:
-
-  # first.chars.each_with_index do |char, index|
-  #   if first[index] != second[index]
-  #     count += 1
-  #   end
-  # end
-
-# Version 2:
-
-  #   count = 0
-  #   0.upto(first.size - 1).each do |index|
-  #     if first[index] != second[index]
-  #       count += 1
-  #     end
-  #   end
-  #   count
-  #

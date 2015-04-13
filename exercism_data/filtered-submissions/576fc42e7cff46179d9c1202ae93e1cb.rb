@@ -4,4 +4,3 @@ def compute(a,b)
       acc
     end
   end
-end

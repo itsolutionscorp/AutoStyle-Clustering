@@ -5,4 +5,3 @@ def compute(str1, str2)
       str1[i] == str2[i] ? d : d + 1
     end
   end
-end

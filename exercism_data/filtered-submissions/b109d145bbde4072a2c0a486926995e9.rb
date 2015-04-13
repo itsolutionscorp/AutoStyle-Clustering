@@ -6,4 +6,3 @@ def compute(s1, s2)
     end
     mutations
   end
-end

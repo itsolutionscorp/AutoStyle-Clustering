@@ -1,9 +1,8 @@
-def compute(seq_a, seq_b)
-    
-    distance = 0
-    
-    seq_a.scan(/./).zip(seq_b.scan(/./)).each {|a,b| distance += 1 if a != b}
-    
-    distance
-    
+def compute(strand_one, strand_two)
+    n = [strand_one.length,  strand_two.length].min
+    counter = 0
+    n.times do |i|
+      counter += 1 unless strand_one[i] == strand_two[i]
+    end
+    counter
   end

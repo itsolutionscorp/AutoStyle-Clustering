@@ -1,12 +1,7 @@
-def compute(strand_one, strand_two)
-    hamming_distance = 0
-    index = 0
+def compute(source, mutation)
+    shortest_length = [source, mutation].map(&:length).min
 
-    strand_one.split("").each do
-      if strand_one[index] != strand_two[index] && strand_two[index] != nil
-        hamming_distance +=1
-      end
-      index +=1
+    shortest_length.times.count do |i|
+      source[i] != mutation[i]
     end
-    hamming_distance
   end

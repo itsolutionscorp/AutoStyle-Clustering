@@ -5,7 +5,7 @@ def compute(a, b)
     b = b.split('')
 
     a.each_with_index do |letter, i|
-      if letter != b[i] 
+      if letter != b[i]
         count += 1
       end
     end

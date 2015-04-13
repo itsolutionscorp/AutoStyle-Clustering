@@ -6,4 +6,4 @@ def compute(strand_a, strand_b)
     hamming_distance
   end
 end
-Hamming.extend(Hamming)
+Hamming.ext

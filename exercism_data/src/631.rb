@@ -1,3 +1,16 @@
-def compute(aString, bString)
-    aString.chars.zip(bString.chars).take_while{ |arr| !arr.include? nil}.count{ |arr| arr[0]!=arr[1] }
-  end
+def compute(firstrand, secondstrand)
+ 	if firstrand.length > secondstrand.length
+ 		strandlength = secondstrand.length
+ 	else secondSL > firstSL
+ 		strandlength = firstrand.length
+ 	end
+ 	hdistance = 0
+ 	i = 0
+	while i < strandlength
+ 		if firstrand[i] != secondstrand[i]
+ 			hdistance += 1
+ 		end
+ 		i += 1
+ 	end
+ 	return hdistance
+ end

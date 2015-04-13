@@ -4,7 +4,7 @@ def compute(a,b)
 		elsif a.length && b.length == 1
 			return 1
 		elsif a.length && b.length == 2
-		 	if a.match("AG") && b.match("CT") 
+		 	if a.match("AG") && b.match("CT")
 				return 2
 			else a.match("AT") && b.match("CT")
 				return 1

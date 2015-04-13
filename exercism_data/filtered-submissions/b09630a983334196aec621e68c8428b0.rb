@@ -5,4 +5,3 @@ def compute(one,two)
       acc
     end
   end
-end

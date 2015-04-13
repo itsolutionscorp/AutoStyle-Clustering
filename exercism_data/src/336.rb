@@ -1,13 +1,17 @@
-def compute(source, mutation)
-    distance = 0
-    min_length = [source.length, mutation.length].min - 1
+def compute(first, second)
 
-    (0..min_length).each do |index|
-      source_acid = source[index]
-      mutation_acid = mutation[index]
-      distance = distance + 1 unless source_acid == mutation_acid
-    end
-    
-    distance
-  end
-end
+		first = first.chars.to_a
+		second = second.chars.to_a
+
+		difference = 0
+		increment = 0
+		first.each do |f|
+			s = second[increment]
+			increment += 1
+			if f != s
+				difference += 1
+			else
+			end
+		end
+		return difference
+	end

@@ -3,7 +3,7 @@ def compute(a,b)
   	biggerList = []
   	smallerList = []
 
-  	#detect which string is longer and split into arrays.
+
   	if a.length > b.length
   		biggerList = a.split("")
   		smallerList = b.split("")
@@ -12,7 +12,7 @@ def compute(a,b)
   		smallerList = a.split("")
   	end
 
-  	#iterate over smaller array and check against larger array
+
   	smallerList.each_with_index do |nucleotide, i|
   		if nucleotide != biggerList[i]
   			hammingScore += 1

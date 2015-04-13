@@ -1,12 +1,9 @@
-def compute(strandA, strandB)
-    strandA = strandA.split('')
-    strandB = strandB.split('')
-    distance = 0
-
-    strandA.each_with_index do |elementA, index|
-      elementB = strandB[index]
-      distance += 1 if elementA != elementB
+def compute(str_a, str_b)
+    mismatches = 0
+    comparison_length = str_a.size < str_b.size ? str_a.size : str_b.size
+    comparison_length.times do |n|
+      mismatches += 1 if str_a[n] != str_b[n]
     end
 
-    distance
+    mismatches
   end

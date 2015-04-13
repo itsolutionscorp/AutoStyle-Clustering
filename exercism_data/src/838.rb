@@ -1,3 +1,8 @@
-def compute(*s)
-		(0...s.map{|l| l.length}.min).select{|i| s[0][i] != s[1][i]}.length
-	end
+def compute(dnaone, dnatwo)
+  	difference = 0
+    endofchain = [dnaone.length,dnatwo.length].min - 1
+  	for i in 0..endofchain
+   		difference+=1 if dnaone[i] != dnatwo[i]
+   	end
+    return difference
+  end

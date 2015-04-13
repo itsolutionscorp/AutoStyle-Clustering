@@ -9,4 +9,3 @@ def compute(one, other)
       compute(one[0], other[0]) + compute(one[1..-1], other[1..-1])
     end
   end
-end

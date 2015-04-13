@@ -9,7 +9,7 @@ def compute(strand1, strand2)
 				i += 1
 			else
 				i += 1
-			end	
+			end
 		end
 	return difference
 	end

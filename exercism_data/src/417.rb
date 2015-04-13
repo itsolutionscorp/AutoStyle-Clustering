@@ -1,4 +1,5 @@
-def compute(str1, str2)
-    short, long = [str1, str2].sort_by(&:length)
-    short.chars.zip(long.chars).inject(0) { |diff, c| c[0]==c[1] ? diff : diff+1 }
+def compute(strand1, strand2)
+    strand1.each_char.with_index.inject(0) do |distance, (nucleotide, i)|
+      nucleotide == strand2[i] ? distance : distance + 1
+    end
   end

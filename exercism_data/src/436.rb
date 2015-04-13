@@ -1,11 +1,12 @@
-def compute(strand1, strand2)
-    strand1 = strand1.split('')
-    strand2 = strand2.split('')
-
-    distance = 0
-    strand1.each_with_index do |nuc, index|
-      return 0 if strand2[index] == nil
-      distance += 1 if nuc != strand2[index]
+def compute(sequence1, sequence2)
+    count = 0
+    array1 = sequence1.chars
+    array2 = sequence2.chars
+    joined = array1.zip(array2)
+    joined.each do |key, value|
+      if key != value
+        count += 1
+      end
     end
-    distance
+    count
   end

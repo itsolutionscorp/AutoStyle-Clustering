@@ -1,5 +1,3 @@
-def compute(strand1, strand2)
-    (0..[strand1.length, strand2.length].min).count do |i|
-      strand1[i] != strand2[i]
-    end
+def compute(str1, str2)
+    (0...str1.length).count { |i| str1[i] != str2[i] }
   end

@@ -1,10 +1,7 @@
-def compute(a, b)
-    shorter, longer = a, b
-    shorter, longer = b, a if b.length < a.length
-    other_chars = longer.each_char.to_a
-    index = -1
-    shorter.chars.reduce(0) do |hamming, char|
-      index += 1
-      char != other_chars[index] ? hamming + 1 : hamming
-    end
+def compute(strand1, strand2)
+    chars1 = strand1.chars.take(strand2.length)
+    chars2 = strand2.chars
+
+    pairs = chars1.zip(chars2)
+                  .count { |char1, char2| char1 != char2 }
   end

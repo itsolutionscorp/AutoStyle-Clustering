@@ -3,4 +3,3 @@ def compute(*strands)
     mutations = ->(points) { points.all? and not points.uniq.one? }
     strands.reduce(&to_arrays).count(&mutations)
   end
-end

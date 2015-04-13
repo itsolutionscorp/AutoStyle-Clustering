@@ -1,7 +1,12 @@
-def compute(strand1, strand2)
-    last_nucleotide_index = [strand1.length, strand2.length].min - 1
+def compute(strand, different_strand)
+    a = strand.split("")
+    b = different_strand.split("")
+    count = 0
 
-    (0..last_nucleotide_index).count do |i|
-      strand1[i] != strand2[i]
+    a.zip(b).first( a.length && b.length).each do |c, d|
+      if c != d
+        count += 1
+      end
     end
+    count
   end

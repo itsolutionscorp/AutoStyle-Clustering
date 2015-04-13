@@ -1,11 +1,23 @@
-def compute(strandA, strandB)
-		if strandA == strandB
-			0
-		else
-			differences = 0
-			for i in 0..[strandA.length, strandB.length].min - 1 do
-				differences += 1 if strandA[i] != strandB[i]
+def compute(strand_one, strand_two)
+
+
+		shortest_string_length = [strand_one.length, strand_two.length].min
+
+
+		@hamming_distance_count = 0
+		@string_position = 0
+
+
+			while @string_position < shortest_string_length
+
+				if strand_one.chars[@string_position] != strand_two.chars[@string_position]
+					@hamming_distance_count += 1
+				end
+
+				@string_position += 1
+
 			end
-			differences
-		end
+
+		return @hamming_distance_count
+
 	end

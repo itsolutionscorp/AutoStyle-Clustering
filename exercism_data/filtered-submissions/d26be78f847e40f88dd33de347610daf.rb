@@ -5,4 +5,3 @@ def compute(str1, str2)
     end
 
   end
-end

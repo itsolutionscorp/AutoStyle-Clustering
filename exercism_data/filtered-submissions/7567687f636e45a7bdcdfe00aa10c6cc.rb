@@ -8,10 +8,9 @@ def compute(s1, s2)
       strand_1 = s2
       strand_2 = s1
     end
-    
+
     strand_1.chars.each_with_index do |x1, i|
       distance += 1 if x1 != strand_2[i]
     end
     distance
   end
-end

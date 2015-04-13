@@ -1,9 +1,8 @@
-def compute(strand1,strand2)
-
-    # only compare if strands are same length
-    if strand1.length === strand2.length
-      #return count of differences
-      [strand1.chars, strand2.chars].transpose.select { |chars1, chars2| chars1 != chars2}.count
+def compute ( dna1, dna2 )
+    hamming = 0
+    length = [dna1.length, dna2.length].min
+    for i in 0..length-1
+      hamming += 1 if dna1[i] != dna2[i]
     end
-
+    hamming
   end

@@ -5,5 +5,5 @@ def compute(s1, s2)
         distance += 1
       end
     end
-    distance 
+    distance
   end

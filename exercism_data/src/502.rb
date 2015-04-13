@@ -1,5 +1,8 @@
-def compute(str1, str2)
-    str1.chars.zip(str2.chars).count do |(ch1, ch2)| 
-      (ch1 != ch2) && ch2
+def compute(a, b)
+    diffs = i = 0
+    while i < a.length and i < b.length
+      diffs += 1 if a[i] != b[i]
+      i += 1
     end
+    diffs
   end

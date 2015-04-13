@@ -1,13 +1,20 @@
-def compute(a, b)
-    a_chars = a.chars
-    b_chars = b.chars
+def compute(strand1, strand2)
 
-    a_chars.each_with_index.inject(0) do |distance, (char, index)|
-      if char != b_chars[index]
-        distance += 1
-      end
-
-      distance
+    if strand1.length == strand2.length
+      chars_to_count = strand1.length
+    elsif strand1.length < strand2.length
+      chars_to_count = strand1.length
+    else
+      chars_to_count = strand2.length
     end
+
+    hamming = 0
+
+    chars_to_count.times do |n|
+      if strand1[n] != strand2[n]
+        hamming += 1
+      end
+    end
+
+    hamming
   end
-end

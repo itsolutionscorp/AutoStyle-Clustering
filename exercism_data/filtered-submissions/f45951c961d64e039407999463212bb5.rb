@@ -1,4 +1,4 @@
-def compute str1, str2 
+def compute str1, str2
     count = 0
     str1 = str1.to_s.split('')
     str2 = str2.to_s.split('')

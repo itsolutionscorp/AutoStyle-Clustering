@@ -1,6 +1,7 @@
-def compute(s1,s2)
-    (0..s1.length).inject(0) do |sum,i|
-      sum += 1 unless s1[i] == s2[i]
-      sum
+def compute(first, second)
+    distance = 0
+    first.chars.zip(second.chars).each do |a, b|
+      distance = distance + 1 unless a == b
     end
+    distance
   end

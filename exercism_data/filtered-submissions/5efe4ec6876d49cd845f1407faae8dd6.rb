@@ -5,4 +5,3 @@ def compute (a, b)
       .select { |i| a[i] != b[i] }
       .count
   end
-end

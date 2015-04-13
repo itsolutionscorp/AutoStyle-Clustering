@@ -1,7 +1,11 @@
-def compute (from, to)
-    diff = 0
-    [from.length, to.length].min.times do |i|
-      diff += 1 if from[i] != to[i]
+def compute(left, right)
+    count = 0
+
+    left.split("").zip(right.split("")).each do |l_char, r_char|
+      break unless l_char && r_char
+
+      count += 1 if l_char != r_char
     end
-    diff
+
+    count
   end

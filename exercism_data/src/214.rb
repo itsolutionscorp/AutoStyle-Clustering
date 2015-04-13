@@ -1,14 +1,8 @@
-def compute(string1,string2)
-		if string1.length < string2.length
-			a = string1
-			b = string2
-		else
-			a = string2
-			b = string1
+def compute(x,y)
+		hamming_counter = 0
+		size_control = x.size unless y.size < x.size ? size_control = y.size : size_control
+		(0...size_control).each do |var|
+			hamming_counter += 1 unless x[var] == y[var]
 		end
-		count = 0
-		(0..(a.length-1)).each{|x|
-			count +=1 if a[x] != b[x]
-		}
-		count
+		return hamming_counter
 	end

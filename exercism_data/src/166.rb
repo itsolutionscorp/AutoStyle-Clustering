@@ -1,14 +1,9 @@
-def compute(str1, str2)
-    
-    str1.length <= str2.length ? gataca_counter = str1.length : gataca_counter = str2.length
-    
-    hamming = 0
-    
-    gataca_counter.times do |n|
-      if str1[n] != str2[n]
-        hamming += 1
+def compute(strand1, strand2)
+    errors = 0
+    strand1.length.times do |i|
+      if (strand1[i] != strand2[i])
+        errors += 1
       end
     end
-    
-    hamming
+    return errors
   end

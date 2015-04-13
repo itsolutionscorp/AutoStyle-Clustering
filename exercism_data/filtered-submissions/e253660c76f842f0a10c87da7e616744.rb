@@ -3,4 +3,3 @@ def compute(dna1, dna2)
 
         short.chars.zip(long.chars).count { |char1, char2| char1 != char2 }
     end
-end

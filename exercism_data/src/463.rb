@@ -1,8 +1,4 @@
-def compute(source, compare)
-    distance = 0
-    source.chars.zip(compare.chars).each do |lhs, rhs|
-      break if rhs.nil?
-      distance += 1 if lhs != rhs
-    end
-    distance
+def compute(array1='', array2='')
+    bytes1, bytes2, index = array1.bytes, array2.bytes, -1
+    bytes1.count{|entry| index+=1; entry != bytes2[index] }
   end

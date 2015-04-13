@@ -1,3 +1,4 @@
-def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).count { |base1, base2| base1 != base2 }
-  end
+def compute (x, y)
+		ary = x.chars.take(y.size).zip(y.chars)
+		ary.count {|n1, n2| n1 != n2 }
+	end

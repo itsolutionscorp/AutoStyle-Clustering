@@ -1,11 +1,10 @@
-def compute(left, right)
-    count = 0
+def compute primary_strand, secondary_strand
+    distance = 0
+    number_of_characters_to_compare = [primary_strand.length, secondary_strand.length].min
 
-    left.split("").zip(right.split("")).each do |l_char, r_char|
-      break unless l_char && r_char
-
-      count += 1 if l_char != r_char
+    number_of_characters_to_compare.times do |index|
+      distance += 1 if  primary_strand[index] != secondary_strand[index]
     end
 
-    count
+    distance
   end

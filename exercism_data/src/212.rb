@@ -1,8 +1,9 @@
-def compute(x,y)
-		hamming_counter = 0
-		size_control = x.size unless y.size < x.size ? size_control = y.size : size_control
-		(0...size_control).each do |var|
-			hamming_counter += 1 unless x[var] == y[var]
-		end
-		return hamming_counter
-	end
+def compute(dna1, dna2)
+    count = 0
+    dna1.chars.each_with_index do |c, i|
+      if i < dna2.length
+        count += 1 if c != dna2[i]
+      end
+    end
+    count
+  end

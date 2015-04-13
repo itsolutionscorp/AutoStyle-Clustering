@@ -3,7 +3,7 @@ from collections import Counter
 import shutil
 import sys
 import argparse
-
+import tempfile
 # for example call this script on hamming from exercism_data directory like: python remove_invalid_submissions.py "ruby/hamming/" "filtered-submissions/" "compute"  
 parser = argparse.ArgumentParser(description='Filter and clean data and put in src directory')
 parser.add_argument('data_directory', help='Directory for original data')
@@ -36,18 +36,29 @@ else:
 	shutil.rmtree('src')
 	os.mkdir('src')
 
+
 for f in os.listdir(data_directory):
-	data = open(data_directory + f, "r").read()
+
+	t = tempfile.NamedTemporaryFile(mode="r+")
+	with open(data_directory+f) as filename:
+		for line in filename:
+			line = line.partition('#')[0]
+			line = line.rstrip() + "\n"
+			t.write(line)
+	t.seek(0)
+
+	data = t.read()
 	#if not (data.count('def') == 1 or data.find('def word_count') == -1 or data.find('def initialize') == -1):
 	if data.count('def') == 1 and (data.find('def self.' + str(method)) != -1 or data.find('def ' + str(method)) != -1): 
 		data = data.replace('def self.' + str(method), 'def ' + str(method))
-		num_ends_to_strip = data.count('class')
+		num_ends_to_strip = data.count('class') + data.count('module')
 		data = data[data.find('def ' + str(method)):]
 		for i in range(num_ends_to_strip):
 			data = data[:data.rfind('end')]
 		data = data.rstrip()
 		out = open(filtered_submissions+f, "w+")
 		out.write(data)
+	t.close()
 
 count = 0
 for f in os.listdir(filtered_submissions):
@@ -56,6 +67,8 @@ for f in os.listdir(filtered_submissions):
 	shutil.copyfile(filtered_submissions+f, 'src/'+str(index_id)+'.rb')
 	mapfile.write(str(submission_id) + ' : ' + str(index_id) + '\n')
 	count += 1
+
+
 
 print 'filtered to submissions: ' + str(count)
 			

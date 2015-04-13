@@ -6,4 +6,3 @@ def compute(strand_a, strand_b)
 			strand_a[i] != strand_b[i] ? 1 : 0
 		end.inject(:+)
 	end
-end

@@ -1,4 +1,10 @@
-def compute(first,second)
-      first,second=[first,second].sort_by(&:size)
-      first.bytes.zip(second.bytes).map{|x| true if x.first!=x.last}.compact.size
-    end
+def compute(s1, s2)
+		if s1.length > s2.length
+			s1, s2 = s2, s1
+		end
+		d = 0
+		s1.each_char.with_index do |c1, i|
+			d += 1 if c1 != s2[i]
+		end
+		d
+	end

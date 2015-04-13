@@ -12,5 +12,3 @@ def compute a,b
     end
     c
   end
-
-end

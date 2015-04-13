@@ -1,10 +1,13 @@
-def compute(a, b)
-    shorter, longer = a, b
-    shorter, longer = b, a if b.length < a.length
-    other_chars = longer.each_char.to_a
-    index = -1
-    shorter.chars.inject(0) do |hamming, current|
-      index = index + 1
-      current != other_chars[index] ? hamming + 1 : hamming
+def compute(s, t)
+    result = 0
+
+    len = [s.length, t.length].min - 1
+
+    for i in 0..len
+      if(s[i] != t[i])
+        result += 1
+      end
     end
+
+    result
   end

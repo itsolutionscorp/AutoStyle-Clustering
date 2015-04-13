@@ -4,7 +4,7 @@ def compute(a,b)
 			a = b
 			b = a
 		end
-		
+
 		missCount = 0
 		pos = 0
 
@@ -14,5 +14,5 @@ def compute(a,b)
 			end
 			pos += 1
 		}
-		missCount	
+		missCount
 	end

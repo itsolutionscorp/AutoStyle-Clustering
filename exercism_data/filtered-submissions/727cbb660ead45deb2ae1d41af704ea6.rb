@@ -5,4 +5,3 @@ def compute(first_strand, second_strand)
     end
     result
   end
-end

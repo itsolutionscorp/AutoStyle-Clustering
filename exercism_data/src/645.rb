@@ -1,4 +1,11 @@
-def compute(strand_a, strand_b)
-      raise "Strands must be similar length" unless strand_a.length == strand_b.length
-      strand_a.chars.zip(strand_b.chars).count{|a, b| a != b}
-    end
+def compute(a,b)
+		tol = [a.length, b.length].min() -1
+		sum = (0..tol).reduce(0) { |sum,i|
+			if (a[i]!=b[i])
+			then
+				sum += 1
+			end
+			sum
+		}
+
+	end

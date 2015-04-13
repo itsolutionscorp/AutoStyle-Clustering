@@ -1,9 +1,5 @@
-def compute( dna1, dna2 )
-		difference = 0
-		dna1.each_char.with_index do |item, index|
-			if item != dna2[index]
-				difference = difference+1
-			end
-		end
-		difference
-	end
+def compute(strand1, strand2)
+    (strand1.chars.zip(strand2.chars)).count do |nucleotide_a, nucleotide_b|
+      nucleotide_a != nucleotide_b
+    end
+  end

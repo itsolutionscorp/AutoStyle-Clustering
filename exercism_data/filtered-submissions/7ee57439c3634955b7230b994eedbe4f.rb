@@ -9,4 +9,3 @@ def compute base_string, comparison_string
 
     hamming_distance
   end
-end

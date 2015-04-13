@@ -5,4 +5,3 @@ def compute(first, second)
     end
     return results
   end
-end

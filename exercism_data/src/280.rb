@@ -1,7 +1,6 @@
-def compute(one, two)
-    res = 0
-    one.each_char.each_with_index do |item, index|
-      res = res + 1 if two[index] != item and two[index] != nil 
-    end 
-    res
+def compute(str1, str2)
+    gataca_count = (str1.length <= str2.length) ? str1.length : str2.length
+    hamming = 0
+    gataca_count.times { |n| hamming += 1 unless str1[n] = str2[n] }
   end
+  hamming

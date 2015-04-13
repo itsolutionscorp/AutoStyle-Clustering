@@ -1,10 +1,9 @@
-def compute(input1, input2)
-    strand1 = input1.chars
-    strand2 = input2.chars
-    
-    length = [strand1.length, strand2.length].min
-    
-    length.times.map do |n|
-      strand1[n] == strand2[n] ? 0 : 1
-    end.inject(&:+)
+def compute(a, b)
+    count = 0
+    for index in 0...(a.chars.length > b.chars.length ? b.chars.length : a.chars.length) do
+      if a.chars[index] != b.chars[index]
+        count += 1
+      end
+    end
+    return count
   end

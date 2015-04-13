@@ -1,13 +1,6 @@
-def compute(dna1, dna2)
-
-    # Find shorter length and use that
-    length = [dna1.length, dna2.length].min
-
-    # Compare characters
-    distance = 0
-    length.times do |i|
-      distance += 1 if dna1[i] != dna2[i]
-    end
-
-    return distance
+def compute(strand_1, strand_2)
+    return strand_1.chars.zip(strand_2.chars)
+      .count do |nucleotide_1, nucleotide_2|
+        nucleotide_1 != nucleotide_2
+      end
   end

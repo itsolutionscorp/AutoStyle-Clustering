@@ -1,8 +1,7 @@
-def compute(a, b)
-    minlen = [a.length, b.length].min
+def compute(a,b)
     diff = 0
-    (0..minlen-1).each do |i|
-      diff += 1 unless a[i] == b[i]
+    a.split("").zip(b.split("")).each do |x,y|
+      diff +=1 if x != y
     end
     diff
   end

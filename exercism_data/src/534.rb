@@ -1,10 +1,5 @@
-def compute(first, second)
-    distance = 0
-    common_length = [ first.size, second.size ].min - 1
-
-    0.upto(common_length) do |i|
-      distance +=1 if first[i] != second[i]
-    end
-
-    return distance
+def compute(strand_x, strand_y)
+    [strand_x.size,strand_y.size].min.times.count{ |c|
+      strand_x[c] != strand_y[c]
+    }
   end

@@ -6,6 +6,3 @@ def compute(strand_one, strand_two)
     end
     differences
   end
-end
-
-include Hamming

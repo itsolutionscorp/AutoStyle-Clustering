@@ -1,11 +1,8 @@
-def compute(strand_one, strand_two)		
-		hamming_distance = 0
-		
-		for i in 0..strand_one.length
-			if strand_one[i] != strand_two[i]
-				hamming_distance += 1
-			end
-		end
-		
-		hamming_distance
+def compute(a, b)
+	hamming = 0
+	a = a.slice(0,[a.length, b.length].min)
+	a.each_char.zip(b.each_char) do |l, r|
+		(l == r) || hamming += 1
 	end
+	hamming
+end

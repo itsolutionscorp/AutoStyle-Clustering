@@ -1,5 +1,5 @@
 def compute(first_strand, second_strand)
-    
+
     hamming_distance = 0
 
     for i in 0...first_strand.length

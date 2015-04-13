@@ -3,4 +3,3 @@ def compute(a_strand, b_strand)
       ham_distance += pair.compact.uniq.length - 1
     end
   end
-end

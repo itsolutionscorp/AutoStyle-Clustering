@@ -1,7 +1,6 @@
-def compute(refdna, newdna)
-    hammingscore = 0
-    a = refdna.scan(/./)
-    b = newdna.scan(/./)
-    a.each_with_index { |amino, index| hammingscore += 1 if b.length > index && amino != b[index] }
-    return hammingscore
+def compute(strand_1, strand_2)
+  [strand_1.length, strand_2.length].
+    min.
+    times.
+    count { |i| strand_1[i] != strand_2[i] }
   end

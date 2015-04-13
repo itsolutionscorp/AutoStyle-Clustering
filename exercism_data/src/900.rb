@@ -1,13 +1,11 @@
-def compute(arg1, arg2)
-    arr1 = arg1.split("")
-    arr2 = arg2.split("")
-
-    counter = 0
-
-    arr1.each_with_index do |x, i|
-      if x != arr2[i]
-        counter += 1
+def compute(dna1, dna2)
+    count = 0
+    b = 0
+    dna1.each_char do |a|
+      if a != dna2[b] && dna2[b] != nil
+        count += 1
       end
+      b += 1
     end
-    return counter
+  count
   end

@@ -1,13 +1,7 @@
-def compute(strand1, strand2)
-    difference = 0
-    
-    for i in 0..strand1.size do
-      if strand1[i] and strand2[i]
-        if strand1[i] != strand2[i] 
-          difference += 1
-        end
-      end
+def compute(a, b)
+    hamming_distance = 0
+    [b.length, a.length].min.times do |i|
+      hamming_distance += 1 if a[i] != b[i]
     end
-
-    difference
+    hamming_distance
   end

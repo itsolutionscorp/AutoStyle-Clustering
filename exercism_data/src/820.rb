@@ -1,5 +1,3 @@
-def compute(dna_a, dna_b)
-    set_a = dna_a.chars
-    set_b = dna_b.chars
-    set_a.zip(set_b).count {|set| set[0] != set[1]}
+def compute(str1, str2)
+    str1.chars.zip(str2.chars).map { |c| c[1] && c[0] != c[1] }.count(true)
   end

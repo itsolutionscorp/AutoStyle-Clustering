@@ -4,4 +4,3 @@ def compute s1,s2
       memo
     }
   end
-end

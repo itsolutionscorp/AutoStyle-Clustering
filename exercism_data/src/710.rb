@@ -1,9 +1,17 @@
-def compute(first_dna_strand, second_dna_strand)
-    number_of_differences = 0
+def compute(x,y)
+    x_arr = x.split(//)
+    y_arr = y.split(//)
 
-    first_dna_strand.chars.each_with_index do |letter, index|
-      number_of_differences += 1 unless letter == second_dna_strand[index]
+    ctr = 0
+    idx = 0
+
+    x_arr.each do |i|
+      if y_arr[idx] != i
+        ctr = ctr + 1
+      end
+
+      idx = idx + 1
     end
 
-    number_of_differences
+    ctr
   end

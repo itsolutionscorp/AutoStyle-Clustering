@@ -1,6 +1,3 @@
-def compute(a, b)
-    hamming_distance = 0
-    [b.length, a.length].min.times do |i|
-      hamming_distance += 1 if a[i] != b[i]
-    end
-    hamming_distance
+def compute(str1, str2)
+    str1.chars.zip(str2.chars).reject { |a| a.first == a.last }.count
+  end

@@ -1,7 +1,7 @@
 def compute mine, yours
     min_length = [mine.length, yours.length].min
 
-    # truncate input
+
     mine = mine[0, min_length]
     yours = yours[0, min_length]
 

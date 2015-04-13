@@ -1,9 +1,7 @@
-def compute(original, copy)
-    count = 0
-    if original != copy
-      [original.length, copy.length].min.times do |i|
-        count += 1 if original[i] != copy[i]
+def compute(dna1, dna2)
+      distance = 0
+      (0...dna1.length).each do |i|
+        distance += 1 unless dna1[i].nil? || dna2[i].nil? || dna1[i] == dna2[i]
       end
+      distance
     end
-    count
-  end

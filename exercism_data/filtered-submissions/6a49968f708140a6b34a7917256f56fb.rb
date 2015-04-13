@@ -14,5 +14,5 @@ def compute( a, b)
 			end
 			index += 1
 		end
-		return count 
+		return count
 	end

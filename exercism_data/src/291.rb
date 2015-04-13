@@ -1,14 +1,8 @@
 def compute(a, b)
-    count = 0
-    a = a.split("")
-    b = b.split("")
-    if a.length > b.length
-        strandLen = b.length
-    elsif a.length < b.length
-        strandLen = a.length
-    elsif a.length == b.length
-        strandLen = a.length
-    end
-    strandLen.times{|x| count += 1 if a[x] != b[x]}
-    count
-  end
+minlen = [a.length, b.length].min
+diff = 0
+(0..minlen-1).each do |i|
+diff += 1 unless a[i] == b[i]
+end
+diff
+end

@@ -3,8 +3,8 @@ def compute(strA, strB)
 		ldiff = 0
 		range = 0
 		ldiff = strA.length - strB.length
-		
-		if ldiff > 0 
+
+		if ldiff > 0
 			range = strB.length - 1
 			strA = strA[0..range]
 		end

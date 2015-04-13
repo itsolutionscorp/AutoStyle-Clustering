@@ -1,11 +1,9 @@
-def compute(strand1, strand2)
+def compute(gene_1, gene_2)
+    strand_1 = gene_1.split(//)
+    strand_2 = gene_2.split(//)
 
-    min_length = [strand1.length,strand2.length].min
-    counter = 0
-    (0...min_length).each do |n|
-      counter += 1 if strand1.chars[n] != strand2.chars[n]
-    end
-    counter
+    short_strand = strand_1.length < strand_2.length ? strand_1 : strand_2
+    long_strand  = strand_2.length < strand_1.length ? strand_2 : strand_1
+
+    short_strand.zip(long_strand).inject(0) { |memo, tuple| memo + (tuple.first != tuple.last ? 1 : 0) }
   end
-
-end

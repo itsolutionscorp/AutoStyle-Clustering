@@ -1,10 +1,10 @@
-def compute(a, b)
-    start_distance = 0
-    length = [a.length, b.length].min
+def compute(str1, str2)
+    dist = 0
 
-    (0...length).reduce(start_distance) do |distance, index|
-      difference = (a[index] == b[index]) ? 0 : 1
-
-      distance + difference
+    until str1.empty? || str2.empty?
+      break if str1 == str2
+      dist += 1 if str1.slice!(0) != str2.slice!(0)
     end
+
+    dist
   end

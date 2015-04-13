@@ -1,14 +1,23 @@
-def compute(str1, str2)
+def compute(s1, s2)
 
-    str1.chars.take(str2.length).each_with_index.inject(0) do |counter, string_index|
 
-      if str2[string_index[1]] != string_index[0]
-        counter + 1
-      else
-        counter
-      end
+		if s1.length < s2.length
+			numchars = s1.length
+		else
+			numchars = s2.length
+		end
 
-    end
+		num_differences = 0
+		index = 0
+		numchars.times do
+			c1 = s1[index]
+			c2 = s2[index]
 
-  end
-end
+			if c1 != c2
+				num_differences += 1
+			end
+			index += 1
+		end
+
+		return num_differences
+	end

@@ -3,4 +3,3 @@ def compute first_sequence, second_sequence
       first_sequence[idx] != second_sequence[idx]
     end
   end
-end

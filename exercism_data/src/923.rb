@@ -1,6 +1,7 @@
-def compute(strand_1, strand_2)
-    return strand_1.chars.zip(strand_2.chars)
-      .count do |nucleotide_1, nucleotide_2|
-        nucleotide_1 != nucleotide_2
-      end
+def compute(first, second)
+  	counter = 0
+  	second.chars.each_with_index do |letter, index|
+  		counter += 1 if first.chars[index] != letter
+  	end
+  	counter
   end

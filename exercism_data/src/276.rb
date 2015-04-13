@@ -1,7 +1,9 @@
-def compute(string1, string2)
-    min_length = [string1, string2].map(&:length).min
-    min_length.times.count do |i|
-      string1[i] != string2[i]
+def compute(a, b)
+    return_value = 0
+    (0..(a.length - 1)).each do |i|
+      if a[i] != b[i]
+        return_value += 1
+      end
     end
+    return_value
   end
-end

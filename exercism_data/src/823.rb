@@ -1,11 +1,10 @@
-def compute(string1, string2)
-		i = 0
-		counter = 0
-		until i >= string1.length do
-			if string1[i] != string2[i]
-				counter += 1
-			end
-			i += 1
-		end
-		return counter
-	end
+def compute(strand_1, strand_2)
+    distance = 0
+    size = [strand_1.size, strand_2.size].min
+
+    (0...size).each do |i|
+      distance += 1 if strand_1[i] != strand_2[i]
+    end
+
+    distance
+  end

@@ -1,7 +1,11 @@
-def compute(as, bs)
-    as.split('').zip(bs.split('')).inject(0) do |count, (a, b)|
-      return count unless a && b
-      count += a == b ? 0 : 1
+def compute(strand_a,strand_b)
+    distance = 0
+    nucleotides_a = strand_a.split("")
+    nucleotides_b = strand_b.split("")
+
+    nucleotides_a.each_with_index do |h, i|
+      distance+=1 unless nucleotides_a[i] == nucleotides_b[i]
     end
+
+    distance
   end
-end

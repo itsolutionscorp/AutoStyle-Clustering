@@ -1,9 +1,15 @@
-def compute(strand1, strand2)
+def compute (seq1, seq2)
+    seq1.strip!
+    seq2.strip!
     count = 0
-    strand1.split(//).each_with_index do |char1, index|
-      char2 = strand2[index]
-      break if char2.nil?
-      count = count + 1 if char1 != char2
+    i = 0
+    len = [seq1.length, seq2.length].min
+    while i < len do
+      if seq1[i] != seq2[i]
+        count += 1
+      end
+      i += 1
     end
-    count
+
+    return count
   end

@@ -1,16 +1,11 @@
-def compute(str_one, str_two)
+def compute(strand_a, strand_b)
+    distance = 0
+    nucleotides_a = strand_a.split("")
+    nucleotides_b = strand_b.split("")
 
-    if str_one.size == [str_one.size, str_two.size].min
-      short = str_one
-      long = str_two
-    else
-      short = str_two
-      long = str_one
+    nucleotides_a.each_with_index do |nucleotide_a, i|
+      distance += 1 unless nucleotide_a == nucleotides_b[i]
     end
 
-    hamming = 0
-    i = 0
-    short.each_char { |char| hamming += 1 if char != long[i]; i += 1 }
-
-    hamming
+    distance
   end

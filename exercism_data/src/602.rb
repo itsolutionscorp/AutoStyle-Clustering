@@ -1,10 +1,14 @@
-def compute(dna1, dna2)
-    nucleobases1 = dna1.chars
-    nucleobases2 = dna2.chars
+def compute(string_1, string_2)
+    length_comparison = string_1.length <=> string_2.length
 
-    paired_nucleobases = nucleobases1.zip(nucleobases2)
+    string_1 = string_1[0...string_2.length] if length_comparison == 1
+    string_2 = string_2[0...string_1.length] if length_comparison == -1
 
-    paired_nucleobases.count do |(nucleobase1, nucleobase2)|
-      nucleobase1 != nucleobase2
+    hamming_count = 0
+
+    (0..string_1.length).each do |n|
+      hamming_count += 1 if string_1[n] != string_2[n]
     end
+
+    hamming_count
   end

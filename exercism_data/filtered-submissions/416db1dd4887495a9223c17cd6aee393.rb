@@ -7,4 +7,3 @@ def compute(sequence1, sequence2)
     end
     difference
   end
-end

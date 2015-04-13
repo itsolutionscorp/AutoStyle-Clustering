@@ -1,12 +1,5 @@
-def compute(strand1,starnd2)
-    distance = 0
-    index = 0
-
-    strand1.length.times do
-      break if (strand1[index] == nil) || (strand2[index] == nil)
-      distance += 1 if strand1[index] != strand2[index]
-      index += 1 
-    end
-
-    return distance
+def compute(strand_one, strand_two)
+    strand_one.split('').zip(strand_two.split('')).select do |one,two|
+      two && one != two
+    end.count
   end

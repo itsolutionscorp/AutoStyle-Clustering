@@ -6,6 +6,3 @@ def compute(s1, s2)
         differences
       end
     end
-  end
-
-end

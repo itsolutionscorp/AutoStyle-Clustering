@@ -1,7 +1,5 @@
-def compute(first, second)
-    distance = 0
-    first.chars.zip(second.chars).each do |a, b|
-      distance = distance + 1 unless a == b
+def compute(strand1, strand2)
+    (0..[strand1.length, strand2.length].min).count do |i|
+      strand1[i] != strand2[i]
     end
-    distance
   end

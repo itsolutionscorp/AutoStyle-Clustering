@@ -3,4 +3,3 @@ def compute strand1, strand2
       sum + (letter == strand2[index] || !strand2[index] ? 0 : 1)
     end
   end
-end

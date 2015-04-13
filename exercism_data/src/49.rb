@@ -1,4 +1,5 @@
-def compute a, b
-    (0..a.length-1).map{|i| a[i] == b[i] ? 0 : 1 }.reduce(:+)
+def compute(sequence1, sequence2)
+    sequence1.chars.zip(sequence2.chars).count do |symbol1, symbol2|
+      symbol2 && symbol2 != symbol2
+    end
   end
-end

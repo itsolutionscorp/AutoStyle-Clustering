@@ -1,5 +1,5 @@
-def compute(first, second)
-    first.slice(0, second.size).chars.each_with_index.select do |(nucleotide, index)|
-      nucleotide != second[index]
-    end.count
+def compute(strand_1, strand_2)
+    (0..strand_1.length).inject(0) do |sum, i|
+      strand_1[i] != strand_2[i] ? sum + 1 : sum
+    end
   end

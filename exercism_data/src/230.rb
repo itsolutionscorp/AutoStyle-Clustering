@@ -1,8 +1,7 @@
-def compute(string_1, string_2)
-    count = 0
-    string_1.chars.each_index do |i|
-      break if i == string_2.length
-      count += 1 unless string_1[i] == string_2[i]
+def compute(str1, str2)
+    shorter_length = [str1.length, str2.length].min
+
+    (0...shorter_length).reduce(0) do |d, i|
+      str1[i] == str2[i] ? d : d + 1
     end
-    count
   end

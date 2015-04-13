@@ -1,10 +1,6 @@
 def compute(s1, s2)
-		if s1.length > s2.length
-			s1, s2 = s2, s1
-		end
-		d = 0
-		s1.each_char.with_index do |c1, i|
-			d += 1 if c1 != s2[i]
-		end
-		d
-	end
+    valid_length = [s1.length, s2.length].min
+    s1 = s1.chars.take(valid_length)
+    s2 = s2.chars.take(valid_length)
+    s1.zip(s2).count { |c| c[0] != c[1] }
+  end

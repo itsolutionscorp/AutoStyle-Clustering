@@ -4,7 +4,7 @@ def compute(first_string, second_string)
 	for i in 0..small_len-1
 		if first_string[i] != second_string[i] then
 			count=count+1
-		end 	
-	end 
+		end
+	end
 	return count
    end

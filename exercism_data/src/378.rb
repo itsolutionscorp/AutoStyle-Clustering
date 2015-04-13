@@ -1,3 +1,9 @@
-def compute(stand_a, stand_b)
-    (0...[stand_a.length, stand_b.length].min).count { |num| stand_a[num] != stand_b[num] }
+def compute(a, b)
+    count = 0
+    a.split('').each_with_index do |x, i|
+      if x != b[i]
+        count += 1
+      end
+    end
+    count
   end

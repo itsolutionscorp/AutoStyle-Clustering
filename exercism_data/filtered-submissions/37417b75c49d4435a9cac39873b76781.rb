@@ -4,4 +4,3 @@ def compute(first, second)
     size = [first.size, second.size].min
     first.take(size).zip(second.take(size)).count { |(one, two)| one != two }
   end
-end

@@ -1,7 +1,7 @@
 def compute(a, b)
 		if a.length < b.length
 			max = a.length
-		else 
+		else
 			max = b.length
 		end
 		distance = 0
@@ -12,5 +12,3 @@ def compute(a, b)
 		end
 		return distance
 	end
-	
-end

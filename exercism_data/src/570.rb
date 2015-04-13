@@ -1,8 +1,3 @@
-def compute(a, b)
-		difference = 0
-		minlength = [a.length, b.length].min
-		(0..minlength - 1).each do |i|
-			difference += 1 unless a[i] == b[i]
-		end
-		difference
+def compute(s, t)
+		s.chars.zip(t.chars).count { |s_item, b_item| s_item != b_item && b_item != nil }
 	end

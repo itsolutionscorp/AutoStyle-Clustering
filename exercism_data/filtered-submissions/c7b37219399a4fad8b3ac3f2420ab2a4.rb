@@ -4,4 +4,3 @@ def compute(str1, str2)
 		count.times {|i| diff += 1 if str1[i] != str2[i] }
 		diff
 	end
-end

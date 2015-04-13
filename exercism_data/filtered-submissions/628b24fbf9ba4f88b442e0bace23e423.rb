@@ -9,7 +9,7 @@ def compute(starting_strand, strand_to_be_checked)
 		end
 		while to_be_checked.size > starting.size
 		to_be_checked.pop
-		end 
+		end
 
 		for i in 0..starting.size
 			if starting[i] != to_be_checked[i]

@@ -1,7 +1,5 @@
-def compute(x, y)
-    res = 0
-    for i in 0..(x.size)
-      res += 1 if x[i] != y[i]
+def compute(original, mutation)
+    original.chars.zip(mutation.chars).count do |parent, child|
+      parent != child && !parent.nil? && !child.nil?
     end
-    res
   end

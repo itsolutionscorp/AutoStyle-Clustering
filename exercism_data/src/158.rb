@@ -1,4 +1,9 @@
-def compute(dA, dB)
-        dA.each_char.zip(dB.each_char).map { |x| x[0] == nil or x[1] == nil or x[0] == x[1] }
-                                      .reduce(0) { |m,o| o == false ? m+1 : m+0 }
+def compute(first, second)
+    if ((first.nil? && second.nil?) || (first.empty? && second.empty?))
+      0
+    else
+      now = 1 if first[0] != second[0]
+      now = 0 if first[0] == second[0]
+      now + Hamming.compute(first[1..-1], second[1..-1])
     end
+  end

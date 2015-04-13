@@ -1,6 +1,6 @@
 def compute(input1, input2)
     attr_accessor :hamming_distance, :max_length
-    
+
     @hamming_distance = 0
     @dna1 = input1.split('')
     @dna1_length = @dna1.length
@@ -22,7 +22,7 @@ def compute(input1, input2)
       if @dna1[i] != @dna2[i]
         @hamming_distance+=1
       end
-      
+
     end
     @hamming_distance
   end

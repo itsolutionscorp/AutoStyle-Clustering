@@ -1,9 +1,7 @@
-def compute(dna1, dna2)
-    count = 0
-    dna1.chars.each_with_index do |c, i|
-      if i < dna2.length
-        count += 1 if c != dna2[i]
-      end
+def compute(strand1, strand2)
+    last_nucleotide_index = [strand1.length, strand2.length].min - 1
+
+    (0..last_nucleotide_index).count do |i|
+      strand1[i] != strand2[i]
     end
-    count
   end

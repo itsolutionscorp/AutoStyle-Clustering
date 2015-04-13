@@ -1,14 +1,32 @@
-def compute(a, b)
-    count = 0
+def compute(a,b)
 
-    a = a.split('')
-    b = b.split('')
+  	hammingScore = 0
 
-    a.each_with_index do |letter, i|
-      if letter != b[i] 
-        count += 1
-      end
-    end
 
-    count
-  end
+
+  	biggerList = []
+  	smallerList = []
+
+
+  	if a.length > b.length
+  		biggerList = a.split("")
+  		smallerList = b.split("")
+  	else
+  		biggerList = b.split("")
+  		smallerList = a.split("")
+  	end
+
+  	[smallerList.zip(biggerList)].each do |nucleotideA, nucleotideB|
+  		if nucleotideA != nucleotideB
+  			hammingScore += 1
+  	end
+
+
+
+
+
+
+
+
+  	return hammingScore
+ 	end

@@ -1,10 +1,8 @@
-def compute(a, b)
-        pairs = a.chars.to_a.zip(b.chars.to_a)
-
-        difference = 0
-        pairs.each do |pair|
-            next unless pair[0] && pair[1]
-            difference += 1 unless pair[0].upcase == pair[1].upcase
-        end
-        return difference
+def compute(strand_a, strand_b)
+    res = 0
+    stand_b = strand_b.chars
+    strand_a.chars.each_with_index do |char, i|
+      res += 1 unless char == strand_b[i] || strand_b[i].nil?
     end
+    res
+  end

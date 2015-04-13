@@ -1,7 +1,13 @@
-def compute(strandA, strandB)
-    distance = 0
-    (0...strandA.length).each do |i|
-      distance += 1 if not strandB[i].nil? and strandA[i] != strandB[i]
+def compute(one, two)
+
+    difference = 0
+
+    0.upto(one.length) do |position|
+
+
+      difference += 1 if one[position] != two[position]
     end
-    distance
+
+
+    difference
   end

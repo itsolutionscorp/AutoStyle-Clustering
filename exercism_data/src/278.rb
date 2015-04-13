@@ -1,6 +1,6 @@
-def compute(str1, str2)
-    gataca_count = (str1.length <= str2.length) ? str1.length : str2.length
-    hamming = 0
-    gataca_count.times { |n| hamming += 1 unless str1[n] = str2[n] }
+def compute(string1, string2)
+    min_length = [string1, string2].map(&:length).min
+    min_length.times.count do |i|
+      string1[i] != string2[i]
+    end
   end
-  hamming

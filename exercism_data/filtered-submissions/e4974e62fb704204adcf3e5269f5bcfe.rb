@@ -3,7 +3,7 @@ def compute(str1, str2)
       shorter = join.min do |str1, str2|
         str1.length <=> str2.length
       end
-      
+
       min = shorter.size
 
       format_str1 = str1.split('').take(min)

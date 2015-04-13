@@ -9,6 +9,6 @@ def compute(a,b)
 			distance += 1 if a[i] != b[i]
 			i += 1
 		end
-		
+
 		distance
 	end

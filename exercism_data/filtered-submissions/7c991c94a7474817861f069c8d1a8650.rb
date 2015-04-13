@@ -1,7 +1,7 @@
 def compute(s1, s2)
     hamming = 0
 
-    # lenth of chars to compare, shortest length of the two strands
+
     min = s1.size > s2.size ? s2.size : s1.size
 
     for i in 0...min

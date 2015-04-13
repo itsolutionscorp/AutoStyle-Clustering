@@ -1,5 +1,3 @@
-def compute(strand_1, strand_2)
-    (0..strand_1.length).inject(0) do |sum, i|
-      strand_1[i] != strand_2[i] ? sum + 1 : sum
-    end
+def compute(a, b)
+    a.chars.zip(b.chars).reject { |pair| pair[1].nil? || pair[0] == pair[1] }.count
   end

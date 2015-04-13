@@ -1,13 +1,3 @@
-def compute(first_string, second_string)
-    first_string_array = first_string.split(//)
-    second_string_array = second_string.split(//)
-    index = 0
-    hamming_distance = []
-    first_string_array.each do |i| 
-      if (i != second_string_array[index] || nil ) && (second_string_array[index] != nil)
-        hamming_distance << i
-      end
-      index += 1
-    end
-    hamming_distance.count
+def compute(a,b)
+    (0...[a.size, b.size].min).reduce(0) {|t, i| a[i]==b[i] ? t : t + 1 }
   end

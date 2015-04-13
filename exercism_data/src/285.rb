@@ -1,5 +1,5 @@
-def compute(strand_a, strand_b)
-		diff = 0	
-		[strand_a.size, strand_b.size].min.times { | idx | diff += 1 if strand_a[idx] != strand_b[idx] }
-		diff
-	end
+def compute(first, second)
+    return -1 if first.length != second.length
+    first, second = first.chars, second.chars
+    first.zip(second).count { |elem| elem.first.downcase != elem.last.downcase }
+  end

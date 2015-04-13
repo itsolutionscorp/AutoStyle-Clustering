@@ -1,11 +1,9 @@
-def compute(a,b)
+def compute(adn_1, adn_2)
+		diferencia = 0
 
-    a.size > b.size ? length = b.size - 1: length = a.size - 1
+		adn_1.chars.each_with_index do |char, index|
+			diferencia += 1 if char != adn_2[index]
+		end
 
-    difference = 0
-
-    (0..length).map { |i| difference += 1 if a[i] != b[i] }
-
-    difference
-
-  end
+		diferencia
+	end

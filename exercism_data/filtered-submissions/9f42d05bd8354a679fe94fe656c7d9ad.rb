@@ -1,12 +1,12 @@
 def compute(strand1, strand2)
 		count = 0
-		
+
 		if strand1.length > strand2.length
 			shorter = strand2
-		else 
+		else
 			shorter = strand1
 		end
-		
+
 		if strand1 == strand2
 			return count
 		else
@@ -16,7 +16,7 @@ def compute(strand1, strand2)
 				end
 			end
 		end
-		
+
 		return count
 
 	end

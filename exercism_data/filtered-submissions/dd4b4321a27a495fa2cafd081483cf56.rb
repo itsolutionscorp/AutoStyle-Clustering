@@ -6,3 +6,4 @@ def compute(str1, str2)
       i += 1
     end
     dist
+  end

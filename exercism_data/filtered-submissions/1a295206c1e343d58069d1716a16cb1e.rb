@@ -6,6 +6,6 @@ def compute(a,b)
 		min_length.times do |n|
 			difference += 1 if a[n] != b[n]
 		end
-		
+
 		return difference
 	end

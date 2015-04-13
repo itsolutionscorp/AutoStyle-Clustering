@@ -1,9 +1,9 @@
 def compute(a,b)
-    # Which strand is the shortest?
+
     short = a.length <= b.length ? a : b
     long = short == a ? b : a
 
-    # Make both strings into arrays
+
     short = short.scan(/./)
     long = long.scan(/./)
 

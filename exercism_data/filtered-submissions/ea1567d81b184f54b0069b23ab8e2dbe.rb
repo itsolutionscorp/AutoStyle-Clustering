@@ -8,4 +8,3 @@ def compute(first, second)
 		end
 		distance
 	end
-end  # end Module Hamming

@@ -6,4 +6,3 @@ def compute(strand, comparative_strand)
     end
     mutations
   end
-end

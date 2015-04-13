@@ -1,5 +1,10 @@
-def compute(source, target)
-    source.chars.zip(target.chars).count do |source_char, target_char|
-      source_char != target_char
+def compute(str1, str2)
+    len = [str1.length, str2.length].min
+    answer = 0
+    len.times do |i|
+      if str1[i] != str2[i]
+        answer += 1
+      end
     end
+    answer
   end

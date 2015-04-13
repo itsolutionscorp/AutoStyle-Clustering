@@ -1,7 +1,3 @@
-def compute (strand1, strand2)
-    range = (0...[strand1.length, strand2.length].min)
-
-    range.count do |i|
-      strand1[i] != strand2[i]
-    end
+def compute(first_sequence, second_sequence)
+    first_sequence.chars.zip(second_sequence.chars).reject{|a| a[0] == a[1]}.count
   end

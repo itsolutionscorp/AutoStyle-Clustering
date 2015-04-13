@@ -1,6 +1,8 @@
-def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).count do |base1, base2|
-      base2 && base1 != base2
+def compute(first, second)
+    distance = 0
+    length = [first.size, second.size].min
+    length.times do |i|
+      distance += 1 if first[i] != second[i]
     end
+    distance
   end
-end

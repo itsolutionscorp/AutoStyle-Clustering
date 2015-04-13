@@ -1,16 +1,7 @@
-def compute(strand1, strand2)
-    strand1 = strand1.chars
-    strand2 = strand2.chars
-    counter = 0
-
-    zipped_strands = strand1.zip(strand2)
-
-    zipped_strands.each do |x,y|
-      if x == nil || y == nil
-        nil
-      elsif [x] != [y]
-        counter += 1
-      end
+def compute(s, t)
+    @not_match = Array.new
+    s.split('').each_with_index do |item, index|
+      @not_match << item  if item != t.split('')[index]
     end
-    counter
+    @not_match.length
   end

@@ -1,5 +1,6 @@
-def compute(strand_1, strand_2)
-    strand_1.length.times.count do |index|
-      strand_1[index] != strand_2[index]
-    end
-  end
+def compute(dna_strand1, dna_strand2)
+		dna_strand2 = dna_strand2.each_char
+		dna_strand1.each_char.count do |nucleotide|
+			nucleotide != dna_strand2.next
+		end
+	end

@@ -1,14 +1,15 @@
-def compute( seq1, seq2 )
-    hamming_distance = 0
-    max_length_comparable = [ seq1.length, seq2.length ].min
-    
-    for i in 0...max_length_comparable
-      nucleotide1 = seq1[i]
-      nucleotide2 = seq2[i]
-      if nucleotide1 != nucleotide2
-        hamming_distance += 1
+def compute(first, second)
+    if first.length != second.length
+      raise "Different length!"
+    end
+
+    count = 0
+
+    for i in 0...first.length
+      if first[i] != second[i]
+        count += 1
       end
     end
-    
-    return hamming_distance
+
+    return count
   end

@@ -10,7 +10,7 @@ def compute(h1,h2)
         count = 0
         total = 0
         perfect.each do |a|
-            if a != broken[count] 
+            if a != broken[count]
                 total+=1
             end
             count+=1

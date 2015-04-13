@@ -1,5 +1,5 @@
 def compute(string1, string2)
-    hamming = 0 
+    hamming = 0
     dna1 = string1.split("")
     dna2 = string2.split("")
 

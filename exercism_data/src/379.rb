@@ -1,8 +1,6 @@
-def compute(x,y)
-		hamming_number = 0
-		x.chars.each_with_index do |char, index|
-			next if y[index].nil? 
-			hamming_number+=1 if char != y[index]
-		end
-		hamming_number
-	end
+def compute(a, b)
+
+    pairs = [a.chars.to_a,b.chars.to_a].sort_by(&:length).reduce(&:zip)
+
+    pairs.count {|character_a,character_b| character_a != character_b }
+  end

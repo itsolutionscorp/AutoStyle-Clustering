@@ -5,4 +5,3 @@ def compute ham1, ham2
       sum + (a.eql?(b) ? 0 : 1)
     end
   end
-end

@@ -3,7 +3,7 @@ def compute(onez,twoz)
     arr1 = onez.scan /\w/
     arr2 = twoz.scan /\w/
 
-    # are the two arrays the same length
+
     if arr1.size == arr2.size
       z = 0
       arr1.each_with_index\

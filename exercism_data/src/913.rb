@@ -1,13 +1,9 @@
-def compute(strand_one, strand_two)
-    difference = 0
+def compute(arg1,arg2)
+		ham = 0
+		a=*(0..arg1.length-1)
+		a.each do |i|
+			ham += 1 if arg1[i] != arg2[i]
+		end
+		return ham
 
-    strand_one.length.times do |index|
-      if strand_one[index].nil? or strand_two[index].nil?
-        return difference
-      elsif strand_one[index] != strand_two[index]
-        difference += 1
-      end
-    end
-
-    return difference
-  end
+	end

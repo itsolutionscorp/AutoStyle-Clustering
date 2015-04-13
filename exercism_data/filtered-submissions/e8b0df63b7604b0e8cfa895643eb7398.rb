@@ -13,4 +13,3 @@ def compute(a, b)
 
     diffs
   end
-end

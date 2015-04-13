@@ -6,4 +6,3 @@ def compute(strand_1, strand_2)
     end
     mutations
   end
-end

@@ -6,6 +6,7 @@ def compute(first, second)
       first_array = first.split ""
       second_array = second.split ""
       first_array[i] == second_array[i] ? hamming_score : hamming_score += 1
-      i+=1 
+      i+=1
     end
     return hamming_score
+  end

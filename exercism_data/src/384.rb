@@ -1,6 +1,6 @@
-def compute(str1, str2)
-    str1_chars = str1.chars
-    str2_chars = str2.chars
-
-    str1_chars.each_with_index.count { |n,i| n != str2_chars[i] }
+def compute(strand1, strand2)
+    strand1.chars.each.with_index.inject(0) do |diff, (char,i)|
+      diff += 1 if strand2.chars[i] != char
+      diff
+    end
   end

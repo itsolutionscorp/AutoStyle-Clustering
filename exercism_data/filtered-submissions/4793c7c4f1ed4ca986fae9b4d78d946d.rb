@@ -8,7 +8,7 @@ def compute(arg1,arg2)
 			end
 			i = i + 1
 		end
-		#puts sum
+
 
 		return sum
 	end

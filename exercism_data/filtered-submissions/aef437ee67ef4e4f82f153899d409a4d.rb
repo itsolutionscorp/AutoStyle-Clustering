@@ -1,5 +1,5 @@
 def compute (x, y)
-	  smallest_one = x.size < y.size ? x.size : y.size	
+	  smallest_one = x.size < y.size ? x.size : y.size
 		arr_x = x.split('')
 		arr_y = y.split('')
 		@count = 0

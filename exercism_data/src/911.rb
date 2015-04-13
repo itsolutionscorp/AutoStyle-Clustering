@@ -1,7 +1,5 @@
 def compute(first, second)
-  	counter = 0
-  	second.chars.each_with_index do |letter, index|
-  		counter += 1 if first.chars[index] != letter
-  	end
-  	counter
+    0.upto(first.size - 1).inject(0) do |count, index|
+      first[index] != second[index] ? count += 1 : count
+    end
   end

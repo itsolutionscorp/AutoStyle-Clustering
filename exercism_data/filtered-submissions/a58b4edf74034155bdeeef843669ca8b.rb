@@ -4,4 +4,3 @@ def compute (a, b)
       .times
       .count { |i| a[i] != b[i] }
   end
-end

@@ -1,6 +1,6 @@
 def compute (strand1, strand2)
-		
-		if strand1.length < strand2.length 
+
+		if strand1.length < strand2.length
 			length = strand1.length
 		else
 			length = strand2.length

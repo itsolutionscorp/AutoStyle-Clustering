@@ -8,4 +8,3 @@ def compute(strand_one, strand_two)
 
     hamming_distance
   end
-end

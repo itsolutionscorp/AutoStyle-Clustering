@@ -1,11 +1,8 @@
-def compute(seq_a, seq_b)
-    raise ArgumentError unless seq_a.length == seq_b.length
-
-    hamming_distance = 0
-
-    seq_a.chars.zip(seq_b.chars) do |char_pair|
-      hamming_distance += 1 unless char_pair.first == char_pair.last
+def compute (strand_a, strand_b)
+    differences=0
+    genes=strand_a.split("")
+    genes.each_with_index do |gene, index|
+      differences +=1 unless gene==strand_b[index]
     end
-
-    hamming_distance
+    differences
   end

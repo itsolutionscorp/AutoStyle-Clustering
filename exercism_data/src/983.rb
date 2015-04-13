@@ -1,9 +1,14 @@
-def compute(seq_1, seq_2)
-		min_length = [seq_1.size, seq_2.size].min
+def compute(strand1, strand2)
+    return 0 if strand1 == strand2
+    if strand1.length != strand2.length
 
-		corresponding_chars = seq_1[0,min_length].chars.zip(seq_2.chars)
-		
-		corresponding_chars.count do |pair| 
-			pair[0] != pair[1]
-		end
-	end
+      puts "Hamming cannot be computed on strands of different lengths"
+      return -1
+    end
+
+    hamming = 0
+    (0..strand1.length - 1).each do |p|
+      hamming += 1 unless strand1[p] == strand2[p]
+    end
+    hamming
+  end

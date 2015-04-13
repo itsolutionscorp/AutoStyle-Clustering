@@ -1,3 +1,10 @@
 def compute(a, b)
-    [a.size, b.size].min.times.count { |i| a[i] != b[i] }
+    shorter, longer = a, b
+    shorter, longer = b, a if b.length < a.length
+    other_chars = longer.each_char.to_a
+    index = -1
+    shorter.chars.reduce(0) do |hamming, char|
+      index += 1
+      char != other_chars[index] ? hamming + 1 : hamming
+    end
   end

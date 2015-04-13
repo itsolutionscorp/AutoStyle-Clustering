@@ -7,4 +7,3 @@ def compute(s1, s2)
     end
     distance
   end
-end

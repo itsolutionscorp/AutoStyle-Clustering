@@ -7,5 +7,3 @@ def compute a,b
       (a[0] == b[0] ? 0 : 1) + compute(a[1..-1], b[1..-1])
     end
   end
-
-end

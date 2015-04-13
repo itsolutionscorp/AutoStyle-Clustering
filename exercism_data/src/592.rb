@@ -1,7 +1,5 @@
-def compute x,y
-  (x.split("").zip y.split("")).inject(0) do
-    |distance, element| element.first != element.last ? distance += 1 : distance += 0
+def compute(strandA, strandB)
+    strandA.chars.zip(strandB.chars).count do |(a, b)|
+      a && b && a != b
+    end
   end
-end
-
-end

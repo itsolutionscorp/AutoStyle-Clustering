@@ -1,11 +1,11 @@
 def compute(first,second)
 		diff=0
 		if first.length==second.length
-			first.length.times do |i| 
-				
+			first.length.times do |i|
+
 				unless first[i]==second[i]
-					
-					
+
+
 					diff=diff+1
 				end
 			end
@@ -14,7 +14,7 @@ def compute(first,second)
 				diff=1
 			else
 				diff=2
-			end	
+			end
 
 		end
 		diff

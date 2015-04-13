@@ -1,11 +1,9 @@
-def compute(s1, s2)
-    return 0 if s1.eql? s2
-    
-    distance = 0
-
-    s1.split(//).each_with_index do |c, i|
-      distance += 1 unless c.eql? s2[i]
+def compute(strand1, strand2)
+    count = 0
+    strand1.split(//).each_with_index do |char1, index|
+      char2 = strand2[index]
+      break if char2.nil?
+      count = count + 1 if char1 != char2
     end
-
-    distance
+    count
   end

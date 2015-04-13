@@ -1,5 +1,8 @@
-def compute(strand1, strand2)
-    strand1.chars.zip(strand2.chars).count do |strand1_base, strand2_base|
-      strand1_base != strand2_base
+def compute(arg1, arg2)
+    raise ArgumentError, "Sequences must have the same length" unless arg1.length == arg2.length
+    differences = 0
+    (0...arg1.length).each do |index|
+      differences += 1 unless arg1[index] == arg2[index]
     end
+    differences
   end

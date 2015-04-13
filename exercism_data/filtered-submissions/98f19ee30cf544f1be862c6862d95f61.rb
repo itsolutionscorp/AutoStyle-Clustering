@@ -3,4 +3,3 @@ def compute(strand1, strand2)
       c1 != c2
     end.size
   end
-end

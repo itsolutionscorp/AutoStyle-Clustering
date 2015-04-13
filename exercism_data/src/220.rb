@@ -1,10 +1,10 @@
-def compute(dna_string_1, dna_string_2)
-    dna_sequence_1 = dna_string_1.chars
-    dna_sequence_2 = dna_string_2.chars
-
-    paired_sequence = dna_sequence_1.zip(dna_sequence_2)
-
-    paired_sequence.count do |symbol_1, symbol_2|
-      symbol_1 != symbol_2
+def compute(xs, ys)
+    (xs.split '').zip(ys.split '').reduce(0) do |count, (x, y)|
+      return nil unless x && y
+      if x != y
+        count + 1
+      else
+        count
+      end
     end
   end

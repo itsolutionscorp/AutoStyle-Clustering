@@ -1,13 +1,10 @@
-def compute(a, b)
-    zipped = a.chars.zip(b.chars)
-
+def compute(s1, s2)
     distance = 0
-
-    zipped_to_score = zipped.reject {|pair| pair.include?(nil)}
-
-    zipped_to_score.each do |pair|
-      distance += 1 if pair.first != pair.last
+    s1.each_char.with_index do |char, index|
+      next unless s2[index]
+      if char != s2[index]
+        distance += 1
+      end
     end
-
     distance
   end

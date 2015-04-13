@@ -1,6 +1,13 @@
-def compute(strand1, strand2)
-    strand1.split('').each_with_index.reduce(0) do |count, (char, index)|
-      count += 1 if strand2[index] != char
-      count
+def compute(a, b)
+    hamming_distance = 0
+
+    if a != b
+      a.each_char.with_index(0) do |c, i|
+        if c != b[i]
+          hamming_distance += 1
+          end
+        end
     end
+
+    hamming_distance
   end

@@ -1,9 +1,25 @@
-def compute(strand_1, strand_2)
-    difference = 0
-    strand_1 = strand_1.chars.take(strand_2.length)
+def compute(strand1, strand2)
+    nucleotides1 = strand1.split(//)
+    nucleotides2 = strand2.split(//)
 
-    strand_1.each_with_index do |nucleotide, index|
-      difference += 1 if nucleotide != strand_2[index]
+    hamming_count = 0
+
+    if nucleotides1.length != nucleotides2.length
+      0
+    else
+      while nucleotides1 != []
+
+        if nucleotides1[0] != nucleotides2[0]
+          hamming_count += 1
+          nucleotides1.shift
+          nucleotides2.shift
+        else
+          nucleotides2.shift
+          nucleotides1.shift
+        end
+
+      end
     end
-    return difference
+
+    return hamming_count
   end

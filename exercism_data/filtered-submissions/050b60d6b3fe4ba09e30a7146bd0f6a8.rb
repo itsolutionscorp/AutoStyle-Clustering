@@ -8,4 +8,3 @@ def compute(fst_str, snd_str)
 
     diffs
   end
-end

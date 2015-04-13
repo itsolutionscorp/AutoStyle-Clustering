@@ -4,6 +4,3 @@ def compute strand_a, strand_b
       diff += 1 if strand_b[index] && code != strand_b[index]
     end
     diff
-  end
-
-end

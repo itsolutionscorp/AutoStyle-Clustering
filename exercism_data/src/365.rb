@@ -1,11 +1,8 @@
-def compute(*strands)
-    short, long = strands.sort_by(&:length)
-
+def compute(strand1, strand2)
     difference = 0
-    short.split('').each_with_index do |character, index|
-      if character != long[index]
-        difference += 1
-      end
+    length = [strand1.length, strand2.length].min
+    (0..length-1).each do |count|
+      difference += 1 if strand1[count] != strand2[count]
     end
     difference
   end

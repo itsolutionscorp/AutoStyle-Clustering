@@ -7,4 +7,3 @@ def compute(*strings)
     end
     result
   end
-end

@@ -35,7 +35,7 @@ I've run this in the console and all the examples give me good results,
   but when I run hamming_test.rb I get:
 
 ------
-# Running:
+
 
 .SSSSSSS
 

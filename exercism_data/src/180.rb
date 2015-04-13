@@ -1,10 +1,14 @@
-def compute(str1, str2)
-    dist = 0
+def compute( seq1, seq2 )
+    hamming_distance = 0
+    max_length_comparable = [ seq1.length, seq2.length ].min
 
-    until str1.empty? || str2.empty?
-      break if str1 == str2
-      dist += 1 if str1.slice!(0) != str2.slice!(0)
+    for i in 0...max_length_comparable
+      nucleotide1 = seq1[i]
+      nucleotide2 = seq2[i]
+      if nucleotide1 != nucleotide2
+        hamming_distance += 1
+      end
     end
 
-    dist
+    return hamming_distance
   end

@@ -1,15 +1,16 @@
-def compute(strand_a, strand_b)
-    distance = []
+def compute(strand1, strand2)
+    s1 = strand1.length
+    s2 = strand2.length
 
-    length = [strand_a.length, strand_b.length].min
+    return nil if s1 != s2
 
-    strand_a = strand_a.split("").take(length)
-    strand_b = strand_b.split("").take(length)
+    count = 0
 
-    strand_b.each_with_index do |nuc, index|
-      if nuc != strand_a[index]
-        distance << nuc
+    s1.times do |i|
+      if strand1[i] != strand2[i]
+        count += 1
       end
     end
-    distance.count
+
+    return count
   end

@@ -1,19 +1,19 @@
-def compute(dna1, dna2)    # count differences between two DNA strands
-    hamdist = 0                     # initialize hamming distance counter
-    if dna1.length <= dna2.length   # if statement finds shortest strand
-      nuc_length = dna1.length        # sets word length to dna1 size
+def compute(dna1, dna2)
+    hamdist = 0
+    if dna1.length <= dna2.length
+      nuc_length = dna1.length
     else
-      nuc_length = dna2.length        # sets word length to dna2 size
+      nuc_length = dna2.length
     end
 
-    i = 0                           # intialize hamming counter
-    while i < nuc_length            # while loop for hamming calculation
-      if dna1[i] == dna2[i]         # if DNA values at position i are the same
-        hamdist = hamdist           # adds zero to hamdist
+    i = 0
+    while i < nuc_length
+      if dna1[i] == dna2[i]
+        hamdist = hamdist
       else
-        hamdist = hamdist + 1         # adds 1 to hamdist
+        hamdist = hamdist + 1
       end
-      i += 1                          # while loop counter +1
+      i += 1
     end
-    hamdist                         # outputs final number of DNA difference
-  end                               # between dna1 and dna2 strands
+    hamdist
+  end

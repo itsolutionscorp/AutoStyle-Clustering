@@ -1,8 +1,13 @@
-def compute(s1, s2)
-    pairs = s1.chars.zip(s2.chars)
-
-    pairs
-      .reject { |a, b| a.nil? || b.nil? }
-      .count { |a, b| a != b }
+def compute(a, b)
+    shorter = [a.length, b.length].min - 1
+    a_trimmed = a[0..shorter]
+    b_trimmed = b[0..shorter]
+    distance = 0
+    for i in 0..shorter
+      if a[i] != b[i]
+      	distance += 1
+      else
+      end
+    end
+    return distance
   end
-end

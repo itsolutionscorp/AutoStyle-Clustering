@@ -5,4 +5,3 @@ def compute(src, dest)
       src[i] != dest[i]
     end
   end
-end

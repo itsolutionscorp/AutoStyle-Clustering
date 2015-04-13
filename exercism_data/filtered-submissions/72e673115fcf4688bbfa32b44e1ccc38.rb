@@ -11,8 +11,8 @@ def compute(dna1, dna2)
     array2 = []
     i = 0
     hamming_dist = 0
-  
-    while i < length #0<2
+
+    while i < length
       dna1.each do |letter1|
         array1 << letter1
       end

@@ -1,12 +1,11 @@
 def compute(strand1, strand2)
-		hamming_sum = 0
-		i = 0
-		length = [strand1.length, strand2.length].min
-		while i < length
-			if strand1[i] != strand2[i]
-				hamming_sum += 1
-			end
-			i += 1
-		end
-		hamming_sum
-	end
+      distance = 0
+
+      test_size = strand1.length <= strand2.length ? strand1.length : strand2.length
+      (0...test_size).each do |i|
+        unless strand1[i] == strand2[i]
+          distance += 1
+        end
+      end
+      return distance
+    end

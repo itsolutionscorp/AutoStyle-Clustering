@@ -1,5 +1,5 @@
 def compute(strand1,strand2)
-		
+
 		compare = (strand1.split("")).zip(strand2.split(""))
 
 		distance = 0

@@ -1,7 +1,6 @@
-def compute(first, second)
-    dist = 0
-    for i in 0..first.length
-      dist += first[i] == second[i] ? 0 : 1
+def compute(a, b)
+        be = b.each_char
+        c = 0
+        a.each_char{ |e| c += 1 if e != be.next}
+        c
     end
-    return dist
-  end

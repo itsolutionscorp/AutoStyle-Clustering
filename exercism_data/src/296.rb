@@ -1,8 +1,5 @@
-def compute(s1, s2)
-    dist = 0
-    count = 0
-    s1.split('').each do |i|
-      dist += 1 if i != s2.split('')[count]
-      count += 1
-    end
-    dist
+def compute(strand_1, strand_2)
+    strand_1.chars
+            .zip(strand_2.chars)
+            .count{ |v| v[0] != v[1] }
+  end

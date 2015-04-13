@@ -1,7 +1,14 @@
-def compute(a,b)
-      limit = [a.size,b.size].min
-
-      (0...limit).inject(0) do |sum, i|
-        a[i] == b[i] ? sum : sum += 1
-      end
+def compute(a, b)
+    count = 0
+    a = a.split("")
+    b = b.split("")
+    if a.length > b.length
+        strandLen = b.length
+    elsif a.length < b.length
+        strandLen = a.length
+    elsif a.length == b.length
+        strandLen = a.length
     end
+    strandLen.times{|x| count += 1 if a[x] != b[x]}
+    count
+  end

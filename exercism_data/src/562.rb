@@ -1,7 +1,11 @@
-def compute(str1, str2)
-		cnt = 0
-		[str1.size, str2.size].min.times do |i|
-			cnt += 1 if str1[i] != str2[i]
-		end
-		cnt
-	end
+def compute(strand_one, strand_two)
+    d, i = 0, 0
+
+    strand_one.chars do |s1|
+      if s1 != strand_two[i]
+        d += 1
+      end
+        i += 1
+    end
+    d
+  end

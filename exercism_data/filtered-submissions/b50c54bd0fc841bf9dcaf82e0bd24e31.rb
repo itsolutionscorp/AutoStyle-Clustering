@@ -2,7 +2,7 @@ def compute(x, y)
   	strand1 = x.split('')
   	strand2 = y.split('')
     mutations = 0
-  	
+
     first_strand = Enumerator.new do |yielder|
       strand1.each { |strand| yielder.yield strand }
     end

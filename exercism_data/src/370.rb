@@ -1,21 +1,11 @@
-def compute(s1, s2)
-    @count = 0
-    @s1 = s1
-    @s2 = s2
+def compute(seq_a, seq_b)
+    raise ArgumentError unless seq_a.length == seq_b.length
 
-    @s1.length < @s2.length ? @shorter = @s1.length : @shorter = @s2.length
+    hamming_distance = 0
 
-    if @s1.length < @s2.length
-      @shorter = @s1.length
-    else
-      @shorter = @s2.length
+    seq_a.chars.zip(seq_b.chars) do |char_pair|
+      hamming_distance += 1 unless char_pair.first == char_pair.last
     end
 
-    0.upto(@shorter-1) do |x|
-      if @s1[x] != @s2[x]
-        @count = @count + 1
-      end
-    end
-
-    return @count
+    hamming_distance
   end

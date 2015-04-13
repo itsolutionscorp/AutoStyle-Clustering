@@ -5,4 +5,3 @@ def compute(a, b)
     result = x.map.with_index { |value, index| (value <=> y[index]).abs }
     result.inject(&:+)
   end
-end

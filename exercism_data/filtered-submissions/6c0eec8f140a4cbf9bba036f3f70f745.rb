@@ -3,7 +3,7 @@ def compute(gene_a, gene_b)
 
     array_a = gene_a.split("")
     array_b = gene_b.split("")
-    
+
     array_a.zip(array_b).each do |a, b|
       puts a,b
       if a != b

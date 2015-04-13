@@ -1,8 +1,5 @@
-def compute(first, second)
-    distance = 0
-    first.split('').each_with_index do |char, i|
-      distance = distance + 1 if char != second[i]
-    end
-    distance
+def compute(strand_one, strand_two)
+    pairs = strand_one.chars.zip(strand_two.chars)
+    pairs = pairs[0..strand_two.chars.length - 1]
+    pairs.count { |pair| pair[0] != pair[1] }
   end
-end

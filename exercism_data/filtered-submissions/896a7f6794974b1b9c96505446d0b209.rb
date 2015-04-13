@@ -11,7 +11,7 @@ def compute (x,y)
 				end
 				c +=1
 			end
-	
+
 		else
 			puts "Error! String length mismatch!"
 		return 1
@@ -20,4 +20,3 @@ def compute (x,y)
 	puts mismatch
 	return mismatch
 end
-#Hamming.compute("BA","AA")

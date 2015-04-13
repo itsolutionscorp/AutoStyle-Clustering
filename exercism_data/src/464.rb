@@ -1,13 +1,7 @@
-def compute(arg1, arg2)
-    arr1 = arg1.split("")
-    arr2 = arg2.split("")
-
-    counter = 0
-    arr1.each_with_index do |x, i|
-      if x != arr2[i]
-        counter += 1
-      end
+def compute(strand_a, strand_b)
+    return 0 if strand_a.length == 0 || strand_b.length == 0
+    min_length =  [strand_a.length, strand_b.length].min - 1
+    (0..min_length).inject(0) do |diff_count, i|
+      strand_a[i] != strand_b[i] ? diff_count + 1 : diff_count
     end
-    return counter
-
   end

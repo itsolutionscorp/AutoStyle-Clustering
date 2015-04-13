@@ -1,3 +1,18 @@
-def compute(strand_one, strand_two)
-    strand_one.chars.zip(strand_two.chars).count{ |pair| pair.compact.uniq.size > 1 }
+def compute(s, t)
+    if s == t
+      0
+    else
+      s_array = s.split("")
+      t_array = t.split("")
+
+      matches = 0
+
+      s_array.length.times do |i|
+        if s_array[i] != t_array[i]
+          matches += 1
+        end
+      end
+
+      matches
+    end
   end

@@ -1,6 +1,9 @@
-def compute(strand_a, strand_b)
-      strand_a.chars.each.with_index.reduce(0) do |distance, (nucleotide, index)|
-        distance += 1 if nucleotide != strand_b[index]
-        distance
-      end
+def compute a, b
+    return nil unless a && b
+    return nil unless a.length == b.length
+    difference = 0
+    (0..a.length).each do |i|
+      difference += 1 unless a[i] == b[i]
     end
+    return difference
+  end

@@ -5,4 +5,3 @@ def compute(a, b)
       long[index] != substrand
     end
   end
-end

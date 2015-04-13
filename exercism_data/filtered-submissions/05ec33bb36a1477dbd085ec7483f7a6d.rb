@@ -1,7 +1,7 @@
 def compute(str1,str2)
 		arr_str1 = str1.split(//)
 		arr_str2 = str2.split(//)
-		
+
 		arr_str2, arr_str1 = arr_str1, arr_str2 if arr_str1.length > arr_str2.length
 
 		ham_distance = 0

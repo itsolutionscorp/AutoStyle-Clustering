@@ -1,11 +1,16 @@
-def compute(a, b)
-    counter = 0
+def compute(x,y)
 
-    a.length.times do |i|
-      if a[i] != b[i]
-        counter += 1
+    differences = 0
+
+    stop = [x.length, y.length].min
+
+    (0...stop).each do |index|
+
+      if x[index] != y[index]
+        differences += 1
       end
+
     end
 
-    return counter
+    differences
   end

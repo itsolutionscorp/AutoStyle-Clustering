@@ -1,5 +1,3 @@
-def compute(dna1, dna2)
-    dna1.chars.zip(dna2.chars).count do |(a,b)| 
-      a && b && a != b
-    end
+def compute(a,b)
+    [a.chars.length, b.chars.length].min.times.count{ |i|  a[i] != b[i] }
   end

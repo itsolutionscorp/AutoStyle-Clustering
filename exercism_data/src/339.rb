@@ -1,7 +1,13 @@
-def compute(arg1,arg2)
-	result = 0
-		for i in 0..arg1.size
-		result += 1	if arg1.split(//)[i] != arg2.split(//)[i]
+def compute(first_string, second_string)
+		letter_array_one = first_string.split("")
+		letter_array_two = second_string.split("")
+		final_array      = letter_array_one.zip(letter_array_two)
+
+		results = final_array.select do |first_num, second_num|
+			if first_num && second_num
+				first_num != second_num
+			end
 		end
-		result
+
+		results.length
 	end

@@ -1,6 +1,12 @@
-def compute dna_a, dna_b
-		dna_a.chars.select.with_index{ |base, index| 
-				base != dna_b[index]
-			}
-			.count
-	end
+def compute(strand1, strand2)
+
+    difference = 0
+
+    strand1.split("").each_with_index do |nucleotide, index|
+      if strand2[index] && nucleotide != strand2[index]
+        difference += 1
+      end
+    end
+
+    return difference
+  end

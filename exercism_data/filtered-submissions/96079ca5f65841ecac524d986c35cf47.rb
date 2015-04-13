@@ -3,4 +3,3 @@ def compute(strand, other)
       this && that && this != that
     end
   end
-end

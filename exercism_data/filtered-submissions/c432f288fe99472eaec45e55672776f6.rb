@@ -6,5 +6,3 @@ def compute(one, other)
     end
     count
   end
-
-end

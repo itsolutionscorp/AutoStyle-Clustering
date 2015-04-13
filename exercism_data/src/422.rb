@@ -1,7 +1,5 @@
-def compute(strand1, strand2)
-      distance = 0
-      strand1.length.times do |index|
-        distance += 1 if strand1[index] != strand2[index]
-      end
-      distance
-    end
+def compute(strand, other_strand)
+    strand.chars.zip(other_strand.chars).select do |pair|
+      pair.uniq.size > 1
+    end.count
+  end

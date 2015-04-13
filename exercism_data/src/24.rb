@@ -1,8 +1,12 @@
-def compute(strand_one, strand_two)
-		n = [strand_one.length,  strand_two.length].min
-		counter = 0
-		for i in 0..n-1
-			counter += 1 unless strand_one[i] == strand_two[i]
-		end
-		counter
-	end
+def compute(mydna, yourdna)
+    combinedsequence = mydna.chars.zip(yourdna.chars)
+    debugger
+    differencecount = 0
+    combinedsequence.each{|x,y|
+      if (x != y) && !(x.nil?) && !(y.nil?)
+        differencecount = differencecount + 1
+      end
+    }
+
+    differencecount
+  end

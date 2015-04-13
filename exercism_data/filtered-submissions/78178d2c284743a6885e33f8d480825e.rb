@@ -6,4 +6,3 @@ def compute a_str, b_str
     end
     dist
   end
-end

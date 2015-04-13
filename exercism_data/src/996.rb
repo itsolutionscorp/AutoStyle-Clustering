@@ -1,4 +1,8 @@
-def compute strand1, strand2
-    compare_length = [strand1.length, strand2.length].min
-    (0...compare_length).count{|i| strand1[i] != strand2[i]}
+def compute(strand_a, strand_b)
+    strand_b = strand_b.split('')
+    strand_a.split('').each_with_index.inject(0) do |sum, (value, index)|
+      return sum if !strand_b[index]
+      sum += 1 if value != strand_b[index]
+      sum
+    end
   end

@@ -11,4 +11,3 @@ def compute(dna1, dna2)
 
         result
     end
-end

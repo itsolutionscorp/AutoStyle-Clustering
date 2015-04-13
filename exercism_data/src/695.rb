@@ -1,5 +1,13 @@
 def compute(a, b)
-    a.chars.zip(b.chars).map { |pair|
-      if (pair[0] == pair[1]) || pair.include?(nil) then 0 else 1 end
-    }.inject(0, :+)
+    counter = 0
+    index = 0
+
+    a.each_char do |a|
+      if !a.eql?(b[index]) && b[index] != nil
+        counter += 1
+      end
+      index += 1
+    end
+
+    counter
   end

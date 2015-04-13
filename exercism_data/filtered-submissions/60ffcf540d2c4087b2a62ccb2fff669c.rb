@@ -5,4 +5,3 @@ def compute(strand1, strand2)
       total
     end
   end
-end

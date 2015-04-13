@@ -4,5 +4,3 @@ def compute(a, b)
     else
       b.each_char.zip(a.each_char).count { |x, y| x != y }
     end
-  end
-end

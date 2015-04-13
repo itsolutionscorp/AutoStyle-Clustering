@@ -1,15 +1,9 @@
-def compute(first_sequence, second_sequence)
-    hamming_counter = 0
-    unless first_sequence.length != second_sequence.length
-      if first_sequence == second_sequence
-        hamming_counter
-      else
-        split_first_sequence = first_sequence.split('')
-        split_second_sequence = second_sequence.split('')
-        split_first_sequence.select.with_index do |first_sequence_base,index|
-          hamming_counter += 1 if first_sequence_base != split_second_sequence[index]
-        end
-         hamming_counter
-      end
-    end
+def compute(strand0, strand1)
+    return 0 if strand0 == strand1
+
+    minlen = [strand0.length, strand1.length].min
+    arr0 = strand0.scan(/./)[0,minlen]
+    arr1 = strand1.scan(/./)[0,minlen]
+
+    arr0.zip(arr1).map { |p| p.first != p.last ? 1 : 0 }.reduce(:+)
   end

@@ -1,9 +1,8 @@
-def compute(a, b)
-    count = 0
-    for index in 0...(a.chars.length > b.chars.length ? b.chars.length : a.chars.length) do
-      if a.chars[index] != b.chars[index]
-        count += 1
-      end 
+def compute(first, second)
+    hamming_distance = 0
+
+    (0..first.size).each do |i|
+      hamming_distance += 1 if first[i] != second[i]
     end
-    return count
+    hamming_distance
   end

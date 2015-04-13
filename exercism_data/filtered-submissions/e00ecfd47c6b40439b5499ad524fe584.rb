@@ -3,7 +3,7 @@ def compute (first, second)
         firstArr = first.split("")
         secondArr = second.split("")
 
-        firstArr.each_with_index { |c, i| 
+        firstArr.each_with_index { |c, i|
             count += 1 if secondArr[i] != c
         }
 

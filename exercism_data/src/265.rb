@@ -1,15 +1,7 @@
-def compute(strand_a, strand_b)
-    hamming_distance = 0
-
-    strand_1 = strand_a.chars
-    strand_2 = strand_b.chars
-
-    strand_1.zip(strand_2) { |a, b|
-      if a != b && b != nil
-        hamming_distance += 1
-      end
-    }
-
-    hamming_distance
-
+def compute(dna_first, dna_second)
+    count = 0
+    dna_first.chars.each_with_index do |symbol, index|
+      count += 1 if (symbol != dna_second[index]) && (dna_second[index] != nil)
+    end
+    count
   end

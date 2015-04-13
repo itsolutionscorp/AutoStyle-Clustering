@@ -9,6 +9,6 @@ def compute(arg1, arg2)
       else
         count+=1
       end
-    end # length1.times
+    end
     count
-  end # self.compute
+  end

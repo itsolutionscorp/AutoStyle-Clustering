@@ -1,3 +1,14 @@
-def compute(strand_a, strand_b)
-    strand_a.chars.zip(strand_b.chars).select { |pair| !(pair[0] == pair[1]) }.count
-	end
+def compute(a, b)
+    distance = 0
+    index = 0
+
+    while true
+      unless a[index] && b[index]
+        return distance
+      end
+
+      distance = distance + 1 if a[index] != b[index]
+
+      index = index + 1
+    end
+  end

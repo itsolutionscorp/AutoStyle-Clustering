@@ -1,9 +1,7 @@
-def compute(a, b)
-    a = a.chars
-    b = b.chars
+def compute(strand1, strand2)
+    length = [strand1.length, strand2.length].min
 
-    a, b = b, a if b.size < a.size
-
-    a.zip(b).count { |x, y| x != y }
+    (0...length).count do |n|
+      strand1[n] != strand2[n]
+    end
   end
-end

@@ -1,6 +1,15 @@
-def compute(str1, str2)
-    shorter_strand = [str1,str2].min_by(&:length)
-    (0...shorter_strand.length).select{|num|
-      str1[num] != str2[num]
-    }.length
+def compute mine, yours
+    min_length = [mine.length, yours.length].min
+
+
+    mine = mine[0, min_length]
+    yours = yours[0, min_length]
+
+    distance = mine.chars.each_with_index.reduce(0) do |memo, (char, index)|
+      if yours[index] != char
+        memo += 1
+      end
+
+      memo
+    end
   end

@@ -7,7 +7,7 @@ def compute(string1,string2)
 			hamming_distance = 0
 			(0..(strand1.length)).each do |index|
 				hamming_distance+=1 if strand1[index] != strand2[index]
-			end	
+			end
 			return hamming_distance
 		end
 	end

@@ -1,6 +1,6 @@
 def compute(a, b)
-    return 0 if a == b # performance!
-    
+    return 0 if a == b
+
     max_length = [a.length, b.length].min
     a, b = a[0..max_length-1].split(''), b[0..max_length-1].split('')
 

@@ -8,4 +8,3 @@ def compute(one, two)
 
     distance
   end
-end

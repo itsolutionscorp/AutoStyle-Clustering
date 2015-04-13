@@ -14,7 +14,7 @@ def compute(strand_1, strand_2)
     shorter_strand.each_with_index do |nucleotide, index|
       if nucleotide != longer_strand[index]
         diff += 1
-      end   
+      end
     end
 
     diff

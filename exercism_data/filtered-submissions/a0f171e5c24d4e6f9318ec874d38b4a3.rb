@@ -9,7 +9,7 @@ def compute(standA, standB)
         end
     end
     count
-    else 
+    else
       puts 'stings are not of equal length'
     end
   end

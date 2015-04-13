@@ -3,7 +3,7 @@ def compute(arg1, arg2)
 
     if arg1.length <= arg2.length
       comparators = arg1.length
-    else 
+    else
       comparators = arg2.length
     end
 

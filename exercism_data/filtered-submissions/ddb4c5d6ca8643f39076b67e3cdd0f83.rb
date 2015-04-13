@@ -9,6 +9,6 @@ def compute(a, b)
 			count += 1
 		end
 
-		puts "The hamming distance of these two DNA strands is: #{hamming_distance}"
+		puts "The hamming distance of these two DNA strands is:
 		return hamming_distance
 	end

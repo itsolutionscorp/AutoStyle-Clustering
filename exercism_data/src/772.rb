@@ -1,15 +1,5 @@
-def compute shorter, longer
-        if (shorter.length > longer.length)
-            self.compute longer, shorter
-        end
-
-        str_to_char_array = Proc.new do |x|
-            x.chars.to_a
-        end
-
-        (shorter, longer) = [shorter, longer].collect(&str_to_char_array)
-
-        shorter.zip(longer).count do |current|
-            current[0] != current[1]
-        end
-    end
+def compute (dna_strand_1,dna_strand_2)
+			dna_strand_1.each_char.each_with_index.map { |strand,index| strand!=dna_strand_2[index]}
+			.select{|x| x==true}
+			.size
+		end

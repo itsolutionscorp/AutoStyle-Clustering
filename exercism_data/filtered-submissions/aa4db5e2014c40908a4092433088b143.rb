@@ -8,6 +8,6 @@ def compute str1, str2
     limit.times do |i|
       count+=1 if str2_arr[i] != str1_arr[i]
     end
-    
+
     return count
   end

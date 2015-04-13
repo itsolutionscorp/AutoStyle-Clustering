@@ -4,5 +4,5 @@ def compute(string_one, string_two)
       string_one.split("").each_with_index do |one, index|
         count += 1 if one != string_two[index]
       end
-      count      
+      count
     end

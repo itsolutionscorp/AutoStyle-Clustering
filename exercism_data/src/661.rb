@@ -1,9 +1,4 @@
-def compute(original, mutated)
-        hamming_distance = 0
-        strand_length = [original.length, mutated.length].min
-        (0...strand_length).each do |nucleotide|
-            hamming_distance += 1 if original[nucleotide] != mutated[nucleotide]
-        end
-
-        hamming_distance
-    end
+def compute(strand_1, strand_2)
+    combination = strand_1.split('').zip(strand_2.split(''))
+    combination.count { |ary| ary[0] != ary[1] }
+  end

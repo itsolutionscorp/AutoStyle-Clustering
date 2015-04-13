@@ -5,4 +5,3 @@ def compute ham1, ham2
       !a.eql?(b)
     end
   end
-end

@@ -1,7 +1,10 @@
-def compute(strand1, strand2)
-    chars1 = strand1.chars.take(strand2.length)
-    chars2 = strand2.chars
+def compute(s1, s2)
 
-    pairs = chars1.zip(chars2)
-                  .count { |char1, char2| char1 != char2 }
+
+
+
+
+    0.upto([s1.size, s2.size].min).count do |i|
+      s1[i] != s2[i]
+    end
   end

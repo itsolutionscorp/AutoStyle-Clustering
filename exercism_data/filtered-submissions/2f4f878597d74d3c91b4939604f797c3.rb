@@ -7,10 +7,10 @@ def compute(first_strand, second_strand)
 
         if first_strand[i] != second_strand[i]
          counter += 1
-        end 
+        end
 
       end
-    end    
+    end
 
     counter
   end

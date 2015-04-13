@@ -19,5 +19,5 @@ def compute(ham, cheese)
 			end
 		end
 		return error_count
-			
+
 	end

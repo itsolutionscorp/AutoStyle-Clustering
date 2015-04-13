@@ -2,7 +2,7 @@ def compute(str1, str2)
 
     ary1 = str1.split("")
     ary2 = str2.split("")
-    
+
     hamming_number = 0
     count = 0
 

@@ -6,3 +6,4 @@ def compute(s1, s2)
       count += 1
     end
     dist
+  end

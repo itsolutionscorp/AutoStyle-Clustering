@@ -1,5 +1,5 @@
-def compute(a, b)
-    pairs = [a.chars.to_a,b.chars.to_a].sort_by(&:length).reduce(&:zip) # larger zipped into smaller means we always have the right number of pairs.
-
-    pairs.count {|pair_a,pair_b| pair_a != pair_b }
+def compute(first_strand, second_strand)
+    second_strand.chars.each_with_object([]).with_index do |(letter, count), index|
+      count << (second_strand[index] != first_strand[index])
+    end.count(true)
   end

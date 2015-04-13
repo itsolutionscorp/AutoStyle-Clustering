@@ -3,7 +3,7 @@ def compute(a, b)
     index = 0
 
     while true
-      unless a[index] && b[index] # Checks if end of either input has been reached
+      unless a[index] && b[index]
         return distance
       end
 

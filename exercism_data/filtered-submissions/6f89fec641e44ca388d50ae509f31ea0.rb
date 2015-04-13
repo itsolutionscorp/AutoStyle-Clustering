@@ -1,4 +1,4 @@
-def compute a, b 
+def compute a, b
     sum = 0;
     limit = a.length < b.length ? a.length : b.length
     (0...limit).each do |i|

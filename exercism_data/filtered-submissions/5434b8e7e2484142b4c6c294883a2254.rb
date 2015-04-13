@@ -1,7 +1,7 @@
 def compute(x,y)
-    # if x == y
-    #   0
-    # end
+
+
+
     if x.length < y.length
       length = x.length
     else

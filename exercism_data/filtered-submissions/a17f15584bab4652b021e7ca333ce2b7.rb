@@ -3,6 +3,6 @@ def compute(strand_a,strand_b)
     hamming_distance = 0
     min_l.times do |i|
         hamming_distance +=1 unless strand_a[i]==strand_b[i]
-    end  
+    end
     hamming_distance
   end

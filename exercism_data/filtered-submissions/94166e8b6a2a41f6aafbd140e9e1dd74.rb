@@ -8,7 +8,7 @@ def compute(n, m)
       return 4
     end
     if n.length <= m.length
-      return (teamOneArr-teamTwoArr).length      
+      return (teamOneArr-teamTwoArr).length
     elsif n.length > m.length
       return (teamTwoArr-teamOneArr).length
     end

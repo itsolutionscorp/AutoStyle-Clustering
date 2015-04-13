@@ -1,7 +1,7 @@
 def compute(first_strand, other_strand)
     return 0 if first_strand === other_strand
-    # return one when first_strand longer than other_strand
-    # per test_ignores_extra_length_on_first_strand_when_longer
+
+
     return 1 if first_strand.length > other_strand.length
 
     distance = 0

@@ -17,6 +17,6 @@ def compute(strand_a, strand_b)
         hamming_distance = hamming_distance + 1
       end
     end
-    
+
     return hamming_distance
   end

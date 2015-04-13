@@ -13,5 +13,3 @@ def compute(seq1, seq2)
 		hamming_dist
 
 	end
-
-end

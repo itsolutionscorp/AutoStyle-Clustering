@@ -1,5 +1,5 @@
 def compute(first_string, second_string)
-    
+
     differences = 0
 
     first_string.chars.zip(second_string.chars).each do |one, two|

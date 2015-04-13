@@ -1,9 +1,11 @@
-def compute(strand1,strand2)
-		numDifferences = 0
-		i = 0
-		[strand1.length,strand2.length].min.times do					
-			numDifferences += 1 if strand1[i] != strand2[i]
-			i += 1
+def compute(sequence1,sequence2)
+		@@hamming = 0
+		array1.each_with_index do |letter,i|
+			if i < array1.length && i < array2.length
+				if array1[i] != array2[i]
+					@@hamming += 1
+				end
+			end
 		end
-		return numDifferences
+		return @@hamming
 	end

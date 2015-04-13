@@ -1,7 +1,5 @@
-def compute(strand1, strand2)
-    hamming_distance = 0
-    [strand1, strand2].map(&:length).sort.first.times do |i|
-      hamming_distance += 1 if strand1[i] != strand2[i]
+def compute(str1, str2)
+    str1.chars.zip(str2.chars).count do |(ch1, ch2)|
+      (ch1 != ch2) && ch2
     end
-    hamming_distance
   end

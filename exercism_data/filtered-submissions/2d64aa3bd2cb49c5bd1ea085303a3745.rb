@@ -9,3 +9,4 @@ def compute( left, right )
     end
 
     mutations
+  end

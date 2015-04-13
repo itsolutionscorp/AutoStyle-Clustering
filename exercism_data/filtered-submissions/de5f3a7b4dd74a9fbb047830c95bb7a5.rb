@@ -11,4 +11,3 @@ def compute(x, y)
 
     diff
   end
-end

@@ -11,11 +11,3 @@ def compute(arg1, arg2)
     end
     return counter
   end
-end
-
-# if (arg1 == 'AT' and arg2 == 'CT')
-#    arr1 = arg1.split("")
-#    arr2 = arg2.split("")
-#
-#    (arr1 + arr2).reject { |x| x == "T" }
-#

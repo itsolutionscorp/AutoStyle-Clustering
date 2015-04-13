@@ -1,7 +1,5 @@
-def compute(a,b)
-    distance = 0
-    a.chars.each_with_index do |char, index|
-      distance = distance + 1 unless char == b[index]
+def compute(strand_a, strand_b)
+    strand_a.chars.zip(strand_b.chars).count do |base_a, base_b|
+      base_b && base_a != base_b
     end
-    distance
   end

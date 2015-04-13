@@ -1,4 +1,11 @@
-def compute(one, two)
-    return 0 if one == two
-    one.chars.zip(two.chars).reject{|item| item.first == item.last}.length
+def compute(a, b)
+    counter = 0
+
+    a.length.times do |i|
+      if a[i] != b[i]
+        counter += 1
+      end
+    end
+
+    return counter
   end

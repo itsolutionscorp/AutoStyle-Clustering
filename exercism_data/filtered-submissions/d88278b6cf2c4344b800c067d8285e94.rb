@@ -5,5 +5,3 @@ def compute (a,b)
     end
     return count_differences
   end
-  
-end

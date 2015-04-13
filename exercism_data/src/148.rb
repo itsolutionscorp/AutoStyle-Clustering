@@ -1,10 +1,6 @@
-def compute(a, b)
-  	diff = 0
-    n = [a.length, b.length].min
-
-    n.times do |i|
-      diff += 1 if a[i] != b[i]
+def compute(str1, str2)
+    str1.split('').each.with_index.reduce(0) do |diff, (v,i)|
+      diff += 1 if v != str2[i] && str2[i]
+      diff
     end
-
-    diff
   end

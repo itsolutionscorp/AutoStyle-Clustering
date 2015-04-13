@@ -1,6 +1,4 @@
-def compute(strand1, strand2)
-    strand1.chars.each.with_index.inject(0) do |diff, (char,i)|
-      diff += 1 if strand2.chars[i] != char
-      diff
+def compute(s1, s2)
+        l = [s1.length, s2.length].min
+        s1[0..l-1].each_char.zip(s2[0..l-1].each_char).select { |a,b| a != b }.size
     end
-  end

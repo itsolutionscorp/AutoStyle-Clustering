@@ -8,6 +8,6 @@ def compute(strand1,strand2)
 				then hamming_diff += 1
 			end
 		end
-		
+
 		return hamming_diff
 	end

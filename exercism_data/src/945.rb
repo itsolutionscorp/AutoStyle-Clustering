@@ -1,13 +1,6 @@
-def compute( a, b )
-    hamming_distance = 0
-
-    sorted_by_length = [a,b].sort_by( &:length )
-
-    sorted_by_length[0].chars.each_with_index do |char, index|
-      if char != sorted_by_length[1][index]
-        hamming_distance += 1
-      end
+def compute(a, b)
+    len = [a.length, b.length].min
+    a[0...len].chars.zip(b[0...len].chars).inject 0 do |mem, var|
+      mem += var[0] == var[1] ? 0 : 1
     end
-
-    hamming_distance
   end

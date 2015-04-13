@@ -4,4 +4,3 @@ def compute(as, bs)
       count += a == b ? 0 : 1
     end
   end
-end

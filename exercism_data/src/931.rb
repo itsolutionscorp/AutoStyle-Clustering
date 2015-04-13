@@ -1,10 +1,9 @@
-def compute(s1, s2)
-    min_length = [s1.length, s2.length].min
-    s1 = s1[0..min_length-1]
-    s2 = s2[0..min_length-1]
-    diff=0
-    s1.each_char.each_with_index do |c, i|
-      diff+=1 unless c==s2[i]
+def compute a,b
+    a,b = b,a if a.length > b.length
+
+    if a.empty?
+      0
+    else
+      (a[0] == b[0] ? 0 : 1) + compute(a[1..-1], b[1..-1])
     end
-    diff
   end

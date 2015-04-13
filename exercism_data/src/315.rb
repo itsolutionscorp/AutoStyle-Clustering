@@ -1,10 +1,15 @@
-def compute(strand1, strand2)    
-    count = 0
-    i = 0    
-    loop do
-      count += 1 if strand1[i] != strand2[i]
-      i += 1
-      break if i >= strand1.length || i >= strand2.length
+def compute(s,t)
+    s = s.chars
+    t = t.chars
+
+    raise 'strings must be equal length' unless s.length == t.length
+
+    distance = 0
+    s.length.times do |i|
+      unless s[i] == t[i]
+        distance += 1
+      end
     end
-    return count
+
+    distance
   end

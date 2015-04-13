@@ -7,4 +7,3 @@ def compute first, other
     end
     count
   end
-end

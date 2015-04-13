@@ -1,6 +1,4 @@
-def compute(dna_fiber, other_dna_fiber)
-    dna_fiber.chars.zip(other_dna_fiber.chars).count { |nucleotide_pair|
-      nucleotide_pair.first != nucleotide_pair.last
-    }
+def compute (seq1, seq2)
+    min_seq = [seq1.size, seq2.size].min
+    min_seq.times.count { |i| seq1[i] != seq2[i] }
   end
-end

@@ -8,12 +8,12 @@ def compute(x, y)
 		i = 0
 
 		while i < x.length
-			if x[i] != y[i] 
+			if x[i] != y[i]
 				count = count + 1
 			end
 			i = i + 1
 		end
 
-		return count 
+		return count
 
 	end

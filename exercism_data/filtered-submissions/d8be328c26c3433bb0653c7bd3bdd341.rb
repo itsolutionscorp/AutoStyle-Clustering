@@ -7,6 +7,6 @@ def compute(strand_a, strand_b)
         non_matching_letter_count += 1
       end
     end
-    
-    non_matching_letter_count    
+
+    non_matching_letter_count
   end

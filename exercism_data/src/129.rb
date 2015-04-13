@@ -1,8 +1,3 @@
-def compute(a, b)
-    a = a.chars
-    b = b.chars
-
-    a, b = b, a if b.size < a.size
-
-    a.zip(b).count { |x, y| x != y }
+def compute(strand, other)
+    strand.chars.zip(other.chars).map(&:compact).map(&:uniq).reject{ |i| i.length == 1 }.length
   end

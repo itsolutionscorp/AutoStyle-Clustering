@@ -3,4 +3,3 @@ def compute(a,b)
     b = b.split('')
     a.zip(b).select{|x| x[0] != x[1]}.length
   end
-end

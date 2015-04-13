@@ -1,14 +1,4 @@
-def compute(a, b)
-    al = a.length
-    bl = b.length
-    if al > bl
-      a = a.slice!(0..bl-1)
-    elsif al < bl
-      b = b.slice!(0..al-1)
-    end
-    asplit = a.chars
-    bsplit = b.chars
-    count = 0
-    hammy = asplit.each_with_index {|item, index| count += 1 if asplit[index] != bsplit[index] }
-    return count
+def compute(code1, code2)
+    zipped_codes = code1.split("").zip(code2.split(""))
+    zipped_codes.count   { |x| x[1] != nil && x[0] != x[1]}
   end

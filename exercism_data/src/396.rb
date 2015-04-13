@@ -1,6 +1,5 @@
-def compute(first, second)
-    first  = first.chars
-    second = second.chars
-    size = [first.size, second.size].min
-    first.take(size).zip(second.take(size)).count { |(one, two)| one != two }
+def compute a, b
+     (0 .. [a.length-1, b.length-1].min).
+         map {|i| a[i]==b[i] ? 0 : 1}.
+         reduce :+
   end

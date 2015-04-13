@@ -3,4 +3,3 @@ def compute(*strands)
     mutations = ->(nucleotides) { !nucleotides.uniq.one? }
     strands.reduce(&to_pairs).count(&mutations)
   end
-end

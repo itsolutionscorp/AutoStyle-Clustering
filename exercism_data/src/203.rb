@@ -1,7 +1,7 @@
-def compute(dna, another_dna)
-    raise ArgumentError, 'different legnths' if dna.length != another_dna.length
-    0 if dna == another_dna
-    count = 0
-    (dna.split("").zip another_dna.split("")).each {|a,b| count+=1 if a != b}
-    count
+def compute(strand_one, strand_two)
+
+
+    [strand_one.size, strand_two.size].min.times.count do |i|
+      strand_one[i] != strand_two[i]
+    end
   end

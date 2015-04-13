@@ -1,5 +1,9 @@
-def compute(strand1, strand2)
-    strand1.split(//).zip(strand2.split(//)).reduce(0) do |distance, bases|
-      distance += (bases[0] <=> bases[1]).abs
+def compute(first_strand, second_strand)
+    @hamming_distance = 0
+    [first_strand.chars, second_strand.chars].transpose.each do |first_strand_base, second_strand_base|
+      if !first_strand_base.eql?(second_strand_base)
+        @hamming_distance += 1
+      end
     end
+    return @hamming_distance
   end

@@ -1,6 +1,6 @@
-def compute(first_strand, other_strand)
-    # all from http://exercism.io/submissions/37d5469b10f25ed08292db23
-    first_strand.chars.zip(other_strand.chars).count do |first, second|
-      first && second && first != second
-    end
+def compute(a, b)
+    size = [ a.size, b.size ].min
+    count = 0
+    0.upto(size - 1) { |i| count += 1 if a[i] != b[i] }
+    count
   end

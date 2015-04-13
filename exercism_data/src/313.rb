@@ -1,15 +1,11 @@
-def compute(s,t)
-    s = s.chars
-    t = t.chars
+def compute strand_one, strand_two
 
-    raise 'strings must be equal length' unless s.length == t.length
+    return if strand_one.nil? || strand_two.nil?
+    difference = 0
 
-    distance = 0
-    s.length.times do |i|
-      unless s[i] == t[i]
-        distance += 1
-      end
+    0.upto([strand_one.size, strand_two.size].min - 1) do |i|
+      difference += 1 if strand_one[i] != strand_two[i]
     end
 
-    distance
+    difference
   end

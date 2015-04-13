@@ -1,8 +1,10 @@
-def compute(string_1, string_2)
+def compute (strand_a, strand_b)
+      position = 0
+      distance = 0
+      while (a = strand_a[position]) && (b = strand_b[position])
+        distance = distance + 1 unless a == b
+        position += 1
+      end
 
-    zipped_strings = string_1.chars.zip(string_2.chars)
-
-    zipped_strings.inject(0) do |hamming_distance , (character_1, character_2)|
-      character_1 == character_2 ? hamming_distance : hamming_distance += 1
+      distance
     end
-  end

@@ -1,6 +1,6 @@
 def compute(first, second)
     primary = first.length > second.length ? second.split('') : first.split('')
-    secondary = first.length > second.length ? first.split('') : second.split('') 
+    secondary = first.length > second.length ? first.split('') : second.split('')
     diff = 0
 
     primary.each_with_index do |protein, index|

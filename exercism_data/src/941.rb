@@ -1,4 +1,7 @@
-def compute(string1, string2)
-    stringlength = (string1.size, string2.size).min
-    (0...stringlength).count { |x| string1[x] != string2[x] }
-  end
+def compute(a,b)
+		diffs = 0
+		a.split('').each_with_index do |strand, index|
+			diffs += 1 if b[index] && strand != b[index]
+		end
+		diffs
+	end

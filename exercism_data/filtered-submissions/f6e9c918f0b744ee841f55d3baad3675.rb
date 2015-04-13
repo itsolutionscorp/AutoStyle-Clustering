@@ -6,6 +6,6 @@ def compute(first, second)
       if first[i] != second[i]
         count = count + 1
       end
-    end 
+    end
     return count
   end

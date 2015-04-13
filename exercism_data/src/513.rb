@@ -1,4 +1,3 @@
-def compute(dna_a,dna_b)
-    min_length = [dna_a.length, dna_b.length].min 
-    differences = (0..min_length-1).select{|index| dna_a[index] != dna_b[index]}.count
+def compute strand_a, strand_b
+    (0..strand_a.length - 1).count { |i|  strand_a[i] != strand_b[i] }
   end

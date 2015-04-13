@@ -1,7 +1,5 @@
-def compute(strand_1, strand_2)
-    differences = 0
-    strand_1.each_char.with_index do | nucleotide, position |
-      differences +=1 if nucleotide != strand_2[position] && strand_2[position] != nil
+def compute(strand1, strand2)
+    strand1.chars.each.with_index.count do |char, index|
+      strand2[index] && strand2[index] != char
     end
-    differences
   end

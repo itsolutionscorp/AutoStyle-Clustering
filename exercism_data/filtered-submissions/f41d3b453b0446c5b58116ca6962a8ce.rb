@@ -5,7 +5,7 @@ def compute (x,y)
 	else
 	  min = x.length
 	end
-	for i in 0...min 
+	for i in 0...min
 		if x[i]!=y[i]
 			a += 1
 		end

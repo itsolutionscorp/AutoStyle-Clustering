@@ -1,21 +1,9 @@
-def compute(x, y)
-    # 1) Split arguments into array
-    # 2) Loop through away, comparing arguments based on index
-    # 3) When values aren't identical, increase a counter
+def compute(strand1,strand2)
 
-    arr1 = x.split(//)
-    arr2 = y.split(//)
 
-    count = 0
+    if strand1.length === strand2.length
 
-    test = arr1.length
-
-    for i in 0..test do
-      if arr1[i] != arr2[i]
-        count += 1
-      end
+      [strand1.chars, strand2.chars].transpose.select { |chars1, chars2| chars1 != chars2}.count
     end
-    
-    return count
 
   end

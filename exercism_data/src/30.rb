@@ -1,13 +1,10 @@
-def compute (strand_a, strand_b)
-    distance = 0
-    nucleotide = Array(0..strand_a.length - 1)
-    nucleotide.each do |n|
-      if
-        strand_a[n] == strand_b[n]
-        distance += 0
-      else
-        distance += 1
-      end
+def compute(str1, str2)
+    diff = 0
+
+    str1.split('').size.times do |index|
+      next if str1[index].nil? or str2[index].nil?
+      diff += 1 if str1[index] != str2[index]
     end
-    distance
-    end
+
+    diff
+  end

@@ -1,0 +1,1 @@
+s(:defn, :compute, s(:args, :dna_strand_a, :dna_strand_b), s(:lasgn, :merged_dna, s(:call, s(:call, s(:lvar, :dna_strand_b), :split, s(:str, "")), :zip, s(:call, s(:lvar, :dna_strand_b), :split, s(:str, "")))), s(:iter, s(:call, s(:lvar, :merged_dna), :count), s(:args, :joint), s(:call, s(:call, s(:lvar, :joint), :uniq), :==, s(:lit, 2))))

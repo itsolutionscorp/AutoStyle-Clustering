@@ -1,3 +1,7 @@
-def compute(s1, s2)
-    s1.chars.zip(s2.chars).reduce(0) {|acc, pair| acc += 1 unless pair.first == pair.last ; acc }
+def compute(a,b)
+    a = a.slice(0, b.length) if a.length > b.length
+    b = b.slice(0, a.length) if b.length > a.length
+
+    c = a.chars.zip b.chars
+    c.map{|d,e| d == e ? 0 : 1}.inject(:+)
   end

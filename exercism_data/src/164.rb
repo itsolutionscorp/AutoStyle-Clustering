@@ -1,9 +1,8 @@
-def compute(strand1, strand2)
-    errors = 0
-    strand1.length.times do |i|
-      if (strand1[i] != strand2[i])
-        errors += 1
-      end
+def compute(a, b)
+    hamming_length = 0
+    a.length.times do |i|
+      hamming_length += 1 unless a[i] == b[i]
     end
-    return errors
+
+    hamming_length
   end

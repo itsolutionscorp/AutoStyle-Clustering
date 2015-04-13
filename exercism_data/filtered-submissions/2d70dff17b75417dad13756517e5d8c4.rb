@@ -10,4 +10,3 @@ def compute(str1, str2)
 
       return hammingd
     end
-  end

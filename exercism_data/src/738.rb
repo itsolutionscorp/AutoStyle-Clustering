@@ -1,7 +1,7 @@
-def compute(strand1, strand2)
-    length = [strand1.length, strand2.length].min
-
-    (0...length).count do |n|
-      strand1[n] != strand2[n]
+def compute(s1, s2)
+    dist = 0
+    s1.length.each do |i|
+      dist += 1 if s1.split('')[i] != s2.split('')[i]
     end
+    dist
   end

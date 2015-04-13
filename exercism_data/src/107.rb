@@ -1,12 +1,16 @@
-def compute(a,b)
-    diff = 0
-    counter = 0
-    min_length = [a.length, b.length].min
-    while counter <= min_length - 1
-      if a[counter] != b[counter]
-        diff +=1
+def compute(strand1, strand2)
+
+    base1 = strand1.split(//)
+    base2 = strand2.split(//)
+
+    distance = 0
+
+    base1.count.times do |b|
+
+      if base1.count == base2.count && base1[b] != base2[b]
+        distance += 1
       end
-    counter +=1
     end
-    diff
+
+    return distance
   end

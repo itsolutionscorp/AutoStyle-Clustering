@@ -1,16 +1,11 @@
-def compute(x,y)
+def compute(first, second)
+        count = 0
+        first.chars.each_with_index { |char, index|
 
-    differences = 0
 
-    stop = [x.length, y.length].min
+            next unless second[index]
 
-    (0...stop).each do |index|
-
-      if x[index] != y[index]
-        differences += 1
-      end
-
+            count += 1 if char != second[index]
+        }
+        return count
     end
-
-    differences
-  end

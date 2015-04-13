@@ -1,11 +1,5 @@
-def compute(a,b)
-		tol = [a.length, b.length].min() -1
-		sum = (0..tol).reduce(0) { |sum,i|
-			if (a[i]!=b[i])	
-			then
-				sum += 1
-			end
-			sum
-		}
-		
-	end
+def compute(x, y)
+    x.chars.zip(y.chars).count do |a, b|
+      a != b
+    end
+  end

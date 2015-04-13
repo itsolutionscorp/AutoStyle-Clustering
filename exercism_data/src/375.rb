@@ -1,9 +1,7 @@
-def compute(a, b)
+def compute(string1, string2)
     count = 0
-    a.split('').each_with_index do |x, i|
-      if x != b[i]
-        count += 1
-      end
+    string1.size.times do |pos|
+      count += 1 if string1[pos] != string2[pos]
     end
     count
   end

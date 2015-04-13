@@ -1,9 +1,11 @@
-def compute(firstVal, secondVal)
-    differences = 0
-    firstVal.each_char.with_index do |char, i|
-      if char != secondVal[i]
-        differences += 1
+def compute(strand1, strand2)
+    i = 0
+    total = 0
+    strand1.each_char do |c|
+      if strand2[i] != nil
+        total += 1 if c != strand2[i]
+        i += 1
       end
     end
-    differences
+    return total
   end

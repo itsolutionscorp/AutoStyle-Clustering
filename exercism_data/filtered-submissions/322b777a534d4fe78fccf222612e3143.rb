@@ -10,4 +10,3 @@ def compute (strand1, strand2)
     return hamming_distance
 
   end
-end

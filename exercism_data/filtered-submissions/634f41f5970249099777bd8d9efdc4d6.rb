@@ -1,5 +1,5 @@
 def compute (dna1, dna2)
-	dna1a = dna1.split('')	
+	dna1a = dna1.split('')
 	dna2a = dna2.split('')
 
 	zippedarray = dna1a.zip dna2a
@@ -8,7 +8,7 @@ def compute (dna1, dna2)
 
 	zippedarray.each do |i|
 		if i[0].to_s != i[1].to_s
-			count = count + 1	
+			count = count + 1
 		end
 	end
 

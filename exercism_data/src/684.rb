@@ -1,6 +1,4 @@
-def compute(first,second)
-    len = first.length < second.length ? first.length : second.length
-    (0..(len-1)).map { |i|
-      first[i] == second[i] ? 0 : 1
-    }.reduce(0) {|memo,item| memo += item}
+def compute(s1,s2)
+    pairs = s1.chars.zip(s2.chars)
+    return pairs.select{|n| n[0] != n[1] }.length
   end

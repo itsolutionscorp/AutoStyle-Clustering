@@ -1,9 +1,5 @@
-def compute(first_strand, second_strand)
-		hamming_number, i = 0, 0
-		string_length = [first_strand.length, second_strand.length].max
-		while i < string_length do
-			if first_strand[i] != second_strand[i] then hamming_number += 1 end
-			i += 1
-		end
-		hamming_number
-	end
+def compute(first_string, second_string)
+    first_string.chars.zip(second_string.chars)
+      .map { |(a, b)| a == b ? 0 : 1 }
+      .reduce(&:+)
+  end

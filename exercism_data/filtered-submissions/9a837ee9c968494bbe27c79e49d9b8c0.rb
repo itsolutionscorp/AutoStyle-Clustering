@@ -4,5 +4,5 @@ def compute(a, b)
       end
       pairs.inject(0) do |total, pair|
         pair[0] == pair[1] ? total : total + 1
-      end  
+      end
     end

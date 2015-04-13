@@ -1,14 +1,12 @@
-def compute(a, b)
-      return 0 if a == b
+def compute(strand_one, strand_two)
 
-      a = a[0..b.length-1] if a.length > b.length
-      result = 0
+    point_mutations = 0
 
-      a.split('').each_with_index do |e, i|
-        result += 1 if e != b[i]
-      end
-
-      result
+    strand_one.chars.each_with_index do |character, index|
+      break if strand_two[index].nil?
+      (point_mutations += 1) if strand_two[index] != character
     end
+
+    point_mutations
 
   end

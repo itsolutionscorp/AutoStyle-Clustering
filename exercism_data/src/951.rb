@@ -1,9 +1,9 @@
-def compute(first_str, second_str)
-    min_length = [first_str.length, second_str.length].min
-
-    hamms = 0
-    min_length.times do |i|
-      hamms += 1 if first_str[i] != second_str[i]
+def compute(a,b)
+    return 0 if a == b
+    count = 0
+    a,b = b,a if a.size > b.size
+    (0... a.size).each do |ind|
+      count += 1 if a[ind] != b[ind]
     end
-    hamms
+    return count
   end

@@ -1,17 +1,5 @@
-def compute(x,y)
-    x_arr = x.split(//)
-    y_arr = y.split(//)
-
-    ctr = 0
-    idx = 0
-
-    x_arr.each do |i|
-      if y_arr[idx] != i
-        ctr = ctr + 1
-      end
-
-      idx = idx + 1
-    end
-
-    ctr
+def compute(a, b)
+    a.chars.zip(b.chars).map { |pair|
+      if (pair[0] == pair[1]) || pair.include?(nil) then 0 else 1 end
+    }.inject(0, :+)
   end

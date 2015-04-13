@@ -9,4 +9,3 @@ def compute(string_1, string_2)
 
     distance
   end
-end

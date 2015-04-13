@@ -1,3 +1,5 @@
-def compute(str_a, str_b)
-    (0...[str_a, str_b].map(&:size).min).count { |i| str_a[i] != str_b[i] }
+def compute strand1, strand2
+    strand1.slice(0, strand2.length).each_char
+      .zip(strand2.each_char)
+      .count { |pair| pair[0] != pair[1] }
   end

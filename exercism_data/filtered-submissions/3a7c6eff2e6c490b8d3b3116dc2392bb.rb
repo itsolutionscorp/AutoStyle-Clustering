@@ -11,4 +11,3 @@ def compute(dna1, dna2)
       .zip(long.chars)
       .count { |c1, c2| c1 != c2 }
   end
-end

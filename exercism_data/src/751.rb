@@ -1,6 +1,10 @@
-def compute s1, s2
-    s1.each_char.with_index.inject(0) { |ham, (char, idx)|
-      ham += 1 if s2[idx] && char != s2[idx]
-      ham
-    }
-  end
+def compute(input1, input2)
+    diff = 0
+    min_length = [input1.length, input2.length].min - 1
+
+    for i in 0..min_length do
+      diff += 1 unless input1[i] == input2[i]
+    end
+
+		diff
+	end

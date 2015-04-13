@@ -5,6 +5,6 @@ def compute left, right
     else
       shorter, longer = right.chars, left.chars
     end
-    
-    shorter.zip(longer).count { |pair| pair.first != pair.last } 
+
+    shorter.zip(longer).count { |pair| pair.first != pair.last }
   end

@@ -11,7 +11,7 @@ def compute (str1, str2)
       if str1[i] != str2[i]
         sum +=1
       end
-    
+
     end
 
     return sum

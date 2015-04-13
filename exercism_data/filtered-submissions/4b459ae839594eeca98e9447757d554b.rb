@@ -3,6 +3,6 @@ def compute(strand1, strand2)
 		mutations = 0
 
 		shorter_length.times { |position| mutations += 1 if strand1[position] != strand2[position] }
-		
+
 		mutations
 	end

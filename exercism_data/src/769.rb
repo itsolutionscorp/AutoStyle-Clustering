@@ -1,6 +1,3 @@
-def compute(strand, other_strand)
-    nucleotide_mapping = strand.chars.zip(other_strand.chars)
-    hamming_distance = nucleotide_mapping.count do |nucleotide, other_nucleotide|
-      nucleotide != other_nucleotide
-    end
-  end
+def compute(strand1,strand2)
+		strand1.chars.each_with_index.select { |g, i| g != strand2[i] }.length
+	end

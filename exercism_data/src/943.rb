@@ -1,8 +1,13 @@
-def compute(first, second)
-      first_chars = first.split('')
-      second_chars = second.split('')
+def compute(strand1,strand2)
+    differences = 0
 
-      first_chars.zip(second_chars).count do |a, b|
-        a && b && a != b
+    if ( strand1.length == strand2.length ) then
+      strand1.length.times do |index|
+        if ( strand1[index] != strand2[index] ) then
+          differences += 1
+        end
       end
     end
+
+    differences
+  end

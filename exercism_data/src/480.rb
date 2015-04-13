@@ -1,22 +1,13 @@
-def compute(var1, var2)
-		sz_a = var1.size
-		sz_b = var2.size
+def compute (*strings)
+		distance = 0
+		length = case strings.first <=> strings.last
+						 when 1 then strings.last.length
+						 else strings.first.length
+						 end
 
-		max = 0
-		if sz_a == sz_b
-			max = sz_a
-		elsif sz_a > sz_b
-			max = sz_b
-		else
-			max = sz_a
+		length.times do |idx|
+			distance += 1 if strings.first[idx] != strings.last[idx]
 		end
 
-		count = 0
-		max = max - 1
-
-		for i in 0..max do
-			count+=1 if var1[i] != var2[i]
-		end
-		
-		return count
+		distance
 	end

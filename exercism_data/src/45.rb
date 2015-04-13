@@ -1,13 +1,6 @@
-def compute (strand_a, strand_b)
-    distance = 0
-    nucleotide = Array(0..strand_a.length - 1)
-    nucleotide.each do |n|
-      if
-        strand_a[n] == strand_b[n]
-        distance += 0
-      else
-        distance += 1
-      end
-    end
-    distance
-  end
+def compute(seq1, seq2)
+		num_elm = [seq1.size, seq2.size].min
+		(0...num_elm).reduce(0) { |total, value|
+			seq1[value] != seq2[value] ? total+=1 : total
+		}
+	end

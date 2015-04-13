@@ -1,11 +1,7 @@
-def compute(strand_one, strand_two)
-    hamming_distance = 0
-
-    strand_one.chars.each_with_index do |protein, index|
-      unless protein.nil? || strand_two[index].nil?
-        hamming_distance += 1 if protein != strand_two[index]
-      end
-    end
-
-    return hamming_distance
-  end
+def compute(strand1,strand2)
+		hamming_distance = 0
+		for i in 0...[strand1.length,strand2.length].min
+			hamming_distance +=1 if strand1[i] != strand2[i]
+		end
+		hamming_distance
+	end

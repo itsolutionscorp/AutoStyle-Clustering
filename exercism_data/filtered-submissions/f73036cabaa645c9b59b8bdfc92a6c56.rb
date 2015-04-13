@@ -3,5 +3,3 @@ def compute(first_strand, second_strand)
     pairs = first_strand.each_char.zip(second_strand.each_char).take(length)
 
     pairs.count { |a, b| a != b }
-  end
-end

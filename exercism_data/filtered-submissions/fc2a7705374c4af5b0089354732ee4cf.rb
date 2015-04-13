@@ -6,4 +6,3 @@ def compute a, b
     end
     a.chars.zip(b.chars).inject(0) {|c, p| c + p.uniq.length - 1 }
   end
-end

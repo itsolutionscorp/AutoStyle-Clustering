@@ -1,10 +1,18 @@
-def compute str1, str2
-    arr1, arr2 = str1.split(''), str2.split('')
+def compute(first, second)
 
-    distance = 0
-    arr1.size.times do |x|
-      return distance if arr2.size == x
-      distance += 1 if arr1[x] != arr2[x]
-    end
-    distance
-  end
+		if first.length > second.length then
+			first = first.slice(0..(second.length - 1))
+		else
+			second = second.slice(0..(first.length - 1))
+		end
+
+
+		hamming_count = 0
+		(0..(first.length - 1)).each do |i|
+			if first.slice(i) != second.slice(i) then
+				hamming_count = hamming_count + 1
+			end
+		end
+
+		return hamming_count
+	end

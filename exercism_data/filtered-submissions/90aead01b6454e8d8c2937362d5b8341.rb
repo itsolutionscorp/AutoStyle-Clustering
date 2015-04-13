@@ -1,10 +1,10 @@
 def compute(a, b)
 
-			if a == b 
+			if a == b
 
 			 	return 0
 
-			else 
+			else
 
 				a_split = a.split('')
 				array1 = []

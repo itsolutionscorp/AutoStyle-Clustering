@@ -6,4 +6,3 @@ def compute(strand_a, strand_b)
     end
     res
   end
-end

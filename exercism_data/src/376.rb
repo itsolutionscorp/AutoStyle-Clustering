@@ -1,6 +1,17 @@
-def compute(a, b)
-    # larger zipped into smaller means we always have the right number of pairs.
-    pairs = [a.chars.to_a,b.chars.to_a].sort_by(&:length).reduce(&:zip)
+def compute(s, t)
+        $index = 0
+        distance = 0
+        length = t.length
 
-    pairs.count {|character_a,character_b| character_a != character_b }
-  end
+        if s.length < t.length
+            length = s.length
+        end
+
+        until $index == length do
+            if s[$index] != t[$index]
+                distance += 1
+            end
+            $index += 1;
+        end
+        return distance
+    end

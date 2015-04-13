@@ -3,4 +3,3 @@ def compute(seq1, seq2)
       base2 and base1 != base2
     }
   end
-end

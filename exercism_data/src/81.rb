@@ -1,7 +1,8 @@
-def compute(a, b)
-		# Count each pair of characters that are not equal
-		# except if one is nil (happens when a is longer than b)
-		a.each_char.zip(b.each_char).count do |n1, n2|
-			n2 != nil and n1 != n2
+def compute(a,b)
+		if a.length == b.length
+			similars = a.split(//).zip(b.split(//)).map {|x, y| x == y}
+			return similars.count(false)
+		else
+			return 0
 		end
 	end

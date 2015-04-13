@@ -1,4 +1,10 @@
-def compute(code1, code2)
-    zipped_codes = code1.split("").zip(code2.split(""))
-    zipped_codes.count   { |x| x[1] != nil && x[0] != x[1]}
+def compute(strand_a,strand_b)
+    dist = nil
+    if strand_a.length == strand_b.length
+      dist = 0
+      (0..strand_b.length).each do |i|
+        dist += 1 if strand_a[i] != strand_b[i]
+      end
+    end
+    dist
   end

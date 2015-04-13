@@ -1,22 +1,11 @@
-def compute(strand1, strand2)
-		result    = nil
-    params_ok = (strand1.is_a?(String) and strand2.is_a?(String))
-
-    if params_ok
-      result  = 0
-      length1 = strand1.length
-      length2 = strand2.length
-
-      if (length1 > 0) and (length2 > 0)
-        min_length = [length1, length2].min
-
-        (0...min_length).each do |index|
-          if (strand1[index] != strand2[index])
-            result += 1
-          end
-        end
+def compute(strand_a, strand_b)
+    if strand_a == strand_b
+      0
+    else
+      short_a = strand_a.chars.take(strand_b.length)
+      short_a.zip(strand_b.chars).reduce(0) do |result, pair|
+        result += 1 unless pair[0] == pair[1]
+        result
       end
     end
-
-		result
-	end
+  end

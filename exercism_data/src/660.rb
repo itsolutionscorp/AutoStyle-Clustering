@@ -1,15 +1,3 @@
-def compute (strand1, strand2)
-    @hamming_distance = 0
-    index = 0
-
-    while strand1[index] && strand2[index]
-      if strand1[index] != strand2[index]
-        @hamming_distance += 1
-      end
-      index += 1
-    end
-
-    return @hamming_distance
-
+def compute(dna1, dna2)
+    dna1.chars.zip(dna2.chars).count { |pair| pair[0] != pair[1] }
   end
-end

@@ -1,6 +1,11 @@
-def compute(a,b)
-    return 0 if a == b
-    a, b = b, a if a.length > b.length
-    a.chars.zip(b.chars).count {|aa, bb| aa != bb}
-  end
-end
+def compute(strand1, strand2)
+        numOfDifferences = 0
+        i = 0
+        for nucleotide in 0..strand1.length
+            if strand2[i] != strand1[i]
+                numOfDifferences = numOfDifferences + 1
+            end
+            i = i + 1
+        end
+        return numOfDifferences
+    end

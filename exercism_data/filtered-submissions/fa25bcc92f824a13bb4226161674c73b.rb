@@ -11,5 +11,5 @@ def compute(first_strand, second_strand)
 	end
 end
 
-if __FILE__ == $0 
+if __FILE__ == $0
 puts Hamming.compute("GAGCCTACTAACGGGAT", "CATCGTAATGACGGCCT")

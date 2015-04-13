@@ -1,6 +1,5 @@
-def compute(dna_one,dna_two)
-    smallest = [dna_one.size,dna_two.size].min
-    (0...smallest).count do |i|
-      dna_one[i] != dna_two[i]      
+def compute(strand1, strand2)
+    strand1.chars.zip(strand2.chars).count do |base1, base2|
+      base2 && base1 != base2
     end
   end

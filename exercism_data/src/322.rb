@@ -1,9 +1,3 @@
-def compute(reference, examinee)
-    
-    pairs_to_count = [reference.length, examinee.length].min
-
-    (0...pairs_to_count).count do |string_index|
-      examinee[string_index] != reference[string_index]
-    end
-
+def compute(a, b)
+    [a.chars, b.chars].transpose.map { |x, y| x == y ? 0 : 1 }.reduce(:+)
   end

@@ -1,12 +1,9 @@
-def compute(strand1, strand2)
-  	diff_count = 0
-  	max_length = [strand1.length, strand2.length].min
+def compute(strand_1, strand_2)
+  	raise ArgumentError if strand_1.length != strand_2.length
 
-  	i = 0
-  	until i >= max_length do
-  		diff_count += 1 unless strand1[i] == strand2[i]
-  		i += 1
-  	end
-
-  	return diff_count
+  	distance = 0
+    strand_1.split("").each_with_index do |letter, index|
+      distance += 1 if letter != strand_2[index]
+    end
+    distance
   end

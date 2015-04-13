@@ -1,13 +1,15 @@
-def compute(str1, str2)
-      hammingd = 0
-      min = [str1, str2].min
-      max = [str1, str2].max
-      max = max[0..(min.size - 1)]
+def compute(a, b)
 
-      min.split('').each_with_index do |v, i|
-        hammingd = hammingd.+ 1 if v != max[i]
-      end
+		arrayb = b.split('')
+		arraya = a.split('')
+		total = 0
+		myval = 0
 
-      return hammingd
-    end
+		arrayb.each_index do |i|
+			myval = arrayb[i] <=> arraya[i]
+			total += myval.abs
+		end
+
+		total
+
   end

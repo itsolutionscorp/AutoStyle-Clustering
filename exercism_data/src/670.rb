@@ -1,7 +1,10 @@
 def compute(strand1, strand2)
-    distance = 0
-    strand1.each_char.with_index do |char, index|
-      distance += 1 if char != strand2[index]
+    diff, ind = 0, 0
+    strand1.split("").each do |i|
+      if (strand1[ind] != strand2[ind]) && (strand2[ind] != nil)
+        diff += 1
+      end
+      ind += 1
     end
-    return distance
+    diff
   end

@@ -1,14 +1,12 @@
-def compute strand1, strand2
-    i = 0
-    count = 0
-    
-    strand1.each_char do |c|
-      if ( c != strand2[i] )
-        count += 1
-      end
-      i += 1
+def compute(strand1, strand2)
+    distance = 0
+    len = [strand1.length, strand2.length].min
+
+    (0...len).each do |i|
+    	if strand1[i] != strand2[i]
+    		distance += 1
+    	end
     end
-    
-    return count
-    
+
+    return distance
   end

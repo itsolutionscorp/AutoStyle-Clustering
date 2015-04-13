@@ -1,5 +1,3 @@
-def compute(first, second)
-      (0...[first.length, second.length].min).count do |i|
-        first[i] != second[i]
-      end
+def compute(a,b)
+        a.chars.zip(b.chars).count { |x| x[0] != x[1] }
     end

@@ -5,4 +5,3 @@ def compute(a, b)
       long_strand[index] != acid
     end
   end
-end

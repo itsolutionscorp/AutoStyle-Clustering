@@ -5,7 +5,7 @@ def compute(first_string, second_string)
 
 		results = final_array.select do |first_num, second_num|
 			if first_num && second_num
-				first_num != second_num 
+				first_num != second_num
 			end
 		end
 

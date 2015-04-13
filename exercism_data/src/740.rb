@@ -1,15 +1,19 @@
-def compute(a, b)
-		
-		arrayb = b.split('')
-		arraya = a.split('')
-		total = 0
-		myval = 0
+def compute(strand1, strand2)
+    return if (strand1.nil? or strand2.nil?)
 
-		arrayb.each_index do |i|
-			myval = arrayb[i] <=> arraya[i]
-			total += myval.abs
-		end
+    result  = 0
+    length1 = strand1.length
+    length2 = strand2.length
 
-		total
+    if (length1 > 0) and (length2 > 0)
+      min_length = [length1, length2].min
 
+      (0...min_length).each do |index|
+        if (strand1[index] != strand2[index])
+          result += 1
+        end
+      end
+    end
+
+    result
   end

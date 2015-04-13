@@ -5,4 +5,3 @@ def compute(shorter, longer)
       shorter.chars.zip(longer.chars).count { |a,b| a != b }
     end
   end
-end

@@ -4,3 +4,4 @@ def compute(strand_one, strand_two)
       differences += 1 unless symbol == strand_two[idx]
     end
     differences
+  end

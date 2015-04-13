@@ -1,5 +1,5 @@
 def compute(x,y)
-    if x == y 
+    if x == y
       0
     else
       first = x.split("")
@@ -11,7 +11,7 @@ def compute(x,y)
         puts first[i]
         puts second[i]
         if first[i] == second[i]
-          
+
         else
           discrepencies += 1
         end

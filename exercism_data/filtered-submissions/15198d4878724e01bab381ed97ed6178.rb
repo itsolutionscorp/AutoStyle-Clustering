@@ -4,4 +4,3 @@ def compute(first, second)
       first[i] != second[i]
     end
   end
-end

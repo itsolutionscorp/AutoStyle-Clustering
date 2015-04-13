@@ -1,6 +1,13 @@
-def compute(strand_a, strand_b)
-    short, long = [strand_a, strand_b].map { |s| s.chars }
-                                      .sort { |a, b| a.size <=> b.size }
-    short.zip(long)
-         .count { |m, n| m != n }
-  end
+def compute(arg1, arg2)
+   arr1 = arg1.split("")
+   arr2 = arg2.split("")
+
+   counter = 0
+   arr1.each_with_index do |x, i|
+     if x != arr2[i]
+       counter += 1
+     end
+   end
+   return counter
+
+ end

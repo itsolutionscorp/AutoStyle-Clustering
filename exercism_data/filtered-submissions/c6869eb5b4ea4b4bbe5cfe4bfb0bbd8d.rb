@@ -3,4 +3,3 @@ def compute(string1, string2)
       string1[i] != string2[i]
     end
   end
-end

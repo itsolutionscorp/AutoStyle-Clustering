@@ -5,4 +5,3 @@ def compute(s1, s2)
       .reject { |a, b| a.nil? || b.nil? }
       .count { |a, b| a != b }
   end
-end

@@ -12,4 +12,3 @@ def compute(strand_a, strand_b)
 
     distance
   end
-end

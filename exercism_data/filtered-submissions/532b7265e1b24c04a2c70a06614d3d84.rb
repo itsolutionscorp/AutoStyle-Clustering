@@ -4,4 +4,3 @@ def compute(first, second)
       .reject(&LEFTOVER_CHARS)
       .count(&DIFFERENT_PAIRS)
   end
-end

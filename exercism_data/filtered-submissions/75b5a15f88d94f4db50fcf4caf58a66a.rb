@@ -8,6 +8,6 @@ def compute(strand_one, strand_two)
 				distance += 1
 			end
 		end
-		
+
 		return distance
 	end

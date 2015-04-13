@@ -1,12 +1,11 @@
-def compute(first_strand, second_strand)
-    assert_equal = 0
+def compute(strand1, strand2)
+    strand1 = strand1.split('')
+    strand2 = strand2.split('')
 
-    first_strand.length.times do |count|
-      if first_strand[count] != second_strand[count]
-        if (first_strand[count] && second_strand[count]) != nil
-          assert_equal += 1
-        end
-      end
+    distance = 0
+    strand1.each_with_index do |nuc, index|
+      return 0 if strand2[index] == nil
+      distance += 1 if nuc != strand2[index]
     end
-    assert_equal
+    distance
   end

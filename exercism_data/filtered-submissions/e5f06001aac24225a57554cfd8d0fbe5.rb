@@ -3,4 +3,3 @@ def compute(s1, s2)
     s2 = s2[0, s1.length]
     s1.chars.zip(s2.chars).count { |c1, c2| c1 != c2 }
   end
-end

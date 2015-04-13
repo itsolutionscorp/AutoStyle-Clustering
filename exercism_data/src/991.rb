@@ -1,7 +1,19 @@
-def compute(strand, other_strand)
-    # From "ATGC" and "ATC" this
-    # creates [ ['A', 'A'], ['T', 'T'], ['G', 'C'], ['C', nil]]
-    # and we then count the ones that are different but not nil.
-    zipped_strands = strand.codepoints.zip(other_strand.codepoints)
-    zipped_strands.take_while { |a, b| b }.count { | a, b | a != b }
+def compute(first, second)
+    differences = 0
+
+    if first == second
+      return differences
+    end
+
+    for index in (0..first.length - 1)
+      if index + 1 > second.length
+        return differences
+      end
+
+      unless first[index] == second[index]
+        differences += 1
+      end
+
+      differences
+    end
   end

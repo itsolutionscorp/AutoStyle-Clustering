@@ -6,4 +6,3 @@ def compute(strand1, strand2)
 		end
 		ham_dis
 	end
-end

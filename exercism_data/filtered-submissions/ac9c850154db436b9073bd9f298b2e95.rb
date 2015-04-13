@@ -11,7 +11,7 @@ def compute(input1, input2)
 		dna1 = input1.split('')
 		dna2 = input2.split('')
 
-		while @start < @max 
+		while @start < @max
 			if dna1[@start] != dna2[@start]
 				@count += 1
 			end

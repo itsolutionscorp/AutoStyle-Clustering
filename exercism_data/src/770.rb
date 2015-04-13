@@ -1,16 +1,5 @@
-def compute(string, other_string)
-    string = string.scan(/\w/)
-    other_string = other_string.scan(/\w/)
+def compute(strand1, strand2)
+    strand1, strand2 = strand2, strand1 if strand1.size > strand2.size
 
-    if string.length > other_string.length
-      string = string.slice(0, other_string.length)
-    elsif other_string.length > string.length
-      other_string = other_string.slice(0, string.length)
-    end
-
-    distance = string.zip(other_string).map do |a, b|
-      a != b ? 1 : 0
-    end.inject(:+)
-
-    distance
+    strand1.chars.each.with_index.count { |char, i| strand2[i] != char }
   end

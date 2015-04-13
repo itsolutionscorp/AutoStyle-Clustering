@@ -1,5 +1,5 @@
-def compute(strand, other_strand)
-    strand.chars.zip(other_strand.chars).select do |pair|
-      pair.uniq.size > 1
-    end.count
+def compute(s1, s2)
+    distance = 0
+    [s1.length, s2.length].min.times { |d| distance += 1 unless s1[d] == s2[d] }
+    distance
   end

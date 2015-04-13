@@ -1,5 +1,5 @@
 def compute(first, second)
-    # assuming length is the same for both inputs
+
     if first.length > second.length
       length = second.length
     else

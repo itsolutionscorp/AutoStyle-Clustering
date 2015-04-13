@@ -3,4 +3,3 @@ def compute(first_strand, second_strand)
       first_strand_base != second_strand_base
     end
   end
-end

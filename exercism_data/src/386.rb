@@ -1,7 +1,3 @@
-def compute(a,b)
-    hamming = 0
-    [a,b].min.each_char.with_index do |char, index|
-      hamming += 1 if char != [a,b].max[index]
+def compute(first_strand, second_strand)
+        return first_strand.chars.zip(second_strand.chars).count { |x, y| !x.nil? and !y.nil? and x != y }
     end
-    hamming
-  end

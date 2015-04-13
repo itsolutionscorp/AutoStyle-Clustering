@@ -1,9 +1,13 @@
-def compute(d1, d2)
-    hamming_distance = 0
-    strand1 = d1.split('')
-    strand2 = d2.split('')
-    strand1.each_with_index do |nucleo, index| 
-      hamming_distance += 1 unless(nucleo == strand2[index] || strand2[index].nil? ) 
+def compute(arg1, arg2)
+    if arg1.length != arg2.length
+      abort (message='Sequences must be of equal length')
+    else
+      arg1 = arg1.chars
+      arg2 = arg2.chars
+      distance = 0
+      arg1.each_index do |index|
+        distance = distance+1 if not arg1[index] == arg2[index]
+        end
     end
-    hamming_distance
+    return distance
   end

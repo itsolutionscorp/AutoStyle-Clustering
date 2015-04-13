@@ -1,8 +1,10 @@
-def compute ham1, ham2
-    size = [ham1, ham2].map(&:size).min
+def compute(a, b)
+  	diff = 0
+    n = [a.length, b.length].min
 
-    ham1.chars.first(size).zip(ham2.chars.first(size)).count do |(a,b)|
-      !a.eql?(b)
+    n.times do |i|
+      diff += 1 if a[i] != b[i]
     end
+
+    diff
   end
-end

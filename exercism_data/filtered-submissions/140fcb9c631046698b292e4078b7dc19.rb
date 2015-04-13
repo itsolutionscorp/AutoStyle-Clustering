@@ -7,7 +7,7 @@ def compute(original_dna, mutated_dna)
         hamming_distance = hamming_distance + 1
       end
       step = step + 1
-      
+
       if step > original_dna.length - 1 or step > mutated_dna.length - 1
         return hamming_distance
       end

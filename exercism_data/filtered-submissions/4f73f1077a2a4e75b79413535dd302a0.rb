@@ -6,7 +6,7 @@ def compute(string1, string2)
 		tally = 0
 
 		arr1.each do |letter|
-			
+
 			if letter != arr2[i]
 				tally = tally + 1
 			end

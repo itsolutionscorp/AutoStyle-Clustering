@@ -1,8 +1,7 @@
-def compute(group_one, group_two)
-    # Get the shorter group size and iterate with it while counting differences
-    # in the elements of the same position using the cycle number as index.
-    [group_one.size, group_two.size].min.times.count do |i|
-      group_one[i] != group_two[i]
+def compute(string1, string2)
+    hamming_distance = 0
+    string1.split(//).each_with_index do |char, index|
+      hamming_distance += 1 unless char == string2[index]
     end
+    hamming_distance
   end
-end

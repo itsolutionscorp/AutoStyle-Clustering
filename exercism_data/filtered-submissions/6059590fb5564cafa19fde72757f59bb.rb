@@ -8,4 +8,3 @@ def compute(a, b)
       end
     end.reduce(:+)
   end
-end

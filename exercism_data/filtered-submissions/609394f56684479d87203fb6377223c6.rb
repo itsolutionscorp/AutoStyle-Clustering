@@ -1,5 +1,5 @@
 def compute(arg1, arg2)
-    # TODO: compute method
+
     i = 0
     hamming_distance = 0
     while i < arg1.length

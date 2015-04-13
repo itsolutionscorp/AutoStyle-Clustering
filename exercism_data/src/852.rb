@@ -1,9 +1,9 @@
-def compute(a,b)
-    a = a.chars
-    b = b.chars
-    max = (a.count < b.count) ? a.count : b.count
-    a = a[0,max]
-    b = b[0,max]
-    y = a.zip(b)
-    y.inject(0) {|ret, h| ret += 1 if h.first != h.last; ret}
+def compute(strand_1, strand_2)
+    diff_count = 0
+
+    strand_1.split(//).each_with_index do |letter, index|
+      diff_count += 1 if strand_1[index] != strand_2[index]
+    end
+
+    diff_count
   end

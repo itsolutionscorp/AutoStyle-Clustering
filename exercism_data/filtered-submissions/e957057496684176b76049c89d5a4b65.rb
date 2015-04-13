@@ -4,9 +4,9 @@ def compute(x, y)
 
     while i < x.length
 
-      # if x[i] != y[i]
-      #   hamming_dist += 1
-      # end
+
+
+
 
     hamming_dist += 1 if x[i] != y[i]
 

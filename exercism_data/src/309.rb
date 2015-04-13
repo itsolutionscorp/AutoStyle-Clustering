@@ -1,8 +1,10 @@
-def compute(string1, string2)
-    distance = 0
-    0.upto(string1.length-1) do |index|
-      break if index == string1.length || index == string2.length
-      distance += 1 if string1[index] != string2[index]
-    end
-    distance
+def compute(input1, input2)
+    strand1 = input1.split(/w*/)
+    strand2 = input2.split(/w*/)
+
+    length = [strand1.length, strand2.length].max
+
+    length.times.map do |n|
+      strand1[n] == strand2[n] ? 0 : 1
+    end.inject(&:+)
   end

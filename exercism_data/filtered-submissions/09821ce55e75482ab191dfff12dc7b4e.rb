@@ -5,4 +5,3 @@ def compute(first, second)
     end
     distance
   end
-end

@@ -1,9 +1,9 @@
-def compute(first, second)
-    result = 0
-    first.chars.zip(second.chars).each do |f, s|
-      if (f != nil && s != nil && f != s)
-        result += 1
+def compute(string1, string2)
+      distance = 0
+      string1.each_char.with_index do |char, index|
+         if char != string2[index]
+            distance = distance +1
+         end
       end
-    end
-    return result
-  end
+      return distance
+   end

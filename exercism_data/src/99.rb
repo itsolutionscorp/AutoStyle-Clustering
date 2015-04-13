@@ -1,9 +1,7 @@
-def compute (string1, string2)
-    st1 = string1.chars.to_a #returns an array of characters, could also use string1.split(//)
-    st2 = string2.chars.to_a
-    distance = 0
-    st1.each_with_index do |string, index|
-      distance += 1 if st2[index] && string != st2[index] #increase distance counter if the equivalent index of the second string exists and doesn't match
+def compute(dna1, dna2)
+    if dna1.size == dna2.size
+      dna1.chars.zip(dna2.chars).map{ |base1, base2| base1 != base2 ? 1 : 0 }.reduce(:+)
+    else
+      puts "Cannot run computation: Strands are of differing length."
     end
-    distance
   end

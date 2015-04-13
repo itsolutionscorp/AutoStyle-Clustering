@@ -1,8 +1,5 @@
-def compute(s1, s2)
-    i = 0
-    s1.chars.reduce(0) do |mem, char|
-      mem += 1 if s2.chars[i] != char
-      i += 1
-      mem
-    end
+def compute(first, second)
+    first.chars.select.with_index do |item, idx|
+      second.chars[idx] && (item != second.chars[idx])
+    end.size
   end

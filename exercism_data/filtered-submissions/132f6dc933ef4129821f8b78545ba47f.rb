@@ -10,4 +10,3 @@ def compute(a, b)
       distance
     end
   end
-end

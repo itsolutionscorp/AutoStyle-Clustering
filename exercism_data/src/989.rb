@@ -1,20 +1,6 @@
-def compute(string1,string2)
-		#make sure they are uppercase
-		string1.upcase!
-		string2.upcase!
-		if string2.length < string1.length
-			short_sequence = string2
-			long_sequence = string1
-		else
-			short_sequence = string1
-			long_sequence = string2
-		end
-
-		total = 0
-		short_sequence.chars.each_with_index do |char,index|
-			if char != long_sequence[index]
-				total = total + 1
-			end
-		end
-		total
-	end
+def compute(strand1, strand2)
+        if strand1.length != strand2.length then
+            raise "Error: strand length must be equal"
+        end
+        (0..strand1.length).reject {|i| strand1[i] == strand2[i]}.length
+    end

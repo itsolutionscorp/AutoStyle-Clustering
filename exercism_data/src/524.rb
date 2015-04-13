@@ -1,15 +1,10 @@
-def compute(a, b)
-    counter = 0
-    index = 0
-
-    a = a.each_char.to_a
-    b = b.each_char.to_a
-
-    combined = a.zip(b)
-    combined.each do |set|
-      if set[0] != set[1] && !set.include?(nil)
-        counter += 1
+def compute(first, second)
+    hamz = 0
+    first.chars.each_with_index do |character, index|
+      break if second[index].nil?
+      unless first[index].eql? second[index]
+        hamz += 1
       end
     end
-    counter
+    return hamz
   end

@@ -1,9 +1,9 @@
 def compute(strand_a, strand_b)
     i = 0
     distance = 0
-    
+
     until ( i > strand_a.length)
-      unless strand_a[i] == strand_b[i] 
+      unless strand_a[i] == strand_b[i]
         distance = distance + 1
       end
       i = i + 1

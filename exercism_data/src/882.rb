@@ -1,3 +1,5 @@
-def compute(dna_one, dna_two)
-      (0...dna_one.length).select {|i| dna_one[i] != dna_two[i]}.count
+def compute(a, b)
+    a.chars.zip(b.chars).inject(0) do |sum, i|
+      (i[0] != i[1]) ? sum += 1 : sum
     end
+  end

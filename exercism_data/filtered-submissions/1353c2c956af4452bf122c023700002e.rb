@@ -4,8 +4,8 @@ def compute(string1, string2)
     array2 = string2.chars
     array1.each_with_index do |letter, index|
       if letter != array2[index]
-       count += 1 
+       count += 1
       end
-    end 
+    end
    count
   end

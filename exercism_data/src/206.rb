@@ -1,12 +1,5 @@
-def compute(strand, different_strand)
-    a = strand.split("")
-    b = different_strand.split("")
-    count = 0
-
-    a.zip(b).first( a.length && b.length).each do |c, d|
-      if c != d
-        count += 1
-      end
-    end
-    count
+def compute(str1, str2)
+    score = 0
+    (0.upto(str1.length)).each do |i| if str1[i] != str2[i] then score += 1 end end
+    score
   end

@@ -6,5 +6,3 @@ def compute left, right
 		end
 		diff_counter
 	end
-
-end

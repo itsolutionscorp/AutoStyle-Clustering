@@ -6,4 +6,3 @@ def compute(a,b)
         end
         return distance
     end
-end

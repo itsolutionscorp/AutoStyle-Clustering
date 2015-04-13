@@ -6,6 +6,6 @@ def compute(first, second)
       if first_array[i] != second_array[i]
         count = count + 1
       end
-    end 
+    end
     return count
   end

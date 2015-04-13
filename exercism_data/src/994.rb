@@ -1,8 +1,5 @@
-def compute(mutation, normal)
-    mutations = 0
-    min_len = [mutation.length, normal.length].min
-    (0..min_len-1).each do |num|
-      mutations += 1 if mutation[num] != normal[num]
+def compute(strand1, strand2)
+    strand1.split(//).zip(strand2.split(//)).reduce(0) do |distance, bases|
+      distance += (bases[0] <=> bases[1]).abs
     end
-    mutations
   end

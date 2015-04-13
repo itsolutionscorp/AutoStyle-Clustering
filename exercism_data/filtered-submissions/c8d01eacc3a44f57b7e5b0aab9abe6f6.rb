@@ -1,9 +1,9 @@
-def compute(strand_a, strand_b)	
-	
-	# Given two DNA sequences, calculate the number of 
-	# different pairs. If the sequences are of equal length, line them up by the 
-	# leftmost character and ignore blanks. 
-	
+def compute(strand_a, strand_b)
+
+
+
+
+
 		hamming_distance = 0
 		length_of_shortest_strand = [strand_a.length, strand_b.length].min
 		(0...length_of_shortest_strand).each do |character_index|
@@ -12,4 +12,4 @@ def compute(strand_a, strand_b)
 		  end
 		end
 		hamming_distance
-	end# of self.compute
+	end

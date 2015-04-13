@@ -1,7 +1,7 @@
-def compute(a, b)
-        # Count each pair of characters that are not equal
-        # except if one is nil (happens when a is longer than b)
-        a.each_char.zip(b.each_char).count { |pair|
-            pair[1] != nil and pair[0] != pair[1]
-        }
-    end
+def compute a, b
+    length = [a.size, b.size].min
+
+    (0...length).select do |i|
+      a[i] != b[i]
+    end.size
+  end

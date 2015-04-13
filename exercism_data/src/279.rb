@@ -1,11 +1,12 @@
-def compute(str1, str2)
-  	a = str1.to_s.split('').zip(str2.to_s.split(''))
-  	b = 0
+def compute(a, b)
+      return 0 if a == b
 
-  	a.collect do |v| 
-    	if v[0] != v[1] && v[1] != nil
-    		b += 1
-   		end
-   	end
-    return b
-	end
+      a = a[0..b.length-1] if a.length > b.length
+      result = 0
+
+      a.split('').each_with_index do |e, i|
+        result += 1 if e != b[i]
+      end
+
+      result
+    end

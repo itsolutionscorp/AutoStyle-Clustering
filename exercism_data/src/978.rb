@@ -1,5 +1,15 @@
-def compute(first_set, second_set)
-    first_set.chars.each_with_index.count do |letter, index|
-      letter != second_set[index]
+def compute(x, y)
+    count = 0
+    first = x.split(//)
+    second = y.split(//)
+
+    size = x.length > y.length ? y.length : x.length
+
+    size.times do |i|
+      if first[i] != second[i]
+        count += 1
+      end
     end
+
+    count
   end

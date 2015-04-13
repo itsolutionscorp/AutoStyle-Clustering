@@ -1,4 +1,8 @@
-def compute(seq1,seq2)
-		length = [seq1,seq2].map(&:length).min - 1
-		(0..length).count { |i| seq1[i] != seq2[i] }
-	end
+def compute(strand, other_strand)
+    a, b = strand.chars, other_strand.chars
+    if a.length < b.length
+      a.zip(b).count { |x, y| x != y }
+    else
+      b.zip(a).count { |x, y| x != y }
+    end
+  end

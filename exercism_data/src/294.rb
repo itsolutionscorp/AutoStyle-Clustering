@@ -1,5 +1,5 @@
-def compute(strand_1, strand_2)
-    strand_1.chars
-            .zip(strand_2.chars)
-            .count{ |v| v[0] != v[1] }
-  end
+def compute(string_x, string_y)
+      difference = 0
+      string_x.length.times { |i| difference += 1 if string_x[i] != string_y[i] }
+      difference
+    end

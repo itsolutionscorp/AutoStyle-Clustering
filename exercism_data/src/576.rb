@@ -1,10 +1,9 @@
-def compute(*strands)
-    min_len = strands.map {|s| s.length}.min
-    strands.map! {|s| s[0..min_len-1].split("")}
-    
-    num_mismatches = 0
-    strands[0].each_index do |i|
-      num_mismatches += strands[0][i] == strands[1][i] ? 0 : 1
+def compute(strand_1, strand_2)
+    strand_diff = OpenStruct.new(count: 0)
+    strand_diff.tap do |diff|
+      strand_1.split(//).each_with_index do |letter, index|
+        diff.count += 1 if strand_1[index] != strand_2[index]
+      end
     end
-    num_mismatches
+    strand_diff.count
   end

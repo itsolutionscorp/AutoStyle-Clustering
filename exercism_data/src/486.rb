@@ -1,7 +1,3 @@
-def compute s1,s2
-    (0...[s1.length, s2.length].min).reduce(0) {|memo, i|
-      memo += 1 if s1[i] != s2[i]
-      memo
-    }
+def compute(strand_1, strand_2)
+    strand_1.chars.zip(strand_2.chars).reduce(0) { |count, pair| count + (pair[0] != pair[1] ? 1 : 0) }
   end
-end

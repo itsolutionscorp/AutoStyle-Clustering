@@ -1,5 +1,10 @@
 def compute(a, b)
-    a = a.size > b.size ? a[0...-1] : a
-    new_a = a.scan(/\w/).zip b.scan(/\w/)
-    new_a.map(&:uniq).delete_if {|a| a.count == 1 }.count
+    start_distance = 0
+    length = [a.length, b.length].min
+
+    (0...length).reduce(start_distance) do |distance, index|
+      difference = (a[index] == b[index]) ? 0 : 1
+
+      distance + difference
+    end
   end

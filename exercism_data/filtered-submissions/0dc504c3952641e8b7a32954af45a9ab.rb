@@ -23,16 +23,3 @@ def compute(strand1, strand2)
 
     return hamming_count
   end
-
-
-
-
-  #   if nucleotides1 == nucleotides2
-  #     0
-  #   elsif nucleotides1[0] == nucleotides2[0] && nucleotides1[1] != nucleotides2[1]
-  #     1
-  #   elsif nucleotides1[1] == nucleotides2[1] && nucleotides1[0] != nucleotides2[0]
-  #     1
-  #   else
-  #     2
-  #   end

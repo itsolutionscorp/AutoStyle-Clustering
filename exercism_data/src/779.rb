@@ -1,3 +1,6 @@
-def compute(a, b)
-    [a, b].map(&:chars).transpose.count{ |x, y| x != y }
+def compute(strand, other_strand)
+    nucleotide_mapping = strand.chars.zip(other_strand.chars)
+    hamming_distance = nucleotide_mapping.count do |nucleotide, other_nucleotide|
+      nucleotide != other_nucleotide
+    end
   end

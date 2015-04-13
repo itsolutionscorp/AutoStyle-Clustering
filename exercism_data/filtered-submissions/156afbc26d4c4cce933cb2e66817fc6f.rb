@@ -8,9 +8,9 @@ def compute(string1,string2)
 			if one[count] && two[count]
 				if one[count] != two[count]
 					total += 1
-				end				
-			end	
-			count += 1		
+				end
+			end
+			count += 1
 		end
 		total
 	end

@@ -1,10 +1,4 @@
-def compute(strand1, strand2)
-    count = 0
-    compare_length = strand1.length < strand2.length ? strand1.length : strand2.length
-
-    compare_length.times do |i|
-      count = count + 1 unless strand1[i] == strand2[i]
+def compute(first, second)
+      pairs = first.chars.zip(second.chars).take_while { |fst,snd| fst && snd }
+      pairs.reduce(0) { |memo, (fst,snd)| memo += 1 if fst != snd; memo }
     end
-
-    return count
-  end

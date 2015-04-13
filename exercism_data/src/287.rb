@@ -1,8 +1,5 @@
-def compute(l, r)
-    minlen = [l.length, r.length].min
-    odds = 0
-    minlen.times do |i|
-      odds += 1 if l[i] != r[i]
-    end
-    return count
-  end
+def compute(strand_a, strand_b)
+		diff = 0
+		[strand_a.size, strand_b.size].min.times { | idx | diff += 1 if strand_a[idx] != strand_b[idx] }
+		diff
+	end

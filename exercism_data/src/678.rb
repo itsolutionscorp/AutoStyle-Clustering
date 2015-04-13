@@ -1,3 +1,9 @@
-def compute(str1, str2)
-    str1.chars.zip(str2.chars).count { |e| e[1] && e[0] != e[1] }
-  end
+def compute(a, b)
+      explode_a = a.split('')
+      explode_b = b.split('')
+
+      explode_a.zip(explode_b).inject(0) do |sum, tuple|
+        sum += 1 if tuple[0] != tuple[1]
+        sum
+      end
+    end

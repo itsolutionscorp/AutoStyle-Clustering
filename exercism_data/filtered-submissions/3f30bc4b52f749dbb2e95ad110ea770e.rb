@@ -1,2 +1,2 @@
-def compute(Strands)       
+def compute(Strands)
      end

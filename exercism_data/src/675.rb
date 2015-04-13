@@ -1,16 +1,9 @@
-def compute(a, b)
-       
-       if a == b
-           0
-       end
+def compute(strandOne, strandTwo)
+    sum = 0
 
-       array_a = a.split("")
-       array_b = b.split("")
-       zipped_array = array_a.zip(array_b)
-
-       zipped_array.select { |a, b|
-           a && b && a != b
-       }
-       .length
-
+    strandOne.chars.each_with_index do |c,i|
+      (sum += 1) unless c == strandTwo[i]
     end
+
+    sum
+  end

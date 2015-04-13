@@ -1,9 +1,10 @@
-def compute(strand1,strand2)
-    distance = 0
-    strand1.split("").each_with_index do |char,i|
-      if char != strand2[i] then
-        distance += 1
-      end
+def compute(a, b)
+        pairs = a.chars.to_a.zip(b.chars.to_a)
+
+        difference = 0
+        pairs.each do |pair|
+            next unless pair[0] && pair[1]
+            difference += 1 unless pair[0].upcase == pair[1].upcase
+        end
+        return difference
     end
-    return distance
-  end

@@ -5,5 +5,3 @@ def compute(a, b)
     end
     return differences
   end
-  
-end

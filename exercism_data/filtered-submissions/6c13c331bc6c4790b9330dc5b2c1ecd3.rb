@@ -3,4 +3,3 @@ def compute(a, b)
     a.split("").zip(b.split("")).each { |a, b| count+= 1 unless a.eql?(b) }
     count
   end
-end

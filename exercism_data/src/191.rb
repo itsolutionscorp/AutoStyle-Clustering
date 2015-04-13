@@ -1,7 +1,8 @@
-def compute(*strands)
-    smallest_strand_length = strands.min.size.to_i
-    strands.map! { |strand| strand.split('').slice(0..smallest_strand_length) }
-    zipped_strands = strands[0].zip(strands[1])
-    zipped_strands.delete_if { |strand| strand[0] == strand[1] || strand.include?(nil)}
-    zipped_strands.size
-  end
+def compute(string1, string2)
+		string1.length == string2.length or raise "Input Strings should be the same length."
+		distance = 0
+		(0..string1.length-1).each do |i|
+			distance += 1 if string1[i] != string2[i]
+		end
+		distance
+	end

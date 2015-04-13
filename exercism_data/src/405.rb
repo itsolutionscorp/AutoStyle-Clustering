@@ -1,5 +1,5 @@
-def compute(strand_one, strand_two)
-    strand_one.split('').zip(strand_two.split('')).select do |one,two|
-      two && one != two
-    end.count
+def compute(string_1, string_2)
+    string_1.chars.zip(string_2.chars)
+      .select {|char_1, char_2| char_1 != char_2}
+      .length
   end

@@ -1,7 +1,7 @@
-def compute(one,two)
-    dist = 0
-    0.upto(one.length).each do |i|
-      dist += 1 if one[i] != two[i]
+def compute(strand1, strand2)
+    differences = []
+    strand1.length.times do | idx |
+      differences << strand1[idx] if strand1[idx] != strand2[idx]
     end
-    dist
+    differences.length
   end

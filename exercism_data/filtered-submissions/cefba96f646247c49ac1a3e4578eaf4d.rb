@@ -1,5 +1,5 @@
 def compute(sequence1, sequence2)
-    #We compare until the last strand of the shortest sequence.
+
     if sequence1.length < sequence2.length
       last_index = sequence1.length - 1
     else

@@ -1,7 +1,7 @@
 def compute(x, y)
-    # 1) Split arguments into array
-    # 2) Loop through away, comparing arguments based on index
-    # 3) When values aren't identical, increase a counter
+
+
+
 
     arr1 = x.split(//)
     arr2 = y.split(//)
@@ -15,7 +15,7 @@ def compute(x, y)
         count += 1
       end
     end
-    
+
     return count
 
   end

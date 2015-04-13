@@ -1,6 +1,12 @@
-def compute s1, s2
-    s1 =  s1.split('')
-    s2 =  s2.split('')
-    matches = s1.each_with_index.map {|letter, index| letter == s2[index]}
-    matches.select {|m| m == false}.size
+def compute(first, second)
+    if first==second
+      0
+    else
+      distance = 0
+      min_size = [first.size, second.size].min
+      for i in (0...min_size)
+        distance += 1 if first[i]!=second[i]
+      end
+      return distance
+    end
   end

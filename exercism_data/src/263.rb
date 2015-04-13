@@ -1,7 +1,21 @@
-def compute(dna_first, dna_second)
-    count = 0
-    dna_first.chars.each_with_index do |symbol, index|
-      count += 1 if (symbol != dna_second[index]) && (dna_second[index] != nil)
-    end
-    count
-  end
+def compute(first,second)
+		diff=0
+		if first.length==second.length
+			first.length.times do |i|
+
+				unless first[i]==second[i]
+
+
+					diff=diff+1
+				end
+			end
+		else
+			if first.length>second.length
+				diff=1
+			else
+				diff=2
+			end
+
+		end
+		diff
+	end

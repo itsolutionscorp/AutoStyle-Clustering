@@ -1,5 +1,11 @@
-def compute(s1, s2)
-        l = [s1.length, s2.length].min
-        s1[0..l-1].each_char.zip(s2[0..l-1].each_char).select { |a,b| a != b }.size
+def compute(original, compare)
+    differences = 0
+
+    longer = original.size >= compare.size ? original : compare
+    shorter = original.size >= compare.size ? compare : original
+
+    shorter.each_char.with_index do |char, index|
+      differences += 1 unless char == longer[index]
     end
-end
+    differences
+  end

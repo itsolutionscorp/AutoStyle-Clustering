@@ -10,4 +10,3 @@ def compute(string1, string2)
     end
     count
   end
-end

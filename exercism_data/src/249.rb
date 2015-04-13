@@ -1,8 +1,5 @@
-def compute(strand1, strand2)
-    hamming_difference = 0
-    strand1.chars.zip(strand2.chars).each do |a1, a2|
-      break if a2.nil?
-      hamming_difference += 1 unless a1 == a2
+def compute(strand_a, strand_b)
+    (0...[strand_a, strand_b].min.length).count do |i|
+      strand_a[i] != strand_b[i]
     end
-    hamming_difference
   end

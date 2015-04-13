@@ -1,11 +1,6 @@
-def compute( left, right )
-    return 0 if left == right
-
-    mutations = 0
-
-    left.each_char.with_index do |lc, idx|
-      break if idx == right.size
-      mutations += 1 if lc != right[idx]
-    end
-
-    mutations
+def compute(strand_a, strand_b)
+    short, long = [strand_a, strand_b].map { |s| s.chars }
+                                      .sort { |a, b| a.size <=> b.size }
+    short.zip(long)
+         .count { |m, n| m != n }
+  end

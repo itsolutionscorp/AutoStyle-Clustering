@@ -1,7 +1,6 @@
-def compute(s, t)
-      cnt = 0
-      for i in 0...s.length
-        cnt+=1 if s[i] != t[i]
-      end
-      cnt
-  end
+def compute dna_a, dna_b
+		dna_a.chars.select.with_index{ |base, index|
+				base != dna_b[index]
+			}
+			.count
+	end

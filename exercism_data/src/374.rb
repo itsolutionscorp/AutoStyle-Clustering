@@ -1,11 +1,6 @@
-def compute(original, compare)
-    differences = 0
+def compute(a,b)
+        c = 0
+        a.length.times { |i| c += 1 if a[i] != b[i] }
 
-    longer = original.size >= compare.size ? original : compare
-    shorter = original.size >= compare.size ? compare : original
-
-    shorter.each_char.with_index do |char, index|
-      differences += 1 unless char == longer[index]
+        c
     end
-    differences
-  end

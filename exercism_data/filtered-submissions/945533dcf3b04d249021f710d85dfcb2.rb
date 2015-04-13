@@ -5,5 +5,3 @@ def compute(dna1, dna2)
 
     (0...dna1.length).count { |idx| dna1[idx] != dna2[idx] }
   end
-
-end

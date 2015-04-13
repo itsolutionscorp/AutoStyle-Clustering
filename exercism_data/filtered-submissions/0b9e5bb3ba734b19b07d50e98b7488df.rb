@@ -5,4 +5,3 @@ def compute strand, other_strand
       strand[i] != other_strand[i]
     end
   end
-end

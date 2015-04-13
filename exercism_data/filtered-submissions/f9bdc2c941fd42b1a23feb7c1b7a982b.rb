@@ -4,4 +4,3 @@ def compute(first, second)
       .reject { |pair| pair.any?(&:nil?) }
       .count { |pair| pair[0] != pair[1] }
   end
-end

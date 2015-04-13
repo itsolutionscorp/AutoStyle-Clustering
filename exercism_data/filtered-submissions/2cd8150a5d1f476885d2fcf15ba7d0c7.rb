@@ -1,5 +1,5 @@
 def compute(a, b)
-		
+
 		arrayb = b.split('')
 		arraya = a.split('')
 		total = 0

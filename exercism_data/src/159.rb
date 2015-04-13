@@ -1,5 +1,14 @@
-def compute(*args)
-    pairs_a, pairs_b = args.sort_by(&:length).map(&:chars)
-    pairs_a.zip(pairs_b).find_all {|(a, b)| a != b }.length
+def compute strand1, strand2
+    i = 0
+    count = 0
+
+    strand1.each_char do |c|
+      if ( c != strand2[i] )
+        count += 1
+      end
+      i += 1
+    end
+
+    return count
+
   end
-end

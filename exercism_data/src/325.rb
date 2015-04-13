@@ -1,11 +1,7 @@
-def compute(strandA, strandB)
-    nucleids_a = strandA.chars
-    nucleids_b = strandB.chars
-    nucleids_a.zip(nucleids_b).reduce(0) do |sum, (a, b)|
-      if a && b && a != b
-        sum + 1
-      else
-        sum
-      end
+def compute(a, b)
+	errors = 0
+	a.length.times do |i|
+	  errors += 1 if a[i] != b[i]
+	end
+	errors
     end
-  end

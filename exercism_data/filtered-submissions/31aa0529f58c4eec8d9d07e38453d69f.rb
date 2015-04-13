@@ -12,3 +12,4 @@ def compute(strand_1, strand_2)
     end
 
     hamming
+  end

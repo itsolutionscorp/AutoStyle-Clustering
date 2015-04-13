@@ -1,7 +1,7 @@
 def compute(foo, bar)
 		difference = 0
 
-		foo.length.times do |c| 
+		foo.length.times do |c|
 			unless foo[c] == bar[c]
 				difference += 1
 			end

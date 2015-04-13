@@ -1,9 +1,9 @@
-def compute(a, b)
-        if a == b
-            0
-        end
-        diffs = 0
-        a.split('').each_with_index {|c, i| diffs += 1 if c != b[i] }
-        diffs
+def compute(arg_a, arg_b)
+    difference_acum = 0
+    for i in 0 .. arg_a.length
+      if arg_a[i] != arg_b[i]
+        difference_acum +=1 unless arg_a[i]==arg_b[i]
+      end
     end
-end
+    difference_acum
+  end

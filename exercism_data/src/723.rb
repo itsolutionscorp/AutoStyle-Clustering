@@ -1,21 +1,11 @@
-def compute(strand_one, strand_two)
-    strand_one.upcase!
-    strand_two.upcase!
+def compute(a,b)
 
-    strand_one_length = strand_one.length
-    strand_two_length = strand_two.length
+    a.size > b.size ? length = b.size - 1: length = a.size - 1
 
-    difference   = 0
-    count        = 0
+    difference = 0
 
-    while count <= strand_one_length
-      if strand_one[count] != nil && strand_two[count] != nil
-        if strand_one[count] != strand_two[count]
-          difference += 1
-        end
-      end
-      count += 1
-    end
+    (0..length).map { |i| difference += 1 if a[i] != b[i] }
 
-    return difference
+    difference
+
   end

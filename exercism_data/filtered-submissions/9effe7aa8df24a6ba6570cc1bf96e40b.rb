@@ -4,7 +4,7 @@ def compute(strand1, strand2)
 			second_char = strand2.downcase[index]
 			unless second_char == nil
 				if char != second_char
-					count += 1 
+					count += 1
 				end
 			end
 		end

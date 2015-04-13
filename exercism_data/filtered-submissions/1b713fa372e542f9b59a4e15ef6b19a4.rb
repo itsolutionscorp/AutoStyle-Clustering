@@ -1,5 +1,5 @@
 def compute(string1, string2)
-		
+
 		if string1.length > string2.length
 			string1 = string1 [0..(string2.length - 1)]
 		end

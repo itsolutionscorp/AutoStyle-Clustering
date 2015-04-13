@@ -6,4 +6,3 @@ def compute(a, b)
     end
     diff
   end
-end

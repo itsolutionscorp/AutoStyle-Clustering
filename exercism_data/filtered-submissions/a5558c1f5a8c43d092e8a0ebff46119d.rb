@@ -9,5 +9,5 @@ def compute(strand1, strand2)
     end
 
     return count
-    
+
   end

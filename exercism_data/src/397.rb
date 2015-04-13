@@ -1,7 +1,7 @@
-def compute(a,b)
-    a = a.split('')
-    b = b.split('')
-    diff = a.map.with_index {|x, idx| x != b[idx]}.select {|x| x}
-    diff.length
+def compute(strand1, strand2)
+    distance = 0
+    strand1.size.times do |index|
+      distance += 1 unless strand1[index] == strand2[index]
+    end
+    distance
   end
-end

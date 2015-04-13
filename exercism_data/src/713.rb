@@ -1,9 +1,14 @@
-def compute(strand1, strand2)
-    strand1 = strand1.chars
-    strand2 = strand2.chars
-    zipped_strands = strand1.zip(strand2)
+def compute(first,second)
+		first = first.scan(/./)
+		second = second.scan(/./)
 
-    zipped_strands.count do |x,y|
-      x != y && y
-    end
-  end
+		hamming = 0
+		first.length.times do |i|
+
+			break if second[i] == nil
+			hamming += 1 if first[i] != second[i]
+		end
+
+		return hamming
+
+	end

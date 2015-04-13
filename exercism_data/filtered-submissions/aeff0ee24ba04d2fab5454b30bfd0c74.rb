@@ -8,5 +8,5 @@ def compute(arg1, arg2)
         counter += 1
       end
     end
-    return counter # 1
+    return counter
 end

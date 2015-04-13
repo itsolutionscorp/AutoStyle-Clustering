@@ -1,13 +1,9 @@
-def compute(arg1, arg2)
-      arr1 = arg1.split("")
-      arr2 = arg2.split("")
+def compute(strand1, strand2)
+    distance = 0
+    min_length = [strand1, strand2].min_by(&:length).length
 
-      counter = 0
-      arr1.each_with_index do |x, i|
-        if x != arr2[i]
-          counter += 1
-        end
-      end
-      return counter
-
+    min_length.times do |i|
+      distance += 1 if strand1[i] != strand2[i]
     end
+    distance
+  end

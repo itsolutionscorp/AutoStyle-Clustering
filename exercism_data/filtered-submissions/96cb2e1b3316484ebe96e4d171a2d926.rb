@@ -1,3 +1,3 @@
 def compute
-		
+
 	end

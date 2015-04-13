@@ -1,3 +1,3 @@
-def compute(string1, string2)
-    string1.chars.zip(string2.chars).count { |char1, char2| char1 != char2 }
+def compute(strandA,strandB)
+    strandA.chars.zip(strandB.chars).select{|a,b| a!=b and (a.nil? || b.nil?) ==false }.count
   end

@@ -1,5 +1,14 @@
-def compute(strand1,strand2)
-    comparison = []
-    comparison << strand1.split(//) << strand2.split(//)
-    comparison.transpose.count{|pair| pair.uniq.length != 1}
+def compute(strand_a, strand_b)
+    distance = 0
+
+    length = [strand_a, strand_b].sort { |a, b| a.length <=> b.length }
+             .first.length
+
+    length.times do |index|
+      if strand_a[index] != strand_b[index]
+        distance += 1
+      end
+    end
+
+    distance
   end

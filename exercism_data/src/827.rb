@@ -1,8 +1,7 @@
-def compute(dnaone, dnatwo)  
-  	difference = 0 
-    endofchain = [dnaone.length,dnatwo.length].min - 1
-  	for i in 0..endofchain
-   		difference+=1 if dnaone[i] != dnatwo[i]
-   	end
-    return difference
+def compute(strand1, strand2)
+    diff = 0
+    strand1.chars.each_with_index do |char, i|
+      diff += 1 if strand1[i] != strand2[i]
+    end
+    diff
   end

@@ -9,4 +9,3 @@ def compute( strand1, strand2)
     sequence1.each_with_index {|s,i| hamm +=1 if s!=sequence2[i]}
     hamm
   end
-end

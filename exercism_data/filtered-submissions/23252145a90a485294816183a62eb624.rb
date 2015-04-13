@@ -1,6 +1,6 @@
 def compute(first_input, second_input)
     distance = 0
-    
+
     if first_input != second_input
       first_input_array = first_input.split("")
       second_input_array = second_input.split("")

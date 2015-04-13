@@ -7,7 +7,7 @@ def compute(first, second)
 		elsif first_array.count > second_array.count
 			nucleo_size = second_array.count
 		end
-			
+
 		n = 0
 		diff_counter = 0
 

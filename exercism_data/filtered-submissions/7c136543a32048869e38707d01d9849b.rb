@@ -12,7 +12,7 @@ def compute(strand_1, strand_2)
 
     smallest_string_length.times do |i|
       if strand_1[i] != strand_2[i]
-        dissimilarity_count += 1 
+        dissimilarity_count += 1
       end
     end
 

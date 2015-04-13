@@ -10,7 +10,7 @@ def compute(dna_one, dna_two)
 		end
 		while x < shortest_string.length
 			count += 1 if shortest_string[x] != other_string[x]
-			x += 1	
+			x += 1
 		end
 		return count
 	end

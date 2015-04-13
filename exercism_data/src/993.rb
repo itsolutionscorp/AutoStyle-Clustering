@@ -1,9 +1,5 @@
-def compute(string1, string2)
-    hamming = 0
-    [string1.length, string2.length].min.times do |l|
-      if string1[l] != string2[l]
-        hamming += 1
-      end
+def compute(first_set, second_set)
+    first_set.chars.each_with_index.count do |letter, index|
+      letter != second_set[index]
     end
-    hamming
   end

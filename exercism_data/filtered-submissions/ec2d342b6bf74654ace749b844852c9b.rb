@@ -4,7 +4,7 @@ def compute (dnaStrand1,dnaStrand2)
 			hamming_distance=0;
 			while $counter < dnaStrand1.length
 				if dnaStrand1[$counter]!=dnaStrand2[$counter]
-					hamming_distance+=1					
+					hamming_distance+=1
 				end
 				$counter+=1
 			end

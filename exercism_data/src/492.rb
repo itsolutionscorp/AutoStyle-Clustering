@@ -1,12 +1,6 @@
-def compute(strandA,strandB)
-		if strandA.length != strandB.length
-		end
-	compares = 0
-	
-	for i in 0..strandA.length
-		if strandA.getbyte(i) != strandB.getbyte(i) then
-			compares+=1
-			end
-		end
-		return compares
+def compute(strand_a, strand_b)
+    strand_length = [strand_a.length, strand_b.length].min
+    strand_length.times.count do |index|
+      strand_a[index] != strand_b[index]
     end
+  end

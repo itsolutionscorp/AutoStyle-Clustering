@@ -1,7 +1,17 @@
-def compute (strand_a, strand_b, begin_distance:0)
-      min_length = [strand_a.length, strand_b.length].min
-      min_length.times do |position|
-        begin_distance = begin_distance + 1 unless strand_a[position] == strand_b[position]
-      end
-      return begin_distance
-    end
+def compute(string1, string2)
+
+		if string1.length > string2.length
+			string1 = string1 [0..(string2.length - 1)]
+		end
+
+		zipped =string1.split("").zip string2.split("")
+		count = 0
+
+		zipped.each do |symbol1, symbol2|
+			if symbol1 != symbol2
+				count += 1
+			end
+		end
+
+		return count
+	end

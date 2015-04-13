@@ -3,6 +3,6 @@ def compute sequence1, sequence2
     ham = 0
     for i in 0..length-1
       ham += 1 unless sequence1[i] == sequence2[i]
-    end                                     
+    end
     ham
   end

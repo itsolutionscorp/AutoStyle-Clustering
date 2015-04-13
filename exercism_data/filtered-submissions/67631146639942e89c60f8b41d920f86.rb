@@ -5,4 +5,3 @@ def compute(string_a, string_b)
       differences_so_far + differences_this_time
     end
   end
-end

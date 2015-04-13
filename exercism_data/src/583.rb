@@ -1,9 +1,5 @@
-def compute(first_dna, second_dna)
-		first_arr = (first_dna.length > second_dna.length) ?  second_dna.chars : first_dna.chars
-		first_arr.each_with_index.inject(0) do |acc, (value, index)|
-			if (first_dna[index] != second_dna[index])
-				acc += 1
-			end
-		acc
-		end
+def compute(strand1, strand2)
+		min_length = [strand1.size, strand2.size].min
+		chars_from_both_strings = (strand1[0...min_length].chars).zip(strand2[0...min_length].chars)
+		chars_from_both_strings.count { |pair| pair[0] != pair[1] }
 	end

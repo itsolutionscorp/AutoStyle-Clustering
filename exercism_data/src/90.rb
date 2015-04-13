@@ -1,11 +1,4 @@
-def compute(strandA, strandB)
-		hammingDistance = 0
-
-		strandA.each_char.with_index do|i, index|
-  			if i != strandB[index] then
-  				hammingDistance += 1
-			end
-		end
-
-		hammingDistance
-	end
+def compute dna_strand_a, dna_strand_b
+    merged_dna = dna_strand_b.split('').zip dna_strand_b.split('')
+    merged_dna.count { |joint| joint.uniq == 2 }
+  end

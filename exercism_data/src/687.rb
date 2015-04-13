@@ -1,13 +1,6 @@
-def compute(a, b)
-    shorter = [a.length, b.length].min - 1
-    a_trimmed = a[0..shorter]
-    b_trimmed = b[0..shorter]
-    distance = 0
-    for i in 0..shorter
-      if a[i] != b[i]
-      	distance += 1
-      else
-      end
-    end
-    return distance
+def compute(string1, string2)
+    return 0 if string1 == string2
+
+    comparison = string1.chars.zip(string2.chars).map {|x,y| x==y}
+    return comparison.count(false)
   end

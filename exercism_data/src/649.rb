@@ -1,10 +1,8 @@
-def compute(x, y)
-    compare = [x.length, y.length].min
-    distance = 0
-    compare.times do |check|
-      if x[check] != y[check]
-        distance += 1
-      end
+def compute(original, mutated)
+    difference = 0
+    original.chars.each_with_index do |orig_chr, index|
+      break unless mutated[index]
+      difference += 1 if orig_chr != mutated[index]
     end
-    distance
+    difference
   end

@@ -6,5 +6,3 @@ def compute(seq_1, seq_2)
 			distance += 1 if seq_1[i] != seq_2[i]
 		end
 		distance
-	end 
-end

@@ -1,3 +1,7 @@
-def compute(string1, string2)
-    string1.chars.zip(string2.chars).count {|x, y| x != y }
+def compute(strand_one, strand_two)
+
+    strands = strand_one.bytes.zip(strand_two.bytes)
+
+
+    strands.map{ |a, b| (a || b) ^ (b || a) > 0 ? 1 : 0 }.inject(:+)
   end

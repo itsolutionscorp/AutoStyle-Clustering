@@ -1,13 +1,5 @@
-def compute(first, second)
-    first  = first.split(//)
-    long   = first.count
-    secondary = second.split(//)
-    second = secondary[0..long-1]
-
-    count  = 0
-    second.each_with_index do |letter, index|
-    count += 1 if letter != first[index]
+def compute(strand_1, strand_2)
+    strand_1.chars.zip(strand_2.chars).inject(0) do |sum, pair|
+      sum += 1 if pair[0] != pair[1]; sum
     end
-
-    count
   end

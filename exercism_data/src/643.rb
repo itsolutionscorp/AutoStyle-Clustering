@@ -1,4 +1,7 @@
-def compute(a,b)
-    length = ([a.size , b.size].min) - 1
-    (0..length).inject(0) { |distance, i| distance += 1 if a[i] != b[i]; distance }
-  end
+def compute(word1, word2)
+		dist = 0
+		0.upto( ([word1.size, word2.size].min - 1)) do |i|
+			dist += 1 unless word1[i] == word2[i]
+		end
+		dist
+	end

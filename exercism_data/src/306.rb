@@ -1,6 +1,15 @@
-def compute(strand1,strand2)
-		compare_length = [strand1.length,strand2.length].min
-		hamming_distance = (0..compare_length-1).map{ |n|
-			strand1[n] == strand2[n] ? 0 : 1
-		}.reduce(:+)
-	end
+def compute(inputA, inputB)
+
+    difference_counter = 0
+
+
+    [inputA.length, inputB.length].min.times do |position_counter|
+      if (inputA[position_counter] != inputB[position_counter])
+        difference_counter+=1
+      end
+      position_counter +=1
+    end
+
+    difference_counter
+
+  end

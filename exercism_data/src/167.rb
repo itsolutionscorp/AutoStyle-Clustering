@@ -1,7 +1,7 @@
-def compute(a,b)
-    count = 0
-    (0..a.length-1).each do |i|
-      count +=1 unless a[i].eql? b[i] or b[i] == nil
+def compute(one,two)
+    dist = 0
+    0.upto(one.length).each do |i|
+      dist += 1 if one[i] != two[i]
     end
-    return count
+    dist
   end

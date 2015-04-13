@@ -1,10 +1,9 @@
-def compute(a, b)
+def compute(dna1, dna2)
+    hamming_distance = 0
     count = 0
-    max = a.length < b.length ? a.length : b.length
-    for i in 0...max
-      if a[i] != b[i]
-        count += 1
-      end
+    dna1.each_char do |nucleotide|
+      hamming_distance += 1 if nucleotide != dna2[count]
+      count += 1
     end
-    return count
+    hamming_distance
   end

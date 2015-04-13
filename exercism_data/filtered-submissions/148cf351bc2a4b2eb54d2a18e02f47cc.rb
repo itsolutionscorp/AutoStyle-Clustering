@@ -6,4 +6,3 @@ def compute(str1,str2)
     end
     count
   end
-end

@@ -5,7 +5,7 @@ def compute(gene_1,gene_2)
     elsif gene_1.length != gene_2.length
       return -1
     else
-      # determine hamming difference
+
       for i in 0..gene_1.length
         if gene_1[i] != gene_2[i] then
           hamming_number += 1

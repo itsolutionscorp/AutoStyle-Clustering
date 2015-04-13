@@ -4,7 +4,7 @@ def compute(strand1, strand2)
 
         l1 = strand1.length
         l2 = strand2.length
-            
+
         if l1 <= l2 then length = l1 else length = l2 end
 
         length.times do |i|

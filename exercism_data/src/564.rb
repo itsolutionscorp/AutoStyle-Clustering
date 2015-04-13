@@ -1,23 +1,18 @@
-def compute(s1, s2)
+def compute(a,b)
 
-    i, distance = 0, 0
 
-    if s1.length != s2.length
-      if s1.length < s2.length
-        s2 = s2[0...(s1.length)]
-      else
-        s1 = s1[0...(s2.length)]
-      end
+
+    if a.length < b.length
+      shortest_nucleic_acid = a
+      longest_nucleic_acid = b
+    else
+      shortest_nucleic_acid = b
+      longest_nucleic_acid = a
     end
-
-    puts s1
-    puts s2
-
-    while i < s1.length
-      if s1[i] != s2[i]
-        distance += 1
-      end
-        i += 1
+    hamming_distance = 0
+    longest_nucleic_acid = longest_nucleic_acid.split(//)
+    shortest_nucleic_acid.each_char.with_index do |char, index|
+      hamming_distance += 1 if longest_nucleic_acid[index] != char
     end
-    distance
+    hamming_distance
   end

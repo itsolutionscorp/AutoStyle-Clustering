@@ -1,8 +1,12 @@
-def compute(stringA, stringB)
-        min = [stringA.length, stringB.length].min
-        count = 0
-        min.times { |i|
-            count = count+1 if (stringA[i] != stringB[i])
-        }
-        count
+def compute(first_strand, second_strand)
+    assert_equal = 0
+
+    first_strand.length.times do |count|
+      if first_strand[count] != second_strand[count]
+        if (first_strand[count] && second_strand[count]) != nil
+          assert_equal += 1
+        end
+      end
     end
+    assert_equal
+  end

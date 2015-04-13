@@ -1,7 +1,18 @@
-def compute(arg1, arg2)
-		distance = 0
-		arg1.chars.take(arg2.length).zip arg2.chars do |arr|
-			distance += 1 if arr[0] != arr[1]
-		end
-		distance
-	end
+def compute(strand1, strand2)
+
+    if strand1.length == strand2.length
+      "Wrong length. The strands have to be the same length"
+    end
+
+    splitted_strand_1 = strand1.scan(/\w/)
+    splitted_strand_2 = strand2.scan(/\w/)
+
+    count = 0
+
+    splitted_strand_1.each_with_index do |seq, i|
+      count += 1 unless splitted_strand_2[i] == seq
+    end
+
+    count
+
+  end

@@ -1,12 +1,10 @@
-def compute(strand1, strand2)
-    distance = 0
-    len = [strand1.length, strand2.length].min
-
-    (0...len).each do |i|
-    	if strand1[i] != strand2[i]
-    		distance += 1
-    	end
+def compute(a, b)
+    count = 0
+    max = a.length < b.length ? a.length : b.length
+    for i in 0...max
+      if a[i] != b[i]
+        count += 1
+      end
     end
-    
-    return distance 
+    return count
   end

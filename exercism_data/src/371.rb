@@ -1,6 +1,5 @@
-def compute(a,b)
-        c = 0
-        a.length.times { |i| c += 1 if a[i] != b[i] }
-
-        c
+def compute(first_strand, other_strand)
+    (0...[first_strand.size, other_strand.size].min).count do |i|
+      first_strand[i] != other_strand[i]
     end
+  end

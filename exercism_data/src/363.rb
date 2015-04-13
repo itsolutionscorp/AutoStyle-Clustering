@@ -1,8 +1,3 @@
-def compute(arg1, arg2)
-    raise ArgumentError, "Sequences must have the same length" unless arg1.length == arg2.length
-    differences = 0
-    (0...arg1.length).each do |index|
-      differences += 1 unless arg1[index] == arg2[index]
-    end
-    differences
-  end
+def compute(s1, s2)
+		s1.chars.zip(s2.chars).count { |c1, c2| c1 && c2 && c1 != c2 }
+	end

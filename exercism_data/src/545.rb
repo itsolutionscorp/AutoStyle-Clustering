@@ -1,15 +1,8 @@
-def compute(strand_a, strand_b)
-    distance = []
+def compute(string1, string2)
+        diff = 0
 
-    length = [strand_a.length, strand_b.length].min
-
-    strand_a = strand_a[0..length-1].split("")
-    strand_b = strand_b[0..length-1].split("")
-
-    strand_b.each_with_index do |nuc, index|
-      if nuc != strand_a[index]
-        distance << nuc
-      end
+        string1.split("").each_with_index do |ch, index|
+                diff += 1 if ch != string2[index]
+        end
+        diff
     end
-    distance.count
-  end

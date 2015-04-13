@@ -1,3 +1,7 @@
-def compute(a, b)
-    [a, b].map(&:size).min.times.count { |i| a[i] != b[i] }
+def compute(a,b)
+    hamming = 0
+    [a,b].min.each_char.with_index do |char, index|
+      hamming += 1 if char != [a,b].max[index]
+    end
+    hamming
   end

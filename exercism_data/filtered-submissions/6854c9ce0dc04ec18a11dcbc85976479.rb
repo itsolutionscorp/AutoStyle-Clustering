@@ -4,4 +4,3 @@ def compute(strand_a, strand_b)
     length.times { |i| distance += 1 if strand_a[i] != strand_b[i] }
     distance
   end
-end

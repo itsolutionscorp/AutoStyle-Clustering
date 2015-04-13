@@ -1,21 +1,19 @@
-def compute(first,second)
-		diff=0
-		if first.length==second.length
-			first.length.times do |i| 
-				
-				unless first[i]==second[i]
-					
-					
-					diff=diff+1
-				end
-			end
-		else
-			if first.length>second.length
-				diff=1
-			else
-				diff=2
-			end	
+def compute(strand1, strand2)
 
-		end
-		diff
-	end
+    hamming_distance = 0
+    longer_strand = strand1
+    shorter_strand = strand2
+
+    if strand2.length > strand1.length
+      longer_strand = strand2
+      shorter_strand = strand1
+    end
+
+    for pos in 0..shorter_strand.length - 1
+        if shorter_strand[pos] != longer_strand[pos]
+          hamming_distance += 1
+        end
+    end
+
+    return hamming_distance
+  end

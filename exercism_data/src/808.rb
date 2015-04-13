@@ -1,9 +1,11 @@
-def compute(a,b)
-    distance = 0
-    for i in 0..([a.length, b.length].min - 1)
-      if a[i] != b[i]
-        distance += 1
-      end
+def compute(strand1, strand2)
+
+    @length = [strand1.length, strand2.length].min - 1
+    @distance = 0
+
+    for i in 0..@length
+      @distance += strand1[i] == strand2[i] ? 0 : 1
     end
-    return distance
+
+    @distance
   end

@@ -1,12 +1,23 @@
-def compute(strand1,strand2)
- 
- ctr=0
+def compute(s1, s2)
 
-  
- strand1.size>=strand2.size ? n=strand2.size : n=strand1.size
- 
- (0..n-1).each{|x| ctr+=1 if strand1[x]!=strand2[x]}
- 
- ctr
+    i, distance = 0, 0
 
-end
+    if s1.length != s2.length
+      if s1.length < s2.length
+        s2 = s2[0...(s1.length)]
+      else
+        s1 = s1[0...(s2.length)]
+      end
+    end
+
+    puts s1
+    puts s2
+
+    while i < s1.length
+      if s1[i] != s2[i]
+        distance += 1
+      end
+        i += 1
+    end
+    distance
+  end

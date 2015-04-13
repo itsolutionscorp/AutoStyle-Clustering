@@ -1,6 +1,5 @@
-def compute(left, right)
-    if left.length > right.length
-      left, right = right, left
-    end
-    left.chars.zip(right.chars).count {|a| a[0]!=a[1]}
+def compute(dna1, dna2)
+    dna1.chars.zip(dna2.chars).
+      select { |pair| pair.first != pair.last }.
+      count
   end

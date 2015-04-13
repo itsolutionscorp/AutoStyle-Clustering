@@ -1,3 +1,5 @@
-def compute(a, b)
-    [a,b].min.chars.keep_if.with_index { |x, i| x != [a,b].max.chars[i] }.length
+def compute(s1, s2)
+    count = 0
+    s1.chars.each_with_index { |char, i| count += 1 if char != s2[i] }
+    return count
   end

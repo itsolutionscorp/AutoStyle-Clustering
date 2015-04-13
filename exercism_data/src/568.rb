@@ -1,7 +1,5 @@
-def compute(strand1, strand2)
-    strand1.each_char.zip(strand2.each_char).inject(0) { |diff, (c1, c2)|
-      return diff if c1.nil? or c2.nil?
-      diff + (c1 == c2 ? 0 : 1)
-    }
+def compute(str1, str2)
+    str1.chars.each.with_index.count do |char, index|
+      str2[index] && str2[index] != char
+    end
   end
-end

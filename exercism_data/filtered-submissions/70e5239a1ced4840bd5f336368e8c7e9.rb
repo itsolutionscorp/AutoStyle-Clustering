@@ -3,7 +3,7 @@ def compute(s, t)
     t_array = t.split(//)
     index = 0
     new_array = []
-    s_array.each do |i| 
+    s_array.each do |i|
       if (i != t_array[index] || nil ) && (t_array[index] != nil)
         new_array << i
       end

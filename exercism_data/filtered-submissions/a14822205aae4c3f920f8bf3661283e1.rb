@@ -1,5 +1,5 @@
 def compute(a,b)
-    # Make both strings into arrays
+
     a = a.scan(/./)
     b = b.scan(/./)
 

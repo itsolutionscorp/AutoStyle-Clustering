@@ -1,9 +1,9 @@
-def compute(baseStrand, newStrand)
-		hammingValue = 0
-		maxLength = [baseStrand.length, newStrand.length].min - 1
-
-		(0..maxLength).each do 
-			|i| hammingValue+= 1 if baseStrand[i] != newStrand[i] end
-
-		hammingValue
-	end
+def compute(s1, s2)
+    dist = 0
+    count = 0
+    s1.split('').each do |i|
+      dist += 1 if i != s2.split('')[count]
+      count += 1
+    end
+    dist
+  end

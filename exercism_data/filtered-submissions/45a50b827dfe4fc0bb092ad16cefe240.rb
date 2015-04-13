@@ -3,4 +3,3 @@ def compute(dna1, dna2)
       pair[0] == pair[1] ? sum : sum + 1
     end
   end
-end

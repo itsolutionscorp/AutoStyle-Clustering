@@ -1,5 +1,5 @@
 def compute(first, second)
-    # Let's make sure we have strings
+
     first = first.to_s
     second = second.to_s
 
@@ -8,4 +8,3 @@ def compute(first, second)
     len.times {|i| dist += 1 unless first[i] == second[i]}
     dist
   end
-end

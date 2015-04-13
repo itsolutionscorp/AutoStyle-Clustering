@@ -8,5 +8,5 @@ def compute(a, b)
     end
 
   ensure
-    return count  # We'll reach this with StopIteration
+    return count
   end

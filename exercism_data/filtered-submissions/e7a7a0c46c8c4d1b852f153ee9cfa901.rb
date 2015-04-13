@@ -1,6 +1,6 @@
 def compute(arg1,arg2)
 		return 0 unless arg1.length == arg2.length
-		
+
 		a1 =  arg1.split("")
 		a2 = arg2.split("")
 		count = 0

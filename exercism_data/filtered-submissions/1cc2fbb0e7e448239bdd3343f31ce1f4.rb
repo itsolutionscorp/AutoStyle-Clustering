@@ -17,6 +17,6 @@ def compute(var1, var2)
 		for i in 0..max do
 			count+=1 if var1[i] != var2[i]
 		end
-		
+
 		return count
 	end

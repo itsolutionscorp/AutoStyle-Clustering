@@ -1,6 +1,3 @@
-def compute(item_a, item_b)
-    #create array of pairs equal to the size of the smaller string
-    hamming_pairs = item_a.chars.zip(item_b.chars)
-    #calculate hamming distance
-    hamming_pairs.map { |pair| pair.first != pair.last ? 1 : 0 }.reduce(:+)
+def compute(a, b)
+    [a.length, b.length].min.times.count { |i| a[i] != b[i] }
   end

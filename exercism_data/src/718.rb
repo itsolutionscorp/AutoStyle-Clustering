@@ -1,10 +1,9 @@
-def compute(primerCodigo , segundoCodigo)
-    if primerCodigo.length == segundoCodigo.length
-    # Recorres ambas cadenas y comparar caracter por caracter, y si hay
-    # diferencia sumarla al atributo distancia.
-      (0..primerCodigo.length - 1).each do |i|
-        @distancia += 1 unless primerCodigo[i] == segundoCodigo[i]
-      end
+def compute(first_dna_strand, second_dna_strand)
+    number_of_differences = 0
+
+    first_dna_strand.chars.each_with_index do |letter, index|
+      number_of_differences += 1 unless letter == second_dna_strand[index]
     end
-    @distancia = 0 if @distancia.nil?
+
+    number_of_differences
   end

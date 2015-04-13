@@ -1,8 +1,26 @@
-def compute(strand_one, strand_two)
-    # Get the shorter strand size and iterate with it while counting differences
-    # in the bases using the cycle number as index.
-    [strand_one.size, strand_two.size].min.times.count do |i|
-      strand_one[i] != strand_two[i]
+def compute(arg1, arg2)
+    sum = 0
+
+    arg1_len = arg1.length
+    arg2_len = arg2.length
+
+    if arg1_len < arg2_len
+      len = arg1_len
+    elsif arg1_len > arg2_len
+      len = arg2_len
+    else
+      len = arg2_len
     end
+
+
+    i = 0
+
+  	while i <= len-1
+    	if arg1[i] != arg2[i]
+    		sum += 1
+      end
+      i+=1
+    end
+
+    return sum
   end
-end

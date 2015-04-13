@@ -1,16 +1,10 @@
-def compute(string1,string2)
-		one = string1.split('')
-		two = string2.split('')
-		num = one.count
-		count = 0
-		total = 0
-		while count <= num
-			if one[count] && two[count]
-				if one[count] != two[count]
-					total += 1
-				end				
-			end	
-			count += 1		
-		end
-		total
-	end
+def compute(s1,s2)
+    ham = 0
+    min = [s1.length,s2.length].min
+    for i in 0..(min-1)
+      if s1[i] != s2[i]
+        ham += 1
+      end
+    end
+    return ham
+  end

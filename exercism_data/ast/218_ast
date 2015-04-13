@@ -1,0 +1,1 @@
+s(:defn, :compute, s(:args, :s1, :s2), s(:lasgn, :length, s(:call, s(:array, s(:call, s(:lvar, :s1), :length), s(:call, s(:lvar, :s2), :length)), :min)), s(:iter, s(:call, s(:call, s(:lvar, :length), :times), :count), s(:args, :i), s(:call, s(:call, s(:lvar, :s1), :[], s(:lvar, :i)), :!=, s(:call, s(:lvar, :s2), :[], s(:lvar, :i)))))

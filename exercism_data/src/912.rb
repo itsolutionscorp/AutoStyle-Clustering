@@ -1,23 +1,13 @@
-def compute(strand_one, strand_two)
+def compute(arg1, arg2)
+    arr1 = arg1.split("")
+    arr2 = arg2.split("")
 
-		#find shortest string_length
-		shortest_string_length = [strand_one.length, strand_two.length].min
+    counter = 0
 
-		#set count comparison variables
-		@hamming_distance_count = 0
-		@string_position = 0
-
-			#compute hamming distance
-			while @string_position < shortest_string_length
-				
-				if strand_one.chars[@string_position] != strand_two.chars[@string_position]
-					@hamming_distance_count += 1
-				end
-				
-				@string_position += 1
-
-			end				
-
-		return @hamming_distance_count
-
-	end
+    arr1.each_with_index do |x, i|
+      if x != arr2[i]
+        counter += 1
+      end
+    end
+    return counter
+  end

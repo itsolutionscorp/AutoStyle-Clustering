@@ -1,3 +1,3 @@
 def compute(a, b)
-    a[0...b.size].split('').reject.with_index { |c, i| c == b[i] }.size
+    a.size.times.count { |n| a[n] != b[n] }
   end

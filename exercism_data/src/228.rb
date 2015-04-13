@@ -1,8 +1,9 @@
-def compute(str1, str2)
-    shorter_length = [str1.length, str2.length].min
+def compute(first, second)
+    distance = 0
 
-    (0...shorter_length).reduce(0) do |d, i|
-      str1[i] == str2[i] ? d : d + 1
+    [first.length, second.length].min.times do |index|
+      distance += 1 if first[index] != second[index]
     end
+
+    distance
   end
-end

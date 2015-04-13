@@ -1,8 +1,6 @@
-def compute(a, b)
-    if a.length < b.length
-      a.each_char.zip(b.each_char).count { |x, y| x != y }
-    else
-      b.each_char.zip(a.each_char).count { |x, y| x != y }
+def compute(base, fingerprint)
+    base, fingerprint = [base, fingerprint].map(&:each_byte)
+    base.zip(fingerprint).reduce(0) do |sum, s|
+      sum += (s[0] == s[1] || s[1].nil? ? 0 : 1)
     end
   end
-end

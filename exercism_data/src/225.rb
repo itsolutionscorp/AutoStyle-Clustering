@@ -1,5 +1,14 @@
-def compute(strand1, strand2)
-    s1 = strand1.split("")
-    s2 = strand2.split("")
-    s1.zip(s2).reject {|pair| pair[0] == pair[1]}.count
+def compute(x, y)
+    strand1, strand2 = x.chars, y.chars
+    counter, diff = 0, 0
+    length = x.size > y.size ? y.size : x.size
+
+    until counter == length
+      if strand1[counter] != strand2[counter]
+        diff += 1
+      end
+      counter += 1
+    end
+
+    diff
   end

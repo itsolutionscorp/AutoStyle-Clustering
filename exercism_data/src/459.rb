@@ -1,4 +1,11 @@
-def compute(array1='', array2='')
-    bytes1, bytes2, index = array1.bytes, array2.bytes, -1
-    bytes1.count{|entry| index+=1; entry != bytes2[index] }
+def compute(strand1, strand2)
+    strand1 = strand1.chars
+    strand2 = strand2.chars
+
+    distance = 0
+    strand1.each_with_index do |nucleotide, index|
+      return 1 if strand2[index] == nil
+      distance += 1 if nucleotide != strand2[index]
+    end
+    distance
   end

@@ -1,12 +1,13 @@
-def compute(strand_one, strand_two)
-    zipped_strand_chars = strand_one.chars.zip(strand_two.chars)
-    hamming_number = 0
+def compute(a,b)
 
-    zipped_strand_chars.each do |a, b|
-      unless a == b
-        hamming_number += 1
-      end
+    if (a.length > b.length)
+      a,b = b,a
     end
 
-    hamming_number
+    distance = 0
+    0.upto(a.length-1) do |i|
+      distance += 1 if a[i] != b[i]
+    end
+
+    return distance
   end

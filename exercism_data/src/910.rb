@@ -1,9 +1,9 @@
-def compute(first, second)
+def compute(one, two)
     distance = 0
-    length = [first.size, second.size].min
-    length.times do |i|
-      distance += 1 if first[i] != second[i]
+    one.split("").each_with_index do |item, i|
+      if (item != two[i]) then
+        distance += 1
+      end
     end
-    distance
+    return distance
   end
-end

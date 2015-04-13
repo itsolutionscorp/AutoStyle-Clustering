@@ -1,15 +1,15 @@
-def compute(x, y)
-    strand1, strand2 = x.chars, y.chars
-    counter, diff = 0, 0
-    length = x.size > y.size ? y.size : x.size
+def compute(s1, s2)
+    i = 0
+    n = s1.length
+    n_differences = 0
 
-    until counter == length
-      if strand1[counter] != strand2[counter]
-        diff += 1
+    while (i < n)
+      if (s1[i] != s2[i])
+        n_differences += 1
       end
-      counter += 1
+
+      i += 1
     end
 
-    diff
+    return n_differences
   end
-end

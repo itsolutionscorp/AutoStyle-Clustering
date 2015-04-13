@@ -1,18 +1,10 @@
-def compute(strand1, strand2)
-
-    if strand1.length == strand2.length
-      "Wrong length. The strands have to be the same length"
-    end
-
-    splitted_strand_1 = strand1.scan(/\w/)
-    splitted_strand_2 = strand2.scan(/\w/)
-
-    count = 0
-
-    splitted_strand_1.each_with_index do |seq, i|
-      count += 1 unless splitted_strand_2[i] == seq
-    end
-
-    count
-
-  end
+def compute(input1, input2)
+		raise ArgumentError, "Inputs are not of equal length" unless input1.length == input2.length
+		hamming_distance = 0
+		for i in 0..input1.length
+			if input1[i] != input2[i]
+				hamming_distance += 1
+			end
+		end
+		return hamming_distance
+	end

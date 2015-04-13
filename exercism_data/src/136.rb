@@ -1,17 +1,5 @@
-def compute(first_input, second_input)
-    distance = 0
-    
-    if first_input != second_input
-      first_input.chars.each_with_index do |first_input_char, index|
-        if index == second_input.length
-          break
-        else
-          if first_input_char != second_input.chars[index]
-            distance += 1
-          end
-        end
-      end
-    end
-
-    distance
+def compute strands_one, strands_two
+    strands_one, strands_two = strands_two, strands_one if strands_two.size < strands_one.size
+    strands_one, strands_two = strands_one.chars, strands_two.chars
+    strands_one.size.times.inject(0) { |sum, i| sum + (strands_one[i] != strands_two[i] ? 1 : 0) }
   end

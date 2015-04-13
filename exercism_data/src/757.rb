@@ -1,8 +1,12 @@
-def compute(initial, current)
-    distance = 0
-    [initial.length, current.length].min.times do |i|
-      distance += 1 if initial[i] != current[i]
+def compute( left, right )
+    return 0 if left == right
+
+    mutations = 0
+
+    left.each_char.with_index do |lc, idx|
+      break if idx == right.size
+      mutations += 1 if lc != right[idx]
     end
-    distance
+
+    mutations
   end
-end

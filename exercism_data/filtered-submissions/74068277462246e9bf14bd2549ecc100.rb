@@ -6,4 +6,3 @@ def compute(string1, string2)
     end
     difference
   end
-end

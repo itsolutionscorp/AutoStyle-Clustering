@@ -7,4 +7,3 @@ def compute(a, b)
 
     result
   end
-end

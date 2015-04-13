@@ -5,4 +5,3 @@ def compute(a,b)
     c = a.chars.zip b.chars
     c.map{|d,e| d == e ? 0 : 1}.inject(:+)
   end
-end

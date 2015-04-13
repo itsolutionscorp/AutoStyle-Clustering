@@ -2,7 +2,7 @@ def compute(str1, str2)
 		differences = 0
 		str1Array = str1.split("")
 		str2Array = str2.split("")
-		
+
 		shorter = str1.length < str2.length ? str1.length : str2.length
 		index = 0
 		while index < shorter do
@@ -10,9 +10,9 @@ def compute(str1, str2)
 				differences += 1
 			end
 			index += 1
-		end		
-		
-		
-		
+		end
+
+
+
 		return differences
 	end

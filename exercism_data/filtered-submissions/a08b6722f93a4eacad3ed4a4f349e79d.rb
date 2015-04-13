@@ -1,4 +1,4 @@
-def compute(str1, str2)	
+def compute(str1, str2)
 		str1_array = str1.split("")
 		str2_array = str2.split("")
 		short_array = str1_array

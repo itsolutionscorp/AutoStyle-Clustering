@@ -1,13 +1,16 @@
-def compute(a,b)
-    # if a is longer than b swap them as we are to only compare up to the length of the shorter input.
-    if (a.length > b.length)
-      a,b = b,a
-    end
+def compute(strand_1, strand_2)
+    strand_1 = strand_1.chars
+    strand_2 = strand_2.chars
 
-    distance = 0
-    0.upto(a.length-1) do |i|
-      distance += 1 if a[i] != b[i]
-    end
+    min = (strand_1.length < strand_2.length) ? strand_1.length : strand_2.length
 
-    return distance
+    strand_1 = strand_1.take(min)
+    strand_2 = strand_2.take(min)
+
+    hamm = 0
+
+    strand_1.each_index do |index|
+      hamm += 1 if strand_1[index] != strand_2[index]
+    end
+    hamm
   end

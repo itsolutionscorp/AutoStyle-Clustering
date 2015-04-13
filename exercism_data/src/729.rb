@@ -1,6 +1,7 @@
-def compute(s1, s2)
-    dist = 0
-    s1.length.each do |i|
-      dist += 1 if s1.split('')[i] != s2.split('')[i]
+def compute(seq1,seq2)
+    res = []
+    seq1.length.times do |n|
+     res << (seq1[n] == seq2[n] ? 0:1)
     end
-    dist
+    sum = res.reduce(:+)
+  end

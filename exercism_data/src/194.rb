@@ -1,5 +1,7 @@
-def compute(seg1, seg2)
-    return 0 unless seg1.length == seg2.length
-    strands = seg1.chars.zip(seg2.chars)
-    strands.count{ |first, second| first != second }
+def compute strand, other_strand
+    minimum_length = [strand.length, other_strand.length].min
+
+    minimum_length.times.count do |i|
+      strand[i] != other_strand[i]
+    end
   end

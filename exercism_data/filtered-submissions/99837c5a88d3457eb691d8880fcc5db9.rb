@@ -1,8 +1,8 @@
 def compute(strand1, strand2)
     test_length = [strand1.length, strand2.length].min
 
-    sr1 = strand1.split("") 
-    sr2 = strand2.split("") 
+    sr1 = strand1.split("")
+    sr2 = strand2.split("")
 
     dist = 0
     i = 0

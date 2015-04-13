@@ -9,5 +9,5 @@ def compute(a_string, b_string)
       end
       j += 1
     end
-    i 
+    i
   end

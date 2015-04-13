@@ -6,6 +6,6 @@ def compute x, y
       break if a[i].eql? nil or b[i].eql? nil
       count +=1 unless a[i].eql? b[i]
     end
-    
+
     return count
   end

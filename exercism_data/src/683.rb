@@ -1,6 +1,11 @@
-def compute(s1, s2)
-    valid_length = [s1.length, s2.length].min
-    s1 = s1.chars.take(valid_length)
-    s2 = s2.chars.take(valid_length)
-    s1.zip(s2).count { |c| c[0] != c[1] }
+def compute(first, second)
+    h = 0
+    first_array = first.split('')
+    second_array = second.split('')
+
+    first_array.each_with_index do |l, i|
+      break if i >= second_array.length
+      h += 1 if first_array[i] != second_array[i]
+    end
+    return h
   end

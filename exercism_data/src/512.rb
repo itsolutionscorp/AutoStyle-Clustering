@@ -1,6 +1,7 @@
-def compute(string_a, string_b)
-        max_length = [string_a.length, string_b.length].min-1
-        (0.upto(max_length)).count do |i|
-            string_a[i] != string_b[i]
-        end
+def compute(strand1, strand2)
+    hamming_distance = 0
+    [strand1, strand2].map(&:length).sort.first.times do |i|
+      hamming_distance += 1 if strand1[i] != strand2[i]
     end
+    hamming_distance
+  end

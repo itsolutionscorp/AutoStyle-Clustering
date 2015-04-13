@@ -1,12 +1,10 @@
-def compute(first, second)
-    if first==second
-      0
-    else
-      distance = 0
-      min_size = [first.size, second.size].min
-      for i in (0...min_size)
-        distance += 1 if first[i]!=second[i]
-      end
-      return distance
+def compute(a, b)
+    diffs      = 0
+    min_length = [a.length, b.length].min
+
+    min_length.times do |index|
+      diffs += 1 if a[index] != b[index]
     end
+
+    diffs
   end

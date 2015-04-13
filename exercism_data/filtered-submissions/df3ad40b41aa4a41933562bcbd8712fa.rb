@@ -11,5 +11,5 @@ def compute(strand1, strand2)
 	  end
 	  i += 1
 	end
-    return distance 
+    return distance
   end

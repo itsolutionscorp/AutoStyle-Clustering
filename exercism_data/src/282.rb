@@ -1,8 +1,7 @@
-def compute(strand1, strand2)
-    differences = strand1.size < strand2.size ? strand1.size : strand2.size
-    differences.times { |i| differences -= 1 if strand1[i] == strand2[i] }
-    differences
+def compute(one, two)
+    res = 0
+    one.each_char.each_with_index do |item, index|
+      res = res + 1 if two[index] != item and two[index] != nil
+    end
+    res
   end
-end
-
-include Hamming

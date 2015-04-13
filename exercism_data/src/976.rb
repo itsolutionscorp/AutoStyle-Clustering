@@ -1,19 +1,6 @@
-def compute(first, second)
-    differences = 0
-    
-    if first == second
-      return differences
-    end
-
-    for index in (0..first.length - 1)
-      if index + 1 > second.length
-        return differences
-      end
-      
-      unless first[index] == second[index]
-        differences += 1
-      end
-      
-      differences
+def compute(s1,s2)
+    (0..s1.length).inject(0) do |sum,i|
+      sum += 1 unless s1[i] == s2[i]
+      sum
     end
   end

@@ -8,5 +8,3 @@ def compute (a, b)
 		end
 		count
 	end
-	
-end

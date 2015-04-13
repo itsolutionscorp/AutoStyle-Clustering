@@ -1,12 +1,24 @@
-def compute(strand_1, strand_2)
-    strand_one = strand_1.chars.take(strand_2.length)
-    strand_two = strand_2.chars.take(strand_1.length)
+def compute(value1, value2)
+    value1 = value1.split("")
+    value2 = value2.split("")
+    val1_count = value1.count
+    val2_count = value2.count
 
-    pairs = strand_one.zip(strand_two)
-
-    difference = pairs.count do | letter_1, letter_2 |
-      letter_1 != letter_2
+    if val1_count != val2_count
+      if val1_count > val2_count
+        (val1_count - val2_count).times { value1.pop }
+      elsif val2_count > val1_count
+        (val2_count - val1_count).times { value2.pop }
+      end
     end
 
-    difference
+    count = 0
+
+    value1.each_with_index do |value, index|
+      unless value1[index] == value2[index]
+        count += 1
+      end
+    end
+
+    return count
   end

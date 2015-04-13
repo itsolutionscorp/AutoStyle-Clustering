@@ -1,7 +1,4 @@
-def compute(strand_one, strand_two)
-    # Convert strands to bytes and combine
-    strands = strand_one.bytes.zip(strand_two.bytes)
-
-    # XOR each pair to 1 or 0 and sum
-    strands.map{ |a, b| (a || b) ^ (b || a) > 0 ? 1 : 0 }.inject(:+)
+def compute(dna_a,dna_b)
+    min_length = [dna_a.length, dna_b.length].min
+    differences = (0..min_length-1).select{|index| dna_a[index] != dna_b[index]}.count
   end

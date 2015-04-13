@@ -1,4 +1,4 @@
-def compute(first_strand, second_strand) # static method, not instance method
+def compute(first_strand, second_strand)
         first_strand_arr = first_strand.split('')
         second_strand_arr = second_strand.split('')
 

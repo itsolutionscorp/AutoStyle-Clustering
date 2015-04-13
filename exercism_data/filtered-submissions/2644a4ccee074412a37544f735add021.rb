@@ -6,4 +6,3 @@ def compute(original, mutated)
     end
     difference
   end
-end

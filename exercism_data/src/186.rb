@@ -1,11 +1,5 @@
 def compute(a, b)
-    mutations = 0
-
-    comparable_size = [a.size, b.size].min
-
-    comparable_size.times do |position|
-      mutations += 1 if a[position] != b[position]
-    end
-
-    mutations
+    a = a.size > b.size ? a[0...-1] : a
+    new_a = a.scan(/\w/).zip b.scan(/\w/)
+    new_a.map(&:uniq).delete_if {|a| a.count == 1 }.count
   end

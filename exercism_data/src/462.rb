@@ -1,17 +1,9 @@
-def compute(string1, string2)
-		
-		if string1.length > string2.length
-			string1 = string1 [0..(string2.length - 1)]
-		end
-
-		zipped =string1.split("").zip string2.split("")
-		count = 0
-
-		zipped.each do |symbol1, symbol2|
-			if symbol1 != symbol2
-				count += 1
-			end
-		end
-
-		return count
-	end
+def compute(d1, d2)
+    hamming_distance = 0
+    strand1 = d1.split('')
+    strand2 = d2.split('')
+    strand1.each_with_index do |nucleo, index|
+      hamming_distance += 1 unless(nucleo == strand2[index] || strand2[index].nil? )
+    end
+    hamming_distance
+  end

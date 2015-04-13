@@ -1,7 +1,8 @@
-def compute(first, second)
-    first  = first.chars
-    second = second.chars
-    size = [first.size, second.size].min
-    first.take(size).zip(second.take(size)).count { |(one, two)| one != two }
+def compute(a,b)
+    count = a.length
+
+    a.each_char.with_index {|char, i|
+      count-=1 if char==b[i]
+    }
+    count
   end
-end

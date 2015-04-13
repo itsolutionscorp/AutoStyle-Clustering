@@ -1,3 +1,10 @@
-def compute(s1, s2)
-    [s1.length, s2.length].max.times.count {|n| s1[n] != s2[n]}
+def compute(first, last)
+    short, long = [first,last].sort_by!(&:size)
+    short.chars.zip(long.chars).inject(0) do |distance, nucleotides|
+      if nucleotides.first == nucleotides.last
+        distance
+      else
+        distance + 1
+      end
+    end
   end

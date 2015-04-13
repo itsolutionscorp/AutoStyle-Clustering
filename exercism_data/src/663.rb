@@ -1,12 +1,7 @@
-def compute(standA, standB)
-		sampleA = standA.chars
-		sampleB = standB.chars
-		count = 0
-
-		sampleA.each_with_index do |letter, index|
-			if letter != sampleB[index] && sampleB[index] != nil
-				count += 1
-			end
-		end
-		count
-	end
+def compute(s, t)
+      cnt = 0
+      for i in 0...s.length
+        cnt+=1 if s[i] != t[i]
+      end
+      cnt
+  end

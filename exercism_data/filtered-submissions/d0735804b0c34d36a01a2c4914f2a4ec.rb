@@ -9,6 +9,6 @@ def compute(strand1, strand2)
 		for i in 0..(smaller_strand_size -1)
 			distance += 1 unless chars1[i] == chars2[i]
 		end
-		
+
 		distance
 	end

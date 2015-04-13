@@ -7,7 +7,6 @@ def compute(source, mutation)
       mutation_acid = mutation[index]
       distance = distance + 1 unless source_acid == mutation_acid
     end
-    
+
     distance
   end
-end

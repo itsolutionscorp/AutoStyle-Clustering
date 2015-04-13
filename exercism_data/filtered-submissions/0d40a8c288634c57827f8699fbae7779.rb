@@ -1,5 +1,5 @@
 def compute(strand_a, strand_b)
-      # first make it pass, now I need to refactor :)
+
       a = strand_a.chars
       b = strand_b.chars
 

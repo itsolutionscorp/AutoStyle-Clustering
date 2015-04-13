@@ -1,15 +1,18 @@
-def compute(base_str, compare_str)
-		hamming_counter = 0
-		base_str_array = base_str.split(//)
-		compare_str_array = compare_str.split(//)
+def compute(strand1, strand2)
+    count = 0
 
-		(0..base_str_array.length).each do |i|
-			if (base_str_array[i] != nil) and (compare_str_array[i] != nil)
-				if base_str_array[i] != compare_str_array[i]
-					hamming_counter += 1
-				end
-			end
-		end
+    if(strand1.length <= strand2.length)
+      short_strand = strand1
+      long_strand = strand2
+    else
+      short_strand = strand2
+      long_strand = strand1
+    end
 
-		return hamming_counter
-	end
+    short_strand.each_char.with_index(0) do |c,i|
+      if long_strand[i] != c
+        count = count + 1
+      end
+    end
+    return count
+  end

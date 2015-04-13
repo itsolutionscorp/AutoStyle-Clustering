@@ -11,8 +11,8 @@ def compute(arg1, arg2)
     else
       len = arg2_len
     end
-        
-      
+
+
     i = 0
 
   	while i <= len-1

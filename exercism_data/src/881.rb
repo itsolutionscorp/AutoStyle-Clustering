@@ -1,16 +1,9 @@
-def compute(strand1, strand2)
-    s1 = strand1.length
-    s2 = strand2.length
-    
-    return nil if s1 != s2
-
-    count = 0
-
-    s1.times do |i|
-      if strand1[i] != strand2[i]
-        count += 1
-      end
+def compute (string1, string2)
+    st1 = string1.chars
+    st2 = string2.chars
+    distance = 0
+    st1.each_with_index do |string, index|
+      distance += 1 if st2[index] && string != st2[index]
     end
-
-    return count
+    distance
   end

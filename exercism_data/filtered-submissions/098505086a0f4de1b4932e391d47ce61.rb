@@ -7,6 +7,6 @@ def compute(strand1, strand2)
     		distance += 1
     	end
     end
-    
-    return distance 
+
+    return distance
   end

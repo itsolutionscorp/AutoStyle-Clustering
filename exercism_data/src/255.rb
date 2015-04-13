@@ -1,8 +1,3 @@
-def compute(dna1, dna2)
-		nbr_times = [dna1.size, dna2.size].min
-		difference = 0
-		nbr_times.times do |i|
-			difference += 1 if dna1[i] != dna2[i]
-		end
-		difference
+def compute(strand_a, strand_b)
+    strand_a.chars.zip(strand_b.chars).select { |pair| !(pair[0] == pair[1]) }.count
 	end

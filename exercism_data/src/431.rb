@@ -1,3 +1,10 @@
-def compute(a, b)
-    a.length.times.inject(0) { |total, i| a[i] == b[i] ? total : total + 1 }
+def compute(x, y)
+    length = [x.length, y.length].max
+    diff = 0
+    (0...length).each do |i|
+      if x[i] != y[i]
+        diff += 1
+      end
+    end
+    diff
   end

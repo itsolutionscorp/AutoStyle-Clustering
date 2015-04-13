@@ -4,10 +4,12 @@ def compute(strand1, strand2)
 		hamming_distance = 0
 		seq_size.times do |index|
 
-			if ( strand1[index] != strand2[index] ) then 
-				hamming_distance += 1 
+			if ( strand1[index] != strand2[index] ) then
+				hamming_distance += 1
 			end
 
 		end
 
 		return hamming_distance
+
+	end

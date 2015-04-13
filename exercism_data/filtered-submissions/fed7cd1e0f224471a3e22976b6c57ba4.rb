@@ -4,4 +4,4 @@ def compute(strand_a, strand_b)
     end.count(true)
   end
 end
-Hamming.extend(Hamming)
+Hamming.ext

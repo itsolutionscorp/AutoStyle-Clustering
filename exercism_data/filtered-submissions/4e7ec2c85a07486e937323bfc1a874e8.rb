@@ -4,4 +4,3 @@ def compute(*strands)
     b, a = strands.map(&to_a).sort
     a.zip(b).select(&mutations).count
   end
-end

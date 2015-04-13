@@ -1,12 +1,5 @@
-def compute(sequence1, sequence2)
-    count = 0
-    array1 = sequence1.chars
-    array2 = sequence2.chars
-    joined = array1.zip(array2)
-    joined.each do |key, value|
-      if key != value
-        count += 1
-      end
+def compute(first, second)
+    first.chars.each_with_index.reduce(0) do |a, (e, i)|
+      e == second[i] ? a : a + 1
     end
-    count
   end

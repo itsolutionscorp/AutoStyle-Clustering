@@ -1,10 +1,23 @@
-def compute(strand_one, strand_two)
-    strand_one = strand_one.chars
-    hamming_distance = 0
+def compute(first_strand, second_strand)
 
-    strand_one.each_with_index do |symbol, i|
-      hamming_distance += 1 if symbol != strand_two[i]
+
+    if first_strand.length  != second_strand.length
+      raise "The strand lengths are not the same."
     end
 
-    hamming_distance
+
+
+
+    distance = 0
+
+
+
+
+
+    first_strand.chars.zip(second_strand.chars).each do |base_one, base_two|
+      if base_one != base_two
+        distance += 1
+      end
+    end
+    return distance
   end

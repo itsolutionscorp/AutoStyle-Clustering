@@ -1,11 +1,11 @@
-def compute(strand_a, strand_b)
-    if strand_a == strand_b
-      0
-    else
-      short_a = strand_a.chars.take(strand_b.length)
-      short_a.zip(strand_b.chars).reduce(0) do |result, pair|
-        result += 1 unless pair[0] == pair[1]
-        result
-      end
+def compute(a, b)
+    a, b = b, a if a.length > b.length
+
+    distance = 0
+
+    0.upto(a.length - 1) do |i|
+      distance += 1 unless a[i] == b[i]
     end
+
+    distance
   end

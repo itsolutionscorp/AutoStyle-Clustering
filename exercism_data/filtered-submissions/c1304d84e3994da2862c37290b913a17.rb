@@ -4,6 +4,6 @@ def compute strand_a, strand_b
       break if index > (strand_b.length - 1)
       differences += 1 if strand_b[index] != letter
     end
-    
+
     differences
   end

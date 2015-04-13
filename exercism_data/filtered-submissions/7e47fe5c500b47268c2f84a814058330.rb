@@ -6,4 +6,3 @@ def compute(dna1, dna2)
     end
     diff
   end
-end

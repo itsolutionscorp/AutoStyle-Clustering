@@ -1,8 +1,8 @@
-def compute(first, other)
-      return compute(other, first) if first.length > other.length
-
-      first.length.times.map do |index|
-        next 0 if first[index] == other[index]
-        1
-      end.reduce(&:+)
-    end
+def compute(dna1, dna2)
+		nbr_times = [dna1.size, dna2.size].min
+		difference = 0
+		nbr_times.times do |i|
+			difference += 1 if dna1[i] != dna2[i]
+		end
+		difference
+	end

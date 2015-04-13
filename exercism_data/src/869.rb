@@ -1,9 +1,15 @@
-def compute (string1, string2)
-    st1 = string1.chars #returns an array of characters, could also use string1.split(//)
-    st2 = string2.chars
-    distance = 0
-    st1.each_with_index do |string, index|
-      distance += 1 if st2[index] && string != st2[index] #increase distance counter if the equivalent index of the second string exists and doesn't match
+def compute arg1, arg2
+    if (arg1.length != arg2.length)
+      return 'Error: the two arguments must be of the same length'
+    else
+      arg1 = arg1.split('')
+      arg2 = arg2.split('')
+      diff_count = 0
+      arg1.each_index do |i|
+        if (arg1[i] != arg2[i])
+          diff_count += 1;
+        end
+      end
+      return diff_count
     end
-    distance
   end

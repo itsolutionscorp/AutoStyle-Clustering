@@ -1,8 +1,11 @@
-def compute firstDna, secondDna
-		minimun = [firstDna.length,secondDna.length].min - 1
-		hamming_distance_count = 0
-		(0..minimun).each do | idx |
-			hamming_distance_count+= 1 if firstDna[idx] != secondDna[idx] 
-		end
-		hamming_distance_count
-	end
+def compute a, b
+    sum = 0
+
+    0.upto(a.length) do |x|
+      break unless a[x] && b[x]
+
+      sum += 1 if a[x] != b[x]
+    end
+
+    sum
+  end

@@ -1,11 +1,15 @@
-def compute(strand_one, strand_two)
-    first = strand_one.split(//)
-    second = strand_two.split(//)
-    distance = 0
-    first.map.with_index do |x, y|
-      if x != second[y] 
-        distance = distance + 1
-      end
-    end
-    return distance
-  end
+def compute(base_str, compare_str)
+		hamming_counter = 0
+		base_str_array = base_str.split(//)
+		compare_str_array = compare_str.split(//)
+
+		(0..base_str_array.length).each do |i|
+			if (base_str_array[i] != nil) and (compare_str_array[i] != nil)
+				if base_str_array[i] != compare_str_array[i]
+					hamming_counter += 1
+				end
+			end
+		end
+
+		return hamming_counter
+	end

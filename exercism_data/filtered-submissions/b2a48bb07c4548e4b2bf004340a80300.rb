@@ -7,4 +7,3 @@ def compute(first_strand, second_strand)
 
     result
   end
-end

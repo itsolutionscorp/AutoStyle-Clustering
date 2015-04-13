@@ -11,6 +11,6 @@ def compute (strand_one, strand_two)
       end
       min_distance = min_distance.nil? ? distance : [distance, min_distance].min
     end
-    
+
     return min_distance
   end

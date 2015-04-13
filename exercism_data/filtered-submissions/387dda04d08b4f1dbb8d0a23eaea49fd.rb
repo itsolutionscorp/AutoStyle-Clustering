@@ -3,4 +3,3 @@ def compute(strand1, strand2)
       base2 && base1 != base2
     end
   end
-end

@@ -1,11 +1,8 @@
-def compute(a, b)
-    diffs      = 0
-    min_length = [a.length, b.length].min
-
-    min_length.times do |index|
-      diffs += 1 if a[index] != b[index]
+def compute(strand1, strand2)
+    hamming_difference = 0
+    strand1.chars.zip(strand2.chars).each do |a1,a2|
+      break if a1.nil? or a2.nil?
+      hamming_difference += 1 if a1 != a2
     end
-
-    diffs
+    hamming_difference
   end
-end

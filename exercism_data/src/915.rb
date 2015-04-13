@@ -1,10 +1,11 @@
-def compute primary_strand, secondary_strand
-    distance = 0
-    number_of_characters_to_compare = [primary_strand.length, secondary_strand.length].min
+def compute(cadena1, cadena2)
+    distancia = 0
 
-    number_of_characters_to_compare.times do |index| 
-      distance += 1 if  primary_strand[index] != secondary_strand[index]
+
+    cadena1.length > cadena2.length ? longitud = cadena2.length :
+    longitud = cadena1.length
+    (0..longitud - 1).each do |i|
+      cadena1[i] != cadena2[i] ? distancia += 1 : distancia
     end
-
-    distance
+    distancia
   end

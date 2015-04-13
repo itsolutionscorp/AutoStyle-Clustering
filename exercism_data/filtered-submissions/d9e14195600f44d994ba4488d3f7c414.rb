@@ -6,5 +6,5 @@ def compute(first, second)
         count+=1
       end
     end
-    return count   
+    return count
   end

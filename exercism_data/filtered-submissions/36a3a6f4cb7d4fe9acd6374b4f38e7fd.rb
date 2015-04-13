@@ -1,6 +1,6 @@
 def compute(s1, s2)
-		# If the strings are not of the same length, we only
-		# check the number of characters from the smaller one
+
+
 		if s1.length < s2.length
 			numchars = s1.length
 		else
@@ -17,7 +17,7 @@ def compute(s1, s2)
 				num_differences += 1
 			end
 			index += 1
-		end	
+		end
 
 		return num_differences
 	end

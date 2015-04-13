@@ -1,7 +1,7 @@
-def compute sequence1, sequence2
-    hamming = 0
-    (0...sequence1.length).each do |position|
-      hamming += 1 if sequence2[position] unless sequence2[position] == sequence1[position]
+def compute(strandA, strandB)
+    distance = 0
+    (0...strandA.length).each do |i|
+      distance += 1 if not strandB[i].nil? and strandA[i] != strandB[i]
     end
-    hamming
+    distance
   end

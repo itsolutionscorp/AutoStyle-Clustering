@@ -1,15 +1,3 @@
-def compute(strand_a, strand_b)
-    distance = 0
-
-    length = [strand_a, strand_b].sort { |a, b| a.length <=> b.length }
-             .first.length
-
-    length.times do |index|
-      if strand_a[index] != strand_b[index]
-        distance += 1
-      end
-    end
-
-    distance
+def compute(str_a, str_b)
+    (0...[str_a, str_b].map(&:size).min).count { |i| str_a[i] != str_b[i] }
   end
-end

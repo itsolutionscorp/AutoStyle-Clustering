@@ -5,4 +5,3 @@ def compute(strand, other)
       .zip(other.chars)
       .count { |x, y| x != y }
   end
-end

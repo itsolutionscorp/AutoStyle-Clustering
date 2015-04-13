@@ -5,6 +5,6 @@ def compute(string_a, string_b)
     mapped = string_a.chars.map.with_index do |e, i|
       e == string_b[i] ? 0 : 1
     end
-    # require 'pry'; binding.pry
+
     mapped.reduce(0, &:+)
   end

@@ -7,5 +7,5 @@ def compute(dna1, dna2)
       end
     end
 
-    dif 
+    dif
   end

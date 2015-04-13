@@ -1,6 +1,7 @@
-def compute(strand1, strand2)
-    comparison_array = strand1.chars.zip(strand2.chars)
-    comparison_array.count do |comparison_pair|
-      comparison_pair.first != comparison_pair.last 
-    end
-  end
+def compute(strand1,strand2)
+		count = 0
+		strand1.chars.count.times do |i|
+			count += 1 if strand1[i] != strand2[i]
+		end
+		count
+	end

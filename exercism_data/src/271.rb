@@ -1,5 +1,11 @@
-def compute(dna1, dna2)
-    dna1.chars.zip(dna2.chars).inject(0) do |count, i|
-      (i[0] != i[1]) ? count + 1 : count
+def compute(strand1, strand2)
+    array1 = strand1.chars
+    array2 = strand2.chars
+    difference = 0
+    array1.each_with_index do |char, index|
+      if array2[index] != char
+        difference += 1
+      end
     end
+    difference
   end

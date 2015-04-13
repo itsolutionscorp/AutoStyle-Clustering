@@ -1,10 +1,13 @@
-def compute (a,b)
-    firstStrand = Array.new(a.split(//))
-    secondStrand = Array.new(b.split(//))
-    i = 0
-    x = 0
-    for i in i..a.length
-      x += 1  if firstStrand[i] != secondStrand[i]
+def compute(strand_one, strand_two)
+    difference = 0
+
+    strand_one.length.times do |index|
+      if strand_one[index].nil? or strand_two[index].nil?
+        return difference
+      elsif strand_one[index] != strand_two[index]
+        difference += 1
+      end
     end
-    x
+
+    return difference
   end

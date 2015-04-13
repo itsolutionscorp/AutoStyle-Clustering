@@ -5,5 +5,5 @@ def compute(seq_string, seq2_string)
       seq_array.select.with_index { |aa, index| seq2_array[index] != aa }.size
     else
       seq_array.select.with_index { |aa, index| seq2_array[index] == aa }.size - 1
-    end  
+    end
   end

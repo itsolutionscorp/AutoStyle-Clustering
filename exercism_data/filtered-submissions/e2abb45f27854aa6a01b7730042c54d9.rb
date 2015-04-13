@@ -5,4 +5,3 @@ def compute(string1, string2)
              char1 && char2 && char1 != char2
            }
   end
-end

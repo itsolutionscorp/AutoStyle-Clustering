@@ -1,4 +1,8 @@
-def compute(str1, str2)
-    short_chars, long_chars = [str1, str2].map(&:chars).sort_by(&:size)
-    short_chars.zip(long_chars).count { |char1, char2| char1 != char2 }
+def compute(string1, string2)
+    mismatch = 0
+    my_len = [string1.length,string2.length].min
+    my_len.times do |index|
+      mismatch = mismatch + 1 if string1[index] != string2[index]
+    end
+    mismatch
   end

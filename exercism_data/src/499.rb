@@ -1,18 +1,14 @@
 def compute(strand1, strand2)
-    count = 0
-    
-    if(strand1.length <= strand2.length)
-      short_strand = strand1
-      long_strand = strand2
-    else
-      short_strand = strand2
-      long_strand = strand1
-    end    
 
-    short_strand.each_char.with_index(0) do |c,i|
-      if long_strand[i] != c
-        count = count + 1
-      end
+    bases1 = strand1.split("")
+    bases2 = strand2.split("")
+
+    differences = 0
+
+    bases1.each_with_index do |letter, ind|
+      next if bases2[ind].nil?
+      differences += 1 if letter != bases2[ind]
     end
-    return count   
+
+    differences
   end

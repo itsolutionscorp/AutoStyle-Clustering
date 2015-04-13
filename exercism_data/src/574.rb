@@ -1,8 +1,12 @@
-def compute(strand_1, strand_2)
-    hamming_distance = 0
-    count_length= [strand_1.length, strand_2.length].min
-    (0...count_length).each do |i|
-      hamming_distance += 1 unless strand_1[i] == strand_2[i]
-    end
-    hamming_distance
-  end
+def compute(strand1,strand2)
+
+ ctr=0
+
+
+ strand1.size>=strand2.size ? n=strand2.size : n=strand1.size
+
+ (0..n-1).each{|x| ctr+=1 if strand1[x]!=strand2[x]}
+
+ ctr
+
+end

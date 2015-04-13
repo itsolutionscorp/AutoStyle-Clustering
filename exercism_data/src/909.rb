@@ -1,14 +1,14 @@
-def compute(a,b)
-		if a == "A" && b == "A"
-			return 0
-		elsif (a == "A" && b == "G") || (a == "AT" && b == "CT") || (a == "GGACG" && b == "GGTCG") ||
-			(a == "AGA" && b == "AGG") || (a == "AGG" && b == "AGA")
-			return 1
-		elsif a == "AG" && b == "CT"
-			return 2
-		elsif a == "GATACA" && b == "GCATAA"
-			return 4
-		elsif a == "GGACGGATTCTG" && b == "AGGACGGATTCT"
-			return 9
+def compute(str1, str2)
+		i = 0
+		char1 = str1.chars
+		char2 = str2.chars
+
+		char1.zip(char2).each do |c1, c2|
+			if (c1 != c2) and !(c2.nil?)
+				i += 1
+			end
 		end
-	end
+
+		return i
+
+		end

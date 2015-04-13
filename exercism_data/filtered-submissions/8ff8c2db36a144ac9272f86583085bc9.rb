@@ -6,4 +6,3 @@ def compute(set1, set2)
     end
     sum
   end
-end

@@ -1,5 +1,5 @@
 def compute(a,b)
-			# if the strings are the same no need for further evaluation
+
 			return a <=> b if (a <=> b) == 0
 
 			h = 0

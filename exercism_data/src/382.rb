@@ -1,3 +1,8 @@
-def compute(first_strand, second_strand)
-        return first_strand.chars.zip(second_strand.chars).count { |x, y| !x.nil? and !y.nil? and x != y }
-    end
+def compute(x,y)
+		hamming_number = 0
+		x.chars.each_with_index do |char, index|
+			next if y[index].nil?
+			hamming_number+=1 if char != y[index]
+		end
+		hamming_number
+	end

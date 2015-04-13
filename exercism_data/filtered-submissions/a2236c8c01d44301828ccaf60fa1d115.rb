@@ -1,6 +1,6 @@
 def compute(first_strand,second_strand)
-		# first_strand_array = first_strand.split('')
-		# second_strand_array = second_strand.split('') 
+
+
 		diff_counter = 0
 		counter = 0
 		while counter < first_strand.length && counter < second_strand.length
@@ -11,5 +11,3 @@ def compute(first_strand,second_strand)
 		end
 		diff_counter
 	end
-
-	# condensed if statement question? true| false

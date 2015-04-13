@@ -1,9 +1,9 @@
-def compute(first_strand, second_strand)
-    @hamming_distance = 0
-    [first_strand.chars, second_strand.chars].transpose.each do |first_strand_base, second_strand_base|
-      if !first_strand_base.eql?(second_strand_base)
-        @hamming_distance += 1 
-      end
+def compute(first_str, second_str)
+    min_length = [first_str.length, second_str.length].min
+
+    hamms = 0
+    min_length.times do |i|
+      hamms += 1 if first_str[i] != second_str[i]
     end
-    return @hamming_distance
+    hamms
   end

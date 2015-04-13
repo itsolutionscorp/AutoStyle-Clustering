@@ -8,4 +8,3 @@ def compute first, other
 
     count
   end
-end

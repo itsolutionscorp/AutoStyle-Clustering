@@ -1,11 +1,11 @@
 def compute(a,b)
-    # we Must ignore any extra nucleotides in a longer nucleic_acid
-    # so first we find which nucleic_acid is the shortest setting
-    # nucleic_acid a to shortest if they are equal.
+
+
+
     if a.length < b.length
       shortest_nucleic_acid = a
       longest_nucleic_acid = b
-    else 
+    else
       shortest_nucleic_acid = b
       longest_nucleic_acid = a
     end

@@ -1,8 +1,5 @@
-def compute (a, b)
-    a = a.chars
-    b = b.chars
-    a = a.slice(0, b.count)
-    distance = 0
-    a.zip(b).each { |x, y| distance += 1 if x != y }
-    return distance
+def compute(source, target)
+    source.chars.zip(target.chars).count do |source_char, target_char|
+      source_char != target_char
+    end
   end

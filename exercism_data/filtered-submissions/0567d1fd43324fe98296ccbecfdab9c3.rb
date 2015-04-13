@@ -14,7 +14,7 @@ def compute(dna1, dna2)
 		diff = array1.length - array2.length
 
 		if array1.length > array2.length
-			count - diff.abs 
+			count - diff.abs
 		else
 			count
 		end

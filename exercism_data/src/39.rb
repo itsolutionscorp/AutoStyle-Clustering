@@ -1,6 +1,7 @@
-def compute(a,b)
-    a = a.split('')
-    b = b.split('')
-    a.zip(b).select{|x| x[0] != x[1]}.length
+def compute(str1, str2)
+    score = 0
+    a1 = str1.chars
+    a2 = str2.chars
+    a1.each_index {|i| if a1[i] != a2[i] then score += 1 end}
+    score
   end
-end

@@ -5,7 +5,7 @@ def compute(first_strand, second_strand)
 
     first_strand.length.times do |i|
       if first_strand[i] != second_strand[i]
-        distance += 1 
+        distance += 1
       end
     end
 

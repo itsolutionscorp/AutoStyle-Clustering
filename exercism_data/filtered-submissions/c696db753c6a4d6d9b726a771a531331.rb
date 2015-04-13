@@ -1,7 +1,7 @@
 def compute(firstrand, secondstrand)
  	if firstrand.length > secondstrand.length
  		strandlength = secondstrand.length
- 	else 
+ 	else
  		strandlength = firstrand.length
  	end
  	hdistance = 0

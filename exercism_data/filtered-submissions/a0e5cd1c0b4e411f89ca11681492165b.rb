@@ -8,11 +8,9 @@ def compute(left_strand,right_strand)
 
     left_chars.each_with_index do |left_char,idx|
       right_char = right_chars[idx]
-      break if right_char.nil? # ignore extra length on first strand when longer
+      break if right_char.nil?
 
       distance += 1 unless left_char == right_char
     end
 
     distance
-  end
-end

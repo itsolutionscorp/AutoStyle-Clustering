@@ -15,9 +15,3 @@ def compute(strand_one, strand_two)
     end
     count
     end
-
-
-    #break into elements by character
-    #assemble into array
-    #check for differences between elements at each postition in each array
-      #look at the same index in each array

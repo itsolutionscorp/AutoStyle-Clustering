@@ -9,6 +9,6 @@ def compute(strand1, strand2)
                 ham_dif+=1
             end
         end
-        
+
         ham_dif
     end

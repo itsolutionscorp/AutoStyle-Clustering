@@ -6,7 +6,7 @@ def compute(str1, str2)
 
     if strand1.length > strand2.length
       filler = strand1.length - strand2.length
-      filler.times do 
+      filler.times do
         strand2 << 'X'
       end
     end

@@ -1,5 +1,4 @@
-def compute(a, b)
-    0.upto(a.length - 1).select do |i|
-      a[i] != b[i]
-    end.count
-  end
+def compute(strand_1, strand_2)
+		comparisons = [strand_1.length, strand_2.length].max
+		comparisons.times.count { |i| strand_1[i] != strand_2[i] }
+	end

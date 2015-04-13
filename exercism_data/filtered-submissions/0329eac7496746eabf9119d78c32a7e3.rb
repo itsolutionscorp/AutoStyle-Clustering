@@ -1,7 +1,7 @@
 def compute(reference_dna, comparing_dna)
     difference_nucleic_acid = 0
 
-    # Start with shorten
+
     source_dna = reference_dna.length > comparing_dna.length ? comparing_dna : reference_dna
     target_dna = reference_dna.length > comparing_dna.length ? reference_dna : comparing_dna
 

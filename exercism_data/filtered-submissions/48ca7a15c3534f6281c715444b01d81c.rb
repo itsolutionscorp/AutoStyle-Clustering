@@ -9,6 +9,6 @@ def compute(x, y)
         sum = sum + different
       end
       index += 1
-    end 
+    end
     sum
   end

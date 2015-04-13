@@ -10,7 +10,7 @@ def compute(a, b)
         else
             last_index = a.length
         end
-        
+
         (0..last_index).each {|n|
             if (a[n] != b[n])
                 distance += 1

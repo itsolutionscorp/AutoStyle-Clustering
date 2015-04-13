@@ -1,8 +1,7 @@
-def compute(a, b)
-	hamming = 0
-	a = a.slice(0,[a.length, b.length].min)
-	a.each_char.zip(b.each_char) do |l, r|
-		(l == r) || hamming += 1
-	end
-	hamming
-end
+def compute(first, second)
+    count = 0
+    first.scan(/./).zip(second.scan(/./)).each do |match|
+      count += 1 if !match[0].nil? && !match[1].nil? && match[0] != match[1]
+    end
+   count
+  end

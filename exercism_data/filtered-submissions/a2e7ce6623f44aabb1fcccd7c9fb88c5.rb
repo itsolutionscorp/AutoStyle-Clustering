@@ -6,3 +6,4 @@ def compute(cad1, cad2)
       end
     end
     dif
+  end

@@ -1,18 +1,8 @@
-def compute(s, t)
-    if s == t
-      0
-    else
-      s_array = s.split("")
-      t_array = t.split("")
-
-      matches = 0
-
-      s_array.length.times do |i|
-        if s_array[i] != t_array[i]
-          matches += 1
-        end
-      end
-
-      matches
+def compute(strand1, strand2)
+    return 0 if strand1 == strand2
+    dist = 0
+    [strand1.length, strand2.length].min.times.each do |n|
+      dist += 1 if strand1[n] != strand2[n]
     end
+    dist
   end

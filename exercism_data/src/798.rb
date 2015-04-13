@@ -1,11 +1,16 @@
-def compute(strand1, strand2)
+def compute(first_strand, second_strand)
 
-    @length = [strand1.length, strand2.length].min - 1
-    @distance = 0
+    counter = 0
 
-    for i in 0..@length
-      @distance += strand1[i] == strand2[i] ? 0 : 1
+    unless first_strand == second_strand
+      (0...[first_strand.length, second_strand.length].min).each do | i |
+
+        if first_strand[i] != second_strand[i]
+         counter += 1
+        end
+
+      end
     end
 
-    @distance
+    counter
   end

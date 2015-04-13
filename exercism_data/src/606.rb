@@ -1,8 +1,13 @@
-def compute(dna1, dna2)
-    min_len = [dna1.length, dna2.length].min
-    difference = 0
-    (0..(min_len - 1)).each do |i|
-      difference += 1 if dna1[i] != dna2[i]
+def compute(string_1, string_2)
+
+    string_1_characters = string_1.chars
+    string_2_characters = string_2.chars
+
+    hamming_distance = 0
+
+    string_1_characters.zip(string_2_characters).each do |character_1, character_2|
+      character_1 == character_2 ? hamming_distance : hamming_distance +=1
     end
-    difference
+
+    hamming_distance
   end

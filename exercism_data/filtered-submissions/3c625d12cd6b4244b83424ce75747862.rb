@@ -1,5 +1,5 @@
 def compute(string1,string2)
-		#make sure they are uppercase
+
 		string1.upcase!
 		string2.upcase!
 		if string2.length < string1.length

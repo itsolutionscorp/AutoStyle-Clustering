@@ -1,5 +1,12 @@
-def compute(str1, str2)
-    str1[0..(str2.length - 1)].each_char.map.with_index do |symbol, i|
-      symbol == str2[i] ? 0 : 1
-    end.inject(:+).to_i
+def compute(source, mutation)
+    distance = 0
+    min_length = [source.length, mutation.length].min - 1
+
+    (0..min_length).each do |index|
+      source_acid = source[index]
+      mutation_acid = mutation[index]
+      distance = distance + 1 unless source_acid == mutation_acid
+    end
+
+    distance
   end

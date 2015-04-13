@@ -7,7 +7,7 @@ def compute(first, second)
 
     distance
 
-    # One-liners
-    # first.chars.map.with_index { |c, i| c == second[i] ? 0 : 1 }.reduce(&:+)
-    # first.chars.select.with_index { |c, i| c != second[i] }.length
+
+
+
   end

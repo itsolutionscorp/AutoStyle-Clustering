@@ -1,11 +1,6 @@
-def compute(str1,str2)
-    
-    hamming_count = 0
-    a = str1.chars
-    b = str2.chars
-    length = (a.count < b.count) ? a.count : b.count
-    
-    length.times {|l| hamming_count += 1 if a[l] != b[l] }
-
-    hamming_count
-  end
+def compute(str1, str2)
+      distance = 0
+      len = [str1.length, str2.length].min
+      (0..len-1).each {|i| distance += 1 unless str1[i] == str2[i] }
+      distance
+    end

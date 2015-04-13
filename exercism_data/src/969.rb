@@ -1,13 +1,6 @@
-def compute(strand1, strand2)
-    point_mutations = 0
+def compute(first_dna, second_dna)
+		count = 0
+		0.upto(first_dna.size) { |i| count += 1 if first_dna[i] != second_dna[i] }
 
-    nucleotides2 = strand2.chars
-    nucleotides1 = strand1.chars.slice(0, nucleotides2.length)
-    nucleotide_pairs = nucleotides1.zip(nucleotides2)
-
-    nucleotide_pairs.each do |nucleotide1, nucleotide2|
-      point_mutations += 1 unless nucleotide1 == nucleotide2
-    end
-
-    point_mutations
-  end
+		return count
+	end

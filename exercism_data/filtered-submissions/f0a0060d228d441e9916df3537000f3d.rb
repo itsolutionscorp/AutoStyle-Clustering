@@ -4,3 +4,4 @@ def compute(left, right)
       score += 1 if left[i] != right[i]
     end
     score
+  end

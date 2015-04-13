@@ -1,6 +1,11 @@
-def compute(strand_1, strand_2)
-    [strand_1.length, strand_2.length].min.times.reject do |i|
-      strand_1[i] == strand_2[i]
-    end.length
-  end
-end
+def compute(arg1, arg2)
+
+
+		ham = 0
+		arg1.length.times do |count|
+			if arg1[count] != arg2[count]
+				ham += 1
+			end
+		end
+		return ham
+	end

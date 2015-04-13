@@ -3,4 +3,3 @@ def compute(left_strand, right_strand)
       left_strand[i] != right_strand[i]
     end
   end
-end

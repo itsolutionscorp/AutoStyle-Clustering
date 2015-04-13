@@ -1,10 +1,8 @@
-def compute(strand_a,strand_b)
-    dist = nil
-    if strand_a.length == strand_b.length
-      dist = 0
-      (0..strand_b.length).each do |i|
-        dist += 1 if strand_a[i] != strand_b[i]
-      end
+def compute(seq_a,seq_b)
+    raise ArgumentError.new('Sequences must be of the same length') unless seq_a.length == seq_b.length
+    distance = 0
+    seq_a.chars.zip(seq_b.chars).each do |char_a,char_b|
+      distance +=1 if char_a != char_b
     end
-    dist
+    return distance
   end

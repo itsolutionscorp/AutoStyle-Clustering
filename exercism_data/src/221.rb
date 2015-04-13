@@ -1,15 +1,13 @@
-def compute(s1, s2)
-    i = 0
-    n = s1.length  # assuming len(s1) == len(s2); sequences are of equal length
-    n_differences = 0
+def compute(arg1, arg2)
+      arr1 = arg1.split("")
+      arr2 = arg2.split("")
 
-    while (i < n)
-      if (s1[i] != s2[i])
-        n_differences += 1
+      counter = 0
+      arr1.each_with_index do |x, i|
+        if x != arr2[i]
+          counter += 1
+        end
       end
+      return counter
 
-      i += 1
     end
-
-    return n_differences
-  end

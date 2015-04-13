@@ -5,4 +5,3 @@ def compute(strand_1, strand_2)
       this_nucleotide != other_nucleotide
     end
   end
-end

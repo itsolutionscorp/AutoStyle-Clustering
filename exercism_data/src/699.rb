@@ -1,10 +1,3 @@
-def compute(first, second)
-    first, second = first.chars, second.chars
-    if first.length < second.length
-      shorter, longer = first, second
-    else
-      shorter, longer = second, first
-    end
-
-    shorter.zip(longer).count { |pair| pair[0] != pair[1] }
+def compute(a, b)
+    (0...a.length).inject(0) { |hamming, n| hamming + (a[n] != b[n] ? 1 : 0) }
   end

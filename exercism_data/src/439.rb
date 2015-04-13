@@ -1,6 +1,7 @@
-def compute(base, fingerprint)
-    base, fingerprint = [base, fingerprint].map(&:each_byte)
-    base.zip(fingerprint).reduce(0) do |sum, s|
-      sum += (s[0] == s[1] || s[1].nil? ? 0 : 1)
+def compute(strand1, strand2)
+    count = 0
+    if strand1.length == strand2.length
+    strand1.length.times { |x| count += 1 unless strand1[x] == strand2[x]}
     end
+    count
   end

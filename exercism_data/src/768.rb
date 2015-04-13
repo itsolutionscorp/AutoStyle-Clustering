@@ -1,5 +1,12 @@
-def compute(first, second)
-    distance, min_size = 0, [first.size, second.size].min
-    (0...min_size).each { |i| distance += 1 if first[i]!=second[i] }
-    distance
+def compute(a, b)
+    count  = 0
+    a_enum = a.each_char
+    b_enum = b.each_char
+
+    loop do
+      count += 1 if a_enum.next != b_enum.next
+    end
+
+  ensure
+    return count
   end

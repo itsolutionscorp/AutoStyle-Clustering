@@ -1,8 +1,17 @@
-def compute strand_1, strand_2
-    distance = 0
-    strand_length = strand_1.length
-    strand_length.times do |i|
-      distance += strand_1[i] == strand_2[i] ? 0 : 1
+def compute(original_dna, mutated_dna)
+    hamming_distance = 0
+    step = 0
+    original_dna.each_char do |c|
+
+      unless c == mutated_dna[step]
+        hamming_distance = hamming_distance + 1
+      end
+      step = step + 1
+
+      if step > original_dna.length - 1 or step > mutated_dna.length - 1
+        return hamming_distance
+      end
+
     end
-    distance
+    return hamming_distance
   end

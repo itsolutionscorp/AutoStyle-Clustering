@@ -1,9 +1,8 @@
-def compute(a, b)
-    a = a.chars
-    b = b.chars
+def compute n, m
+    n_array = n.split("")
+    m_array = m.split("")
 
-    a, b = b, a if b.size <a.size
+    results = n_array.zip(m_array).collect {|x,y| x==y }
 
-    a.zip(b).count { |x, y| x != y }
+    results.count(false)
   end
-end

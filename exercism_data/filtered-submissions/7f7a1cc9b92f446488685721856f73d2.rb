@@ -9,5 +9,3 @@ def compute(strand1, strand2)
     end
     counter
   end
-
-end

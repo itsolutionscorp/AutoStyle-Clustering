@@ -3,5 +3,5 @@ def compute(x, y)
     x.split("").each_with_index do |letter, index|
       distance += 1 if letter != y.split("")[index]
     end
-    distance 
+    distance
   end

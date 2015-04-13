@@ -1,8 +1,15 @@
-def compute(s1, s2)
-    distance = 0
-    s1.each_char.with_index do |item, idx|
-      break unless idx < s2.length
-      distance += 1 if item != s2[idx]
+def compute(x, y)
+    count = 0
+    smallerLength = 0
+    if x.length <= y.length
+      smallerLength = x.length
+    else
+      smallerLength = y.length
     end
-    distance
+    (0..(smallerLength-1)).each do |i|
+      if x[i] != y[i]
+        count += 1
+      end
+    end
+    return count
   end

@@ -11,5 +11,3 @@ def compute str1, str2
     hamming_distance
 
   end
-
-end

@@ -9,5 +9,5 @@ def compute(a_string, b_string)
       end
       index_counter += 1
     end
-    return error_count 
+    return error_count
   end

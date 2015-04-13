@@ -1,7 +1,7 @@
 def compute(strand1, strand2)
 		strand1=strand1.split("")
 		strand2=strand2.split("")
-		
+
 		distance=0
 		count=0
 

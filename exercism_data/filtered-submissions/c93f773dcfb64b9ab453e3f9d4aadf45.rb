@@ -3,5 +3,3 @@ def compute x,y
     |distance, pair| pair.first != pair.last ? distance += 1 : distance += 0
   end
 end
-
-end

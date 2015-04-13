@@ -1,9 +1,8 @@
-def compute(strand_1, strand_2)
-    diff_count = 0
-
-    strand_1.split(//).each_with_index do |letter, index|
-      diff_count += 1 if strand_1[index] != strand_2[index]
+def compute(first, second)
+    first.chars.zip(second.chars)
+               .count do |first_char, second_char|
+      first_char != second_char   &&
+      !first_char.nil?            &&
+      !second_char.nil?
     end
-
-    diff_count
   end

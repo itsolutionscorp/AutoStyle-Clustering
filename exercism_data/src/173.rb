@@ -1,17 +1,8 @@
-def compute(code1, code2)
-  	@code1 = code1
-  	@code2 = code2
+def compute(string_1, string_2)
 
-    # if the strings match then the distance is 0
-    distance = 0
+    zipped_strings = string_1.chars.zip(string_2.chars)
 
-    #count the differences at each string indice to compute hamming distance
-    if(@code1 != @code2)
-      for i in 0..[@code1.length, @code2.length].max
-        if(@code1[i] != @code2[i])
-          distance += 1
-        end
-      end
+    zipped_strings.inject(0) do |hamming_distance , (character_1, character_2)|
+      character_1 == character_2 ? hamming_distance : hamming_distance += 1
     end
-    distance
-   end
+  end

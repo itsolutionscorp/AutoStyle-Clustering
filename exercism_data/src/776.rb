@@ -1,18 +1,11 @@
-def compute(first, second)
-		#Make the strings the same length
-		if first.length > second.length then
-			first = first.slice(0..(second.length - 1))
-		else
-			second = second.slice(0..(first.length - 1))
-		end
+def compute(str1,str2)
 
-		#Check each character in the strings and count mismatches
-		hamming_count = 0
-		(0..(first.length - 1)).each do |i|
-			if first.slice(i) != second.slice(i) then
-				hamming_count = hamming_count + 1
-			end
-		end
+    hamming_count = 0
+    a = str1.chars
+    b = str2.chars
+    length = (a.count < b.count) ? a.count : b.count
 
-		return hamming_count
-	end
+    length.times {|l| hamming_count += 1 if a[l] != b[l] }
+
+    hamming_count
+  end

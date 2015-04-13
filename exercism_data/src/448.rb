@@ -1,8 +1,8 @@
-def compute(x,y)
-    dist=0
-    (0...[x.length, y.length].min).count do |i|
-      if x[i]!=y[i]
-        dist+=1
-      end
+def compute(stringA, stringB)
+        min = [stringA.length, stringB.length].min
+        count = 0
+        min.times { |i|
+            count = count+1 if (stringA[i] != stringB[i])
+        }
+        count
     end
-  end

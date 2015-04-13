@@ -1,7 +1,3 @@
 def compute(x,y)
-      xarray = x.split(//)
-      yarray = y.split(//)
-
-      xarray.zip(yarray).delete_if {| a, b | a == nil || b == nil }.count { | a, b | a != b }
-
-    end
+    (0...[x.length, y.length].min).count{|i| x[i] != y[i]}
+  end

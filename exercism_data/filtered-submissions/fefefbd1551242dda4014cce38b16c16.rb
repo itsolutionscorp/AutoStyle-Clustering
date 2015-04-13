@@ -6,5 +6,3 @@ def compute(strand1, strand2)
     end
     count
   end
-
-end

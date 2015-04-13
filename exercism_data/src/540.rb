@@ -1,8 +1,12 @@
-def compute(string1, string2)
-        diff = 0
-        # Iterate all the characters in incoming sequence
-        string1.split("").each_with_index do |ch, index|
-                diff += 1 if ch != string2[index]
-        end
-        diff
+def compute(strand1, strand2)
+    nucleotide_to_compare = if strand1.length < strand2.length
+      strand1.chars.zip(strand2.chars)
+    else
+      strand2.chars.zip(strand1.chars)
     end
+    distance = 0
+    nucleotide_to_compare.each do |n|
+      distance += 1 if n[0] != n[1]
+    end
+    distance
+  end

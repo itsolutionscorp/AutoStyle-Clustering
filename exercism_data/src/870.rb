@@ -1,5 +1,6 @@
-def compute(a, b)
-    a.chars.zip(b.chars).inject(0) do |sum, i|
-      (i[0] != i[1]) ? sum += 1 : sum
-    end
+def compute(str1, str2)
+    shorter_strand = [str1,str2].min_by(&:length)
+    (0...shorter_strand.length).select{|num|
+      str1[num] != str2[num]
+    }.length
   end

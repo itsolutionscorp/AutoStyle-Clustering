@@ -1,8 +1,5 @@
-def compute(strand, other_strand)
-    a, b = strand.chars, other_strand.chars
-    if a.length < b.length
-      a.zip(b).count { |x, y| x != y }
-    else
-      b.zip(a).count { |x, y| x != y }
-    end
+def compute(seg1, seg2)
+    return 0 unless seg1.length == seg2.length
+    strands = seg1.chars.zip(seg2.chars)
+    strands.count{ |first, second| first != second }
   end

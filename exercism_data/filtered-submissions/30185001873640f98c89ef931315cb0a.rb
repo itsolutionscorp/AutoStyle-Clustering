@@ -1,4 +1,4 @@
-def compute num1, num2 
+def compute num1, num2
     count = 0
     str1= num1.to_s.split('')
     str2= num2.to_s.split('')

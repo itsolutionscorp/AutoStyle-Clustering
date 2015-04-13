@@ -4,4 +4,3 @@ def compute(xs, ys)
       .select { |x, y| x != y }
       .size
   end
-end

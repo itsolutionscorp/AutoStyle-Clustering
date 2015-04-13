@@ -1,7 +1,7 @@
 def compute(cat, dog)
 		dog_array = dog.chars
 		cat_array = cat.chars
-		count = 0 
+		count = 0
 		sum = 0
 		while count < dog_array.length
 

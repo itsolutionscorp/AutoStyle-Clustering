@@ -1,3 +1,8 @@
-def compute(left, right)
-    left.chars.zip(right.chars).select{|e| e[0] != e[1]}.count
-  end
+def compute(strand_1, strand_2)
+      total = 0
+      min_length = strand_1.length > strand_2.length ? strand_2.length : strand_1.length
+      (0...min_length).each do |index|
+        total += 1 if strand_1[index] != strand_2[index]
+      end
+      total
+    end

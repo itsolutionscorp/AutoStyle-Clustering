@@ -6,4 +6,3 @@ def compute(strand,other_strand)
     end
     differences_found
   end
-end

@@ -1,9 +1,7 @@
-def compute(strand0, strand1)
-    distance = 0
-    min = [strand0.length, strand1.length].min
-    strand0, strand1 = strand0[0...min], strand1[0...min]
-    strand0.split(//).each_with_index do |c, i|
-      distance += 1 unless c == strand1[i]
+def compute dna_strand_a, dna_strand_b
+    strands = [ dna_strand_a, dna_strand_b ].sort_by(&:size)
+    merged_dna = strands.first.chars.zip(strands.last.chars)
+    merged_dna.count do |joint|
+      joint.uniq.size == 2
     end
-    distance
   end

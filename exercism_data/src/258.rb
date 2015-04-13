@@ -1,11 +1,11 @@
-def compute(strand_a,strand_b)
-    distance = 0
-    nucleotides_a = strand_a.split("")
-    nucleotides_b = strand_b.split("")
-
-    nucleotides_a.each_with_index do |h, i|
-      distance+=1 unless nucleotides_a[i] == nucleotides_b[i]
+def compute(a, b)
+        ary_a = a.split("")
+        ary_b = b.split("")
+        distance = 0
+        ary_a.each_with_index {|value, index|
+            if value != ary_b[index]
+                distance+=1
+            end
+        }
+        distance
     end
-
-    distance
-  end

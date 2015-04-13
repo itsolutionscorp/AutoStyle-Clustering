@@ -9,5 +9,5 @@ def compute(s1, s2)
       end
     end
     hamming_count
-    
+
   end

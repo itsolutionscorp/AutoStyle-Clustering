@@ -1,6 +1,6 @@
 def compute(a,b)
 		if a.length < b.length
-			smaller = a 
+			smaller = a
 			bigger  = b
 		else
 			smaller = b

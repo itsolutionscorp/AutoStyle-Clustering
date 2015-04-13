@@ -1,5 +1,13 @@
-def compute (dna_strand_1,dna_strand_2)
-			dna_strand_1.each_char.each_with_index.map { |strand,index| strand!=dna_strand_2[index]}
-			.select{|x| x==true}
-			.size			
-		end
+def compute(arg1, arg2)
+
+
+
+    if arg1.length >= arg2.length
+      long = arg1.chars
+      short = arg2.chars
+    else
+      long = arg2.chars
+      short = arg1.chars
+    end
+    short.zip(long).select { |array| array[0] != array[1] }.count
+  end

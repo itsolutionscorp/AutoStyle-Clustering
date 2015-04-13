@@ -1,9 +1,9 @@
-def compute(seq1, seq2)
-    seq1 = seq1.split('')
-    seq2 = seq2.split('')
-    distance = 0
-    seq1.zip(seq2).each do |nucleotide1, nucleotide2|
-      distance += 1 if nucleotide1 != nucleotide2
+def compute(string_a, string_b)
+    stra = string_a.split("")
+    strb = string_b.split("")
+    diff = 0
+    stra.each_with_index do |letter, index|
+      diff += 1 if strb[index] != letter
     end
-    distance
+    diff
   end

@@ -1,8 +1,9 @@
-def compute ( dna1, dna2 )
-    hamming = 0
-    length = [dna1.length, dna2.length].min 
-    for i in 0..length-1
-      hamming += 1 if dna1[i] != dna2[i]
+def compute(st1, st2)
+    st1 = st1.split('')
+    st2 = st2.split('')
+    dif = 0
+    [st1.length, st2.length].min.times do |i|
+      dif += 1 if st1[i] != st2[i]
     end
-    hamming
+    dif
   end

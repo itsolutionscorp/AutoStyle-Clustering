@@ -3,4 +3,3 @@ def compute(*strands)
     mutations = ->(nucleotides) { nucleotides.first != nucleotides.last }
     strands.reduce(&to_pairs).count(&mutations)
   end
-end

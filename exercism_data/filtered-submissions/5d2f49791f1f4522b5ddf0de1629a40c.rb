@@ -7,5 +7,5 @@ def compute(s1,s2)
         end
 
      end
-     return distance    
+     return distance
   end

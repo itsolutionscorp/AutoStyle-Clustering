@@ -10,4 +10,3 @@ def compute(this, that)
 
     return distance
   end
-end

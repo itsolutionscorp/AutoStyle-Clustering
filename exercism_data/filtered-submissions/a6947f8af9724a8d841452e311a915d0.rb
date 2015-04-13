@@ -7,7 +7,7 @@ def compute(strand1, strand2)
 
       index = 0
       hamming = 0
-      
+
       strand1.each do |value|
         hamming += 1 if strand1[index] != strand2[index]
         index += 1

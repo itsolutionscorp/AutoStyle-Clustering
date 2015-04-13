@@ -1,17 +1,21 @@
-def compute(s, t)
-        $index = 0
-        distance = 0
-        length = t.length
+def compute(s1, s2)
+    @count = 0
+    @s1 = s1
+    @s2 = s2
 
-        if s.length < t.length
-            length = s.length
-        end
+    @s1.length < @s2.length ? @shorter = @s1.length : @shorter = @s2.length
 
-        until $index == length do
-            if s[$index] != t[$index]
-                distance += 1
-            end
-            $index += 1;
-        end
-        return distance
+    if @s1.length < @s2.length
+      @shorter = @s1.length
+    else
+      @shorter = @s2.length
     end
+
+    0.upto(@shorter-1) do |x|
+      if @s1[x] != @s2[x]
+        @count = @count + 1
+      end
+    end
+
+    return @count
+  end

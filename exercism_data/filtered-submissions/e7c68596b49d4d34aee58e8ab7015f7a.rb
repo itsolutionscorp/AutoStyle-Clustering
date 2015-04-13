@@ -1,5 +1,5 @@
 def compute dna, dna2
-    if dna.length <= dna2.length 
+    if dna.length <= dna2.length
       short = dna
       long = dna2
     else

@@ -1,9 +1,6 @@
-def compute(strand_1, strand_2)
-    strand_diff = OpenStruct.new(count: 0)
-    strand_diff.tap do |diff|
-      strand_1.split(//).each_with_index do |letter, index|
-        diff.count += 1 if strand_1[index] != strand_2[index]
+def compute(strand_a, strand_b)
+      strand_a.chars.each.with_index.reduce(0) do |distance, (nucleotide, index)|
+        distance += 1 if nucleotide != strand_b[index]
+        distance
       end
     end
-    strand_diff.count
-  end

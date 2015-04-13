@@ -1,14 +1,10 @@
-def compute(cat, dog)
-		dog_array = dog.chars
-		cat_array = cat.chars
-		count = 0 
-		sum = 0
-		while count < dog_array.length
-
-		if dog_array[count] != cat_array[count]
-			sum += 1
-		end
-			count +=1
-		end
-		return sum
+def compute(first, second)
+    first, second = first.chars, second.chars
+    if first.length < second.length
+      shorter, longer = first, second
+    else
+      shorter, longer = second, first
     end
+
+    shorter.zip(longer).count { |pair| pair[0] != pair[1] }
+  end

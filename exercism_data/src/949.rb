@@ -1,7 +1,6 @@
-def compute(dna1, dna2)
-    count = 0
-    dna1.chars.each_index do |index|
-      count += 1 unless dna1[index] == dna2[index]
+def compute(dna_one,dna_two)
+    smallest = [dna_one.size,dna_two.size].min
+    (0...smallest).count do |i|
+      dna_one[i] != dna_two[i]
     end
-    count
   end

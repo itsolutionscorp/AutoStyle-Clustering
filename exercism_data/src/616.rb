@@ -1,4 +1,3 @@
-def compute(string1, string2)
-    pairs = string1.split('').zip(string2.split(''))
-    pairs.select{ |char1, char2| char1 != char2 }.count
-  end
+def compute(dna_one, dna_two)
+		    dna_one.split('').select.with_index {|c, index| (c != dna_two.split('')[index])}.count
+		end

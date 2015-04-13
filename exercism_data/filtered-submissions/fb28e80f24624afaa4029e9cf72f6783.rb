@@ -5,10 +5,10 @@ def compute(seq1, seq2)
    differentTotal=0
 
    dnaMinLength.times do |i|
-  #for i in 0..dnaMinL  length
-      #differentTotal=differentTotal+1 if seq1[i] != seq2[i] #old verison
+
+
       differentTotal=differentTotal+1 if seq1[i] % seq2[i] > 0
-   end #end of fo
+   end
 
    return differentTotal
-  end #end of compute
+  end

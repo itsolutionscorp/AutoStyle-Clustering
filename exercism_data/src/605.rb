@@ -1,16 +1,9 @@
-def compute a,b
-    a,b = b,a if a.length > b.length
-
-    a = a.chars
-    b = b.chars
-
-    c = 0
-    while a.length != 0
-      ca = a.shift
-      cb = b.shift
-      c += 1 if ca != cb
+def compute(seq1, seq2)
+    seq1 = seq1.split('')
+    seq2 = seq2.split('')
+    distance = 0
+    seq1.zip(seq2).each do |nucleotide1, nucleotide2|
+      distance += 1 if nucleotide1 != nucleotide2
     end
-    c
+    distance
   end
-
-end

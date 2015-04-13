@@ -1,7 +1,9 @@
-def compute dna_strand_a, dna_strand_b
-    strands = [ dna_strand_a, dna_strand_b ].sort_by(&:size)
-    merged_dna = strands.first.chars.zip(strands.last.chars)
-    merged_dna.count do |joint|
-      joint.uniq.size == 2
+def compute(original, mutated)
+        hamming_distance = 0
+        strand_length = [original.length, mutated.length].min
+        (0...strand_length).each do |nucleotide|
+            hamming_distance += 1 unless original[nucleotide] == mutated[nucleotide]
+        end
+
+        hamming_distance
     end
-  end

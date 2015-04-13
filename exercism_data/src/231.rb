@@ -1,8 +1,7 @@
-def compute(strand_a, strand_b)
-    return unless strand_a.length == strand_b.length
-    mutations = 0
-    strand_a.each_char.with_index do |nucleotide, index|
-      mutations += 1 if nucleotide != strand_b[index]
+def compute(a, b)
+    distance = 0
+    0.upto(a.length - 1) do |n|
+      distance += 1 unless a[n] == b[n]
     end
-    mutations
+    distance
   end

@@ -5,9 +5,9 @@ def compute(strand_1, strand_2)
     difference = 0
 
     normalize_length = strand_2.length - strand_1.length
-      if narmalize_length > 0 #strand 2 is longer
+      if narmalize_length > 0
         strand_2.pop(normalize_length)
-      else normalize_length < 0 #strand 1 is longer
+      else normalize_length < 0
         strand_1.pop(normalize_length.abs)
       end
 

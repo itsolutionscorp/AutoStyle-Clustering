@@ -1,5 +1,5 @@
 def compute(a, b)
-       
+
        if a == b
            return 0
        end

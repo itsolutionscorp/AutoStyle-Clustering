@@ -1,14 +1,14 @@
 def compute(strand1,strand2)
-    # short circuit if they are exact copies
+
     return 0 if (strand1 == strand2)
 
-    # normalize strands
+
     length_to_slice = (strand1.length > strand2.length ? strand2.length : strand1.length)
 
     strand1 = strand1[0,length_to_slice]
     strand2 = strand2[0,length_to_slice]
 
-    # compare
+
     distance = 0
 
     strand1.chars.each_with_index {|base, i|

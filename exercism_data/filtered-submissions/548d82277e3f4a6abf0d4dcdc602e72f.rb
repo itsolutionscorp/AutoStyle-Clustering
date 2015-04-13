@@ -1,6 +1,6 @@
 def compute (dna1, dna2)
     if dna1.length != dna2.length
-      raise "unequal length! #{dna1.length} chars to #{dna2.length} chars"
+      raise "unequal length!
     end
 
 

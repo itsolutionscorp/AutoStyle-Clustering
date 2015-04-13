@@ -16,5 +16,5 @@ def compute(reference, examinee)
      end
 
      hamming_distance
-   
+
    end

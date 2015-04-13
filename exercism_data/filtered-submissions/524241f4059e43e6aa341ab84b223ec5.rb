@@ -5,4 +5,3 @@ def compute(strand1, strand2)
       strand1[point] != strand2[point]
     end
   end
-end

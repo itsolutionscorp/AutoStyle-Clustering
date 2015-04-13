@@ -8,4 +8,3 @@ def compute str1, str2
 
     distance
   end
-end

@@ -1,5 +1,7 @@
-def compute(dna1, dna2)
-		dna1.each_char.with_index.select {|d, index| 
-			d != dna2[index]
-		}.size
-	end
+def compute(s1, s2)
+    pairs = s1.chars.zip(s2.chars)
+
+    pairs
+      .reject { |a, b| a.nil? || b.nil? }
+      .count { |a, b| a != b }
+  end

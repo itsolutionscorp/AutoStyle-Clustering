@@ -1,7 +1,9 @@
-def compute(seq1,seq2)
-    res = []
-    seq1.length.times do |n|
-     res << (seq1[n] == seq2[n] ? 0:1)
+def compute(strand1, strand2)
+    strand1 = strand1.chars
+    strand2 = strand2.chars
+    zipped_strands = strand1.zip(strand2)
+
+    zipped_strands.count do |x,y|
+      x != y && y
     end
-    sum = res.reduce(:+)
   end

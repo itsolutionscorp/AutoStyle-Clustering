@@ -1,6 +1,8 @@
-def compute(str1, str2)
-      distance = 0
-      len = [str1.length, str2.length].min
-      (0..len-1).each {|i| distance += 1 unless str1[i] == str2[i] }
-      distance
-    end
+def compute(a, b)
+    a = a.chars
+    b = b.chars
+
+    a, b = b, a if b.size < a.size
+
+    a.zip(b).count { |x, y| x != y }
+  end

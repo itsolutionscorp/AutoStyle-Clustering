@@ -1,9 +1,11 @@
-def compute(a,b)
-    return 0 if a == b
-    count = 0
-    a,b = b,a if a.size > b.size 
-    (0... a.size).each do |ind|
-      count += 1 if a[ind] != b[ind] 
-    end
-    return count
-  end
+def compute(strandA, strandB)
+		if strandA == strandB
+			0
+		else
+			differences = 0
+			for i in 0..[strandA.length, strandB.length].min - 1 do
+				differences += 1 if strandA[i] != strandB[i]
+			end
+			differences
+		end
+	end

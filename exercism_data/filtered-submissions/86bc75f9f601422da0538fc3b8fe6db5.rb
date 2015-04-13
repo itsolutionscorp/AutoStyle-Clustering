@@ -6,4 +6,3 @@ def compute original, *descendant
       a
     }
   end
-end

@@ -7,4 +7,3 @@ def compute(a,b)
 		end
 		return hamming
 	end
-end

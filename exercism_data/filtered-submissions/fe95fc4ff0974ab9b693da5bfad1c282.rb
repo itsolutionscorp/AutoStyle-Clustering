@@ -4,15 +4,15 @@ def compute(dna1,dna2)
     else
       dna1 = dna1.split("")
       dna2 = dna2.split("")
-      
+
       errors = 0
-      
+
       for i in 0..(dna1.length-1)
          unless dna1[i] == dna2[i]
            errors+=1
          end
       end
-      
-      return errors      
+
+      return errors
     end
   end

@@ -2,7 +2,7 @@ def compute (nucleotide1, nucleotide2)
     i = 0
     hammingCount = 0
 
-    baseString = nucleotide1.length <= nucleotide2.length ? nucleotide1 : nucleotide2 
+    baseString = nucleotide1.length <= nucleotide2.length ? nucleotide1 : nucleotide2
 
     while i < baseString.length
       if nucleotide1[i] != nucleotide2[i]

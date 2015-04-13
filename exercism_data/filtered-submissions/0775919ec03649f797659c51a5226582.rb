@@ -4,6 +4,6 @@ def compute a, b
 			if a[i] != b[i]
 				count+=1
 			end
-		end	
+		end
 		return count
 	end

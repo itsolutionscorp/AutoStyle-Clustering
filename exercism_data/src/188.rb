@@ -1,22 +1,11 @@
-def compute(strand1,strand2)
-	  ham_count = 0
-		if strand1.length > strand2.length
-	 		for i in 0...strand2.length do
-				if strand1[i]!= strand2[i]
-				 ham_count += 1 			
-	 			end
-	 		end
-	 		
-	 		ham_count
-	 	else
-	 		for i in 0...strand1.length do
-				if strand1[i]!= strand2[i]
-				 ham_count += 1 			
-				end 
-	 		end
-	 		
-	 		ham_count
-	 	end
-	 	
-		
-	end
+def compute(a, b)
+    mutations = 0
+
+    comparable_size = [a.size, b.size].min
+
+    comparable_size.times do |position|
+      mutations += 1 if a[position] != b[position]
+    end
+
+    mutations
+  end

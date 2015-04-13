@@ -1,6 +1,10 @@
-def compute(*strings)
-    length = Array(strings).map(&:to_s).map(&:size).min
-    sequences = strings.map { |s| s.chars.take(length) }
-    sequences.transpose.reject(&:uniq!).size
+def compute(primerCodigo , segundoCodigo)
+    if primerCodigo.length == segundoCodigo.length
+
+
+      (0..primerCodigo.length - 1).each do |i|
+        @distancia += 1 unless primerCodigo[i] == segundoCodigo[i]
+      end
+    end
+    @distancia = 0 if @distancia.nil?
   end
-end

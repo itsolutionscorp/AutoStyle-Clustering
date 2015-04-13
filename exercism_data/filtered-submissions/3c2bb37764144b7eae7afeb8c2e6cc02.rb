@@ -7,9 +7,9 @@ def compute(string1, string2)
 					$id = $id + 1
 				 end
 			  else
-				 break		  
-			  end 
-		  end 
-	  end  
+				 break
+			  end
+		  end
+	  end
 	  return $id
    end

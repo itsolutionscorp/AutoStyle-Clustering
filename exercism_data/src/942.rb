@@ -1,13 +1,8 @@
-def compute (dna1, dna2)
-		nucleobases1 = dna1.split("")
-		nucleobases2 = dna2.split("")
-		result = 0
-
-		(0..dna1.length).each do |i|
-			if nucleobases1[i] != nucleobases2[i]
-			result += 1
-			end
-		end
-
-		return result
-	end
+def compute (a, b)
+    a = a.chars
+    b = b.chars
+    a = a.slice(0, b.count)
+    distance = 0
+    a.zip(b).each { |x, y| distance += 1 if x != y }
+    return distance
+  end
