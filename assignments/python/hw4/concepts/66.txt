@@ -1,0 +1,5 @@
+Call to len
+Call to get_string
+Use of 0 loop(s) in total.
+Use of the in construction
+Use of set comprehension

@@ -1,0 +1,5 @@
+    40.1: flog total
+    20.0: flog/method average
+
+    26.4: main#combine_anagrams            800//source795/17191.rb:10
+    13.6: main#anagramcmp                  800//source795/17191.rb:6

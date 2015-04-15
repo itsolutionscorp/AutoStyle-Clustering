@@ -1,0 +1,2 @@
+#!/usr/bin/python3 -V
+# -*- coding: utf-8 -*-class Luhn:    def __init__(self, num):        self.num_list = [int(x) for x in str(num)]    def addends(self):        return [sum(divmod(x * (1 + (i & 1)), 10))            for i, x in enumerate(self.num_list[::-1])]    def checksum(self):        return sum(self.addends()) % 10    def is_valid(self):        return False == self.checksum()    @classmethod    def create(self, num):        source = num * 10        differ = Luhn(source).checksum()        return source + (10 - differ) % 10

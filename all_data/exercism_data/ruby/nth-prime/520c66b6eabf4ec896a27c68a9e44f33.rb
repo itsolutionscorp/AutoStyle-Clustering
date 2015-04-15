@@ -1,0 +1,3 @@
+class Prime
+
+end

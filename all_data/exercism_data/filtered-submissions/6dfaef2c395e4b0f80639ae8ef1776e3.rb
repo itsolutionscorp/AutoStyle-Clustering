@@ -1,0 +1,14 @@
+def compute (strand1, strand2)
+
+		i = 0
+		dist = 0
+
+
+
+		while i != strand1.length do
+			dist += 1 unless strand1[i] == strand2[i]
+			i += 1
+		end
+
+		return dist
+	end

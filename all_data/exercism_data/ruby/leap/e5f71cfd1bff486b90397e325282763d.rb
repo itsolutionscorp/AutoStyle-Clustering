@@ -1,0 +1,3 @@
+require 'date'
+
+Year = Date

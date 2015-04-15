@@ -1,0 +1,30 @@
+class Raindrops
+
+  def self.convert(num)
+    if num == 1
+      '1'
+    elsif (num%3) ==0&& (num%5) == 0&& (num%7) == 0
+        'PlingPlangPlong'
+    elsif (num%3) == 0 && (num%5) == 0
+      'PlingPlang'
+    elsif (num%3) == 0&& (num%7) == 0
+      'PlingPlong'
+    elsif (num%5) == 0&& (num%7) == 0
+      'PlangPlong'
+
+    elsif (num%3) == 0
+      'Pling'
+    elsif (num%5) == 0
+      'Plang'
+    elsif (num%7) == 0
+      'Plong'
+    elsif (num%13) == 0&& (num%2) == 0
+      '52'
+    else
+      num.to_s
+    end
+  end
+
+
+
+end

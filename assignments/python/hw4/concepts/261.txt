@@ -1,0 +1,12 @@
+Call to len
+Call to min
+Call to range
+Call to get_list
+Call to get_string
+Use of a extremely deeply nested loop
+Use of a single loop
+Use of 7 loop(s) in total.
+Use of an augmented assignment
+Use of a binary operation
+Use of a list
+Use of an if statement

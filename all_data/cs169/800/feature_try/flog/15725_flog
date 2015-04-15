@@ -1,0 +1,7 @@
+   113.1: flog total
+    28.3: flog/method average
+
+    47.3: main#merge                       800/source795//15725.rb:2
+    39.7: main#combine_anagrams            800/source795//15725.rb:81
+    17.9: main#merge_sort                  800/source795//15725.rb:48
+     8.1: main#hash_to_array               800/source795//15725.rb:68

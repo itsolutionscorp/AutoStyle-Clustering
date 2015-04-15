@@ -1,0 +1,5 @@
+    10.5: flog total
+     5.3: flog/method average
+
+     6.6: main#combine_anagrams            800/source795//23858.rb:8
+     4.0: main#to_canonicForm              800/source795//23858.rb:1

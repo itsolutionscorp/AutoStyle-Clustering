@@ -401,8 +401,8 @@ def sparse_add_into(sparse_vector, vector, scale):
 
 def generate_chain(start_index, ast_distance_weight, style_score_weight, home_dir = "./",
                    feedback=None, old_chain=None, data_dir='data/', weights_file='weights.np',
-                   libcall_linenums='featurization/libcalls_and_linenums.json',
-                   libcall_dict='util/lib_call_dict.pkl'):
+                   libcall_linenums='libcalls_and_linenums.json',
+                   libcall_dict='util/lib_call_dict.pkl', language="ruby"):
     '''
     Create a new chain object. This is the interface with the web app.
     Disclaimer: Assumes data_dir has a particular structure.
@@ -412,18 +412,19 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
     feature_dir = home_dir + data_dir + 'feature/'
     source_dir = home_dir + data_dir + 'src/'
     distances = np.loadtxt(home_dir + data_dir + 'gen/ast_dist_matrix.np')
-    style_scores = np.loadtxt(feature_dir + 'style_scores.np')
-    style_features = np.loadtxt(feature_dir + 'style_features.np')
+    style_scores = np.loadtxt(feature_dir + 'style_scores.np', ndmin=2)
+    style_features = np.loadtxt(feature_dir + 'style_features.np', ndmin=2)
     feature_names = np.genfromtxt(feature_dir + 'style_features_names.np', dtype='str', delimiter='\n')
     score_names = np.genfromtxt(feature_dir + 'style_scores_names.np', dtype='str', delimiter='\n')
    
-    if len(style_scores.shape)==1:
-        style_scores = style_scores[:, np.newaxis]
-    with open(home_dir + data_dir + 'feature' +libcall_linenums, 'r') as json_data:
-        libcall_linenums = json.load(json_data)
-        libcall_linenums = unicode_to_str(libcall_linenums)
-    with open(home_dir + libcall_dict, 'r') as f:
-        libcall_dict = pickle.load(f)
+    if language != "python":
+        if len(style_scores.shape)==1:
+            style_scores = style_scores[:, np.newaxis]
+        with open(home_dir + data_dir + 'feature/' +libcall_linenums, 'r') as json_data:
+            libcall_linenums = json.load(json_data)
+            libcall_linenums = unicode_to_str(libcall_linenums)
+        with open(home_dir + libcall_dict, 'r') as f:
+            libcall_dict = pickle.load(f)
     c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict,  start_index, ast_distance_weight, style_score_weight, feedback, old_chain)
     return c
 

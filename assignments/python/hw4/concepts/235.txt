@@ -1,0 +1,6 @@
+Use of a single loop
+Use of 1 loop(s) in total.
+Use of an augmented assignment
+Use of a list
+Use of the in construction
+Use of an if statement

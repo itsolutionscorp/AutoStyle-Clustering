@@ -1,0 +1,1 @@
+s(:defn, :combine_anagrams, s(:args, :words), s(:if, s(:call, s(:lvar, :words), :nil?), s(:call, nil, :raise, s(:const, :ArgumentError)), nil), s(:lasgn, :word_groups, s(:call, s(:iter, s(:call, s(:lvar, :words), :group_by), s(:args, :word), s(:call, s(:call, s(:call, s(:call, s(:lvar, :word), :downcase), :chars), :sort), :join)), :values)), s(:return, s(:lvar, :word_groups)))

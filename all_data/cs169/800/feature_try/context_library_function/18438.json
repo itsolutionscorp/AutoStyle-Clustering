@@ -1,0 +1,1 @@
+{"[:split, 0, 0]":1,"[:permutation, 0, 0]":1,"[:join, 2, 0]":1,"[:each, 0, 0]":1,"[:insert, 2, 0]":2,"[:permutation, 2, 0]":1,"[:to_s, 2, 2]":1,"[:include?, 1, 2]":1,"[:insert, 1, 2]":1,"[:length, 1, 2]":1,"[:delete, 1, 2]":1,"[:length, 2, 0]":1,"[:uniq, 2, 0]":1}

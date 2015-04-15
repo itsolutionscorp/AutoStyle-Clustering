@@ -1,0 +1,71 @@
+-> integer
+-> value
+-> [, write_array
+-> dir
+-> no_method_error
+-> 
+-> processtms
+-> enumerator
+-> each_with_object(obj)
+-> object
+-> array
+-> name_error
+-> thgrp
+-> $_
+-> [head, match, tail]
+-> regexp
+-> mutex
+-> num
+-> sym
+-> binarystring
+-> max=(number)
+-> path
+-> [head, sep, tail]
+-> new(obj, method = :each, *args)
+-> str
+-> with_object(obj)
+-> time
+-> argf
+-> class
+-> struct
+-> hash
+-> [ true_array, false_array ]
+-> system_call_error_subclass
+-> symbol
+-> method
+-> [obj, ...]
+-> mod
+-> false
+-> []
+-> push(object)
+-> item
+-> structclass
+-> friday?
+-> )
+-> thread
+-> ios
+-> system_exit
+-> enum
+-> true
+-> key
+-> env
+-> -1, 0, +1
+-> new(array)
+-> self
+-> proc
+-> array_of_array
+-> rng
+-> fixnum
+-> nil
+-> file
+-> prng
+-> each_with_index
+-> string
+-> thr
+-> io
+-> raise(exception [, string [, array]])
+-> signal_exception
+-> try_convert(obj)
+-> int, float::infinity
+-> exception
+-> 0
