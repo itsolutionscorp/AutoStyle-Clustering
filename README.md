@@ -16,6 +16,8 @@
 
     python batch_features.py [function name] [language] [data_dir]/feature/style_features.np [data_dir] [list of all features you want]
 
+7. Use featurization/libcalls_and_linenums.rb to generate a mapping of library calls to line numbers. 
+
 7. Run the web ui!
 
 Note: Right now, in order for style_chain.py to work, you must use exactly 8 structural features, which must be the last features. This means at the end of your features list you must include control_flow, recursion, and duplicate_treegram
@@ -33,3 +35,4 @@ Ultimately, the required directory structure is:
             style_scores_names.np
             style_features.np
             style_features_names.np
+            libcalls_and_linenums.json

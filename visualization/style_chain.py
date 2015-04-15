@@ -419,7 +419,7 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
    
     if len(style_scores.shape)==1:
         style_scores = style_scores[:, np.newaxis]
-    with open(home_dir + libcall_linenums, 'r') as json_data:
+    with open(home_dir + data_dir + 'feature' +libcall_linenums, 'r') as json_data:
         libcall_linenums = json.load(json_data)
         libcall_linenums = unicode_to_str(libcall_linenums)
     with open(home_dir + libcall_dict, 'r') as f:
