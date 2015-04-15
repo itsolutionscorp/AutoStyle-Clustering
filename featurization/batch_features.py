@@ -13,7 +13,17 @@ In order to run this file, you must have:
 import argparse
 import glob
 import numpy as np
+import re
 from individual_features import generate_individual_features, append_at_index
+
+def natural_sort(l): 
+    '''
+    Sorts numbered filenames by their integer value 
+    Ref: http://blog.codinghorror.com/sorting-for-humans-natural-sort-order/
+    '''    
+    convert = lambda text: int(text) if text.isdigit() else text.lower() 
+    alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ] 
+    return sorted(l, key = alphanum_key)
 
 def main():
     '''
@@ -33,7 +43,7 @@ def main():
     language = args.language
     home_dir = args.home_directory.rstrip("/") + "/"
     output_file = args.output_file
-    source_files = sorted(glob.glob(home_dir + 'src/*'))
+    source_files = natural_sort(glob.glob(home_dir + 'src/*'))
     
     all_features = None
     for submission_index, submission in enumerate(source_files):
