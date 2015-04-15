@@ -16,6 +16,7 @@ import ast
 import math
 import numpy as np
 import sys
+import re
 sys.path.insert(0, os.path.abspath('../syntax_tree'))
 sys.path.insert(0, os.path.abspath('syntax_tree'))
 from tree import control_flow_and_library_tree, cfl_tree_from_string, printTree, Node
@@ -42,6 +43,7 @@ def abc_score(language, function_name, index):
     '''
     ast = generate_python_ast(SOURCE_FILES[index])
     assign, branch, cond, calls, cpts = 0, 0, 0, 0, 0
+    cpts = loops_and_recursion(ast)
     stack = []
     stack.append(ast)
     while stack:
@@ -53,12 +55,44 @@ def abc_score(language, function_name, index):
             calls += 1
         elif key in ("Call", "While", "For", "Raise", "Break"):
             branch += 1
-        elif key == function_name:
-            cpts += 1
+        elif key in ["Compare","Try", "ExceptHandler"]:
+            cond+=1
         stack += Node.get_children(current)[::-1]
     score = round(math.sqrt(branch ** 2 + assign ** 2 + cond ** 2 + .4 * (calls ** 2) + cpts ** 2), 2)
     return [score, ]
-    
+
+def loops_and_recursion(tree):
+    '''
+    @type tree: node
+    @param tree: the root node of an AST
+    returns a score based on the number of loops and recursive calls in the AST
+    '''
+    queue = [tree]
+    func_defs = []
+    recursions = set()
+    loop_total = 0
+    loop_tracker = []
+    loop_count = 0
+    while len(queue) > 0:
+        temp_node = queue.pop(0)
+        label = get_node_label(temp_node)
+        if temp_node in loop_tracker:
+            loop_tracker.remove(temp_node)
+            if len(loop_tracker) == 0:
+                loop_total += loop_count ** 2
+                loop_count = 0
+        if label[0:11] == 'FunctionDef':
+            func_defs.append(label[12:]) 
+        elif label in func_defs:
+            recursions.add("Recursion on " +label)
+        elif label == "For" or label == "While":
+            if len(queue) > 0:
+                loop_tracker.append(queue[0])
+            loop_count+=1
+        queue = temp_node.children + queue
+    if loop_count > 0:
+        loop_total += loop_total **2
+    return loop_total + len(recursions)    
 
 def get_node_label(node):
     '''
