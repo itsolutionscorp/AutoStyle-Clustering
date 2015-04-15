@@ -10,13 +10,13 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 public class Main {
  
 	//use ASTParse to parse string
-	public static void parse(String str) {
+	public static void parse(String fileContents, String methodName) {
 		ASTParser parser = ASTParser.newParser(AST.JLS4);
-		parser.setSource(str.toCharArray());
+		parser.setSource(fileContents.toCharArray());
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
  
 		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
-		SimpleVisitor sv = new SimpleVisitor("encourage");
+		SimpleVisitor sv = new SimpleVisitor(methodName);
 		cu.accept(sv);
 		System.out.println(sv);
 	}
@@ -40,6 +40,8 @@ public class Main {
 	}
  
 	public static void main(String[] args) throws IOException {
-		parse(readFileToString("./Love.java"));
+		String fileName = args[0];
+		String methodName = args[1]
+		parse(readFileToString(fileName), methodName);
 	}
 }

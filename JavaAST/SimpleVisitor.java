@@ -1,9 +1,13 @@
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ConditionalExpression;
+import org.eclipse.jdt.core.dom.EnhancedForStatement;
 import org.eclipse.jdt.core.dom.ForStatement;
 import org.eclipse.jdt.core.dom.IfStatement;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
+import org.eclipse.jdt.core.dom.SwitchCase;
+import org.eclipse.jdt.core.dom.WhileStatement;
 
 public class SimpleVisitor extends ASTVisitor {
 	private SimpleASTNode root;
@@ -39,8 +43,6 @@ public class SimpleVisitor extends ASTVisitor {
 	@Override
 	public void endVisit(MethodDeclaration n){
 		if (n.getName().toString().equals(methodOfInterest)){
-			System.out.print("done with ");
-			System.out.println(n);
 			inMethodOfInterest = false;
 		}
 	}
@@ -72,8 +74,48 @@ public class SimpleVisitor extends ASTVisitor {
 	}
 	
 	@Override
+	public boolean visit(EnhancedForStatement n){
+		return visitItem("iter");
+	}
+	
+	@Override
+	public boolean visit(WhileStatement n){
+		return visitItem("iter");
+	}
+	
+	@Override
+	public void endVisit(WhileStatement n){
+		endVisitItem();
+	}
+	
+	@Override
+	public void endVisit(EnhancedForStatement n){
+		endVisitItem();
+	}
+	
+	@Override
+	public boolean visit(SwitchCase n){
+		return visitItem("cond");
+	}
+	
+	@Override
+	public void endVisit(SwitchCase n){
+		endVisitItem();
+	}
+	
+	@Override
 	public boolean visit(IfStatement n){
 		return visitItem("cond");
+	}
+	
+	@Override
+	public boolean visit(ConditionalExpression n){
+		return visitItem("cond");
+	}
+	
+	@Override
+	public void endVisit(ConditionalExpression n){
+		endVisitItem();
 	}
 	
 	@Override
@@ -87,13 +129,9 @@ public class SimpleVisitor extends ASTVisitor {
 	}
 	
 	private boolean visitItem(String item){
-		if (inMethodOfInterest){
-			System.out.println(item);
-		}
 		if (!inMethodOfInterest){
 			return true;
 		} else if (current != null){
-			System.out.println(item);
 			SimpleASTNode thisItem = new SimpleASTNode(item);
 			current.addChild(thisItem);
 			thisItem.setParent(current);
