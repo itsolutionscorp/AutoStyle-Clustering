@@ -20,10 +20,20 @@ sys.path.insert(0, os.path.abspath('../syntax_tree'))
 sys.path.insert(0, os.path.abspath('syntax_tree'))
 from tree import control_flow_and_library_tree, cfl_tree_from_string, printTree, Node
 
+
+def natural_sort(l): 
+    '''
+    Sorts numbered filenames by their integer value 
+    Ref: http://blog.codinghorror.com/sorting-for-humans-natural-sort-order/
+    '''    
+    convert = lambda text: int(text) if text.isdigit() else text.lower() 
+    alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ] 
+    return sorted(l, key = alphanum_key)
+
 DUPLICATE_DEPTH = 4
 HOME_DIR = './data/'
 ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
-SOURCE_FILES = sorted(glob.glob(HOME_DIR + 'src/*'))
+SOURCE_FILES = natural_sort(glob.glob(HOME_DIR + 'src/*'))
 
 def abc_score(language, function_name, index):
     '''
@@ -356,7 +366,7 @@ def generate_individual_features(language, function_name, index, features, home_
     
     HOME_DIR = home_dir.rstrip("/") + "/"
     ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
-    SOURCE_FILES = sorted(glob.glob(HOME_DIR + 'src/*'))
+    SOURCE_FILES = natural_sort(glob.glob(HOME_DIR + 'src/*'))
     
     feature_vector = []
     for feature in features:

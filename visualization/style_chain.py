@@ -17,6 +17,7 @@ import numpy as np
 import os
 import json
 import pickle
+import re
 from collections import OrderedDict
 
 class Chain():
@@ -32,9 +33,7 @@ class Chain():
         '''
         self.source_dir = source_dir
         self.dist_matrix = distances
-        self.files = sorted(glob.glob(self.source_dir + '/*.rb'), key=lambda x: int(x.split("/")[-1].strip(".rb").strip("./")))
-        # self.files = glob.glob(self.source_dir + '/*.rb')
-        # self.files.sort(
+        self.files = natural_sort(glob.glob(self.source_dir + '/*'))
         self.style_scores = style_scores
         self.style_features = style_features
         self.feature_names = feature_names
@@ -375,6 +374,17 @@ def interpret_list_of_hints(features, is_not_hint):
         all_advice += '...' + use_not + 'explicitly instantiating data structures.\n'
     return all_advice
 
+def integer_val(x):
+    '''
+    Return the integer part of an alphanumeric string x
+    '''
+    return int(x.split("/")[-1].strip(".").strip("./"))
+
+def natural_sort(l): 
+    convert = lambda text: int(text) if text.isdigit() else text.lower() 
+    alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ] 
+    return sorted(l, key = alphanum_key)
+
 def sparse_dot(sparse_vector, vector):
     '''
     Compute a dot product between a sparse vector and a regular vector.
@@ -402,14 +412,10 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
     feature_dir = home_dir + data_dir + 'feature/'
     source_dir = home_dir + data_dir + 'src/'
     distances = np.loadtxt(home_dir + data_dir + 'gen/ast_dist_matrix.np')
-    # style_scores = np.loadtxt(feature_dir + 'style_scores.np')
-    style_scores = np.loadtxt(feature_dir + 'inherent_style_features.np')
-    # style_features = np.loadtxt(feature_dir + 'style_features.np')
-    style_features = np.loadtxt(feature_dir + 'instrumental_style_features.np')
-    # feature_names = np.genfromtxt(feature_dir + 'style_features_names.np', dtype='str', delimiter='\n')
-    feature_names = np.genfromtxt(feature_dir + 'all_instrumental_style_names.np', dtype='str', delimiter='\n')
-    # score_names = np.genfromtxt(feature_dir + 'style_scores_names.np', dtype='str', delimiter='\n')
-    score_names = np.genfromtxt(feature_dir + 'all_inherent_style_names.np', dtype='str', delimiter='\n')
+    style_scores = np.loadtxt(feature_dir + 'style_scores.np')
+    style_features = np.loadtxt(feature_dir + 'style_features.np')
+    feature_names = np.genfromtxt(feature_dir + 'style_features_names.np', dtype='str', delimiter='\n')
+    score_names = np.genfromtxt(feature_dir + 'style_scores_names.np', dtype='str', delimiter='\n')
    
     if len(style_scores.shape)==1:
         style_scores = style_scores[:, np.newaxis]
