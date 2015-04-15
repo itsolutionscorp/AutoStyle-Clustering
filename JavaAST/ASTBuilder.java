@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
  
@@ -7,7 +6,7 @@ import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.CompilationUnit;
  
-public class Main {
+public class ASTBuilder {
  
 	//use ASTParse to parse string
 	public static void parse(String fileContents, String methodName) {
@@ -41,7 +40,7 @@ public class Main {
  
 	public static void main(String[] args) throws IOException {
 		String fileName = args[0];
-		String methodName = args[1]
+		String methodName = args[1];
 		parse(readFileToString(fileName), methodName);
 	}
 }
