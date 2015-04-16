@@ -296,6 +296,8 @@ submit_btn.on('click',
 <script src={{home|string() + "static/contrib/codemirror/lib/codemirror.js"}}></script>
 <script src={{home|string() + "static/contrib/codemirror/mode/properties/properties.js"}}></script>
 <script src={{home|string() + "static/contrib/codemirror/mode/python/python.js"}}></script>
+<script src={{home|string() + "static/contrib/codemirror/mode/ruby/ruby.js"}}></script>
+<script src={{home|string() + "static/contrib/codemirror/mode/clike/clike.js"}}></script>
 
 <script type="text/javascript">
 
@@ -303,7 +305,7 @@ submit_btn.on('click',
         //Set up code mirror
         CodeMirror.fromTextArea(document.getElementById("code"+{{loop.index}}), {
             lineNumbers: false,
-            mode: "python",
+            mode: "{{language}}",
             lineWrapping: false
         });
         {% endfor %}

@@ -79,4 +79,4 @@ def submit_form():
                            flog_diff=flog,
                            title='Home',
                            home="../",
-                           posts=posts, start=start_index, directory=data_loc, directories=directories)
+                           posts=posts, start=start_index, directory=data_loc, directories=directories, language=data_loc.split("/")[0])
