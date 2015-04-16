@@ -1,1 +1,0 @@
-s(:defn, :combine_anagrams, s(:args, :words), s(:iter, s(:call, s(:iter, s(:call, s(:lvar, :words), :group_by), s(:args, :term), s(:call, s(:call, s(:call, s(:call, s(:lvar, :term), :downcase), :unpack, s(:str, "c*")), :sort), :pack, s(:str, "c*"))), :map), s(:args, :k, :vs), s(:lvar, :vs)))

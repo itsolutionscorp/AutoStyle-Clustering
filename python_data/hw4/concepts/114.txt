@@ -1,8 +1,0 @@
-Call to range
-Call to get_list
-Call to len
-Use of a quadruple nested loop
-Use of 4 loop(s) in total.
-Use of an augmented assignment
-Use of a binary operation
-Use of an if statement

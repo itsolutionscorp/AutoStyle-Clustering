@@ -1,6 +1,0 @@
-Call to len
-Call to get_list
-Use of 0 loop(s) in total.
-Use of list comprehension
-Use of tuples
-Use of the in construction

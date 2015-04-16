@@ -1,9 +1,0 @@
-   160.2: flog total
-    26.7: flog/method average
-
-   106.8: main#rps_game_winner             800//source/17346.rb:22
-    20.4: main#combine_anagrams            800//source/17346.rb:61
-    14.6: main#count_words                 800//source/17346.rb:7
-     9.5: main#rps_tournament_winner       800//source/17346.rb:52
-     5.1: main#palindrome?                 800//source/17346.rb:1
-     3.9: main#contains_game               800//source/17346.rb:47

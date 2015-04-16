@@ -1,3 +1,0 @@
-class accumulate:
-	def accumulate:
-		

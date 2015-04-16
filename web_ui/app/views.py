@@ -2,6 +2,7 @@ from app import app
 from flask import render_template, request
 import os
 import sys
+from glob import glob
 sys.path.insert(0, os.path.abspath('../visualization/'))
 from style_chain import generate_chain, interpret_list_of_hints
 start_index = None
@@ -17,34 +18,45 @@ hints = None
 @app.route('/index')
 def index():
     posts = []
-    return render_template("index.html", ast_dist=0.05, flog_diff=0, title='Home', posts=posts, start=1, directory="path/to/data/directory")
-
+    directories = [item.lstrip('../assignments/')for item in glob('../assignments/*/*')]
+    # return render_template("carousel.html")
+    return render_template("index.html", ast_dist=0.05, flog_diff=0, title='Home', posts=posts, directories=directories)
 
 @app.route('/submit_form/', methods=['POST'])
 def submit_form():
     global hints
     global chain
+
     data_loc = request.form['directory']
-    print data_loc
     start_index = int(request.form['start'])
     ast = float(request.form['ast_slider'])
-    print request.form['flog_slider']
     flog = float(request.form['flog_slider'])
     feedback = request.form['feedback']
+    
+
+    print "----------- submitted --------------------------------------"
+    print "directory", data_loc
+    print "start", start_index
+    print "ast", ast
+    print "flog", flog
+    print "feedback", feedback
+
+
     feedback = feedback.split(" ")
     try:
       feedback.remove("")
     except:
       pass
+
     final_feedback = []
     if hints is not None:
       for i, item in enumerate(feedback):
         item = item.split(",")
         print item
         final_feedback.append((hints[i], int(item[1]), int(item[3]), item[0]))
-    lang="python"
+    
     # feedback format: (('non-sentence name of hint', index/position in chain, bad_hint or not, positive or negative) , (), ()  )
-    chain = generate_chain(start_index, ast, flog, os.path.abspath('../') + "/", data_dir = data_loc,feedback=final_feedback, old_chain=chain, language=lang)
+    chain = generate_chain(start_index, ast, flog, os.path.abspath('../') + "/", data_dir = "assignments/" + data_loc,feedback=final_feedback, old_chain=chain, language=data_loc.split("/")[0])
     posts = []
     hints = []
     cl = chain.head
@@ -61,10 +73,10 @@ def submit_form():
       else:
         posts.append({'code': cl.source_code, 'positive_hint': "", 'negative_hint': ''})
       cl = cl.next
-
+      directories = [item.lstrip('../assignments/')for item in glob('../assignments/*/*')]
     return render_template("index.html",
                            ast_dist=ast,
                            flog_diff=flog,
                            title='Home',
                            home="../",
-                           posts=posts, start=start_index, directory=data_loc)
+                           posts=posts, start=start_index, directory=data_loc, directories=directories)

@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :str_1, :str_2), s(:if, s(:call, s(:call, s(:lvar, :str_1), :length), :==, s(:call, s(:lvar, :str_2), :length)), nil, s(:return, s(:lit, -1))), s(:iter, s(:call, s(:call, s(:call, s(:lvar, :str_1), :length), :times), :count), s(:args, :x), s(:call, s(:call, s(:lvar, :str_1), :[], s(:lvar, :x)), :!=, s(:call, s(:lvar, :str_2), :[], s(:lvar, :x)))))

@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :strand1, :strand2), s(:lasgn, :comparison_array, s(:call, s(:call, s(:lvar, :strand1), :chars), :zip, s(:call, s(:lvar, :strand2), :chars))), s(:iter, s(:call, s(:lvar, :comparison_array), :count), s(:args, :comparison_pair), s(:call, s(:call, s(:lvar, :comparison_pair), :first), :!=, s(:call, s(:lvar, :comparison_pair), :last))))

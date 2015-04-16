@@ -1,6 +1,0 @@
-Call to count
-Call to get_list
-Use of a single loop
-Use of 1 loop(s) in total.
-Use of an augmented assignment
-Use of an if statement

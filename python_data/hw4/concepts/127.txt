@@ -1,8 +1,0 @@
-Call to make_word_from_list
-Call to get_list
-Use of 0 loop(s) in total.
-Recursion on function0
-Use of a binary operation
-Use of a list
-Use of the in construction
-Use of an if statement

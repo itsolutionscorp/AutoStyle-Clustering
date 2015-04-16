@@ -1,9 +1,0 @@
-module Gigasecond
-  SECONDS_PER_DAY = 86_400
-  ONE_GIGASECOND = 1_000_000_000
-  DAYS_IN_ONE_GIGASECOND = ONE_GIGASECOND / SECONDS_PER_DAY
-
-  def self.from(date)
-    date + DAYS_IN_ONE_GIGASECOND
-  end
-end

@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :first, :second), s(:lasgn, :dist, s(:lit, 0)), s(:for, s(:dot2, s(:lit, 0), s(:call, s(:lvar, :first), :length)), s(:lasgn, :i), s(:lasgn, :dist, s(:call, s(:lvar, :dist), :+, s(:if, s(:call, s(:call, s(:lvar, :first), :[], s(:lvar, :i)), :==, s(:call, s(:lvar, :second), :[], s(:lvar, :i))), s(:lit, 0), s(:lit, 1))))), s(:return, s(:lvar, :dist)))

@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :x, :y), s(:lit, 0))

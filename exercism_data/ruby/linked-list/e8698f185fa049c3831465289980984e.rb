@@ -1,1 +1,0 @@
-class Deque < Array; end

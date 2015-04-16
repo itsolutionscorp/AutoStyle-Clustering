@@ -1,6 +1,0 @@
-    75.6: flog total
-    25.2: flog/method average
-
-    42.9: main#combine_anagrams            800/source795//31782.rb:29
-    23.9: main#compareProcessedWord        800/source795//31782.rb:7
-     8.7: main#processWord                 800/source795//31782.rb:1

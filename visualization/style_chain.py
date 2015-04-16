@@ -416,8 +416,9 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
     style_features = np.loadtxt(feature_dir + 'style_features.np', ndmin=2)
     feature_names = np.genfromtxt(feature_dir + 'style_features_names.np', dtype='str', delimiter='\n')
     score_names = np.genfromtxt(feature_dir + 'style_scores_names.np', dtype='str', delimiter='\n')
-   
-    if language != "python":
+    weights_file = home_dir+data_dir + 'gen/weights.np' 
+
+    if language == "ruby":
         if len(style_scores.shape)==1:
             style_scores = style_scores[:, np.newaxis]
         with open(home_dir + data_dir + 'feature/' +libcall_linenums, 'r') as json_data:

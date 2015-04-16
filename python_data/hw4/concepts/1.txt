@@ -1,9 +1,0 @@
-Call to len
-Call to get_list
-Use of a double nested loop
-Use of 2 loop(s) in total.
-Use of a binary operation
-Use of a unary operation
-Use of a list
-Use of the in construction
-Use of an if statement

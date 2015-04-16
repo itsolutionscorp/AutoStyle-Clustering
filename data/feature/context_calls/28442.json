@@ -1,1 +1,0 @@
-{"[:each]":2,"[:downcase, 2]":1,"[:each_char, 2]":1,"[:sort, 2]":1,"[:has_key?, 1, 2]":1,"[:[], 1, 2]":1,"[:push, 1, 2]":2,"[:values_at, 2]":1,"[:push, 2]":1,"[:flatten]":1}

@@ -1,3 +1,0 @@
-def compute(aString, bString)
-    aString.chars.zip(bString.chars).select{ |arr| !arr.include? nil }.count{ |arr| arr[0]!=arr[1] }
-  end

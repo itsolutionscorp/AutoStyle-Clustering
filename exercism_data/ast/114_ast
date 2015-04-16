@@ -1,1 +1,0 @@
-s(:defn, :compute, s(:args, :first, :second), s(:call, s(:iter, s(:call, s(:call, s(:call, s(:call, s(:lvar, :first), :slice, s(:lit, 0), s(:call, s(:lvar, :second), :size)), :chars), :each_with_index), :select), s(:args, s(:masgn, :nucleotide, :index)), s(:call, s(:lvar, :nucleotide), :!=, s(:call, s(:lvar, :second), :[], s(:lvar, :index)))), :count))

@@ -1,2 +1,0 @@
-zebra-puzzle
-a

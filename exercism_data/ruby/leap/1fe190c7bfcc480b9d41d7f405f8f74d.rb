@@ -1,8 +1,0 @@
-class Year
-  def self.leap?(year)
-    case
-      when (year % 400 != 0 && year % 100 == 0) then false
-      when (year % 4 == 0) then true
-    end
-  end
-end

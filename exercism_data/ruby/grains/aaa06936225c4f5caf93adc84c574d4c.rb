@@ -1,2 +1,0 @@
-class Grains
-end
