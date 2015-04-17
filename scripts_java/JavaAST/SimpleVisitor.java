@@ -1,11 +1,16 @@
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ConditionalExpression;
+import org.eclipse.jdt.core.dom.ConstructorInvocation;
 import org.eclipse.jdt.core.dom.EnhancedForStatement;
+import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.ForStatement;
 import org.eclipse.jdt.core.dom.IfStatement;
+import org.eclipse.jdt.core.dom.InfixExpression;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
+import org.eclipse.jdt.core.dom.PostfixExpression;
+import org.eclipse.jdt.core.dom.PrefixExpression;
 import org.eclipse.jdt.core.dom.SwitchCase;
 import org.eclipse.jdt.core.dom.WhileStatement;
 
@@ -52,15 +57,20 @@ public class SimpleVisitor extends ASTVisitor {
 		return visitItem(n.getName().toString());
 	}
 	
+	@Override
+	public void endVisit(MethodInvocation n){
+		/*System.out.println(n.getParent().getNodeType());
+		System.out.println(n.getExpression());
+		System.out.println(n.arguments());
+		System.out.println(n.typeArguments());
+		System.out.println();*/
+		endVisitItem();
+	}
+	
 	private void endVisitItem(){
 		if (inMethodOfInterest && current!=null){
 			current = current.getParent();
 		}
-	}
-	
-	@Override
-	public void endVisit(MethodInvocation n){
-		endVisitItem();
 	}
 	
 	@Override
@@ -70,6 +80,36 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public void endVisit(ForStatement n){
+		endVisitItem();
+	}
+	
+	@Override
+	public boolean visit(InfixExpression n){
+		return visitItem(n.getOperator().toString());
+	}
+	
+	@Override
+	public void endVisit(InfixExpression n){
+		endVisitItem();
+	}
+	
+	@Override
+	public boolean visit(PrefixExpression n){
+		return visitItem(n.getOperator().toString());
+	}
+	
+	@Override
+	public void endVisit(PrefixExpression n){
+		endVisitItem();
+	}
+	
+	@Override
+	public boolean visit(PostfixExpression n){
+		return visitItem(n.getOperator().toString());
+	}
+	
+	@Override
+	public void endVisit(PostfixExpression n){
 		endVisitItem();
 	}
 	
@@ -125,6 +165,9 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public String toString(){
+		if (root == null){
+			return null;
+		}
 		return root.toString();
 	}
 	
