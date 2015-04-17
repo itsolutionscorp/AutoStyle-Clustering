@@ -49,16 +49,12 @@ def main():
     
     all_features = None
     for submission_index, submission in enumerate(source_files):
-        if submission_index % 100 == 0:
-            print submission_index
-        try:
-            feature_vector = generate_individual_features(language, function_name, submission_index, features, home_dir, class_name)
-        except Exception:
-            continue
+        feature_vector = generate_individual_features(language, function_name, submission_index, features, home_dir, class_name)
         if all_features is None:
             all_features = feature_vector.T
         else:
             all_features = append_at_index(all_features, feature_vector, submission_index)
+    print all_features.shape
     np.savetxt(output_file, all_features)
 
 if __name__ == '__main__':

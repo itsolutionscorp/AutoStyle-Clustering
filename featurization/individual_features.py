@@ -78,7 +78,7 @@ def abc_score(ast):
             assign += 1
         elif key in ("Call", "In"):
             calls += 1
-        elif key in ("If", "While", "For", "Raise", "Break"):
+        elif key in ("If", "While", "For", "Raise", "Break", "cond", "iter"):
             branch += 1
         elif key in ["Compare","Try", "ExceptHandler"]:
             cond+=1
@@ -110,7 +110,7 @@ def loops_and_recursion(tree):
             func_defs.append(label[12:]) 
         elif label in func_defs:
             recursions.add("Recursion on " +label)
-        elif label == "For" or label == "While":
+        elif label in ["For", "While", "iter"]:
             if len(queue) > 0:
                 loop_tracker.append(queue[0])
             loop_count+=1

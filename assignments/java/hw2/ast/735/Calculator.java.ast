@@ -1,1 +1,1 @@
-( multiply ( mulHelper ))
+( multiply ( cond ( == )( cond ( > )( add ( multiply ( add ( - ))))( ~ )( add )( add ( ~ ( add ( multiply )))))))

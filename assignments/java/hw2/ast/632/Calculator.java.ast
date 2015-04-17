@@ -1,1 +1,1 @@
-( multiply ( println )( cond ( || ( == )( == ))( cond ( > )( iter ( < )( add ))( ~ )( add )( iter ( < )( add ))( ~ )( add ))))
+( multiply ( cond ( < )( add ( ~ )))( cond ( < )( add ( ~ )))( iter ( != )( cond ( != ( & ))( add ))( << )( >> ))( cond ( < )( add ( ~ )))( cond ( < )( add ( ~ ))))

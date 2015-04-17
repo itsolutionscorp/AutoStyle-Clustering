@@ -1,1 +1,1 @@
-( multiply ( cond ( == )( cond ( > )( add )( add ( add ( ~ )))( add ( multiply ))( ~ )( add )( add ( - )( multiply ( add ))))))
+( multiply ( cond ( || ( == )( == ))( cond ( == )( cond ( == )( cond ( == )( << )( cond ( == )( << )( cond ( < )( - ( multiply ( - )))( cond ( < )( - ( multiply ( - ))))))))))( << ( yPower ))( iter ( < ( yRemainder ))( add )( + )))

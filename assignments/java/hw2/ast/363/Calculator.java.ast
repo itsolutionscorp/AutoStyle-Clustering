@@ -1,1 +1,1 @@
-( multiply ( iter ( < )( ++ )( getBit )( cond ( == )( add ( << )))))
+( multiply ( cond ( | ( == )( == )))( cond ( > )( iter ( <= )( add ( multiply_power ( & )))( << ))( multiply ( - )( - ))))

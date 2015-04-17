@@ -1,1 +1,1 @@
-( multiply ( iter ( < )( ++ )( cond ( != ( bitReduce ))( add ( << )))))
+( multiply ( iter ( != )( cond ( != ( & ))( add ))( << )( >>> )))

@@ -1,1 +1,1 @@
-( multiply ( cond ( && ( < )( < ))( multiply ( invertNumber )( invertNumber ))( cond ( < )( invertNumber ( multiply ( invertNumber )))( cond ( < )( invertNumber ( multiply ( invertNumber )))( iter ( < )( ++ )( add ))))))
+( multiply ( cond ( || ( == )( == )))( cond ( || ( == )( == ))( << ( add ( - ))))( cond ( isNegative )( multiply ( flipSign )( flipSign )))( cond ( == ( & ))( multiply ( << )( >>> )))( add ( multiply ( add ( - )))))

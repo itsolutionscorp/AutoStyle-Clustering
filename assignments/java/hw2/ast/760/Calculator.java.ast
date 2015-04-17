@@ -1,1 +1,1 @@
-( multiply ( iter ( != )( >>> )( == ( add ( - )))( cond ( == )( << )( >>> )( add ( - ))( + ( multiply )))))
+( multiply ( iter ( < )( currbit )( cond ( == )( - ))( & )( add )))

@@ -1,1 +1,1 @@
-( multiply ( iter ( > )( << )( add ))( add ( - ))( << )( iter ( > )( add ( - ))( add ( - ))))
+( multiply ( iter ( != )( iter ( < )( ++ )( setBit ( & ( getBit )( getBit ))))( add )( >>> )( << )))

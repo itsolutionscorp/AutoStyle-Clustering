@@ -1,1 +1,1 @@
-( multiply ( cond ( || ( == )( == )))( findN )( add ( add ( ~ ( << ))))( add ( << )( multiply )))
+( multiply ( cond ( && ( < )( < ))( - )( - ))( cond ( < ))( iter ( != )( cond ( != ( & ))( add ))))

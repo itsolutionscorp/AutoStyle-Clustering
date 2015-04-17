@@ -1,1 +1,1 @@
-( multiply ( cond ( == ))( cond ( == ))( cond ( || ( == )( == )))( cond ( isPowofTwo )( iter ( > )( << )( >> )))( iter ( < ( abs ))( ++ )( add ( abs )))( cond ( || ( && ( < )( > ))( && ( > )( < )))( add ( ~ ))))
+( multiply ( cond ( == ))( cond ( < )( multiply ( add ( ~ ))( add ( ~ )))( add ( multiply ( add ( add ( ~ )))))))

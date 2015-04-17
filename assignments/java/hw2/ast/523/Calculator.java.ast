@@ -1,1 +1,1 @@
-( multiply ( cond ( && ( < )( > ))( negAndPos )( cond ( && ( < )( > ))( negAndPos )( cond ( && ( < )( < ))( changeSign )( changeSign )( multiplying )( multiplying )))))
+( multiply ( cond ( || ( == )( == )))( cond ( == )( cond ( == )))( iter ( != )( cond ( == ( & ))( add ))))

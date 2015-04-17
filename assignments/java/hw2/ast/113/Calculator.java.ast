@@ -1,1 +1,1 @@
-( multiply ( cond ( && ( < )( > )))( cond ( && ( < )( > )))( cond ( < )( ~ )( add ))( cond ( < )( ~ )( add ))( iter ( != )( ++ )( cond ( != ( & ))( add )))( cond ( == )( ~ )( add )))
+( multiply ( iter ( != )( << )( >>> )( cond ( != )( << )( add ( multiply2Powers )))( add )( >>> )))

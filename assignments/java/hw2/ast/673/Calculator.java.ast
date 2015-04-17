@@ -1,1 +1,0 @@
-( multiply ( cond ( && ( < )( < ))( - )( - )( cond ( < )))( cond ( == )( cond ( == )( cond ( isPowerOfTwo )( << ( logOfTwo ))( << ( logOfTwo ))( add ( multiply ( - ( powerOfTwo ( logOfTwo )))))))))

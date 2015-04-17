@@ -1,1 +1,1 @@
-( multiply ( helper ))
+( multiply ( iter ( != )( cond ( == ( & ))( add )( add ))( >>> )( << )))

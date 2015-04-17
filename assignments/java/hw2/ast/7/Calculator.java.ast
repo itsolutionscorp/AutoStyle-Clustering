@@ -1,1 +1,1 @@
-( multiply ( cond ( < )( flipSign )( flipSign ( multiply )))( iter ( > )( add )))
+( multiply ( iter ( != )( & )( cond ( != )( add ))))

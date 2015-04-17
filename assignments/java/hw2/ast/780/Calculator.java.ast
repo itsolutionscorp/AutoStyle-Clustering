@@ -1,1 +1,1 @@
-( multiply ( iter ( != )( add )( cond ( < )( add )( add ( - ))))( cond ( < )( + ( ~ ))))
+( multiply ( cond ( && ( < )( < ))( - )( - )( cond ( < )))( cond ( == )( cond ( == )( cond ( isPowerOfTwo )( << ( logOfTwo ))( << ( logOfTwo ))( add ( multiply ( - ( powerOfTwo ( logOfTwo )))))))))

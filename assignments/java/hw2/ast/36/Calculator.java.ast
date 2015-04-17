@@ -1,1 +1,1 @@
-( multiply ( cond ( || ( < )( < ))( negative )( negative ))( iter ( > )( cond ( != ( & ))( add ))( >> )( << )))
+( multiply ( iter ( != )( cond ( != ( & ))( add ))( << )( >>> )))
