@@ -1,0 +1,1 @@
+( WordNet ( createMapsOfSynsetInfo )( createMapIDtoHyponyms )( size )( iter ( keySet )( get )( cond ( == ))( iter ( addEdge ( parseInt )( parseInt )))))

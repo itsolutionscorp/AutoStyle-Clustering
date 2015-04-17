@@ -1,0 +1,1 @@
+( canSelect ( pieceAt )( cond ( && ( checkPlayer )( ! )))( cond ( && ( && ( == ))( ! ( && ( isBomb )( hasCaptured ))))( validMove )))

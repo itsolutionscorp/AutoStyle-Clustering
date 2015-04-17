@@ -1,0 +1,1 @@
+( WordNet ( println ( + ))( readSynset )( createDigraph )( println ( + )))

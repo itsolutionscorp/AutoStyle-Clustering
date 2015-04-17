@@ -1,0 +1,1 @@
+( canSelect ( cond ( && ( == ( % ( + )))( ! ))( cond ( == ( pieceAt ))( cond ( == )( cond ( hasCaptured )( multiCapture )( cond ( cond ( isKing )( kingPieceMove )( cond ( isFire )( normalFirePieceMove )( normalWaterPieceMove ))))))( cond ( != )( cond ( hasCaptured )( cond ( == ( side ( pieceAt )))))( cond ( == ( side ( pieceAt ))))))))

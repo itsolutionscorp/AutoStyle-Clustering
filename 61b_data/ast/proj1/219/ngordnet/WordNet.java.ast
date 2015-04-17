@@ -1,0 +1,1 @@
+( WordNet ( readHyponyms )( readSynsets )( println )( println ))

@@ -1,0 +1,1 @@
+( WordNet ( iter ( hasNextLine )( add ( readLine )))( iter ( hasNextLine )( add ( readLine )))( createHMaps ))

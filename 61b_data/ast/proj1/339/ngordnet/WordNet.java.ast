@@ -1,0 +1,1 @@
+( WordNet ( makesynsetsmap )( size ( nouns ))( iter ( ! ( isEmpty ))( split ( readLine ))( iter ( < )( ++ )( addEdge ( parseInt )( parseInt )))))

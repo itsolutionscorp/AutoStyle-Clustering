@@ -1,0 +1,1 @@
+( canSelect ( pieceAt )( cond ( != )( cond ( && ( ! )( rightPiece_and_Side )))( cond ( && ( != ( side )( side ))))( cond ( && ( ! ))))( cond ( == )( cond ( && ( ! ( hasCaptured ))))( cond ( && ( validMove )))( cond ( && ( hasCaptured )( validMove )))( cond ( && ( isKing )( canMultiCapture ))))( cond ( && ( && ( == )( != ))( isKing ))( cond ( canMultiCapture ))))

@@ -1,0 +1,1 @@
+( WordNet ( readFile )( readFile )( * )( iter ( entrySet )( getKey )( getValue )( iter ( parseInt )( addEdge ))))

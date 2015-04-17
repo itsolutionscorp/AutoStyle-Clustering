@@ -1,0 +1,1 @@
+( canSelect ( pieceAt )( pieceAt )( cond ( != )( cond ( == ( isFire ))( cond ( ! )))( cond ( != )( cond ( ! )( cond ( && ( == ( abs ( - )))( == ( abs ( - ))))( cond ( isKing )( cond ( cond ( == ( - )))( cond ( == ( - )( - )))))( cond ( && ( == ( abs ( - )))( == ( abs ( - ))))( cond ( catpureTurn ))))( cond ( hasCaptured )( cond ( catpureTurn )))))))

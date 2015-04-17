@@ -1,0 +1,1 @@
+( canSelect ( cond ( outOfBounds )( cond ( != )( && ( == ( side ))( || ( == )( && ( == ))))( cond ( && ( && ( == ))( validMove ))( && ( hasCaptured )( validMove ))))))

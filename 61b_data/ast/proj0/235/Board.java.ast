@@ -1,0 +1,1 @@
+( canSelect ( getxandy )( getxandy )( cond ( != ( pieceAt ))( cond ( == ( side ))( cond ( && ( == )( != ))( println )( cond ( == )( println ))))( println )( cond ( && ( != )( == ( hasCaptured ))( == ( validMove )))( println )( cond ( != )( println )( cond ( == ( validMove ))( println )( cond ( == )( println )( move )))))))

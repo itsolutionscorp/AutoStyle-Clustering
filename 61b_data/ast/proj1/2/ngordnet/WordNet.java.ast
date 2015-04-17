@@ -1,0 +1,1 @@
+( WordNet ( buildSynsets )( buildReverseSynsets )( iter ( keySet )( get )( iter ( get )( iter ( < )( add )))( put )))

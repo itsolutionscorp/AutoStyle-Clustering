@@ -1,0 +1,1 @@
+( canSelect ( cond ( && ( && ( && ( <= )( >= ))( <= ))( >= ))( cond ( != )( cond ( && ( isBomb )( hasCaptured ))))( cond ( != ( pieceAt ))( canSelectPiece ))( cond ( != )( canSelectSquare ))))

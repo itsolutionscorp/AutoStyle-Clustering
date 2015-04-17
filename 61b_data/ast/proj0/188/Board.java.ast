@@ -1,0 +1,1 @@
+( canSelect ( cond ( oob ))( cond ( ! )( cond ( == )( cond ( == ( pieceAt )))( == ( isFire ( pieceAt ))))( cond ( && ( != ( pieceAt ))( == ( isFire ( pieceAt )))))( cond ( != ( compareTo ( canMove ))))( cond ( && ( && ( != ( pieceAt ))( == ( compareTo ( canMove ))))( hasCaptured ( pieceAt ))))))

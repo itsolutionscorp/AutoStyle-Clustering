@@ -1,0 +1,1 @@
+( WordNet ( synchronizedSet )( iter ( hasNextLine )( readLine )( split )( add )( cond ( contains )( split )( iter ( cond ( ! ( contains ))( add )))( cond ( ! ( contains ))( add ))))( iter ( hasNextLine )( readLine )( parseInt ( split ))( iter ( < ( split ))( addEdge ( parseInt ( split ))))))

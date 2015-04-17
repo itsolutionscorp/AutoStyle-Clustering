@@ -1,0 +1,1 @@
+( canSelect ( pieceAt )( cond ( && ( != )( == ( isFire )))( ! ( canEndTurn )))( cond ( somethingSelected )( validMove )))

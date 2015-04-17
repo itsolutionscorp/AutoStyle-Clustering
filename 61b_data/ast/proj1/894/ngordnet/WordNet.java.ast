@@ -1,0 +1,1 @@
+( WordNet ( iter ( hasNextLine )( readSynset ( readLine )))( iter ( hasNextLine )( readHyponym ( readLine ))))

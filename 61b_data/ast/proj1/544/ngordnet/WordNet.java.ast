@@ -1,0 +1,1 @@
+( WordNet ( printStackTrace )( iter ( hasNextLine )( split ( nextLine ))( iter ( < )( parseInt )( add )( add ))( remove )( cond ( containsKey )( addAll ( get )))( put ))( printStackTrace )( iter ( hasNextLine )( split ( nextLine ))( iter ( < )( add ))( parseInt ( remove ))( put ))( makeDigraph )( nounsMaker ))

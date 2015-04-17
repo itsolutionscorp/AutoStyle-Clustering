@@ -1,0 +1,1 @@
+( WordNet ( println ( + ( getMessage )))( iter ( && ( == ( hasNextLine ))( != ))( nextLine )( useDelimiter )( nextInt )( next )( split )( put ))( println ( + ( getMessage )))( iter ( && ( == ( hasNextLine ))( != ))( nextLine )( useDelimiter )( nextInt )( iter ( hasNext )( add ( nextInt )))( put )))

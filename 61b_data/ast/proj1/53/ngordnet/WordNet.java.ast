@@ -1,0 +1,1 @@
+( WordNet ( printStackTrace )( useDelimiter ( getProperty ))( iter ( hasNext )( split ( next ))( parseInt )( split )( iter ( add ))( put )( iter ( cond ( containsKey )( get ))( add )( put )))( size )( printStackTrace )( useDelimiter ( getProperty ))( iter ( hasNext )( split ( next ))( parseInt )( iter ( < )( ++ )( parseInt )( addEdge ))))

@@ -1,0 +1,1 @@
+( canSelect ( cond ( && ( == )( == ))( validMove )( cond ( && ( != )( == ))( cond ( == ))( cond ( == ( % ( + ))))( cond ( == ( % ))( cond ( isFire )( println ))( cond ( ! ( isFire )))))))
