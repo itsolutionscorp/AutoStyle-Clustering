@@ -1,12 +1,12 @@
 import os
-for folder in os.listdir("./python"):
+for folder in os.listdir("./ruby"):
 	single = 0
 	double = 0
 	other = 0
 	max_lines=0
 	min_lines = 100000
 	total_lines = 0
-	path = "./python/" + folder + "/"
+	path = "./ruby/" + folder + "/"
 	assignments = os.listdir(path)
 	for item in assignments:
 		total = 0

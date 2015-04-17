@@ -14,7 +14,7 @@
 6. 
     python batch_features.py [function name] [language] [data_dir]/feature/style_features.np [data_dir] [list of all features you want]
 
-7. Use featurization/libcalls_and_linenums.rb to generate a mapping of library calls to line numbers. 
+7. For ruby assignments, use featurization/libcalls_and_linenums.rb to generate a mapping of library calls to line numbers. 
 
 7. Run the web ui!
 
