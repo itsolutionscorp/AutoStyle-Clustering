@@ -1,0 +1,1 @@
+( multiply ( greater )( cond ( < )( add ( ~ )))( lesser )( iter ( > )( add ( lesser )))( cond ( & ( < )( < ))( add ( ~ ))))

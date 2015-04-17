@@ -1,0 +1,1 @@
+( multiply ( cond ( || ( == )( == )))( cond ( < )( flipSign )( flipSign ))( cond ( == )( cond ( == )( cond ( isPowerOfTwo )( shiftByTwos )( findPowerOfTwo )( shiftByTwos )( iter ( < )( ++ )( add ))))))
