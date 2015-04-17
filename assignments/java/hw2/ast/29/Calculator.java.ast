@@ -1,1 +1,1 @@
-( multiply ( multiplyHelper ))
+( multiply ( iter ( < )( ++ )( cond ( == ( & ))( add ( << )))( >> )))

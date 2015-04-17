@@ -1,1 +1,1 @@
-( multiply ( cond ( < )( repeatAdd ( - )( - )))( repeatAdd ))
+( multiply ( iter ( != )( cond ( != ( & ))( add ))))

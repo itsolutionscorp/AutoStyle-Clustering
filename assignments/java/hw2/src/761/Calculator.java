@@ -11,20 +11,9 @@ public class Calculator {
      * @param y is an integer which is the other of the two addends
      * @return the sum of x and y
      **/
-    
     public int add(int x, int y) {
         // YOUR CODE HERE
-        while (x != 0) {
-            int hold = x ^ y;  
-            int carry = x & y;  //Determine 1's to be carried over.
-            carry = carry << 1; //move the carry over 1 to the left
-            x = carry;
-            y = hold;
-            /* Repeat, with updated columns, 
-               until nothing is left to carry over. */
-        }
-        return y;
-      
+        return -1;
     }
 
     /**
@@ -37,34 +26,7 @@ public class Calculator {
      **/
     public int multiply(int x, int y) {
         // YOUR CODE HERE
-        boolean neg1 = false;
-        boolean neg2 = false;
-        //Determine if values are negative; if so, make them positive
-        if (x < 0) {
-            neg1 = true;
-            x = add((~x), 1); 
-        }
-        if (y < 0) { 
-            neg2 = true;
-            y = add((~y), 1);
-        }
-        boolean neg = neg1 ^ neg2; //XOR
-        if (x < y) { //make x >= y
-            int a = x;
-            x = y;
-            y = a;
-        }
-
-        int hold = 0;
-        while (y != 0) {
-            if ((y & 1) != 0) //if odd
-                hold = add(hold, x);
-            x = x << 1; //multiply by two
-            y = y >> 1;
-        }
-        if (neg == true)
-            return add((~hold), 1); //Convert to negative if need be
-        return hold;
+        return -1;
     }
 
     /**
@@ -76,18 +38,8 @@ public class Calculator {
      * @param equation is a String representation of the equation, ex. "1 + 2"
      * @param result is an integer corresponding to the result of the equation
      **/
-    public EquationList store; //holds the history
-    public int first = 0;
     public void saveEquation(String equation, int result) {
         // YOUR CODE HERE
-        if (first == 0) {
-        first += 1;
-        store = new EquationList(equation, result, null);
-        }
-        else {
-            store = new EquationList(equation, result, store);
-            }
-
     }
 
     /**
@@ -99,13 +51,6 @@ public class Calculator {
      **/
     public void printAllHistory() {
         // YOUR CODE HERE
-        int count = 0;
-        EquationList ptr = store;
-        while (ptr != null) {
-            count += 1;
-            ptr = ptr.next; 
-        }
-        printHistory(count);
     }
 
     /**
@@ -117,14 +62,6 @@ public class Calculator {
      **/
     public void printHistory(int n) {
         // YOUR CODE HERE
-
-        EquationList ptr = store;
-        
-        while (n > 0 && ptr != null) {
-            System.out.println(ptr.equation + " = " + ptr.result);
-            ptr = ptr.next;
-            n = n - 1;
-        }
     }    
 
     /**
@@ -133,10 +70,6 @@ public class Calculator {
     **/
     public void undoEquation() {
         // YOUR CODE HERE
-        if (store == null) //If no equations entered, do nothing
-            return;
-        store = store.next;
-        
     }
 
     /**
@@ -145,8 +78,6 @@ public class Calculator {
      **/
     public void clearHistory() {
         // YOUR CODE HERE
-        store = null;
-        first = 0;
     }
 
     /**
@@ -157,13 +88,7 @@ public class Calculator {
      **/
     public int cumulativeSum() {
         // YOUR CODE HERE
-        EquationList ptr = store;
-        int sum = 0;
-        while (ptr != null) {
-            sum = add(sum, ptr.result);
-            ptr = ptr.next;
-        }
-        return sum;
+        return -1;
     }
 
     /**
@@ -174,12 +99,6 @@ public class Calculator {
      **/
     public int cumulativeProduct() {
         // YOUR CODE HERE
-        EquationList ptr = store;
-        int product = 1;
-        while (ptr != null) {
-            product = multiply(product, ptr.result);
-            ptr = ptr.next;
-        }
-        return product;
+        return -1;
     }
 }
