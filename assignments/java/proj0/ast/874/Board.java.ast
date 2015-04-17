@@ -1,0 +1,1 @@
+( canSelect ( cond ( != )( remove ))( cond ( == )( canPieceCapture ))( cond ( != )( cond ( != )( drawPiece ))( cond ( == )( cond ( == ( side ))( println )))( cond ( != )( cond ( == )( availableSpotsWithJumping )))))

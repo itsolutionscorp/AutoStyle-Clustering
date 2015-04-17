@@ -1,0 +1,1 @@
+( WordNet ( useDelimiter )( iter ( hasNextLine )( split ( nextLine ))( split )( iter ( add ))( put )( iter ( < )( cond ( ! ( containsKey ))( get ))( add ( parseInt ))( put )))( printStackTrace )( size )( iter ( hasNextLine )( split ( nextLine ))( iter ( < )( addEdge ( parseInt )( parseInt ))))( printStackTrace ))

@@ -1,0 +1,1 @@
+( WordNet ( iter ( hasNextLine )( readLine )( split )( split )( parseInt )( iter ( add )( add )( cond ( containsKey )( add ( get ))( put ))( add ))( put ))( makeGraph ( + )))

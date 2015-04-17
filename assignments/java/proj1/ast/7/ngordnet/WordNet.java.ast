@@ -1,0 +1,1 @@
+( WordNet ( newBufferedReader ( get ))( readLine )( iter ( != )( split )( parseInt )( split )( put )( iter ( cond ( ! ( containsKey ))( put ))( add ( get )))( readLine ))( close )( newBufferedReader ( get ))( readLine )( size )( iter ( != )( split )( parseInt )( split )( iter ( parseInt )( addEdge ))( readLine ))( close )( println ( getMessage )))

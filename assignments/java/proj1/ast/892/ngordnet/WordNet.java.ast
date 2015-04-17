@@ -1,0 +1,1 @@
+( WordNet ( readLine )( iter ( != )( parsesyn )( readLine ))( close )( readLine )( iter ( != )( parsehyp )( readLine ))( close )( printStackTrace ))

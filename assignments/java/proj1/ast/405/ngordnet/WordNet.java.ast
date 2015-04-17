@@ -1,0 +1,1 @@
+( WordNet ( iter ( hasNextLine )( synsetFileReader ( readLine ))( parseInt )( iter ( < )( ++ )( add )( cond ( containsKey )( add ( get ))( cond ( ! ( containsKey ))( add )( put )))( cond ( containsKey )( add ( get ))( cond ( ! ( containsKey ))( add )( put )))))( size )( iter ( hasNextLine )( hyponymFileReader ( readLine ))( parseInt )( iter ( < )( addEdge ( parseInt )))))

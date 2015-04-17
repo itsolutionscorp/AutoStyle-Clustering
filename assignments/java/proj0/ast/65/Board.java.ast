@@ -1,0 +1,1 @@
+( canSelect ( cond ( ! ( isValidPosition )))( cond ( != )( && ( == ( side ))( || ( == )( ! )))( cond ( != )( getPossibleMoves )( iter ( cond ( && ( == )( == )))))))

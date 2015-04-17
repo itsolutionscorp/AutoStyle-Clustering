@@ -1,0 +1,1 @@
+( canSelect ( pieceAt )( cond ( || ( || ( || ( < )( >= ))( < ))( >= )))( cond ( && ( != )( == ( side )))( ! )( cond ( && ( && ( != )( == ))( ! ))( isValidMove ( isKing ))( cond ( && ( && ( != )( == ))( && ( hasCaptured )))( - )( - )( && ( && ( == ( abs ))( == ( abs )))( isValidMove ( isKing )))))))

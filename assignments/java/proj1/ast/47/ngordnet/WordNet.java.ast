@@ -1,0 +1,1 @@
+( WordNet ( println )( useDelimiter )( iter ( hasNextLine )( nextInt )( next )( split )( iter ( add ))( put )( cond ( == ( get ))( put ))( add ( get ))( nextLine ))( println )( iter ( hasNextLine )( nextLine )( useDelimiter )( nextInt )( get )( iter ( hasNextInt )( nextInt )( addEdge ))))

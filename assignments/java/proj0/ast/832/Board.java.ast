@@ -1,0 +1,1 @@
+( canSelect ( cond ( == ( isMoveValid )))( cond ( IsXYOutOfBound ))( pieceAt )( cond ( == )( cond ( && ( != )( == ( side )))))( cond ( == )( cond ( || ( ! )( && ( hasCaptured )( ValidMove )))))( && ( ! )( == ( side ))))

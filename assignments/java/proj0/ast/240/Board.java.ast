@@ -1,0 +1,1 @@
+( canSelect ( pieceAt )( cond ( != ( pieceAt ))( cond ( && ( && ( ! )( == ( side )))( ! ))( cond ( && ( == ( side ))( ! ))))( cond ( && ( validMove )( ! ))( cond ( && ( validChainMove )( hasCaptured )( != ( pieceAt ( / ( + ))( / ( + )))))))))

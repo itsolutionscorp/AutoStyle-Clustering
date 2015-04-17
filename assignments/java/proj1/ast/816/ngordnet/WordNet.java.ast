@@ -1,0 +1,1 @@
+( WordNet ( iter ( hasNextLine )( split ( readLine ))( put ( split )))( iter ( hasNextLine )( split ( readLine ))( put )))

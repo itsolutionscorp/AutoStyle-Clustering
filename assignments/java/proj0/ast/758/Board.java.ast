@@ -1,0 +1,1 @@
+( canSelect ( cond ( != ( pieceAt ))( cond ( == ( side ))( cond ( cond )))( cond ( ! )( cond ( cond ( validMove ))( cond ( cond ( validMove )))))))

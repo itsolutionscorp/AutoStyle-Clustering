@@ -1,0 +1,1 @@
+( WordNet ( cond ( ! ( exists )))( cond ( ! ( exists )))( iter ( hasNextLine )( readLine )( split )( parseInt )( asList ( split ))( setSynonyms )( setDefinition )( setId )( put )( iter ( put )))( size )( iter ( hasNextLine )( readLine )( split )( parseInt )( iter ( < )( ++ )( parseInt )( addEdge ))))

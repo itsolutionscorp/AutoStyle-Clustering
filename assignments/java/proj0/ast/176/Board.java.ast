@@ -1,0 +1,1 @@
+( canSelect ( cond ( ! ( testifisinbound )))( cond ( == ( pieceAt ))( cond ( && ( && ( ! ))( validMove )))( cond ( && ( != ( pieceAt ))( hasCaptured ( pieceAt ))( validCapture ))))( cond ( == ( side ( pieceAt )))( cond ( == ))( cond ( && ( == )( == )))))

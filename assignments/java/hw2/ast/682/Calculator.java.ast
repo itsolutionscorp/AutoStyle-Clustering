@@ -1,0 +1,1 @@
+( multiply ( cond ( || ( == )( == )))( cond ( || ( == )( == ))( << ( add ( - ))))( cond ( isNegative )( multiply ( flipSign )( flipSign )))( cond ( == ( & ))( multiply ( << )( >>> )))( add ( multiply ( add ( - )))))

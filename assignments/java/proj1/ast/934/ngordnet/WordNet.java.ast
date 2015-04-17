@@ -1,0 +1,1 @@
+( WordNet ( readSynsets )( readHyponyms )( constructSynMap )( constructHyponymDigraph )( constructNounsSet ))

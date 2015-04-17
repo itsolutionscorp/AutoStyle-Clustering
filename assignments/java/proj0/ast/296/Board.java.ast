@@ -1,0 +1,1 @@
+( canSelect ( cond ( || ( || ( || ( > )( < ))( > ))( < )))( cond ( == )( cond ( == ))( cond ( && ( ! )))( cond ( && ( == )))( cond ( validMove )( + ( / ( - )))( + ( / ( - )))( cond ( == )( cond ( != ( side )( side ))))( cond ( cond ( validMove ))))( side )( cond ( != )( cond ( == )( cond ( && ( == )( == )))))))

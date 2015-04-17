@@ -1,0 +1,1 @@
+( canSelect ( cond ( ! ( isOnBoard )))( cond ( == ( pieceAt ))( && ( pieceIsSelected )( validMove )))( && ( == ( side ( pieceAt )))))

@@ -1,0 +1,1 @@
+( canSelect ( pieceAt )( pieceAt )( cond ( cond ( == )( cond ( hasCaptured )( cond ( isKing )( || ( checkHopFire )( checkHopWater ))( cond ( isFire )( checkHopFire )( checkHopWater )))))( cond ( == )( && ( != )( == ( isFire )))( cond ( ! ( hasCaptured ))( cond ( == )( validMove )( == ( isFire )))))))

@@ -1,0 +1,1 @@
+( canSelect ( cond ( != )( cond ( && ( == ( isFire ))( ! )))( cond ( && ( != )( ! )( != )( != ))( isFire )( cond ( && ( isKing )( ! ))( pieceValidMoveKing )( cond ( && ( isKing ))( pieceValidCaptureKing )( cond ( && ( ! ))( pieceValidMoveFire )( cond ( && )( pieceValidCaptureFire )( cond ( && ( ! )( ! ))( pieceValidMoveWater )( cond ( && ( ! ))( pieceValidCaptureWater ))))))))))
