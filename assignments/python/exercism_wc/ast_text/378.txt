@@ -1,0 +1,18 @@
+2:Module
+1:Import
+0:alias
+2:FunctionDef: function0
+1:arguments
+1:Name
+0:Param
+1:Return
+2:Call
+2:Counter
+1:Name
+0:Load
+0:Load
+1:Call
+2:split
+1:Name
+0:Load
+0:Load

@@ -1,0 +1,13 @@
+Call to len
+Call to set
+Call to get_list
+Call to join
+Call to get_string
+Call to range
+Use of a double nested loop
+Use of a single loop
+Use of 3 loop(s) in total.
+Use of an augmented assignment
+Use of a binary operation
+Use of the in construction
+Use of an if statement

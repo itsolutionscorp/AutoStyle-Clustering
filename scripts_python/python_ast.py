@@ -81,50 +81,11 @@ def generate_ast(filename, print_ast, home_directory):
 if __name__ == '__main__':
 	if os.path.isdir(sys.argv[1].rstrip("/")):
 		home_directory = sys.argv[1].rstrip("/")
-		directory = home_directory + "/code"
+		directory = home_directory + "/src"
 		files = [directory+"/"+f for f in os.listdir(directory) if (not f.startswith('.') and not os.path.isdir(directory+"/"+f))]
 		for f in files:
-			generate_ast(f,1, home_directory)
+			generate_ast(f,0, home_directory)
 		print "Successfully completed!"
 	else:
 		for item in sys.argv[1:]:
 			generate_ast(item, 1, ".")
-
-#FOR PREPROCESSING
-# assign same name for all variables (e.g var)
-# change argument name in function declaratiosn the same - e.g f(arg, arg, arg)  - these won't be used since local variables are called var
-# for string/int/float etc, change it from "abc" or "54" to string-literal  or int-literal or float-literal
-# change value of regular expression to "regex
-
-#OLD CODE (no longer used, left here for reference)
-
-# from astmonkey import visitors, transformers  #pip install astmonkey, pip install pydot
-
-# def compose_list(mylist, node):
-# 	if isinstance(node, str) or isinstance(node, int) or (node == None):
-# 		return mylist
-# 	for field, value in ast.iter_fields(node):
-# 		mylist.append((node, value))
-# 		if isinstance(value, list):
-# 			for item in value:
-# 				mylist = compose_list(mylist, item)
-# 		else:
-# 			mylist = compose_list(mylist, value)
-# 	return mylist
-
-
-# def generate_image(node, name):
-# 	"""
-# 	@type node: ast.Module object
-# 	@param node: The AST for which this function should generate an image
-
-# 	@type name: String
-# 	@param name: Name of the output png file
-	
-# 	@rtype: None
-# 	@return: None
-# 	"""
-# 	graph = transformers.ParentNodeTransformer().visit(node)
-# 	visitor = visitors.GraphNodeVisitor()
-# 	visitor.visit(graph)
-# 	visitor.graph.write_png(name)

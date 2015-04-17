@@ -7,6 +7,17 @@ import time
 import betterast
 from pyspark import SparkContext, SparkConf
 import zss
+import re
+
+
+def natural_sort(l): 
+    '''
+    Sorts numbered filenames by their integer value 
+    Ref: http://blog.codinghorror.com/sorting-for-humans-natural-sort-order/
+    '''    
+    convert = lambda text: int(text) if text.isdigit() else text.lower() 
+    alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ] 
+    return sorted(l, key = alphanum_key)
 
 
 def compute(t, bTrees):
@@ -24,6 +35,7 @@ def main():
   sc = SparkContext(conf=conf)
   directory = sys.argv[1].rstrip("/")
   files = [directory+"/"+f for f in os.listdir(directory) if (not f.startswith('.') and not os.path.isdir(directory+"/"+f))]
+  files = natural_sort(files)
 
   # Construct trees
   trees = []
@@ -42,7 +54,7 @@ def main():
      treeTuples.append((i, j))
 
   # Construct RDD
-  treeTuplesRDD = sc.parallelize(treeTuples) # Set to 8 * cores
+  treeTuplesRDD = sc.parallelize(treeTuples, 224) # Set to 8 * cores
   result = treeTuplesRDD.map(lambda t: compute(t, bTrees)).collect()
 
   m = np.zeros(n * n)
@@ -52,7 +64,7 @@ def main():
     m[t[1]][t[0]] = t[2]
     
   # Record Result
-  np.savetxt("np_python_dist_matrix", m, delimiter=" ", fmt="%.3f")
+  np.savetxt("ast_dist_matrix.np", m, delimiter=" ", fmt="%.3f")
 
 
 if __name__ == '__main__':

@@ -1,0 +1,7 @@
+Call to len
+Use of a double nested loop
+Use of a single loop
+Use of 3 loop(s) in total.
+Recursion on function1
+Use of a binary operation
+Use of an if statement
