@@ -1,3 +1,8 @@
+# How to run the web_ui:
+    - cd web_ui/
+    - python run.py
+    - navigate to localhost:5000 in your browser
+
 # How to integrate new batch data
 
 1. Filter out stuff that isn't correct using an autograder
