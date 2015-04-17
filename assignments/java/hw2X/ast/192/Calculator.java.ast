@@ -1,1 +1,0 @@
-( multiply ( cond ( || ( == )( == ))( cond ( == )( cond ( == )( cond ( && ( == ( >>> ))( == ( >>> )))( add ( - ))( ~ )( add ( - ))( ~ )( multiplyPositives )( cond ( == ( >>> ))( add ( - ))( ~ )( multiplyPositives )( ~ )( add )( cond ( == ( >>> ))( add ( - ))( ~ )( multiplyPositives )( ~ )( add )( multiplyPositives ))))))))

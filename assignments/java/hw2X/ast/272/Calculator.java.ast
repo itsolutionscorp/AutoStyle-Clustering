@@ -1,1 +1,0 @@
-( multiply ( firstBit )( iter ( != )( >>> )( << ( firstBit ))( add )))

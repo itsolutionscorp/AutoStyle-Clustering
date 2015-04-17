@@ -1,1 +1,0 @@
-( multiply ( cond ( < )( add ( ~ ))( cond ( > )( add ( ~ )))( cond ( < )( add ( ~ ))))( iter ( > )( cond ( == ( LastDigit ))( add )))( cond ( add ( ~ ))))

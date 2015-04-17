@@ -1,1 +1,0 @@
-( multiply ( cond ( < )( negate ( multiply ( negate ))))( cond ( == )( add ( multiply ( add ( - ))))))

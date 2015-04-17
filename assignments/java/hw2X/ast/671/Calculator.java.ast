@@ -1,1 +1,0 @@
-( multiply ( cond ( || ( == )( == )))( cond ( == )( cond ( == )( cond ( && ( > )( > ))( cond ( > ))( multiplyHelper )( cond ( && ( < )( < ))( ~ ( add ( - )))( ~ ( add ( - )))( cond ( > ))( multiplyHelper )( cond ( < )( ~ ( add ( - )))( cond ( > ))( add ( ~ ( multiplyHelper )))( ~ ( add ( - )))( cond ( > ))( add ( ~ ( multiplyHelper )))))))))
