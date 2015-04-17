@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  int res=0, tempX, carry;
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      tempX=x;
+      while (tempX != 0) {
+        carry=res & tempX;
+        res^=tempX;
+        tempX=carry << 1;
+      }
+    }
+    x<<=1;
+    y>>>=1;
+  }
+  return res;
+}
+

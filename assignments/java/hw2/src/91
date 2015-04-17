@@ -1,0 +1,21 @@
+public int multiply(int x,int y){
+  int sum=0;
+  int and=0;
+  int checker=1;
+  int adder=x;
+  int condition=y;
+  while (condition != 0) {
+    and=checker & y;
+    if (and != 0) {
+      for (int i=1; i != and; i=i << 1) {
+        adder=adder << 1;
+      }
+      sum=add(sum,adder);
+    }
+    adder=x;
+    checker=checker << 1;
+    condition=condition >>> 1;
+  }
+  return sum;
+}
+

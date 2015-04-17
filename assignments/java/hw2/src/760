@@ -1,0 +1,19 @@
+public int multiply(int x,int y){
+  int toggle=0;
+  int counter=0;
+  int mask=0;
+  int sum=0;
+  Calculator calcu=new Calculator();
+  while (counter < 32) {
+    toggle=calcu.currbit(y,counter);
+    if (toggle == 1) {
+      toggle=-1;
+    }
+    mask=x & toggle;
+    mask<<=counter;
+    sum=calcu.add(sum,mask);
+    counter+=1;
+  }
+  return sum;
+}
+

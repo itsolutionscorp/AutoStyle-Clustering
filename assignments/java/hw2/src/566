@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int product=0;
+  int leftShifts=0;
+  while (y != 0) {
+    if (lastBit(y) == 1) {
+      product=add(product,x << leftShifts);
+    }
+    leftShifts+=1;
+    y=y >>> 1;
+  }
+  return product;
+}
+

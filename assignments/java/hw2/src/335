@@ -1,0 +1,12 @@
+public int multiply(int x,int y){
+  int answer=0, xBit;
+  for (int i=0; i < 32; i++) {
+    xBit=getBit(x,i);
+    if (xBit == 1) {
+      int addend=y << i;
+      answer=add(addend,answer);
+    }
+  }
+  return answer;
+}
+

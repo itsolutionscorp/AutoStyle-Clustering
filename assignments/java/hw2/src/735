@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  if (y == 0) {
+    return 0;
+  }
+ else   if (y > 0) {
+    return add(x,multiply(x,(add(y,-1))));
+  }
+ else {
+    y=~y;
+    y=add(y,1);
+    return add((~(add(multiply(x,y),1))),2);
+  }
+}
+

@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+ else   if (y > 0) {
+    if (y % 2 == 0) {
+      return multiply(x << 1,y / 2);
+    }
+    return add(x,multiply(x << 1,(y - 1) / 2));
+  }
+ else {
+    return multiply(~x + 1,~y + 1);
+  }
+}
+

@@ -1,0 +1,16 @@
+public int multiply(int x,int y){
+  int product=0;
+  int y_fragment=y;
+  int isolated_y;
+  int current_row=x;
+  while (y_fragment != 0) {
+    isolated_y=y_fragment & 1;
+    if (isolated_y > 0) {
+      product=add(product,current_row);
+    }
+    current_row=current_row << 1;
+    y_fragment=y_fragment >>> 1;
+  }
+  return product;
+}
+

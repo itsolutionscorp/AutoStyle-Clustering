@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  int sum=0, z=1;
+  if (y < 0) {
+    x=negate(x);
+    y=negate(y);
+  }
+  while (y >= z && x != 0) {
+    if ((y & z) != 0)     sum=add(sum,x);
+    x<<=1;
+    z<<=1;
+  }
+  return sum;
+}
+

@@ -1,0 +1,12 @@
+public int multiply(int x,int y){
+  int answer=0;
+  while (y != 0) {
+    int temp=y;
+    temp=(temp << 31) >>> 31;
+    answer=add(answer,multiplyHelper(x,temp));
+    x=x << 1;
+    y=y >>> 1;
+  }
+  return answer;
+}
+

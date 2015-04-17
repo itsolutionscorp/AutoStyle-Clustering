@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  int bitA=x, bitB=y, result=0;
+  while (bitB != 0) {
+    if ((bitB & 1) != 0) {
+      result+=bitA;
+    }
+    bitA<<=1;
+    bitB>>=1;
+  }
+  return result;
+}
+

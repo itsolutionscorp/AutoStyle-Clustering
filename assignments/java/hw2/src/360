@@ -1,0 +1,10 @@
+public int multiply(int x,int y){
+  if (y < 0)   return -multiply(x,-y);
+  int product=0;
+  while (y > 0) {
+    product=add(product,x);
+    y=add(y,-1);
+  }
+  return product;
+}
+

@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int n=0;
+  int z=~y;
+  for (int i=0; i < 32; i++) {
+    int c=1 << i;
+    if ((y & c) == c) {
+      int a=x << i;
+      n=add(n,a);
+    }
+  }
+  return n;
+}
+

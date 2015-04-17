@@ -1,0 +1,16 @@
+public int multiply(int x,int y){
+  int product=0;
+  int a=x, b=y;
+  if (x < 0 && y < 0)   return multiply(~x + 1,~y + 1);
+  if (y < 0) {
+    a=y;
+    b=x;
+  }
+  while (b != 0) {
+    if ((b & 1) != 0)     product=add(product,a);
+    a<<=1;
+    b>>=1;
+  }
+  return product;
+}
+

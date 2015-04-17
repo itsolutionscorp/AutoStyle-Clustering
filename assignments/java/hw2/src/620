@@ -1,0 +1,16 @@
+public int multiply(int x,int y){
+  int n1=x;
+  int n2=y;
+  int sum=0;
+  while (n2 != 0) {
+    if ((n2 & 1) == 0) {
+    }
+ else {
+      sum=add(sum,n1);
+    }
+    n1=n1 << 1;
+    n2=n2 >>> 1;
+  }
+  return sum;
+}
+

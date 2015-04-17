@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int temp=0;
+  while (y != 0) {
+    int remainder=y & 1;
+    if (remainder != 0) {
+      temp=add(temp,x);
+    }
+    x=x << 1;
+    y=y >> 1;
+  }
+  return temp;
+}
+

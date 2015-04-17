@@ -1,0 +1,60 @@
+public int multiply(int x,int y){
+  int biggerInt=0, smallerInt=0;
+  boolean odd=false;
+  if (x == 0 || y == 0)   return 0;
+  if (x == 1) {
+    return y;
+  }
+ else   if (y == 1) {
+    return x;
+  }
+ else   if (x > 0 && y > 0) {
+    if (x > y) {
+      biggerInt=x;
+      smallerInt=y;
+    }
+ else {
+      biggerInt=y;
+      smallerInt=x;
+    }
+    return multiplyHelper(biggerInt,smallerInt,biggerInt,odd);
+  }
+ else   if (x < 0 && y < 0) {
+    x=~add(x,-1);
+    y=~add(y,-1);
+    if (x > y) {
+      biggerInt=x;
+      smallerInt=y;
+    }
+ else {
+      biggerInt=y;
+      smallerInt=x;
+    }
+    return multiplyHelper(biggerInt,smallerInt,biggerInt,odd);
+  }
+ else   if (x < 0) {
+    x=~add(x,-1);
+    if (x > y) {
+      biggerInt=x;
+      smallerInt=y;
+    }
+ else {
+      biggerInt=y;
+      smallerInt=x;
+    }
+    return add(~multiplyHelper(biggerInt,smallerInt,biggerInt,odd),1);
+  }
+ else {
+    y=~add(y,-1);
+    if (x > y) {
+      biggerInt=x;
+      smallerInt=y;
+    }
+ else {
+      biggerInt=y;
+      smallerInt=x;
+    }
+    return add(~multiplyHelper(biggerInt,smallerInt,biggerInt,odd),1);
+  }
+}
+

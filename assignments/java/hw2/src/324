@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  int accumulate=0;
+  int adder=0;
+  int mulFactor=0;
+  for (int i=31; i >= 0; i--) {
+    mulFactor=y >> 31;
+    adder=x & mulFactor;
+    adder=adder << i;
+    accumulate=add(accumulate,adder);
+    y=y << 1;
+  }
+  return accumulate;
+}
+

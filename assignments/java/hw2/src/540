@@ -1,0 +1,18 @@
+public int multiply(int x,int y){
+  int result=0;
+  int orig=x;
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+ else {
+    while (y != 1) {
+      if (getFirstBit(y) == 1) {
+        result=add(x,result);
+      }
+      x=add(x,x);
+      y=y >>> 1;
+    }
+    return x + result;
+  }
+}
+

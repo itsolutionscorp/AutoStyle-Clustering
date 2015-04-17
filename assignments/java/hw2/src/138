@@ -1,0 +1,22 @@
+public int multiply(int x,int y){
+  if ((x < 0) && (y > 0)) {
+    return multiply(y,x);
+  }
+  if ((y < 0) && (x < 0)) {
+    return multiply(add((~y),1),add((~x),1));
+  }
+  int tracker=0;
+  if (x == 0) {
+    return tracker;
+  }
+ else {
+    if ((x & 1) == 1) {
+      tracker=add(tracker,y);
+      return add(tracker,multiply((x >> 1),(y << 1)));
+    }
+ else {
+      return add(tracker,multiply((x >> 1),(y << 1)));
+    }
+  }
+}
+

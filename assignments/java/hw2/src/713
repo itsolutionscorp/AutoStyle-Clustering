@@ -1,0 +1,21 @@
+public int multiply(int x,int y){
+  int currentsum=0;
+  if (y < 0) {
+    x=add(~x,1);
+    y=add(~y,1);
+  }
+  while (y > 0) {
+    int a=x;
+    int b=y;
+    int x_or=1;
+    while (b > 1) {
+      a=a << 1;
+      b=b >>> 1;
+      x_or=x_or << 1;
+    }
+    currentsum=add(currentsum,a);
+    y=y ^ x_or;
+  }
+  return currentsum;
+}
+

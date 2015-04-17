@@ -1,0 +1,27 @@
+public int multiply(int x,int y){
+  int prod=0;
+  int a;
+  int b;
+  int i;
+  if (x < 0 && y < 0) {
+    a=add(~x,1);
+    b=add(~y,1);
+  }
+ else   if (x > 0 && y > 0) {
+    a=x;
+    b=y;
+  }
+ else   if (x < 0) {
+    a=x;
+    b=y;
+  }
+ else {
+    a=y;
+    b=x;
+  }
+  for (i=0; i < b; i++) {
+    prod=add(prod,a);
+  }
+  return prod;
+}
+

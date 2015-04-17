@@ -1,0 +1,25 @@
+public int multiply(int x,int y){
+  if ((x == 0) | (y == 0)) {
+    return 0;
+  }
+  int xOrig=x;
+  if ((x < 0) & (y < 0)) {
+    for (int i=-1; i > y; i--) {
+      x=add(x,xOrig);
+    }
+    x=-x;
+  }
+ else   if (y < 0) {
+    for (int i=-1; i > y; i--) {
+      x=add(x,xOrig);
+    }
+    x=-x;
+  }
+ else {
+    for (int i=1; i < y; i++) {
+      x=add(x,xOrig);
+    }
+  }
+  return x;
+}
+

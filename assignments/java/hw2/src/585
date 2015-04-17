@@ -1,0 +1,16 @@
+public int multiply(int x,int y){
+  int counter=0;
+  int sum=0;
+  int tempX=Math.abs(x);
+  int tempY=Math.abs(y);
+  while (counter != tempX) {
+    sum=add(sum,tempY);
+    counter=add(counter,1);
+  }
+  if ((Math.signum(x) == -1.0) ^ (Math.signum(y) == -1.0)) {
+    sum=~sum;
+    sum=add(sum,1);
+  }
+  return sum;
+}
+

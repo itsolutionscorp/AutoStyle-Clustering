@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  int temp=y, total=0;
+  while (y != 0) {
+    total=add(total,x);
+    if (y < 0) {
+      y=add(y,1);
+    }
+ else {
+      y=add(y,-1);
+    }
+  }
+  if (temp < 0) {
+    return ~total + 1;
+  }
+  return total;
+}
+

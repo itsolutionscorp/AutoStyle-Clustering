@@ -1,0 +1,10 @@
+public int multiply(int x,int y){
+  int sum=0;
+  for (int shift=0; shift < 32; shift++) {
+    if (((1 << shift) & y) != 0) {
+      sum=add(sum,x << shift);
+    }
+  }
+  return sum;
+}
+

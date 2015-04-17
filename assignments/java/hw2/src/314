@@ -1,0 +1,18 @@
+public int multiply(int x,int y){
+  int product=0;
+  if (y < 0 && x < 0) {
+    return multiply(-y,-x);
+  }
+  if (y < 0) {
+    return multiply(y,x);
+  }
+  while (y != 0) {
+    if ((y & 01) == 1) {
+      product=add(product,x);
+    }
+    x<<=1;
+    y>>=1;
+  }
+  return product;
+}
+

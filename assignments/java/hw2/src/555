@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  int productSum=0;
+  int restX=x;
+  int restY=y;
+  while (restX != 0) {
+    if ((1 & restX) != 0) {
+      productSum=add(productSum,restY);
+    }
+    restX=restX >>> 1;
+    restY=restY << 1;
+  }
+  return productSum;
+}
+

@@ -1,0 +1,24 @@
+public int multiply(int x,int y){
+  boolean isNegative=false;
+  if (x < 0) {
+    isNegative=!isNegative;
+    x=add(~x,1);
+  }
+  if (y < 0) {
+    isNegative=!isNegative;
+    y=add(~y,1);
+  }
+  int sum=0;
+  while (y != 0) {
+    if ((y & 1) == 1) {
+      sum=add(sum,x);
+    }
+    x=x << 1;
+    y=y >> 1;
+  }
+  if (isNegative) {
+    sum=add(~sum,1);
+  }
+  return sum;
+}
+

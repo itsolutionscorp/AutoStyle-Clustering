@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  int n=0;
+  int bitmask;
+  int product=0;
+  while (n < 32) {
+    bitmask=1 << n;
+    if (!((y & bitmask) == 0)) {
+      product=add(product,x << n);
+    }
+    n++;
+  }
+  return product;
+}
+

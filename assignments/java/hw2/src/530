@@ -1,0 +1,19 @@
+public int multiply(int x,int y){
+  if (y < 0 && x < 0) {
+    return multiply(invert(x),invert(y));
+  }
+ else   if (y < 0) {
+    return multiply(y,x);
+  }
+  if (y == 0) {
+    return 0;
+  }
+  int counter=1;
+  int subTotal=x;
+  while (add(counter,counter) < y) {
+    subTotal=subTotal << 1;
+    counter=counter << 1;
+  }
+  return add(subTotal,multiply(x,add(y,invert(counter))));
+}
+

@@ -1,0 +1,26 @@
+public int multiply(int x,int y){
+  int n1=x;
+  int n2=y;
+  if (n1 < 0) {
+    n1=(add(~n1,1));
+  }
+  if (n2 < 0) {
+    n2=(add(~n2,1));
+  }
+  int result=0;
+  while (n2 != 0) {
+    if ((n2 & 1) != 0) {
+      result=add(result,n1);
+    }
+    n1=n1 << 1;
+    n2=n2 >> 1;
+  }
+  if (x < 0) {
+    result=(add(~result,1));
+  }
+  if (y < 0) {
+    result=(add(~result,1));
+  }
+  return result;
+}
+

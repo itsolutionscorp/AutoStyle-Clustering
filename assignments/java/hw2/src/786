@@ -1,0 +1,22 @@
+public int multiply(int x,int y){
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  if (x < 0 && y < 0) {
+    return multiply((add(1,~x)),(add(1,~y)));
+  }
+  if (x < 0) {
+    return add(1,~(multiply((add(1,~x)),y)));
+  }
+  if (y < 0) {
+    return add(1,~(multiply(x,(add(1,~y)))));
+  }
+  if (x == 1) {
+    return y;
+  }
+  if ((x & 1) == 1) {
+    return add(y,multiply((add((add(1,~1)),x) >> 1),y << 1));
+  }
+  return multiply(x >> 1,y << 1);
+}
+

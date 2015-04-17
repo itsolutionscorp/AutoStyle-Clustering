@@ -1,0 +1,19 @@
+public int multiply(int x,int y){
+  int counter=Math.abs(y);
+  int result=0;
+  while (counter > 0) {
+    if (x < 0) {
+      result=add(result,-x);
+      counter-=1;
+    }
+ else {
+      result=add(result,x);
+      counter-=1;
+    }
+  }
+  if (x < 0 && y < 0 || x >= 0 && y >= 0) {
+    return result;
+  }
+  return -result;
+}
+

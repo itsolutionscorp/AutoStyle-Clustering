@@ -1,0 +1,20 @@
+public int multiply(int x,int y){
+  boolean isNegative=(x < 0) ^ (y < 0);
+  if (x < 0) {
+    x=add(~x,1);
+  }
+  if (y < 0) {
+    y=add(~y,1);
+  }
+  int result=0;
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      result=add(result,x);
+    }
+    x=x << 1;
+    y=y >> 1;
+  }
+  if (isNegative)   return add(~result,1);
+  return result;
+}
+

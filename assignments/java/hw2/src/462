@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  int product=0;
+  int a=~(~x);
+  int b=~(~y);
+  while (Math.abs(a) >= 1) {
+    if ((a & 1) == 1) {
+      product=add(product,b);
+    }
+    a=a >>> 1;
+    b=b << 1;
+  }
+  return product;
+}
+

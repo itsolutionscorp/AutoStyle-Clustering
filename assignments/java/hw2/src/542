@@ -1,0 +1,16 @@
+public int multiply(int x,int y){
+  int summed=0;
+  int shift=0;
+  int ycopy=y;
+  while (y != 0) {
+    int multiply=y & 1;
+    if (multiply == 1) {
+      summed=add(summed,x << shift,false);
+    }
+    y=y >>> 1;
+    shift+=1;
+  }
+  this.saveEquation(x + " * " + ycopy,summed);
+  return summed;
+}
+

@@ -1,0 +1,16 @@
+public int multiply(int x,int y){
+  int temp=0;
+  int sum=0;
+  for (int i=0; i < 32; i++) {
+    if (getBit(y,i) == 0) {
+      temp=0;
+    }
+ else {
+      temp=x;
+    }
+    temp<<=i;
+    sum=add(sum,temp);
+  }
+  return sum;
+}
+

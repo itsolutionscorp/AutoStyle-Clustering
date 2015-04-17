@@ -1,0 +1,24 @@
+public int multiply(int x,int y){
+  flag=false;
+  int result=0;
+  if (y > 0) {
+    for (int counter=0; counter < y; counter++) {
+      result=add(x,result);
+    }
+  }
+ else {
+    for (int counter=y; counter < 0; counter++) {
+      result=add(x,result);
+    }
+  }
+  if (((x < 0 && y > 0) || (x > 0 && y < 0)) && result > 0) {
+    result=add(1,~result);
+  }
+  if (((x < 0 && y < 0) || (x > 0 && y > 0)) && result < 0) {
+    result=add(1,~result);
+  }
+  flag=true;
+  saveEquation(x + "*" + y,result);
+  return result;
+}
+

@@ -1,0 +1,20 @@
+public int multiply(int x,int y){
+  int z=0;
+  int yAbs=Math.abs(y);
+  if (y == 1) {
+    z=x;
+  }
+ else   if (y == 2) {
+    z=x << 1;
+  }
+ else {
+    for (int i=yAbs; i >= 1; i=i - 1) {
+      z=add(z,x);
+    }
+  }
+  if (y < 0) {
+    z=-z;
+  }
+  return z;
+}
+

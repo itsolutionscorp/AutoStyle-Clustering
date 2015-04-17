@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  int product=0;
+  for (int i=0; i < 32; i++) {
+    int ithBitY=getBit(y,i);
+    if (ithBitY == 1) {
+      product=add(x << i,product);
+    }
+  }
+  return product;
+}
+

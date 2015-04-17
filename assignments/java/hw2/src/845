@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  int ans=0;
+  int x1=x;
+  int y1=y;
+  while (y1 != 0) {
+    if ((y1 & 1) != 0) {
+      ans=ans + x1;
+    }
+    y1=y1 >>> 1;
+    x1=x1 << 1;
+  }
+  return ans;
+}
+

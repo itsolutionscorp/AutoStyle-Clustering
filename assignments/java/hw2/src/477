@@ -1,0 +1,19 @@
+public int multiply(int x,int y){
+  r=0;
+  while (y != 1) {
+    if (y == 0) {
+      return 0;
+    }
+ else     if ((y & 1) == 1) {
+      r=add(r,x);
+      y=y ^ 1;
+    }
+ else {
+      x=x << 1;
+      y=y >>> 1;
+    }
+  }
+  int total=add(x,r);
+  return total;
+}
+

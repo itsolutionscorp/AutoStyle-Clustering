@@ -1,0 +1,23 @@
+public int multiply(int x,int y){
+  if (y < 0) {
+    x=-x;
+    y=-y;
+  }
+  int temp=0;
+  int xplace=x;
+  if (x == 1) {
+    return y;
+  }
+  for (int i=2; i <= y; i=i << 1) {
+    x=x << 1;
+    temp=i;
+  }
+  temp=add(y,-temp);
+  if (temp != 0) {
+    for (int j=0; j < temp; j++) {
+      x=add(x,xplace);
+    }
+  }
+  return x;
+}
+

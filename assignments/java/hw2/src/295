@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int bit=0;
+  int result=0;
+  while (bit < 32) {
+    int bitval=getBit(y,bit);
+    if (bitval == 1) {
+      result=add(result,x << bit);
+    }
+    bit++;
+  }
+  return result;
+}
+

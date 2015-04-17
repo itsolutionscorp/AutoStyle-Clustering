@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int result=0;
+  for (int i=0; i < 32 && y != 0; ++i) {
+    int lsb=y & 1;
+    y=y >> 1;
+    if (lsb == 1) {
+      result=add(result,x);
+    }
+    x=x << 1;
+  }
+  return result;
+}
+

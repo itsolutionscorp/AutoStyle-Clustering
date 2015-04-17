@@ -1,0 +1,21 @@
+public int multiply(int x,int y){
+  int sum=0;
+  boolean reverse=false;
+  if (x < 0) {
+    x=reverse(x);
+    reverse=!reverse;
+  }
+  if (y < 0) {
+    y=reverse(y);
+    reverse=!reverse;
+  }
+  while (x > 0) {
+    sum=add(sum,y);
+    x=add(x,-1);
+  }
+  if (reverse) {
+    sum=reverse(sum);
+  }
+  return sum;
+}
+

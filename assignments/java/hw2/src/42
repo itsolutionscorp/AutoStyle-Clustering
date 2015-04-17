@@ -1,0 +1,24 @@
+public int multiply(int x,int y){
+  int result1=0;
+  int result2=0;
+  for (int i=0; i < 32; i++) {
+    for (int j=0; j < 32; j++) {
+      if ((getBit(x,j) == 0) && (getBit(y,i) == 0)) {
+        result2=setBit(result2,j,0);
+      }
+ else       if ((getBit(x,j) == 1) && (getBit(y,i) == 0)) {
+        result2=setBit(result2,j,0);
+      }
+ else       if ((getBit(x,j) == 0) && (getBit(y,i) == 1)) {
+        result2=setBit(result2,j,0);
+      }
+ else       if ((getBit(x,j) == 1) && (getBit(y,i) == 1)) {
+        result2=setBit(result2,j,1);
+      }
+    }
+    result1=add(result1,result2 << i);
+    result2=0;
+  }
+  return result1;
+}
+

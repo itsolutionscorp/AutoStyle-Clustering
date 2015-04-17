@@ -1,0 +1,22 @@
+public int multiply(int x,int y){
+  int z=0;
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+ else   if (y > 0) {
+    while (y != 0) {
+      z=add(x,z);
+      y=y - 1;
+    }
+  }
+ else   if (y < 0) {
+    while (y != 0) {
+      z=add(x,z);
+      y=y + 1;
+    }
+    z=~z;
+    z=add(z,1);
+  }
+  return z;
+}
+

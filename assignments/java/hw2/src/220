@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  int count=-1;
+  int product=0;
+  int digitY;
+  while (count != 0) {
+    if ((y & 1) == 1) {
+      product=add(product,x);
+    }
+    y>>=1;
+    x<<=1;
+    count>>>=1;
+  }
+  return product;
+}
+

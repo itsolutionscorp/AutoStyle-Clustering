@@ -1,0 +1,21 @@
+public int multiply(int x,int y){
+  int result=0;
+  int counter=y;
+  int variable=0;
+  if (y < 0) {
+    int flipped_y=(~y) | 1;
+    result=multiply(x,flipped_y);
+    variable=1;
+  }
+  if (variable == 0) {
+    while (counter > 0) {
+      result=add(result,x);
+      counter=counter - 1;
+    }
+  }
+  if (variable == 1) {
+    return ((~result) | 1);
+  }
+  return result;
+}
+

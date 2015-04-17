@@ -1,0 +1,22 @@
+public int multiply(int x,int y){
+  int greater, lesser;
+  int product=0;
+  if (x > y) {
+    greater=x;
+    lesser=y;
+  }
+ else {
+    greater=y;
+    lesser=x;
+  }
+  int n=0;
+  while (lesser != 0) {
+    if ((lesser & 1) == 1) {
+      product=add(product,greater << n);
+    }
+    n++;
+    lesser>>>=1;
+  }
+  return product;
+}
+

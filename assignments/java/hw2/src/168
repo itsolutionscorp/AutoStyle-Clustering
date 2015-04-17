@@ -1,0 +1,19 @@
+public int multiply(int x,int y){
+  if ((x >= 0) && (y < 0)) {
+    int a=y;
+    y=x;
+    x=a;
+  }
+ else   if ((x < 0) && (y < 0)) {
+    x=add(~x,1);
+    y=add(~y,1);
+  }
+  int count=y;
+  int total=0;
+  while (count > 0) {
+    total=add(total,x);
+    count=add(count,add(~1,1));
+  }
+  return total;
+}
+

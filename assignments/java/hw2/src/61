@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  int ifOdd, product=0;
+  while (y != 0) {
+    ifOdd=y & 1;
+    if (ifOdd == 1)     product=add(product,x);
+    x<<=1;
+    y>>>=1;
+  }
+  return product;
+}
+

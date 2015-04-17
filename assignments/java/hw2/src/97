@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int smaller=Math.min(Math.abs(x),Math.abs(y));
+  int larger=Math.max(Math.abs(x),Math.abs(y));
+  int answer=0;
+  while (smaller != 0) {
+    if ((smaller & 1) != 0)     answer=add(answer,larger);
+    larger=larger << 1;
+    smaller=smaller >> 1;
+  }
+  if (x < 0 || y < 0)   return -answer;
+  return answer;
+}
+

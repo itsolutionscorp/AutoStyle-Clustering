@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  int total=0;
+  int copy=y;
+  int count=0;
+  while (copy != 0) {
+    copy=copy << 31;
+    copy=copy >>> 31;
+    if (copy != 0) {
+      copy=copy << count;
+      total=add(total,multiply2Powers(x,copy));
+    }
+    count=add(count,1);
+    copy=y >>> count;
+  }
+  return total;
+}
+

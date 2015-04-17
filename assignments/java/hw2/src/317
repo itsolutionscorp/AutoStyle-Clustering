@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  if (y < 0) {
+    if (x < 0) {
+      return opti_multiply(-x,-y);
+    }
+ else {
+      return opti_multiply(y,x);
+    }
+  }
+ else {
+    return opti_multiply(x,y);
+  }
+}
+

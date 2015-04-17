@@ -1,0 +1,37 @@
+public int multiply(int x,int y){
+  int memory=0;
+  if (x > 0 && y > 0) {
+    while (y != 0) {
+      memory=(add(memory,x));
+      y=y - 1;
+    }
+  }
+  if (x < 0 && y > 0) {
+    x=Math.abs(x);
+    while (y != 0) {
+      memory=(add(memory,x));
+      y=y - 1;
+    }
+    add(memory,-1);
+    memory=~(add(memory,-1));
+  }
+  if (x > 0 && y < 0) {
+    y=Math.abs(y);
+    while (y != 0) {
+      memory=(add(memory,x));
+      y=y - 1;
+    }
+    add(memory,-1);
+    memory=~(add(memory,-1));
+  }
+  if (x < 0 && y < 0) {
+    x=Math.abs(x);
+    y=Math.abs(y);
+    while (y != 0) {
+      memory=(add(memory,x));
+      y=y - 1;
+    }
+  }
+  return memory;
+}
+

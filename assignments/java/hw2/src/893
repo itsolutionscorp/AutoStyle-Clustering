@@ -1,0 +1,26 @@
+public int multiply(int x,int y){
+  if ((x == 0) || (y == 0)) {
+    return 0;
+  }
+  int xHolder=x;
+  if (x < 0) {
+    xHolder=add(~x,1);
+  }
+  int yHolder=y;
+  if (y < 0) {
+    yHolder=add(~y,1);
+  }
+  int total=0;
+  int count=0;
+  while (count < yHolder) {
+    total=add(total,xHolder);
+    count++;
+  }
+  if (((x < 0) && (y < 0)) || ((x > 0) && (y > 0))) {
+    return total;
+  }
+ else {
+    return add(~total,1);
+  }
+}
+

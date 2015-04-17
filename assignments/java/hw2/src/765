@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int i=0;
+  int product=0;
+  while (i < 32) {
+    int y_ibit=(y >>> i) & 1;
+    if (y_ibit == 1) {
+      product=add(product,(x << i));
+    }
+    i=i + 1;
+  }
+  return product;
+}
+

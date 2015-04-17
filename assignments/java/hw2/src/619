@@ -1,0 +1,28 @@
+public int multiply(int x,int y){
+  int yAbs=absValue(y);
+  int xAbs=absValue(x);
+  int dummy=yAbs;
+  int counter=0;
+  int z=0;
+  if (y == 1) {
+    return x;
+  }
+ else   if ((y == 0) | (x == 0)) {
+    return 0;
+  }
+  while ((dummy >> 1) >= 1) {
+    counter=this.add(counter,1);
+    dummy=dummy >> 1;
+  }
+  int y2=1 << counter;
+  int yRem=this.add(this.add(~y2,1),yAbs);
+  z=z + xAbs << counter;
+  z=z + multiply(xAbs,yRem);
+  if ((x < 0) ^ (y < 0)) {
+    return this.add(~z,1);
+  }
+ else {
+    return z;
+  }
+}
+
