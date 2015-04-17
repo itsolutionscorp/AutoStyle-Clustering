@@ -1,0 +1,19 @@
+public int multiply(int x,int y){
+  int i=0;
+  int partialsum=0;
+  int newline=0;
+  int ybit=0;
+  while (i <= 31) {
+    ybit=getBit(y,i);
+    if (ybit == 0) {
+      newline=0;
+    }
+ else {
+      newline=x << i;
+    }
+    partialsum=add(partialsum,newline);
+    i=i + 1;
+  }
+  return partialsum;
+}
+

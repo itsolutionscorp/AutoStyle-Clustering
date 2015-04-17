@@ -1,0 +1,9 @@
+public int multiply(int x,int y){
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  int n=findN(y);
+  y=add(y,add((~(1 << n)),1));
+  return add(x << n,multiply(x,y));
+}
+

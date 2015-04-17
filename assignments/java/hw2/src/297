@@ -1,0 +1,24 @@
+public int multiply(int x,int y){
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  if (x < 0 && y < 0) {
+    return this.multiply(this.negate(x),this.negate(y));
+  }
+  if (x < 0) {
+    return this.negate(this.multiply(this.negate(x),y));
+  }
+  if (y < 0) {
+    return this.multiply(y,x);
+  }
+  int res=0, i=0, one=1;
+  while (y != 0) {
+    if ((y & one) == one) {
+      res=this.add(res,x << i);
+    }
+    i+=1;
+    y=y >> 1;
+  }
+  return res;
+}
+

@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  int sum=0;
+  for (int i=0; i < 32; i++) {
+    int z=(y & (1 << i));
+    if (z > 0) {
+      sum=add(sum,(x << i));
+    }
+  }
+  return sum;
+}
+

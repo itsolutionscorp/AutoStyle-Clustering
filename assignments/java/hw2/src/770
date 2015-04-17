@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  int temp=x;
+  int result=0;
+  int curBit=0;
+  int curYBit;
+  int toAdd;
+  while (curBit < 32) {
+    curYBit=getBit(y,curBit);
+    if (curYBit == 1) {
+      toAdd=(x & 2147483647) << curBit;
+      result=add(result,toAdd);
+    }
+    curBit=curBit + 1;
+  }
+  return result;
+}
+

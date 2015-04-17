@@ -1,0 +1,10 @@
+public int multiply(int x,int y){
+  int z=0;
+  for (; y != 0; y>>>=1) {
+    int bity=y & 1;
+    if (bity > 0)     z=add(z,x);
+    x=add(x,x);
+  }
+  return z;
+}
+

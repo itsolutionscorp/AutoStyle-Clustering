@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  int count=0;
+  int result=0;
+  int yb;
+  while (count < 32) {
+    yb=y & 1;
+    if (yb == 1) {
+      result=add(x << count,result);
+    }
+    y=y >> 1;
+    count+=1;
+  }
+  return result;
+}
+

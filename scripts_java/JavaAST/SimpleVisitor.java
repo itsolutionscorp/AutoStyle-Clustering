@@ -1,23 +1,25 @@
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.BlockComment;
 import org.eclipse.jdt.core.dom.ConditionalExpression;
-import org.eclipse.jdt.core.dom.ConstructorInvocation;
 import org.eclipse.jdt.core.dom.EnhancedForStatement;
-import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.ForStatement;
 import org.eclipse.jdt.core.dom.IfStatement;
 import org.eclipse.jdt.core.dom.InfixExpression;
+import org.eclipse.jdt.core.dom.Javadoc;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.PostfixExpression;
 import org.eclipse.jdt.core.dom.PrefixExpression;
 import org.eclipse.jdt.core.dom.SwitchCase;
 import org.eclipse.jdt.core.dom.WhileStatement;
+import org.eclipse.jdt.core.dom.LineComment;
 
 public class SimpleVisitor extends ASTVisitor {
 	private SimpleASTNode root;
 	private SimpleASTNode current;
 	private String methodOfInterest;
+	private ASTNode methodNode;
 	private boolean inMethodOfInterest;
 	
 	public SimpleVisitor(String methodName){
@@ -25,6 +27,7 @@ public class SimpleVisitor extends ASTVisitor {
 		current = null;
 		methodOfInterest = methodName;
 		inMethodOfInterest = false;
+		methodNode = null;
 	}
 	
 	@Override
@@ -38,6 +41,7 @@ public class SimpleVisitor extends ASTVisitor {
 	@Override
 	public boolean visit(MethodDeclaration n){
 		if (n.getName().toString().equals(methodOfInterest)){
+			methodNode = n;
 			root = new SimpleASTNode(methodOfInterest);
 			current = root;
 			inMethodOfInterest = true;
@@ -71,6 +75,24 @@ public class SimpleVisitor extends ASTVisitor {
 		if (inMethodOfInterest && current!=null){
 			current = current.getParent();
 		}
+	}
+	
+	@Override
+	public boolean visit(BlockComment n){
+		n.delete();
+		return true;
+	}
+	
+	@Override
+	public boolean visit(Javadoc n){
+		n.delete();
+		return true;
+	}
+	
+	@Override
+	public boolean visit(LineComment n){
+		n.delete();
+		return true;
 	}
 	
 	@Override
@@ -169,6 +191,17 @@ public class SimpleVisitor extends ASTVisitor {
 			return null;
 		}
 		return root.toString();
+	}
+	
+	/**
+	 * Returns the code of the method only.
+	 */
+	public String cleanCode(){
+		if (methodNode == null){
+			return null;
+		} else {
+			return methodNode.toString();
+		}
 	}
 	
 	private boolean visitItem(String item){

@@ -1,0 +1,21 @@
+public int multiply(int x,int y){
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  int product=0;
+  int v=x;
+  int counter=0;
+  int z=y;
+  int w=0;
+  while (z != 0) {
+    int h=(1 & z);
+    if (h != 0) {
+      w=v << counter;
+      product=add(product,w);
+    }
+    z=(z >>> 1);
+    counter=counter + 1;
+  }
+  return product;
+}
+

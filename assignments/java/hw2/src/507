@@ -1,0 +1,19 @@
+public int multiply(int x,int y){
+  int yy=y;
+  int xx=x;
+  if (y < 0) {
+    condition=false;
+    y=add(1,~y);
+    x=add(1,~x);
+  }
+  int temp=0;
+  while (y != 0 && x != 0) {
+    condition=false;
+    temp=add(temp,x);
+    y=add(y,-1);
+  }
+  condition=true;
+  saveEquation((xx + " * " + yy),temp);
+  return temp;
+}
+

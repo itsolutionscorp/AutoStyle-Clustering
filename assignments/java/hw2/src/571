@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  int a=x;
+  int b=y;
+  int sum=0;
+  while (b != 0) {
+    int lastDigit=b & 1;
+    if (lastDigit == 1) {
+      sum=this.add(sum,a);
+    }
+    a<<=1;
+    b>>>=1;
+  }
+  return sum;
+}
+

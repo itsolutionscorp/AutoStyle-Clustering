@@ -1,0 +1,28 @@
+public int multiply(int x,int y){
+  int oddLeftovers=0;
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+ else   if (y > 0) {
+    while (y != 1) {
+      if ((y & 1) != 0) {
+        oddLeftovers=add(oddLeftovers,x);
+      }
+      x=x << 1;
+      y=y >> 1;
+    }
+    return add(x,oddLeftovers);
+  }
+ else {
+    y=add(1,(~y));
+    while (y != 1) {
+      if ((y & 1) != 0) {
+        oddLeftovers=add(oddLeftovers,x);
+      }
+      x=x << 1;
+      y=y >> 1;
+    }
+    return add(1,(~add(oddLeftovers,x)));
+  }
+}
+

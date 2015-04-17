@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  int answer=0;
+  if (x < y) {
+    int carry=y;
+    y=x;
+    x=carry;
+  }
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      answer=add(answer,x);
+    }
+    x=x << 1;
+    y=y >>> 1;
+  }
+  return answer;
+}
+

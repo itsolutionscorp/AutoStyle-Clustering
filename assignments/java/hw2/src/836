@@ -1,0 +1,10 @@
+public int multiply(int x,int y){
+  int z=y;
+  int a=0;
+  while (z > 0) {
+    a=add(a,x);
+    z--;
+  }
+  return a;
+}
+

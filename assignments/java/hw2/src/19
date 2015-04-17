@@ -1,0 +1,31 @@
+public int multiply(int x,int y){
+  int answer=0;
+  if (x > 0 && y > 0) {
+    while (y > 0) {
+      answer=add(answer,x);
+      y-=1;
+    }
+  }
+ else {
+    if (x > 0 && y < 0) {
+      for (int counter=add(~y,1); counter > 0; counter-=1) {
+        answer=add(answer,x);
+      }
+      answer=add(~answer,1);
+    }
+ else     if (x < 0 && y > 0) {
+      for (int counter=add(~x,1); counter > 0; counter-=1) {
+        answer=add(answer,y);
+      }
+      answer=add(~answer,1);
+    }
+ else {
+      x=add(~x,1);
+      for (int counter=add(~y,1); counter > 0; counter-=1) {
+        answer=add(answer,x);
+      }
+    }
+  }
+  return answer;
+}
+

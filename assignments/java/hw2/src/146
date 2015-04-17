@@ -1,0 +1,30 @@
+public int multiply(int x,int y){
+  boolean check=false;
+  if (x < 0 && y >= 0) {
+    check=true;
+    x=add(~x,1);
+  }
+ else   if (x >= 0 && y < 0) {
+    check=true;
+    y=add(~y,1);
+  }
+ else   if (x < 0 && y < 0) {
+    x=add(~x,1);
+    y=add(~y,1);
+  }
+  int result=0;
+  while (y != 0) {
+    if ((y & 1) == 1) {
+      result=add(result,x);
+    }
+    x=x << 1;
+    y=y >> 1;
+  }
+  if (check) {
+    return add(~result,1);
+  }
+ else {
+    return result;
+  }
+}
+

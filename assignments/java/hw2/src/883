@@ -1,0 +1,10 @@
+public int multiply(int x,int y){
+  if (x >= 0 && y >= 0)   return mult(x,y);
+ else   if (x < 0) {
+    if (y < 0)     return mult(x,y);
+ else     return two(mult(two(x),y));
+  }
+ else   if (y < 0)   return two(mult(x,two(y)));
+  return 0;
+}
+

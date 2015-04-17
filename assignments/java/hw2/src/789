@@ -1,0 +1,19 @@
+public int multiply(int x,int y){
+  if ((x < 0) && (y < 0)) {
+    return multiply(invertNumber(x),invertNumber(y));
+  }
+ else   if (x < 0) {
+    return invertNumber(multiply(invertNumber(x),y));
+  }
+ else   if (y < 0) {
+    return invertNumber(multiply(x,invertNumber(y)));
+  }
+ else {
+    int total=0;
+    for (int i=0; i < y; i++) {
+      total=add(total,x);
+    }
+    return total;
+  }
+}
+

@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  int ans=0, track=0;
+  for (int i=0; i < 31; i++) {
+    if (((y >> i) & 1) == 0)     track=0;
+ else     track=x << i;
+    ans=add(ans,track);
+    track=0;
+  }
+  return ans;
+}
+

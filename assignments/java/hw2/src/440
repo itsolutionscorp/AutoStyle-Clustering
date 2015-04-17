@@ -1,0 +1,12 @@
+public int multiply(int x,int y){
+  int i=0;
+  int running=0;
+  while (i < 32) {
+    if (getBit(y,i) == 1) {
+      running=add(running,x << i);
+    }
+    i+=1;
+  }
+  return running;
+}
+

@@ -1,0 +1,17 @@
+private int multiply(int x,int y,int exp){
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  if ((x & exp) != 0) {
+    int prod=y;
+    int expi=exp;
+    x=x ^ exp;
+    while (expi != 1) {
+      expi=expi >>> 1;
+      prod=prod << 1;
+    }
+    return add(multiply(x,y,exp << 1),prod);
+  }
+  return multiply(x,y,exp << 1);
+}
+

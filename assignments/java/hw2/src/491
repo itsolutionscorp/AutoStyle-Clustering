@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  Calculator helper=new Calculator();
+  if (y == 0) {
+    return 0;
+  }
+ else   if (y > 0) {
+    return helper.add(x,(helper.multiply(x,helper.add(y,-1))));
+  }
+  return helper.add(-x,(helper.multiply(x,helper.add(y,1))));
+}
+

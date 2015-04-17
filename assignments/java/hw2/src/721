@@ -1,0 +1,26 @@
+public int multiply(int x,int y){
+  int sum=0;
+  int original;
+  int shifter;
+  if ((x < 0) && (y < 0)) {
+    original=add(~x,1);
+    shifter=add(~y,1);
+  }
+ else   if (y < 0) {
+    original=y;
+    shifter=x;
+  }
+ else {
+    original=x;
+    shifter=y;
+  }
+  while (shifter != 0) {
+    if ((shifter & 1) != 0) {
+      sum=add(sum,original);
+    }
+    original<<=1;
+    shifter>>=1;
+  }
+  return sum;
+}
+

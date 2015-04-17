@@ -1,0 +1,25 @@
+public int multiply(int x,int y){
+  int a=x, b=y;
+  int result=0;
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  if (a < 0 && b > 0) {
+    return negate(multiply(negate(x),y));
+  }
+  if (a > 0 && b < 0) {
+    return negate(multiply(x,negate(y)));
+  }
+  if (a < 0 && b < 0) {
+    return multiply(negate(x),negate(y));
+  }
+  while (b != 0) {
+    if ((b & 01) != 0) {
+      result=add(result,a);
+    }
+    a=a << 1;
+    b=b >> 1;
+  }
+  return result;
+}
+

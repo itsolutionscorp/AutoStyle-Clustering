@@ -1,0 +1,18 @@
+public int multiply(int x,int y){
+  int result=0;
+  int n=0;
+  int positive=1;
+  if (y < 0) {
+    y=add(~y,1);
+    positive=-1;
+  }
+  while (n < y) {
+    result=add(result,x);
+    n++;
+  }
+  if (positive == -1) {
+    return add(~result,1);
+  }
+  return result;
+}
+

@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  int prod=0;
+  int i=0;
+  while (i < 31) {
+    int lastY=getBit(y,0);
+    if (lastY == 1) {
+      prod=add(prod,x);
+    }
+    x=x << 1;
+    y=y >>> 1;
+    i++;
+  }
+  return prod;
+}
+

@@ -1,0 +1,23 @@
+public int multiply(int x,int y){
+  int counter=0;
+  int newNum=0;
+  int columnY=y;
+  int columnX=x;
+  int finalNum=0;
+  while (y != 0) {
+    columnY=y & 1;
+    if (columnY == 0) {
+      newNum=0;
+    }
+ else {
+      newNum=x;
+    }
+    newNum=newNum << counter;
+    y=y >>> 1;
+    counter+=1;
+    columnX=x;
+    finalNum=add(finalNum,newNum);
+  }
+  return finalNum;
+}
+

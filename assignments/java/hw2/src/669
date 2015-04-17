@@ -1,0 +1,10 @@
+public int multiply(int x,int y){
+  int product=0;
+  for (int index=0; index < 32; index++) {
+    if ((y >>> index & 1) == 1) {
+      product=add(product,x << index);
+    }
+  }
+  return product;
+}
+

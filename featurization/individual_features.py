@@ -17,6 +17,7 @@ import math
 import numpy as np
 import sys
 import re
+import sexpdata
 sys.path.insert(0, os.path.abspath('../syntax_tree'))
 sys.path.insert(0, os.path.abspath('syntax_tree'))
 from tree import control_flow_and_library_tree, cfl_tree_from_string, printTree, Node
@@ -36,12 +37,36 @@ HOME_DIR = './data/'
 ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
 SOURCE_FILES = natural_sort(glob.glob(HOME_DIR + 'src/*'))
 
-def abc_score(language, function_name, index):
+def ast_from_sexp(s):
+    '''
+    Generate an ast from a simple s-expression string.
+    The top node is assumed to be a function definition.
+    '''
+    exp = sexpdata.loads(s)
+    root = Node('root')
+    
+    def recursive_ast_from_sexp(parent, sub_sexp):
+        if not sub_sexp:
+            return
+        elif sub_sexp.__class__.__name__ == 'list':
+            level_node = sub_sexp.pop(0)
+            level_label = 'NOT SYMBOL'
+            if level_node.__class__.__name__ == "Symbol":
+                level_label = level_node.value()
+                if Node.get_label(parent) == 'root':
+                    level_label = 'FunctionDef: ' + level_label
+            new_node = Node(level_label)
+            parent.addkid(new_node)
+            for e in sub_sexp:
+                recursive_ast_from_sexp(new_node, e)
+    recursive_ast_from_sexp(root, exp)
+    return root
+
+def abc_score(ast):
     '''
     Return the abc score of submission index.
     Abc score counts assignments, branches, and conditionals
     '''
-    ast = generate_python_ast(SOURCE_FILES[index])
     assign, branch, cond, calls, cpts = 0, 0, 0, 0, 0
     cpts = loops_and_recursion(ast)
     stack = []
@@ -53,7 +78,7 @@ def abc_score(language, function_name, index):
             assign += 1
         elif key in ("Call", "In"):
             calls += 1
-        elif key in ("Call", "While", "For", "Raise", "Break"):
+        elif key in ("If", "While", "For", "Raise", "Break"):
             branch += 1
         elif key in ["Compare","Try", "ExceptHandler"]:
             cond+=1
@@ -135,11 +160,29 @@ def generate_python_ast(filename):
     tree = build_tree(b_node,ast_node,{})
     return tree
 
+def generate_java_ast(filename, function_name, class_name):
+    '''
+    Generate a Node object representing an ast for
+    a java method.
+    '''
+    # TODO: return to a form where you don't need the .ast files, or not
+    current_dir = os.getcwd()
+    # cp = "./:" + current_dir + "/scripts_java/lib/*:" + current_dir + "/scripts_java/JavaAST"
+    # ast_string = terminal_ouput("java", "-cp", cp, "ASTBuilder", filename + "/" + class_name + ".java", function_name)
+    filename = filename.replace("/src/", "/ast/")
+    filepath = current_dir + "/" + filename + "/" + class_name + ".java.ast" 
+    if os.path.exists(filepath):
+        with open(filepath) as a:
+            ast_string = a.read()
+        return ast_from_sexp(ast_string)
+    else:
+        return None
+
 def generate_ruby_ast(filename, function_name):
     ast_string = terminal_ouput('ruby', 'syntax_tree/ast_no_helper_print.rb', '-f', filename, '-m', function_name)
     return cfl_tree_from_string(ast_string)
 
-def generate_ast(language, index, function_name):
+def generate_ast(language, index, function_name, class_name):
     '''
     Get the ast for submission index.
     '''
@@ -147,6 +190,8 @@ def generate_ast(language, index, function_name):
         ast = generate_ruby_ast(SOURCE_FILES[index], function_name)
     elif language == 'python':
         ast = generate_python_ast(SOURCE_FILES[index])
+    elif language == 'java':
+        ast = generate_java_ast(SOURCE_FILES[index], function_name, class_name)
     return ast    
 
 def terminal_ouput(*args):
@@ -251,22 +296,8 @@ def has_node(ast, node_type):
         children = Node.get_children(current)
         stack += children
     return False
-        
 
-def sequential_context(language, index, function_name):
-    '''
-    Returns a list of size 1 indicating whether submission index
-    contains sequential conditionals or iterations.
-    '''
-    ast = generate_ast(language, index, function_name)
-    feature_vector = [0 , 0]
-    if has_sequential(ast, ['cond', 'If']):
-        feature_vector[0] = 1
-    if has_sequential(ast, ['iter', 'For']):
-        feature_vector[1] = 1
-    return feature_vector
-
-def control_flow(language, function_name, index):
+def control_flow(ast):
     '''
     Returns a list indicating if submission index:
     * has a conditional
@@ -277,7 +308,6 @@ def control_flow(language, function_name, index):
     * has sequential iterations
     '''
     feature_vector = [0, 0, 0, 0, 0, 0]
-    ast = generate_ast(language, index, function_name)
     if has_node(ast, ['cond', 'If']):
         feature_vector[0] = 1
     if has_nested(ast, ['cond', 'If']):
@@ -302,11 +332,10 @@ def uses_recursion(ast, function_name):
         stack += Node.get_children(current)[::-1]
     return False
 
-def recursion(language, function_name, index):
+def recursion(ast, function_name):
     '''Return whether submission index contains any calls to
     function_name (indicating recursion).
     '''
-    ast = generate_ast(language, index, function_name)
     if uses_recursion(ast, function_name):
         return [1, ]
     else:
@@ -318,12 +347,11 @@ def contains_duplicates(l):
     '''
     return len(l) != len(set(l))
 
-def duplicate_treegrams(language, function_name, index):
+def duplicate_treegrams(ast):
     '''
     Returns a list of length 1 indicating if submission
     index contains any duplicate treegrams of depth 3.
     '''
-    ast = generate_ast(language, index, function_name)
     treegrams = get_treegrams(ast, DUPLICATE_DEPTH)
     if contains_duplicates(treegrams):
         return [1, ]
@@ -339,7 +367,7 @@ def flog_score(index):
     flog_score = flog_output[:flog_output.index(':')]
     return [float(flog_score), ]
 
-def libcalls(language, function_name, index):
+def libcalls(ast, language, function_name, index, class_name):
     '''
     Returns a list of 0s and 1s indicating
     whether submission index contains the corresponding
@@ -351,7 +379,6 @@ def libcalls(language, function_name, index):
             all_libcalls.append(line.strip())
     n = len(all_libcalls)
     feature_vector = np.zeros((n, 1))
-    ast = generate_ast(language, index, function_name)
     libcall_names = count_libcalls(ast, function_name, index)
     for libcall in libcall_names:
         if libcall.strip() in all_libcalls:
@@ -370,26 +397,29 @@ def append_at_index(all_features, feature_vector, index):
     return all_features
         
 
-def handle_feature(language, function_name, index, feature):
+def handle_feature(language, function_name, index, feature, class_name):
     '''
     Returns the feature value of the submission with the given index.
     '''
+    ast = generate_ast(language, index, function_name, class_name)
+    if (ast is None):
+        raise Exception
     if feature == 'abc':
-        return abc_score(language, function_name, index)
+        return abc_score(ast)
     if feature == 'flog':
         return flog_score(index)
     elif feature == 'libcall':
-        return libcalls(language, function_name, index)
+        return libcalls(ast, language, function_name, index, class_name)
     elif feature == 'data_structure':
         return []
     elif feature == 'control_flow':
-        return control_flow(language, function_name, index)
+        return control_flow(ast)
     elif feature == 'recursion':
-        return recursion(language, function_name, index)
+        return recursion(ast, function_name)
     elif feature == 'duplicate_treegram':
-        return duplicate_treegrams(language, function_name, index)
+        return duplicate_treegrams(ast)
 
-def generate_individual_features(language, function_name, index, features, home_dir):
+def generate_individual_features(language, function_name, index, features, home_dir, class_name):
     '''
     Returns nx1 feature vector with all the features corresponding
     to the submission with index i.
@@ -404,7 +434,7 @@ def generate_individual_features(language, function_name, index, features, home_
     
     feature_vector = []
     for feature in features:
-        feature_values = handle_feature(language, function_name, index, feature)
+        feature_values = handle_feature(language, function_name, index, feature, class_name)
         feature_vector += feature_values
     return np.reshape(np.array(feature_vector), (len(feature_vector), 1))
 
@@ -419,6 +449,7 @@ def main():
     parser.add_argument('language', help='ruby or python')
     parser.add_argument('output_file', help='File to append the generated horizontal feature vector to.')
     parser.add_argument('home_directory', help = 'Path to data directory')
+    parser.add_argument('-c', '--class_name', help='Class name (required for java)')
     parser.add_argument('features', nargs='+', help='Names of features to generate.')
 
     args = parser.parse_args()
@@ -427,14 +458,20 @@ def main():
     features = args.features
     language = args.language
     home_dir = args.home_directory
+    class_name = args.class_name
     output_file = args.output_file
 
-    feature_vector = generate_individual_features(language, function_name, submission_index, features, home_dir)
+    try:
+        feature_vector = generate_individual_features(language, function_name, submission_index, features, home_dir, class_name)
+    except Exception:
+        return
     
     if not os.path.exists(output_file):
         all_features = feature_vector.T
     else:
         all_features = np.loadtxt(output_file)
+        if len(all_features.shape) == 0:
+            all_features = np.reshape(all_features, (1, 1))
         if len(all_features.shape) == 1:
             all_features = np.reshape(all_features, (1, all_features.shape[0]))
         all_features = append_at_index(all_features, feature_vector, submission_index)

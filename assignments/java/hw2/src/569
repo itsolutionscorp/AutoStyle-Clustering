@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  int currsum=0;
+  for (int i=0; i < 32; i++) {
+    int carryMask=1 << i;
+    if ((y & carryMask) == carryMask) {
+      currsum=add(currsum,(x << i));
+    }
+  }
+  return currsum;
+}
+

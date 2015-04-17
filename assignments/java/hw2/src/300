@@ -1,0 +1,18 @@
+public int multiply(int x,int y){
+  if ((x == 0) | (y == 0)) {
+    return 0;
+  }
+  int answer=0;
+  int i=0;
+  while (i < 32) {
+    int ybit=getBit(y,0);
+    if (ybit == 1) {
+      answer=add(answer,x);
+    }
+    x=x << 1;
+    y=y >>> 1;
+    i+=1;
+  }
+  return answer;
+}
+

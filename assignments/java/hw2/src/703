@@ -1,0 +1,14 @@
+public int multiply(int a,int b){
+  if (b != 1) {
+    int checklast=-2 | b;
+    checklast=~checklast;
+    if (checklast != 0) {
+      return multiply(a << 1,b >>> 1);
+    }
+ else {
+      return add(a,multiply(a << 1,b >>> 1));
+    }
+  }
+  return a;
+}
+

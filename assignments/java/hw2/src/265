@@ -1,0 +1,12 @@
+public int multiply(int x,int y){
+  int n=0;
+  int total=0;
+  while (n < 32) {
+    if (getbit(y,n) == 1) {
+      total=add(total,x << n);
+    }
+    n+=1;
+  }
+  return total;
+}
+

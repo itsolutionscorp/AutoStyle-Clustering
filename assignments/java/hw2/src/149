@@ -1,0 +1,32 @@
+public int multiply(int x,int y){
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  boolean negative=false;
+  if (x < 0) {
+    negative=!negative;
+    x=add(~x,1);
+  }
+  if (y < 0) {
+    negative=!negative;
+    y=add(~y,1);
+  }
+  int remainder=0;
+  while (x != 1) {
+    if ((x & 1) == 0) {
+      x=x >> 1;
+      y=y << 1;
+    }
+ else {
+      remainder=add(y,remainder);
+      y=y << 1;
+      x=x >> 1;
+    }
+  }
+  y=add(y,remainder);
+  if (negative) {
+    return add(~y,1);
+  }
+  return y;
+}
+

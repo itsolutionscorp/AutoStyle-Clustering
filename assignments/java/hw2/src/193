@@ -1,0 +1,12 @@
+public int multiply(int x,int y){
+  if (y < 0) {
+    return negate(multiply(x,negate(y)));
+  }
+  if (y == 0) {
+    return 0;
+  }
+ else {
+    return add(x,multiply(x,add(y,-1)));
+  }
+}
+

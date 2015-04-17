@@ -35,6 +35,7 @@ def main():
     parser.add_argument('language', help='ruby or python')
     parser.add_argument('output_file', help='File to append the generated horizontal feature vector to.')
     parser.add_argument('home_directory', help='Path to data directory')
+    parser.add_argument('-c', '--class_name', help='Class name (required for java)')
     parser.add_argument('features', nargs='+', help='Names of features to generate.')
 
     args = parser.parse_args()
@@ -43,11 +44,17 @@ def main():
     language = args.language
     home_dir = args.home_directory.rstrip("/") + "/"
     output_file = args.output_file
+    class_name = args.class_name
     source_files = natural_sort(glob.glob(home_dir + 'src/*'))
     
     all_features = None
     for submission_index, submission in enumerate(source_files):
-        feature_vector = generate_individual_features(language, function_name, submission_index, features, home_dir)
+        if submission_index % 100 == 0:
+            print submission_index
+        try:
+            feature_vector = generate_individual_features(language, function_name, submission_index, features, home_dir, class_name)
+        except Exception:
+            continue
         if all_features is None:
             all_features = feature_vector.T
         else:

@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int result=0;
+  int holder=0;
+  while (y != 0) {
+    if ((y & 1) == 1) {
+      result+=x;
+    }
+    x=this.add(x,x);
+    y=y >>> 1;
+  }
+  return result;
+}
+

@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int answer=0;
+  int y_checker=0;
+  for (int i=0; i < 32; i++) {
+    y_checker=y << (31 - i);
+    y_checker=y_checker >>> 31;
+    if (y_checker == 1) {
+      answer=add(answer,x << i);
+    }
+  }
+  return answer;
+}
+

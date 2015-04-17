@@ -1,0 +1,24 @@
+public int multiply(int x,int y){
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+ else   if (x > 0 && y < 0) {
+    int tempY=y;
+    while (x != 1) {
+      x-=1;
+      y=add(y,tempY);
+    }
+    return y;
+  }
+ else   if (x < 0 && y < 0) {
+    x=add(1,~x);
+    y=add(1,~y);
+  }
+  int tempX=x;
+  while (y != 1) {
+    y-=1;
+    x=add(x,tempX);
+  }
+  return x;
+}
+

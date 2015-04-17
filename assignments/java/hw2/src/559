@@ -1,0 +1,25 @@
+public int multiply(int x,int y){
+  int product=Math.abs(x);
+  boolean neg=false;
+  if ((x == 0) || (y == 0)) {
+    return 0;
+  }
+ else   if ((x < 0) || (y < 0)) {
+    neg=true;
+    if ((x < 0) && (y < 0)) {
+      neg=false;
+    }
+  }
+  x=Math.abs(x);
+  y=Math.abs(y);
+  for (int i=1; i < y; i=i + 1) {
+    product=add(product,x);
+  }
+  if (neg == false) {
+    return product;
+  }
+ else {
+    return add(~product,1);
+  }
+}
+

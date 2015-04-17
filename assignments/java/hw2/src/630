@@ -1,0 +1,21 @@
+public int multiply(int x,int y){
+  int i=0;
+  int result=0;
+  int toadd=0;
+  while (i < 32) {
+    int current=getBit(y,i);
+    if (current == 0) {
+      toadd=x & current;
+    }
+ else {
+      int multer=~0;
+      toadd=x & multer;
+      toadd=toadd << i;
+    }
+    result=add(result,toadd);
+    i++;
+  }
+  System.out.println("");
+  return result;
+}
+

@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  int count=0;
+  int z=x;
+  while (count < y) {
+    count+=1;
+    x=add(x,z);
+  }
+  Calculator.saveEquation('x' + '*' + 'y',x);
+  return x;
+}
+

@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  int answer=0;
+  int temp=0;
+  int m=1;
+  for (int a=0; a < 32; a++) {
+    if ((y & m) != 0) {
+      temp=x << a;
+      answer=add(answer,temp);
+    }
+    m=m << 1;
+  }
+  return answer;
+}
+

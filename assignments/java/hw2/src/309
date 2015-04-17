@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  int mask=0x80000000;
+  int result=0;
+  int ybit;
+  while (mask != 0) {
+    ybit=y & mask;
+    if (ybit != 0) {
+      result=add(result,x);
+    }
+    if (mask != 1) {
+      result=result << 1;
+    }
+    mask=mask >>> 1;
+  }
+  return result;
+}
+

@@ -1,0 +1,21 @@
+public int multiply(int x,int y){
+  int a=x, b=y, result=0;
+  if (x < 0 && y < 0) {
+    a=-x;
+    b=-y;
+  }
+  if (b < a) {
+    int temp=b;
+    b=a;
+    a=temp;
+  }
+  while (b != 0) {
+    if ((b & 01) != 0) {
+      result=add(result,a);
+    }
+    a<<=1;
+    b>>=1;
+  }
+  return result;
+}
+

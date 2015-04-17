@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  int counter=31;
+  int prod=0;
+  int subtractor=-2147483648;
+  while (counter >= 0) {
+    if (y >> counter != 0) {
+      prod=add(prod,(x << counter));
+      y=add(y,subtractor);
+    }
+    subtractor=subtractor >> 1;
+    counter=counter - 1;
+  }
+  return prod;
+}
+

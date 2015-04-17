@@ -19,6 +19,17 @@ public class ASTBuilder {
 		cu.accept(sv);
 		return sv.toString();
 	}
+	
+	public static String clean(String fileContents, String methodName) {
+		ASTParser parser = ASTParser.newParser(AST.JLS4);
+		parser.setSource(fileContents.toCharArray());
+		parser.setKind(ASTParser.K_COMPILATION_UNIT);
+ 
+		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
+		SimpleVisitor sv = new SimpleVisitor(methodName);
+		cu.accept(sv);
+		return sv.cleanCode();
+	}
  
 	//read file content into a string
 	public static String readFileToString(String filePath) throws IOException {
@@ -34,10 +45,14 @@ public class ASTBuilder {
 		}
  
 		reader.close();
- 
-		return  fileData.toString();	
+		return fileData.toString();	
 	}
  
+	/**
+	 * This is main.
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String... args) throws IOException {
 		String fileName = args[0];
 		String methodName = args[1];

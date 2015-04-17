@@ -1,0 +1,19 @@
+public int multiply(int x,int y){
+  int answer=0;
+  int i=0;
+  if (y < 0) {
+    while (i > y) {
+      answer=add(answer,x);
+      i-=1;
+    }
+    answer=add((~answer),1);
+  }
+ else {
+    while (i < y) {
+      answer=add(answer,x);
+      i+=1;
+    }
+  }
+  return answer;
+}
+

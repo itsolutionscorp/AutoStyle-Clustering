@@ -1,0 +1,21 @@
+public int multiply(int x,int y){
+  int init=y;
+  int result=0;
+  while (init != 0) {
+    int adder=x;
+    int counter=0;
+    int comparison=add(init,1);
+    while ((init ^ comparison) == 1) {
+      counter=add(counter,1);
+      adder<<=1;
+      init>>>=1;
+      comparison=add(init,1);
+    }
+    init>>=1;
+    init<<=1;
+    init<<=counter;
+    result=add(result,adder);
+  }
+  return result;
+}
+

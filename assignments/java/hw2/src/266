@@ -1,0 +1,16 @@
+public int multiply(int x,int y){
+  int count=greater(x,y);
+  if (count < 0) {
+    count=add(~count,1);
+  }
+  int count2=lesser(x,y);
+  while (count > 1) {
+    count2=add(count2,lesser(x,y));
+    count-=1;
+  }
+  if (x < 0 & y < 0) {
+    return add(~count2,1);
+  }
+  return count2;
+}
+

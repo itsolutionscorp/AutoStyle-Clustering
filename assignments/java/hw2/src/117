@@ -1,0 +1,30 @@
+public int multiply(int x,int y){
+  int product=0;
+  int cycle=y;
+  int cycled=x;
+  if (x < 0 && y > 0) {
+    cycle=y;
+    cycled=x;
+  }
+ else   if (y < 0 && x > 0) {
+    cycle=x;
+    cycled=y;
+  }
+ else   if (x < 0 && y < 0) {
+    int oldCycle=cycle;
+    int oldCycled=cycled;
+    cycle=0;
+    cycled=0;
+    for (int i=0; i > oldCycle; i=add(-1,i)) {
+      cycle=add(cycle,1);
+    }
+    for (int i=0; i > oldCycled; i=add(-1,i)) {
+      cycled=add(cycled,1);
+    }
+  }
+  for (int i=0; i < cycle; i++) {
+    product=add(product,cycled);
+  }
+  return product;
+}
+

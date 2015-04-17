@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  int tempX=x;
+  int tempY=y;
+  int answer=0;
+  if (x == 0 || y == 0)   return x;
+  while (tempY != 0) {
+    if ((tempY & 01) == 1) {
+      answer=add(answer,tempX);
+    }
+    tempX<<=1;
+    tempY>>=1;
+  }
+  return answer;
+}
+

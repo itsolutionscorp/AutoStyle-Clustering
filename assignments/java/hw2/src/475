@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int sum=0;
+  int value=0;
+  for (int i=0; i < 32; i++) {
+    int two_pwr=1 << i;
+    if ((y & two_pwr) == two_pwr) {
+      value=x << i;
+      sum=add(sum,value);
+    }
+  }
+  return sum;
+}
+

@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  int ans=0;
+  while (y != 0) {
+    int endBit=(y << 31) >>> 31;
+    ans=add(ans,mulHelper(x,endBit));
+    x=x << 1;
+    y=y >>> 1;
+  }
+  return ans;
+}
+

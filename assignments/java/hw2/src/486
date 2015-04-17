@@ -1,0 +1,20 @@
+public int multiply(int x,int y){
+  int product=0;
+  if (x > 0) {
+    for (int i=0; i < x; i++) {
+      product=add(product,y);
+    }
+  }
+  if (x < 0) {
+    x=add((~x),1);
+    for (int i=0; i < x; i++) {
+      product=add(product,y);
+    }
+    product=add((~product),1);
+  }
+  if (x == 0) {
+    product=0;
+  }
+  return product;
+}
+

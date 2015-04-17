@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  int index;
+  int ans=0;
+  int move=0;
+  while (y != 0) {
+    if ((y & 1) == 1) {
+      index=x << move;
+      ans=add(ans,index);
+    }
+    move+=1;
+    y=y >>> 1;
+  }
+  return ans;
+}
+

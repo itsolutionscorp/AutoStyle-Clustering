@@ -1,0 +1,28 @@
+public int multiply(int x,int y){
+  int result=0;
+  if (y == 0) {
+    return 0;
+  }
+  if (y > 0) {
+    while (y != 1) {
+      if ((y & 1) != 0) {
+        result=add(result,x);
+      }
+      x=x << 1;
+      y=y >> 1;
+    }
+    return add(x,result);
+  }
+ else {
+    y=add(1,(~y));
+    while (y != 1) {
+      if ((y & 1) != 0) {
+        result=add(result,x);
+      }
+      x=x << 1;
+      y=y >> 1;
+    }
+    return add(1,(~add(x,result)));
+  }
+}
+

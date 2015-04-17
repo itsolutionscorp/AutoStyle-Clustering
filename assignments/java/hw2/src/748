@@ -1,0 +1,30 @@
+public int multiply(int x,int y){
+  int iterator;
+  int addThingy;
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+ else   if (x < 0 && y < 0) {
+    iterator=Math.abs(x);
+    addThingy=Math.abs(y);
+  }
+ else   if (x < 0 && y > 0) {
+    iterator=y;
+    addThingy=x;
+  }
+ else   if (x > 0 && y < 0) {
+    iterator=x;
+    addThingy=y;
+  }
+ else {
+    iterator=x;
+    addThingy=y;
+  }
+  int runningResult=addThingy;
+  while (iterator > 1) {
+    runningResult=add(runningResult,addThingy);
+    iterator=iterator - 1;
+  }
+  return runningResult;
+}
+
