@@ -1,7 +1,8 @@
 # How to run the web_ui:
-    - cd web_ui/
-    - python run.py
-    - navigate to localhost:5000 in your browser
+
+1. cd web_ui/
+2. python run.py
+3. navigate to localhost:5000 in your browser
 
 # How to integrate new batch data
 

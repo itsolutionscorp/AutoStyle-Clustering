@@ -48,7 +48,7 @@ class Chain():
         self.max_jump_threshold = self.style_score_weight * 10  # TODO: undo this
         self.min_jump_threshold = 1
         
-        self.num_hints = 3  # TODO: A slider for this? 
+        self.num_hints = 15  # TODO: A slider for this? 
         self.positive_feedback_scale = 0
         self.negative_feedback_scale = -10000
         self.num_structural_features = 8  # TODO: hardcoded
