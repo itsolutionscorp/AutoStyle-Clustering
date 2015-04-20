@@ -6,7 +6,7 @@ from glob import glob
 sys.path.insert(0, os.path.abspath('../visualization/'))
 from style_chain import generate_chain, interpret_list_of_hints
 start_index = None
-ast = 0.05
+max_hints = 3
 flog = 1
 feedback = None
 chain = None
@@ -20,7 +20,7 @@ def index():
     posts = []
     directories = [item.lstrip('../assignments/')for item in glob('../assignments/*/*')]
     # return render_template("carousel.html")
-    return render_template("index.html", ast_dist=0.05, flog_diff=0, title='Home', posts=posts, directories=directories)
+    return render_template("index.html", ast_dist=3, flog_diff=0, title='Home', posts=posts, directories=directories)
 
 @app.route('/submit_form/', methods=['POST'])
 def submit_form():
@@ -29,15 +29,15 @@ def submit_form():
 
     data_loc = request.form['directory']
     start_index = int(request.form['start'])
-    ast = float(request.form['ast_slider'])
+    max_hints = int(request.form['ast_slider'])
     flog = float(request.form['flog_slider'])
     feedback = request.form['feedback']
     
 
-    print "----------- submitted --------------------------------------"
+    print "----------- submitted --------------"
     print "directory", data_loc
     print "start", start_index
-    print "ast", ast
+    print "max_hints", max_hints
     print "flog", flog
     print "feedback", feedback
 
@@ -56,7 +56,7 @@ def submit_form():
         final_feedback.append((hints[i], int(item[1]), int(item[3]), item[0]))
     
     # feedback format: (('non-sentence name of hint', index/position in chain, bad_hint or not, positive or negative) , (), ()  )
-    chain = generate_chain(start_index, ast, flog, os.path.abspath('../') + "/", data_dir = "assignments/" + data_loc,feedback=final_feedback, old_chain=chain, language=data_loc.split("/")[0])
+    chain = generate_chain(start_index, max_hints, flog, os.path.abspath('../') + "/", data_dir = "assignments/" + data_loc,feedback=final_feedback, old_chain=chain, language=data_loc.split("/")[0])
     posts = []
     hints = []
     cl = chain.head
@@ -73,10 +73,13 @@ def submit_form():
       else:
         posts.append({'code': cl.source_code, 'positive_hint': "", 'negative_hint': ''})
       cl = cl.next
-      directories = [item.lstrip('../assignments/')for item in glob('../assignments/*/*')]
+      directories = [item.lstrip('../assignments/') for item in glob('../assignments/*/*')]
+      lang = data_loc.split("/")[0]
+      if lang == "java":
+        lang = "text/x-java"
     return render_template("index.html",
-                           ast_dist=ast,
+                           ast_dist=max_hints,
                            flog_diff=flog,
                            title='Home',
                            home="../",
-                           posts=posts, start=start_index, directory=data_loc, directories=directories, language=data_loc.split("/")[0])
+                           posts=posts, start=start_index, directory=data_loc, directories=directories, language=lang)

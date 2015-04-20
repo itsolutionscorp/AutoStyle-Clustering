@@ -26,7 +26,7 @@ class Chain():
     relevant to all links in the chain.
     '''
 
-    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain):
+    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, max_hints=3):
         '''
         Initialize a chain starting at start_index.
         This also initializes all of the constants.
@@ -48,7 +48,7 @@ class Chain():
         self.max_jump_threshold = self.style_score_weight * 10  # TODO: undo this
         self.min_jump_threshold = 1
         
-        self.num_hints = 15  # TODO: A slider for this? 
+        self.num_hints = max_hints  # TODO: A slider for this? 
         self.positive_feedback_scale = 0
         self.negative_feedback_scale = -10000
         self.num_structural_features = 8  # TODO: hardcoded
@@ -265,6 +265,7 @@ class ChainLink:
         sorted_selected_hints = [x for (y, x) in sorted(zip(selected_scores, selected_hints), key=lambda pair:-1 * pair[0])]
         sorted_selected_hints = [x for x in sorted_selected_hints if x not in used_hints]
         sorted_selected_hints = list(OrderedDict.fromkeys(sorted_selected_hints))
+
         unused_hints = self.chain.num_hints - len(sorted_selected_hints)
         if unused_hints > 0 and next.next is not None:
             sorted_selected_hints += self.get_sorted_selected_hints(next.next, unused_hints, is_not_hint, must_be_structural, sorted_selected_hints)
@@ -399,7 +400,7 @@ def sparse_add_into(sparse_vector, vector, scale):
     '''
     vector[sparse_vector] += scale
 
-def generate_chain(start_index, ast_distance_weight, style_score_weight, home_dir = "./",
+def generate_chain(start_index, max_hints, style_score_weight, home_dir = "./",
                    feedback=None, old_chain=None, data_dir='data/', weights_file='weights.np',
                    libcall_linenums='libcalls_and_linenums.json',
                    libcall_dict='util/lib_call_dict.pkl', language="ruby"):
@@ -417,7 +418,7 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
     feature_names = np.genfromtxt(feature_dir + 'style_features_names.np', dtype='str', delimiter='\n')
     score_names = np.genfromtxt(feature_dir + 'style_scores_names.np', dtype='str', delimiter='\n')
     weights_file = home_dir+data_dir + 'gen/weights.np' 
-
+    ast_distance_weight=0.05
     if language == "ruby":
         if len(style_scores.shape)==1:
             style_scores = style_scores[:, np.newaxis]
@@ -426,7 +427,7 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
             libcall_linenums = unicode_to_str(libcall_linenums)
         with open(home_dir + libcall_dict, 'r') as f:
             libcall_dict = pickle.load(f)
-    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict,  start_index, ast_distance_weight, style_score_weight, feedback, old_chain)
+    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict,  start_index, ast_distance_weight, style_score_weight, feedback, old_chain, max_hints=max_hints)
     return c
 
 def unicode_to_str(input_u):
