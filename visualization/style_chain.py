@@ -20,6 +20,8 @@ import pickle
 import re
 from collections import OrderedDict
 
+NUM_STRUCTURAL_FEATURES = 8
+
 class Chain():
     '''
     Data structure that holds chain links and contains data
@@ -51,7 +53,7 @@ class Chain():
         self.num_hints = 15  # TODO: A slider for this? 
         self.positive_feedback_scale = 0
         self.negative_feedback_scale = -10000
-        self.num_structural_features = 8  # TODO: hardcoded
+        self.num_structural_features = NUM_STRUCTURAL_FEATURES
 
         self.initialize_weights()
         if feedback:
@@ -89,7 +91,7 @@ class Chain():
             return
         for (hint_name, index_from, is_bad, sign) in feedback:
             cl = old_chain.head 
-            while (index_from > 0): #TODO: inefficient
+            while (index_from > 0):
                 cl = cl.next
                 index_from -= 1
             sparse_hint_vector = cl.extract_sparse_hint_features(np.where(self.feature_names==hint_name)[0][0])[0] #TODO 0 only takes hint identity
@@ -128,7 +130,6 @@ class Chain():
         Return a list of library calls that can produce this data structure,
         according to self.libcall_dict.
         '''
-        #TODO: this is inefficient. Should create a reversed version of libcall_dict for faster access
         calls = []
         for call in self.libcall_dict:
             if data_structure in self.libcall_dict[call]:
@@ -218,18 +219,19 @@ class ChainLink:
             
     def get_positive_hint(self):
         if self.positive_hint == None:
-            self.positive_hint, self.positive_hint_lines = self.generate_hint(False)
-        return self.positive_hint, self.positive_hint_lines
+            self.positive_hint, self.positive_hint_lines, self.positive_hint_locations = self.generate_hint(False)
+        return self.positive_hint, self.positive_hint_lines, self.positive_hint_locations
             
     def get_negative_hint(self):
         if self.negative_hint == None:
-            self.negative_hint, self.negative_hint_lines = self.generate_hint(True)
-        return self.negative_hint, self.negative_hint_lines
+            self.negative_hint, self.negative_hint_lines, self.negative_hint_locations = self.generate_hint(True)
+        return self.negative_hint, self.negative_hint_lines, self.negative_hint_locations
             
 
-    def get_sorted_selected_hints(self, next, num_hints, is_not_hint, must_be_structural, used_hints):
+    def get_sorted_hints(self, next_link, num_hints, is_not_hint, must_be_structural, used_hints):
         '''
         Return the best possible hints sorted by score.
+        Also return what submission they appear in.
         A hint is only possible if it corresponds to a feature
         that doesn't appear in this chain link but does appear
         in the next one, or vice-versa for not hints.
@@ -241,9 +243,9 @@ class ChainLink:
         considered already used.
         '''
         if is_not_hint:
-            invalid_hints = self.chain.style_features[self.index, :] <= self.chain.style_features[next.index, :]
+            invalid_hints = self.chain.style_features[self.index, :] <= self.chain.style_features[next_link.index, :]
         else:
-            invalid_hints = self.chain.style_features[self.index, :] >= self.chain.style_features[next.index, :]
+            invalid_hints = self.chain.style_features[self.index, :] >= self.chain.style_features[next_link.index, :]
             
         if must_be_structural:
             num_features = self.chain.style_features.shape[1]
@@ -262,27 +264,33 @@ class ChainLink:
                     selected_hints.append(i)
                     selected_scores.append(score)
         
-        sorted_selected_hints = [x for (y, x) in sorted(zip(selected_scores, selected_hints), key=lambda pair:-1 * pair[0])]
-        sorted_selected_hints = [x for x in sorted_selected_hints if x not in used_hints]
-        sorted_selected_hints = list(OrderedDict.fromkeys(sorted_selected_hints))
-        unused_hints = self.chain.num_hints - len(sorted_selected_hints)
-        if unused_hints > 0 and next.next is not None:
-            sorted_selected_hints += self.get_sorted_selected_hints(next.next, unused_hints, is_not_hint, must_be_structural, sorted_selected_hints)
-        return list(OrderedDict.fromkeys(sorted_selected_hints[:num_hints]))
+        sorted_hints = [x for (_, x) in sorted(zip(selected_scores, selected_hints), key=lambda pair:-1 * pair[0])]
+        sorted_hints = [x for x in sorted_hints if x not in used_hints]
+        sorted_hints = list(OrderedDict.fromkeys(sorted_hints))
+        locations = [next_link.index for _ in sorted_hints]
+        unused_hints = self.chain.num_hints - len(sorted_hints)
+        if unused_hints > 0 and next_link.next is not None:
+            additional_sorted_hints, additional_locations = self.get_sorted_hints(next_link.next, unused_hints, is_not_hint, must_be_structural, sorted_hints)
+            sorted_hints += additional_sorted_hints
+            locations += additional_locations
+        return remove_duplicates(sorted_hints[:num_hints], locations)
 
     def generate_hint(self, is_not_hint):
         '''
         Return a list of hints about how to improve to get to the next chain link.
         Also return the line numbers that each hint is referencing.
+        Also return which chain link the hints correspond to.
         is_not_hint is a boolean that says whether this is a negative hint, i.e.
         a hint that suggests "Don't do this.", instead of "You should do this."
         '''
         
-        sorted_selected_hints = self.get_sorted_selected_hints(self.next, self.chain.num_hints, is_not_hint, True, [])
+        sorted_selected_hints, locations = self.get_sorted_hints(self.next, self.chain.num_hints, is_not_hint, True, [])
         unused_hints = self.chain.num_hints - len(sorted_selected_hints)
         if unused_hints > 0:
-            sorted_selected_hints += self.get_sorted_selected_hints(self.next, unused_hints, is_not_hint, False, sorted_selected_hints)
-            sorted_selected_hints = list(OrderedDict.fromkeys(sorted_selected_hints))
+            nonstructural_hints, nonstructural_locations = self.get_sorted_hints(self.next, unused_hints, is_not_hint, False, sorted_selected_hints)
+            sorted_selected_hints += nonstructural_hints
+            locations += nonstructural_locations
+            sorted_selected_hints, locations = remove_duplicates(sorted_selected_hints, locations)
         names = self.chain.feature_names[sorted_selected_hints]
         lines = []
         for name in names:
@@ -307,7 +315,7 @@ class ChainLink:
                     lines.append(self.chain.libcall_linenums[self.next.index][name])  # FIXME: this is now broken
                 except Exception:
                     lines.append([0])
-        return names, lines[:self.chain.num_hints]
+        return names, lines[:self.chain.num_hints], locations
     
     
 def interpret_list_of_hints(features, is_not_hint):
@@ -374,13 +382,31 @@ def interpret_list_of_hints(features, is_not_hint):
         all_advice += '...' + use_not + 'explicitly instantiating data structures.\n'
     return all_advice
 
+def remove_duplicates(l1, l2):
+    '''
+    Return l1 with all of its duplicate items remove.
+    Also return l2 with items removed from the same indices
+    '''
+    seen_items = set()
+    new_l1 = []
+    new_l2 = []
+    for (i, item) in enumerate(l1):
+        if not item in seen_items:
+            seen_items.add(item)
+            new_l1.append(item)
+            new_l2.append(l2[i])
+    return new_l1, new_l2
+
 def integer_val(x):
     '''
     Return the integer part of an alphanumeric string x
     '''
     return int(x.split("/")[-1].strip(".").strip("./"))
 
-def natural_sort(l): 
+def natural_sort(l):
+    '''
+    Sorts strings of numbers like numbers rather strings.
+    ''' 
     convert = lambda text: int(text) if text.isdigit() else text.lower() 
     alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ] 
     return sorted(l, key = alphanum_key)
@@ -455,7 +481,7 @@ def main():
     parser.add_argument('start_index', type=int, help='Index of the start submission in the index file')
     parser.add_argument('data_dir', nargs='?', default='data/', help='Location of directory that contains features, method source, and asts.')
     parser.add_argument('libcall_dict', nargs='?', default='util/lib_call_dict.pkl', help='Location of file that contains a mapping from lib calls to object types they produce')
-    parser.add_argument('libcall_linenums', nargs='?', default='featurization/libcalls_and_linenums.json', help='Location of file that contains line numbers associated with each library call')
+    parser.add_argument('libcall_linenums', nargs='?', default='libcalls_and_linenums.json', help='Location of file that contains line numbers associated with each library call')
 
     args = parser.parse_args()
     c = generate_chain(args.start_index, 0, 2, data_dir=args.data_dir, libcall_dict=args.libcall_dict, libcall_linenums=args.libcall_linenums)
@@ -467,12 +493,14 @@ def main():
         print cl.source_code
         if cl.next:
             print ''
-            pos_hints, pos_lines = cl.get_positive_hint()
-            neg_hints, neg_lines = cl.get_negative_hint()
+            pos_hints, pos_lines, pos_locations = cl.get_positive_hint()
+            neg_hints, neg_lines, neg_locations = cl.get_negative_hint()
             print interpret_list_of_hints(pos_hints, False)
             print pos_lines
+            print pos_locations
             print interpret_list_of_hints(neg_hints, True)
             print neg_lines
+            print neg_locations
         cl = cl.next
         i+=1
     
