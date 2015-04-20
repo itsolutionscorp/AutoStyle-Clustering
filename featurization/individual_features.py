@@ -42,7 +42,10 @@ def ast_from_sexp(s):
     Generate an ast from a simple s-expression string.
     The top node is assumed to be a function definition.
     '''
-    exp = sexpdata.loads(s)
+    try:
+        exp = sexpdata.loads(s)
+    except Exception:
+        print s
     root = Node('root')
     
     def recursive_ast_from_sexp(parent, sub_sexp):
@@ -134,7 +137,10 @@ def build_tree(node, ast_node, functions):
     n = [i for i in ast.iter_child_nodes(ast_node)]
     for i,kid in enumerate(n):
         label = get_node_label(kid)
-        line = kid.lineno()
+        if 'lineno' in kid._attributes:
+            line = kid.lineno
+        else:
+            line = 0
         if label == "FunctionDef":
             name = [r[1] for r in ast.iter_fields(kid) if r[0] == 'name'][0]
             label = "FunctionDef: " + name
@@ -142,7 +148,7 @@ def build_tree(node, ast_node, functions):
             label = [r[1] for r in ast.iter_fields(kid) if r[0] == 'attr' or r[0] == 'id'][0]
         if label in functions:
             label = functions[label]
-        kidNode = betterast.Node(label + LINE_DELIMITER + line)
+        kidNode = betterast.Node(label + LINE_DELIMITER + str(line))
         node.addkid(kidNode)
         build_tree(kidNode, kid, functions)
     return node
@@ -157,7 +163,10 @@ def generate_python_ast(filename):
         print "FAILED: " + filename + "  error: " + str(e)
         return
     ast_node = ast.fix_missing_locations(ast_node)
-    b_node = betterast.Node(get_node_label(ast_node) + LINE_DELIMITER + ast_node.lineno())
+    if 'lineno' in ast_node._attributes:
+        b_node = betterast.Node(get_node_label(ast_node) + LINE_DELIMITER + ast_node.lineno)
+    else:
+        b_node = betterast.Node(get_node_label(ast_node))
     tree = build_tree(b_node,ast_node,{})
     return tree
 
@@ -207,24 +216,31 @@ def terminal_output(*args):
     out, err = command.communicate()
     return out
 
+def get_label_and_line(node):
+    if LINE_DELIMITER in Node.get_label(node):
+        label, line = Node.get_label(node).split(LINE_DELIMITER)
+        return label, int(line)
+    else:
+        return (Node.get_label(node), 0)
+
 def treegram_string(node, depth):
     '''
     Returns a sexp string that is a treegram of the node down to
     the given depth.
     '''
     s = '('
-    label, line = Node.get_label(node).split(LINE_DELIMITER)
+    label, line = get_label_and_line(node)
     s += label
     if depth != 1:
         if not Node.get_children(node):
-            return None
+            return None, 0
         else:
             for child in Node.get_children(node):
-                t_string = treegram_string(child, depth - 1)
+                t_string, t_line = treegram_string(child, depth - 1)
                 if not t_string:
-                    return None
+                    return None, 0
                 else:
-                    s += ', ' + treegram_string(child, depth - 1)
+                    s += ', ' + treegram_string(child, depth - 1)[0]
     return s + ')', line
 
 def get_treegrams(ast, depth):
@@ -254,7 +270,7 @@ def count_libcalls(ast, function_name, index):
     stripped_calls = []
     for call in calls:
         stripped_calls.append(call.strip('()'))
-    return stripped_calls, lines
+    return (stripped_calls, lines)
 
 def has_sequential(ast, node_types):
     '''
@@ -266,8 +282,8 @@ def has_sequential(ast, node_types):
     while stack:
         current = stack.pop()
         children = Node.get_children(current)
-        children_types = [Node.get_label(child).split(LINE_DELIMITER)[0] for child in children]
-        children_lines = [Node.get_label(child).split(LINE_DELIMITER)[1] for child in children]
+        children_types = [get_label_and_line(child)[0] for child in children]
+        children_lines = [get_label_and_line(child)[1] for child in children]
         for node_type in node_types:
             if children_types.count(node_type) > 1:
                 return True, children_lines[children_types.index(node_type)]
@@ -280,7 +296,7 @@ def has_nested(ast, node_type):
     node_type anywhere in the ast.
     '''
     children = Node.get_children(ast)
-    label, line = Node.get_label(ast).split(LINE_DELIMITER)
+    label, line = get_label_and_line(ast)
     if label in node_type:
         for child in children:
             if has_node(child, node_type):
@@ -301,7 +317,7 @@ def has_node(ast, node_type):
     stack.append(ast)
     while stack:
         current = stack.pop()
-        label, line = Node.get_label(current).split(LINE_DELIMITER)
+        label, line = get_label_and_line(current)
         if label in node_type:
             return True, line
         children = Node.get_children(current)
@@ -355,7 +371,7 @@ def uses_recursion(ast, function_name):
     stack.append(ast)
     while stack:
         current = stack.pop()
-        label, line = Node.get_label(current).split(LINE_DELIMITER)
+        label, line = get_label_and_line(current)
         if label == function_name:
             return True, line
         stack += Node.get_children(current)[::-1]
@@ -377,7 +393,7 @@ def contains_duplicate_treegrams(treegrams, lines):
     Also return the line number associated with the duplicates.
     '''
     seen_treegrams = {}
-    for treegram, line in (treegrams, lines):
+    for treegram, line in zip(treegrams, lines):
         if treegram in seen_treegrams:
             return True, seen_treegrams[treegram]
         else:
@@ -419,8 +435,8 @@ def libcalls(ast, language, function_name, index, class_name):
     n = len(all_libcalls)
     feature_vector = np.zeros((n, 1))
     feature_lines = np.zeros((n, 1))
-    libcall_names = count_libcalls(ast, function_name, index)
-    for libcall, line in libcall_names:
+    libcall_names, libcall_lines = count_libcalls(ast, function_name, index)
+    for libcall, line in zip(libcall_names, libcall_lines):
         if libcall.strip() in all_libcalls:
             i = all_libcalls.index(libcall)
             feature_vector[i, 0] = 1

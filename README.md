@@ -18,9 +18,7 @@
     python batch_features.py [function name] [language] [data_dir] [data_dir]/feature/style_scores.np [flog or abc]
 
 6. 
-    python batch_features.py [function name] [language] [data_dir] [data_dir]/feature/style_features.np [data_dir]/feature/feature_line_nums.np [list of all features you want]
-
-7. For ruby assignments, use featurization/libcalls_and_linenums.rb to generate a mapping of library calls to line numbers. 
+    python batch_features.py [function name] [language] [data_dir] [data_dir]/feature/style_features.np -l [data_dir]/feature/feature_line_nums.np [list of all features you want, choices include libcall, control_flow, recursion, duplicate_treegram]
 
 7. Run the web ui!
 
@@ -39,4 +37,5 @@ Ultimately, the required directory structure is:
             style_scores_names.np
             style_features.np
             style_features_names.np
+            feature_line_nums.np
             libcalls_and_linenums.json
