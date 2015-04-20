@@ -1,12 +1,40 @@
 public int multiply(int x,int y){
-  int product=0;
-  while (y != 0) {
-    if ((y & 1) != 0) {
-      product=product + x;
-    }
-    x<<=1;
-    y>>=1;
+  int sum=0;
+  int big=0;
+  int small=0;
+  int smallCopy=0;
+  int twoPower=1;
+  int counter=0;
+  int addTimes=0;
+  if ((x < 0) && (y < 0)) {
+    x=Math.abs(x);
+    y=Math.abs(y);
   }
-  return product;
+  if (x > y) {
+    big=x;
+    small=y;
+    smallCopy=y;
+  }
+ else {
+    big=y;
+    small=x;
+    smallCopy=x;
+  }
+  while (twoPower <= big) {
+    small=small << 1;
+    twoPower=twoPower << 1;
+    addTimes=(twoPower >>> 1) ^ big;
+    sum=small >>> 1;
+  }
+  while (counter < addTimes) {
+    sum=add(sum,smallCopy);
+    counter+=1;
+  }
+  if (((x < 0) && (y > 0)) || ((x > 0) && (y < 0))) {
+    return add(~add(sum ^ (Integer.MAX_VALUE),1),1);
+  }
+ else {
+    return sum;
+  }
 }
 

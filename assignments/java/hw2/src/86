@@ -1,15 +1,25 @@
 public int multiply(int x,int y){
-  int xtemp=x;
-  for (int i=1; i < Math.abs(y); i++) {
-    x=add(xtemp,x);
+  int ans=0;
+  if (y > 0) {
+    while (y != 0) {
+      ans=add(ans,x);
+      y=add(y,-1);
+    }
+    return ans;
   }
-  if (y == 0) {
-    return 0;
+ else   if ((y < 0) && (x < 0)) {
+    while (y != 0) {
+      ans=add(ans,x);
+      y=add(y,1);
+    }
+    return -ans;
   }
-  if ((y >>> 31) == 1) {
-    x=~x;
-    x=add(x,1);
+ else {
+    while (y != 0) {
+      ans=add(ans,x);
+      y=add(y,1);
+    }
+    return ans;
   }
-  return x;
 }
 

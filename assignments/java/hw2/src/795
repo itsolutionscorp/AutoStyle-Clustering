@@ -1,18 +1,15 @@
 public int multiply(int x,int y){
   int a=x;
   int b=y;
-  int count=0;
-  if (b < 0) {
-    a=y;
-    b=x;
-  }
+  int result=0;
   while (b != 0) {
-    if ((b & 1) != 0) {
-      count+=a;
+    int c=b & 1;
+    if (c == 1) {
+      result=add(result,a);
     }
-    a<<=1;
-    b>>=1;
+    a=a << 1;
+    b=b >>> 1;
   }
-  return count;
+  return result;
 }
 

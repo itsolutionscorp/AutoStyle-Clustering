@@ -1,21 +1,12 @@
 public int multiply(int x,int y){
-  int sum=0;
-  int and=0;
-  int checker=1;
-  int adder=x;
-  int condition=y;
-  while (condition != 0) {
-    and=checker & y;
-    if (and != 0) {
-      for (int i=1; i != and; i=i << 1) {
-        adder=adder << 1;
-      }
-      sum=add(sum,adder);
+  int ans=0;
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      ans=this.add(ans,x);
     }
-    adder=x;
-    checker=checker << 1;
-    condition=condition >>> 1;
+    x=x << 1;
+    y=y >>> 1;
   }
-  return sum;
+  return ans;
 }
 

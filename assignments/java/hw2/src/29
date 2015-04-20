@@ -1,4 +1,12 @@
 public int multiply(int x,int y){
-  return multiplyHelper(x,y,0);
+  int result=0;
+  int tempY=y;
+  for (int i=0; i < 32; i++) {
+    if ((tempY & 01) == 1) {
+      result=add(result,x << i);
+    }
+    tempY=tempY >> 1;
+  }
+  return result;
 }
 

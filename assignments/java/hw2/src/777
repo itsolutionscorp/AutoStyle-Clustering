@@ -1,0 +1,10 @@
+public int multiply(int x,int y){
+  int newnumber=0;
+  for (int n=0; n < 32; n++) {
+    if (getBit(x,n) == 1) {
+      newnumber=(add((y << n),newnumber));
+    }
+  }
+  return newnumber;
+}
+

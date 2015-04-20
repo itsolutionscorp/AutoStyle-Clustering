@@ -1,0 +1,19 @@
+public int multiply(int x,int y){
+  int product=0;
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+ else   if (x < 0 && y < 0) {
+    x=add((~x),1);
+    y=add((~y),1);
+    product=helper(x,y);
+  }
+ else   if (y < 0) {
+    product=helper(y,x);
+  }
+ else {
+    product=helper(x,y);
+  }
+  return product;
+}
+

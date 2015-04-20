@@ -1,16 +1,12 @@
 public int multiply(int x,int y){
-  int var=1;
-  int n=0;
-  while (y > var) {
-    var=var << 1;
-    n=add(n,1);
+  if (y == 0) {
+    return 0;
   }
-  int difference=add(var,-y);
-  int product=x << n;
-  while (difference > 0) {
-    product=add(product,-x);
-    difference=add(difference,-1);
+ else   if ((y & 1) == 0) {
+    return multiply(x << 1,y >>> 1);
   }
-  return product;
+ else {
+    return add(x,multiply(x << 1,y >>> 1));
+  }
 }
 

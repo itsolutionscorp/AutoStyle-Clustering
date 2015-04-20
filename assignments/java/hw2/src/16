@@ -1,16 +1,28 @@
 public int multiply(int x,int y){
-  int result=0;
-  if (x > y) {
-    int temp=x;
-    x=y;
-    y=temp;
+  int twofactor=1;
+  int result;
+  if (x == 0 || y == 0) {
+    return 0;
   }
-  while (x != 0) {
-    if ((1 & x) == 1) {
-      result=add(result,y);
-    }
-    x=x >>> 1;
-    y=y << 1;
+  if (x == 1) {
+    return y;
+  }
+  if (y == 1) {
+    return x;
+  }
+  if (y < 0) {
+    y=add(0,-y);
+    x=add(0,-x);
+  }
+  result=x;
+  while ((twofactor << 1) < y) {
+    result=result << 1;
+    twofactor=twofactor << 1;
+  }
+  y=add(y,-twofactor);
+  while (y > 0) {
+    result=add(result,x);
+    y=add(y,-1);
   }
   return result;
 }

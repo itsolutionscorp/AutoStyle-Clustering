@@ -1,29 +1,14 @@
 public int multiply(int x,int y){
-  int a=x;
-  if (x < 0) {
-    a=-x;
-  }
-  int b=y;
+  int total=0;
   if (y < 0) {
-    b=-y;
-  }
-  int z=0;
-  while (b != 0) {
-    if ((b & 01) != 0) {
-      z=add(z,a);
+    y=add(~y,1);
+    if (x < 0) {
+      x=add(~x,1);
     }
-    a=a << 1;
-    b=b >> 1;
   }
-  if ((x < 0) && (y < 0)) {
-    return z;
+  for (int i=0; i < y; i++) {
+    total=add(total,x);
   }
-  if ((x < 0) && (y > 0)) {
-    return -z;
-  }
-  if ((x > 0) && (y < 0)) {
-    return -z;
-  }
-  return z;
+  return total;
 }
 

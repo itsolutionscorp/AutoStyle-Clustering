@@ -1,17 +1,12 @@
 public int multiply(int x,int y){
-  if (x < y && x >= 0) {
-    return multiply(y,x);
+  int result=0;
+  while (x != 0) {
+    if ((x & 1) == 1) {
+      result=add(y,result);
+    }
+    x=x >>> 1;
+    y=y << 1;
   }
-  if (y == 0) {
-    return 0;
-  }
-  if (y == 1) {
-    return x;
-  }
-  if (y == -1) {
-    return -x;
-  }
-  int tmp=multiply(x,y >> 1);
-  return add(add(tmp,tmp),multiply(x,y & 1));
+  return result;
 }
 

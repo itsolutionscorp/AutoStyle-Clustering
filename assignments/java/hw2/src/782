@@ -1,14 +1,11 @@
 public int multiply(int x,int y){
-  int sum=0;
-  int iter=0;
-  while (y != 0) {
-    int bit=getBit(y);
-    if (bit == 1) {
-      sum=add(sum,x << iter);
-    }
-    y=y >>> 1;
-    iter++;
+  int count=0;
+  int z=x;
+  while (count < y) {
+    count+=1;
+    x=add(x,z);
   }
-  return sum;
+  Calculator.saveEquation('x' + '*' + 'y',x);
+  return x;
 }
 

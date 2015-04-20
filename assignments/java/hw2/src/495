@@ -1,19 +1,12 @@
 public int multiply(int x,int y){
-  int copyX=x;
-  int countX=0;
-  int result=0;
-  int countY=31;
-  while (countX < 32) {
-    if (getLastByte(y,countY) == 1) {
-      result=add(result,(copyX << countX));
-      countY=add(countY,-1);
-      countX=add(countX,1);
+  int product=0;
+  while (y != 0) {
+    if ((y & 01) != 0) {
+      product=add(product,x);
     }
- else {
-      countX=add(countX,1);
-      countY=add(countY,-1);
-    }
+    x<<=1;
+    y>>=1;
   }
-  return result;
+  return product;
 }
 

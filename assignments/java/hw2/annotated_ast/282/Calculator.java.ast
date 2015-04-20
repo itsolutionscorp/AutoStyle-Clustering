@@ -1,0 +1,1 @@
+( multiply ( iter:5 ( <:5 )( add:6 ( multiplyPowersTwo:6 ( <<:6 ( gitBit:6 ))))( add:7 )))

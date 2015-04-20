@@ -22,7 +22,6 @@ sys.path.insert(0, os.path.abspath('../syntax_tree'))
 sys.path.insert(0, os.path.abspath('syntax_tree'))
 from tree import control_flow_and_library_tree, cfl_tree_from_string, printTree, Node
 
-
 def natural_sort(l): 
     '''
     Sorts numbered filenames by their integer value 
@@ -33,6 +32,7 @@ def natural_sort(l):
     return sorted(l, key = alphanum_key)
 
 DUPLICATE_DEPTH = 4
+LINE_DELIMITER = ':'
 HOME_DIR = './data/'
 ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
 SOURCE_FILES = natural_sort(glob.glob(HOME_DIR + 'src/*'))
@@ -84,7 +84,7 @@ def abc_score(ast):
             cond+=1
         stack += Node.get_children(current)[::-1]
     score = round(math.sqrt(branch ** 2 + assign ** 2 + cond ** 2 + .4 * (calls ** 2) + cpts ** 2), 2)
-    return [score, ]
+    return [score, ], [0, ]
 
 def loops_and_recursion(tree):
     '''
@@ -134,6 +134,7 @@ def build_tree(node, ast_node, functions):
     n = [i for i in ast.iter_child_nodes(ast_node)]
     for i,kid in enumerate(n):
         label = get_node_label(kid)
+        line = kid.lineno()
         if label == "FunctionDef":
             name = [r[1] for r in ast.iter_fields(kid) if r[0] == 'name'][0]
             label = "FunctionDef: " + name
@@ -141,7 +142,7 @@ def build_tree(node, ast_node, functions):
             label = [r[1] for r in ast.iter_fields(kid) if r[0] == 'attr' or r[0] == 'id'][0]
         if label in functions:
             label = functions[label]
-        kidNode = betterast.Node(label)
+        kidNode = betterast.Node(label + LINE_DELIMITER + line)
         node.addkid(kidNode)
         build_tree(kidNode, kid, functions)
     return node
@@ -156,7 +157,7 @@ def generate_python_ast(filename):
         print "FAILED: " + filename + "  error: " + str(e)
         return
     ast_node = ast.fix_missing_locations(ast_node)
-    b_node = betterast.Node(get_node_label(ast_node))
+    b_node = betterast.Node(get_node_label(ast_node) + LINE_DELIMITER + ast_node.lineno())
     tree = build_tree(b_node,ast_node,{})
     return tree
 
@@ -168,8 +169,8 @@ def generate_java_ast(filename, function_name, class_name):
     # TODO: return to a form where you don't need the .ast files, or not
     current_dir = os.getcwd()
     # cp = "./:" + current_dir + "/scripts_java/lib/*:" + current_dir + "/scripts_java/JavaAST"
-    # ast_string = terminal_ouput("java", "-cp", cp, "ASTBuilder", filename + "/" + class_name + ".java", function_name)
-    filename = filename.replace("/src/", "/ast/")
+    # ast_string = terminal_ouput("java", "-cp", cp, "ASTBuilder", filename + "/" + class_name + ".java", function_name, "-l")
+    filename = filename.replace("/src/", "/annotated_ast/")
     filepath = current_dir + "/" + filename + "/" + class_name + ".java.ast" 
     if os.path.exists(filepath):
         with open(filepath) as a:
@@ -209,7 +210,8 @@ def treegram_string(node, depth):
     the given depth.
     '''
     s = '('
-    s += Node.get_label(node)
+    label, line = Node.get_label(node).split(LINE_DELIMITER)
+    s += label
     if depth != 1:
         if not Node.get_children(node):
             return None
@@ -220,34 +222,36 @@ def treegram_string(node, depth):
                     return None
                 else:
                     s += ', ' + treegram_string(child, depth - 1)
-    return s + ')'
+    return s + ')', line
 
 def get_treegrams(ast, depth):
     '''
-    Returns a list of all treegrams
-    of the ast of size depth.
+    Returns a list of all treegrams of the ast of size depth.
+    Also return the line numbers that the treegrams start on.
     '''
     treegrams = []
+    lines = []
     stack = []
     stack.append(ast)
     while stack:
         current = stack.pop()
-        t_string = treegram_string(current, depth)
+        t_string, t_line = treegram_string(current, depth)
         if t_string:
             treegrams.append(t_string)
+            lines.append(t_line)
         stack += Node.get_children(current)[::-1]
-    return treegrams
+    return treegrams, lines
 
 def count_libcalls(ast, function_name, index):
     '''
     Returns a list of library calls in this submission.
     '''
     
-    calls = get_treegrams(ast, 1)
+    calls, lines = get_treegrams(ast, 1)
     stripped_calls = []
     for call in calls:
         stripped_calls.append(call.strip('()'))
-    return stripped_calls
+    return stripped_calls, lines
 
 def has_sequential(ast, node_types):
     '''
@@ -259,12 +263,13 @@ def has_sequential(ast, node_types):
     while stack:
         current = stack.pop()
         children = Node.get_children(current)
-        children_types = [Node.get_label(child) for child in children]
+        children_types = [Node.get_label(child).split(LINE_DELIMITER)[0] for child in children]
+        children_lines = [Node.get_label(child).split(LINE_DELIMITER)[1] for child in children]
         for node_type in node_types:
             if children_types.count(node_type) > 1:
-                return True
+                return True, children_lines[children_types.index(node_type)]
         stack += children
-    return False
+    return False, 0
 
 def has_nested(ast, node_type):
     '''
@@ -272,15 +277,17 @@ def has_nested(ast, node_type):
     node_type anywhere in the ast.
     '''
     children = Node.get_children(ast)
-    if Node.get_label(ast) in node_type:
+    label, line = Node.get_label(ast).split(LINE_DELIMITER)
+    if label in node_type:
         for child in children:
             if has_node(child, node_type):
-                return True
+                return True, line
     else:
         for child in children:
-            if has_nested(child, node_type):
-                return True
-    return False
+            has, line = has_nested(child, node_type)
+            if has:
+                return True, line
+    return False, 0
 
 def has_node(ast, node_type):
     '''
@@ -291,11 +298,12 @@ def has_node(ast, node_type):
     stack.append(ast)
     while stack:
         current = stack.pop()
-        if Node.get_label(current) in node_type:
-            return True
+        label, line = Node.get_label(current).split(LINE_DELIMITER)
+        if label in node_type:
+            return True, line
         children = Node.get_children(current)
         stack += children
-    return False
+    return False, 0
 
 def control_flow(ast):
     '''
@@ -308,55 +316,83 @@ def control_flow(ast):
     * has sequential iterations
     '''
     feature_vector = [0, 0, 0, 0, 0, 0]
-    if has_node(ast, ['cond', 'If']):
+    lines = [0, 0, 0, 0, 0, 0]
+    
+    has, line = has_node(ast, ['cond', 'If'])
+    if has:
         feature_vector[0] = 1
-    if has_nested(ast, ['cond', 'If']):
+        lines[0] = line
+    has, line = has_nested(ast, ['cond', 'If'])
+    if has:
         feature_vector[1] = 1
-    if has_sequential(ast, ['cond', 'If']):
+        lines[1] = line
+    has, line = has_sequential(ast, ['cond', 'If'])
+    if has:
         feature_vector[2] = 1
-    if has_node(ast, ['iter', 'For', 'While']):
+        lines[2] = line
+    has, line = has_node(ast, ['iter', 'For', 'While'])
+    if has:
         feature_vector[3] = 1
-    if has_nested(ast, ['iter', 'For', 'While']):
+        lines[3] = line
+    has, line = has_nested(ast, ['iter', 'For', 'While'])
+    if has:
         feature_vector[4] = 1
-    if has_sequential(ast, ['iter', 'For', 'While']):
+        lines[4] = line
+    has, line = has_sequential(ast, ['iter', 'For', 'While'])
+    if has:
         feature_vector[5] = 1
-    return feature_vector
+        lines[5] = line
+    return feature_vector, lines
 
 def uses_recursion(ast, function_name):
+    '''
+    Return true if the ast contains a node with the given function name.
+    '''
     stack = []
     stack.append(ast)
     while stack:
         current = stack.pop()
-        if Node.get_label(current) == function_name:
-            return True
+        label, line = Node.get_label(current).split(LINE_DELIMITER)
+        if label == function_name:
+            return True, line
         stack += Node.get_children(current)[::-1]
-    return False
+    return False, 0
 
 def recursion(ast, function_name):
     '''Return whether submission index contains any calls to
     function_name (indicating recursion).
     '''
-    if uses_recursion(ast, function_name):
-        return [1, ]
+    uses, line = uses_recursion(ast, function_name)
+    if uses:
+        return [1, ], [line, ]
     else:
-        return [0, ]
+        return [0, ], [0, ]
 
-def contains_duplicates(l):
+def contains_duplicate_treegrams(treegrams, lines):
     '''
     Return whether the list contains duplicates.
+    Also return the line number associated with the duplicates.
     '''
-    return len(l) != len(set(l))
+    seen_treegrams = {}
+    for treegram, line in (treegrams, lines):
+        if treegram in seen_treegrams:
+            return True, seen_treegrams[treegram]
+        else:
+            seen_treegrams[treegram] = line
+    return False, 0
 
 def duplicate_treegrams(ast):
     '''
     Returns a list of length 1 indicating if submission
     index contains any duplicate treegrams of depth 3.
     '''
-    treegrams = get_treegrams(ast, DUPLICATE_DEPTH)
-    if contains_duplicates(treegrams):
-        return [1, ]
+    # TODO: have this return lines
+    treegrams, lines = get_treegrams(ast, DUPLICATE_DEPTH)
+    contains, line = contains_duplicate_treegrams(treegrams, lines)
+    if contains:
+        return [1, ], [line, ]
     else:
-        return [0, ]
+        return [0, ], [0, ]
 
 def flog_score(index):
     '''
@@ -365,7 +401,7 @@ def flog_score(index):
     '''
     flog_output = terminal_ouput('flog', '-am', SOURCE_FILES[index])
     flog_score = flog_output[:flog_output.index(':')]
-    return [float(flog_score), ]
+    return [float(flog_score), ], [0, ]
 
 def libcalls(ast, language, function_name, index, class_name):
     '''
@@ -379,12 +415,14 @@ def libcalls(ast, language, function_name, index, class_name):
             all_libcalls.append(line.strip())
     n = len(all_libcalls)
     feature_vector = np.zeros((n, 1))
+    feature_lines = np.zeros((n, 1))
     libcall_names = count_libcalls(ast, function_name, index)
-    for libcall in libcall_names:
+    for libcall, line in libcall_names:
         if libcall.strip() in all_libcalls:
             i = all_libcalls.index(libcall)
             feature_vector[i, 0] = 1
-    return feature_vector.flatten().tolist()
+            feature_lines[i, 0] = line
+    return feature_vector.flatten().tolist(), feature_lines.flatten().tolist()
 
 def append_at_index(all_features, feature_vector, index):
     '''
@@ -395,6 +433,29 @@ def append_at_index(all_features, feature_vector, index):
         all_features = np.append(all_features, np.zeros((1, all_features.shape[1])), 0)
     all_features[index, :] = feature_vector.T
     return all_features
+
+def list_to_2d_np(l):
+    '''
+    Return an nx1 numpy array of the items in the list l.
+    '''
+    return np.reshape(np.array(l), (len(l), 1))
+
+def save_matrix(feature_vector, output_feature_file, submission_index):
+    '''
+    Save the numpy array feature_vector into the matrix stored in output_feature_file,
+    or create that file if it doesn't exist.
+    It will appear at row submission_index of the matrix.
+    '''
+    if not os.path.exists(output_feature_file):
+        all_features = feature_vector.T
+    else:
+        all_features = np.loadtxt(output_feature_file)
+        if len(all_features.shape) == 0:
+            all_features = np.reshape(all_features, (1, 1))
+        if len(all_features.shape) == 1:
+            all_features = np.reshape(all_features, (1, all_features.shape[0]))
+        all_features = append_at_index(all_features, feature_vector, submission_index)
+    np.savetxt(output_feature_file, all_features)
         
 
 def handle_feature(language, function_name, index, feature, class_name):
@@ -433,10 +494,12 @@ def generate_individual_features(language, function_name, index, features, home_
     SOURCE_FILES = natural_sort(glob.glob(HOME_DIR + 'src/*'))
     
     feature_vector = []
+    feature_lines = []
     for feature in features:
-        feature_values = handle_feature(language, function_name, index, feature, class_name)
+        feature_values, feature_values_lines = handle_feature(language, function_name, index, feature, class_name)
         feature_vector += feature_values
-    return np.reshape(np.array(feature_vector), (len(feature_vector), 1))
+        feature_lines += feature_values_lines
+    return list_to_2d_np(feature_vector), list_to_2d_np(feature_lines)
 
 def main():
     '''
@@ -447,8 +510,9 @@ def main():
     parser.add_argument('function_name', help='Name of the function to compute features about.')
     parser.add_argument('submission_index', type=int, help='Index of the submission.')
     parser.add_argument('language', help='ruby or python')
-    parser.add_argument('output_file', help='File to append the generated horizontal feature vector to.')
+    parser.add_argument('output_feature_file', help='File to append the generated horizontal feature vector to.')
     parser.add_argument('home_directory', help = 'Path to data directory')
+    parser.add_argument('output_line_file', nargs='?', help='File to append the generated horizontal feature line vector to.')
     parser.add_argument('-c', '--class_name', help='Class name (required for java)')
     parser.add_argument('features', nargs='+', help='Names of features to generate.')
 
@@ -459,23 +523,17 @@ def main():
     language = args.language
     home_dir = args.home_directory
     class_name = args.class_name
-    output_file = args.output_file
+    output_feature_file = args.output_feature_file
+    output_line_file = args.output_line_file
 
     try:
-        feature_vector = generate_individual_features(language, function_name, submission_index, features, home_dir, class_name)
+        feature_vector, feature_lines = generate_individual_features(language, function_name, submission_index, features, home_dir, class_name)
     except Exception:
         return
     
-    if not os.path.exists(output_file):
-        all_features = feature_vector.T
-    else:
-        all_features = np.loadtxt(output_file)
-        if len(all_features.shape) == 0:
-            all_features = np.reshape(all_features, (1, 1))
-        if len(all_features.shape) == 1:
-            all_features = np.reshape(all_features, (1, all_features.shape[0]))
-        all_features = append_at_index(all_features, feature_vector, submission_index)
-    np.savetxt(output_file, all_features)
+    save_matrix(feature_vector, output_feature_file)
+    if output_line_file:
+        save_matrix(feature_lines, output_line_file)
 
 if __name__ == '__main__':
     main()

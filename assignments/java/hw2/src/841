@@ -1,14 +1,12 @@
 public int multiply(int x,int y){
-  int a=x;
-  int b=y;
-  int mul=0;
-  while (b != 0) {
-    if ((b & 1) != 0) {
-      mul=mul + a;
+  int counter=0;
+  int sum=0;
+  while (counter < 32) {
+    if (getBitAt(y,counter) == 1) {
+      sum=add(sum,(x << counter));
     }
-    a<<=1;
-    b>>>=1;
+    counter+=1;
   }
-  return mul;
+  return sum;
 }
 

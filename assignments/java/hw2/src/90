@@ -2,9 +2,11 @@ public int multiply(int x,int y){
   if (y == 0) {
     return 0;
   }
-  if (y > 0) {
-    return add(x,multiply(x,y - 1));
+  if (y < 0) {
+    return multiply(add(~x,1),add(~y,1));
   }
-  return -1;
+ else {
+    return add(x,multiply(x,add(y,add(~1,1))));
+  }
 }
 

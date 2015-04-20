@@ -1,14 +1,10 @@
 public int multiply(int x,int y){
-  int and, returnVal;
-  returnVal=0;
-  while (x != 0) {
-    and=x & 1;
-    if (and != 0) {
-      returnVal=add(returnVal,y);
+  int product=0;
+  for (int pos=0; y != 0; ++pos, y>>>=1) {
+    if ((y & 1) != 0) {
+      product=add(product,x << pos);
     }
-    x>>>=1;
-    y<<=1;
   }
-  return returnVal;
+  return product;
 }
 

@@ -1,0 +1,25 @@
+public int multiply(int x,int y){
+  int sum=0, tempX, tempY, shift, sign=0;
+  if (x << 1 >>> 1 != x) {
+    x=add(~x,1);
+    sign=add(sign,1);
+  }
+  if (y << 1 >>> 1 != y) {
+    y=add(~y,1);
+    sign=add(sign,1);
+  }
+  while (y != 0) {
+    tempX=x;
+    tempY=y;
+    shift=0;
+    while (tempY != 1) {
+      tempY=tempY >> 1;
+      tempX=tempX << 1;
+      shift=add(shift,1);
+    }
+    sum=add(sum,tempX);
+    y=add(y,add(~(1 << shift),1));
+  }
+  return sign == 1 ? add(~sum,1) : sum;
+}
+

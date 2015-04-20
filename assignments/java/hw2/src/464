@@ -1,10 +1,13 @@
 public int multiply(int x,int y){
-  int neg1=add((~1),1);
-  if (y == 1) {
-    return x;
+  int product=0;
+  while (y != 0) {
+    int checkYDigit=y & 1;
+    if (checkYDigit != 0) {
+      product=add(product,x);
+    }
+    x=x << 1;
+    y=y >> 1;
   }
- else {
-    return add(x,multiply(x,add(y,neg1)));
-  }
+  return product;
 }
 

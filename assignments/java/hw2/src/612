@@ -1,12 +1,23 @@
 public int multiply(int x,int y){
-  int answer=0;
+  int product=0;
+  if (((x >>> 31) == 1) && ((y >>> 31) != 1)) {
+    return add(~multiply(add(~x,1),y),1);
+  }
+ else   if (((x >>> 31) != 1) && ((y >>> 31) == 1)) {
+    return add(~multiply(x,add(~y,1)),1);
+  }
   while (y != 0) {
+    if (((x >>> 31) == 1) && ((y >>> 31) == 1)) {
+      x=add(~x,1);
+      y=add(~y,1);
+      return multiply(x,y);
+    }
     if ((y & 1) != 0) {
-      answer=add(answer,x);
+      product=add(product,x);
     }
     x=x << 1;
-    y=y >>> 1;
+    y=y >> 1;
   }
-  return answer;
+  return product;
 }
 

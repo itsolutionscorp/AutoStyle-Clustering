@@ -1,60 +1,24 @@
 public int multiply(int x,int y){
-  int biggerInt=0, smallerInt=0;
-  boolean odd=false;
-  if (x == 0 || y == 0)   return 0;
-  if (x == 1) {
-    return y;
+  boolean isNegative=(x < 0 && y > 0) || (x > 0 && y < 0);
+  int result=0;
+  if (x < 0) {
+    x=add(~x,1);
   }
- else   if (y == 1) {
-    return x;
+  if (y < 0) {
+    y=add(~y,1);
   }
- else   if (x > 0 && y > 0) {
-    if (x > y) {
-      biggerInt=x;
-      smallerInt=y;
+  while (x != 0) {
+    if ((x & 1) != 0) {
+      result=add(result,y);
     }
- else {
-      biggerInt=y;
-      smallerInt=x;
-    }
-    return multiplyHelper(biggerInt,smallerInt,biggerInt,odd);
+    x=x >> 1;
+    y=y << 1;
   }
- else   if (x < 0 && y < 0) {
-    x=~add(x,-1);
-    y=~add(y,-1);
-    if (x > y) {
-      biggerInt=x;
-      smallerInt=y;
-    }
- else {
-      biggerInt=y;
-      smallerInt=x;
-    }
-    return multiplyHelper(biggerInt,smallerInt,biggerInt,odd);
-  }
- else   if (x < 0) {
-    x=~add(x,-1);
-    if (x > y) {
-      biggerInt=x;
-      smallerInt=y;
-    }
- else {
-      biggerInt=y;
-      smallerInt=x;
-    }
-    return add(~multiplyHelper(biggerInt,smallerInt,biggerInt,odd),1);
+  if (isNegative) {
+    return add(~result,1);
   }
  else {
-    y=~add(y,-1);
-    if (x > y) {
-      biggerInt=x;
-      smallerInt=y;
-    }
- else {
-      biggerInt=y;
-      smallerInt=x;
-    }
-    return add(~multiplyHelper(biggerInt,smallerInt,biggerInt,odd),1);
+    return result;
   }
 }
 

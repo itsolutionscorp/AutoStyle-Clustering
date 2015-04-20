@@ -1,21 +1,27 @@
 public int multiply(int x,int y){
-  if ((y < 0) && (x < 0)) {
-    x=~x;
-    x=add(x,1);
-    y=~y;
-    y=add(y,1);
-    return multiply(x,y);
+  Boolean negative=false;
+  if (x < 0) {
+    x=add(~x,1);
+    negative=true;
   }
- else   if (y < 0) {
-    return multiply(y,x);
+  if (y < 0) {
+    y=add(~y,1);
+    negative=!negative;
   }
- else {
-    int total=0;
-    while (y != 0) {
-      total=add(x,total);
-      y=add(y,-1);
+  int sum=0;
+  int counter=0;
+  while (counter < 32) {
+    int oneOrZero=y & 1;
+    if (oneOrZero == 1) {
+      int temp=x << counter;
+      sum=add(sum,temp);
     }
-    return total;
+    y=y >>> 1;
+    counter+=1;
   }
+  if (negative) {
+    return add(~sum,1);
+  }
+  return sum;
 }
 

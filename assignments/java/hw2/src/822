@@ -1,14 +1,15 @@
 public int multiply(int x,int y){
-  int z=0;
+  if (y == 0) {
+    return 0;
+  }
   int total=0;
-  int a;
-  while (x != 0) {
-    a=x & 1;
-    if (a == 1) {
-      total=add(total,(y << z));
+  int counter=1;
+  while (y != 0) {
+    if ((y & 1) == 1) {
+      total=add(total,x << (add(counter,-1)));
     }
-    z=add(z,1);
-    x=x >>> 1;
+    y=y >>> 1;
+    counter=add(counter,1);
   }
   return total;
 }

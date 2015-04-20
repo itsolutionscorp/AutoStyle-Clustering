@@ -1,18 +1,15 @@
 public int multiply(int x,int y){
-  int soln=0, xt=x, yt=y;
-  if (yt < 0) {
-    yt=add(~yt,1);
+  if (x == 0 || y == 0) {
+    return 0;
   }
-  while ((yt != 0 && yt != -1)) {
-    if ((yt & 1) != 0) {
-      soln=add(soln,xt);
+  int total=0;
+  while (y != 0) {
+    if ((y & 1) == 1) {
+      total=add(total,x);
     }
-    xt=xt << 1;
-    yt=yt >> 1;
+    x=x << 1;
+    y=y >>> 1;
   }
-  if (y < 0) {
-    return add(~soln,1);
-  }
-  return soln;
+  return total;
 }
 

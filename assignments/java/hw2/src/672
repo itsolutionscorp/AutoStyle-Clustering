@@ -1,8 +1,16 @@
 public int multiply(int x,int y){
-  int z=x;
-  for (int i=1; i < y; i++) {
-    z=add(z,x);
+  boolean negate=false;
+  int i=0;
+  int product=0;
+  if (y < 0) {
+    negate=true;
+    y=add(~y,1);
   }
-  return z;
+  while (i < y) {
+    product=add(product,x);
+    i=i + 1;
+  }
+  if (x < 0 && negate)   return add(~product,1);
+  return product;
 }
 

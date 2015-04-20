@@ -1,6 +1,7 @@
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.BlockComment;
+import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.ConditionalExpression;
 import org.eclipse.jdt.core.dom.EnhancedForStatement;
 import org.eclipse.jdt.core.dom.ForStatement;
@@ -16,18 +17,26 @@ import org.eclipse.jdt.core.dom.WhileStatement;
 import org.eclipse.jdt.core.dom.LineComment;
 
 public class SimpleVisitor extends ASTVisitor {
+	private static final String LINE_DELIMITER = ":";
+	
 	private SimpleASTNode root;
 	private SimpleASTNode current;
 	private String methodOfInterest;
 	private ASTNode methodNode;
+	private CompilationUnit cu;
+	private boolean addLines;
 	private boolean inMethodOfInterest;
+	private int startLineOfMethod;
 	
-	public SimpleVisitor(String methodName){
+	public SimpleVisitor(CompilationUnit cu, String methodName, boolean shouldAddLines){
+		this.cu = cu;
 		root = null;
 		current = null;
 		methodOfInterest = methodName;
 		inMethodOfInterest = false;
 		methodNode = null;
+		addLines = shouldAddLines;
+		startLineOfMethod = 0;
 	}
 	
 	@Override
@@ -42,6 +51,7 @@ public class SimpleVisitor extends ASTVisitor {
 	public boolean visit(MethodDeclaration n){
 		if (n.getName().toString().equals(methodOfInterest)){
 			methodNode = n;
+			startLineOfMethod = getOriginalLineNumber(n.getBody()) - 1;
 			root = new SimpleASTNode(methodOfInterest);
 			current = root;
 			inMethodOfInterest = true;
@@ -58,7 +68,7 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public boolean visit(MethodInvocation n){
-		return visitItem(n.getName().toString());
+		return visitItem(n.getName().toString(), getLineNumberInMethod(n));
 	}
 	
 	@Override
@@ -79,7 +89,6 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public boolean visit(BlockComment n){
-		n.delete();
 		return true;
 	}
 	
@@ -91,13 +100,12 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public boolean visit(LineComment n){
-		n.delete();
 		return true;
 	}
 	
 	@Override
 	public boolean visit(ForStatement n){
-		return visitItem("iter");
+		return visitItem("iter", getLineNumberInMethod(n));
 	}
 	
 	@Override
@@ -107,7 +115,7 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public boolean visit(InfixExpression n){
-		return visitItem(n.getOperator().toString());
+		return visitItem(n.getOperator().toString(), getLineNumberInMethod(n));
 	}
 	
 	@Override
@@ -117,7 +125,7 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public boolean visit(PrefixExpression n){
-		return visitItem(n.getOperator().toString());
+		return visitItem(n.getOperator().toString(), getLineNumberInMethod(n));
 	}
 	
 	@Override
@@ -127,7 +135,7 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public boolean visit(PostfixExpression n){
-		return visitItem(n.getOperator().toString());
+		return visitItem(n.getOperator().toString(), getLineNumberInMethod(n));
 	}
 	
 	@Override
@@ -137,12 +145,12 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public boolean visit(EnhancedForStatement n){
-		return visitItem("iter");
+		return visitItem("iter", getLineNumberInMethod(n));
 	}
 	
 	@Override
 	public boolean visit(WhileStatement n){
-		return visitItem("iter");
+		return visitItem("iter", getLineNumberInMethod(n));
 	}
 	
 	@Override
@@ -157,7 +165,7 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public boolean visit(SwitchCase n){
-		return visitItem("cond");
+		return visitItem("cond", getLineNumberInMethod(n));
 	}
 	
 	@Override
@@ -167,12 +175,12 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public boolean visit(IfStatement n){
-		return visitItem("cond");
+		return visitItem("cond", getLineNumberInMethod(n));
 	}
 	
 	@Override
 	public boolean visit(ConditionalExpression n){
-		return visitItem("cond");
+		return visitItem("cond", getLineNumberInMethod(n));
 	}
 	
 	@Override
@@ -204,11 +212,16 @@ public class SimpleVisitor extends ASTVisitor {
 		}
 	}
 	
-	private boolean visitItem(String item){
+	private boolean visitItem(String item, int line){
 		if (!inMethodOfInterest){
 			return true;
 		} else if (current != null){
-			SimpleASTNode thisItem = new SimpleASTNode(item);
+			SimpleASTNode thisItem = null;
+			if (addLines){
+				thisItem = new SimpleASTNode(item + LINE_DELIMITER + line);
+			} else {
+				thisItem = new SimpleASTNode(item);				
+			}
 			current.addChild(thisItem);
 			thisItem.setParent(current);
 			current = thisItem;
@@ -216,5 +229,13 @@ public class SimpleVisitor extends ASTVisitor {
 		} else {
 			return true;
 		}
+	}
+	
+	private int getOriginalLineNumber(ASTNode n){
+		return cu.getLineNumber(n.getStartPosition()) - 1;
+	}
+	
+	private int getLineNumberInMethod(ASTNode n){
+		return getOriginalLineNumber(n) - startLineOfMethod;
 	}
 }

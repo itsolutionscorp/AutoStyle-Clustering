@@ -1,20 +1,18 @@
 public int multiply(int x,int y){
-  int a=x;
-  int b=y;
-  if ((a == 0) || (b == 0)) {
-    return 0;
+  int result=0;
+  if ((x & y) < 0) {
+    x=~x;
+    x=add(x,1);
+    y=~y;
+    y=add(y,1);
   }
- else   if (a == 1) {
-    return b;
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      result=add(result,x);
+    }
+    x=x << 1;
+    y=y >> 1;
   }
- else   if (b == 1) {
-    return a;
-  }
- else   if ((b & 1) == 0) {
-    return ((multiply(a,b >>> 1)) << 1);
-  }
- else {
-    return add(a,(multiply(a,b >>> 1) << 1));
-  }
+  return result;
 }
 

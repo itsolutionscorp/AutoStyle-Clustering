@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  int c=0;
+  if (x < y) {
+    int p=x;
+    x=y;
+    y=p;
+  }
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      c=c + x;
+    }
+    x<<=1;
+    y>>>=1;
+  }
+  return c;
+}
+

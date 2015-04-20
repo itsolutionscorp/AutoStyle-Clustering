@@ -1,23 +1,17 @@
 public int multiply(int x,int y){
-  int counter=0;
-  boolean negative=false;
-  while (y < 0) {
-    negative=true;
-    y=add(y,1);
-    counter=add(counter,1);
+  if (x > 0 && y < 0) {
+    int temp=x;
+    x=y;
+    y=temp;
   }
-  while (counter > 0) {
-    y=add(y,1);
-    counter=add(counter,-1);
+  if (x < 0 && y < 0) {
+    x=add(~x,1);
+    y=add(~y,1);
   }
-  int val=0;
-  while (y > 0) {
-    val=add(x,val);
-    y=add(y,-1);
+  int a=0;
+  for (int i=0; i < y; i++) {
+    a=add(x,a);
   }
-  if (negative) {
-    val=add(val ^ -1,1);
-  }
-  return val;
+  return a;
 }
 

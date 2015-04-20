@@ -1,12 +1,20 @@
 public int multiply(int x,int y){
+  int xNeg=add(~x,1);
+  int yNeg=add(~y,1);
   if (x == 0 || y == 0) {
     return 0;
   }
-  if ((y & 1) == 1) {
-    return add(x,multiply(x,y >>> 1) << 1);
+ else   if (x < 0 && y < 0) {
+    return helpMul(xNeg,yNeg);
+  }
+ else   if (x < 0 && y > 0) {
+    return add(~(helpMul(xNeg,y)),1);
+  }
+ else   if (x > 0 && y < 0) {
+    return add(~(helpMul(x,yNeg)),1);
   }
  else {
-    return multiply(x,y >>> 1) << 1;
+    return helpMul(x,y);
   }
 }
 

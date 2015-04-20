@@ -1,15 +1,25 @@
 public int multiply(int x,int y){
-  int a=x, b=y, c=0;
-  int inc=-1;
-  if (b < 0) {
-    inc=1;
-    a=-a;
+  if (x > 0 || y > 0) {
+    int counter;
+    int other;
+    if (x > 0) {
+      counter=x;
+      other=y;
+    }
+ else {
+      counter=y;
+      other=x;
+    }
+    int sum=0;
+    for (int index=0; index < counter; index++) {
+      sum=add(sum,other);
+    }
+    return sum;
   }
-  while (b != 0) {
-    c=add(c,a);
-    if (b > 0)     b=add(b,inc);
- else     b=add(b,inc);
+ else {
+    x=negate(x);
+    y=negate(y);
+    return multiply(x,y);
   }
-  return c;
 }
 

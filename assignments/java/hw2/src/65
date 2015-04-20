@@ -1,6 +1,11 @@
 public int multiply(int x,int y){
-  int sum=0;
-  for (int mask=1; mask != 0; mask<<=1, x<<=1)   if ((y & mask) != 0)   sum=this.add(sum,x);
-  return sum;
+  int result=0;
+  int powerOfTwo=0;
+  while (y != 0) {
+    if ((y & 1) != 0)     result=add(result,x << (powerOfTwo));
+    powerOfTwo=add(powerOfTwo,1);
+    y=y >>> 1;
+  }
+  return result;
 }
 

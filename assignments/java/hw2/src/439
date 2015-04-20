@@ -1,20 +1,11 @@
 public int multiply(int x,int y){
-  int z=0;
-  int yAbs=Math.abs(y);
-  if (y == 1) {
-    z=x;
+  int total=0;
+  while (y != 0) {
+    int lastY=y ^ (y >>> 1 << 1);
+    if (lastY == 1)     total=add(total,x);
+    y=y >>> 1;
+    x=x << 1;
   }
- else   if (y == 2) {
-    z=x << 1;
-  }
- else {
-    for (int i=yAbs; i >= 1; i=i - 1) {
-      z=add(z,x);
-    }
-  }
-  if (y < 0) {
-    z=-z;
-  }
-  return z;
+  return total;
 }
 

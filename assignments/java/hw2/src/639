@@ -1,14 +1,11 @@
 public int multiply(int x,int y){
-  int a=x;
-  int b=y;
-  int sum=0;
-  while (b != 0) {
-    if ((b & 1) != 0) {
-      sum=add(sum,a);
+  int product=0;
+  for (int pwr_of_twos=y; pwr_of_twos != 0; pwr_of_twos>>>=1) {
+    if ((pwr_of_twos & 1) != 0) {
+      product=add(product,x);
     }
-    a=a << 1;
-    b=b >>> 1;
+    x=x << 1;
   }
-  return sum;
+  return product;
 }
 

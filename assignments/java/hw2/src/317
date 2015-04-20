@@ -1,14 +1,12 @@
 public int multiply(int x,int y){
-  if (y < 0) {
-    if (x < 0) {
-      return opti_multiply(-x,-y);
+  int mult=0;
+  while (y != 0) {
+    if ((y & 1) > 0) {
+      mult=add(mult,x);
     }
- else {
-      return opti_multiply(y,x);
-    }
+    x<<=1;
+    y>>>=1;
   }
- else {
-    return opti_multiply(x,y);
-  }
+  return mult;
 }
 

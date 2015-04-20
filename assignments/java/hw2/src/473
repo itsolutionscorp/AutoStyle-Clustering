@@ -1,18 +1,12 @@
 public int multiply(int x,int y){
-  int counter=0;
-  int total=0;
-  int multiplier=x;
-  int multiplicand=y;
-  int lastBit=multiplier & 1;
-  while (counter <= 32) {
-    if (lastBit == 1) {
-      total=add(total,multiplicand);
+  int product=0;
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      product=add(product,x);
     }
-    counter=add(counter,1);
-    multiplicand=multiplicand << 1;
-    multiplier=(x >>> counter);
-    lastBit=multiplier & 1;
+    x=x << 1;
+    y=y >>> 1;
   }
-  return total;
+  return product;
 }
 

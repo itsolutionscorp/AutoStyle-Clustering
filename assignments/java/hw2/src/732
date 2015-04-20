@@ -1,21 +1,7 @@
 public int multiply(int x,int y){
-  if (y == 0) {
-    return 0;
-  }
- else   if (y < 0) {
-    if (x < 0) {
-      return multiply(-x,-y);
-    }
-    return multiply(y,x);
-  }
- else {
-    int counter=0;
-    int answer=0;
-    while (counter < y) {
-      answer=add(answer,x);
-      counter+=1;
-    }
-    return answer;
-  }
+  if (x == 0 || y == 0)   return 0;
+ else   if (y == 1)   return x;
+ else   if ((y & 1) == 0)   return multiply(x,y >>> 1) << 1;
+ else   return add(multiply(x,y >>> 1) << 1,x);
 }
 

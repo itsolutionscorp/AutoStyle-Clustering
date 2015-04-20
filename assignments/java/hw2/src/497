@@ -1,13 +1,25 @@
 public int multiply(int x,int y){
-  int result=0;
-  while (y != 0) {
-    int check=y & 1;
-    if (check == 1) {
-      result=add(result,x);
-    }
-    x=x << 1;
-    y=y >>> 1;
+  if (x == 0 || y == 0) {
+    return 0;
   }
-  return result;
+  if (x < 0 && y > 0) {
+    return multiply(y,x);
+  }
+  if (x < 0 && y < 0) {
+    return multiply(add(~x,1),add(~y,1));
+  }
+  int s=0;
+  int o=0;
+  while (s < 32) {
+    if ((x & 1) == 1) {
+      if (s == 0) {
+        o=y;
+      }
+      y=y << s;
+    }
+    x=x >> 1;
+    s=add(s,1);
+  }
+  return add(y,o);
 }
 

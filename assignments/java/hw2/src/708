@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  if (x < y && x >= 0) {
+    return multiply(y,x);
+  }
+  if (y == 0) {
+    return 0;
+  }
+  if (y == 1) {
+    return x;
+  }
+  if (y == -1) {
+    return -x;
+  }
+  int tmp=multiply(x,y >> 1);
+  return add(add(tmp,tmp),multiply(x,y & 1));
+}
+

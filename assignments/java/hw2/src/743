@@ -1,29 +1,12 @@
 public int multiply(int x,int y){
-  int original=x;
-  x=0;
-  System.out.println(original);
-  if (original == 0 || y == 0) {
-    return 0;
-  }
- else   if (y > 0) {
-    int i=0;
-    while (i < y) {
-      x=this.add(x,original);
-      i+=1;
+  int result=0;
+  while (x != 0) {
+    if ((1 & x) != 0) {
+      result=add(result,y);
     }
-    return x;
+    y=y << 1;
+    x=x >>> 1;
   }
- else {
-    y=~y;
-    y=this.add(y,1);
-    int i=0;
-    while (i < y) {
-      x=this.add(x,original);
-      i+=1;
-    }
-    x=~x;
-    x=this.add(x,1);
-    return x;
-  }
+  return result;
 }
 

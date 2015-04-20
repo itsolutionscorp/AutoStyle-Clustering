@@ -1,0 +1,1 @@
+( multiply ( cond:2 ( &&:2 ( >:2 )( >:2 ))( iter:5 ( <:5 )( add:6 )( +:7 ))( cond:11 ( &&:11 ( <:11 )( <:11 ))( negate:12 )( negate:13 )( multiply:14 )( cond:17 ( <:17 )( negate:18 )( negate:21 ))))( negate:23 ( multiply:23 )))

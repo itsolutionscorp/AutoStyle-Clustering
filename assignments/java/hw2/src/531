@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  int count=0;
+  int product=0;
+  while (count != Math.abs(x)) {
+    product=add(product,y);
+    count=count + 1;
+  }
+  int test=x >>> 31;
+  int i=test & 1;
+  if (i == 1) {
+    return add((~product),1);
+  }
+ else {
+    return product;
+  }
+}
+

@@ -1,12 +1,7 @@
 public int multiply(int x,int y){
-  int mult=0;
-  while (y != 0) {
-    if ((y & 1) > 0) {
-      mult=add(mult,x);
-    }
-    x<<=1;
-    y>>>=1;
+  if (y < 0) {
+    return repeatAdd(-x,-y);
   }
-  return mult;
+  return repeatAdd(x,y);
 }
 

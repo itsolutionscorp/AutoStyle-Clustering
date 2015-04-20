@@ -1,0 +1,13 @@
+private int multiply(int x,int y,int partial,int bit){
+  if (bit >= Integer.SIZE) {
+    return partial;
+  }
+  int xbit=(x >> bit) & 1;
+  if (xbit == 0) {
+    return multiply(x,y,partial,increment(bit));
+  }
+ else {
+    return multiply(x,y,add(partial,y << bit),increment(bit));
+  }
+}
+

@@ -1,11 +1,19 @@
 public int multiply(int x,int y){
+  int counter=y;
   int product=0;
-  while (y > 0) {
-    if ((y & 1) != 0) {
-      product=add(x,product);
+  if (counter > 0) {
+    while (counter > 0) {
+      product=add(product,x);
+      counter-=1;
     }
-    x<<=1;
-    y>>=1;
+  }
+ else   if (counter < 0) {
+    counter=add((~counter),1);
+    while (counter > 0) {
+      product=add(product,x);
+      counter-=1;
+    }
+    product=add((~product),1);
   }
   return product;
 }

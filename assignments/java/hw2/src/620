@@ -1,16 +1,21 @@
 public int multiply(int x,int y){
-  int n1=x;
-  int n2=y;
-  int sum=0;
-  while (n2 != 0) {
-    if ((n2 & 1) == 0) {
-    }
- else {
-      sum=add(sum,n1);
-    }
-    n1=n1 << 1;
-    n2=n2 >>> 1;
+  if (y == 0) {
+    return 0;
   }
-  return sum;
+ else   if (y < 0) {
+    if (x < 0) {
+      return multiply(-x,-y);
+    }
+    return multiply(y,x);
+  }
+ else {
+    int counter=0;
+    int answer=0;
+    while (counter < y) {
+      answer=add(answer,x);
+      counter+=1;
+    }
+    return answer;
+  }
 }
 

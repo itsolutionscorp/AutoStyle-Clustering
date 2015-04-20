@@ -1,0 +1,1 @@
+( multiply ( iter:4 ( <:4 )( ++:4 )( iter:5 ( <:5 )( ++:5 )( cond:6 ( &&:6 ( ==:6 ( getBit:6 ))( ==:6 ( getBit:6 )))( setBit:7 )( cond:10 ( &&:10 ( ==:10 ( getBit:10 ))( ==:10 ( getBit:10 )))( setBit:11 )( cond:14 ( &&:14 ( ==:14 ( getBit:14 ))( ==:14 ( getBit:14 )))( setBit:15 )( cond:18 ( &&:18 ( ==:18 ( getBit:18 ))( ==:18 ( getBit:18 )))( setBit:19 ))))))( add:22 ( <<:22 ))))

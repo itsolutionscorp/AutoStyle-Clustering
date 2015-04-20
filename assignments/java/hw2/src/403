@@ -1,10 +1,13 @@
 public int multiply(int x,int y){
-  int temp1=x, temp2=y, result=0;
-  while (temp2 != 0) {
-    if ((temp2 & 1) != 0)     result=add(result,temp1);
-    temp1=temp1 << 1;
-    temp2=temp2 >>> 1;
+  int product=0;
+  int timesTwo=0;
+  while (y != 0) {
+    if ((y & 1) == 1) {
+      product=add(product,x << timesTwo);
+    }
+    y=y >>> 1;
+    timesTwo=add(timesTwo,1);
   }
-  return result;
+  return product;
 }
 

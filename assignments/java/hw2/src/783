@@ -1,18 +1,11 @@
 public int multiply(int x,int y){
-  if (y >= 0) {
-    int total=0;
-    int inc=0;
-    while (inc < y) {
-      total=add(total,x);
-      inc++;
-    }
-    return total;
-  }
- else   if (x >= 0 && y < 0) {
-    return multiply(y,x);
+  if (x == 0) {
+    int trackedResult=multiplyHelper(y,x);
+    return trackedResult;
   }
  else {
-    return multiply(add(~x,1),add(~y,1));
+    int trackedResult=multiplyHelper(x,y);
+    return trackedResult;
   }
 }
 

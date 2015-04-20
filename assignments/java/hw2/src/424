@@ -1,12 +1,27 @@
 public int multiply(int x,int y){
-  int product=0;
-  while (y != 0) {
-    if ((y & 1) == 1) {
-      product=add(product,x);
+  int resreturn=0;
+  if ((x < 0) && (y < 0)) {
+    y=~y;
+    x=~x;
+    y=add(y,1);
+    x=add(x,1);
+    while (y != 0) {
+      if ((y & 1) != 0) {
+        resreturn=add(resreturn,x);
+      }
+      x=x << 1;
+      y=y >> 1;
     }
-    x=x << 1;
-    y=y >>> 1;
   }
-  return product;
+ else {
+    while (y != 0) {
+      if ((y & 1) != 0) {
+        resreturn=add(resreturn,x);
+      }
+      x=x << 1;
+      y=y >> 1;
+    }
+  }
+  return resreturn;
 }
 

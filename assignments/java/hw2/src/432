@@ -1,10 +1,11 @@
 public int multiply(int x,int y){
-  int ans=0, mask=1;
+  int currsum=0;
   for (int i=0; i < 32; i++) {
-    int ybit=y & mask;
-    if (ybit != 0)     ans=add(ans,x << i);
-    mask=mask << 1;
+    int carryMask=1 << i;
+    if ((y & carryMask) == carryMask) {
+      currsum=add(currsum,(x << i));
+    }
   }
-  return ans;
+  return currsum;
 }
 

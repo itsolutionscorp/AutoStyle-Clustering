@@ -1,29 +1,14 @@
 public int multiply(int x,int y){
-  boolean negated=false;
-  if (x < 0) {
-    negated=!negated;
-    x=add(~x,1);
-  }
-  if (y < 0) {
-    negated=!negated;
-    y=add(~y,1);
-  }
-  if (x > y) {
-    int temp=x;
-    x=y;
-    y=temp;
-  }
-  int dig_check=1, total=0;
-  while (y != 0) {
-    if ((y & dig_check) == 1) {
-      total=add(x,total);
+  int answer=0;
+  int temp=0;
+  int m=1;
+  for (int a=0; a < 32; a++) {
+    if ((y & m) != 0) {
+      temp=x << a;
+      answer=add(answer,temp);
     }
-    x=x << 1;
-    y=y >> 1;
+    m=m << 1;
   }
-  if (negated) {
-    return add(~total,1);
-  }
-  return total;
+  return answer;
 }
 

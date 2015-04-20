@@ -1,0 +1,1 @@
+( multiply ( iter:7 ( <=:7 )( cond:9 ( ==:9 ( getBit:9 ))( <<:12 ))( add:18 )( +:19 )))

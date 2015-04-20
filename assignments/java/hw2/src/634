@@ -1,11 +1,16 @@
 public int multiply(int x,int y){
   int result=0;
-  while (y != 0) {
-    if ((y & 1) != 0) {
-      result=result + x;
+  if (x > y) {
+    int temp=x;
+    x=y;
+    y=temp;
+  }
+  while (x != 0) {
+    if ((1 & x) == 1) {
+      result=add(result,y);
     }
-    x<<=1;
-    y>>=1;
+    x=x >>> 1;
+    y=y << 1;
   }
   return result;
 }

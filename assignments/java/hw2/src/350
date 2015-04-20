@@ -1,12 +1,12 @@
 public int multiply(int x,int y){
-  int product=0;
-  while (y != 0) {
-    if ((y & 1) == 1) {
-      product=add(product,x);
-    }
-    x=x << 1;
-    y=y >>> 1;
-  }
-  return (product);
+  int allOnes=Integer.MAX_VALUE;
+  int testXIsZero=x & allOnes;
+  int testYIsZero=y & allOnes;
+  if (testXIsZero == 0 || testYIsZero == 0)   return 0;
+  if (x == 1)   return y;
+  if (y == 1)   return x;
+  if (x < 0 && y < 0)   return multiply(add(0,-x),add(0,-y));
+  if (x > 0 && y < 0)   return multiply(y,x);
+  return add(x,multiply(x,add(y,-1)));
 }
 

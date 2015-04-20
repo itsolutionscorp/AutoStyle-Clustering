@@ -1,22 +1,17 @@
 public int multiply(int x,int y){
-  int greater, lesser;
-  int product=0;
-  if (x > y) {
-    greater=x;
-    lesser=y;
+  int z=0;
+  if ((x > y) || (x == y)) {
+    while (y != 0) {
+      if ((y & 1) != 0) {
+        z=add(z,x);
+      }
+      x=x << 1;
+      y=y >> 1;
+    }
   }
  else {
-    greater=y;
-    lesser=x;
+    return multiply(y,x);
   }
-  int n=0;
-  while (lesser != 0) {
-    if ((lesser & 1) == 1) {
-      product=add(product,greater << n);
-    }
-    n++;
-    lesser>>>=1;
-  }
-  return product;
+  return z;
 }
 

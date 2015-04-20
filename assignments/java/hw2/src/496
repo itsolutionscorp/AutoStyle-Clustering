@@ -1,15 +1,17 @@
 public int multiply(int x,int y){
-  int product=0;
-  int n=0;
-  while (n < sizeOfInt) {
-    int last_bitY=y & 0x1;
-    if (last_bitY == 1) {
-      product=add(product,x);
+  if (x < y) {
+    int placeholder=x;
+    x=y;
+    y=placeholder;
+  }
+  int result=0;
+  while (y != 0) {
+    if ((y & 01) != 0) {
+      result=add(result,x);
     }
     x=x << 1;
-    y=y >> 1;
-    n+=1;
+    y=y >>> 1;
   }
-  return product;
+  return result;
 }
 

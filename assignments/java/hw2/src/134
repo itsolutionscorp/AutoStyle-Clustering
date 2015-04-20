@@ -1,14 +1,13 @@
 public int multiply(int x,int y){
   int i=0;
-  int k=0;
-  int l=y;
-  while (l != 0) {
-    if (getBit(y,i) == 1) {
-      k=add(k,(x << i));
+  int product=0;
+  while (y != 0) {
+    if ((1 & y) == 1) {
+      product=add(product,x << i);
     }
-    i=add(1,i);
-    l=l >>> 1;
+    y=y >>> 1;
+    i+=1;
   }
-  return k;
+  return product;
 }
 

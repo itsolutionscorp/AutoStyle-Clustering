@@ -9,13 +9,13 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 public class ASTBuilder {
  
 	//use ASTParse to parse string
-	public static String parse(String fileContents, String methodName) {
+	public static String parse(String fileContents, String methodName, boolean addLines) {
 		ASTParser parser = ASTParser.newParser(AST.JLS4);
 		parser.setSource(fileContents.toCharArray());
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
  
 		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
-		SimpleVisitor sv = new SimpleVisitor(methodName);
+		SimpleVisitor sv = new SimpleVisitor(cu, methodName, addLines);
 		cu.accept(sv);
 		return sv.toString();
 	}
@@ -26,7 +26,7 @@ public class ASTBuilder {
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
  
 		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
-		SimpleVisitor sv = new SimpleVisitor(methodName);
+		SimpleVisitor sv = new SimpleVisitor(cu, methodName, false);
 		cu.accept(sv);
 		return sv.cleanCode();
 	}
@@ -56,6 +56,10 @@ public class ASTBuilder {
 	public static void main(String... args) throws IOException {
 		String fileName = args[0];
 		String methodName = args[1];
-		System.out.println(parse(readFileToString(fileName), methodName));
+		if (args.length > 2 && args[2].equals("-l")){
+			System.out.println(parse(readFileToString(fileName), methodName, true));			
+		} else {
+			System.out.println(parse(readFileToString(fileName), methodName, false));
+		}
 	}
 }

@@ -1,14 +1,16 @@
 public int multiply(int x,int y){
-  int result=0;
-  int temp=0;
-  while (y != 0) {
-    for (int i=0; i < 32; i++) {
-      temp=setBit(temp,i,(getBit(y,0) & getBit(x,i)));
-    }
-    result=add(result,temp);
-    y=y >>> 1;
-    x=x << 1;
+  int var=1;
+  int n=0;
+  while (y > var) {
+    var=var << 1;
+    n=add(n,1);
   }
-  return result;
+  int difference=add(var,-y);
+  int product=x << n;
+  while (difference > 0) {
+    product=add(product,-x);
+    difference=add(difference,-1);
+  }
+  return product;
 }
 

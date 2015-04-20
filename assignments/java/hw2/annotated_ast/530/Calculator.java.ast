@@ -1,0 +1,1 @@
+( multiply ( cond:2 ( !=:2 )( cond:3 ( !=:3 ( &:3 ))( add:4 ( multiply:4 ( <<:4 )( >>>:4 )))( multiply:7 ( <<:7 )( >>>:7 )))))

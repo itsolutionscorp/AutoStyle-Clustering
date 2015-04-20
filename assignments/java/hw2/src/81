@@ -1,18 +1,17 @@
 public int multiply(int x,int y){
-  if (x == 0 || y == 0) {
-    return 0;
+  int result=0;
+  if (y < 0) {
+    y=add(~y,1);
+    x=add(~x,1);
   }
-  int fixedVal=x;
-  int index=1;
-  int yAbs=(y ^ (y >> 31)) - (y >> 31);
-  while (index < yAbs) {
-    x=add(x,fixedVal);
-    index+=1;
+  while (y != 0) {
+    int val=y & 1;
+    if (val != 0) {
+      result=add(result,x);
+    }
+    x=x << 1;
+    y=y >> 1;
   }
-  int xAbs=(x ^ (x >> 31)) - (x >> 31);
-  if ((x < 0 && y < 0) || (x > 0 && y > 0)) {
-    return xAbs;
-  }
-  return -xAbs;
+  return result;
 }
 

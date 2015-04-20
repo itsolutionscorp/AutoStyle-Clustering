@@ -1,12 +1,15 @@
 public int multiply(int x,int y){
-  int result=0;
-  while (y != 0) {
-    if ((y & 01) != 0) {
-      result=add(result,x);
+  int total=0;
+  int curBit=1;
+  int yesBit=0;
+  while (x != 0) {
+    yesBit=curBit & y;
+    if (yesBit != 0) {
+      total=add(total,x);
     }
-    x<<=1;
-    y>>>=1;
+    curBit=curBit << 1;
+    x=x << 1;
   }
-  return result;
+  return total;
 }
 

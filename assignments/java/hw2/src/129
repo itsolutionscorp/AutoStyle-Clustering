@@ -1,7 +1,19 @@
 public int multiply(int x,int y){
-  if (x == 0 || y == 0)   return 0;
-  if (y == 1)   return add(x,0);
- else   if (y % 2 == 0)   return multiply(add(x,x),y >> 1);
- else   return add(x,multiply(add(x,x),y >> 1));
+  if (x < 0) {
+    return -multiply(-x,y);
+  }
+ else   if (y < 0) {
+    return -multiply(x,-y);
+  }
+  int totalSum=0;
+  int counter=0;
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      totalSum=add(totalSum,x << counter);
+    }
+    y=y >> 1;
+    counter+=1;
+  }
+  return totalSum;
 }
 

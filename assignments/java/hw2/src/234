@@ -1,38 +1,36 @@
 public int multiply(int x,int y){
-  boolean isNegative=false;
-  if ((x < 0) || (y < 0)) {
-    if ((x < 0) && (y < 0)) {
-      x=add(~x,1);
-      y=add(~y,1);
-    }
- else {
-      isNegative=true;
-      if (x < 0) {
-        x=add(~x,1);
-      }
- else {
-        y=add(~y,1);
-      }
-    }
+  if (x > y) {
+    return multiply(y,x);
   }
-  int orig=x;
-  int px;
-  int py;
-  int indx;
-  int answer=0;
-  while (orig > 0) {
-    px=orig;
-    py=y;
-    indx=0;
-    while (px > 1) {
-      py=py << 1;
-      px=px >> 1;
-      indx=add(indx,1);
-    }
-    answer=add(answer,py);
-    orig=add(orig,add(~(1 << indx),1));
+  if ((x < 0) && (y < 0)) {
+    return multiply(add(~x,1),add(~y,1));
   }
-  if (isNegative)   return add(~answer,1);
-  return answer;
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  if (x == 1) {
+    return y;
+  }
+  if (x % 2 == 0) {
+    return multiply(x >> 1,y << 1);
+  }
+  int on=0;
+  if (x < 0) {
+    on=1;
+    x=add(~x,1);
+  }
+  if (y < 0) {
+    on=1;
+    y=add(~y,1);
+  }
+  int num=y;
+  while (x > 1) {
+    y=add(num,y);
+    x-=1;
+  }
+  if (on == 0) {
+    return y;
+  }
+  return (add(~y,1));
 }
 

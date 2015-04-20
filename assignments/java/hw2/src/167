@@ -1,21 +1,9 @@
 public int multiply(int x,int y){
-  int a=x, b=y, result=0;
-  if (x < 0 && y < 0) {
-    a=-x;
-    b=-y;
+  if (x == 0 || y == 0) {
+    return 0;
   }
-  if (b < a) {
-    int temp=b;
-    b=a;
-    a=temp;
-  }
-  while (b != 0) {
-    if ((b & 01) != 0) {
-      result=add(result,a);
-    }
-    a<<=1;
-    b>>=1;
-  }
-  return result;
+  int n=findN(y);
+  y=add(y,add((~(1 << n)),1));
+  return add(x << n,multiply(x,y));
 }
 

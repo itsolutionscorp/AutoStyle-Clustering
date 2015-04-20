@@ -1,33 +1,31 @@
 public int multiply(int x,int y){
-  int count=0;
-  int total=0;
-  if (x <= 0 && y >= 0) {
-    while (count < y) {
-      total=add(x,total);
-      count+=1;
+  int answer=0;
+  if (x > 0 && y > 0) {
+    while (y > 0) {
+      answer=add(answer,x);
+      y-=1;
     }
-    return total;
-  }
- else   if (x >= 0 && y <= 0) {
-    while (count < x) {
-      total=add(y,total);
-      count+=1;
-    }
-    return total;
-  }
- else   if (x <= 0 && y <= 0) {
-    while (count > x) {
-      total=add(y,total);
-      count-=1;
-    }
-    return (~total) | 1;
   }
  else {
-    while (count < x) {
-      total=add(y,total);
-      count+=1;
+    if (x > 0 && y < 0) {
+      for (int counter=add(~y,1); counter > 0; counter-=1) {
+        answer=add(answer,x);
+      }
+      answer=add(~answer,1);
     }
-    return total;
+ else     if (x < 0 && y > 0) {
+      for (int counter=add(~x,1); counter > 0; counter-=1) {
+        answer=add(answer,y);
+      }
+      answer=add(~answer,1);
+    }
+ else {
+      x=add(~x,1);
+      for (int counter=add(~y,1); counter > 0; counter-=1) {
+        answer=add(answer,x);
+      }
+    }
   }
+  return answer;
 }
 

@@ -1,15 +1,21 @@
 public int multiply(int x,int y){
-  int counter=0;
-  int total=0;
-  int multiply=0;
-  while (y != 0) {
-    multiply=y & 1;
-    y=y >>> 1;
-    if (multiply == 1) {
-      total=add(total,(x << counter));
-    }
-    counter++;
+  if (y == 1) {
+    return x;
   }
-  return total;
+ else   if ((y & 1) == 1) {
+    return x + multiply(x << 1,y >> 1);
+  }
+  int index=0;
+  while ((y & 1) != 1) {
+    y=y >> 1;
+    index+=1;
+  }
+  x=x << index;
+  if (y > 1) {
+    return multiply(x,y);
+  }
+ else {
+    return x;
+  }
 }
 

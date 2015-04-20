@@ -1,17 +1,23 @@
 public int multiply(int x,int y){
-  int returner=0;
-  if (x < y) {
-    int temp=y;
-    y=x;
-    x=temp;
-  }
-  while (y != 0) {
-    if ((y & 1) != 0) {
-      returner=this.add(returner,x);
+  if (x == 1)   return y;
+  if (y == 1)   return x;
+  int a=y;
+  int b=x;
+  int val=1;
+  if (x < 0 && y > 0 || (x > 0 && y < 0)) {
+    val=add(~val,1);
+    if (y < 0) {
+      a=add(~a,1);
     }
-    x=x << 1;
-    y=y >>> 1;
+ else {
+      b=add(~b,1);
+    }
   }
-  return returner;
+ else   if (x < 0 && y < 0) {
+    a=add(~a,1);
+    b=add(~b,1);
+  }
+  if (val > 0)   return add(a,multiply(a,add(b,add(~1,1))));
+ else   return add(~add(a,multiply(a,add(b,add(~1,1)))),1);
 }
 

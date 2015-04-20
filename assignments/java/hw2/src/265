@@ -1,12 +1,12 @@
 public int multiply(int x,int y){
-  int n=0;
-  int total=0;
-  while (n < 32) {
-    if (getbit(y,n) == 1) {
-      total=add(total,x << n);
+  int productSoFar=0;
+  while (x != 0) {
+    if ((x & 1) == 1) {
+      productSoFar=add(productSoFar,y);
     }
-    n+=1;
+    x=x >>> 1;
+    y=y << 1;
   }
-  return total;
+  return productSoFar;
 }
 

@@ -1,13 +1,12 @@
 public int multiply(int x,int y){
-  int product=0;
-  for (int i=0; i < 32; i++) {
-    int tempy=(y >>> i) & 1;
-    int tempx=0;
-    if (tempy == 1) {
-      tempx=(x << i);
+  int temp=0;
+  while (y != 0) {
+    if ((x & 1) != 0) {
+      temp=add(y,temp);
     }
-    product=this.add(product,tempx);
+    x=x >> 1;
+    y=y << 1;
   }
-  return product;
+  return temp;
 }
 

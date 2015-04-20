@@ -1,19 +1,12 @@
 public int multiply(int x,int y){
-  int i=0;
-  int partialsum=0;
-  int newline=0;
-  int ybit=0;
-  while (i <= 31) {
-    ybit=getBit(y,i);
-    if (ybit == 0) {
-      newline=0;
+  int total=0;
+  for (int i=0; y != 0; i++) {
+    int shouldShift=(y & 1);
+    if (shouldShift == 1) {
+      total=add(total,(x << i));
     }
- else {
-      newline=x << i;
-    }
-    partialsum=add(partialsum,newline);
-    i=i + 1;
+    y=y >>> 1;
   }
-  return partialsum;
+  return total;
 }
 

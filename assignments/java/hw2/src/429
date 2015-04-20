@@ -1,10 +1,13 @@
 public int multiply(int x,int y){
-  int index=0;
-  int total=0;
-  while (index < 32) {
-    total=add(total,multiplyPowersTwo(x,gitBit(y,index) << index));
-    index=add(index,1);
+  int product=0;
+  int leftShifts=0;
+  while (y != 0) {
+    if (lastBit(y) == 1) {
+      product=add(product,x << leftShifts);
+    }
+    leftShifts+=1;
+    y=y >>> 1;
   }
-  return total;
+  return product;
 }
 

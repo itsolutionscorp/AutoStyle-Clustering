@@ -1,17 +1,22 @@
 public int multiply(int x,int y){
-  int ans=0;
-  if (y > x) {
-    int temp=x;
-    x=y;
-    y=temp;
+  if ((x < 0) && (y > 0)) {
+    return multiply(y,x);
   }
-  while (y != 0) {
-    if ((y & 1) != 0) {
-      ans=add(ans,x);
+  if ((y < 0) && (x < 0)) {
+    return multiply(add((~y),1),add((~x),1));
+  }
+  int tracker=0;
+  if (x == 0) {
+    return tracker;
+  }
+ else {
+    if ((x & 1) == 1) {
+      tracker=add(tracker,y);
+      return add(tracker,multiply((x >> 1),(y << 1)));
     }
-    x=x << 1;
-    y=y >>> 1;
+ else {
+      return add(tracker,multiply((x >> 1),(y << 1)));
+    }
   }
-  return ans;
 }
 

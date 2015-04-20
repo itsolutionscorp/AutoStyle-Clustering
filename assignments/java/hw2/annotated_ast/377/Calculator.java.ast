@@ -1,0 +1,1 @@
+( multiply ( cond:3 ( &&:3 ( <:3 )( <:3 ))( add:4 ( ~:4 ))( add:5 ( ~:5 ))( multiply:6 ))( cond:8 ( <:8 )( multiply:9 ))( iter:14 ( !=:14 )( cond:15 ( ==:15 ( &:15 ))( add:16 ( multiply:16 )))( <<:18 )( >>>:19 ))( add:22 ))

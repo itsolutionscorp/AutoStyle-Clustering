@@ -1,24 +1,12 @@
 public int multiply(int x,int y){
-  int x_holder=x;
-  int y_holder=y;
-  int total=0;
-  if (y_holder < 0) {
-    if (x_holder < 0) {
-      x_holder=~x_holder + 1;
-      y_holder=~y_holder + 1;
-    }
- else {
-      y_holder=x;
-      x_holder=y;
+  int k=0;
+  while (x != 0) {
+    if ((x & 1) != 0) {
+      k=add(k,y);
+      x=x >>> 1;
+      y=y << 1;
     }
   }
-  while (y_holder != 0) {
-    if ((y_holder & 01) != 0) {
-      total=add(total,x_holder);
-    }
-    x_holder<<=1;
-    y_holder>>=1;
-  }
-  return total;
+  return k;
 }
 

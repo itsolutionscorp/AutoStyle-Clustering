@@ -1,8 +1,14 @@
-public int multiply(int x,int y){
-  int result=0;
-  for (int i=0; i < 32; i++) {
-    if (((x >> i) & 1) == 1)     result=add(result,y << i);
+public int multiply(int a,int b){
+  if (b != 1) {
+    int checklast=-2 | b;
+    checklast=~checklast;
+    if (checklast != 0) {
+      return multiply(a << 1,b >>> 1);
+    }
+ else {
+      return add(a,multiply(a << 1,b >>> 1));
+    }
   }
-  return result;
+  return a;
 }
 

@@ -1,10 +1,27 @@
 public int multiply(int x,int y){
-  int result=0;
-  for (int i=0; i < 32; i++) {
-    if ((x & (1 << i)) == (1 << i)) {
-      result=add(result,y << i);
-    }
+  int prod=0;
+  int a;
+  int b;
+  int i;
+  if (x < 0 && y < 0) {
+    a=add(~x,1);
+    b=add(~y,1);
   }
-  return result;
+ else   if (x > 0 && y > 0) {
+    a=x;
+    b=y;
+  }
+ else   if (x < 0) {
+    a=x;
+    b=y;
+  }
+ else {
+    a=y;
+    b=x;
+  }
+  for (i=0; i < b; i++) {
+    prod=add(prod,a);
+  }
+  return prod;
 }
 

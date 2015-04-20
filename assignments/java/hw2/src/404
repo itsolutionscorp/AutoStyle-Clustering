@@ -1,16 +1,18 @@
 public int multiply(int x,int y){
-  int total=0;
-  int a=1;
-  while (y != 0) {
-    if ((y & a) == 0) {
-      y=y >>> 1;
-      x=x << 1;
-    }
+  int result=0;
+  int orig=x;
+  if (x == 0 || y == 0) {
+    return 0;
+  }
  else {
-      total=this.add(total,x);
-      x=x << 1;
+    while (y != 1) {
+      if (getFirstBit(y) == 1) {
+        result=add(x,result);
+      }
+      x=add(x,x);
       y=y >>> 1;
     }
+    return x + result;
   }
 }
 

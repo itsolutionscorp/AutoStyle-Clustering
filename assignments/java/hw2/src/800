@@ -1,0 +1,27 @@
+public int multiply(int x,int y){
+  int x1, z, i;
+  z=0;
+  if (y == 1) {
+    return x;
+  }
+  if (y == -1) {
+    return -x;
+  }
+  if (y < -1) {
+    x1=x;
+    z=add(x1,x);
+    for (i=0; i < Math.abs(y) - 2; i=i + 1) {
+      z=add(z,x1);
+    }
+    z=-z;
+  }
+ else   if (y >= 1) {
+    x1=x;
+    z=add(x1,x);
+    for (i=0; i < y - 2; i=i + 1) {
+      z=add(z,x1);
+    }
+  }
+  return z;
+}
+

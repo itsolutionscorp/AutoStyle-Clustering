@@ -1,29 +1,17 @@
 public int multiply(int x,int y){
-  if (y < 0 && x < 0) {
-    y=-y;
-    x=-x;
-  }
- else   if (y < 0) {
-    int temp=x;
-    x=y;
-    y=temp;
-  }
-  int answer=0;
-  if (y == 0) {
-    return 0;
-  }
- else   if (y == 1) {
-    return x;
-  }
- else {
-    if (isPowerOfTwo(y)) {
-      return x << logOfTwo(y);
+  int temp=y, total=0;
+  while (y != 0) {
+    total=add(total,x);
+    if (y < 0) {
+      y=add(y,1);
     }
  else {
-      answer=x << logOfTwo(y);
-      answer=add(answer,multiply(x,(y - powerOfTwo(logOfTwo(y)))));
+      y=add(y,-1);
     }
   }
-  return answer;
+  if (temp < 0) {
+    return ~total + 1;
+  }
+  return total;
 }
 

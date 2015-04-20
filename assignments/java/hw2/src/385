@@ -1,19 +1,6 @@
 public int multiply(int x,int y){
-  int first=0;
-  int second=y;
-  int sum=0;
-  int multiplier=0;
-  for (int i=0; i < 32; i++) {
-    second=y >> i;
-    multiplier=second & 1;
-    if (multiplier > 0) {
-      first=x << i;
-      sum=add(sum,first);
-    }
- else {
-      first=x << i;
-    }
-  }
-  return sum;
+  if (x == 0 || y == 0)   return 0;
+ else   if ((x & 1) == 1)   return add(y,multiply(x >> 1,y << 1));
+ else   return multiply(x >> 1,y << 1);
 }
 

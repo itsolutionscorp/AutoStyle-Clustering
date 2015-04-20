@@ -1,12 +1,27 @@
 public int multiply(int x,int y){
-  int z=0;
-  while (y != 0) {
-    if ((y & 1) == 1) {
-      z=add(z,x);
-    }
-    x=x << 1;
-    y=y >>> 1;
+  int xtemp=x;
+  int ytemp=y;
+  if (x < 0) {
+    xtemp=add(1,~x);
   }
-  return z;
+  if (y < 0) {
+    ytemp=add(1,~y);
+  }
+  int power=1073741824;
+  int i=0;
+  int sum=0;
+  int foo;
+  while (power != 0) {
+    foo=ytemp & power;
+    if (foo != 0) {
+      sum=add(sum,xtemp << (30 - i));
+    }
+    i+=1;
+    power=power >> 1;
+  }
+  if (x < 0 && y > 0 || x > 0 && y < 0) {
+    sum=add(1,~sum);
+  }
+  return sum;
 }
 

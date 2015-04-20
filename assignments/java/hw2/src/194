@@ -1,13 +1,13 @@
 public int multiply(int x,int y){
-  if (y < 0) {
-    int opposite=flipSign(y);
-    return flipSign(multiply(x,opposite));
+  int answer=0;
+  int y_checker=0;
+  for (int i=0; i < 32; i++) {
+    y_checker=y << (31 - i);
+    y_checker=y_checker >>> 31;
+    if (y_checker == 1) {
+      answer=add(answer,x << i);
+    }
   }
-  int ans=0;
-  while (y > 0) {
-    ans=add(ans,x);
-    y-=1;
-  }
-  return ans;
+  return answer;
 }
 

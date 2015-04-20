@@ -1,20 +1,12 @@
 public int multiply(int x,int y){
-  int ans=0;
-  if ((x < 0) && (y < 0)) {
-    x=add(~x,1);
-    y=add(~y,1);
-  }
- else   if (y < 0) {
-    x=add(~x,1);
-    y=add(~y,1);
-  }
-  while (y > 0) {
-    if ((y & 1) != 0) {
-      ans=add(ans,x);
+  int sum=0;
+  while (y != 0) {
+    if ((y & 1) == 1) {
+      sum=add(sum,x);
     }
+    y=y >>> 1;
     x=x << 1;
-    y=y >> 1;
   }
-  return ans;
+  return sum;
 }
 

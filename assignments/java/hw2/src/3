@@ -1,13 +1,14 @@
 public int multiply(int x,int y){
-  int temp=0;
-  while (y != 0) {
-    int remainder=y & 1;
-    if (remainder != 0) {
-      temp=add(temp,x);
+  int a=x;
+  int b=y;
+  int result=0;
+  while (b != 0) {
+    if ((b & 1) != 0) {
+      result=result + a;
     }
-    x=x << 1;
-    y=y >> 1;
+    a<<=1;
+    b>>>=1;
   }
-  return temp;
+  return result;
 }
 

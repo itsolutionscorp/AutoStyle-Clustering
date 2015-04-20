@@ -1,17 +1,30 @@
 public int multiply(int x,int y){
-  int c=0;
-  if (x < y) {
-    int p=x;
-    x=y;
-    y=p;
+  int iterator;
+  int addThingy;
+  if (x == 0 || y == 0) {
+    return 0;
   }
-  while (y != 0) {
-    if ((y & 1) != 0) {
-      c=c + x;
-    }
-    x<<=1;
-    y>>>=1;
+ else   if (x < 0 && y < 0) {
+    iterator=Math.abs(x);
+    addThingy=Math.abs(y);
   }
-  return c;
+ else   if (x < 0 && y > 0) {
+    iterator=y;
+    addThingy=x;
+  }
+ else   if (x > 0 && y < 0) {
+    iterator=x;
+    addThingy=y;
+  }
+ else {
+    iterator=x;
+    addThingy=y;
+  }
+  int runningResult=addThingy;
+  while (iterator > 1) {
+    runningResult=add(runningResult,addThingy);
+    iterator=iterator - 1;
+  }
+  return runningResult;
 }
 

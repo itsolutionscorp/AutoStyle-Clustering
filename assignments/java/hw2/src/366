@@ -1,14 +1,14 @@
 public int multiply(int x,int y){
-  int product=0;
-  int second=y;
-  int first=x;
-  while (second != 0) {
-    if ((second & 1) != 0) {
-      product+=first;
+  int new_x=x;
+  int new_y=y;
+  int answer=0;
+  while (new_y != 0) {
+    if ((new_y & 1) != 0) {
+      answer=add(new_x,answer);
     }
-    first<<=1;
-    second>>>=1;
+    new_x=new_x << 1;
+    new_y=new_y >>> 1;
   }
-  return product;
+  return answer;
 }
 

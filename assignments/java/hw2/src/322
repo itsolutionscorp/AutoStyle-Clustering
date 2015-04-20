@@ -1,12 +1,22 @@
 public int multiply(int x,int y){
-  int total=0;
-  for (int i=0; y != 0; i++) {
-    int shouldShift=(y & 1);
-    if (shouldShift == 1) {
-      total=add(total,(x << i));
-    }
-    y=y >>> 1;
+  int product=0;
+  if ((x < 0) && (y < 0)) {
+    x=add(~x,1);
+    y=add(~y,1);
   }
-  return total;
+  if (y < 0) {
+    int n=y;
+    y=x;
+    x=n;
+  }
+  while (y != 0) {
+    if ((y & 01) != 0) {
+      product=add(product,x);
+      y-=1;
+    }
+    x<<=1;
+    y>>=1;
+  }
+  return product;
 }
 

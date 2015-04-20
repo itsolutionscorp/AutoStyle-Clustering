@@ -1,17 +1,13 @@
 public int multiply(int x,int y){
-  if (x < 0 && y > 0) {
-    return negAndPos(x,y);
+  int sum=0;
+  int i=0;
+  while (y != 0) {
+    if ((y << 31) < 0) {
+      sum=add(sum,x << i);
+    }
+    y=y >>> 1;
+    i+=1;
   }
- else   if (y < 0 && x > 0) {
-    return negAndPos(y,x);
-  }
- else   if (x < 0 && y < 0) {
-    x=changeSign(x);
-    y=changeSign(y);
-    return multiplying(x,y);
-  }
- else {
-    return multiplying(x,y);
-  }
+  return sum;
 }
 

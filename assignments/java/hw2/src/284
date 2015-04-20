@@ -1,23 +1,12 @@
 public int multiply(int x,int y){
-  int store=0;
-  int save=y;
-  if (x == 0 || y == 0) {
-    return 0;
+  int ybit=0;
+  int i=0;
+  int res=0;
+  while (i < 32) {
+    ybit=(y >>> i) & 1;
+    if (ybit == 1)     res=add(res,(x << (i)));
+    i++;
   }
-  if (y < 0) {
-    x=add((~x),1);
-    y=add((~y),1);
-  }
-  while (y > 1) {
-    if ((y & 1) != 1) {
-      y=y >> 1;
-      x=x << 1;
-    }
- else {
-      store=add(store,x);
-      y=add(y,add(~1,1));
-    }
-  }
-  return add(x,store);
+  return res;
 }
 
