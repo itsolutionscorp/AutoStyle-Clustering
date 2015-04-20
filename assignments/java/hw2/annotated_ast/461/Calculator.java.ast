@@ -1,1 +1,1 @@
-( multiply ( cond:2 ( <:2 )( repeatAdd:3 ( -:3 )( -:3 )))( repeatAdd:5 ))
+( multiply ( cond::2 ( <::2 )( repeatAdd::3 ( -::3 )( -::3 )))( repeatAdd::5 ))

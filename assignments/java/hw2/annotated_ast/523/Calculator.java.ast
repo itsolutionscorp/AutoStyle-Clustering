@@ -1,1 +1,1 @@
-( multiply ( cond:3 ( &&:3 ( <:3 )( >:3 ))( negAndPos:4 )( cond:6 ( &&:6 ( <:6 )( >:6 ))( negAndPos:7 )( cond:9 ( &&:9 ( <:9 )( <:9 ))( changeSign:10 )( changeSign:11 )( multiplying:12 )( multiplying:15 )))))
+( multiply ( cond::3 ( &&::3 ( <::3 )( >::3 ))( negAndPos::4 )( cond::6 ( &&::6 ( <::6 )( >::6 ))( negAndPos::7 )( cond::9 ( &&::9 ( <::9 )( <::9 ))( changeSign::10 )( changeSign::11 )( multiplying::12 )( multiplying::15 )))))

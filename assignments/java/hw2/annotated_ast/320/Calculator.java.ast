@@ -1,1 +1,1 @@
-( multiply ( add:2 ( ~:2 ))( cond:3 ( ==:3 )( add:7 ( multiply:7 ( add:7 )))))
+( multiply ( add::2 ( ~::2 ))( cond::3 ( ==::3 )( add::7 ( multiply::7 ( add::7 )))))

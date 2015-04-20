@@ -1,1 +1,1 @@
-( multiply ( cond:3 ( <:3 )( flipSign:4 )( flipSign:5 ( multiply:5 )))( iter:8 ( >:8 )( add:9 )))
+( multiply ( cond::3 ( <::3 )( flipSign::4 )( flipSign::5 ( multiply::5 )))( iter::8 ( >::8 )( add::9 )))

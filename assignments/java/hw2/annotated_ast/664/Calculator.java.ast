@@ -1,1 +1,1 @@
-( multiply ( cond:3 ( ||:3 ( ==:3 )( ==:3 )))( getBit:6 )( cond:7 ( ==:7 )( negate:8 )( negate:9 ))( iter:13 ( <:13 )( ++:13 )( add:14 )))
+( multiply ( cond::3 ( ||::3 ( ==::3 )( ==::3 )))( getBit::6 )( cond::7 ( ==::7 )( negate::8 )( negate::9 ))( iter::13 ( <::13 )( ++::13 )( add::14 )))

@@ -1,1 +1,1 @@
-( multiply ( iter:4 ( <:4 )( cond:5 ( ==:5 ( getBitAt:5 ))( add:6 ( <<:6 )))))
+( multiply ( iter::4 ( <::4 )( cond::5 ( ==::5 ( getBitAt::5 ))( add::6 ( <<::6 )))))

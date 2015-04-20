@@ -32,7 +32,7 @@ def natural_sort(l):
     return sorted(l, key = alphanum_key)
 
 DUPLICATE_DEPTH = 4
-LINE_DELIMITER = ':'
+LINE_DELIMITER = '::'
 HOME_DIR = './data/'
 ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
 SOURCE_FILES = natural_sort(glob.glob(HOME_DIR + 'src/*'))
@@ -180,8 +180,11 @@ def generate_java_ast(filename, function_name, class_name):
         return None
 
 def generate_ruby_ast(filename, function_name):
-    ast_string = terminal_ouput('ruby', 'syntax_tree/ast_no_helper_print.rb', '-f', filename, '-m', function_name)
-    return cfl_tree_from_string(ast_string)
+    # ast_string = terminal_output('ruby', 'syntax_tree/ast_no_helper_print.rb', '-f', filename, '-m', function_name)
+    # return cfl_tree_from_string(ast_string)
+    ast_string = terminal_output('ruby', 'syntax_tree/ast_with_lines.rb', filename, function_name)
+    return ast_from_sexp(ast_string)
+    
 
 def generate_ast(language, index, function_name, class_name):
     '''
@@ -195,7 +198,7 @@ def generate_ast(language, index, function_name, class_name):
         ast = generate_java_ast(SOURCE_FILES[index], function_name, class_name)
     return ast    
 
-def terminal_ouput(*args):
+def terminal_output(*args):
     '''
     Calls the terminal command given by args, and
     returns its output as a string.
@@ -399,7 +402,7 @@ def flog_score(index):
     Returns the flog score of submission index 
     as a list of length 1.
     '''
-    flog_output = terminal_ouput('flog', '-am', SOURCE_FILES[index])
+    flog_output = terminal_output('flog', '-am', SOURCE_FILES[index])
     flog_score = flog_output[:flog_output.index(':')]
     return [float(flog_score), ], [0, ]
 

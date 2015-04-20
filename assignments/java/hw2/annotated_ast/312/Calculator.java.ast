@@ -1,1 +1,1 @@
-( multiply ( iter:5 ( !=:5 )( cond:7 ( !=:7 ( &:7 ))( add:9 ))))
+( multiply ( iter::5 ( !=::5 )( cond::7 ( !=::7 ( &::7 ))( add::9 ))))

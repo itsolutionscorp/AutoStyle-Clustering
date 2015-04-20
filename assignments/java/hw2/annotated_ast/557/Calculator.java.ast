@@ -1,1 +1,1 @@
-( multiply ( cond:2 ( >=:2 ))( &:6 ( >>:6 ))( cond:8 ( ==:8 )( multiply:9 ( increment:9 ))( multiply:11 ( add:11 ( <<:11 ))( increment:11 ))))
+( multiply ( cond::2 ( >=::2 ))( &::6 ( >>::6 ))( cond::8 ( ==::8 )( multiply::9 ( increment::9 ))( multiply::11 ( add::11 ( <<::11 ))( increment::11 ))))

@@ -1,1 +1,1 @@
-( multiply ( iter:9 ( <:9 )( currbit:10 )( cond:11 ( ==:11 )( -:12 ))( &:14 )( add:17 )))
+( multiply ( iter::9 ( <::9 )( currbit::10 )( cond::11 ( ==::11 )( -::12 ))( &::14 )( add::17 )))

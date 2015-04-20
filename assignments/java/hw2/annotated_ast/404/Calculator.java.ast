@@ -1,1 +1,1 @@
-( multiply ( cond:4 ( ||:4 ( ==:4 )( ==:4 ))( iter:8 ( !=:8 )( cond:9 ( ==:9 ( getFirstBit:9 ))( add:10 ))( add:12 )( >>>:13 ))( +:15 )))
+( multiply ( cond::4 ( ||::4 ( ==::4 )( ==::4 ))( iter::8 ( !=::8 )( cond::9 ( ==::9 ( getFirstBit::9 ))( add::10 ))( add::12 )( >>>::13 ))( +::15 )))

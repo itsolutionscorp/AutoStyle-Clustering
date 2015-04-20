@@ -1,1 +1,1 @@
-( multiply ( cond:5 ( <:5 )( iter:6 ( >:6 )( add:7 ))( add:10 ( ~:10 ))( iter:12 ( <:12 )( add:13 ))))
+( multiply ( cond::5 ( <::5 )( iter::6 ( >::6 )( add::7 ))( add::10 ( ~::10 ))( iter::12 ( <::12 )( add::13 ))))

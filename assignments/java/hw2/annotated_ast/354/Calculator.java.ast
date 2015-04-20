@@ -1,1 +1,1 @@
-( multiply ( iter:7 ( <:7 )( cond:9 ( ==:9 ( getLastByte:9 ))( add:10 ( <<:10 ))( add:11 ( -:11 ))( add:12 )( add:15 )( add:16 ( -:16 )))))
+( multiply ( iter::7 ( <::7 )( cond::9 ( ==::9 ( getLastByte::9 ))( add::10 ( <<::10 ))( add::11 ( -::11 ))( add::12 )( add::15 )( add::16 ( -::16 )))))

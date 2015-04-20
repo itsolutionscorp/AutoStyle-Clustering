@@ -1,1 +1,1 @@
-( multiply ( cond:3 ( <:3 )( multiply:4 ( add:4 ( ~:4 ))( add:4 ( ~:4 ))))( iter:6 ( <:6 )( ++:6 )( add:7 )))
+( multiply ( cond::3 ( <::3 )( multiply::4 ( add::4 ( ~::4 ))( add::4 ( ~::4 ))))( iter::6 ( <::6 )( ++::6 )( add::7 )))

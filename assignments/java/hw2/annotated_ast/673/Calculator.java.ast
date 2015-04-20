@@ -1,1 +1,1 @@
-( multiply ( cond:2 ( &&:2 ( <:2 )( <:2 ))( -:3 )( -:4 )( cond:6 ( <:6 )))( cond:12 ( ==:12 )( cond:15 ( ==:15 )( cond:19 ( isPowerOfTwo:19 )( <<:20 ( logOfTwo:20 ))( <<:23 ( logOfTwo:23 ))( add:24 ( multiply:24 ( -:24 ( powerOfTwo:24 ( logOfTwo:24 )))))))))
+( multiply ( cond::2 ( &&::2 ( <::2 )( <::2 ))( -::3 )( -::4 )( cond::6 ( <::6 )))( cond::12 ( ==::12 )( cond::15 ( ==::15 )( cond::19 ( isPowerOfTwo::19 )( <<::20 ( logOfTwo::20 ))( <<::23 ( logOfTwo::23 ))( add::24 ( multiply::24 ( -::24 ( powerOfTwo::24 ( logOfTwo::24 )))))))))

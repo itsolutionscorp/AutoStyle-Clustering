@@ -1,1 +1,1 @@
-( multiply ( multiplyHelper:2 ))
+( multiply ( multiplyHelper::2 ))

@@ -17,7 +17,7 @@ import org.eclipse.jdt.core.dom.WhileStatement;
 import org.eclipse.jdt.core.dom.LineComment;
 
 public class SimpleVisitor extends ASTVisitor {
-	private static final String LINE_DELIMITER = ":";
+	private static final String LINE_DELIMITER = "::";
 	
 	private SimpleASTNode root;
 	private SimpleASTNode current;
