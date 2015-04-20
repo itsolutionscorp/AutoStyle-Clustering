@@ -15,10 +15,10 @@
 4. Copy in the appropriate all_libcalls.txt, style_scores_names.np, and style_features_names.np. As of now, there is one per language.
 
 5. 
-    python batch_features.py [function name] [language] [data_dir]/feature/style_scores.np [data_dir] [flog or abc]
+    python batch_features.py [function name] [language] [data_dir] [data_dir]/feature/style_scores.np [flog or abc]
 
 6. 
-    python batch_features.py [function name] [language] [data_dir]/feature/style_features.np [data_dir] [list of all features you want]
+    python batch_features.py [function name] [language] [data_dir] [data_dir]/feature/style_features.np [data_dir]/feature/feature_line_nums.np [list of all features you want]
 
 7. For ruby assignments, use featurization/libcalls_and_linenums.rb to generate a mapping of library calls to line numbers. 
 

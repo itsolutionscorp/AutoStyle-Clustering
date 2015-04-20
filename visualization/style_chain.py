@@ -28,7 +28,7 @@ class Chain():
     relevant to all links in the chain.
     '''
 
-    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain):
+    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix):
         '''
         Initialize a chain starting at start_index.
         This also initializes all of the constants.
@@ -42,6 +42,7 @@ class Chain():
         self.score_names = score_names
         self.libcall_linenums = libcall_linenums
         self.libcall_dict = libcall_dict
+        self.line_num_matrix = line_num_matrix
         
         self.weights_file = weights_file
         
@@ -287,39 +288,16 @@ class ChainLink:
         a hint that suggests "Don't do this.", instead of "You should do this."
         '''
         
-        sorted_selected_hints, locations = self.get_sorted_hints(self.next, self.chain.num_hints, is_not_hint, True, [])
-        unused_hints = self.chain.num_hints - len(sorted_selected_hints)
+        sorted_hints, locations = self.get_sorted_hints(self.next, self.chain.num_hints, is_not_hint, True, [])
+        unused_hints = self.chain.num_hints - len(sorted_hints)
         if unused_hints > 0:
-            nonstructural_hints, nonstructural_locations = self.get_sorted_hints(self.next, unused_hints, is_not_hint, False, sorted_selected_hints)
-            sorted_selected_hints += nonstructural_hints
+            nonstructural_hints, nonstructural_locations = self.get_sorted_hints(self.next, unused_hints, is_not_hint, False, sorted_hints)
+            sorted_hints += nonstructural_hints
             locations += nonstructural_locations
-            sorted_selected_hints, locations = remove_duplicates(sorted_selected_hints, locations)
-        names = self.chain.feature_names[sorted_selected_hints]
-        lines = []
-        for name in names:
-            name = name[2:-2]
-            name = name.strip("()") #added name.strip here, otherwise i get a KeyError  - this seems like a hacky fix though
-            if name.startswith('->'):
-                all_lines= []
-                calls = self.chain.calls_that_produce(name[3:])
-                for call in calls:
-                    if is_not_hint and call in self.chain.libcall_linenums[self.index]:
-                        all_lines += self.chain.libcall_linenums[self.index][call]
-                    elif call in self.chain.libcall_linenums[self.next.index]:
-                        all_lines += self.chain.libcall_linenums[self.next.index][call]
-                lines.append(all_lines)
-            elif is_not_hint:
-                try:
-                    lines.append(self.chain.libcall_linenums[self.index][name])  
-                except Exception:
-                    lines.append([0])
-            else:
-                try:
-                    lines.append(self.chain.libcall_linenums[self.next.index][name])  # FIXME: this is now broken
-                except Exception:
-                    lines.append([0])
-        return names, lines[:self.chain.num_hints], locations
-    
+            sorted_hints, locations = remove_duplicates(sorted_hints, locations)
+        names = self.chain.feature_names[sorted_hints]
+        lines = self.chain.line_num_matrix[self.index, sorted_hints].flatten().tolist()
+        return names, lines, locations
     
 def interpret_list_of_hints(features, is_not_hint):
     '''
@@ -445,6 +423,7 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
     style_features = np.loadtxt(feature_dir + 'style_features.np', ndmin=2)
     feature_names = np.genfromtxt(feature_dir + 'style_features_names.np', dtype='str', delimiter='\n')
     score_names = np.genfromtxt(feature_dir + 'style_scores_names.np', dtype='str', delimiter='\n')
+    line_num_matrix = np.loadtxt(feature_dir + 'feature_line_nums.np', ndmin=2)
     weights_file = home_dir+data_dir + 'gen/weights.np' 
 
     if language == "ruby":
@@ -455,7 +434,7 @@ def generate_chain(start_index, ast_distance_weight, style_score_weight, home_di
             libcall_linenums = unicode_to_str(libcall_linenums)
         with open(home_dir + libcall_dict, 'r') as f:
             libcall_dict = pickle.load(f)
-    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict,  start_index, ast_distance_weight, style_score_weight, feedback, old_chain)
+    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix)
     return c
 
 def unicode_to_str(input_u):
