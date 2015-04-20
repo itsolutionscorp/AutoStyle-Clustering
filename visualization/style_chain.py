@@ -267,7 +267,10 @@ class ChainLink:
         sorted_hints = [x for (_, x) in sorted(zip(selected_scores, selected_hints), key=lambda pair:-1 * pair[0])]
         sorted_hints = [x for x in sorted_hints if x not in used_hints]
         sorted_hints = list(OrderedDict.fromkeys(sorted_hints))
-        locations = [next_link.index for _ in sorted_hints]
+        if (is_not_hint):
+            locations = [self.index for _ in sorted_hints]
+        else:
+            locations = [next_link.index for _ in sorted_hints]
         unused_hints = self.chain.num_hints - len(sorted_hints)
         if unused_hints > 0 and next_link.next is not None:
             additional_sorted_hints, additional_locations = self.get_sorted_hints(next_link.next, unused_hints, is_not_hint, must_be_structural, sorted_hints)
