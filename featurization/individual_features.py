@@ -139,6 +139,8 @@ def build_tree(node, ast_node, functions):
         label = get_node_label(kid)
         if 'lineno' in kid._attributes:
             line = kid.lineno
+        elif 'lineno' in ast_node._attributes:
+            line = ast_node.lineno
         else:
             line = 0
         if label == "FunctionDef":
