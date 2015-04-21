@@ -34,12 +34,12 @@ def submit_form():
     feedback = request.form['feedback']
     
 
-    print "----------- submitted --------------"
-    print "directory", data_loc
-    print "start", start_index
-    print "max_hints", max_hints
-    print "flog", flog
-    print "feedback", feedback
+    # print "----------- submitted --------------"
+    # print "directory", data_loc
+    # print "start", start_index
+    # print "max_hints", max_hints
+    # print "flog", flog
+    # print "feedback", feedback
 
 
     feedback = feedback.split(" ")
@@ -57,19 +57,20 @@ def submit_form():
     
     # feedback format: (('non-sentence name of hint', index/position in chain, bad_hint or not, positive or negative) , (), ()  )
     chain = generate_chain(start_index, max_hints, flog, os.path.abspath('../') + "/", data_dir = "assignments/" + data_loc,feedback=final_feedback, old_chain=chain, language=data_loc.split("/")[0])
-    posts = []
+    posts = [] 
     hints = []
     cl = chain.head
     while cl:
-      print cl.index, cl.flog_score, "--> "
+      print cl.index, cl.flog_score, "--> " 
       if cl.next:
         pos_hints = cl.get_positive_hint()
         neg_hints = cl.get_negative_hint()
         for ph in pos_hints[0]:
-          hints.append(ph)
+          hints.append(ph) 
         for nh in neg_hints[0]:
           hints.append(nh)
-        posts.append({'code': cl.source_code, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint': interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1]})
+        print "neg lines: ", neg_hints[1], neg_hints[2] 
+        posts.append({'code': cl.source_code, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint': interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1], 'positive_hint_locations': pos_hints[2], 'negative_hint_locations': neg_hints[2]})
       else:
         posts.append({'code': cl.source_code, 'positive_hint': "", 'negative_hint': ''})
       cl = cl.next

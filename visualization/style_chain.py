@@ -65,7 +65,7 @@ class Chain():
         '''
         Build a chain object from start_index.
         '''
-        cl = ChainLink(start_index, None, self)
+        cl = ChainLink(start_index, None, self, 0)
         self.head = cl
         self.length = 1
         while True:
@@ -142,7 +142,7 @@ class ChainLink:
     to only one link in the chain.
     '''
     
-    def __init__(self, index, prev_link, chain):
+    def __init__(self, index, prev_link, chain, pos_in_chain = 0):
         """
         Every chain link is associated with an 
         index from which you can learn everything about it
@@ -158,6 +158,7 @@ class ChainLink:
         self.next = None
         self.positive_hint = None
         self.negative_hint = None
+        self.position_in_chain = pos_in_chain
         with open(self.chain.files[self.index], 'r') as f:
             self.source_code = f.read()
         
@@ -173,7 +174,7 @@ class ChainLink:
         if successor_index == -1:
             return None
         else:
-            return ChainLink(successor_index, self, self.chain)
+            return ChainLink(successor_index, self, self.chain, self.position_in_chain+1)
     
     def find_closest_with_lower_value(self, threshold):
         """
@@ -269,9 +270,9 @@ class ChainLink:
         sorted_hints = [x for x in sorted_hints if x not in used_hints]
         sorted_hints = list(OrderedDict.fromkeys(sorted_hints))
         if (is_not_hint):
-            locations = [self.index for _ in sorted_hints]
+            locations = [(self.index, self.position_in_chain) for _ in sorted_hints]
         else:
-            locations = [next_link.index for _ in sorted_hints]
+            locations = [(next_link.index, next_link.position_in_chain) for _ in sorted_hints]
         unused_hints = self.chain.num_hints - len(sorted_hints)
         if unused_hints > 0 and next_link.next is not None:
             additional_sorted_hints, additional_locations = self.get_sorted_hints(next_link.next, unused_hints, is_not_hint, must_be_structural, sorted_hints)
@@ -296,7 +297,9 @@ class ChainLink:
             locations += nonstructural_locations
             sorted_hints, locations = remove_duplicates(sorted_hints, locations)
         names = self.chain.feature_names[sorted_hints]
-        lines = [self.chain.line_num_matrix[x, y] for x, y in zip(locations, sorted_hints)]
+        indices = [i[0] for i in locations]
+        locations = [i[1] for i in locations]
+        lines = [self.chain.line_num_matrix[x, y] for x, y in zip(indices, sorted_hints)]
         # lines = self.chain.line_num_matrix[self.index, sorted_hints].flatten().tolist()
         return names, lines, locations
     

@@ -261,29 +261,29 @@ submit_btn.on('click',
         var {{'positiveline' + outer_loop + loop.index|string()}} = $('#{{'positivehint' + outer_loop + loop.index|string()}}');
         {{'positiveline' + outer_loop + loop.index|string()}}.on('mouseover',
           function(ev){
-            var editor = $('.CodeMirror')[{{outer_loop}}].CodeMirror;
-            editor.addLineClass({{post['positive_lines'][loop.index-1][0]}}-1, "background", 'CodeMirror-activeline-background-pos');
+            var editor = $('.CodeMirror')[{{post['positive_hint_locations'][loop.index-1]}}].CodeMirror;
+            editor.addLineClass({{post['positive_lines'][loop.index-1]}}-1, "background", 'CodeMirror-activeline-background-pos');
           });
         var {{'positiveline' + outer_loop + loop.index|string()}} = $('#{{'positivehint' + outer_loop + loop.index|string()}}');
         {{'positiveline' + outer_loop + loop.index|string()}}.on('mouseout',
           function(ev){
-            var editor = $('.CodeMirror')[{{outer_loop}}].CodeMirror;
-            editor.removeLineClass({{post['positive_lines'][loop.index-1][0]}}-1, "background", 'CodeMirror-activeline-background-pos');
+            var editor = $('.CodeMirror')[{{post['positive_hint_locations'][loop.index-1]}}].CodeMirror;
+            editor.removeLineClass({{post['positive_lines'][loop.index-1]}}-1, "background", 'CodeMirror-activeline-background-pos');
           });
   {% endfor %}
   {% for hint in post.negative_hint %}
        var {{'negativeline' + outer_loop + loop.index|string()}} = $('#{{'negativehint' + outer_loop + loop.index|string()}}');
           {{'negativeline' + outer_loop + loop.index|string()}}.on('mouseover',
           function(ev){
-           var editor = $('.CodeMirror')[{{outer_loop}}-1].CodeMirror;
-           editor.addLineClass({{post['negative_lines'][loop.index-1][0]}}-1, "background", 'CodeMirror-activeline-background-neg');
+           var editor = $('.CodeMirror')[{{post['negative_hint_locations'][loop.index-1]}}].CodeMirror;
+           editor.addLineClass({{post['negative_lines'][loop.index-1]}}-1, "background", 'CodeMirror-activeline-background-neg');
 
           });
              var {{'negativeline' + outer_loop + loop.index|string()}} = $('#{{'negativehint' + outer_loop + loop.index|string()}}');
           {{'negativeline' + outer_loop + loop.index|string()}}.on('mouseout',
           function(ev){
-           var editor = $('.CodeMirror')[{{outer_loop}}-1].CodeMirror;
-           editor.removeLineClass({{post['negative_lines'][loop.index-1][0]}}-1, "background", 'CodeMirror-activeline-background-neg');
+           var editor = $('.CodeMirror')[{{post['negative_hint_locations'][loop.index-1]}}].CodeMirror;
+           editor.removeLineClass({{post['negative_lines'][loop.index-1]}}-1, "background", 'CodeMirror-activeline-background-neg');
 
           });
   {% endfor %}
