@@ -1,1 +1,1 @@
-( multiply ( cond::3 ( ==::3 ))( <<::6 )( >>::7 )( cond::8 ( !=::8 ( add::8 ))( +::9 ( multiply::9 )))( multiply::11 ))
+( multiply ( cond::2 ( ==::2 ))( <<::5 )( >>::6 )( cond::7 ( !=::7 ( add::7 ))( +::8 ( multiply::8 )))( multiply::10 ))

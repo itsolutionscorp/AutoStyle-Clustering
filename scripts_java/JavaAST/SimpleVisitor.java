@@ -89,6 +89,7 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public boolean visit(BlockComment n){
+		n.delete();
 		return true;
 	}
 	
@@ -100,6 +101,7 @@ public class SimpleVisitor extends ASTVisitor {
 	
 	@Override
 	public boolean visit(LineComment n){
+		n.delete();
 		return true;
 	}
 	

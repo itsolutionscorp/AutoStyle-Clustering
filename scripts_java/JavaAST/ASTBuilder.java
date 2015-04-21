@@ -30,6 +30,17 @@ public class ASTBuilder {
 		cu.accept(sv);
 		return sv.cleanCode();
 	}
+	
+	public static String uncomment(String fileContents) {
+		ASTParser parser = ASTParser.newParser(AST.JLS4);
+		parser.setSource(fileContents.toCharArray());
+		parser.setKind(ASTParser.K_COMPILATION_UNIT);
+ 
+		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
+		SimpleVisitor sv = new SimpleVisitor(cu, "", false);
+		cu.accept(sv);
+		return cu.toString();
+	}
  
 	//read file content into a string
 	public static String readFileToString(String filePath) throws IOException {
