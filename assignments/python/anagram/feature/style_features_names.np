@@ -86,7 +86,6 @@
 ['UnaryOp']
 ['Lambda']
 ['IfExp']
-['Dict']
 ['ListComp']
 ['DictComp']
 ['GeneratorExp']

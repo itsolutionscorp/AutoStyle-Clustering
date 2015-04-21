@@ -415,7 +415,7 @@ def generate_chain(start_index, max_hints, style_score_weight, home_dir = "./",
                    libcall_dict='util/lib_call_dict.pkl', language="ruby"):
     '''
     Create a new chain object. This is the interface with the web app.
-    Disclaimer: Assumes data_dir has a particular structure.
+    Disclaimer: Assumes data_dir has a particular structure. 
     '''
     home_dir = home_dir.rstrip("/") + "/"
     data_dir = data_dir.rstrip("/") + "/"
