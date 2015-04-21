@@ -1,15 +1,11 @@
 public int multiply(int x,int y){
-  int a=x;
-  int b=y;
-  int sum=0;
-  while (b != 0) {
-    int lastDigit=b & 1;
-    if (lastDigit == 1) {
-      sum=this.add(sum,a);
-    }
-    a<<=1;
-    b>>>=1;
+  int product=0;
+  int currentBit=1;
+  while (x != 0) {
+    if ((y & currentBit) != 0)     product=add(product,x);
+    x=x << 1;
+    currentBit=currentBit << 1;
   }
-  return sum;
+  return product;
 }
 

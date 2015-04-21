@@ -1,12 +1,19 @@
 public int multiply(int x,int y){
-  int answer=0;
+  int sum=0;
+  int counter=0;
+  int tracker=0;
   while (y != 0) {
-    if ((y & 1) != 0) {
-      answer=answer + x;
+    tracker=y & 1;
+    if (tracker == 1) {
+      sum=add(sum,(x << counter));
+      y=y >>> 1;
+      counter+=1;
     }
-    y=y >>> 1;
-    x=x << 1;
+ else {
+      counter+=1;
+      y=y >>> 1;
+    }
   }
-  return answer;
+  return sum;
 }
 

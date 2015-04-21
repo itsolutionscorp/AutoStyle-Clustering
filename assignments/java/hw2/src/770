@@ -1,17 +1,33 @@
 public int multiply(int x,int y){
-  int temp=x;
-  int result=0;
-  int curBit=0;
-  int curYBit;
-  int toAdd;
-  while (curBit < 32) {
-    curYBit=getBit(y,curBit);
-    if (curYBit == 1) {
-      toAdd=(x & 2147483647) << curBit;
-      result=add(result,toAdd);
+  int count=0;
+  int total=0;
+  if (x <= 0 && y >= 0) {
+    while (count < y) {
+      total=add(x,total);
+      count+=1;
     }
-    curBit=curBit + 1;
+    return total;
   }
-  return result;
+ else   if (x >= 0 && y <= 0) {
+    while (count < x) {
+      total=add(y,total);
+      count+=1;
+    }
+    return total;
+  }
+ else   if (x <= 0 && y <= 0) {
+    while (count > x) {
+      total=add(y,total);
+      count-=1;
+    }
+    return (~total) | 1;
+  }
+ else {
+    while (count < x) {
+      total=add(y,total);
+      count+=1;
+    }
+    return total;
+  }
 }
 

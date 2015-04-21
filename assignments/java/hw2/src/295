@@ -1,12 +1,15 @@
 public int multiply(int x,int y){
-  int bit=0;
   int result=0;
-  while (bit < 32) {
-    int bitval=getBit(y,bit);
-    if (bitval == 1) {
-      result=add(result,x << bit);
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      result=add(result,x);
+      x=x << 1;
+      y=y >>> 1;
     }
-    bit++;
+ else {
+      x=x << 1;
+      y=y >>> 1;
+    }
   }
   return result;
 }

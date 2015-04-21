@@ -1,14 +1,11 @@
 public int multiply(int x,int y){
-  int a=x;
-  int b=y;
-  int result=0;
-  while (b != 0) {
-    if ((b & 1) != 0) {
-      result=result + a;
+  int pos=0, sum=0;
+  while (pos < 32) {
+    if (getBit(y,pos) == 1) {
+      sum=add(sum,x << pos);
     }
-    a<<=1;
-    b>>>=1;
+    pos+=1;
   }
-  return result;
+  return sum;
 }
 

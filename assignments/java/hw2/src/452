@@ -1,13 +1,16 @@
 public int multiply(int x,int y){
-  int product=0;
-  int bitNum=0;
-  while (y != 0) {
-    if ((y & 1) != 0) {
-      product=add(product,x << bitNum);
-    }
-    y>>>=1;
-    bitNum+=1;
+  int counter=0;
+  int sum=0;
+  int tempX=Math.abs(x);
+  int tempY=Math.abs(y);
+  while (counter != tempX) {
+    sum=add(sum,tempY);
+    counter=add(counter,1);
   }
-  return product;
+  if ((Math.signum(x) == -1.0) ^ (Math.signum(y) == -1.0)) {
+    sum=~sum;
+    sum=add(sum,1);
+  }
+  return sum;
 }
 

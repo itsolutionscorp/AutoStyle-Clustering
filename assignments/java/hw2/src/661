@@ -1,24 +1,24 @@
 public int multiply(int x,int y){
-  flag=false;
-  int result=0;
-  if (y > 0) {
-    for (int counter=0; counter < y; counter++) {
-      result=add(x,result);
-    }
+  if (y == 0 || x == 0) {
+    return 0;
+  }
+ else   if (y == 1) {
+    return x;
+  }
+ else   if (x == 1) {
+    return y;
+  }
+ else   if (y == add((~1),1)) {
+    return add((~x),1);
+  }
+ else   if (x == add((~1),1)) {
+    return add((~y),1);
+  }
+ else   if ((y & 1) == 0) {
+    return multiply(x << 1,y >> 1);
   }
  else {
-    for (int counter=y; counter < 0; counter++) {
-      result=add(x,result);
-    }
+    return add(x,multiply(x,add(y,add((~1),1))));
   }
-  if (((x < 0 && y > 0) || (x > 0 && y < 0)) && result > 0) {
-    result=add(1,~result);
-  }
-  if (((x < 0 && y < 0) || (x > 0 && y > 0)) && result < 0) {
-    result=add(1,~result);
-  }
-  flag=true;
-  saveEquation(x + "*" + y,result);
-  return result;
 }
 

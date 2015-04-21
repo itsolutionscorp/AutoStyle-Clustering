@@ -1,27 +1,13 @@
 public int multiply(int x,int y){
-  if ((x < 0) & (y < 0)) {
-    return multiply(-x,-y);
-  }
- else   if ((x > 0) & (y < 0)) {
-    return multiply(y,x);
-  }
- else {
-    int power=1;
-    int value=0;
-    while (power < 1073741824) {
-      if ((power & y) == power) {
-        int counter=power;
-        while (counter > 0) {
-          value=add(value,x);
-          counter=add(counter,-1);
-        }
-        power=add(power,power);
-      }
- else {
-        power=add(power,power);
-      }
+  int count=0;
+  int a=0;
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      a=add(a,x << count);
     }
-    return value;
+    y=y >>> 1;
+    count=add(count,1);
   }
+  return a;
 }
 

@@ -1,0 +1,1 @@
+( multiply ( iter::14 ( <=::14 )( cond::15 ( ==::15 ( getBit::15 ))( add::16 ( getPartialProduct::16 )))( +::19 )))

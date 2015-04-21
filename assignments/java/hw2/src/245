@@ -1,11 +1,12 @@
 public int multiply(int x,int y){
-  int result=0;
-  int powerOfTwo=0;
+  int answer=0;
   while (y != 0) {
-    if ((y & 1) != 0)     result=add(result,x << (powerOfTwo));
-    powerOfTwo=add(powerOfTwo,1);
+    int temp=y;
+    temp=(temp << 31) >>> 31;
+    answer=add(answer,multiplyHelper(x,temp));
+    x=x << 1;
     y=y >>> 1;
   }
-  return result;
+  return answer;
 }
 

@@ -1,21 +1,19 @@
 public int multiply(int x,int y){
-  int i=0;
-  int result=0;
-  int toadd=0;
-  while (i < 32) {
-    int current=getBit(y,i);
-    if (current == 0) {
-      toadd=x & current;
-    }
- else {
-      int multer=~0;
-      toadd=x & multer;
-      toadd=toadd << i;
-    }
-    result=add(result,toadd);
-    i++;
+  int loopCount=1;
+  int product=0;
+  while (loopCount < y) {
+    product=x << 1;
+    loopCount=loopCount * 2;
   }
-  System.out.println("");
-  return result;
+  while (loopCount != y) {
+    product=add(product,-x);
+    loopCount=add(loopCount,-1);
+  }
+  if (y < 0) {
+    return add(product,x);
+  }
+ else {
+    return product;
+  }
 }
 

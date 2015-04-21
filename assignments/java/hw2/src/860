@@ -1,17 +1,17 @@
 public int multiply(int x,int y){
-  Calculator calc=new Calculator();
-  int product=0;
-  int flag=0;
+  int m=0;
   if (y < 0) {
-    y=~y + 1;
-    flag=1;
+    int t=x;
+    x=y;
+    y=t;
   }
-  for (int k=0; k < y; k++) {
-    product=calc.add(product,x);
+  while (y != 0) {
+    if ((y & 1) == 1) {
+      m=add(m,x);
+    }
+    x=x << 1;
+    y=y >> 1;
   }
-  if (flag == 1) {
-    product=~product + 1;
-  }
-  return product;
+  return m;
 }
 

@@ -1,0 +1,12 @@
+public int multiply(int x,int y){
+  int product, evenOdd;
+  product=0;
+  evenOdd=1;
+  while (y != 0) {
+    if ((y & evenOdd) == 1)     product=add(product,x);
+    x=x << 1;
+    y=y >>> 1;
+  }
+  return product;
+}
+

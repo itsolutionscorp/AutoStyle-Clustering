@@ -1,23 +1,14 @@
 public int multiply(int x,int y){
-  int product=0;
-  if (((x >>> 31) == 1) && ((y >>> 31) != 1)) {
-    return add(~multiply(add(~x,1),y),1);
+  int accumulate=0;
+  int adder=0;
+  int mulFactor=0;
+  for (int i=31; i >= 0; i--) {
+    mulFactor=y >> 31;
+    adder=x & mulFactor;
+    adder=adder << i;
+    accumulate=add(accumulate,adder);
+    y=y << 1;
   }
- else   if (((x >>> 31) != 1) && ((y >>> 31) == 1)) {
-    return add(~multiply(x,add(~y,1)),1);
-  }
-  while (y != 0) {
-    if (((x >>> 31) == 1) && ((y >>> 31) == 1)) {
-      x=add(~x,1);
-      y=add(~y,1);
-      return multiply(x,y);
-    }
-    if ((y & 1) != 0) {
-      product=add(product,x);
-    }
-    x=x << 1;
-    y=y >> 1;
-  }
-  return product;
+  return accumulate;
 }
 

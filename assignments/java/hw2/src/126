@@ -1,12 +1,23 @@
 public int multiply(int x,int y){
-  int product=0;
-  int tester;
-  for (int count=0; count < 32; count++) {
-    tester=((x >> count) & 1);
-    if (tester == 1) {
-      product=add(product,(y << count));
+  int z=0;
+  if (y > x) {
+    while (x != 0) {
+      if ((x & 1) != 0) {
+        z=add(z,y);
+      }
+      y=y << 1;
+      x=x >>> 1;
     }
   }
-  return product;
+ else {
+    while (y != 0) {
+      if ((y & 1) != 0) {
+        z=add(z,x);
+      }
+      x=x << 1;
+      y=y >>> 1;
+    }
+  }
+  return z;
 }
 

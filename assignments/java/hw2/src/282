@@ -1,0 +1,10 @@
+public int multiply(int x,int y){
+  int index=0;
+  int total=0;
+  while (index < 32) {
+    total=add(total,multiplyPowersTwo(x,gitBit(y,index) << index));
+    index=add(index,1);
+  }
+  return total;
+}
+

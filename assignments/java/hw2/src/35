@@ -1,12 +1,13 @@
 public int multiply(int x,int y){
-  int i=0;
+  int n=0;
+  int bitmask;
   int product=0;
-  while (i < 32) {
-    if (getBit(y,i) == 1) {
-      product=add(product,x);
+  while (n < 32) {
+    bitmask=1 << n;
+    if (!((y & bitmask) == 0)) {
+      product=add(product,x << n);
     }
-    x=x << 1;
-    i+=1;
+    n++;
   }
   return product;
 }

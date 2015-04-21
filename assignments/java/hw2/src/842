@@ -1,15 +1,12 @@
 public int multiply(int x,int y){
-  if (y == 0) {
-    return 0;
+  int sum=0;
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      sum=add(sum,x);
+    }
+    x=x << 1;
+    y=y >>> 1;
   }
-  if (y == 1) {
-    return x;
-  }
-  if ((y & 1) == 1) {
-    return add(x,multiply(x << 1,y >>> 1));
-  }
- else {
-    return multiply(x << 1,y >>> 1);
-  }
+  return sum;
 }
 

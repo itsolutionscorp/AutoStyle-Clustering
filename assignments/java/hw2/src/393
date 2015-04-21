@@ -1,36 +1,14 @@
 public int multiply(int x,int y){
-  boolean isPositiveResult;
-  int signX=x >> 31;
-  int signY=y >> 31;
-  if ((signX == 0) && (signY == 0)) {
-    isPositiveResult=true;
-  }
- else   if ((signX == -1) && (signY == -1)) {
-    isPositiveResult=true;
-  }
- else {
-    isPositiveResult=false;
-  }
-  if (signX == -1) {
-    x=negate(x);
-  }
-  if (signY == -1) {
-    y=negate(y);
-  }
-  int a=x;
-  int b=y;
-  int result=0;
-  Calculator newCalculator=new Calculator();
-  while (b != 0) {
-    if ((b & 01) != 0) {
-      result=newCalculator.add(result,a);
+  int i=0;
+  int r=0;
+  while (y != 0) {
+    if ((y & 1) == 1) {
+      int xNew=x << i;
+      r=add(r,xNew);
     }
-    a<<=1;
-    b>>=1;
+    y=y >> 1;
+    i+=1;
   }
-  if (!isPositiveResult) {
-    result=negate(result);
-  }
-  return result;
+  return r;
 }
 

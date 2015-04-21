@@ -1,17 +1,10 @@
 public int multiply(int x,int y){
-  if (y < 0)   return multiply(-x,-y);
-  if (y == 0)   return 0;
-  if (y == 1)   return x;
-  int top=128;
-  int temp=y ^ top;
-  int count=7;
-  while (temp >= top && count > 0) {
-    top=top >>> 1;
-    temp=y ^ top;
-    count=add(count,-1);
+  int product=0;
+  while (y != 0) {
+    if ((y & 1) != 0)     product=add(product,x);
+    x=x << 1;
+    y=y >>> 1;
   }
-  int extended=x << count;
-  y=temp;
-  return add(extended,multiply(x,y));
+  return product;
 }
 

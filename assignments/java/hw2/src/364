@@ -1,16 +1,22 @@
 public int multiply(int x,int y){
-  int n=0;
-  int result=0;
-  while (y != 0) {
-    int mask=1;
-    int new_x=0;
-    if ((y & mask) == 1) {
-      new_x=x << n;
-      result=add(new_x,result);
+  int a=x;
+  if (y > 0) {
+    y=add(y,-1);
+    while (y > 0) {
+      x=add(x,a);
+      y=add(y,-1);
     }
-    n=add(n,1);
-    y=y >>> 1;
   }
-  return result;
+ else {
+    y=add(y,1);
+    while (y < 0) {
+      x=add(x,a);
+      y=add(y,1);
+    }
+    if (x < 0) {
+      x=-x;
+    }
+  }
+  return x;
 }
 

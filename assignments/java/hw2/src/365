@@ -1,10 +1,15 @@
 public int multiply(int x,int y){
-  int sum=0;
-  for (int shift=0; shift < 32; shift++) {
-    if (((1 << shift) & y) != 0) {
-      sum=add(sum,x << shift);
-    }
+  if (x == 0) {
+    return 0;
   }
-  return sum;
+  int answer=0;
+  for (int i=0; i < Math.abs(x); i++) {
+    answer=add(answer,y);
+  }
+  if (x < 0) {
+    answer=~answer;
+    answer=add(answer,1);
+  }
+  return answer;
 }
 

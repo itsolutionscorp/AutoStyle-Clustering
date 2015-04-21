@@ -1,12 +1,10 @@
 public int multiply(int x,int y){
-  int result=0;
-  while (y != 0) {
-    if ((y & 01) != 0) {
-      result=add(result,x);
+  int sum=0;
+  for (int shift=0; shift < 32; shift++) {
+    if (((1 << shift) & y) != 0) {
+      sum=add(sum,x << shift);
     }
-    x<<=1;
-    y>>=1;
   }
-  return result;
+  return sum;
 }
 

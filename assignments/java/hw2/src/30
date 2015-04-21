@@ -1,19 +1,12 @@
 public int multiply(int x,int y){
-  if (x < 0) {
-    return -multiply(-x,y);
-  }
- else   if (y < 0) {
-    return -multiply(x,-y);
-  }
-  int totalSum=0;
-  int counter=0;
+  int res=0;
   while (y != 0) {
     if ((y & 1) != 0) {
-      totalSum=add(totalSum,x << counter);
+      res=add(res,x);
     }
-    y=y >> 1;
-    counter+=1;
+    x<<=1;
+    y>>>=1;
   }
-  return totalSum;
+  return res;
 }
 

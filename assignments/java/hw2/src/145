@@ -1,10 +1,18 @@
 public int multiply(int x,int y){
-  int total=0;
-  while (y != 0) {
-    if ((y & 01) != 0)     total=add(total,x);
-    x<<=1;
-    y>>>=1;
+  int product=0;
+  if (y < 0 && x < 0) {
+    return multiply(-y,-x);
   }
-  return total;
+  if (y < 0) {
+    return multiply(y,x);
+  }
+  while (y != 0) {
+    if ((y & 01) == 1) {
+      product=add(product,x);
+    }
+    x<<=1;
+    y>>=1;
+  }
+  return product;
 }
 

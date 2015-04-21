@@ -1,18 +1,17 @@
 public int multiply(int x,int y){
-  if (y == 0) {
-    return 0;
+  if (getBit(y,0) == 1) {
+    sum=x;
   }
-  int prod=0;
-  int i=0;
+ else {
+    sum=0;
+  }
+  i=1;
   while (i < 32) {
-    int remain=y & 1;
-    if (remain == 1) {
-      int newx=x << i;
-      prod=add(prod,newx);
+    if (getBit(y,i) != 0) {
+      sum=add(sum,x << i);
     }
     i=i + 1;
-    y=y >> 1;
   }
-  return prod;
+  return sum;
 }
 

@@ -1,12 +1,8 @@
 public int multiply(int x,int y){
-  int sum=0;
-  while (y != 0) {
-    if ((y & 1) == 1) {
-      sum=add(sum,x);
-    }
-    y>>>=1;
-    x<<=1;
+  int result=x;
+  for (int i=1; i < y; i++) {
+    result=add(result,x);
   }
-  return sum;
+  return result;
 }
 

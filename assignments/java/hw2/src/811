@@ -1,18 +1,12 @@
 public int multiply(int x,int y){
-  if (x == 0 || y == 0)   return 0;
-  if (x < 0 && y > 0) {
-    int temp=x;
-    x=y;
-    y=temp;
+  int res=0;
+  while (y != 0) {
+    if ((y & 01) != 0) {
+      res=add(res,x);
+    }
+    x<<=1;
+    y>>>=1;
   }
-  int rv=0;
-  for (int i=0; i < Math.abs(y); i++) {
-    rv=add(rv,x);
-  }
-  if (x < 0 && y < 0)   return Math.abs(rv);
- else   if (y < 0) {
-    return ~add(rv,-1);
-  }
- else   return rv;
+  return res;
 }
 

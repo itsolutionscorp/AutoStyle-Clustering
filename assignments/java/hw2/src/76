@@ -1,13 +1,15 @@
 public int multiply(int x,int y){
-  int answer=0;
+  int current=0;
   while (y != 0) {
-    int check=y & 01;
-    if (check != 0) {
-      answer=add(answer,x);
+    if (x == 0) {
+      return current;
     }
-    y>>=1;
-    x<<=1;
+    if ((y & 1) != 0) {
+      current=add(current,x);
+    }
+    x=x << 1;
+    y=y >> 1;
   }
-  return answer;
+  return current;
 }
 

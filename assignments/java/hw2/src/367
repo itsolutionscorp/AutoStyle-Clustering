@@ -1,28 +1,16 @@
 public int multiply(int x,int y){
-  if (x == 0 || y == 0) {
+  if (y == 0) {
     return 0;
   }
-  int tot=x;
-  int start=x;
-  boolean yneg=false;
-  if (y < 0) {
-    y=add(~y,1);
-    System.out.println(y);
-    yneg=true;
-  }
   if (y == 1) {
-    return tot;
+    return x;
   }
-  while (y > 1) {
-    tot=tot << 1;
-    y=y - 2;
+  if (y == -1) {
+    return -x;
   }
-  if (y == 1) {
-    tot=add(tot,x);
+  if (((y >> 1) << 1) == y) {
+    return multiply(x << 1,y >> 1);
   }
-  if (yneg) {
-    return add(~tot,1);
-  }
-  return tot;
+  return add(x,multiply(x,add(y,-1)));
 }
 

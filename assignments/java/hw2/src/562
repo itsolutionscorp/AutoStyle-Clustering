@@ -1,17 +1,16 @@
 public int multiply(int x,int y){
-  int n=0;
-  int sum=0;
-  while (y != 0) {
-    if ((y & 1) > (y & 0)) {
-      sum=add(sum,x << n);
-      n=add(n,1);
-      y=y >>> 1;
-    }
- else {
-      n=add(n,1);
-      y=y >>> 1;
-    }
+  if ((x == 0) || (y == 0)) {
+    return 0;
   }
-  return sum;
+  if ((y == 2) || (y == 1)) {
+    return x << add(y,-1);
+  }
+  if (isNegative(y)) {
+    return multiply(flipSign(x),flipSign(y));
+  }
+  if ((y & 1) == 0) {
+    return multiply((x << 1),(y >>> 1));
+  }
+  return add(x,multiply(x,add(y,-1)));
 }
 

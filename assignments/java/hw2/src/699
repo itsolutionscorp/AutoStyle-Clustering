@@ -1,17 +1,12 @@
 public int multiply(int x,int y){
-  int bits=32;
-  int bit=0;
-  int result=0;
-  int yMask;
-  while (bit < bits) {
-    yMask=y & 1;
-    if (yMask == 1) {
-      result=add(result,x);
+  int sum=0;
+  while (y >= 1) {
+    if ((y & 1) == 1) {
+      sum=add(sum,x);
     }
-    x<<=1;
-    y>>>=1;
-    bit++;
+    x=x << 1;
+    y=y >> 1;
   }
-  return result;
+  return sum;
 }
 

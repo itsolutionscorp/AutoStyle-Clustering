@@ -1,13 +1,12 @@
 public int multiply(int x,int y){
-  int product=0;
-  int thing_to_add=0;
-  int shift_increment=0;
-  while (y != 0) {
-    thing_to_add=((((y & 1) << 31) >> 31) & x);
-    product=product + (thing_to_add << shift_increment);
-    shift_increment+=1;
-    y=(y >>> 1);
+  int result=0;
+  for (int count=0; count < 32; count++) {
+    if ((y & 01) != 0) {
+      result=add(result,x);
+    }
+    x<<=1;
+    y>>=1;
   }
-  return product;
+  return result;
 }
 

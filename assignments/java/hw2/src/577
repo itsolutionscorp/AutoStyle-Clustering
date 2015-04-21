@@ -1,29 +1,4 @@
 public int multiply(int x,int y){
-  int power_of_2=1;
-  int counter=0;
-  if (x == 0 || y == 0) {
-    return 0;
-  }
-  int originalx=x;
-  int originaly=y;
-  x=Math.abs(x);
-  y=Math.abs(y);
-  while (power_of_2 < y) {
-    power_of_2=power_of_2 << 1;
-    counter+=1;
-  }
-  power_of_2=power_of_2 >> 1;
-  counter=counter - 1;
-  int index=y - power_of_2;
-  int answer=x;
-  answer=answer << counter;
-  while (index > 0) {
-    answer=add(answer,x);
-    index=index - 1;
-  }
-  if ((originalx < 0 || originaly < 0) && !(originalx < 0 && originaly < 0)) {
-    answer=-answer;
-  }
-  return answer;
+  return helper(0,x,y);
 }
 

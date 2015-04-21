@@ -1,13 +1,12 @@
 public int multiply(int x,int y){
-  int result=0;
+  int z=0;
   while (y != 0) {
-    int lastBit=y & 1;
-    if (lastBit == 1) {
-      result=add(x,result);
+    if ((y & 1) == 1) {
+      z=add(z,x);
     }
-    y=y >>> 1;
     x=x << 1;
+    y=y >>> 1;
   }
-  return result;
+  return z;
 }
 

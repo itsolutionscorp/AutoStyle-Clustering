@@ -1,17 +1,12 @@
 public int multiply(int x,int y){
-  int sum=0;
-  if (x < 0 && y < 0) {
-    x=add(~x,1);
-    y=add(~y,1);
+  int total=0;
+  int shift=0;
+  while (shift < 32) {
+    if (((1 << shift) & y) != 0) {
+      total=add(total,x << shift);
+    }
+    shift=add(shift,1);
   }
-  if (y < x) {
-    int temp=y;
-    y=x;
-    x=temp;
-  }
-  for (int i=0; i < y; i++) {
-    sum=add(sum,x);
-  }
-  return sum;
+  return total;
 }
 

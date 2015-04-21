@@ -1,11 +1,30 @@
 public int multiply(int x,int y){
-  int total=0;
-  for (int i=0; i < 32; i++) {
-    if ((y & 1) == 1) {
-      total=add(total,x << i);
-    }
-    y=y >> 1;
+  int product=0;
+  int cycle=y;
+  int cycled=x;
+  if (x < 0 && y > 0) {
+    cycle=y;
+    cycled=x;
   }
-  return total;
+ else   if (y < 0 && x > 0) {
+    cycle=x;
+    cycled=y;
+  }
+ else   if (x < 0 && y < 0) {
+    int oldCycle=cycle;
+    int oldCycled=cycled;
+    cycle=0;
+    cycled=0;
+    for (int i=0; i > oldCycle; i=add(-1,i)) {
+      cycle=add(cycle,1);
+    }
+    for (int i=0; i > oldCycled; i=add(-1,i)) {
+      cycled=add(cycled,1);
+    }
+  }
+  for (int i=0; i < cycle; i++) {
+    product=add(product,cycled);
+  }
+  return product;
 }
 

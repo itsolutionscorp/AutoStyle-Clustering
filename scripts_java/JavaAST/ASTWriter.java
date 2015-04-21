@@ -23,17 +23,26 @@ public class ASTWriter {
 		String assignment = args[0];
 		String fileName = args[1];
 		String methodName = args[2];
+		boolean addLines = false;
+		if (args.length > 3 && args[3].equals("-l")){
+			addLines = true;
+		}
 		
 		File sourceDir = new File("../../assignments/java/" + assignment + "/full_src/");
 		File[] submissionDirs = sourceDir.listFiles();
 		for (File submissionDir: submissionDirs){
 			String submissionFile = submissionDir.getPath() + "/" + fileName;
 			if (new File(submissionFile).exists()){
-				String ast = ASTBuilder.parse(ASTBuilder.readFileToString(submissionFile), methodName);
+				String ast = ASTBuilder.parse(ASTBuilder.readFileToString(submissionFile), methodName, addLines);
 				String cleanCode = ASTBuilder.clean(ASTBuilder.readFileToString(submissionFile), methodName);
 				if (ast != null){
-					File astFile = new File("../../assignments/java/" + assignment + "/ast/" + submissionDir.getName() + "/" + fileName + ".ast");
-					writeFile(astFile, ast);
+					if (addLines){
+						File astFile = new File("../../assignments/java/" + assignment + "/annotated_ast/" + submissionDir.getName() + "/" + fileName + ".ast");
+						writeFile(astFile, ast);
+					} else {
+						File astFile = new File("../../assignments/java/" + assignment + "/ast/" + submissionDir.getName() + "/" + fileName + ".ast");
+						writeFile(astFile, ast);
+					}
 					File cleanFile = new File("../../assignments/java/" + assignment + "/src/" + submissionDir.getName());
 					writeFile(cleanFile, cleanCode);
 				}

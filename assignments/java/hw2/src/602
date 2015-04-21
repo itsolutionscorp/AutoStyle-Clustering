@@ -1,0 +1,18 @@
+public int multiply(int x,int y){
+  if (x == 0 || y == 0)   return 0;
+  boolean xIsNeg=((x >>> 31) == 1);
+  boolean yIsNeg=((y >>> 31) == 1);
+  if (xIsNeg) {
+    x=negate(x);
+  }
+  if (yIsNeg) {
+    y=negate(y);
+  }
+  int sum=0;
+  for (int i=0; i < y; i=add(i,1)) {
+    sum=add(sum,x);
+  }
+  if (xIsNeg != yIsNeg)   return negate(sum);
+  return sum;
+}
+

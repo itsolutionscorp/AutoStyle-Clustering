@@ -1,32 +1,15 @@
 public int multiply(int x,int y){
-  int ans=0;
-  if (x < 0 && y < 0) {
-    x=add(~x,1);
-    y=add(~y,1);
-    for (int i=0; i < y; i++) {
-      ans=add(ans,x);
+  int sum=0;
+  int shift=1;
+  int xdig=x;
+  for (int i=1; i < 32; i++) {
+    int ydig=y & shift;
+    if (ydig != 0) {
+      sum=add(sum,xdig);
     }
+    xdig=xdig << 1;
+    shift=shift << 1;
   }
- else   if (x < 0 || y < 0) {
-    if (x < 0) {
-      x=add(~x,1);
-      for (int i=0; i < y; i++) {
-        ans=add(ans,x);
-      }
-    }
- else {
-      y=add(~y,1);
-      for (int i=0; i < y; i++) {
-        ans=add(ans,x);
-      }
-    }
-    ans=-ans;
-  }
- else {
-    for (int i=0; i < y; i++) {
-      ans=add(ans,x);
-    }
-  }
-  return ans;
+  return sum;
 }
 

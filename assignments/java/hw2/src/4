@@ -1,12 +1,20 @@
 public int multiply(int x,int y){
-  int answer=0;
+  int product=0;
+  int i=0;
+  int temp=0;
+  Calculator adder=new Calculator();
   while (y != 0) {
-    int temp=y;
-    temp=(temp << 31) >>> 31;
-    answer=add(answer,multiplyHelper(x,temp));
-    x=x << 1;
+    int currDigitY=y & 1;
+    if (currDigitY == 1) {
+      temp=x << i;
+    }
+ else {
+      temp=0;
+    }
+    product=adder.add(product,temp);
+    i+=1;
     y=y >>> 1;
   }
-  return answer;
+  return product;
 }
 

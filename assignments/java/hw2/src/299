@@ -1,24 +1,12 @@
 public int multiply(int x,int y){
-  tacocat=false;
-  int neg=0;
-  String equation=x + " * " + y;
-  if (x < 0) {
-    x=add(~x,1);
-    neg=1;
+  int sum=0;
+  while ((y != 0)) {
+    if ((y & 1) == 1) {
+      sum=add(sum,x);
+    }
+    x=x << 1;
+    y=y >>> 1;
   }
-  int product=y;
-  while (x > 1) {
-    product=add(y,product);
-    x-=1;
-  }
-  if (neg == 1 && y < 0 && product < 0) {
-    return add(~product,1);
-  }
- else   if (neg == 1 && product > 0) {
-    return add(~product,1);
-  }
-  saveEquation(equation,product);
-  tacocat=true;
-  return product;
+  return sum;
 }
 

@@ -1,14 +1,14 @@
 public int multiply(int x,int y){
-  int sum=0;
-  int a=y;
-  int b=x;
-  while (a != 0) {
-    if ((a & 1) == 1) {
-      sum=add(sum,b);
-    }
-    a=a >>> 1;
-    b=b << 1;
+  if (y == 0 || x == 0) {
+    return 0;
   }
-  return sum;
+ else   if (y == 1) {
+    return x;
+  }
+  int extra=0;
+  if ((y & 1) != 0) {
+    extra=x;
+  }
+  return add(extra,multiply(x << 1,y >> 1));
 }
 

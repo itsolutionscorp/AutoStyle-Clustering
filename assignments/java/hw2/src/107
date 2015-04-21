@@ -1,17 +1,13 @@
 public int multiply(int x,int y){
-  if (x < 0) {
-    return add(~multiply(add(~x,1),y),1);
+  int result=0;
+  int holder=0;
+  while (y != 0) {
+    if ((y & 1) == 1) {
+      result+=x;
+    }
+    x=this.add(x,x);
+    y=y >>> 1;
   }
-  if (y < 0) {
-    return add(~multiply(x,add(~y,1)),1);
-  }
-  if (y == 0) {
-    return 0;
-  }
-  if (y == 1) {
-    return x;
-  }
-  int newY=y - 2;
-  return add(x << 1,multiply(x,newY));
+  return result;
 }
 

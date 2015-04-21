@@ -1,18 +1,19 @@
 public int multiply(int x,int y){
-  if (x == 0) {
-    return 0;
-  }
- else {
-    int sum=0;
-    int ct=0;
-    while (y != 0) {
-      if ((y & 1) == 1) {
-        sum=this.add(sum,x << ct);
-      }
-      y=y >>> 1;
-      ct++;
+  int i=0;
+  int partialsum=0;
+  int newline=0;
+  int ybit=0;
+  while (i <= 31) {
+    ybit=getBit(y,i);
+    if (ybit == 0) {
+      newline=0;
     }
-    return sum;
+ else {
+      newline=x << i;
+    }
+    partialsum=add(partialsum,newline);
+    i=i + 1;
   }
+  return partialsum;
 }
 

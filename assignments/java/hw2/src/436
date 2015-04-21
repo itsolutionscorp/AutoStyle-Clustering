@@ -1,28 +1,15 @@
 public int multiply(int x,int y){
-  if (x == 0 || y == 0) {
-    return 0;
-  }
- else   if (x < 0 && y < 0) {
-    return multiply(add((~x),1),add((~y),1));
-  }
- else   if (x < 0 && y > 0) {
-    return add((~multiply(add((~x),1),y)),1);
-  }
- else   if (x > 0 && y < 0) {
-    return add((~multiply(add((~y),1),x)),1);
-  }
- else {
-    if (y == 1) {
-      return x;
+  int a=x;
+  int b=y;
+  int sum=0;
+  while (b != 0) {
+    int lastDigit=b & 1;
+    if (lastDigit == 1) {
+      sum=this.add(sum,a);
     }
- else {
-      if ((y & 1) == 1) {
-        return add(x,multiply((x << 1),(y >> 1)));
-      }
- else {
-        return multiply((x << 1),(y >> 1));
-      }
-    }
+    a<<=1;
+    b>>>=1;
   }
+  return sum;
 }
 

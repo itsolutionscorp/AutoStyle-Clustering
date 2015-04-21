@@ -1,12 +1,9 @@
 public int multiply(int x,int y){
-  int multiplication=0;
-  while (y != 0) {
-    if ((y & 01) != 0) {
-      multiplication=add(multiplication,x);
-    }
-    x=x << 1;
-    y=y >>> 1;
+  if (x == 0 || y == 0)   return 0;
+  if (y < 0) {
+    return multiply(add(~x,1),add(~y,1));
   }
-  return multiplication;
+  if ((y ^ ((y >>> 1) << 1)) == 0)   return add(multiply(x,y >> 1),multiply(x,y >> 1));
+  return add(x,add(multiply(x,y >> 1),multiply(x,y >> 1)));
 }
 

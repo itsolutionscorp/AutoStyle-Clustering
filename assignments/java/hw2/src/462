@@ -1,14 +1,12 @@
 public int multiply(int x,int y){
-  int product=0;
-  int a=~(~x);
-  int b=~(~y);
-  while (Math.abs(a) >= 1) {
-    if ((a & 1) == 1) {
-      product=add(product,b);
+  int a=x, b=y, result=0;
+  while (b != 0) {
+    if ((b & 1) == 1) {
+      result=add(result,a);
     }
-    a=a >>> 1;
-    b=b << 1;
+    a=a << 1;
+    b=b >>> 1;
   }
-  return product;
+  return result;
 }
 

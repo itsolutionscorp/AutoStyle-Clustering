@@ -1,14 +1,11 @@
 public int multiply(int x,int y){
-  int min=Math.min(x,y);
-  int max=Math.max(x,y);
   int result=0;
-  while (min != 0) {
-    int lastDig=min & 1;
-    if (lastDig == 1) {
-      result=add(result,max);
+  while (y != 0) {
+    if ((y & 01) != 0) {
+      result=add(result,x);
     }
-    min=min >>> 1;
-    max=max << 1;
+    x<<=1;
+    y>>>=1;
   }
   return result;
 }

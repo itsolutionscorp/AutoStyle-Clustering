@@ -1,11 +1,22 @@
 public int multiply(int x,int y){
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  if (y < 0 && x < 0) {
+    x=add(~x,1);
+    y=add(~y,1);
+  }
+  if (y < 0 && x > 0) {
+    int a=y;
+    int b=x;
+    y=b;
+    x=a;
+  }
+  int i=0;
   int product=0;
-  for (int i=0; i < 32; i++) {
-    int yLast=y & 1;
-    if (yLast == 1) {
-      product=add(product,(x << i));
-    }
-    y=y >>> 1;
+  while (i < y) {
+    product=add(product,x);
+    i+=1;
   }
   return product;
 }

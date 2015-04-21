@@ -1,20 +1,18 @@
 public int multiply(int x,int y){
-  int product=0;
-  if (x > 0) {
-    for (int i=0; i < x; i++) {
-      product=add(product,y);
-    }
+  if (x == 0 || y == 0) {
+    return 0;
   }
-  if (x < 0) {
-    x=add((~x),1);
-    for (int i=0; i < x; i++) {
-      product=add(product,y);
-    }
-    product=add((~product),1);
+ else   if (x < 0 && y < 0) {
+    int abs_x=add(~x,1);
+    int abs_y=add(~y,1);
+    return multiply(abs_x,abs_y);
   }
-  if (x == 0) {
-    product=0;
+ else   if (y < 0) {
+    int neg_x=add(~x,1);
+    int pos_y=add(~y,1);
+    return multiply(neg_x,pos_y);
   }
-  return product;
+  int decrement_result=multiply(x,add(y,-1));
+  return add(x,decrement_result);
 }
 

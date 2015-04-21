@@ -1,17 +1,12 @@
 public int multiply(int x,int y){
-  Calculator machine=new Calculator();
-  if (x == 0 || y == 0) {
-    return 0;
-  }
-  int count=0;
-  int answer=0;
-  while (count <= 31) {
-    int yBit=machine.getBit(y,count);
-    if (yBit == 1) {
-      answer=machine.add(answer,(x << count));
+  int result=0;
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      result=add(result,x);
     }
-    count+=1;
+    x=x << 1;
+    y=y >>> 1;
   }
-  return answer;
+  return result;
 }
 

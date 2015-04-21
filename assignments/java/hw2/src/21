@@ -1,12 +1,16 @@
 public int multiply(int x,int y){
-  int sum=0;
+  int product;
+  product=0;
   while (y != 0) {
     if ((y & 1) != 0) {
-      sum=add(sum,x);
+      product=product + x;
     }
-    x=x << 1;
     y=y >>> 1;
+    x=x << 1;
   }
-  return sum;
+  tempeq=(x + " * " + y);
+  result=product;
+  saveEquation(tempeq,result);
+  return product;
 }
 

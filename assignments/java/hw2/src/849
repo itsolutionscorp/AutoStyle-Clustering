@@ -1,12 +1,12 @@
 public int multiply(int x,int y){
-  int p=0;
-  while (y != 0) {
-    if ((y & 1) != 0) {
-      p=add(p,x);
+  int result=0;
+  while (x != 0) {
+    if ((y & 01) != 0) {
+      result=result + x;
     }
-    x=x << 1;
-    y=y >> 1;
+    x<<=1;
+    y>>=1;
   }
-  return p;
+  return result;
 }
 

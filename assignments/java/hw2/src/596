@@ -1,8 +1,13 @@
 public int multiply(int x,int y){
+  if ((y < 0) && (x > 0)) {
+    return multiply(y,x);
+  }
+ else   if ((y < 0) && (x < 0)) {
+    return multiply(Math.abs(x),Math.abs(y));
+  }
   int product=0;
   while (y != 0) {
-    int checkYDigit=y & 1;
-    if (checkYDigit != 0) {
+    if ((y & 01) != 0) {
       product=add(product,x);
     }
     x=x << 1;

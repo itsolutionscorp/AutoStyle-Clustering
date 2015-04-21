@@ -1,0 +1,59 @@
+public int multiply(int x,int y){
+  int ptr=1;
+  int y1=0;
+  int x1=x;
+  int x2=0;
+  int y3=y & ptr;
+  if (x == 0 | y == 0) {
+    return 0;
+  }
+  if (y > 0) {
+    if (y3 == 1) {
+      y=add(y,-1);
+    }
+    while (y > 0) {
+      y1=ptr & y;
+      if (y1 == 1) {
+        x=helper(x);
+        x2=x2 + x;
+        counter=counter + 1;
+      }
+      if (y1 == 0) {
+        counter=counter + 1;
+      }
+      y=y >> 1;
+    }
+    counter=0;
+    if (y3 == 1) {
+      return x2 + x1;
+    }
+ else {
+      return x2;
+    }
+  }
+  counter=0;
+  y=add(0,-y);
+  y3=y & ptr;
+  if (y3 == 1) {
+    y=add(y,-1);
+  }
+  while (y > 0) {
+    y1=ptr & y;
+    if (y1 == 1) {
+      x=helper(x);
+      x2=x2 + x;
+      counter=counter + 1;
+    }
+    if (y1 == 0) {
+      counter=counter + 1;
+    }
+    y=y >> 1;
+  }
+  if (y3 == 1) {
+    return -(x2 + x1);
+  }
+ else {
+    return -x2;
+  }
+}
+

@@ -1,18 +1,23 @@
 public int multiply(int x,int y){
-  if (x == 0 || y == 0) {
+  int sol=0;
+  if (y == 0) {
     return 0;
   }
- else   if (x < 0 && y < 0) {
-    int abs_x=add(~x,1);
-    int abs_y=add(~y,1);
-    return multiply(abs_x,abs_y);
+  if (x == 0) {
+    return 0;
   }
- else   if (y < 0) {
-    int neg_x=add(~x,1);
-    int pos_y=add(~y,1);
-    return multiply(neg_x,pos_y);
+ else {
+    while (y != 0) {
+      if ((y & 1) == 0) {
+        sol=sol;
+      }
+ else {
+        sol=add(sol,x);
+      }
+      x=x << 1;
+      y=y >>> 1;
+    }
+    return sol;
   }
-  int decrement_result=multiply(x,add(y,-1));
-  return add(x,decrement_result);
 }
 

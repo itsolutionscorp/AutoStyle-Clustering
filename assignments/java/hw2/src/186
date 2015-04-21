@@ -1,20 +1,18 @@
 public int multiply(int x,int y){
-  boolean negative=y < 0;
-  if (negative) {
-    y=add(-1,y);
-    y=~y;
+  if (y == 0) {
+    return 0;
   }
-  int res=0;
-  while (y != 0) {
-    if ((y & 1) == 1) {
-      res=add(x,res);
-    }
-    x=x << 1;
-    y=y >> 1;
+  if (y == 1) {
+    return x;
   }
-  if (negative) {
-    res=add(~res,1);
+  if (y == -1) {
+    return add((~x),1);
   }
-  return res;
+  if ((y ^ 1) != add(y,1)) {
+    return add(x,multiply(x,(y ^ 1)));
+  }
+  x=x << 1;
+  y=y >> 1;
+  return multiply(x,y);
 }
 

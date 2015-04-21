@@ -1,14 +1,19 @@
 public int multiply(int x,int y){
-  int incre=0;
-  int res=0;
-  while (y != 0) {
-    int temp=x << incre;
-    if ((y & 1) == 1) {
-      res=add(temp,res);
+  int toggle=0;
+  int counter=0;
+  int mask=0;
+  int sum=0;
+  Calculator calcu=new Calculator();
+  while (counter < 32) {
+    toggle=calcu.currbit(y,counter);
+    if (toggle == 1) {
+      toggle=-1;
     }
-    y=y >>> 1;
-    incre+=1;
+    mask=x & toggle;
+    mask<<=counter;
+    sum=calcu.add(sum,mask);
+    counter+=1;
   }
-  return res;
+  return sum;
 }
 

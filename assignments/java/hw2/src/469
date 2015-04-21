@@ -1,12 +1,11 @@
 public int multiply(int x,int y){
-  int i=0;
-  int result=0;
-  while (i <= 31) {
-    if (getBit(y,i) == 1) {
-      result=add(result,getPartialProduct(x,i));
+  int sum=0;
+  for (int i=0; i < 32; i++) {
+    int z=(y & (1 << i));
+    if (z > 0) {
+      sum=add(sum,(x << i));
     }
-    i=i + 1;
   }
-  return result;
+  return sum;
 }
 

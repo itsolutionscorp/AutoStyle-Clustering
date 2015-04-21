@@ -1,13 +1,12 @@
 public int multiply(int x,int y){
-  int product=firstBit(x,y);
-  int toAdd;
-  int shifter=1;
+  int result=0;
   while (y != 0) {
+    if ((y & 1) != 0) {
+      result=add(result,x);
+    }
+    x=x << 1;
     y=y >>> 1;
-    toAdd=(firstBit(x,y)) << shifter;
-    product=add(product,toAdd);
-    shifter+=1;
   }
-  return product;
+  return result;
 }
 

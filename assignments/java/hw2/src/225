@@ -1,13 +1,12 @@
 public int multiply(int x,int y){
-  int total=0;
-  int mul=0;
+  int result=0;
   while (y != 0) {
-    if ((y & 1) == 1) {
-      total=add(total,x << mul);
+    if ((y & 1) != 0) {
+      result=this.add(x,result);
     }
-    mul=add(mul,1);
+    x=x << 1;
     y=y >>> 1;
   }
-  return total;
+  return result;
 }
 

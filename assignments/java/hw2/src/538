@@ -1,13 +1,24 @@
 public int multiply(int x,int y){
-  int sum=0;
-  while (y != 0) {
-    int odd=x & 1;
-    if (odd != 0) {
-      sum=add(sum,y);
+  flag=false;
+  int result=0;
+  if (y > 0) {
+    for (int counter=0; counter < y; counter++) {
+      result=add(x,result);
     }
-    x=x >> 1;
-    y=y << 1;
   }
-  return sum;
+ else {
+    for (int counter=y; counter < 0; counter++) {
+      result=add(x,result);
+    }
+  }
+  if (((x < 0 && y > 0) || (x > 0 && y < 0)) && result > 0) {
+    result=add(1,~result);
+  }
+  if (((x < 0 && y < 0) || (x > 0 && y > 0)) && result < 0) {
+    result=add(1,~result);
+  }
+  flag=true;
+  saveEquation(x + "*" + y,result);
+  return result;
 }
 

@@ -1,13 +1,15 @@
 public int multiply(int x,int y){
-  int i=0;
-  int product=0;
-  while (y != 0) {
-    if ((1 & y) == 1) {
-      product=add(product,x << i);
+  int min=Math.min(x,y);
+  int max=Math.max(x,y);
+  int result=0;
+  while (min != 0) {
+    int lastDig=min & 1;
+    if (lastDig == 1) {
+      result=add(result,max);
     }
-    y=y >>> 1;
-    i+=1;
+    min=min >>> 1;
+    max=max << 1;
   }
-  return product;
+  return result;
 }
 

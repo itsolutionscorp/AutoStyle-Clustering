@@ -1,20 +1,15 @@
 public int multiply(int x,int y){
-  int i=0;
-  int newx=0;
-  int finalans=0;
-  int copyy=y;
-  while (copyy != 0) {
-    if (copyy << 31 != 0) {
-      newx=x << i;
-    }
- else {
-      newx=0;
-    }
-    copyy=copyy >>> 1;
-    i=i + 1;
-    Calculator addresult=new Calculator();
-    finalans=addresult.add(newx,finalans);
+  if (y == 0) {
+    return 0;
   }
-  return finalans;
+ else   if (y < 0) {
+    return this.multiply(this.add(~x,1),this.add(~y,1));
+  }
+ else   if (y % 2 == 0) {
+    return this.add(this.multiply(x,y >>> 1),this.multiply(x,y >>> 1));
+  }
+ else {
+    return this.add(x,this.multiply(x,this.add(y,-1)));
+  }
 }
 

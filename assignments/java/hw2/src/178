@@ -1,10 +1,29 @@
 public int multiply(int x,int y){
-  if (y == 0) {
-    return 0;
+  Calculator c=new Calculator();
+  int counter=0;
+  int result=0;
+  int power=1;
+  if (y < 0 && x < 0) {
+    x=c.add(1,~x);
+    y=c.add(1,~y);
   }
-  if ((y & 1) == 0) {
-    return multiply(x << 1,y >>> 1);
+ else   if (y < 0) {
+    int temp=x;
+    x=y;
+    y=temp;
   }
-  return add(x,multiply(x << 1,y >>> 1));
+ else {
+  }
+  while (y != 0) {
+    if ((power & y) != 0) {
+      if (y > 0)       result=c.add(result,(x << counter));
+ else       result=c.add(-result,(x << counter));
+      y=(y >>> counter) >>> 1;
+      y=(y << counter) << 1;
+    }
+    power=power << 1;
+    counter++;
+  }
+  return result;
 }
 

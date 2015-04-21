@@ -1,22 +1,32 @@
 public int multiply(int x,int y){
-  int a=x;
-  if (y > 0) {
-    y=add(y,-1);
-    while (y > 0) {
-      x=add(x,a);
-      y=add(y,-1);
+  int ans=0;
+  if (x < 0 && y < 0) {
+    x=add(~x,1);
+    y=add(~y,1);
+    for (int i=0; i < y; i++) {
+      ans=add(ans,x);
     }
+  }
+ else   if (x < 0 || y < 0) {
+    if (x < 0) {
+      x=add(~x,1);
+      for (int i=0; i < y; i++) {
+        ans=add(ans,x);
+      }
+    }
+ else {
+      y=add(~y,1);
+      for (int i=0; i < y; i++) {
+        ans=add(ans,x);
+      }
+    }
+    ans=-ans;
   }
  else {
-    y=add(y,1);
-    while (y < 0) {
-      x=add(x,a);
-      y=add(y,1);
-    }
-    if (x < 0) {
-      x=-x;
+    for (int i=0; i < y; i++) {
+      ans=add(ans,x);
     }
   }
-  return x;
+  return ans;
 }
 

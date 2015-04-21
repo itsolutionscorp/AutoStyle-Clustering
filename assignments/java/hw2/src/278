@@ -1,18 +1,12 @@
 public int multiply(int x,int y){
-  if ((x == 0) || (y == 0)) {
-    return 0;
-  }
-  int bit;
-  int sum=0;
-  int index=0;
+  int total=0;
   while (y != 0) {
-    bit=getBit(y,index);
-    if (bit == 1) {
-      sum=add(sum,x << index);
-      y=add(y,negate(1 << index));
+    if ((y & 1) != 0) {
+      total=add(total,x);
     }
-    index=add(index,1);
+    x<<=1;
+    y>>>=1;
   }
-  return sum;
+  return total;
 }
 

@@ -1,20 +1,17 @@
 public int multiply(int x,int y){
-  if (y == 0) {
-    return 0;
+  int bits=32;
+  int bit=0;
+  int result=0;
+  int yMask;
+  while (bit < bits) {
+    yMask=y & 1;
+    if (yMask == 1) {
+      result=add(result,x);
+    }
+    x<<=1;
+    y>>>=1;
+    bit++;
   }
-  int t=~(-1 >>> 1);
-  int b=y & t;
-  while (b == 0) {
-    t=t >>> 1;
-    b=y & t;
-  }
-  int c=x;
-  int d=b;
-  while (d != 1) {
-    c=c << 1;
-    d=d >>> 1;
-  }
-  int e=(y ^ b);
-  return add(c,multiply(x,e));
+  return result;
 }
 

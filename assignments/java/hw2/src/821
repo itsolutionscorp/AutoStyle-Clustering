@@ -1,21 +1,12 @@
 public int multiply(int x,int y){
-  int carry=y;
-  int result=0;
-  while (carry != 0) {
-    int adder=x;
-    int counter=0;
-    int comparison=add(carry,1);
-    while ((carry ^ comparison) == 1) {
-      counter=add(counter,1);
-      adder<<=1;
-      carry>>>=1;
-      comparison=add(carry,1);
+  int t=0;
+  while (y != 0) {
+    if ((1 & y) != 0) {
+      t=add(t,x);
     }
-    carry>>=1;
-    carry<<=1;
-    carry<<=counter;
-    result=add(result,adder);
+    y=y >>> 1;
+    x=x << 1;
   }
-  return result;
+  return t;
 }
 

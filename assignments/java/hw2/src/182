@@ -1,18 +1,15 @@
 public int multiply(int x,int y){
-  int total=0;
-  int number=0;
-  int counter=0;
-  while (counter <= 31) {
-    if (getBit(y,counter) == 1) {
-      number=x;
-      number=number << counter;
+  int sum=0;
+  while (y != 0) {
+    int ex=x & 1;
+    if (ex != 0) {
+      sum=add(sum,y);
     }
- else {
-      number=0;
-    }
-    total=add(number,total);
-    counter=counter + 1;
+    ;
+    y=y << 1;
+    x=x >>> 1;
   }
-  return total;
+  ;
+  return sum;
 }
 

@@ -1,13 +1,15 @@
 public int multiply(int x,int y){
-  int answer=0;
-  int y_checker=0;
-  for (int i=0; i < 32; i++) {
-    y_checker=y << (31 - i);
-    y_checker=y_checker >>> 31;
-    if (y_checker == 1) {
-      answer=add(answer,x << i);
+  int product=0;
+  int n=0;
+  while (n < sizeOfInt) {
+    int last_bitY=y & 0x1;
+    if (last_bitY == 1) {
+      product=add(product,x);
     }
+    x=x << 1;
+    y=y >> 1;
+    n+=1;
   }
-  return answer;
+  return product;
 }
 

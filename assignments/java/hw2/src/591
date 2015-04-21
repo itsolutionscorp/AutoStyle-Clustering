@@ -1,13 +1,10 @@
 public int multiply(int x,int y){
-  int xBit=x;
-  int yBit=y;
+  Calculator calc=new Calculator();
   int product=0;
-  while (yBit != 0) {
-    if ((yBit & 1) != 0) {
-      product+=xBit;
-    }
-    xBit<<=1;
-    yBit>>>=1;
+  while (y != 0) {
+    if ((y & 1) != 0)     product=calc.add(product,x);
+    x=x << 1;
+    y=y >>> 1;
   }
   return product;
 }

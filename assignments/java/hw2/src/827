@@ -1,25 +1,12 @@
 public int multiply(int x,int y){
-  int solution;
-  boolean resultWillBeNegative=((x < 0) && (y > 0)) || ((x > 0) && (y < 0));
-  x=Math.abs(x);
-  y=Math.abs(y);
-  if (y == 0) {
-    solution=0;
-  }
- else   if (y == 1) {
-    solution=x;
-  }
- else   if (isEven(y)) {
+  int ans=0;
+  while (y != 0) {
+    if (getBit(y,0) == 1) {
+      ans=add(ans,x);
+    }
     x=x << 1;
     y=y >> 1;
-    solution=multiply(x,y);
   }
- else {
-    solution=add(multiply(x,add(y,-1)),x);
-  }
-  if (resultWillBeNegative) {
-    return add((~solution),1);
-  }
-  return solution;
+  return ans;
 }
 

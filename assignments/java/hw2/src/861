@@ -1,18 +1,12 @@
 public int multiply(int x,int y){
-  Boolean check;
-  int temp;
-  while (y != 1) {
-    temp=y >>> 1;
-    check=temp == add(-temp,y);
-    if (check == true) {
-      x=x << 1;
-      y=y >>> 1;
+  int result=0;
+  while (y != 0) {
+    if ((y & 01) != 0) {
+      result=add(result,x);
     }
- else {
-      y=add(y,-1);
-      return x + multiply(x,y);
-    }
+    x=x << 1;
+    y=y >>> 1;
   }
-  return x;
+  return result;
 }
 

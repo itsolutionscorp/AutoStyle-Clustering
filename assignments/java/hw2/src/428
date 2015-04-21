@@ -1,18 +1,14 @@
 public int multiply(int x,int y){
-  int multiplied=0;
-  int sum=0;
-  for (int i=0; i < 32; i++) {
-    int multiplier=getBit(x,i);
-    for (int j=0; j < 32; j++) {
-      int multiplier2=getBit(y,j);
-      if ((multiplier2 & multiplier) == 1) {
-        multiplied=setBit(multiplied,j);
-      }
-    }
-    multiplied=multiplied << i;
-    sum=add(sum,multiplied);
-    multiplied=0;
+  int total=0;
+  boolean isNegative=false;
+  if (y < 0) {
+    y=~y + 1;
+    isNegative=true;
   }
-  return sum;
+  for (int i=0; i < y; i++) {
+    total=add(x,total);
+  }
+  if (isNegative == true)   return ~total + 1;
+  return total;
 }
 
