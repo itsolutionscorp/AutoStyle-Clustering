@@ -42,12 +42,6 @@ def ast_from_sexp(s):
     Generate an ast from a simple s-expression string.
     The top node is assumed to be a function definition.
     '''
-    try:
-        exp = sexpdata.loads(s)
-    except Exception:
-        print s
-    root = Node('root')
-    
     def recursive_ast_from_sexp(parent, sub_sexp):
         if not sub_sexp:
             return
@@ -62,8 +56,14 @@ def ast_from_sexp(s):
             parent.addkid(new_node)
             for e in sub_sexp:
                 recursive_ast_from_sexp(new_node, e)
-    recursive_ast_from_sexp(root, exp)
-    return root
+    
+    try:
+        exp = sexpdata.loads(s)
+        root = Node('root')
+        recursive_ast_from_sexp(root, exp)
+        return root
+    except Exception:
+        print s    
 
 def abc_score(ast):
     '''
@@ -479,11 +479,10 @@ def save_matrix(feature_vector, output_feature_file, submission_index):
     np.savetxt(output_feature_file, all_features)
         
 
-def handle_feature(language, function_name, index, feature, class_name):
+def handle_feature(ast, language, function_name, index, feature, class_name):
     '''
     Returns the feature value of the submission with the given index.
     '''
-    ast = generate_ast(language, index, function_name, class_name)
     if (ast is None):
         raise Exception
     if feature == 'abc':
@@ -514,10 +513,13 @@ def generate_individual_features(language, function_name, index, features, home_
     ALL_LIBCALLS = HOME_DIR + 'feature/all_libcalls.txt'
     SOURCE_FILES = natural_sort(glob.glob(HOME_DIR + 'src/*'))
     
+    ast = generate_ast(language, index, function_name, class_name)
+    # printTree(ast)
+    
     feature_vector = []
     feature_lines = []
     for feature in features:
-        feature_values, feature_values_lines = handle_feature(language, function_name, index, feature, class_name)
+        feature_values, feature_values_lines = handle_feature(ast, language, function_name, index, feature, class_name)
         feature_vector += feature_values
         feature_lines += feature_values_lines
     return list_to_2d_np(feature_vector), list_to_2d_np(feature_lines)
@@ -530,10 +532,10 @@ def main():
     parser = argparse.ArgumentParser(description='Generate a feature vector for a particular submission.')
     parser.add_argument('function_name', help='Name of the function to compute features about.')
     parser.add_argument('submission_index', type=int, help='Index of the submission.')
-    parser.add_argument('language', help='ruby or python')
+    parser.add_argument('language', help='ruby, python, or java')
     parser.add_argument('home_directory', help='Path to data directory')
     parser.add_argument('output_feature_file', help='File to append the generated horizontal feature vector to.')
-    parser.add_argument('output_line_file', nargs='?', help='File to append the generated horizontal feature line vector to.')
+    parser.add_argument('-l', '--output_line_file', nargs='?', help='File to append the generated horizontal feature line vector to.')
     parser.add_argument('-c', '--class_name', help='Class name (required for java)')
     parser.add_argument('features', nargs='+', help='Names of features to generate.')
 
@@ -552,9 +554,9 @@ def main():
     except Exception:
         return
     
-    save_matrix(feature_vector, output_feature_file)
+    save_matrix(feature_vector, output_feature_file, submission_index)
     if output_line_file:
-        save_matrix(feature_lines, output_line_file)
+        save_matrix(feature_lines, output_line_file, submission_index)
 
 if __name__ == '__main__':
     main()

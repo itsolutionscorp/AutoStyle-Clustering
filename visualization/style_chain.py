@@ -29,7 +29,7 @@ class Chain():
     '''
 
 
-    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=3):
+    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=3):
         '''
         Initialize a chain starting at start_index.
         This also initializes all of the constants.
@@ -41,7 +41,6 @@ class Chain():
         self.style_features = style_features
         self.feature_names = feature_names
         self.score_names = score_names
-        self.libcall_linenums = libcall_linenums
         self.libcall_dict = libcall_dict
         self.line_num_matrix = line_num_matrix
         
@@ -297,7 +296,8 @@ class ChainLink:
             locations += nonstructural_locations
             sorted_hints, locations = remove_duplicates(sorted_hints, locations)
         names = self.chain.feature_names[sorted_hints]
-        lines = self.chain.line_num_matrix[self.index, sorted_hints].flatten().tolist()
+        lines = [self.chain.line_num_matrix[x, y] for x, y in zip(locations, sorted_hints)]
+        # lines = self.chain.line_num_matrix[self.index, sorted_hints].flatten().tolist()
         return names, lines, locations
     
 def interpret_list_of_hints(features, is_not_hint):
@@ -409,7 +409,6 @@ def sparse_add_into(sparse_vector, vector, scale):
 
 def generate_chain(start_index, max_hints, style_score_weight, home_dir = "./",
                    feedback=None, old_chain=None, data_dir='data/', weights_file='weights.np',
-                   libcall_linenums='libcalls_and_linenums.json',
                    libcall_dict='util/lib_call_dict.pkl', language="ruby"):
     '''
     Create a new chain object. This is the interface with the web app.
@@ -430,13 +429,10 @@ def generate_chain(start_index, max_hints, style_score_weight, home_dir = "./",
     if language == "ruby":
         if len(style_scores.shape)==1:
             style_scores = style_scores[:, np.newaxis]
-        with open(home_dir + data_dir + 'feature/' +libcall_linenums, 'r') as json_data:
-            libcall_linenums = json.load(json_data)
-            libcall_linenums = unicode_to_str(libcall_linenums)
         with open(home_dir + libcall_dict, 'r') as f:
             libcall_dict = pickle.load(f)
 
-    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_linenums, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=max_hints)
+    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=max_hints)
     return c
 
 def unicode_to_str(input_u):
@@ -465,26 +461,27 @@ def main():
     parser.add_argument('start_index', type=int, help='Index of the start submission in the index file')
     parser.add_argument('data_dir', nargs='?', default='data/', help='Location of directory that contains features, method source, and asts.')
     parser.add_argument('libcall_dict', nargs='?', default='util/lib_call_dict.pkl', help='Location of file that contains a mapping from lib calls to object types they produce')
-    parser.add_argument('libcall_linenums', nargs='?', default='libcalls_and_linenums.json', help='Location of file that contains line numbers associated with each library call')
 
     args = parser.parse_args()
-    c = generate_chain(args.start_index, 0, 2, data_dir=args.data_dir, libcall_dict=args.libcall_dict, libcall_linenums=args.libcall_linenums)
+    c = generate_chain(args.start_index, 3, 2, data_dir=args.data_dir, libcall_dict=args.libcall_dict)
     cl = c.head
     i = 0
+    source_files = natural_sort(glob.glob(args.data_dir + '/src/*'))
     while cl:
         print '======= ' + str(i) + ' ======='
         print cl.index
+        print source_files[cl.index]
         print cl.source_code
         if cl.next:
             print ''
             pos_hints, pos_lines, pos_locations = cl.get_positive_hint()
             neg_hints, neg_lines, neg_locations = cl.get_negative_hint()
             print interpret_list_of_hints(pos_hints, False)
-            print pos_lines
-            print pos_locations
+            print 'Line nums:' + str(pos_lines)
+            print 'Location:' + str(pos_locations)
             print interpret_list_of_hints(neg_hints, True)
-            print neg_lines
-            print neg_locations
+            print 'Line nums:' + str(neg_lines)
+            print 'Location:' + str(neg_locations)
         cl = cl.next
         i+=1
     

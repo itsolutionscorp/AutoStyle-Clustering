@@ -7,8 +7,13 @@ LINE_DELIMITER = '::'
 
 def print_tree filename, function_name
 	code = IO.read filename
-    parser = YARD::Parser::Ruby::RubyParser.parse code
-    puts get_root_sexp(parser.ast, function_name)
+	begin
+    	parser = YARD::Parser::Ruby::RubyParser.parse code
+    	puts get_root_sexp(parser.ast, function_name)
+	rescue YARD::Parser::ParserSyntaxError => e
+		puts '( root ( ' + function_name + ' ) )'
+	end
+    
 end
 
 def get_root_sexp ast, function_name

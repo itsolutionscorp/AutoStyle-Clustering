@@ -38,4 +38,3 @@ Ultimately, the required directory structure is:
             style_features.np
             style_features_names.np
             feature_line_nums.np
-            libcalls_and_linenums.json
