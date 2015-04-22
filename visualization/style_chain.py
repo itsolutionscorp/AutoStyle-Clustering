@@ -316,7 +316,8 @@ def interpret_list_of_hints(features, is_not_hint):
     else:
         use_not = ''
         all_advice = 'To improve your style, you might want to consider...\n'
-        
+    # is there a better way to do this -- to make it more general?
+    python_specific_constructs = {"BinOp": "a binary operation", "Lambda": "a lambda function", "IfExp": "an if expression", "ListComp": "list comprehension" , "DictComp": "dictionary comprehension", "GeneratorExp": "a generator expression", "SetComp": "set comprehension", "AugAssign": "an augmented assignment", "TryFinally": "try-finally construct", "ClassDef":"a class definition"}
     create_new = False
     for feature in features:
         #TODO: does not generalize well!
@@ -329,7 +330,6 @@ def interpret_list_of_hints(features, is_not_hint):
                 all_advice += 's.\n'
         elif feature[0] == '(':
             methods = ' '.join(feature.split('(')).split(')')
-
             method_advice = ''
             ngram = 0
             for method in methods:
@@ -361,6 +361,10 @@ def interpret_list_of_hints(features, is_not_hint):
             all_advice += '...' + 'restructuring your function to ' + use_not + 'use sequential iteration blocks' + '.\n'
         elif feature == 'recursion':
             all_advice += '...' + 'restructuring your function to ' + use_not + 'recursion' + '.\n'
+        elif feature in ["Continue", "AugAssign", "Exec", "Global", "Yield", "In", "Nonlocal", "YieldFrom", "With"]:
+            all_advice += '...' + use_not + 'using the ' + feature.lower() + ' operator.\n'
+        elif feature in python_specific_constructs:
+            all_advice += '...' + use_not + 'using '+ python_specific_constructs[feature] + '.\n'
         else:
             all_advice += '...' + use_not + 'using a call to ' + feature + '.\n' 
     if create_new:

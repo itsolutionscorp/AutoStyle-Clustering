@@ -61,7 +61,7 @@ def submit_form():
     hints = []
     cl = chain.head
     while cl:
-      print cl.index, cl.flog_score, "--> " 
+      print cl.index, "(flog ",cl.flog_score, ")   -->   ", 
       if cl.next:
         pos_hints = cl.get_positive_hint()
         neg_hints = cl.get_negative_hint()
@@ -69,7 +69,6 @@ def submit_form():
           hints.append(ph) 
         for nh in neg_hints[0]:
           hints.append(nh)
-        print "neg lines: ", neg_hints[1], neg_hints[2] 
         posts.append({'code': cl.source_code, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint': interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1], 'positive_hint_locations': pos_hints[2], 'negative_hint_locations': neg_hints[2]})
       else:
         posts.append({'code': cl.source_code, 'positive_hint': "", 'negative_hint': ''})

@@ -146,7 +146,7 @@ def build_tree(node, ast_node, functions):
         if label == "FunctionDef":
             name = [r[1] for r in ast.iter_fields(kid) if r[0] == 'name'][0]
             label = "FunctionDef: " + name
-        if i==0 and node.label == "Call" and 'func' in dir(ast_node) :
+        if i==0 and node.label[0:4] == "Call" and 'func' in dir(ast_node):
             label = [r[1] for r in ast.iter_fields(kid) if r[0] == 'attr' or r[0] == 'id'][0]
         if label in functions:
             label = functions[label]
@@ -443,6 +443,8 @@ def libcalls(ast, language, function_name, index, class_name):
             i = all_libcalls.index(libcall)
             feature_vector[i, 0] = 1
             feature_lines[i, 0] = line
+    if index == 30:
+        print feature_vector.flatten().tolist()
     return feature_vector.flatten().tolist(), feature_lines.flatten().tolist()
 
 def append_at_index(all_features, feature_vector, index):

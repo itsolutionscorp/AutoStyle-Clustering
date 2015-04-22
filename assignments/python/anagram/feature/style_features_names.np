@@ -83,7 +83,6 @@
 ['With']
 ['Nonlocal']
 ['BinOp']
-['UnaryOp']
 ['Lambda']
 ['IfExp']
 ['ListComp']
