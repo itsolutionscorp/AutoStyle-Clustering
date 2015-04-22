@@ -76,7 +76,7 @@ def abc_score(ast):
     stack.append(ast)
     while stack:
         current = stack.pop()
-        key = Node.get_label(current)
+        key = Node.get_label(current).split(":")[0]
         if key in ("Assign", "AugAssign"):
             assign += 1
         elif key in ("Call", "In"):
@@ -103,7 +103,7 @@ def loops_and_recursion(tree):
     loop_count = 0
     while len(queue) > 0:
         temp_node = queue.pop(0)
-        label = get_node_label(temp_node)
+        label = Node.get_label(temp_node).replace("<class '_ast.","").replace("'>","").split(":")[0]
         if temp_node in loop_tracker:
             loop_tracker.remove(temp_node)
             if len(loop_tracker) == 0:
@@ -443,8 +443,6 @@ def libcalls(ast, language, function_name, index, class_name):
             i = all_libcalls.index(libcall)
             feature_vector[i, 0] = 1
             feature_lines[i, 0] = line
-    if index == 30:
-        print feature_vector.flatten().tolist()
     return feature_vector.flatten().tolist(), feature_lines.flatten().tolist()
 
 def append_at_index(all_features, feature_vector, index):
