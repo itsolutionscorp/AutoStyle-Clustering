@@ -281,6 +281,32 @@ def skeleton_from_source(language, source_file):
     and returns.
     '''
     skeleton = ''
+    if language == 'ruby':
+        with open(source_file, 'r') as f:
+            for line in f:
+                stripped_line = line.strip()
+                if stripped_line.startswith('def '):
+                    skeleton += line + '\n'
+                elif stripped_line.startswith('while '):
+                    skeleton += line[:line.index('while ')] + 'while ...' + '\n\n'
+                elif stripped_line.startswith('until '):
+                    skeleton += line[:line.index('until ')] + 'until ...' + '\n\n'
+                elif stripped_line.startswith('for '):
+                    skeleton += line[:line.index('for ')] + 'for ... in ...' + '\n\n'
+                elif stripped_line.startswith('if '):
+                    skeleton += line[:line.index('if ')] + 'if ...' + '\n\n'
+                elif stripped_line.startswith('elsif '):
+                    skeleton += line[:line.index('elsif ')] + 'elsif ...' + '\n\n'
+                elif stripped_line.startswith('else'):
+                    skeleton += line[:line.index('else')] + 'else' + '\n\n'
+                elif stripped_line.startswith('unless '):
+                    skeleton += line[:line.index('unless ')] + 'unless ...' + '\n\n'
+                elif stripped_line.startswith('end'):
+                    skeleton += line[:line.index('end')] + 'end' + '\n\n'
+                elif stripped_line.startswith('return'):
+                    skeleton += line[:line.index('return')] + 'return ...' + '\n\n'
+                elif ' do' in stripped_line:
+                    skeleton += line[:len(line) - len(line.lstrip())] + '... do |...|' + '\n\n'
     if language == 'python':
         with open(source_file, 'r') as f:
             for line in f:
@@ -298,7 +324,7 @@ def skeleton_from_source(language, source_file):
                 elif stripped_line.startswith('else:'):
                     skeleton += line[:line.index('else:')] + 'else:' + '\n\n'
                 elif stripped_line.startswith('return'):
-                    skeleton += line[:line.index('return')] + 'return ...' + '\n'
+                    skeleton += line[:line.index('return')] + 'return ...' + '\n\n'
     return skeleton
 
 def generic_skeleton_from_source(language, source_file):
@@ -308,6 +334,31 @@ def generic_skeleton_from_source(language, source_file):
     and returns.
     '''
     skeleton = ''
+    if language == 'ruby':
+        with open(source_file, 'r') as f:
+            for line in f:
+                stripped_line = line.strip()
+                if stripped_line.startswith('def '):
+                    skeleton += line + '\n'
+                elif stripped_line.startswith('while '):
+                    skeleton += 'iter ...' + '\n\n'
+                elif stripped_line.startswith('until '):
+                    skeleton += 'iter ...' + '\n\n'
+                elif stripped_line.startswith('for '):
+                    skeleton += 'iter ...' + '\n\n'
+                elif stripped_line.startswith('if '):
+                    skeleton += 'cond ...' + '\n\n'
+                elif stripped_line.startswith('elsif '):
+                    skeleton += 'cond ...' + '\n\n'
+                elif stripped_line.startswith('else'):
+                    skeleton += 'cond ...' + '\n\n'
+                elif stripped_line.startswith('unless '):
+                    skeleton += 'cond ...' + '\n\n'
+                elif stripped_line.startswith('end'):
+                    skeleton += 'end' + '\n\n'
+                elif ' do' in stripped_line:
+                    skeleton += 'iter ...' + '\n\n'
+                
     if language == 'python':
         with open(source_file, 'r') as f:
             for line in f:
@@ -315,7 +366,7 @@ def generic_skeleton_from_source(language, source_file):
                 if stripped_line.startswith('def '):
                     skeleton += line + '\n'
                 elif stripped_line.startswith('for '):
-                    skeleton += line[:line.index('for ')] + 'iter ... :' + '\n\n'
+                    skeleton += line[:line.indexo('for ')] + 'iter ... :' + '\n\n'
                 elif stripped_line.startswith('while '):
                     skeleton += line[:line.index('while ')] + 'iter ... :' + '\n\n'
                 elif stripped_line.startswith('if '):
@@ -325,7 +376,7 @@ def generic_skeleton_from_source(language, source_file):
                 elif stripped_line.startswith('else:'):
                     skeleton += line[:line.index('else:')] + 'cond ... :' + '\n\n'
                 elif stripped_line.startswith('return'):
-                    skeleton += line[:line.index('return')] + 'return ...' + '\n'
+                    skeleton += line[:line.index('return')] + 'return ...' + '\n\n'
     return skeleton
 
 def terminal_output(*args):

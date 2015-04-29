@@ -30,6 +30,7 @@ def group_by_generic_skeleton(source_files, output_dir, language, function_name)
         if submission_index % 100 == 0:
             print submission_index
         skeleton = generic_skeleton_from_source(language, submission)
+        print skeleton
         if skeleton not in skeleton_groups:
             skeleton_groups[skeleton] = []
         skeleton_groups[skeleton].append(submission)
@@ -49,6 +50,7 @@ def group_by_skeleton(source_files, output_dir, language, function_name):
         if submission_index % 100 == 0:
             print submission_index
         skeleton = skeleton_from_source(language, submission)
+        print skeleton
         if skeleton not in skeleton_groups:
             skeleton_groups[skeleton] = []
         skeleton_groups[skeleton].append(submission)
