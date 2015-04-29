@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  int returner=0;
+  if (x < y) {
+    int temp=y;
+    y=x;
+    x=temp;
+  }
+  while (y != 0) {
+    if ((y & 1) != 0) {
+      returner=this.add(returner,x);
+    }
+    x=x << 1;
+    y=y >>> 1;
+  }
+  return returner;
+}
+

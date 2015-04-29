@@ -1,5 +1,0 @@
-    30.4: flog total
-    15.2: flog/method average
-
-    21.0: main#combine_anagrams            800//source/30525.rb:2
-     9.5: main#sort_words                  800//source/30525.rb:43

@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int total=0;
+  int counter=0;
+  while (y != 0) {
+    if (gitbit(y,0) == 1) {
+      total=add((x << counter),total);
+    }
+    counter++;
+    y=y >>> 1;
+  }
+  return total;
+}
+

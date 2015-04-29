@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  Calculator calc=new Calculator();
+  int sum=0;
+  while (y != 0) {
+    int k=y & 1;
+    if (k != 0) {
+      sum=calc.add(sum,x);
+    }
+    y=y >>> 1;
+    x=x << 1;
+  }
+  return sum;
+}
+

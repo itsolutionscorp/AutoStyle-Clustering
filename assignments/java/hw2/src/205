@@ -1,0 +1,16 @@
+public int multiply(int x,int y){
+  int n=0;
+  int result=0;
+  while (y != 0) {
+    int mask=1;
+    int new_x=0;
+    if ((y & mask) == 1) {
+      new_x=x << n;
+      result=add(new_x,result);
+    }
+    n=add(n,1);
+    y=y >>> 1;
+  }
+  return result;
+}
+

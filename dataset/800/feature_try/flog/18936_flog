@@ -1,9 +1,0 @@
-    59.3: flog total
-     9.9: flog/method average
-
-    27.0: AnagramStats#combine             800/source795//18936.rb:8
-    11.5: AnagramStats#char_count          800/source795//18936.rb:40
-    10.9: AnagramStats#compare_words       800/source795//18936.rb:32
-     6.3: AnagramStats#get_char_counts     800/source795//18936.rb:28
-     2.4: main#combine_anagrams            800/source795//18936.rb:45
-     1.1: AnagramStats#initialize          800/source795//18936.rb:4

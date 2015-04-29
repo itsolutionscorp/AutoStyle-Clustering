@@ -1,0 +1,1 @@
+( canSelect ( cond ( withinBoardAndGray )( cond ( && ( != )( ! ))( cond ( || ( && ( isFire ))( && ( ! ( isFire ))( ! )))))( cond ( && ( > ( - ))( > ( - )))( cond ( && ( ! )( basicMoves )))( cond ( || ( && ( validJump )( ! ))( && ( validJump )( hasCaptured )))))))

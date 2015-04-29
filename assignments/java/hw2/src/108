@@ -1,0 +1,23 @@
+public int multiply(int x,int y){
+  int store=0;
+  int save=y;
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  if (y < 0) {
+    x=add((~x),1);
+    y=add((~y),1);
+  }
+  while (y > 1) {
+    if ((y & 1) != 1) {
+      y=y >> 1;
+      x=x << 1;
+    }
+ else {
+      store=add(store,x);
+      y=add(y,add(~1,1));
+    }
+  }
+  return add(x,store);
+}
+

@@ -1,0 +1,1 @@
+( WordNet ( useDelimiter )( useDelimiter )( iter ( hasNext )( split ( next ))( parseInt )( iter ( split )( cond ( containsKey )( add ( get ))( add )( put )))( put )( ++ ))( iter ( hasNext )( split ( next ))( parseInt )( iter ( < )( ++ )( parseInt )( addEdge )))( println ))

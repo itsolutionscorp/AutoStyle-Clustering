@@ -1,0 +1,1 @@
+( canSelect ( cond ( || ( < )( > )( < )( > )))( cond ( cond )( cond ( ! )( cond ( selectPiece ))( cond ( cond ( ! )( cond ( selectPiece ))( cond ( hasCaptured )( cond ( selectPiece ))))))( cond ( getCoordinates )( cond ( hasCaptured )( cond ( validMove )))( cond ( ! )( cond ( validMove ))))))

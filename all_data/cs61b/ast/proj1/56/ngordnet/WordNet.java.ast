@@ -1,0 +1,1 @@
+( WordNet ( iter ( != ( readLine ))( processSynset ))( size )( iter ( != ( readLine ))( processHyponym )))

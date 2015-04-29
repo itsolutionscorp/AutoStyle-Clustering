@@ -1,0 +1,65 @@
+class FoodChainSong
+  def initialize
+    @lyrics = {
+      1 => {:subject => "fly", :result => "I don't know why she swallowed the fly."},
+      2 => {:subject => "spider", :result => "It wriggled and jiggled and tickled inside her."},
+      3 => {:subject => "bird", :result => "How absurd to swallow a bird!"},
+      4 => {:subject => "cat", :result => "Imagine that, to swallow a cat!"},
+      5 => {:subject => "dog", :result => "What a hog, to swallow a dog!"},
+      6 => {:subject => "goat", :result => "Just opened her throat and swallowed a goat!"},
+      7 => {:subject => "cow", :result => "I don't know how she swallowed a cow!"},
+      8 => {:subject => "horse", :result => "She's dead, of course!"}
+    }
+  end
+
+  def last_line
+    " Perhaps she'll die."
+  end
+
+  def verse(verse_number)
+    verse = "I know an old lady who swallowed a #{@lyrics[verse_number][:subject]}.\n"
+    verse << "#{@lyrics[verse_number][:result]}"
+
+    verse << build_food_chain(verse_number)
+    verse << last_line if verse_number != 8
+    verse << "\n"
+    verse
+  end
+
+  def build_food_chain(verse_number)
+    food_chain = ''
+    if (2...8).cover? verse_number
+      verse_number.downto(2).each do |current_verse|
+        food_chain << "\n"
+        food_chain << "She swallowed the #{@lyrics[current_verse][:subject]}"
+        food_chain << " to catch the #{@lyrics[current_verse-1][:subject]}"
+        food_chain << convert_special_line(current_verse)
+      end
+      food_chain << "\n"
+      food_chain << @lyrics[1][:result]
+    end
+    food_chain
+  end
+
+  def convert_special_line(verse_number)
+    if verse_number == 3
+      special_line = " #{@lyrics[verse_number-1][:result]}".gsub("It","that")
+    else
+      special_line = "."
+    end
+    special_line
+  end
+
+  def verses(start,finish)
+    song = ''
+    (start..finish).each do |verse_number|
+      song << "#{verse(verse_number)}\n"
+    end
+    song
+  end
+
+  def sing
+    verses(@lyrics.keys.first,@lyrics.keys.last)
+  end
+
+end

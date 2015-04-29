@@ -1,0 +1,26 @@
+public int multiply(int x,int y){
+  int product=0;
+  int ansx=x;
+  int ansy=y;
+  if (ansx < 0) {
+    ansx=add(1,~ansx);
+  }
+  if (ansy < 0) {
+    ansy=add(1,~ansy);
+  }
+  while (ansy != 0) {
+    if ((ansy & 1) == 1) {
+      product=add(product,ansx);
+    }
+    ansy>>=1;
+    ansx<<=1;
+  }
+  if (x < 0) {
+    product=add(1,~product);
+  }
+  if (y < 0) {
+    product=add(1,~product);
+  }
+  return product;
+}
+

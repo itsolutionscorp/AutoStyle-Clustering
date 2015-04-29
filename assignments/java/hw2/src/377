@@ -1,0 +1,23 @@
+public int multiply(int x,int y){
+  if ((y < 0) && (x < 0)) {
+    y=add(1,~y);
+    x=add(1,~x);
+    return multiply(x,y);
+  }
+  if (y < 0) {
+    return multiply(y,x);
+  }
+  int z=x;
+  int w=0;
+  int counter=1;
+  while (y != 1) {
+    if ((y & 1) == 1) {
+      w=add(w,multiply(x,counter));
+    }
+    z=z << 1;
+    y=y >>> 1;
+    counter+=1;
+  }
+  return add(w,z);
+}
+

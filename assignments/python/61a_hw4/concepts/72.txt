@@ -1,0 +1,6 @@
+Call to len
+Call to get_list
+Use of 0 loop(s) in total.
+Recursion on function1
+Use of a binary operation
+Use of an if statement

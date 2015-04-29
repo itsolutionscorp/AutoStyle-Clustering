@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  int total=0;
+  int absY=y;
+  if (y < 0) {
+    absY=add(~y,1);
+  }
+  for (int i=0; i < absY; i++) {
+    total=add(total,x);
+  }
+  if (y < 0) {
+    total=add(~total,1);
+  }
+  return total;
+}
+

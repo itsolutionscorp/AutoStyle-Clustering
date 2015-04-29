@@ -1,0 +1,32 @@
+public int multiply(int x,int y){
+  int result=0;
+  int a=x;
+  int b=y;
+  if (a < 0) {
+    a=add(~a,1);
+  }
+  if (b < 0) {
+    b=add(~b,1);
+  }
+  while (b != 0) {
+    int temp_y=b;
+    temp_y=temp_y & 1;
+    int temp_x=a;
+    if (temp_y == 1) {
+      while (temp_x > 0) {
+        temp_y=temp_y << 1;
+        temp_y=temp_y | 1;
+        temp_x=temp_x >> 1;
+      }
+      int temp=a & temp_y;
+      result=add(result,temp);
+    }
+    a=a << 1;
+    b=b >> 1;
+  }
+  if ((x < 0 && y > 0) || (x > 0 && y < 0)) {
+    return add(~result,1);
+  }
+  return result;
+}
+

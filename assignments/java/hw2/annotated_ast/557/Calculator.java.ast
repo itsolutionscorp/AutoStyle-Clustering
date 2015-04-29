@@ -1,0 +1,1 @@
+( multiply ( cond::2 ( >=::2 ))( &::5 ( >>::5 ))( cond::6 ( ==::6 )( multiply::7 ( increment::7 ))( multiply::10 ( add::10 ( <<::10 ))( increment::10 ))))

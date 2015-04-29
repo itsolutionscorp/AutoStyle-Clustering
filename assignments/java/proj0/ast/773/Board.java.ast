@@ -1,0 +1,1 @@
+( canSelect ( cond ( outOfBounds ))( cond ( != )( cond ( != ( side )))( cond ( || ( ! )( ! )))( cond ( ! ))( validMove )( cond ( && ( ! )))( cond ( && ( hasCaptured )( ! ( isBomb )))( checkCapture )( cond ))))

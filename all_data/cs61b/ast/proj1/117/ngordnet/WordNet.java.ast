@@ -1,0 +1,1 @@
+( WordNet ( iter ( hasNextLine )( readLine )( parseInt ( split ))( split )( split )( iter ( < )( ++ )( add )( cond ( ! ( contains ))( add ))( cond ( containsKey )( get ))( cond ( ! ( contains ))( add ))( put )( put )))( + )( iter ( hasNextLine )( readLine )( asList ( split ))( iter ( < ( size ))( ++ )( addEdge ( parseInt ( get ))( parseInt ( get ))))))

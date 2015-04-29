@@ -1,0 +1,1 @@
+( WordNet ( iter ( hasNextLine )( readLine )( updateWordsMap ))( iter ( hasNextLine )( readLine )( indexOf )( cond ( == ( - ))( parseInt )( updateHyponyms ( get )))( parseInt ( substring ))( substring ( + ))( cond ( containsKey )( updateHyponyms ( get )))))

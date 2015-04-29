@@ -1,0 +1,1 @@
+( WordNet ( iter ( hasNextLine )( nextLine )( split )( parseInt )( split )( put ))( println ( + ))( iter ( hasNextLine )( nextLine )( split )( parseInt )( - )( iter ( < )( ++ )( parseInt ( + )))( addHyped ( get )))( println ( + )))

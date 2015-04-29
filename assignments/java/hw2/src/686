@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  int product=0;
+  int multDig=0;
+  int runCount=0;
+  int xPow2=0;
+  while (y != 0) {
+    multDig=y & 1;
+    if (multDig == 1) {
+      xPow2=x << runCount;
+      product=add(product,xPow2);
+    }
+    y=y >>> 1;
+    runCount+=1;
+  }
+  return product;
+}
+

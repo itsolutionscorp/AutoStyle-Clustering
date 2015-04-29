@@ -1,0 +1,16 @@
+public int multiply(int x,int y){
+  int num=0;
+  boolean neg=false;
+  if (x < 0) {
+    x=(~(x) + 1);
+    neg=!neg;
+  }
+  for (int i=0; i < x; i++) {
+    num=add(num,y);
+  }
+  if (neg && num < 0) {
+    return -num;
+  }
+  return num;
+}
+

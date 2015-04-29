@@ -1,0 +1,1 @@
+( canSelect ( validXY )( validCapture )( validXY )( validMove )( isCorrectTurn )( & ( == )( == ))( checkSameTeam ( pieceAt )( pieceAt ))( cond ( ! ))( cond ( ! ))( cond ( cond ))( cond )( cond ( & ))( cond ( & ( ! )( == )))( cond ))

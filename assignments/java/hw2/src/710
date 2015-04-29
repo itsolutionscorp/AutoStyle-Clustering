@@ -1,0 +1,18 @@
+public int multiply(int x,int y){
+  if (y == 1) {
+    return x;
+  }
+  if (y < 0) {
+    if (y == -1) {
+      return add((~x),1);
+    }
+    y=add((~y),1);
+    x=add((~x),1);
+  }
+  int temp=x;
+  for (int i=1; i < y; i++) {
+    x=add(x,temp);
+  }
+  return x;
+}
+

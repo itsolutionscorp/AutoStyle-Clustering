@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  int product=0;
+  int toAdd=0;
+  int bitY=0;
+  for (int i=0; i < 32; i++) {
+    bitY=getBit(y,i);
+    if (bitY == 1) {
+      toAdd=x << i;
+    }
+ else {
+      toAdd=0;
+    }
+    product=add(product,toAdd);
+  }
+  return product;
+}
+

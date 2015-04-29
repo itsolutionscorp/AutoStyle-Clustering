@@ -1,0 +1,1 @@
+( canSelect ( cond ( OutOfBounds ))( pieceAt )( cond ( == )( cond ( == )( cond ( && ( == )( validMove )))( cond ( && ( hasCaptured )( validMove )( == ( abs ( - ))))))( cond ( || ( && ( isFire ))( && ( ! ( isFire ))( ! )))( cond ( == ))( cond ( && ( != )( ! ))))))

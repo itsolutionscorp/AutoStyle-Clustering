@@ -1,0 +1,1 @@
+( canSelect ( cond ( == )( cond ( && ( != )( == )( == )( == ( validMove )))( cond ( && ( == ( isKing ))( == ( hasCaptured ))( == ( validMove ))))))( cond ( == ( side ))( cond ( == )( cond ( && ( == )( == ))))))

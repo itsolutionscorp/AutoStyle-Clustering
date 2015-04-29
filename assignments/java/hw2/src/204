@@ -1,0 +1,18 @@
+public int multiply(int x,int y){
+  if (x == 0 | y == 0) {
+    return 0;
+  }
+  int result=0;
+  int ptr=1;
+  if (y > 0) {
+    while (ptr <= y) {
+      result=add(result,multiply_power(x,ptr & y));
+      ptr=ptr << 1;
+    }
+    return result;
+  }
+ else {
+    return multiply(-x,-y);
+  }
+}
+

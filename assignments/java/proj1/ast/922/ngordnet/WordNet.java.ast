@@ -1,0 +1,1 @@
+( WordNet ( iter ( readRecord )( parseInt ( get ))( asList ( split ( get )))( put )( iter ( cond ( == ( get ))( put ))( add ( get ))))( size )( iter ( readRecord )( iter ( < ( getColumnCount ))( ++ )( addEdge ( parseInt ( get ))( parseInt ( get )))))( println ( getMessage )))

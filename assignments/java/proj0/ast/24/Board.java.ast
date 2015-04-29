@@ -1,0 +1,1 @@
+( canSelect ( pieceAt )( println )( cond ( != )( printf )( cond ( || ( ! )( && ( ! )))( cond ( || ( && ( isFire ))( && ( ! ( isFire ))))( printf )))( printf )( cond ( && ( ! ))( cond ( validMove )( printf ))( cond ( && ( hasCaptured ))( cond ( validMove )( printf )))))( println ))

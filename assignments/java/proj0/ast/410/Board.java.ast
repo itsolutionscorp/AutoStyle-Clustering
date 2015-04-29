@@ -1,0 +1,1 @@
+( canSelect ( pieceAt )( cond ( ! ( outOfBounds ))( pieceAt ))( cond ( != )( yourTurn )( cond ( != )( yourTurn )))( cond ( cond ( && ( == )( != ))( ! ))( cond ( && ( != )( ! )))( cond ( && ( && ( != )( ! ))( != ( validMove ))))( cond ( && ( && ( != )( hasCaptured ))( == ( validMove ))))))

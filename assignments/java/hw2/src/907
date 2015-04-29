@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  int result=0;
+  for (int i=Math.abs(x); i > 0; i--) {
+    result=add(result,y);
+  }
+  if (x != Math.abs(x)) {
+    result=add(~result,1);
+  }
+  return result;
+}
+

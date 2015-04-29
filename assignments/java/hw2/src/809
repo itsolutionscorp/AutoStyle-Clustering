@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  int sum=0;
+  int y_bit;
+  while (y != 0) {
+    y_bit=y & 1;
+    if (y_bit == 1) {
+      sum=add(sum,x);
+    }
+    x=x << 1;
+    y=y >>> 1;
+  }
+  return sum;
+}
+

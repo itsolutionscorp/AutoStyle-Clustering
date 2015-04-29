@@ -1,0 +1,1 @@
+( WordNet ( readFile )( readHyponym )( iter ( keySet )( get )( iter ( addEdge )( ++ ))))

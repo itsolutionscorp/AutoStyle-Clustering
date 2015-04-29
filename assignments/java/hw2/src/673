@@ -1,0 +1,29 @@
+public int multiply(int x,int y){
+  if (y < 0 && x < 0) {
+    y=-y;
+    x=-x;
+  }
+ else   if (y < 0) {
+    int temp=x;
+    x=y;
+    y=temp;
+  }
+  int answer=0;
+  if (y == 0) {
+    return 0;
+  }
+ else   if (y == 1) {
+    return x;
+  }
+ else {
+    if (isPowerOfTwo(y)) {
+      return x << logOfTwo(y);
+    }
+ else {
+      answer=x << logOfTwo(y);
+      answer=add(answer,multiply(x,(y - powerOfTwo(logOfTwo(y)))));
+    }
+  }
+  return answer;
+}
+

@@ -1,0 +1,12 @@
+public int multiply(int x,int y){
+  int total=0;
+  int shift=0;
+  while (shift < 32) {
+    if (((1 << shift) & y) != 0) {
+      total=add(total,x << shift);
+    }
+    shift=add(shift,1);
+  }
+  return total;
+}
+

@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  if (getBit(y,0) == 1) {
+    sum=x;
+  }
+ else {
+    sum=0;
+  }
+  i=1;
+  while (i < 32) {
+    if (getBit(y,i) != 0) {
+      sum=add(sum,x << i);
+    }
+    i=i + 1;
+  }
+  return sum;
+}
+

@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int result=0;
+  int odd=1;
+  while (y != 0) {
+    if ((y & odd) > 0) {
+      result=add(result,x);
+    }
+    x=x << 1;
+    y=y >>> 1;
+  }
+  return result;
+}
+

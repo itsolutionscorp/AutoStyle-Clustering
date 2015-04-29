@@ -1,0 +1,1 @@
+( WordNet ( readLine )( synsetArray )( split )( sizeMap )( iter ( == ( hasNextLine ))( iter ( < )( ++ )( parseInt )( parseInt )( addEdge ))))

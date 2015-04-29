@@ -1,0 +1,9 @@
+public int multiply(int x,int y){
+  if (y >= 0) {
+    return positiveMul(x,y);
+  }
+ else {
+    return add(~positiveMul(x,add(~y,1)),1);
+  }
+}
+

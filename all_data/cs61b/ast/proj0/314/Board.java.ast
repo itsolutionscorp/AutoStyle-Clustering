@@ -1,0 +1,1 @@
+( canSelect ( cond ( || ( || ( || ( < )( > ))( < ))( > )))( cond ( ! ( validMove ))( println ))( println ))

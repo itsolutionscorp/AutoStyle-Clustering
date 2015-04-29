@@ -1,0 +1,27 @@
+public int multiply(int x,int y){
+  Boolean negative=false;
+  if (x < 0) {
+    x=add(~x,1);
+    negative=true;
+  }
+  if (y < 0) {
+    y=add(~y,1);
+    negative=!negative;
+  }
+  int sum=0;
+  int counter=0;
+  while (counter < 32) {
+    int oneOrZero=y & 1;
+    if (oneOrZero == 1) {
+      int temp=x << counter;
+      sum=add(sum,temp);
+    }
+    y=y >>> 1;
+    counter+=1;
+  }
+  if (negative) {
+    return add(~sum,1);
+  }
+  return sum;
+}
+

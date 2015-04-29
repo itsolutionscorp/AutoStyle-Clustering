@@ -1,0 +1,1 @@
+( canSelect ( cond ( outofbounds ))( cond ( != )( cond ( != ( side )))( cond ( || ( ! )( ! )))( cond ( ! ( movable )))( cond ( || ( ! )( && ( capturable ))))))

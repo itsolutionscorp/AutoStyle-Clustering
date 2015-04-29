@@ -1,0 +1,5 @@
+    22.8: flog total
+    11.4: flog/method average
+
+    13.4: main#combine_anagrams            800//clean_source/20087.rb:1
+     9.4: main#anagrams?                   800//clean_source/20087.rb:2

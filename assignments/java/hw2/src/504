@@ -1,0 +1,12 @@
+public int multiply(int x,int y){
+  int res=0;
+  while (y != 0) {
+    if ((y & 01) != 0) {
+      res=add(x,res);
+    }
+    x=x << 1;
+    y=y >>> 1;
+  }
+  return res;
+}
+

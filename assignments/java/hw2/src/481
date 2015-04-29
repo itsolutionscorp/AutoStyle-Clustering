@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  int counter=0;
+  int total=0;
+  int multiply=0;
+  while (y != 0) {
+    multiply=y & 1;
+    y=y >>> 1;
+    if (multiply == 1) {
+      total=add(total,(x << counter));
+    }
+    counter++;
+  }
+  return total;
+}
+

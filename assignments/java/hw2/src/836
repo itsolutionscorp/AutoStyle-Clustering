@@ -1,0 +1,20 @@
+public int multiply(int x,int y){
+  int sum=0;
+  if (y > 0) {
+    while (y != 0) {
+      sum=add(x,sum);
+      y=add(y,-1);
+    }
+  }
+ else   if (y == 0) {
+    return 0;
+  }
+ else {
+    while (y != 0) {
+      sum=add(x,sum);
+      y=add(y,1);
+    }
+  }
+  return sum;
+}
+

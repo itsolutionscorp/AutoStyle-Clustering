@@ -1,0 +1,1 @@
+( canSelect ( cond ( == ( pieceAt ))( cond ( && ( && ( == )( != ))( validMove ( xInitialMove )( yInitialMove )))( cond ( && ( && ( == )( hasCaptured ))( validMove ( xInitialMove )( yInitialMove )))( cond ( && ( && ( != )( hasCaptured ))( validMove ( xInitialMove )( yInitialMove ))))))( cond ( != ( side ( pieceAt ))))( cond ( == )( cond ( == )))))

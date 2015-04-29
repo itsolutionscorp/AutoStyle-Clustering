@@ -1,0 +1,19 @@
+public int multiply(int x,int y){
+  int loopCount=1;
+  int product=0;
+  while (loopCount < y) {
+    product=x << 1;
+    loopCount=loopCount * 2;
+  }
+  while (loopCount != y) {
+    product=add(product,-x);
+    loopCount=add(loopCount,-1);
+  }
+  if (y < 0) {
+    return add(product,x);
+  }
+ else {
+    return product;
+  }
+}
+

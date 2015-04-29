@@ -13,14 +13,13 @@ import os
 import pickle
 import subprocess
 import json
-from cs169_clustering.util.ruby_doc_parser import RubyDocPageParser
+from util.ruby_doc_parser import RubyDocPageParser
 from count_treegrams import count_treegrams
 
 def style_score(style_features):
     '''Add together all the style scores in style_features into a single style score'''
     #TODO: Allow for weights
-    return np.sum(style_features, 1)
-    
+    return np.sum(style_features, 1)   
 
 def manual_features(ast_dir):
         files = glob.glob(ast_dir + '/*_ast')

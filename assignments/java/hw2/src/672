@@ -1,0 +1,16 @@
+public int multiply(int x,int y){
+  boolean negate=false;
+  int i=0;
+  int product=0;
+  if (y < 0) {
+    negate=true;
+    y=add(~y,1);
+  }
+  while (i < y) {
+    product=add(product,x);
+    i=i + 1;
+  }
+  if (x < 0 && negate)   return add(~product,1);
+  return product;
+}
+

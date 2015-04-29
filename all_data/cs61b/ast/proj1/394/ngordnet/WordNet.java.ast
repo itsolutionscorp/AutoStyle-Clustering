@@ -1,0 +1,1 @@
+( WordNet ( iter ( hasNextLine )( synKey ( readLine ))( put ))( iter ( hasNextLine )( hypList ( readLine ))( get )( cond ( != )( + )( arraycopy )( arraycopy )))( makeDigraph ))

@@ -1,0 +1,9 @@
+public int multiply(int x,int y){
+  if (x == 0 || y == 0)   return 0;
+  if (y < 0) {
+    return multiply(add(~x,1),add(~y,1));
+  }
+  if ((y ^ ((y >>> 1) << 1)) == 0)   return add(multiply(x,y >> 1),multiply(x,y >> 1));
+  return add(x,add(multiply(x,y >> 1),multiply(x,y >> 1)));
+}
+

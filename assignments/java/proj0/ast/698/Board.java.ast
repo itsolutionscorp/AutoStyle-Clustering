@@ -1,0 +1,1 @@
+( canSelect ( cond ( OutofBound )( cond ( && ( && ( != )( == ( isFire )))( || ( ! )( ! )))( cond ( && ( == ))( cond ( && ( ! )( validMove ))( cond ( && ( hasCaptured )( validMove )( == ( abs ( - ))))))))))

@@ -1,0 +1,7 @@
+public int multiply(int x,int y){
+  if (x < y) {
+    return accumulate(y,x,0);
+  }
+  return accumulate(x,y,0);
+}
+

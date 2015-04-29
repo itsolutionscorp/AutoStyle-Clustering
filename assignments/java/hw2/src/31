@@ -1,0 +1,20 @@
+public int multiply(int x,int y){
+  int product=0;
+  boolean negative=false;
+  if (x < 0) {
+    negative=true;
+    x=flipSign(x);
+  }
+  if (y < 0) {
+    if (negative)     negative=false;
+ else     negative=true;
+    y=flipSign(y);
+  }
+  while (y > 0) {
+    product=add(product,x);
+    y-=1;
+  }
+  if (negative)   product=flipSign(product);
+  return product;
+}
+

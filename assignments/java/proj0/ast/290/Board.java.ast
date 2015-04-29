@@ -1,0 +1,1 @@
+( canSelect ( cond ( || ( outOfBounds )( outOfBounds )))( pieceAt )( cond ( && ( == )( != ))( findPiece )( cond ( == ))( validMove )( - )( cond ( && ( == ( abs ))))( cond ( sameTeam )( || ( == )( ! )))))

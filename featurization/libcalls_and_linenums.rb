@@ -5,7 +5,8 @@ require 'json'
 
 def featurize src_dir, out_file
     all_names_and_lines = []
-    Dir.glob(src_dir + "/*.rb").sort.each do |filename|
+    Dir.glob(src_dir + "/*.rb").sort_by{|f| f.split("/")[-1].split(".")[0].to_i }.each do |filename|
+        print filename.split("/")[-1]
         code = IO.read filename
         parser = YARD::Parser::Ruby::RubyParser.parse code
         names_and_lines = featurize_tree parser.ast

@@ -1,0 +1,62 @@
+    /* Sticky footer styles  */
+html, body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+/* Wrapper for page content to push down footer */
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px; /* the bottom margin is the negative value of the footer's height */
+}
+/* Set the fixed height of the footer here */
+
+#footer {
+    height: 70px; /* .push must be the same height as .footer */
+    background-color: #f5f5f5; 
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+/* Not required for template or sticky footer method. */
+#wrap > .container {
+    padding: 60px 50px 0;
+}
+
+@media (min-width:768px) {
+.container {
+width:100%;
+}
+  
+
+div#thirdrow.row{
+  height: 150px;
+  padding-top: 40px;
+}
+#one {
+    padding-top: 40px;
+    width: 50%;
+    float: left;
+}
+#two {
+    width: 50%;
+    padding-top: 40px;
+    float: left;
+}
+
+.row{
+  margin-right: 15px;
+  margin-left: 0px;
+  margin-bottom: 20px;
+}
+
+.CodeMirror-activeline-background-pos {
+  background-color: #dff0d8;
+}
+.CodeMirror-activeline-background-neg {
+  background-color: #f2dede;
+}
+

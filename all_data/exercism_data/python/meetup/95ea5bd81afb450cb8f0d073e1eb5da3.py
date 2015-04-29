@@ -1,0 +1,43 @@
+import calendar
+import itertools
+
+CALENDAR = calendar.Calendar()
+TEENTH = range(13, 20)
+WEEKDAYS = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+]
+
+def month_calendar(year, month):
+    return [
+        dt for dt in
+        CALENDAR.itermonthdates(year, month)
+        if dt.month == month
+    ]
+
+def meetup_day(year, month, dow, which):
+    dates = sorted(
+        month_calendar(year, month),
+        key=lambda dt: dt.weekday()
+    )
+    dates_by_weekday = {
+        n: list(g)
+        for n, g in itertools.groupby(
+            dates, key=lambda dt: dt.weekday()
+        )
+    }
+    weekday_dates = dates_by_weekday[WEEKDAYS.index(dow)]
+
+    if which == 'last':
+        return weekday_dates[-1]
+    if which == 'teenth':
+        return [
+            dt for dt in weekday_dates
+            if dt.day in TEENTH
+        ][0]
+    return weekday_dates[int(which[0])-1]

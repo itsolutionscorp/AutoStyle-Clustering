@@ -1,0 +1,1 @@
+( WordNet ( processSynsetFile )( size )( processHyponymFile )( println ( + ( getMessage )))( println )( exit ))

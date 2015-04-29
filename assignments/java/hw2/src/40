@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  if (x < 0)   return multiply(-x,-y);
+  int multiplier=0, total=0;
+  while (x != 0) {
+    if ((x & 1) == 1)     total=add(total,(y << multiplier));
+    multiplier=add(multiplier,1);
+    x=x >>> 1;
+  }
+  return total;
+}
+

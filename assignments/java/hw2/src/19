@@ -1,0 +1,25 @@
+public int multiply(int x,int y){
+  int total=0;
+  int temp=0;
+  boolean isNeg=false;
+  if (y < 0) {
+    y=add(~y,1);
+    isNeg=true;
+  }
+  while (y > 0) {
+    if (getBit(y,0) == 0) {
+      temp=0;
+    }
+ else     if (getBit(y,0) == 1) {
+      temp=x;
+    }
+    total=add(total,temp);
+    x=x << 1;
+    y=y >>> 1;
+  }
+  if (isNeg) {
+    total=~add(total,-1);
+  }
+  return total;
+}
+

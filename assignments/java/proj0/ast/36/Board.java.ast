@@ -1,0 +1,1 @@
+( canSelect ( pieceAt )( cond ( && ( != )( rightTurn ))( cond ( ! )( cond ( cond ( || ( hasCaptured )( ! )))))( cond ( && ( || ( ! )( && ( hasCaptured )( ! ( isBomb )))))( canMove ))))

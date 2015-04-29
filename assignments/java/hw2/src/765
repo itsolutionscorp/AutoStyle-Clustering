@@ -1,0 +1,27 @@
+public int multiply(int x,int y){
+  boolean isNegative=false;
+  if (x < 0) {
+    if (y < 0) {
+      isNegative=false;
+    }
+ else {
+      isNegative=true;
+    }
+  }
+ else   if (y < 0) {
+    isNegative=true;
+  }
+  x=Math.abs(x);
+  y=Math.abs(y);
+  int product=0;
+  int counter=0;
+  while (counter < y) {
+    product=add(product,x);
+    counter+=1;
+  }
+  if (isNegative == true) {
+    product=add(~product,1);
+  }
+  return product;
+}
+

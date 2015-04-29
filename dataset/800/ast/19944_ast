@@ -1,1 +1,0 @@
-s(:defn, :combine_anagrams, s(:args, :words), s(:lasgn, :temp, s(:call, s(:const, :Hash), :new)), s(:call, s(:iter, s(:call, s(:lvar, :words), :group_by), s(:args, :w), s(:call, s(:call, s(:call, s(:call, s(:lvar, :w), :downcase), :chars), :sort), :join)), :values))

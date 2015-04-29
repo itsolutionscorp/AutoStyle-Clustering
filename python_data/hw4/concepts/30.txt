@@ -1,7 +1,0 @@
-Call to len
-Call to get_list
-Use of a double nested loop
-Use of 2 loop(s) in total.
-Use of an augmented assignment
-Use of a binary operation
-Use of an if statement

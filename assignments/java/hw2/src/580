@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  int bits=32;
+  int bit=0;
+  int result=0;
+  int yMask;
+  while (bit < bits) {
+    yMask=y & 1;
+    if (yMask == 1) {
+      result=add(result,x);
+    }
+    x<<=1;
+    y>>>=1;
+    bit++;
+  }
+  return result;
+}
+

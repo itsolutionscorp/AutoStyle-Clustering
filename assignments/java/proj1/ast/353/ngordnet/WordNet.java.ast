@@ -1,0 +1,1 @@
+( WordNet ( readSynsetFile )( readHyponymFile )( iter ( entrySet )( getKey )( iter ( getValue )( addEdge )))( populateAllNouns )( initializeWordToIdentity )( iter ( entrySet )( getKey )( split ( getValue ))( iter ( < )( add ( get )))))

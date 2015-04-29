@@ -1,0 +1,10 @@
+public int multiply(int x,int y){
+  int temp1=x, temp2=y, result=0;
+  while (temp2 != 0) {
+    if ((temp2 & 1) != 0)     result=add(result,temp1);
+    temp1=temp1 << 1;
+    temp2=temp2 >>> 1;
+  }
+  return result;
+}
+

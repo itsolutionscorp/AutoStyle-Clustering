@@ -1,0 +1,1 @@
+( insert ( cond ( != )( cond ( == )( cond ( && ( < ( compareTo ))( != ))( insert )( cond ( && ( < ( compareTo ))( == )))))))

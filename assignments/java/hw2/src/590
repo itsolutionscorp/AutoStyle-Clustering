@@ -1,0 +1,30 @@
+public int multiply(int x,int y){
+  if (y == 2) {
+    return x << 1;
+  }
+  boolean invertX=false, invertY=false;
+  if (x < 0) {
+    x=add(~x,1);
+    invertX=true;
+  }
+  if (y < 0) {
+    y=add(~y,1);
+    invertY=true;
+  }
+  int product=0;
+  int counter=0;
+  for (int i=1; i < 32; i=multiply(i,2)) {
+    if ((y & i) == i) {
+      product=add(product,x << counter);
+    }
+    counter=add(counter,1);
+  }
+  if (invertX) {
+    product=add(~product,1);
+  }
+  if (invertY) {
+    product=add(~product,1);
+  }
+  return product;
+}
+

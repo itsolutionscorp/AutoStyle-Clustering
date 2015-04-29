@@ -1,0 +1,28 @@
+public int multiply(int x,int y){
+  int res=0;
+  if (x == 0 || y == 0) {
+    res=0;
+  }
+ else   if ((x < 0) && (y < 0)) {
+    x=add(~x,1);
+    y=add(~y,1);
+    for (int i=0; i < y; ++i) {
+      res=add(res,x);
+    }
+  }
+ else {
+    int inc;
+    if (y < 0) {
+      inc=-1;
+      x=add(~x,1);
+    }
+ else {
+      inc=1;
+    }
+    for (int i=0; i != y; i=add(i,inc)) {
+      res=add(res,x);
+    }
+  }
+  return res;
+}
+

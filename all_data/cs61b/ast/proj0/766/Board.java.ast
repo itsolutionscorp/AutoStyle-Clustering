@@ -1,0 +1,1 @@
+( canSelect ( cond ( ! ( inbonds )))( cond ( && ( == )( == ))( cond ( == ))( cond ( && ( != )( != ( isFire ))))( cond ( && ( != )( == ))( cond ( && ( != )( == ( side )( side )))( cond ( ! ( isKing ))( validmove )( validmoveWithKing )))( cond ( && ( != )( == ))( cond ( ! ( hasCaptured ))( cond ( ! ( isKing ))( validmoveAfterCaptured )( validmoveWithKingAfterCaptured )))))))

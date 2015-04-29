@@ -1,0 +1,19 @@
+public int multiply(int x,int y){
+  int count=0;
+  int finalresult=0;
+  while (count < 32) {
+    int m=getbit(y,count);
+    int result=0;
+    if (m == 0) {
+      result=0;
+    }
+ else {
+      result=x;
+    }
+    result=result << count;
+    finalresult=add(finalresult,result);
+    count=add(count,1);
+  }
+  return finalresult;
+}
+

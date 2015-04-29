@@ -1,0 +1,1 @@
+( WordNet ( getVertices )( iter ( ! ( isEmpty ))( readLine )( split )( iter ( < )( ++ )( addEdge ( parseInt )( parseInt ))))( iter ( ! ( isEmpty ))( readLine )( split )( split )( put ( parseInt )))( iter ( ! ( isEmpty ))( readLine )( split )( split )( iter ( < )( ++ )( add ))))

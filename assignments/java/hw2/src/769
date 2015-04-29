@@ -1,0 +1,22 @@
+public int multiply(int x,int y){
+  int result;
+  if (y != 0) {
+    int counter=0;
+    int temp=y;
+    int power_position=1 & temp;
+    while (power_position != 1) {
+      temp=temp >>> 1;
+      power_position=1 & temp;
+      counter+=1;
+    }
+    int max_power=x << counter;
+    int erase=1 << counter;
+    y=y ^ erase;
+    result=add(max_power,multiply(x,y));
+  }
+ else {
+    result=0;
+  }
+  return result;
+}
+

@@ -1,0 +1,1 @@
+( canSelect ( cond ( || ( >= )( >= )( < )( < )))( cond ( && ( != ( pieceAt ))( ! ))( cond ( && ( checkPlayerPiece ( pieceAt ))( ! )))( cond ( && ( || ( ! ))( != ))( cond ( isFire )( cond ( isKing )( validMoveKing )( validMoveFire ))( cond ( isKing )( validMoveKing )( validMoveWater ))))))

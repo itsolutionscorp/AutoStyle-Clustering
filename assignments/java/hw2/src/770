@@ -1,0 +1,33 @@
+public int multiply(int x,int y){
+  int count=0;
+  int total=0;
+  if (x <= 0 && y >= 0) {
+    while (count < y) {
+      total=add(x,total);
+      count+=1;
+    }
+    return total;
+  }
+ else   if (x >= 0 && y <= 0) {
+    while (count < x) {
+      total=add(y,total);
+      count+=1;
+    }
+    return total;
+  }
+ else   if (x <= 0 && y <= 0) {
+    while (count > x) {
+      total=add(y,total);
+      count-=1;
+    }
+    return (~total) | 1;
+  }
+ else {
+    while (count < x) {
+      total=add(y,total);
+      count+=1;
+    }
+    return total;
+  }
+}
+

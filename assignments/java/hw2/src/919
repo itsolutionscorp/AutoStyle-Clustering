@@ -1,0 +1,38 @@
+public int multiply(int x,int y){
+  int iter=0;
+  int signcheck=0;
+  int mult_val=0;
+  if ((x == 0) | (y == 0)) {
+    mult_val=0;
+  }
+ else {
+    if (x < 0) {
+      x=add(~x,1);
+      signcheck=(signcheck ^ 1);
+    }
+    if (y < 0) {
+      y=add(~y,1);
+      signcheck=(signcheck ^ 1);
+    }
+    while (y != 0) {
+      if ((x & 1) == 1) {
+        if ((y & 1) == 1) {
+          mult_val=add(mult_val,x << iter);
+        }
+        y=y >>> 1;
+        iter=iter + 1;
+      }
+ else {
+        x=x >>> 1;
+        iter=iter + 1;
+      }
+    }
+  }
+  if (signcheck == 0) {
+    return mult_val;
+  }
+ else {
+    return ~add(mult_val,-1);
+  }
+}
+

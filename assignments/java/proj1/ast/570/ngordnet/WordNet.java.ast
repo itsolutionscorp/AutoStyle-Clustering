@@ -1,0 +1,1 @@
+( WordNet ( create )( create )( readAllLines )( iter ( < )( ++ )( split )( split )( iter ( < )( ++ )( put )( put )))( create )( create )( readAllLines )( iter ( < )( ++ )( split )( parseInt )( copyOfRange )( iter ( put ( parseInt ))( put ( parseInt )))))

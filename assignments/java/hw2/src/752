@@ -1,0 +1,16 @@
+public int multiply(int x,int y){
+  if ((x == 0) || (y == 0)) {
+    return 0;
+  }
+  int ans=0;
+  while (y != 0) {
+    int temp=y & 1;
+    if (temp == 1) {
+      ans=this.add(x,ans);
+    }
+    y>>>=1;
+    x<<=1;
+  }
+  return ans;
+}
+

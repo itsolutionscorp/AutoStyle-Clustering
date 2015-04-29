@@ -1,0 +1,1 @@
+( insert ( cond ( > ( compareTo )))( iter ( && ( != )( < ( compareTo )))))

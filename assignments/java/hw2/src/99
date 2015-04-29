@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  int factor=1;
+  int sol=0;
+  int i=0;
+  while (i < 32) {
+    if ((factor & y) == factor) {
+      sol=add(sol,x << i);
+    }
+    factor=factor << 1;
+    i=add(i,1);
+  }
+  return sol;
+}
+

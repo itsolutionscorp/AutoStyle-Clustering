@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  int c=0;
+  for (int i=0; i < 32; i++) {
+    int temp=y;
+    temp=temp << add(31,add(~i,1));
+    temp=temp >> 31;
+    c=add(c,(x & temp) << i);
+  }
+  return c;
+}
+

@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  int sum=0;
+  if (y == 0 || x == 0) {
+    return 0;
+  }
+  for (int i=0; i < 32; i++) {
+    if (getBit(y,i) == 1) {
+      sum=this.add(sum,x);
+    }
+    x=x << 1;
+  }
+  return sum;
+}
+

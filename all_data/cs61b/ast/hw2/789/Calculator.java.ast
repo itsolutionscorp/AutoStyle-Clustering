@@ -1,0 +1,1 @@
+( multiply ( cond ( && ( < )( < ))( multiply ( invertNumber )( invertNumber ))( cond ( < )( invertNumber ( multiply ( invertNumber )))( cond ( < )( invertNumber ( multiply ( invertNumber )))( iter ( < )( ++ )( add ))))))

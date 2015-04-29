@@ -1,0 +1,14 @@
+public int multiply(int x,int y){
+  int x1=x;
+  int y1=y;
+  int val=0;
+  int pos=0;
+  while (pos < 32) {
+    if (getBit(y1,pos) == 1) {
+      val=add(val,(x1 << pos));
+    }
+    pos=pos + 1;
+  }
+  return val;
+}
+

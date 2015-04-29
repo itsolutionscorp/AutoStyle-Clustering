@@ -1,0 +1,12 @@
+public int multiply(int x,int y){
+  int ybit=0;
+  int i=0;
+  int res=0;
+  while (i < 32) {
+    ybit=(y >>> i) & 1;
+    if (ybit == 1)     res=add(res,(x << (i)));
+    i++;
+  }
+  return res;
+}
+

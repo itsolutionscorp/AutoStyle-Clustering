@@ -1,0 +1,1 @@
+( WordNet ( iter ( != ( readLine ))( split )( ++ ))( close )( printStackTrace )( cond ( != )( close ))( iter ( != ( readLine ))( split )( ++ ))( close )( printStackTrace )( cond ( != )( close )))

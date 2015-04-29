@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  int product=0;
+  int currentBit=1;
+  while (x != 0) {
+    if ((y & currentBit) != 0)     product=add(product,x);
+    x=x << 1;
+    currentBit=currentBit << 1;
+  }
+  return product;
+}
+

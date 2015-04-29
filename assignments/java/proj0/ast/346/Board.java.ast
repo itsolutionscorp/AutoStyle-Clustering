@@ -1,0 +1,1 @@
+( canSelect ( cond ( outOfBounds ))( cond ( != )( cond ( cond ( isFire )( checkSelect ))( cond ( ! )( cond ( ! ( isFire ))( checkSelect )))))( cond ( == )( checkSelect )))

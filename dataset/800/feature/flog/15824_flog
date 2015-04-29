@@ -1,5 +1,0 @@
-    21.9: flog total
-    10.9: flog/method average
-
-    16.8: main#combine_anagrams            800//source/15824.rb:5
-     5.0: main#sort_letters                800//source/15824.rb:21

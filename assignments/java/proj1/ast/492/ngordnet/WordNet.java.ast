@@ -1,0 +1,1 @@
+( WordNet ( readFile )( readFile )( iter ( < )( split )( put )( split )( iter ( < )( ++ )( add ))( ++ ))( iter ( < )( split )( iter ( < )( parseInt )( addEdge ( parseInt ))( ++ ))( ++ )))

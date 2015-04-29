@@ -1,0 +1,25 @@
+public int multiply(int x,int y){
+  int ans=0;
+  if (y > 0) {
+    while (y != 0) {
+      ans=add(ans,x);
+      y=add(y,-1);
+    }
+    return ans;
+  }
+ else   if ((y < 0) && (x < 0)) {
+    while (y != 0) {
+      ans=add(ans,x);
+      y=add(y,1);
+    }
+    return -ans;
+  }
+ else {
+    while (y != 0) {
+      ans=add(ans,x);
+      y=add(y,1);
+    }
+    return ans;
+  }
+}
+

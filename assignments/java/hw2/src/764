@@ -1,0 +1,7 @@
+public int multiply(int x,int y){
+  if ((x < 0 && y > 0) || (x > 0 && y < 0)) {
+    return -actualMultiply(x,y);
+  }
+  return actualMultiply(x,y);
+}
+

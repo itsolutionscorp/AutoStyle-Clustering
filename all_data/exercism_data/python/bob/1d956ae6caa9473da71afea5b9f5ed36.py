@@ -1,0 +1,17 @@
+ # -*- coding: utf-8 -*-
+"""
+Bob: A Surly Teenager Simulator
+"""
+
+
+def hey(message):
+    if message is None or message.strip() == '':
+        return 'Fine. Be that way!'
+
+    if message.isupper():
+        return 'Woah, chill out!'
+
+    if message.endswith('?'):
+        return 'Sure.'
+
+    return 'Whatever.'

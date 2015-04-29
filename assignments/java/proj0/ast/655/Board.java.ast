@@ -1,0 +1,1 @@
+( canSelect ( cond )( cond ( && ( && ( != ( pieceAt ))( isOnCurrentTeam ))( == )))( cond ( && ( ! ( validMove ))))( cond ( || ( ! )( && ( && ( validMove )( != ))( == ( pieceAt ))))( cond ( != )( cond ( validMove )( cond ( && ( != ( pieceAt ))( isOnCurrentTeam ))))( cond ( && ( != ( pieceAt ))( isOnCurrentTeam ))))))

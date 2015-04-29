@@ -1,0 +1,1 @@
+( WordNet ( readAllLines )( readAllLines )( cond ( != ))( synsetsHashmap )( synsetsHashmapreverse )( hypoynmDiagraph ))

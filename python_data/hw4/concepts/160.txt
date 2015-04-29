@@ -1,5 +1,0 @@
-Call to set
-Call to len
-Call to list
-Use of 0 loop(s) in total.
-Use of a binary operation

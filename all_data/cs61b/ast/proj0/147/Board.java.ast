@@ -1,0 +1,1 @@
+( canSelect ( cond ( == )( cond ( == ( % ( + )))( cond ( != )( cond ( == ( side ( getXCoord )( getYCoord )))( cond ( && ( && ( != )( == ))( validMove ( getXCoord )( getYCoord ))))( cond ( && ( && ( == )( == ( hasCaptured )))( validMove ( getXCoord )( getYCoord )))))))( cond ( && ( == ( side ))( || ( == )( && ( != )( == )))))))

@@ -1,0 +1,17 @@
+public int multiply(int x,int y){
+  if (x < 0 && y > 0) {
+    return negAndPos(x,y);
+  }
+ else   if (y < 0 && x > 0) {
+    return negAndPos(y,x);
+  }
+ else   if (x < 0 && y < 0) {
+    x=changeSign(x);
+    y=changeSign(y);
+    return multiplying(x,y);
+  }
+ else {
+    return multiplying(x,y);
+  }
+}
+

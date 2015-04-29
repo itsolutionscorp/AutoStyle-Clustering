@@ -1,0 +1,6 @@
+    36.6: flog total
+    12.2: flog/method average
+
+    21.1: String#anagrams?                 800//source795/18611.rb:6
+    11.5: main#combine_anagrams            800//source795/18611.rb:16
+     3.9: String#sort                      800//source795/18611.rb:2

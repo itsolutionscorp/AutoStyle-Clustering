@@ -1,0 +1,1 @@
+( canSelect ( cond ( || ( || ( || ( < )( > ))( < ))( > ))( cond ( != )( cond ( || ( == )( ! ))( cond ( && ( isFire )( == ))( cond ( && ( ! ( isFire ))( == )))))( cond ( && ( && ( != )( ! ))( validMove ( xposition ( coordinates ))( yposition ( coordinates ))))( cond ( && ( && ( != ))( validMove ( xposition ( coordinates ))( yposition ( coordinates )))))))))

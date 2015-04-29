@@ -1,6 +1,0 @@
-Call to len
-Call to get_list
-Use of a triple nested loop
-Use of 3 loop(s) in total.
-Use of a binary operation
-Use of an if statement

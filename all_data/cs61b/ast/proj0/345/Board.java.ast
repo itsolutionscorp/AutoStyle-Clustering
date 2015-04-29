@@ -1,0 +1,1 @@
+( canSelect ( println )( pieceAt )( cond ( ! ( isGoodSquare ))( println ))( cond ( && ( != )( == ( - ( side )))( != )))( cond ( && ( == )( != )( validmove ))( cond ( != ))( cond ( && ( validmove ))))( println ))

@@ -1,0 +1,1 @@
+( canSelect ( pieceAt )( cond ( samePlayer )( cond ( || ( == )( && ( != )( ! )))))( cond ( & ( == )( validMove ))( cond ( && ( != )( ! ))( cond ( && ( && ( != )( hasCaptured ))( canCapture ))))))

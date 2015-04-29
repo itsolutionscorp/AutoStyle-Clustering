@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  int answer=0;
+  int place=1;
+  for (int i=0; i < 32; i++) {
+    if ((y & (place << i)) != 0) {
+      answer=add(x << i,answer);
+    }
+  }
+  return answer;
+}
+

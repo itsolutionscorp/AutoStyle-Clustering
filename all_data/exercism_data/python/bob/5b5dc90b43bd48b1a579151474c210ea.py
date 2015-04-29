@@ -1,0 +1,11 @@
+#
+# Skeleton file for the Python "Bob" exercise.
+#
+def hey(what):
+    if not what or not what.strip():
+        return 'Fine. Be that way!'
+    if what.isupper():
+        return 'Whoa, chill out!'
+    if what[-1] == '?':
+        return 'Sure.'
+    return 'Whatever.'

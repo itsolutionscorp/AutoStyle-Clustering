@@ -1,0 +1,147 @@
+import list.EquationList;
+
+public class Calculator {
+    private EquationList equationList;
+    private int equationCount;
+    /**
+     * TASK 2: ADDING WITH BIT OPERATIONS
+     * add() is a method which computes the sum of two integers x and y using 
+     * only bitwise operators.
+     * @param x is an integer which is one of two addends
+     * @param y is an integer which is the other of the two addends
+     * @return the sum of x and y
+     **/
+    public int add(int x, int y) {
+	int sum = 0;
+	int carry = 0;
+        for (int i = 0; i < 32; i++) {
+	    int xLast = x & 1;
+	    int yLast = y & 1;
+	    int newFactor = xLast ^ yLast;
+	    if (newFactor == 0) {
+		newFactor = carry;
+		carry = xLast & yLast;
+	    } else if (carry == 1) {
+		newFactor = 0;
+	    }
+	    sum = sum ^ (newFactor << i);
+	    x = x >>> 1;
+	    y = y >>> 1;
+	}
+	return sum;
+    }
+
+    /**
+     * TASK 3: MULTIPLYING WITH BIT OPERATIONS
+     * multiply() is a method which computes the product of two integers x and 
+     * y using only bitwise operators.
+     * @param x is an integer which is one of the two numbers to multiply
+     * @param y is an integer which is the other of the two numbers to multiply
+     * @return the product of x and y
+     **/
+    public int multiply(int x, int y) {
+	int product = 0;
+	for (int i = 0; i < 32; i++) {
+	    int yLast = y & 1;
+	    if (yLast == 1) {
+		product = add(product, (x << i));
+	    }
+	    y = y >>> 1;
+	}
+	return product;
+    }
+
+    /**
+     * TASK 5A: CALCULATOR HISTORY - IMPLEMENTING THE HISTORY DATA STRUCTURE
+     * saveEquation() updates calculator history by storing the equation and 
+     * the corresponding result.
+     * Note: You only need to save equations, not other commands.  See spec for 
+     * details.
+     * @param equation is a String representation of the equation, ex. "1 + 2"
+     * @param result is an integer corresponding to the result of the equation
+     **/
+    public void saveEquation(String equation, int result) {
+	if (equationList == null) {
+	    equationList = new EquationList(equation, result, null);
+	} else {
+	    equationList = new EquationList(equation, result, equationList);
+	}
+	equationCount++;
+    }
+
+    /**
+     * TASK 5B: CALCULATOR HISTORY - PRINT HISTORY HELPER METHODS
+     * printAllHistory() prints each equation (and its corresponding result), 
+     * most recent equation first with one equation per line.  Please print in 
+     * the following format:
+     * Ex   "1 + 2 = 3"
+     **/
+    public void printAllHistory() {
+        printHistory(equationCount);
+    }
+
+    /**
+     * TASK 5B: CALCULATOR HISTORY - PRINT HISTORY HELPER METHODS
+     * printHistory() prints each equation (and its corresponding result), 
+     * most recent equation first with one equation per line.  A maximum of n 
+     * equations should be printed out.  Please print in the following format:
+     * Ex   "1 + 2 = 3"
+     **/
+    public void printHistory(int n) {
+	EquationList ptr = equationList;
+        for (int i = 0; i < n; i++) {
+	    if (ptr != null) {
+		System.out.println(ptr.equation + " = " + ptr.result);
+		ptr = ptr.next;
+	    }
+	}
+    }    
+
+    /**
+     * TASK 6: CLEAR AND UNDO
+     * undoEquation() removes the most recent equation we saved to our history.
+    **/
+    public void undoEquation() {
+	equationList = equationList.next;
+    }
+
+    /**
+     * TASK 6: CLEAR AND UNDO
+     * clearHistory() removes all entries in our history.
+     **/
+    public void clearHistory() {
+        equationList = null;
+    }
+
+    /**
+     * TASK 7: ADVANCED CALCULATOR HISTORY COMMANDS
+     * cumulativeSum() computes the sum over the result of each equation in our 
+     * history.
+     * @return the sum of all of the results in history
+     **/
+    public int cumulativeSum() {
+	EquationList ptr = equationList;
+	int sum = 0;
+	while (ptr != null) {
+	    sum += ptr.result;
+	    ptr = ptr.next;
+	}
+	return sum;
+    }
+
+    /**
+     * TASK 7: ADVANCED CALCULATOR HISTORY COMMANDS
+     * cumulativeProduct() computes the product over the result of each equation 
+     * in history.
+     * @return the product of all of the results in history
+     **/
+    public int cumulativeProduct() {
+        EquationList ptr = equationList;
+	int product = 1;
+	while (ptr != null) {
+	    product *= ptr.result;
+	    ptr = ptr.next;
+	}
+	return product;
+    }
+}

@@ -1,0 +1,9 @@
+class Gigasecond
+  GIGASECOND_IN_SECONDS = 10**9
+  DAY_IN_SECONDS = 60 * 60 * 24
+  GIGASECOND_IN_DAYS = GIGASECOND_IN_SECONDS / DAY_IN_SECONDS
+
+  def self.from(date)
+    date + GIGASECOND_IN_DAYS
+  end
+end

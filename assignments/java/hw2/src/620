@@ -1,0 +1,21 @@
+public int multiply(int x,int y){
+  if (y == 0) {
+    return 0;
+  }
+ else   if (y < 0) {
+    if (x < 0) {
+      return multiply(-x,-y);
+    }
+    return multiply(y,x);
+  }
+ else {
+    int counter=0;
+    int answer=0;
+    while (counter < y) {
+      answer=add(answer,x);
+      counter+=1;
+    }
+    return answer;
+  }
+}
+

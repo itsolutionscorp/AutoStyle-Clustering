@@ -1,0 +1,11 @@
+public int multiply(int x,int y){
+  if (x == 0) {
+    int trackedResult=multiplyHelper(y,x);
+    return trackedResult;
+  }
+ else {
+    int trackedResult=multiplyHelper(x,y);
+    return trackedResult;
+  }
+}
+

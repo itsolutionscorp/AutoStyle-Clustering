@@ -1,0 +1,9 @@
+Call to range
+Call to get_list
+Call to len
+Use of a double nested loop
+Use of 2 loop(s) in total.
+Recursion on function1
+Recursion on function0
+Use of a binary operation
+Use of an if statement

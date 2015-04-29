@@ -1,0 +1,1 @@
+( canSelect ( pieceAt )( cond ( || ( && ( && ( != )( isOwned ))( || ( == )( == )))( && ( == )( || ( && ( && ( && ( != )( == ))( != ))( validMove ))( && ( && ( != )( hasCaptured ))( validCapture )))))))

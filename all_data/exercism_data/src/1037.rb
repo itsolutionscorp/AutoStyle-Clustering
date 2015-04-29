@@ -1,0 +1,2 @@
+def compute(Strands)       
+     end

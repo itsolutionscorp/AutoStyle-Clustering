@@ -1,0 +1,2 @@
+class Luhn(object):
+    pass

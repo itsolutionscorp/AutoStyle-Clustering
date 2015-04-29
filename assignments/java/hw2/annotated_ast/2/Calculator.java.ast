@@ -1,0 +1,1 @@
+( multiply ( cond::2 ( <::2 )( add::3 ( ~::3 ( multiply::3 ( add::3 ( ~::3 ))))))( cond::5 ( <::5 )( add::6 ( ~::6 ( multiply::6 ( add::6 ( ~::6 ))))))( cond::8 ( ==::8 ))( cond::11 ( ==::11 ))( -::14 )( add::15 ( <<::15 )( multiply::15 )))

@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  int min=Math.min(x,y);
+  int max=Math.max(x,y);
+  int result=0;
+  while (min != 0) {
+    int lastDig=min & 1;
+    if (lastDig == 1) {
+      result=add(result,max);
+    }
+    min=min >>> 1;
+    max=max << 1;
+  }
+  return result;
+}
+

@@ -1,0 +1,28 @@
+public int multiply(int x,int y){
+  int count=y;
+  boolean flag=false;
+  int result=0;
+  int current=x;
+  if (count == 0 || current == 0) {
+    return 0;
+  }
+  if (count < 0) {
+    flag=true;
+    count=add(0,-count);
+  }
+  while (count != 0) {
+    if ((count & 1) == 0) {
+      current=add(current,current);
+      count=count >> 1;
+    }
+ else {
+      result=add(result,current);
+      count=add(count,-1);
+    }
+  }
+  if (flag) {
+    return add(0,-result);
+  }
+  return result;
+}
+

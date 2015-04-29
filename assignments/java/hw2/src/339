@@ -1,0 +1,28 @@
+public int multiply(int x,int y){
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  int outcome=0;
+  int orig_x=x;
+  int orig_y=y;
+  if (x < 0) {
+    x=add(~x,1);
+  }
+  if (y < 0) {
+    y=add(~y,1);
+  }
+  if (y > x) {
+    int temp=x;
+    x=y;
+    y=temp;
+  }
+  while (y != 0) {
+    outcome=add(outcome,x);
+    y--;
+  }
+  if ((orig_x < 0 && orig_y > 0) || (orig_x > 0 && orig_y < 0)) {
+    outcome=add(~outcome,1);
+  }
+  return outcome;
+}
+

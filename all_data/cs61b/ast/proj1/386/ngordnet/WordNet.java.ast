@@ -1,0 +1,1 @@
+( WordNet ( iter ( hasNextLine )( readLine )( lastIndexOf )( replaceAll ( substring ))( nextInt )( iter ( hasNext )( next )( cond ( || ( equals ( substring ))( equals ( substring )))( substring ))( add )( add )( ++ ))( put )( close ))( iter ( hasNextLine )( replaceAll ( readLine ))( nextInt )( iter ( hasNextInt )( nextInt )( addEdge ))( close )))

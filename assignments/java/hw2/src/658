@@ -1,0 +1,27 @@
+public int multiply(int x,int y){
+  int a=x;
+  int b=y;
+  if ((a < 0) && (b < 0)) {
+    a=-a;
+    b=-b;
+  }
+  if (a < 0) {
+    a=-a;
+  }
+  if (b < 0) {
+    b=-b;
+  }
+  int sum=0;
+  while (b > 0) {
+    if ((b & 1) != 0) {
+      sum=add(sum,a);
+    }
+    a=a << 1;
+    b=b >> 1;
+  }
+  if (((x < 0) && (y > 0)) || ((x > 0) && (y < 0))) {
+    return -sum;
+  }
+  return sum;
+}
+

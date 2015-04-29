@@ -1,0 +1,8 @@
+public int multiply(int x,int y){
+  int result=x;
+  for (int i=1; i < y; i++) {
+    result=add(result,x);
+  }
+  return result;
+}
+

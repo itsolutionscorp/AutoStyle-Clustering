@@ -1,0 +1,33 @@
+public int multiply(int x,int y){
+  int incre=2;
+  int answer=0;
+  int init=0;
+  int currproduct=0;
+  boolean negative=false;
+  if (x == 0 || y == 0) {
+    return 0;
+  }
+  if ((x < 0 || y < 0) && !(x < 0 && y < 0)) {
+    negative=true;
+    if (x < 0) {
+      x=-x;
+    }
+    if (y < 0) {
+      y=-y;
+    }
+  }
+  while (y > 0) {
+    while ((x << init) < y) {
+      init=add(init,1);
+    }
+    currproduct=x << init;
+    answer=add(currproduct,answer);
+    y=add(y,-(1 << init));
+    init=0;
+  }
+  if (negative) {
+    return -answer;
+  }
+  return answer;
+}
+

@@ -1,0 +1,13 @@
+def compute(first_strand, other_strand)
+    return 0 if first_strand === other_strand
+
+
+    return 1 if first_strand.length > other_strand.length
+
+    distance = 0
+    first_strand.each_char.each_with_index { |ch, index|
+      distance += 1 if first_strand[index] != other_strand[index]
+    }
+
+    distance
+  end

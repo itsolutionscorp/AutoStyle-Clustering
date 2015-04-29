@@ -1,0 +1,1 @@
+( WordNet ( iter ( hasNextChar )( split ( readLine ))( parseInt )( split )( iter ( add ))( put ))( iter ( hasNextChar )( split ( readLine ))( iter ( parseInt ))( iter ( < )( ++ )( addEdge ))))

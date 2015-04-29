@@ -1,0 +1,13 @@
+public int multiply(int x,int y){
+  int product=firstBit(x,y);
+  int toAdd;
+  int shifter=1;
+  while (y != 0) {
+    y=y >>> 1;
+    toAdd=(firstBit(x,y)) << shifter;
+    product=add(product,toAdd);
+    shifter+=1;
+  }
+  return product;
+}
+

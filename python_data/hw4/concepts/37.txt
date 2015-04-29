@@ -1,7 +1,0 @@
-Call to intersection
-Call to set
-Call to len
-Call to get_list
-Use of 0 loop(s) in total.
-Use of tuples
-Use of an if statement

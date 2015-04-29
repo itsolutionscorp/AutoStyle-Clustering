@@ -1,0 +1,12 @@
+public int multiply(int x,int y){
+  int total=0;
+  int ycheck;
+  for (int i=0; i < 32; i++) {
+    ycheck=getBit(y,i);
+    if (ycheck == 1) {
+      total=add(x << i,total);
+    }
+  }
+  return total;
+}
+

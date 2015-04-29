@@ -1,0 +1,15 @@
+public int multiply(int x,int y){
+  int ans=0;
+  int one=1;
+  int power=0;
+  while (y != 0) {
+    if ((one & y) != 0) {
+      ans=add(ans,x << power);
+      y=y ^ one;
+    }
+    power++;
+    one=one << 1;
+  }
+  return ans;
+}
+

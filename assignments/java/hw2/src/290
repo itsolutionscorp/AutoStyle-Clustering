@@ -1,0 +1,25 @@
+public int multiply(int x,int y){
+  if (x > 0 || y > 0) {
+    int counter;
+    int other;
+    if (x > 0) {
+      counter=x;
+      other=y;
+    }
+ else {
+      counter=y;
+      other=x;
+    }
+    int sum=0;
+    for (int index=0; index < counter; index++) {
+      sum=add(sum,other);
+    }
+    return sum;
+  }
+ else {
+    x=negate(x);
+    y=negate(y);
+    return multiply(x,y);
+  }
+}
+
