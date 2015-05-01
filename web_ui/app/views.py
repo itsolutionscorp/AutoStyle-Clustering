@@ -2,14 +2,16 @@ from app import app
 from flask import render_template, request
 import os
 import sys
+import ast
 import numpy as np
-from glob import glob
+import subprocess
+import glob
 sys.path.insert(0, os.path.abspath('../visualization/'))
 sys.path.insert(0, os.path.abspath('../featurization/'))
 sys.path.insert(0, os.path.abspath('../scripts_python/'))
 from style_chain import generate_chain, interpret_list_of_hints
 from individual_features import generate_individual_features
-from python_newsubmission_edit_dist import compute_edit_distances
+# from python_newsubmission_edit_dist import compute_edit_distances
 start_index = None
 max_hints = 3
 flog = 1
@@ -23,7 +25,7 @@ hints = None
 @app.route('/index')
 def index():
     posts = []
-    directories = [item.lstrip('../assignments/')for item in glob('../assignments/*/*')]
+    directories = [item.lstrip('../assignments/')for item in glob.glob('../assignments/*/*')]
     return render_template("index.html", ast_dist=3, flog_diff=0, title='Home', posts=posts, directories=directories)
 
 
@@ -78,7 +80,7 @@ def submit_form():
       else:
         posts.append({'code': cl.source_code, 'positive_hint': "", 'negative_hint': ''})
       cl = cl.next
-      directories = [item.lstrip('../assignments/') for item in glob('../assignments/*/*')]
+      directories = [item.lstrip('../assignments/') for item in glob.glob('../assignments/*/*')]
       lang = data_loc.split("/")[0]
       if lang == "java":
         lang = "text/x-java"
@@ -93,7 +95,7 @@ def submit_form():
 @app.route('/improve/')
 def improve():    
     post = []
-    directories = [item.lstrip('../assignments/')for item in glob('../assignments/*/*')]
+    directories = [item.lstrip('../assignments/')for item in glob.glob('../assignments/*/*')]
     return render_template("improve.html",  post=post, directories=directories)
 
 @app.route('/submit_improveform/', methods=['POST'])
@@ -111,46 +113,71 @@ def improve_submit():
     cl = None
     if start_index == "":
       newcode = request.form['new_submission']
-      start_index = len(glob(data_dir+"/src/*.py"))
+      start_index = len(glob.glob(data_dir+"/src/*.py"))
       print "newstartindex", start_index
-      with open( data_dir+"/src/" + str(start_index)+ ".py", "w") as f:
-        f.write(newcode)
-      function_name = newcode.split("\n")[0].split("(")[0].replace("def ", "").rstrip(" ")
-      feature_vector, feature_lines = generate_individual_features(lang, function_name, start_index, ["libcall", "control_flow", "recursion", "duplicate_treegram"], data_dir, class_name=None)
-      with open(data_dir+"/feature/style_features.np",'a') as f_handle:
-        np.savetxt(f_handle,feature_vector.T)
-      with open(data_dir+"/feature/feature_line_nums.np",'a') as f_handle:
-        np.savetxt(f_handle,feature_lines.T)
-      print feature_vector.T
-      print feature_lines.T
-      ss, sse = generate_individual_features(lang, function_name, start_index, [style_score], data_dir, class_name=None)
-      with open(data_dir+"/feature/style_scores.np",'a') as f_handle:
-        np.savetxt(f_handle,ss.T)
-      ed = compute_edit_distances(data_dir, start_index)
-      print ed
-      row = np.array(ed, ndmin =2)
-      ed.append(0)
-      col = np.array(ed, ndmin=2)
-      dist_matrix = np.loadtxt(data_dir+"/gen/ast_dist_matrix.np")
-      dist_matrix_new = np.vstack([dist_matrix,row])
-      dist_matrix_new = np.hstack([dist_matrix_new, col.T])
-      np.savetxt(data_dir+"/gen/ast_dist_matrix.np", dist_matrix_new)
-      cl = generate_chain(int(start_index), 4, 0.14, home_dir, data_dir = "assignments/" + data_loc, language=data_loc.split("/")[0]).head
-      np.savetxt(data_dir+"/gen/ast_dist_matrix.np", dist_matrix)
-      
-      ss = np.loadtxt(data_dir+"/feature/style_scores.np")
-      ss = np.delete(ss, ss.shape[0]-1,0)
-      np.savetxt(data_dir+"/feature/style_scores.np", ss)
-      
-      fln = np.loadtxt(data_dir+"/feature/feature_line_nums.np")
-      fln = np.delete(fln, fln.shape[0]-1,0)
-      np.savetxt(data_dir+"/feature/feature_line_nums.np", fln)
-
-      sf = np.loadtxt(data_dir+"/feature/style_features.np")
-      sf = np.delete(sf, sf.shape[0]-1,0)
-      np.savetxt(data_dir+"/feature/style_features.np", sf)
-
-      os.remove(data_dir+"/src/"+str(start_index)+".py")
+      try:
+        ast_node = ast.parse(newcode, mode='exec')
+        try:
+          os.remove(data_dir+"/ast_dump/.DS_Store")
+        except:
+          pass
+        with open(data_dir+"/ast_dump/" + str(start_index)+".ast", "w") as f:
+          f.write(ast.dump(ast_node, annotate_fields=False).replace(")","}").replace("(","{").replace(":",""))
+        proc = subprocess.Popen(["java -jar "+ home_dir+"syntax_tree/TreeEditDistance.jar " + data_dir], stdout=subprocess.PIPE, shell=True)
+        (ed, err) = proc.communicate()
+        ed = ed.rstrip(",").split(',')
+        with open( data_dir+"/src/" + str(start_index)+ ".py", "w") as f:
+          f.write(newcode)
+        function_name = newcode.split("\n")[0].split("(")[0].replace("def ", "").rstrip(" ")
+        feature_vector, feature_lines = generate_individual_features(lang, function_name, start_index, ["libcall", "control_flow", "recursion", "duplicate_treegram"], data_dir, class_name=None)
+        with open(data_dir+"/feature/style_features.np",'a') as f_handle:
+          np.savetxt(f_handle,feature_vector.T)
+        with open(data_dir+"/feature/feature_line_nums.np",'a') as f_handle:
+          np.savetxt(f_handle,feature_lines.T)
+        print feature_vector.T
+        print feature_lines.T
+        ss, sse = generate_individual_features(lang, function_name, start_index, [style_score], data_dir, class_name=None)
+        with open(data_dir+"/feature/style_scores.np",'a') as f_handle:
+          np.savetxt(f_handle,ss.T)
+        row = np.array(ed, ndmin=2).astype(np.float)
+        ed.append(0)
+        col = np.array(ed, ndmin=2).astype(np.float)
+        dist_matrix = np.loadtxt(data_dir+"/gen/ast_dist_matrix.np")
+        dist_matrix_new = np.vstack([dist_matrix,row])
+        dist_matrix_new = np.hstack([dist_matrix_new, col.T])
+        np.savetxt(data_dir+"/gen/ast_dist_matrix.np", dist_matrix_new)
+        cl = generate_chain(int(start_index), 4, 0.14, home_dir, data_dir = "assignments/" + data_loc, language=data_loc.split("/")[0]).head
+      finally:
+        try:
+          np.savetxt(data_dir+"/gen/ast_dist_matrix.np", dist_matrix)
+        except:
+          pass
+        try:  
+          ss = np.loadtxt(data_dir+"/feature/style_scores.np")
+          ss = np.delete(ss, ss.shape[0]-1,0)
+          np.savetxt(data_dir+"/feature/style_scores.np", ss)
+        except:
+          pass
+        try:
+          fln = np.loadtxt(data_dir+"/feature/feature_line_nums.np")
+          fln = np.delete(fln, fln.shape[0]-1,0)
+          np.savetxt(data_dir+"/feature/feature_line_nums.np", fln)
+        except:
+          pass
+        try:
+          sf = np.loadtxt(data_dir+"/feature/style_features.np")
+          sf = np.delete(sf, sf.shape[0]-1,0)
+          np.savetxt(data_dir+"/feature/style_features.np", sf)
+        except:
+          pass
+        try:
+          os.remove(data_dir+"/ast_dump/"+str(start_index)+".ast")
+        except:
+          pass
+        try:
+          os.remove(data_dir+"/src/"+str(start_index)+".py")
+        except:
+          pass
     else:
       print "s-------", int(start_index)
       cl = generate_chain(int(start_index), 4, 0.14, home_dir, data_dir = "assignments/" + data_loc, language=data_loc.split("/")[0]).head
@@ -166,5 +193,5 @@ def improve_submit():
     post = {'code': cl.source_code, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint': interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1], 'positive_hint_locations': pos_hints[2], 'negative_hint_locations': neg_hints[2]}
     if lang == "java":
         lang = "text/x-java"
-    directories = [item.lstrip('../assignments/')for item in glob('../assignments/*/*')]
+    directories = [item.lstrip('../assignments/')for item in glob.glob('../assignments/*/*')]
     return render_template("improve.html",  post=post, directory=data_loc, directories=directories,language=lang)

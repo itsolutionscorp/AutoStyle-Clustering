@@ -62,6 +62,7 @@ def compute(t):
 def compute_edit_distances(home_dir,n):
   # Construct trees
   nthtree = generate_ast(home_dir + "/src/"+str(n)+".py")
+  start_time = time.time()
   treeTuples = []
   for i in range(0, n):
     treeTuples.append((generate_ast(home_dir + "/src/"+str(i)+".py"),nthtree))
@@ -70,6 +71,7 @@ def compute_edit_distances(home_dir,n):
   dist = []
   pool = Pool()
   dist = pool.map(compute, treeTuples)
+  print("--- %s seconds ---" % str(time.time() - start_time))
   return dist
 
 

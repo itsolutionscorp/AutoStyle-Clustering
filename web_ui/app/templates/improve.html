@@ -19,12 +19,12 @@
 
 
 <body style="position: relative; min-height: 120%">
-    <div id="overlay">
+<!--     <div id="overlay">
       <p align="center" style="margin-top: 25%">
          <img src="{{ url_for('static', filename='owl/assets/ajax-loader.gif')}}" alt="Loading"/>
          Loading... can take upto 2 minutes
         </p> 
-    </div>
+    </div> -->
     <!-- Begin page content -->
     <div class="wrapper" id="main-content">
       <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -190,8 +190,8 @@ sync2.on('change.owl.carousel', function(event) {
             form_new.appendChild(hiddenField);
          }
     }
-   $("#overlay").show();
-    console.log("shown overlay")
+   // $("#overlay").show();
+    // console.log("shown overlay")
     document.body.appendChild(form_new);
     setTimeout(form_new.submit(), 3);
 
@@ -249,11 +249,11 @@ sync2.on('change.owl.carousel', function(event) {
 
 
   <script>
-    // Wait for window load
-    $(window).load(function() {
-      // Animate loader off screen
-      $("#overlay").fadeOut();
-    });
+    // // Wait for window load
+    // $(window).load(function() {
+    //   // Animate loader off screen
+    //   $("#overlay").fadeOut();
+    // });
   </script>
 
 
