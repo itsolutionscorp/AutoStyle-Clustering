@@ -1,0 +1,1 @@
+{Module {{ImportFrom {{alias }}}}{{Import {{alias }}}}{{Expr {{Str }}}}{{FunctionDeffunction0 {{arguments {{Name {{Param }}}}}}{{Expr {{Str }}}}{{Assert {{Name {{Load }}}}{{Str }}}}{{Return {{Call {{Counter {{Load }}}}{{Call {{split {{Name {{Load }}}}{{Load }}}}}}}}}}}}}

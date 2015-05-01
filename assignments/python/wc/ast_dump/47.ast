@@ -1,0 +1,1 @@
+{Module {{ImportFrom {{alias }}}}{{FunctionDeffunction0 {{arguments {{Name {{Param }}}}}}{{Return {{Call {{Counter {{Load }}}}{{Call {{split {{Name {{Load }}}}{{Load }}}}}}}}}}}}{{If {{Compare {{Name {{Load }}}}{{Eq }}{{Str }}}}{{Assign {{Name {{Store }}}}{{Call {{raw_input {{Load }}}}}}}}{{Print {{Call {{function0 {{Load }}}}{{Name {{Load }}}}}}}}}}}

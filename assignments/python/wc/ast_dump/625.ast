@@ -1,0 +1,1 @@
+{Module {{Assign {{Name {{Store }}}}{{Str }}}}{{FunctionDeffunction0 {{arguments {{Name {{Param }}}}}}{{Assign {{Name {{Store }}}}{{Call {{split {{Name {{Load }}}}{{Load }}}}}}}}{{Return {{Call {{enumerate {{Load }}}}{{Name {{Load }}}}}}}}}}}

@@ -17,7 +17,7 @@ public class TreeEditDistance {
 		 	int latest = listOfFiles.length-1;
 		 	try {
 	             lt1 = LblTree.fromString((new BufferedReader(new FileReader(home_dir+"/ast_dump/" +latest+".ast" ))).readLine());
-	         } catch (Exception e) {
+		 	} catch (Exception e) {
 	             System.out.println("TREE1 argument has wrong format "+e.toString());
 	         }
 		 	for (int i = 0; i < listOfFiles.length-1; i++) 

@@ -1,0 +1,1 @@
+{Module {{FunctionDeffunction0 {{arguments {{Name {{Param }}}}}}{{Return {{DictComp {{Name {{Load }}}}{{Call {{count {{Call {{split {{Name {{Load }}}}{{Load }}}}}}{{Load }}}}{{Name {{Load }}}}}}{{comprehension {{Name {{Store }}}}{{Call {{split {{Name {{Load }}}}{{Load }}}}}}}}}}}}}}}

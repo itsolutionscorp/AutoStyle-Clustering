@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.abspath('../featurization/'))
 sys.path.insert(0, os.path.abspath('../scripts_python/'))
 from style_chain import generate_chain, interpret_list_of_hints
 from individual_features import generate_individual_features
-# from python_newsubmission_edit_dist import compute_edit_distances
+from python_ast_dump import dump_single_ast
 start_index = None
 max_hints = 3
 flog = 1
@@ -116,13 +116,7 @@ def improve_submit():
       start_index = len(glob.glob(data_dir+"/src/*.py"))
       print "newstartindex", start_index
       try:
-        ast_node = ast.parse(newcode, mode='exec')
-        try:
-          os.remove(data_dir+"/ast_dump/.DS_Store")
-        except:
-          pass
-        with open(data_dir+"/ast_dump/" + str(start_index)+".ast", "w") as f:
-          f.write(ast.dump(ast_node, annotate_fields=False).replace(")","}").replace("(","{").replace(":",""))
+        dump_single_ast(data_dir+"/ast_dump/" + str(start_index)+".ast", newcode)
         proc = subprocess.Popen(["java -jar "+ home_dir+"syntax_tree/TreeEditDistance.jar " + data_dir], stdout=subprocess.PIPE, shell=True)
         (ed, err) = proc.communicate()
         ed = ed.rstrip(",").split(',')
@@ -134,8 +128,6 @@ def improve_submit():
           np.savetxt(f_handle,feature_vector.T)
         with open(data_dir+"/feature/feature_line_nums.np",'a') as f_handle:
           np.savetxt(f_handle,feature_lines.T)
-        print feature_vector.T
-        print feature_lines.T
         ss, sse = generate_individual_features(lang, function_name, start_index, [style_score], data_dir, class_name=None)
         with open(data_dir+"/feature/style_scores.np",'a') as f_handle:
           np.savetxt(f_handle,ss.T)

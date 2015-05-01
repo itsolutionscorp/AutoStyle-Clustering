@@ -1,0 +1,1 @@
+{Module {{Import {{alias }}}}{{FunctionDeffunction0 {{arguments {{Name {{Param }}}}{{Name {{Param }}}}}}{{Return {{ListComp {{Name {{Load }}}}{{comprehension {{Name {{Store }}}}{{Call {{permutations {{Name {{Load }}}}{{Load }}}}{{Name {{Load }}}}{{Name {{Load }}}}}}}}}}}}}}}

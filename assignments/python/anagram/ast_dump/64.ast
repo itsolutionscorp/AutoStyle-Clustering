@@ -1,1 +1,1 @@
-Module{[FunctionDef{'detect_anagrams', arguments{[Name{'word', Param{}}, Name{'words', Param{}}], None, None, []}, [Assign{[Name{'alist', Store{}}], Call{Name{'list', Load{}}, [], [], None, None}}, Return{Name{'alist', Load{}}}], []}]}
+{Module {{FunctionDeffunction0 {{arguments {{Name {{Param }}}}{{Name {{Param }}}}}}{{Assign {{Name {{Store }}}}{{Call {{list {{Load }}}}}}}}{{Return {{Name {{Load }}}}}}}}}
