@@ -27,12 +27,12 @@ def natural_sort(l):
 
 def main():
     '''
-    Parse command line arguScriments, pass them to generate_individual_features,
+    Parse command line arguments, pass them to generate_individual_features,
     and append the given feature vector to an output file.
     '''
     parser = argparse.ArgumentParser(description='Generate a feature vector for a particular submission.')
     parser.add_argument('function_name', help='Name of the function to compute features about.')
-    parser.add_argument('language', help='ruby or python')
+    parser.add_argument('language', help='ruby, python, or java')
     parser.add_argument('home_directory', help='Path to data directory')
     parser.add_argument('output_feature_file', help='File to append the generated horizontal feature vector to.')
     parser.add_argument('-l', '--output_line_file', help='File to append the generated horizontal feature line vector to.')

@@ -155,6 +155,37 @@ def build_tree(node, ast_node, functions):
         build_tree(kidNode, kid, functions)
     return node
 
+def build_structure_tree(node, ast_node, functions):
+    '''
+    Recursively construct a Node object out of a python ast object.
+    Only build nodes for loops and conditionals.
+    '''
+    if isinstance(ast_node, str) or isinstance(ast_node, int) or (ast_node == None):
+        return node
+    n = [i for i in ast.iter_child_nodes(ast_node)]
+    for i, kid in enumerate(n):
+        label = get_node_label(kid)
+        if 'lineno' in kid._attributes:
+            line = kid.lineno
+        elif 'lineno' in ast_node._attributes:
+            line = ast_node.lineno
+        else:
+            line = 0
+        if label == "FunctionDef":
+            name = [r[1] for r in ast.iter_fields(kid) if r[0] == 'name'][0]
+            label = "FunctionDef: " + name
+        if i == 0 and node.label[0:4] == "Call" and 'func' in dir(ast_node):
+            label = [r[1] for r in ast.iter_fields(kid) if r[0] == 'attr' or r[0] == 'id'][0]
+        if label in functions:
+            label = functions[label]
+        if label in ('For', 'If', 'While'):
+            kidNode = betterast.Node(label)
+            node.addkid(kidNode)
+            build_structure_tree(kidNode, kid, functions)
+        else:
+            build_structure_tree(node, kid, functions)
+    return node
+
 def generate_python_ast(filename):
     '''Generate an Node object representing an
     ast for a python file.
@@ -170,6 +201,20 @@ def generate_python_ast(filename):
     else:
         b_node = betterast.Node(get_node_label(ast_node))
     tree = build_tree(b_node,ast_node,{})
+    return tree
+
+def generate_python_structure_ast(filename):
+    try:
+        ast_node = ast.parse(open(filename, 'r').read(), mode='exec')
+    except Exception as e:
+        print "FAILED: " + filename + "  error: " + str(e)
+        return
+    ast_node = ast.fix_missing_locations(ast_node)
+    if 'lineno' in ast_node._attributes:
+        b_node = betterast.Node(get_node_label(ast_node) + LINE_DELIMITER + ast_node.lineno)
+    else:
+        b_node = betterast.Node(get_node_label(ast_node))
+    tree = build_structure_tree(b_node, ast_node, {})
     return tree
 
 def generate_java_ast(filename, function_name, class_name):
@@ -191,8 +236,6 @@ def generate_java_ast(filename, function_name, class_name):
         return None
 
 def generate_ruby_ast(filename, function_name):
-    # ast_string = terminal_output('ruby', 'syntax_tree/ast_no_helper_print.rb', '-f', filename, '-m', function_name)
-    # return cfl_tree_from_string(ast_string)
     ast_string = terminal_output('ruby', 'syntax_tree/ast_with_lines.rb', filename, function_name)
     return ast_from_sexp(ast_string)
     
@@ -207,7 +250,134 @@ def generate_ast(language, index, function_name, class_name):
         ast = generate_python_ast(SOURCE_FILES[index])
     elif language == 'java':
         ast = generate_java_ast(SOURCE_FILES[index], function_name, class_name)
-    return ast    
+    return ast
+
+def skeleton_from_ast(language, function_name, structure_ast, indentation):
+    '''
+    Return a string representing a code skeleton giving an ast containing only
+    loops and conditionals.
+    '''
+    code_skeleton = ''
+    if language == 'python':
+        if not structure_ast:
+            return ''
+        code_skeleton += indentation
+        if Node.get_label(structure_ast) == 'Module':
+            code_skeleton = 'def ' + function_name + '(...):' + '\n'
+        elif Node.get_label(structure_ast) == 'For':
+            code_skeleton = 'for ... :' + '\n'
+        elif Node.get_label(structure_ast) == 'While':
+            code_skeleton = 'while ... :' + '\n'
+        elif Node.get_label(structure_ast) == 'If':
+            code_skeleton = 'if ... :' + '\n'
+        for child in Node.get_children(structure_ast):
+            code_skeleton += indentation + '    ' + skeleton_from_ast(language, function_name, child, indentation + '    ')
+    return code_skeleton
+
+def skeleton_from_source(language, source_file):
+    '''
+    Takes a piece of source code and generate a skeleton version of that 
+    source code which contains only function definitions, loops, conditionals,
+    and returns.
+    '''
+    skeleton = ''
+    if language == 'ruby':
+        with open(source_file, 'r') as f:
+            for line in f:
+                stripped_line = line.strip()
+                if stripped_line.startswith('def '):
+                    skeleton += line + '\n'
+                elif stripped_line.startswith('while '):
+                    skeleton += line[:line.index('while ')] + 'while ...' + '\n\n'
+                elif stripped_line.startswith('until '):
+                    skeleton += line[:line.index('until ')] + 'until ...' + '\n\n'
+                elif stripped_line.startswith('for '):
+                    skeleton += line[:line.index('for ')] + 'for ... in ...' + '\n\n'
+                elif stripped_line.startswith('if '):
+                    skeleton += line[:line.index('if ')] + 'if ...' + '\n\n'
+                elif stripped_line.startswith('elsif '):
+                    skeleton += line[:line.index('elsif ')] + 'elsif ...' + '\n\n'
+                elif stripped_line.startswith('else'):
+                    skeleton += line[:line.index('else')] + 'else' + '\n\n'
+                elif stripped_line.startswith('unless '):
+                    skeleton += line[:line.index('unless ')] + 'unless ...' + '\n\n'
+                elif stripped_line.startswith('end'):
+                    skeleton += line[:line.index('end')] + 'end' + '\n\n'
+                elif stripped_line.startswith('return'):
+                    skeleton += line[:line.index('return')] + 'return ...' + '\n\n'
+                elif ' do' in stripped_line:
+                    skeleton += line[:len(line) - len(line.lstrip())] + '... do |...|' + '\n\n'
+    if language == 'python':
+        with open(source_file, 'r') as f:
+            for line in f:
+                stripped_line = line.strip()
+                if stripped_line.startswith('def '):
+                    skeleton += line + '\n'
+                elif stripped_line.startswith('for '):
+                    skeleton += line[:line.index('for ')] + 'for ... :' + '\n\n'
+                elif stripped_line.startswith('while '):
+                    skeleton += line[:line.index('while ')] + 'while ... :' + '\n\n'
+                elif stripped_line.startswith('if '):
+                    skeleton += line[:line.index('if ')] + 'if ... :' + '\n\n'
+                elif stripped_line.startswith('elif '):
+                    skeleton += line[:line.index('elif ')] + 'elif ... :' + '\n\n'
+                elif stripped_line.startswith('else:'):
+                    skeleton += line[:line.index('else:')] + 'else:' + '\n\n'
+                elif stripped_line.startswith('return'):
+                    skeleton += line[:line.index('return')] + 'return ...' + '\n\n'
+    return skeleton
+
+def generic_skeleton_from_source(language, source_file):
+    '''
+    Takes a piece of source code and generate a skeleton version of that 
+    source code which contains only function definitions, loops, conditionals,
+    and returns.
+    '''
+    skeleton = ''
+    if language == 'ruby':
+        with open(source_file, 'r') as f:
+            for line in f:
+                stripped_line = line.strip()
+                if stripped_line.startswith('def '):
+                    skeleton += line + '\n'
+                elif stripped_line.startswith('while '):
+                    skeleton += 'iter ...' + '\n\n'
+                elif stripped_line.startswith('until '):
+                    skeleton += 'iter ...' + '\n\n'
+                elif stripped_line.startswith('for '):
+                    skeleton += 'iter ...' + '\n\n'
+                elif stripped_line.startswith('if '):
+                    skeleton += 'cond ...' + '\n\n'
+                elif stripped_line.startswith('elsif '):
+                    skeleton += 'cond ...' + '\n\n'
+                elif stripped_line.startswith('else'):
+                    skeleton += 'cond ...' + '\n\n'
+                elif stripped_line.startswith('unless '):
+                    skeleton += 'cond ...' + '\n\n'
+                elif stripped_line.startswith('end'):
+                    skeleton += 'end' + '\n\n'
+                elif ' do' in stripped_line:
+                    skeleton += 'iter ...' + '\n\n'
+                
+    if language == 'python':
+        with open(source_file, 'r') as f:
+            for line in f:
+                stripped_line = line.strip()
+                if stripped_line.startswith('def '):
+                    skeleton += line + '\n'
+                elif stripped_line.startswith('for '):
+                    skeleton += line[:line.indexo('for ')] + 'iter ... :' + '\n\n'
+                elif stripped_line.startswith('while '):
+                    skeleton += line[:line.index('while ')] + 'iter ... :' + '\n\n'
+                elif stripped_line.startswith('if '):
+                    skeleton += line[:line.index('if ')] + 'cond ... :' + '\n\n'
+                elif stripped_line.startswith('elif '):
+                    skeleton += line[:line.index('elif ')] + 'cond ... :' + '\n\n'
+                elif stripped_line.startswith('else:'):
+                    skeleton += line[:line.index('else:')] + 'cond ... :' + '\n\n'
+                elif stripped_line.startswith('return'):
+                    skeleton += line[:line.index('return')] + 'return ...' + '\n\n'
+    return skeleton
 
 def terminal_output(*args):
     '''
