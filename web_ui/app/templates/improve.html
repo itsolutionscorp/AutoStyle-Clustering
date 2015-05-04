@@ -19,11 +19,6 @@
 
 
 <body style="position: relative; min-height: 120%">
-<!--     <div id="overlay">
-      <p align="center" style="margin-top: 25%">
-         <img src="{{ url_for('static', filename='owl/assets/ajax-loader.gif')}}" alt="Loading"/>
-         Loading... can take upto 2 minutes
-        </p> 
     </div> -->
     <!-- Begin page content -->
     <div class="wrapper" id="main-content">
@@ -59,23 +54,23 @@
 
     </div>
 
-  <div id="sync1"  class="owl-carousel">  
-        <div class="item">
+  <table style="width: 100%;">
+  <tr>
+    <td style="width: 50%; padding-left: 2%; padding-right: 0.5%">
+        <div id="bloc1" class="item">
               <textarea id="initialcode">{{ post.code }}</textarea>
        </div>
-        <div class="item">
+    </td>
+    <td style="width: 50%; padding-left: 0.5%; padding-right: 2%">
+        <div id="bloc1" class="item">
               <textarea id="newcode">Enter your new code here
-
-
-
-
-
-
               </textarea>
        </div>
-  </div>
+    </td>
+  </tr>
+  </table> 
 
-  <div id="sync2"  class="owl-carousel">  
+  <div>  
     <div class="item">
           <code style="color: #3c763d;background-color: #dff0d8; margin-left:25%; margin-right:25%">To improve your style, consider...</code>
               {% for hint in post.positive_hint %}
@@ -95,12 +90,26 @@
                 <span class="input-group-addon">
                   <input id="{{'negative' + loop.index|string()}}" type="checkbox">
                 </span>
-                <input id="{{'negativehint' + loop.index|string()}}" readonly value="{{hint}}" style="width: 100%">
+                <input type="text" id="{{'negativehint' + loop.index|string()}}" readonly value="{{hint}}" style="width: 100%">
               </div>
               {% endfor %}
         </div>
   </div>
 
+
+
+<div>  
+    
+    <div  style="margin-left:25%; margin-right:25%; margin-top: 20px">
+        <input id="stuck_checkbox" type="checkbox" onchange="toggleSkeleton();"></input>
+        <label for="stuck_checbox"><b> &nbsp&nbsp Help, I'm stuck! </b></label>
+
+    </div><!-- /input-group -->
+
+    <div id="skeletondiv" class="item" style="margin-left:25%; margin-right:25%; min-height:50px;">
+        <textarea id="skeletoncode" hidden=true>{{ post.skeleton }}</textarea>
+    </div>
+  </div>
 
 
   </div>
@@ -113,57 +122,17 @@
 
 
 <script type="text/javascript">
-
- 
-  var sync1 = $("#sync1");
-  var sync2 = $("#sync2");
-
-  
-    sync1.owlCarousel({
-            stagePadding: 10,
-            center : false,
-            loop : false,
-            items : 2,
-            margin:10,
-            dotsEach: true,
-            nav : false,
-        });
-
-        sync2.owlCarousel({
-            stagePadding: 10,
-            center : false,
-            loop : false,
-            items : 1,
-            margin:0,
-            nav : false,
-            dots: false
-        });
- 
- var done = 1;
-
- sync1.on('change.owl.carousel', function(event) {
-  if (done == 1){
-    if (event.namespace && event.property.name === 'position') {
-      var target = event.relatedTarget.relative(event.property.value, true);
-      done = 0;
-      sync2.trigger('to.owl.carousel', [target,300,true]);
-      done = 1;
+  function toggleSkeleton(){
+     if(document.getElementById("stuck_checkbox").checked == 1){
+        $("#skeletondiv").show();
+        $("#stuck_checkbox").siblings('label').html("<b> &nbsp&nbsp Here's a skeleton of what your improved solution might look like... </b>");
+    } else{
+      $("#skeletondiv").hide();
+      $("#stuck_checkbox").siblings('label').html("<b> &nbsp&nbsp Help, I'm stuck! </b>");
     }
   }
-})
-
-sync2.on('change.owl.carousel', function(event) {
-  if (done == 1){
-    if (event.namespace && event.property.name === 'position') {
-      var target = event.relatedTarget.relative(event.property.value, true);
-      done = 0; 
-      sync1.trigger('to.owl.carousel', [target,300,true]);
-      done = 1;
-    }
-  }
-})
-
 </script>
+
 
 
 
@@ -237,7 +206,7 @@ sync2.on('change.owl.carousel', function(event) {
         CodeMirror.fromTextArea(document.getElementById("initialcode"), {
             lineNumbers: false,
             mode: "{{language}}",
-            lineWrapping: false
+            lineWrapping: false,
         });
                 CodeMirror.fromTextArea(document.getElementById("newcode"), {
             lineNumbers: false,
@@ -245,16 +214,15 @@ sync2.on('change.owl.carousel', function(event) {
             lineWrapping: false
         });
     
+        CodeMirror.fromTextArea(document.getElementById("skeletoncode"), {
+            lineNumbers: false,
+            mode: "{{language}}",
+            lineWrapping: false
+        });
+        $("#skeletondiv").hide();
+
 </script>
 
-
-  <script>
-    // // Wait for window load
-    // $(window).load(function() {
-    //   // Animate loader off screen
-    //   $("#overlay").fadeOut();
-    // });
-  </script>
 
 
 <style type="text/css">

@@ -1,8 +1,8 @@
 from app import app
 from flask import render_template, request
 import os
+import re
 import sys
-import ast
 import numpy as np
 import subprocess
 import glob
@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.abspath('../visualization/'))
 sys.path.insert(0, os.path.abspath('../featurization/'))
 sys.path.insert(0, os.path.abspath('../scripts_python/'))
 from style_chain import generate_chain, interpret_list_of_hints
-from individual_features import generate_individual_features
+from individual_features import generate_individual_features, skeleton_from_source
 from python_ast_dump import dump_single_ast
 start_index = None
 max_hints = 3
@@ -33,35 +33,22 @@ def index():
 def submit_form():
     global hints
     global chain
-
     data_loc = request.form['directory']
     start_index = int(request.form['start'])
     max_hints = int(request.form['ast_slider'])
     flog = float(request.form['flog_slider'])
     feedback = request.form['feedback']
-    
-
-    # print "----------- submitted --------------"
-    # print "directory", data_loc
-    # print "start", start_index
-    # print "max_hints", max_hints
-    # print "flog", flog
-    # print "feedback", feedback
-
-
     feedback = feedback.split(" ")
     try:
       feedback.remove("")
     except:
       pass
-
     final_feedback = []
     if hints is not None:
       for i, item in enumerate(feedback):
         item = item.split(",")
         print item
         final_feedback.append((hints[i], int(item[1]), int(item[3]), item[0]))
-    
     # feedback format: (('non-sentence name of hint', index/position in chain, bad_hint or not, positive or negative) , (), ()  )
     chain = generate_chain(start_index, max_hints, flog, os.path.abspath('../') + "/", data_dir = "assignments/" + data_loc,feedback=final_feedback, old_chain=chain, language=data_loc.split("/")[0])
     posts = [] 
@@ -80,7 +67,7 @@ def submit_form():
       else:
         posts.append({'code': cl.source_code, 'positive_hint': "", 'negative_hint': ''})
       cl = cl.next
-      directories = [item.lstrip('../assignments/') for item in glob.glob('../assignments/*/*')]
+      directories = [each_item.lstrip('../assignments/') for each_item in glob.glob('../assignments/*/*')]
       lang = data_loc.split("/")[0]
       if lang == "java":
         lang = "text/x-java"
@@ -98,10 +85,11 @@ def improve():
     directories = [item.lstrip('../assignments/')for item in glob.glob('../assignments/*/*')]
     return render_template("improve.html",  post=post, directories=directories)
 
+def repl_matches(matchobj):
+  return "".join(["$" for i in range(len(matchobj.group(0)))])
+
 @app.route('/submit_improveform/', methods=['POST'])
 def improve_submit():
-    # import time
-    # time.sleep(10)
     data_loc = request.form['directory']
     start_index = request.form['start']
     print start_index
@@ -131,37 +119,47 @@ def improve_submit():
         ss, sse = generate_individual_features(lang, function_name, start_index, [style_score], data_dir, class_name=None)
         with open(data_dir+"/feature/style_scores.np",'a') as f_handle:
           np.savetxt(f_handle,ss.T)
-        row = np.array(ed, ndmin=2).astype(np.float)
-        ed.append(0)
-        col = np.array(ed, ndmin=2).astype(np.float)
-        dist_matrix = np.loadtxt(data_dir+"/gen/ast_dist_matrix.np")
-        dist_matrix_new = np.vstack([dist_matrix,row])
-        dist_matrix_new = np.hstack([dist_matrix_new, col.T])
-        np.savetxt(data_dir+"/gen/ast_dist_matrix.np", dist_matrix_new)
-        cl = generate_chain(int(start_index), 4, 0.14, home_dir, data_dir = "assignments/" + data_loc, language=data_loc.split("/")[0]).head
+        try:
+          print "-----"
+          row = np.array(ed, ndmin=2).astype(np.float)
+          print "bbb"
+          ed.append(0)
+          col = np.array(ed, ndmin=2).astype(np.float)
+          print "ccc"
+          dist_matrix = np.loadtxt(data_dir+"/gen/ast_dist_matrix.np")
+          print "ddd"
+          dist_matrix_new = np.vstack([dist_matrix,row])
+          print "eee"
+          dist_matrix_new = np.hstack([dist_matrix_new, col.T])
+          print "fff"
+          np.savetxt(data_dir+"/gen/ast_dist_matrix.np", dist_matrix_new)
+          cl = generate_chain(int(start_index), 4, 0.14, home_dir, data_dir = "assignments/" + data_loc, language=data_loc.split("/")[0]).head
+        except Exception as e:
+          print e
+        finally:
+          try:
+            np.savetxt(data_dir+"/gen/ast_dist_matrix.np", dist_matrix)
+          except Exception as e:
+            print "Failed to restore dist_matrix to original state", e
+          try:  
+            ss = np.loadtxt(data_dir+"/feature/style_scores.np")
+            ss = np.delete(ss, ss.shape[0]-1,0)
+            np.savetxt(data_dir+"/feature/style_scores.np", ss)
+          except Exception as e:
+            print "Failed to restore style_scores to original state", e
+          try:
+            fln = np.loadtxt(data_dir+"/feature/feature_line_nums.np")
+            fln = np.delete(fln, fln.shape[0]-1,0)
+            np.savetxt(data_dir+"/feature/feature_line_nums.np", fln)
+          except Exception as e:
+            print "Failed to restore feature_line_nums to original state", e
+          try:
+            sf = np.loadtxt(data_dir+"/feature/style_features.np")
+            sf = np.delete(sf, sf.shape[0]-1,0)
+            np.savetxt(data_dir+"/feature/style_features.np", sf)
+          except Exception as e:
+            print "Failed to restore style_features to original state", e
       finally:
-        try:
-          np.savetxt(data_dir+"/gen/ast_dist_matrix.np", dist_matrix)
-        except:
-          pass
-        try:  
-          ss = np.loadtxt(data_dir+"/feature/style_scores.np")
-          ss = np.delete(ss, ss.shape[0]-1,0)
-          np.savetxt(data_dir+"/feature/style_scores.np", ss)
-        except:
-          pass
-        try:
-          fln = np.loadtxt(data_dir+"/feature/feature_line_nums.np")
-          fln = np.delete(fln, fln.shape[0]-1,0)
-          np.savetxt(data_dir+"/feature/feature_line_nums.np", fln)
-        except:
-          pass
-        try:
-          sf = np.loadtxt(data_dir+"/feature/style_features.np")
-          sf = np.delete(sf, sf.shape[0]-1,0)
-          np.savetxt(data_dir+"/feature/style_features.np", sf)
-        except:
-          pass
         try:
           os.remove(data_dir+"/ast_dump/"+str(start_index)+".ast")
         except:
@@ -182,7 +180,21 @@ def improve_submit():
       hints.append(ph) 
     for nh in neg_hints[0]:
       hints.append(nh)
-    post = {'code': cl.source_code, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint': interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1], 'positive_hint_locations': pos_hints[2], 'negative_hint_locations': neg_hints[2]}
+    skeleton = "Sorry, skeleton unavailable."
+    if cl.next:
+      pattern = "def |for |[\ \t]if|print|return |#|//|\"|\/\*|while|until|=| in |,|elsif|elif|else if|:|unless|else| end |\+|\-|\*|\^|[_a-zA-Z0-9]*\(|\t| |\n|\r\n|\[|\]|\{\}|\)|\("
+      cd = re.sub(pattern,repl_matches, cl.next.source_code)
+      if len(cl.next.source_code) != len(cd):
+        skeleton = "".join(re.findall(pattern, cl.next.source_code, flags=re.M))
+      else:
+        skeleton = ""
+        for i,character in enumerate(cl.next.source_code):
+          if cd[i] == "$":
+            skeleton += character
+          else:
+            skeleton += "-"
+      skeleton = re.sub("#.*\n", "",skeleton)
+    post = {'code': cl.source_code, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint': interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1], 'positive_hint_locations': pos_hints[2], 'negative_hint_locations': neg_hints[2], 'skeleton':skeleton}
     if lang == "java":
         lang = "text/x-java"
     directories = [item.lstrip('../assignments/')for item in glob.glob('../assignments/*/*')]

@@ -66,7 +66,7 @@ def dump_single_ast(filename, code):
       ast_node = ast.parse(code, mode='exec')
     except Exception as e:
       print "FAILED: " + filename + "  error: " + str(e)
-      raise Exception
+      raise Exception(e)
     ast_node = ast.fix_missing_locations(ast_node)
     b_node = betterast.Node(get_node_label(ast_node))
     tree = build_tree(b_node,ast_node,{})
