@@ -1,3 +1,13 @@
+"""
+Filename: controller.py
+About: This controller simulates the behavior of an autograder. When run, it constantly checks if a directory
+of submissions has reached a minimum threshold number of submissions. If so, it generates hints and writes them to a file
+for all existing submissions and any new submissions that come into the folder after the threshold has already been reached.
+
+TODO: Currently specific to ruby datasets.
+"""
+
+
 import os
 import sys
 import autograder_featurize
@@ -6,6 +16,13 @@ import json
 import shutil
 
 def controller(src_dir_path, autograde_src_path, min_submissions, ast_dif, flog_diff):
+	'''
+	@param src: the src directory where submissions come in
+	@param autograde_src_path: the directory to place submissions from the src_dir_path but renamed to be in numerical sorted order.
+	@param min_submissions: minimum threshold of submissions required before generating hints
+	@param ast_dif: ast difference threshold
+	@param flog_diff: flog score threshold
+	'''
 	existing = set()
 	queue = []
 	mapfile = open("mapping.csv", "a")

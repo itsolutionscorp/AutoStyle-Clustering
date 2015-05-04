@@ -1,4 +1,13 @@
 #!/usr/bin/python -tt
+"""
+Filename: autograder_featurize.py
+About: For one submission, generates AST, computes edit distance to all other submissions, and adds this to the distance matrix, and computes the submission's feature vector.
+	   Requires a data directory with an src/ folder that contains submissions numbered and sorted numerically (i.e. 0.rb, 1.rb, 2.rb...).
+	   Used by controller.py when a new submission comes in.
+Author: Mukund Chillakanti
+
+TODO: Currently specific to ruby datasets. Need to provide option for Python, Java AST generation.
+"""
 
 import sys
 sys.path.append("../syntax_tree")
@@ -6,31 +15,56 @@ import pdb
 import tree
 import numpy as np
 import zss # Install: pip install zss
-# import pp
-import time
 import subprocess
 import os
 import pp
+import ast
+import betterast
+from collections import defaultdict
 
-def compute_ast_and_dist_matrix(autograde_src_path, submission_id):
-	data_dir = "data/"
+
+def generateRubyAST (data_dir, submission_id, method):
+	'''
+	Generates a Ruby submission's AST and stores it in the ast/ folder inside data_dir. 
+	This function call a ruby file (source_to_ast_one_submission.rb) which does the generation.
+    @param data_dir: the data directory that contains src/ with the submissions
+	'''
+ 	source_file_for_ast = data_dir + 'src/' + str(submission_id) + '.rb'
+ 	output_directory_for_ast = data_dir + 'ast'
+  	method_for_ast = method
+ 	subprocess.call(['ruby', './source_to_ast_one_submission.rb', '-s', source_file_for_ast, '-o', output_directory_for_ast, '-m', method_for_ast])
+  	list_of_submissions = range(0, submission_id+1)
+  	ast_folder = "../autograder/" + data_dir + "ast"
+  	trees = construct_trees(ast_folder, list_of_submissions, method)
+  	return trees
+
+def construct_trees(input_dir, indexes, method):
+  '''
+  Generates a Ruby submission's AST tree
+  @param input_dir: the data directory that contains src/ with the submissions
+  @param indexes: the list of submissions numbers to generate trees for
+  @param method: the method in these submissions to generate trees for
+  '''
+  trees = []
+  for i in indexes:
+    trees.append(tree.abstract_syntax_tree(input_dir + "/" + str(i) + "_ast", method))
+  return trees
+
+
+def compute_ast_and_dist_matrix(data_dir, submission_id, method, language):
+	'''
+	For one submission, generates AST, computes edit distance to all other submissions, and adds this to the distance matrix.
+	@param data_dir: the data directory that contains src/ with the submissions
+	@param submission_id: the submission to perform the edit distance computation for
+	@param method: the relevant method in the submissions
+	'''
 	autograde_folder = "autograder/"
 	featurize_folder = "../featurization/"
 	
+	#generate AST (add other languages and the calls to their respective AST generation methods here)
+	if language == 'ruby':
+		trees = generateRubyAST(data_dir, submission_id, method)
 
- 	#generate a submissions's ast 
- 	source_file_for_ast = autograde_src_path + str(submission_id) + '.rb'
- 	output_directory_for_ast = data_dir + 'ast'
-  	method_for_ast = 'combine_anagrams'
- 	subprocess.call(['ruby', './source_to_ast_one_submission.rb', '-s', source_file_for_ast, '-o', output_directory_for_ast, '-m', method_for_ast])
-
-
- 	#construct trees for all submissions so far from their ast's
-  	list_of_submissions = range(0, submission_id+1)
-  	ast_folder = "../autograder/" + data_dir + "ast"
-  	trees = construct_trees(ast_folder, list_of_submissions)
-  	#TODO: STORE THE TREES TO AVOID RECOMPUTATION
-  	
   	#add to the distance matrix if it exists, otherwise create the distance matrix file and add the first entry
 	if os.path.exists(data_dir + 'gen/ast_dist_matrix.np'):
 		distances = np.loadtxt(data_dir + 'gen/ast_dist_matrix.np', ndmin=1)
@@ -56,24 +90,17 @@ def compute_ast_and_dist_matrix(autograde_src_path, submission_id):
    			 os.makedirs(data_dir + 'gen')
 		np.savetxt(data_dir + 'gen/ast_dist_matrix.np', distances, delimiter=" ", fmt="%d")
 
-	subprocess.call(['python', '../featurization/individual_features.py', 'combine_anagrams', str(submission_id), 'ruby', 'individual_features_test.np', os.path.abspath("./data/"), 'flog', 'libcall', 'control_flow', 'duplicate_treegram'])
+	subprocess.call(['python', '../featurization/individual_features.py', method, str(submission_id), 'ruby', 'individual_features_test.np', os.path.abspath("./data/"), 'flog', 'libcall', 'control_flow', 'duplicate_treegram'])
  	
 def getKey(item):
     return item[0]
 
-def construct_trees(input_dir, indexes):
-  trees = []
-  for i in indexes:
-    trees.append(tree.abstract_syntax_tree(input_dir + "/" + str(i) + "_ast", "combine_anagrams"))
-  return trees
-
 def tree_distance(tree1, tree2):
   return zss.simple_distance(tree1, tree2)
-
 
 if __name__ == '__main__':
 	os.system("rm -rf ./data/ast/")
 	os.system("rm -rf ./data/gen/")
 	for i in range(0,10):
-		compute_ast_and_dist_matrix("./data/src/", i)
+		compute_ast_and_dist_matrix("./data/", i, 'combine_anagrams', 'ruby')
 

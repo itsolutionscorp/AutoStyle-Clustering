@@ -1,3 +1,10 @@
+"""
+Filename: hint_generator.py
+About: In this file, generate_hint generates hints for the one submission that is passed in as parameter along with flog and ast thresholds.
+	   Makes a call to generate_chain in style_chain.py which contains the bulk of the hint generation logic.
+	   This script is used by controller.py to generate hints for a submission.
+"""
+
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../visualization/'))

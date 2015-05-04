@@ -1,3 +1,9 @@
+'''
+This script generates the AST of a ruby source file and adds it to the output directory.
+Inputs: source file, output directory for the source files AST, the relevant method
+'''
+
+
 #!/usr/bin/env ruby
 require 'ruby_parser'
 require 'optparse'
