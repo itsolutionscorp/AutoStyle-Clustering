@@ -15,7 +15,6 @@ import argparse
 import glob
 import numpy as np
 import os
-import json
 import pickle
 import re
 from collections import OrderedDict
@@ -27,7 +26,6 @@ class Chain():
     Data structure that holds chain links and contains data
     relevant to all links in the chain.
     '''
-
 
     def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=3):
         '''
@@ -51,7 +49,7 @@ class Chain():
         self.max_jump_threshold = self.style_score_weight * 10  # TODO: undo this
         self.min_jump_threshold = 1
         
-        self.num_hints = max_hints  # TODO: A slider for this? 
+        self.num_hints = max_hints 
         self.positive_feedback_scale = 0
         self.negative_feedback_scale = -10000
         self.num_structural_features = NUM_STRUCTURAL_FEATURES
@@ -138,18 +136,19 @@ class Chain():
         return calls
                 
 class ChainLink:
-    '''Data structure that contains info relevant
+    '''
+    Data structure that contains info relevant
     to only one link in the chain.
     '''
     
     def __init__(self, index, prev_link, chain, pos_in_chain = 0):
-        """
+        '''
         Every chain link is associated with an 
         index from which you can learn everything about it
         (source code, features, score, etc.)
         
         A chain link must be created from another chain link, prev_link.
-        """
+        '''
         if prev_link:
             prev_link.next = self
         self.index = index
@@ -300,7 +299,6 @@ class ChainLink:
         indices = [i[0] for i in locations]
         locations = [i[1] for i in locations]
         lines = [self.chain.line_num_matrix[x, y] for x, y in zip(indices, sorted_hints)]
-        # lines = self.chain.line_num_matrix[self.index, sorted_hints].flatten().tolist()
         return names, lines, locations
     
 def interpret_list_of_hints(features, is_not_hint):
@@ -346,7 +344,6 @@ def interpret_list_of_hints(features, is_not_hint):
         elif feature == 'duplicate_treegrams':
             if is_not_hint:
                 all_advice += '...' + 'restructuring your program to eliminate redundant code' + '.\n'
-        # ['conditional', 'nested conditionals', 'explicit iteration', 'nested explicit iteration', 'sequential iteration', 'sequential conditional']
         elif feature == 'conditional':
             all_advice += '...' + 'restructuring your function to ' + use_not + 'use a conditional' + '.\n'
         elif feature == 'nested conditionals':
@@ -373,7 +370,7 @@ def interpret_list_of_hints(features, is_not_hint):
 
 def remove_duplicates(l1, l2):
     '''
-    Return l1 with all of its duplicate items remove.
+    Return l1 with all of its duplicate items removed.
     Also return l2 with items removed from the same indices
     '''
     seen_items = set()
@@ -394,7 +391,7 @@ def integer_val(x):
 
 def natural_sort(l):
     '''
-    Sorts strings of numbers like numbers rather strings.
+    Sorts strings of numbers like numbers rather than like strings.
     ''' 
     convert = lambda text: int(text) if text.isdigit() else text.lower() 
     alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ] 
