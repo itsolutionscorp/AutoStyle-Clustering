@@ -67,8 +67,8 @@ def ast_from_sexp(s):
 
 def abc_score(ast):
     '''
-    Return the abc score of submission index.
-    Abc score counts assignments, branches, and conditionals
+    Return a simple abc score of submission index.
+    Abc score counts assignments, branches, and conditionals.
     '''
     assign, branch, cond, calls, cpts = 0, 0, 0, 0, 0
     cpts = loops_and_recursion(ast)
@@ -187,8 +187,8 @@ def build_structure_tree(node, ast_node, functions):
     return node
 
 def generate_python_ast(filename):
-    '''Generate an Node object representing an
-    ast for a python file.
+    '''
+    Generate an Node object representing an ast for a python file.
     '''
     try:
         ast_node = ast.parse(open(filename, 'r').read(), mode='exec')
@@ -204,6 +204,10 @@ def generate_python_ast(filename):
     return tree
 
 def generate_python_structure_ast(filename):
+    '''
+    Generate an Node object representing an ast for a python file,
+    but only consider nodes that are loops or conditionals.
+    '''
     try:
         ast_node = ast.parse(open(filename, 'r').read(), mode='exec')
     except Exception as e:
@@ -222,27 +226,39 @@ def generate_java_ast(filename, function_name, class_name):
     Generate a Node object representing an ast for
     a java method.
     '''
-    # TODO: return to a form where you don't need the .ast files, or not
     current_dir = os.getcwd()
-    # cp = "./:" + current_dir + "/scripts_java/lib/*:" + current_dir + "/scripts_java/JavaAST"
-    # ast_string = terminal_ouput("java", "-cp", cp, "ASTBuilder", filename + "/" + class_name + ".java", function_name, "-l")
     filename = filename.replace("/src/", "/annotated_ast/")
-    filepath = current_dir + "/" + filename + "/" + class_name + ".java.ast" 
+    filepath = current_dir + "/" + filename + "/" + class_name + ".java.ast"
+    # First check if the ast has already been stored. If not, recalculate it. 
     if os.path.exists(filepath):
         with open(filepath) as a:
             ast_string = a.read()
         return ast_from_sexp(ast_string)
     else:
-        return None
+        cp = "./:" + current_dir + "/scripts_java/lib/*:" + current_dir + "/scripts_java/JavaAST"
+        ast_string = terminal_output("java", "-cp", cp, "ASTBuilder", filename + "/" + class_name + ".java", function_name, "-l")
+        return ast_from_sexp(ast_string)
 
 def generate_ruby_ast(filename, function_name):
+    '''
+    Return a Node object representing the ast of ruby code.
+    '''
     ast_string = terminal_output('ruby', 'syntax_tree/ast_with_lines.rb', filename, function_name)
+    return ast_from_sexp(ast_string)
+
+def generate_ruby_structure_ast(filename, function_name):
+    '''
+    Return a Node object representing the ast of ruby code.
+    The ast ignores all nodes that aren't loops or conditionals.
+    '''
+    ast_string = terminal_output('ruby', 'syntax_tree/ast_with_lines.rb', filename, function_name, '-s')
     return ast_from_sexp(ast_string)
     
 
 def generate_ast(language, index, function_name, class_name):
     '''
     Get the ast for submission index.
+    The ast is an object of type Node.
     '''
     if language == 'ruby':
         ast = generate_ruby_ast(SOURCE_FILES[index], function_name)
@@ -279,6 +295,8 @@ def skeleton_from_source(language, source_file):
     Takes a piece of source code and generate a skeleton version of that 
     source code which contains only function definitions, loops, conditionals,
     and returns.
+    
+    TODO: make this more generic, clearly.
     '''
     skeleton = ''
     if language == 'ruby':
@@ -332,6 +350,8 @@ def generic_skeleton_from_source(language, source_file):
     Takes a piece of source code and generate a skeleton version of that 
     source code which contains only function definitions, loops, conditionals,
     and returns.
+    
+    TODO: make this more generic, clearly.
     '''
     skeleton = ''
     if language == 'ruby':
@@ -389,6 +409,12 @@ def terminal_output(*args):
     return out
 
 def get_label_and_line(node):
+    '''
+    Most nodes consist of both a name, and a line number that the thing
+    in the node was supposed to occur at in the source code.
+    
+    Returns the name and the line number separate into a tuple.
+    '''
     if LINE_DELIMITER in Node.get_label(node):
         label, line = Node.get_label(node).split(LINE_DELIMITER)
         return label, int(line)
@@ -577,7 +603,6 @@ def duplicate_treegrams(ast):
     Returns a list of length 1 indicating if submission
     index contains any duplicate treegrams of depth 3.
     '''
-    # TODO: have this return lines
     treegrams, lines = get_treegrams(ast, DUPLICATE_DEPTH)
     contains, line = contains_duplicate_treegrams(treegrams, lines)
     if contains:
@@ -684,7 +709,7 @@ def generate_individual_features(language, function_name, index, features, home_
     SOURCE_FILES = natural_sort(glob.glob(HOME_DIR + 'src/*'))
     
     ast = generate_ast(language, index, function_name, class_name)
-    # printTree(ast)
+    printTree(ast)
     
     feature_vector = []
     feature_lines = []
