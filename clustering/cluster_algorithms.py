@@ -77,21 +77,3 @@ if __name__=='__main__':
         clusters = ms.labels_
         print silhouette(features, clusters)
         np.savetxt(args['output_file'] if args['output_file'] else "mean_shift_clusters.np", clusters)
-        
-    if algorithm == "weighted_kmeans":
-        wkm = WKMeans(MyMath())
-        k = args['k']
-        beta = args['beta']
-        (clusters, final_centroids, weights, final_ite, final_dist) = wkm.wk_means(features, k, beta, max_ite=100)
-        print weights.shape
-        print silhouette(features, clusters)
-        np.savetxt(args['output_file'] if args['output_file'] else 'weighted_kmeans_clusters.np', clusters)
-        
-    if algorithm == "minkowski_wkmeans":
-        mwkm = MWKMeans(MyMath())
-        k = args['k']
-        b = args['beta']
-        (clusters, final_centroids, weights, final_ite, final_dist) = mwkm.imwk_means(features, b, k)
-        print silhouette(features, clusters)
-        np.savetxt(args['output_file'] if args['output_file'] else 'minkowski_wkmeans_clusters.np', clusters)
-        

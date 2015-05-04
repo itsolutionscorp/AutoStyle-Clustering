@@ -235,11 +235,14 @@ def printLinearTree(node):
         stack += Node.get_children(current)[::-1]
         
 def printTree(node):
+    '''
+    Prints out the tree rooted at node.
+    Each node is printed on a separate line, and the indenation of that line
+    reflects that nodes depth in the tree.
+    '''
     def printHelper(node, indentation):
-        for child in Node.get_children(node)[len(Node.get_children(node))/2:]:
-            printHelper(child, indentation + '    ')
         print indentation + Node.get_label(node)
-        for child in Node.get_children(node)[:len(Node.get_children(node))/2]:
+        for child in Node.get_children(node):
             printHelper(child, indentation + '    ')
     printHelper(node, '')
 
