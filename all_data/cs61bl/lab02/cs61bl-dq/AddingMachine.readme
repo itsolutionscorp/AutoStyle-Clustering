@@ -1,0 +1,15 @@
+1) We used the single loop method.
+
+2) The second loop would use the justStarting boolean value.
+	It's initialized as true, but once the first loop is ran, 
+	it's reassigned to false, and the second while loop is 
+	accessed, because it would be of the form:
+		while (!justStarting) {
+		}
+	It would then continue looping until two consecutive zeroes 
+	are entered, in which it will be reset to true, ending the loops.
+	
+3) The one loop version seems simpler and more intuitive. The two loop
+	version makes it so that you don't have to use a return statement,
+	which is a little cleaner, and it's more challenging. We like
+	challenges. 

@@ -1,0 +1,14 @@
+Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+	-When the additional character was added at the end
+Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+	-When more than 1 character does not match, or when more than 1 character is added, or when myString is shorter than s 
+Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+	-No pairs of strings
+Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+	-When the character was not inserted at the end.
+Describe all pairs of arguments to check for which contains1MoreThan crashes.
+	-When 1 of the arguments is a null pointer.
+	
+Bug fix
+	-We figured it out by using the debugger for line 31 "check("abc23","abc3");" and checking the String class documentation.
+	-Changed line 22 from "return myString.substring(1) == s;" to "return myString.substring(1).equals(s);"

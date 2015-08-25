@@ -1,0 +1,113 @@
+1.call method of get(int position) on both LinkedList and ArrayList.
+Both start with calling from the first element and then gradually increase the position of the element.After each call of get method, try to add the time used for this turn to the total time used to get from 0 to some position for the list. Finally, compare the total time they used to get all the elements and half of the elements.
+
+we design a class to run to figure out the time
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+
+public class ListGet {
+       public static void main(String[] args ){
+    	   Timer t = new Timer();
+    	   ArrayList test = new ArrayList(10000);
+    	   for(int n=1;n<10001;n++){
+    		   test.add(n);
+    	   }
+    	   long totaltimeArray = 0;
+    	   for(int n=1;n<10000;n+=1){
+    		   t.start();
+        	   test.get(n);
+        	   long time = t.stop();
+        	  totaltimeArray+=time;
+        	  t.reset();
+    	   }
+    	   long totaltimeArray1 = 0;
+    	   for(int n=1;n<9000;n+=1){
+    		   t.start();
+        	   test.get(n);
+        	   long time = t.stop();
+        	  totaltimeArray1+=time;
+        	  t.reset();
+    	   }
+    	   LinkedList test1 = new LinkedList();
+    	   for(int k=0;k<10001;k++){
+    		   test1.add(k);
+    		   
+    	   }long totaltime =0;
+    	   for(int n=0;n<10000;n++){
+    		   
+    		   t.start();
+        	   test.get(n);
+        	   long time2 = t.stop();
+        	   totaltime+=time2;
+        	 
+        	  t.reset();
+    	   }long totaltime1 =0;
+    	   for(int n=0;n<9000;n++){
+    		   
+    		   t.start();
+        	   test.get(n);
+        	   long time2 = t.stop();
+        	   totaltime1+=time2;
+        	 
+        	  t.reset();
+    	   }
+    	   System.out.println("Array takes "+totaltimeArray +" to get 10000");
+    	   System.out.println("Linked takes "+totaltime +" to get 10000");
+    	   System.out.println("Array takes "+totaltimeArray1 +" to get 9000");
+    	   System.out.println("Linked takes "+totaltime1 +" to get 9000");
+
+   
+       }}
+       the result :
+Array takes 8 to get 10000
+Linked takes 1 to get 10000
+Array takes 1 to get 9000
+Linked takes 2 to get 9000
+It is easier to say than Linked list takes almost like constant time and the size does not effect much, but arrayList grow according to the size.
+
+Experiment2
+call method of get(int position) on a single linked list.
+Start with calling from the first element and then gradually increase the position of the element.After each call of get method, try to add the time used for this turn to the total time used to get from 0 to some position for the list.
+public class LinkedListTiming {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Timer t = new Timer();
+     List test = new List();
+     for(int n=0;n<100000;n++){
+     test.add(n);}
+     long totalList1=0;
+     for(int k =0;k<1000;k++){
+    	 t.start();
+    	 test.get(k);
+    	 totalList1+=t.stop();
+    	 t.reset();
+     }
+     long totalList2=0;
+     for(int k =0;k<100;k++){
+    	 t.start();
+    	 test.get(k);
+    	 totalList2+=t.stop();
+    	 t.reset();
+     }long totalList3=0;
+     for(int k =0;k<10;k++){
+    	 t.start();
+    	 test.get(k);
+    	 totalList3+=t.stop();
+    	 t.reset();
+     }
+     System.out.println("SingleList takes "+totalList1+" to get 1000 elements");
+     System.out.println("SingleList takes "+totalList2+" to get 100 elements");
+     System.out.println("SingleList takes "+totalList3+" to get 10 elements");
+    
+	}
+
+}
+Result:
+SingleList takes 353 to get 1000 elements
+SingleList takes 41 to get 100 elements
+SingleList takes 12 to get 10 elements
+We can figure out that the time takes to get elements is almost linear. This is not true in a double linked list. 
+

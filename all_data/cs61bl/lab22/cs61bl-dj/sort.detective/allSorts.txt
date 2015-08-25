@@ -1,0 +1,177 @@
+protected final static SortingExperiment selectionSort = new SortingExperiment() {
+
+	 protected void sort(int list[]) {
+		for (int j=list.length-1; j>0; j--) {
+			int maxpos = 0;
+			for (int k=1; k<=j; k++) {
+				comparisons++;
+				if (list[k]>list[maxpos]) {
+					maxpos = k;
+				}
+			}
+			if (j != maxpos) {	// Only move if we must
+				movements += 3;
+				int temp = list[j];
+				list[j] = list[maxpos];
+				list[maxpos] = temp;
+			}
+		}
+	}
+}
+
+protected final static SortingExperiment insertionSort = new SortingExperiment() {
+
+	 protected void sort(int list[]) {
+		for (int j=1; j<list.length; j++) {
+			movements++;
+			int temp = list[j];
+			int k = j;
+			while( k > 0 && list[k-1]>temp ) {
+				comparisons++;
+				movements++;
+				list[k] = list[k-1];
+				k--;
+			}
+			if (k > 0) {
+				comparisons++;
+			}
+			movements++;
+			list[k] = temp;
+		}
+	}
+}
+
+protected final static SortingExperiment quickSort = new SortingExperiment() {
+
+	 protected void sort(int list[]) {
+		qsort(list, 0, list.length-1);
+	 }
+	 
+	 private void qsort(int list[], int low, int high) {
+		if (low<high) {
+			int pivot = partition(list, low, high);
+			qsort(list, low, pivot);
+			qsort(list, pivot+1, high);
+		}
+	 }
+	 
+	 private int partition(int list[], int low, int high) {
+		movements++;
+		int temp = list[low];
+		int i = low-1;
+		int j = high+1;
+		while(true) {
+			do {
+				j--;
+				comparisons++;
+			} while (list[j] > temp);
+			do {
+				i++;
+				comparisons++;
+			} while (list[i] < temp);
+			if (i < j) {
+				movements += 3;
+				int swapTemp = list[i];
+				list[i] = list[j];
+				list[j] = swapTemp;
+			} else {
+				return j;
+			}
+		}
+	}
+}
+
+protected final static SortingExperiment mergeSort = new SortingExperiment() {
+
+	 protected void sort(int list[]) {
+		msort(list, 0, list.length-1);
+	 }
+	 
+	 private void msort(int list[], int low, int high) {
+		if (low<high) {
+			int mid = (low+high)/2;
+			msort(list, low, mid);
+			msort(list, mid+1, high);
+			merge(list, low, mid, high);
+		}
+	 }
+	 
+	 private void merge(int list[], int low, int mid, int high) {
+		int h = low;
+		int i = 0;
+		int j = mid+1;
+		int otherList[] = new int[high-low+1];
+		
+		while ((h <= mid) && (j <= high)) {
+			comparisons++;
+			if (list[h] <= list[j]) {
+				movements++;
+				otherList[i] = list[h];
+				h++;
+			} else {
+				movements++;
+				otherList[i] = list[j];
+				j++;
+			}
+			i++;
+		}
+		if (h>mid) {
+			for (int k=j; k<=high; k++) {
+				movements++;
+				otherList[i] = list[k];
+				i++;
+			}
+		} else {
+			for (int k=h; k<=mid; k++) {
+				movements++;
+				otherList[i] = list[k];
+				i++;
+			}
+		}
+
+		for (int m=0; m<otherList.length; m++) {
+			movements++;
+			list[low+m] = otherList[m];
+		}
+	}
+}
+
+protected final static SortingExperiment heapSort = new SortingExperiment() {
+
+	 protected void sort(int list[]) {
+		int n = list.length;
+		for (int k=n/2; k>=0; k--) {
+			downheap(list,k,n);
+		}
+		for (int j=n-1; j>0; j--) {
+			movements += 3;
+			int temp = list[0];
+			list[0] = list[j];
+			list[j] = temp;
+			downheap(list,0,j);
+		}
+	 }
+	 
+	 private void downheap(int list[], int k, int maxPos) {
+		movements++;
+		int temp = list[k];
+		while (k < maxPos/2) {
+			int maxChildIndex = 2*k + 1;
+			if (maxChildIndex<maxPos-1) {
+				comparisons++;
+				if (list[maxChildIndex]<list[maxChildIndex+1]) {
+					maxChildIndex++;
+				}
+			}
+			comparisons++;
+			if (temp>=list[maxChildIndex]) {
+				break;
+			}
+			movements++;
+			list[k] = list[maxChildIndex];
+			k = maxChildIndex;
+		}
+		movements++;
+		list[k] = temp;
+	}
+}

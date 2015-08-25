@@ -1,0 +1,24 @@
+
+1. Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+
+The current code only correctly returns true when myString is the result of inserting exactly one character *at the end* of s. 
+
+
+2. Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+
+The current code correctly returns false when:
+*myString and s have no common letters
+*myString is the result of inserting more than one character at the end of s
+*myString is the result of inserting more than one character into s
+
+3. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+
+The current code does not incorrectly return true in any cases.
+
+4. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+
+The current code incorrectly returns false whenever the character that has been inserted has not be inserted at the very end.
+
+5. Describe all pairs of arguments to check for which contains1MoreThan crashes.
+
+We couldn't find any pairs of arguments that cause contains1MoreThan to crash.

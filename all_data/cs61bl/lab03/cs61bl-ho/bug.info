@@ -1,0 +1,16 @@
+1. Corretcly returns true: when finally (s.length()==0)&&(myString.length() == 1)
+   e.g. check("abc2", "abc"), check("a","")
+
+2. Corretcly returns false: when 1. myString.length()==0 or
+                                 2. (s.length()==0)&&(myString.length() != 1) or
+                                 3. It is false due to some reasons but the program regards it as false according to other reasons.
+   e.g. 1. check("","");
+        2. check("ab","");
+        3. check("abc", "def"); // It is false beacause the sentence "bc" is not "def", however, the program regards it as false because they refer to different objects.
+
+3. incorrectly returns true: no pairs of strings
+
+4. incorrectly returns false: beacuse String refers to an object, when applying "==", we campare the object rather than the exact content.
+   e.g. check("2abc", "abc"), check("a2bc", "abc"), check("ab2c", "abc"); 
+
+5. crashes: the number of characters in the String exceeds its capacity

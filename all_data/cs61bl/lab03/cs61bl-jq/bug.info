@@ -1,0 +1,6 @@
+1. contains1MoreThan correctly returns true when a letter is added to the end of the string.
+2. contains1MoreThan correctly returns false when more than one letter is added to the end of the string or the no letter is added to the string.
+3. contains1MoreThan incorrectly returns true for no pairs of strings.
+4. contains1MoreThan incorrectly returns false when a letter is added to the anywhere in the string, other than the end.
+5. contains1MoreThan crashes when s1 or s2 is null. 
+6. The contains1MoreThan method does not always return the correct answer because by using recursion, it compares by myString and the original string by checking the remainder, or the end of myString. If a letter is added to any position in the string other than the end, then the recursion would not catch that and incorrectly return false. 

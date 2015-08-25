@@ -1,0 +1,21 @@
+1. contains1MoreThan correctly returns true for any case where you add a character to
+the string s after the entirety of the string s. It works 
+for any check(string + "x", string) where string is any string, and x is any character.
+For example, "abcd" and "abc" works as well as "a" and "".
+
+2. It correctly returns false for any case where the length of the variables do not follow:
+length(myString) = length(s) + 1
+
+3. No pairs of strings.
+
+4. The program incorrectly returns false for all true pairs where the added character
+is not added after the last character of the original string.
+
+5. All pairs that have null as at least one of the arguments.
+
+Explanation of the Bug
+The problem is that the program tries to compare string objects using the == symbol,
+but this comparison only checks the references to separate string objects, so it
+will always return false when it gets to that comparison. We figured it out because
+that was the only line of code that was responding incorrectly when we followed
+how the code evaluates each pair of arguments.

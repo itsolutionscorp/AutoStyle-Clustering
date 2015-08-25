@@ -1,0 +1,6 @@
+1. We used one loop, with multiple conditional (if..else) statements
+2. by changing the conditional statement into a while statement we can loop until a 0 is encountered and output the subtotal and then go back to the beginning of the loop (the outer loop), when two consecutive zeros are encountered, program exits out of the loop.
+3. one loop: 1)simpler code (less complicated)
+			 2)easier to debug
+   two loops: 1) faster
+   			  2) shorter/less code

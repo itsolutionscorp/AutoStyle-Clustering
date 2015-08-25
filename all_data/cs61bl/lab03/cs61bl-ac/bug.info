@@ -1,0 +1,19 @@
+	
+1. When the character in myString is different from the character in s, if everything after that character 
+in myString is the same as s, then it will return true. 
+(It correctly returns true for two strings which have all the same characters but differ in the last index?)
+
+2. When the character in myString is different from the character in s, if everything after that character 
+in myString is not the same as s, it will return false. 
+
+3. There are no instances when the function returns True when it is actually false.  
+
+4. In the else statement it compares myString.substring(1) to s to see if they are equal. Since strings are 
+objects, it doesn't compare the strings correctly and returns false when it should be true. Instead, we must 
+use myString.substring(1).equals(s) to correctly determine if myString.substring(1) and s are equal. 
+
+5. Since strings are objects we can make s null. This would go to the else case and will not be properly evaluated,
+so the program will crash
+
+
+

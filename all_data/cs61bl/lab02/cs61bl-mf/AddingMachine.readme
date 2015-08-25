@@ -1,0 +1,10 @@
+1. We implemented the single loop version
+
+2. We would use a while loop to sum everything until we reach a zero, at which point we exit the loop and print the subtotal and check for a second 0.
+
+3. We prefer the single loop version because a second while loop is unnecessary, since an if statement is conceptually simpler and does the same thing in this case. Using an if statement also preserves the daisy chain of if else statements which is cleaner and easier to read.
+
+One benefit to the two loop version are the reduced number of if else statements, which some might find confusing. This method would also using fewer lines of code than what we wrote, which could improve readability.
+
+
+	

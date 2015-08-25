@@ -1,0 +1,25 @@
+The two easier ones to figure out were Beta and Epsilon, which were insertion sort and selection sort, 
+respectively. We tested a large list, both in order and in reverse order. Beta performed very well when 
+the list was in order but very poorly when the list was in reverse order, which is typical of the 
+insertion sort algorithm. Selection sort, on the other hand, performed quite poorly whether the list
+was in order or in reverse order, even if no elements moved around. wet needed to make many comparisons
+even for the in-order list. This is characteristic of the selection sort algorithm.
+
+The other three, merge sort, Quicksort, and heap sort, all have average runtimes of N*log(N), so it was 
+more difficult to distinguish the three. However, we believe that Delta is merge sort because of its 
+very consistent performance across wenOrder lists, ReverseOrder lists, and Random lists. Because 
+merge sort divides the list exactly in half every time until it reaches the base case, it is not hard
+to see that the original order of the list does not affect the runtime of merge sort very much -- only
+the size of the list does. Thus, the consistency of both the number of comparisons and the number of 
+movements reveals Delta to be merge sort.
+
+Finally, to distinguish Alpha and Gamma, we took a look at the worst cases. Gamma performed horribly
+with InOrder and ReverseOrder lists, but quite well with AlmostOrder and Random lists, while Alpha
+performed quite consistently and only lost some performance with AlmostOrder and Random lists.
+Since Quicksort is dependent on choosing a good divider element (which has some element of luck) 
+and has its worse-case runtime with ReverseOrder lists, we reasoned that Gamma had to be Quicksort.
+This was further demonstrated from the fact that Alpha performed consistently across all list types.
+Since the worst case of heap sort is N*log(N), Alpha seemed to be the best candidate for that.
+
+James Fang - cs61bl-ff
+Hyunjin Kim - cs61bl-gh

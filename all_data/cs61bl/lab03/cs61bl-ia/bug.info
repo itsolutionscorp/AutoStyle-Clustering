@@ -1,0 +1,12 @@
+1. When s1 is of length = 1, and s2 is of length = 0, it works correctly. Or, when s1 is s2 with a single character appended to it.
+
+2. Any pairs of strings where s1 is not one character added to s2 (any pair of strings that should return false) will correctly return false.
+
+3. There is no pair that will produce a false positive.
+
+4. If the appended character does not appear last in s1.
+
+5. If s1, s2 or both are null, the program will crash.
+
+
+In the final else clause of contains1MoreThan, there is a comparison of Strings using "==". Because Strings are objects, this does not correctly test equality. String.equals() should be used instead.

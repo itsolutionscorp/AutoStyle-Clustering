@@ -1,0 +1,23 @@
+1. Before modifying the contains1MoreThan method, the method only returns true when the different character is inserted at
+   the end of string.
+contains1MoreThan should return true when the one character difference between strings is at the beginning of the string,
+   at the end, or in the middle. So the arguments I used to check contains1MoreThan were check("2abc", "abc") for the 
+   beginning of the string, check("abc", "abc2") for the end of the string, and check("nancy2chang", "nancychang") for the 
+   middle of the string. Also, if a string that has no characters is being compared to a string with one character, it should
+   return true. 
+
+2. contains1MoreThan should return false when there is more than one character difference between strings when they are
+   consecutive and when they are not. So the arguments I used to check contains1MoreThan were check("nancychang", "nancydrew")
+   for when more than one character differences were consecutive and check("nancy", "n1an3cy") for when more than one 
+   character differences were not consecutive. Also, if a string that has no characters is being compared to a string with
+   more than one character, it should return false. 
+   
+3. Before modifying the contains1MoreThan method, there were no pairs of strings that incorrectly returned true.
+   
+4. Before modifying the contains1MoreThan method, it incorrectly returned false when inserting one character within 
+   and at the beginning of the input.
+
+5. Before modifying the contains1MoreThan method, it crashed when there was a NullPointerException.
+
+The bug that was in the contains1MoreThan method was that == is different than equals(). == checks if the variables refer
+to the same object whereas equals() checks if the object contains the same contents.

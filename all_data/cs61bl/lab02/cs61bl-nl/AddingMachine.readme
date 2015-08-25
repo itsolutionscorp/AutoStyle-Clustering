@@ -1,0 +1,14 @@
+1. We use the single loop given to implement for the exercise
+2.If we use the other version to code, then when the user input zero, we will jump out of the inner loop
+and print out the subtotal and set it to zero as well. The other loop is to deal with the situation 
+when the user input consecutive zero.
+3.We prefer the first version.
+
+Two reasons for one loop:
+	1)The logic is much clearer.
+	2)It makes the code easier to understand, so when the error happens, you can find the error quickly.
+
+Two reasons for two-loop:
+	1)two loop is more structural
+	2)two loop make you start thinking from the input.
+	

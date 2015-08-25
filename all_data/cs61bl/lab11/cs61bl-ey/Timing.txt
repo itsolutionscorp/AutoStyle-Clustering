@@ -1,0 +1,3 @@
+1. ArrayLists can access anywhere at constant time while LinkedLists can only access the ends at constant time. The middle is O(n)! The test shows also shows that adding is also faster with ArrayLists than it is with LinkedLists. My next test shows the time it takes to remove the same amount of objects from an ArrayList and a LinkedList. In LinkedLists, removing is constant time while in ArrayLists removing is O(arr.size() - n) because it needs to shift everything down while LinkedLists just move the pointers.
+
+2. The second test distinguishes between a doubly linked list and a singly linked list because a singly linked list cannot remove backwards efficiently.

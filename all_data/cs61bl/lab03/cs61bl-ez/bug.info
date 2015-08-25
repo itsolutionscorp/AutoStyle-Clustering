@@ -1,0 +1,7 @@
+1. When the inserted character is placed at the end of string s to create myString the code correctly returns true.
+2. When the strings don't match or more than one character is added the code correctly returns false.
+3. For no pairs of strings does the code incorrectly return true.
+4. The code incorrectly returns false when the new character is inserted at the beginning of s to create myString.
+5. The code throws an exception when a the inputs are not strings. 
+
+The contains1MoreThan method is only checking for charecter insertion at the end of the string. We figured it out by creating many different checks and seeing which returned incorrect answers. 

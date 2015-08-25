@@ -1,0 +1,5 @@
+alpha-merge sort. because in general, it is quicker than other cases.
+beta-selection sort. because it always takes long total time. also, it has a lot of movements, comparisons.  
+gamma- quick sort. because it takes relatively shot time in random cases. However, when the list is in order, it took a lot.
+delta-heap sort. because the number of comparison is smaller than others, which is one of the advantages of using logarithmic function. runtime o(NlogN) 
+epsilon- insertion sort. because when it is sorted, it does not make even single movement.

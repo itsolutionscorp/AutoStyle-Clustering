@@ -1,0 +1,25 @@
+Timing 
+
+Experiment 1 -
+Adding 200000 elements to the end of both Array List and Linked List : (12 - 0)
+Array List took longer
+This is because it takes time when Array List needs to expand its capacity (O(n)) 
+whereas Linked List takes no time at all to do so (O(1)).
+
+Contains an element not in the list : (6 - 4)
+Both took comparable times, with ArrayList taking one millisecond longer on average. 
+Both Array List and Linked List take O(n) to search through the list.
+
+Removing an element in the middle : (0 - 2)
+Linked List took longer
+This is because ArrayList can easily access any index where LinkedList has to iterate
+over 1/2 of the list. O(1) vs O(n)
+
+Experiment 2 - 
+Created a LinkedList with 8000000 elements
+Added an element to the 2000000th place and the 6000000th place.
+If this were not doubly linked, the 2nd addition should take 3 times longer.
+This is because it would have to iterate over 6000000 rather than 2000000 instead of 
+2000000 and 2000000. 
+Rather, both operations take comparable time (19 ms for 1st, 15 ms for second).
+This shows that it goes from the tail and works backward using myPrev.

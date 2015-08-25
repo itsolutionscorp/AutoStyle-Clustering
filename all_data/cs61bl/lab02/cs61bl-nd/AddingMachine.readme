@@ -1,0 +1,13 @@
+Which version did you implement for the exercise?
+We used a single loop.
+
+The other version would have a while loop condition while k != 0 and have it update the subtotal and previous k
+
+We prefer the one loop 
+The one loop:
+looks cleaner
+seems more efficient
+
+The two loops:
+would be easier to understand when reading the code
+might be easier to catch bugs in your own code

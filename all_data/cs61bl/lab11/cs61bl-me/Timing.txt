@@ -1,0 +1,12 @@
+1: We used a test class to time a linked list and array over the insertion of 1000
+and then 1000000 integers (all of them 1), and getting the value at the 500th and then 500000th elements.
+the times are as follows:
+Arraylist: ~8 ms to insert 1000 1s, ~0ms to get 500th element.
+			~174 ms to insert 1000000 1s, ~0ms to get 500000th element.
+Linked List: ~2ms to insert 1000 1s, ~1ms to get 500th element.
+			~2204ms to insert 1000000 1s, ~15ms to get 500000th element.
+			
+2: For one, the java class supports a reverse iterator, which would be incredibly
+inefficient to run without a tail variable on every ListNode. We used the iterator,
+and it went through its values in roughly the same amount of time as the forward
+iterator, ergo doubly linked list.

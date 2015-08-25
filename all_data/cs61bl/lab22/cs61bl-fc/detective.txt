@@ -1,0 +1,16 @@
+
+Alpha:
+Heap Sort.
+It's slightly faster than insertion sort.
+Beta:
+Quick sort.
+It has the 1 comparison less than the number of elements in the list when the list is inorder.
+Gamma:
+Insertion Sort. 
+It has the most comparisons when the list is reverse order.
+Delta:
+Merge sort.
+It has almost the same camparisons and movements no matter what order of the list is.
+Epsilon:
+Selection sort.
+It has the most compariosons when the list gets large.

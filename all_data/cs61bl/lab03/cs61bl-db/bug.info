@@ -1,0 +1,17 @@
+1)All the pairs in the following method that correctly return "true" make use of the same
+letters in the same order, despite the additional character added 
+throughout the sequence of said letters. 
+2)Reasons that an argument would return false include: strings that vary in 
+length by more than one character, strings that differ in alphabet composition
+, or if myString is zero in length.
+3) There were no arguments found that incorrectly returns true. 
+4)The method returns false when a new character is added anywhere other 
+than the end of the string, despite the fact that it should return true whenever
+one character is added to the string, regardless of the order.  
+5) There were no arguments found that result in a crash. 
+
+Explanation of the Bug:
+- The following method does not properly test various cases that have an additional
+character placed somewhere in the string other than the end, despite the fact 
+they do in fact only have one additional character. While the method should return
+true, it returns false for multiple cases similar to the one listed above.  

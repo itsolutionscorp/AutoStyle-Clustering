@@ -1,0 +1,85 @@
+Experiment 1: Calling remove(int index) on an ArrayList vs LinkedList was much quicker for the LinkedList
+              for large sized lists and mildly large indexes to remove, best set to the middle index of
+              the list to notice differences. This is because while an ArrayList has to traverse the array, reach the index, and
+              then shift over all the remaining elements, a LinkedList only needs to reach the index and then
+              change a couple pointers. LinkedLists : O(n-k) ArrayList(n) where n is length of list and k is
+              index to remove.
+              Calling get(index) on both lists was much quicker for ArrayList then LinkedList, as ArrayList has
+              built in indexing to retrieve elements, and thus took O(1), while LinkedList must traverse to the
+              list to that index, thus O(k) where k is the index.
+
+Experiment 1
+
+Deletion:
+
+We created a LinkedList with 100,001 elements.In order to remove the 100,001th element it took 0 milliseconds.
+We created an Array List with 100,001 elements. In order to remove the 100,001 element it took 3 milliseconds.
+
+Search:
+
+
+We created a LinkedList with 100,001 elements.In order to get the 100,001th element it took 4 milliseconds.
+We created an Array List with 100,001 elements. In order to get the 100,001 element it took 0 milliseconds.
+
+Insertion:
+
+
+We created a LinkedList with 100,001 elements.In order to get the 100,001th element it took 0 milliseconds.
+We created an Array List with 100,001 elements. In order to get the 100,001 element it took 4 milliseconds.
+
+
+Experiment 2
+
+ Design an experiment that supports this claim. In particular, your experiment should show that the underlying 
+ implementation is not a singly-linked list with a head and tail pointer.
+ 
+ We created a LinkedList with 100,001 elements. We timed how long it took to delete the 50,001th element. This took 0 milliseconds. 
+ This indicates that the LinkedList consists of double links. Otherwise, it would have to traverse 50,000 elements in order to
+ access the myNext variable of the element preceding the deleted element, this operation would require more than our baseline 0 milliseconds.
+ A doubly LinkedList can simply refer to the last Node and remove it because it has a pointer to its previous node,
+, while a singly linked list would require traversal to the end first before removing it.
+ 
+ 
+import java.util.LinkedList;
+
+import java.util.ArrayList;
+
+public class trial {
+	
+	public static int linkedList_add() {
+	    LinkedList<Object> list = new LinkedList<>();
+	    Object x = new Object();
+	    for (int i = 0; i < 100000; i++) {
+	        list.add(x);
+	    }
+	    return list.size();
+	}
+		
+	
+	public static int arrayList_add() {
+	    ArrayList<Object> list = new ArrayList<>(100000);
+	    Object x = new Object();
+	    for (int i = 0; i < 100000; i++) {
+	        list.add(x);
+	    }
+	    return list.size();
+	}
+	public static void main (String[] args) throws Exception {
+		
+
+		
+		
+		Timer t = new Timer();
+		linkedList_add();
+		t.start();
+	
+		//put function here
+		
+		long elapsedMs = t.stop();
+		System.out.println (elapsedMs + " milliseconds elapsed");
+		
+		
+	}
+
+}
+

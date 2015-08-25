@@ -1,0 +1,10 @@
+Alpha: Mergesort
+Beta: Insertionsort
+Gamma: QuickSort
+Delta: HeapSort
+Epsilon: SelectionSort
+
+We first calculate the runtime of each sorting algorithm and find out that SelectionSort and InsertionSort all take O(n^2) runtime, while the other three takes O(nlog(n)) runtime.
+So Epsilon and Beta are Selection Sort and Insertion Sort. To determine which one is which exactly, first of all, the movement of insertion sort is much more than selection sort because each time we take an element, we create a new intlst and copy the entire sorted part. Also, Selection sort needs exactly n(n-1) comparisons, which is a little more than seinsertion sort on average. So Beta is insertion, while Epsilon is SelectionSort.
+Of the other three, Alpha is quite unique in that it has significantly less comparison and more movements. So it must be mergeSort since mergesort divide the list into two halves of exactly same length, which reduce the potential comparisons.
+for the last two, we use different kinds of lists (in roder, reverseorder and random) to test the speed, and find that Delta's movement and comparison is almost invariable, so it must be heap sort, whose adding, removing, comparing runtime are all O(log(n)). Gamma needs a lot of comparison for inorder and reverse order but rather less time for random lists, so it should be quicksort.

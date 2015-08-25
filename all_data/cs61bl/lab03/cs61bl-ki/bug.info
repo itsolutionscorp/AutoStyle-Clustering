@@ -1,0 +1,19 @@
+1.Whenever the added character is at the end of MyString, it returns true correctly.
+For e.g. ("abcd","abc"). 
+
+2.Whenever the length of MyString doesn't equal to the length of s plus 1, it returns false correctly. 
+If the 2 strings are not matched, contains1MoreThan returns false correctly. For all strings that are
+ wrong, the program returns false correctly.
+For e.g. ("abc","abccd"), ("abc","def")
+
+3. We didn't find any cases for which contains1MoreThan incorrectly returns true. This is probably because
+ of the way the program has been written. No pairs of strings.
+
+4. When the first argument has an extra letter inserted at any position
+other than the last letter, the program incorrectly returns false. 
+For e.g. ("abdc", "abc"), ("dabc","abc").
+
+5. Examples of arguments for which contains1MoreThan crashes 
+include the cases where non-string arguments are entered. It also crashes 
+if one of the arguments is a null String.
+E.g. ("abc", 3), ("abc", "")

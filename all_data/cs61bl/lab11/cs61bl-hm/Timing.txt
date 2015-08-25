@@ -1,0 +1,74 @@
+Experiment 1
+
+I compared the results of get and remove for an ArrayList and then for a LinkedList, each with 900000 elements. It took the ArrayList approximately 0 milliseconds (really fast) to retrieve the last element of the list, and it took the LinkedList 9 milliseconds to retrieve the last element in the list. This makes sense becuase the ArrayList's get method uses O(1) time since all of its elements are already indexed, while the LinkedList's get method uses O(n) time since it has to traverse the entire list to get the last element. Here is the code
+		int n = 900000;
+		LinkedList link = new LinkedList();
+		ArrayList array = new ArrayList(n);
+		
+		for (int i = 0; i < n; i++){
+			link.add(i);
+			array.add(i);
+		}
+		
+		Timer t = new Timer();
+		t.start();
+		array.get(n-1);
+		long elapsedMs = t.stop();
+		System.out.println (elapsedMs + " milliseconds elapsed for ArrayList.");
+		
+		
+		Timer t2 = new Timer();
+		t2.start();
+		link.get(n-1);
+		long elapsedMs2 = t2.stop();
+		System.out.println (elapsedMs2 + " milliseconds elapsed for LinkedList.");
+I then timed how long it took the ArrayList and the LinkedList to remove the first element from the list. It took the ArrayList approximately 10 seconds to do remove(1), while it took the LinkedList approximately 0 seconds to do remove(1). This makes sense because the LinkedList uses O(1) time to remove the first element (it just needs to change the head pointer to the next one) while the ArrayList uses O((1+n)n/2) time since it needs to shift everything over to the left. Here is the code:
+		int n = 900000;
+		LinkedList link = new LinkedList();
+		ArrayList array = new ArrayList(n);
+		
+		for (int i = 0; i < n; i++){
+			link.add(i);
+			array.add(i);
+		}
+		
+		Timer t = new Timer();
+		t.start();
+		array.remove(0);
+		long elapsedMs = t.stop();
+		System.out.println (elapsedMs + " milliseconds elapsed for ArrayList.");
+		
+		
+		Timer t2 = new Timer();
+		t2.start();
+		link.remove(0);
+		long elapsedMs2 = t2.stop();
+		System.out.println (elapsedMs2 + " milliseconds elapsed for LinkedList.");  
+
+
+Experiment 2
+
+
+
+We designed an experiment that was able to show that the LinkedList was indeed doubly linked. To do this, we created two iterators - one using the descendingIterator() method which returned an iterator that iterates backwards, and the other using the regular iterator() method. We then created a LinkedList of size 1200000 and then timed how long it took for each iterator to return the next 600000 items in the list. Because both iterators took approximately the same amount of time (25 milliseconds for the descending iterator and 24 milliseconds for the ascending iterator) it was evident that the LinkedList was doubly linked. If it had been singly linked, it would have taken O(n) (worst case) for the descending iterator to return each new element since it has to traverse the list again to find the next element. 
+
+		LinkedList link = new LinkedList();
+		for (int i = 0; i < 1200000; i++){
+			link.add(Math.random());
+		}
+		Iterator descending = link.descendingIterator();
+		Iterator ascending = link.iterator();
+		Timer t = new Timer();
+		t.start();
+		for (int i = 0; i < 600000; i++) 
+			descending.next();
+		long elapsedMs = t.stop();
+		System.out.println (elapsedMs + " milliseconds elapsed for descending iterator.");
+		
+		
+		Timer t2 = new Timer();
+		t2.start();
+		for (int i = 0; i < 600000; i++) 
+			ascending.next();
+		long elapsedMs2 = t2.stop();
+		System.out.println (elapsedMs2 + " milliseconds elapsed for ascending iterator.");

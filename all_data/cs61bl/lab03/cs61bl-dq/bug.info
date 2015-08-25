@@ -1,0 +1,13 @@
+1. Any strings that are equal except for an additional character at the end
+of the first string.
+2. Strings that are the same length. Strings that have more than one
+extra character. Strings that share basically no resemblance.
+3. We found none.
+4.Strings in which the added character appears in the first or in the middle
+of the word. So basically any true pair with the extra character not on the
+end.
+5.We found none.
+
+The Bug: The code only responds correctly if the added words is at the end. The 
+code ideally should be able to detect characters added at any position in
+the string.

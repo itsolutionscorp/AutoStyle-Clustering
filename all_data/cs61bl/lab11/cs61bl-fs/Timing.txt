@@ -1,0 +1,9 @@
+Experiment 1:
+
+First I would fill both the ArrayList and the LinkedList with n objects. Then, I would time how long it took both the ArrayList and the LinkedList to .get() of an item in the middle of both lists as n increases. The LinkedList should take significantly longer than the ArrayList to get the item at a specific index, because a LinkedList must traverse through the entire list to find the index, where as for an ArrayList going to an index is very fast. The LinkedList will run .get() in O(n) time where n is the index of the item, and ArrayList will run .get() in O(1) time.
+
+Secondly, I would use the .remove() method on the first item in both lists to show that an ArrayList will take O(n) time where n is the size of the list to delete the first item whereas a LinkedList will take O(1) time to delete the first item. The LinkedList can very quickly change the reference of myHead to myHead.myNext, whereas the ArrayList must copy over every single item.
+
+Experiment 2:
+
+In a doubly-linked list, the penultimate, that is, second to last item should be very easily accessed, by going to the previous of the previous of the first node, which should take O(1) time. In a singly-linked list, even with a pointer to the tail, it will take O(n) time where n is the size of the list. To show this I would fill the list up with a large number n of objects, and then call .get(n-1) on the list, which should stay constant even as I increase the size of n greatly.

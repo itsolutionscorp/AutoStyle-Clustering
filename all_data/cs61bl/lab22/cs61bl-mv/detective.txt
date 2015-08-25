@@ -1,0 +1,10 @@
+Alpha->HeapSort
+it doesn't take that much time on small number of list
+Beta ->InsertionSort 
+It take a lot of comparisons for reverseOrder list and just take a few comparisions for inorder List
+Gamma->QickSort
+Since it's movement is always same
+Delta->MergeSort
+All take approximately the same time.
+Epsilon->SelectionSort 
+it takes constant number of comparisons

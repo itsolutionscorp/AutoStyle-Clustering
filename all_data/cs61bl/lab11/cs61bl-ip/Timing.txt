@@ -1,0 +1,69 @@
+Experiment 1
+Using only methods common to both ArrayList and LinkedList, 
+design an experiment to show performance differences between 
+the two List implementations.
+
+Procedure:
+- 	Construct an ArrayList and a LinkedList of size 30000 using
+	a for loop and the and method. Time each for loop to compare
+	performance differences between LinkedList and ArrayList when
+	using the add method.
+
+-	Construct a for loop that gets each index of k from both
+	the ArrayList and LinkedList (previously created from 
+	instruction 1). Time both for loops to compare performance
+	differences between lists when using the get method.
+
+Results:
+(TRIAL 1)
+LINKED ADD TEST: 71 milliseconds elapsed
+ARRAY ADD TEST:  26 milliseconds elapsed
+LINKED GET TEST: 778 milliseconds elapsed
+ARRAY GET TEST:  17 milliseconds elapsed
+
+(TRIAL 2)
+LINKED ADD TEST: 27 milliseconds elapsed
+ARRAY ADD TEST:  8 milliseconds elapsed
+LINKED GET TEST: 497 milliseconds elapsed
+ARRAY GET TEST:  5 milliseconds elapsed
+
+Conclusions:
+From the results, it shows that LinkedLists have more difficulty
+adding and getting values from its list. The get method proved to be
+far more difficult for the LinkedList most likely because the method
+of getting a value from a LinkedList involves going down the list
+to the specified kth index, rather than an ArrayList that can easily
+grab any value from any index (LinkedList: O(k) ArrayList: O(1)).
+
+
+---------------------------------------------------------------------------------
+Experiment 2
+The online documenation for Java's LinkedList claims that it's 
+implemented as a doubly-linked list. Design an experiment that 
+supports this claim. In particular, your experiment should show 
+that the underlying implementation is not a singly-linked list 
+with a head and tail pointer.
+
+Procedure:
+-	Construct a LinkedList of a large size and have it call 
+	lastIndexOf for the last index it is at (e.g. call lastIndexOf(5)
+	on a list [1, 2, 3, 4, 5]).
+-	If we can prove that the LinkedList is able to quickly find the 
+	last index despite the size we can prove that it is utilizing some
+	kind of .prev in its implementation.
+
+Results:
+SIZE: 100000
+TEST: 33 milliseconds elapsed
+
+SIZE: 500000
+TEST: 38 milliseconds elapsed
+
+SIZE: 1000000
+TEST: 35 milliseconds elapsed
+
+Conclusions:
+From the results it is clear that finding the last index of a LinkedList
+does not involve iterating forewards through the entire list to find a value but
+rather iterating backwards (O(1)). This proves the fact that LinkedList is a
+doubly-linked list.

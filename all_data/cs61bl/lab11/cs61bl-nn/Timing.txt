@@ -1,0 +1,190 @@
+Experiment 1
+
+1)Description:
+	We experiment with the following three methods(add, delete, getIndex) of LINKEDLIST and ARRAYLIST, in order
+	to compare their differences in terms of efficiency.The scale of this experiment are 
+	100000 elements.
+	
+	For the delete operation, in order to make the divergence obvious, each time we delete an 
+	item from the middle, top and bottom of both of the List.
+
+2)Code:
+		ArrayList<Integer> array= new ArrayList<Integer>();
+    	LinkedList<Integer> link= new LinkedList<Integer>();
+    	
+    	final int TIMES=100000;
+    	Timer t=new Timer();
+    	//1. adding
+    	t.start();
+    	for(int i=0;i<TIMES;i++){
+    		array.add(i);
+    	}
+    	System.out.println("the running time for adding element with ArrayList is"+t.stop());
+    	
+    	t.start();
+    	for(int i=0;i<TIMES;i++){
+    		link.add(i);
+    	}
+    	System.out.println("the running time for adding element with LinkedList is"+t.stop());
+    	
+    	//2. 1)deleting from the bottom
+    	//(should be commented when experiment with the getIndex method)
+    	// each time delete the element in the middle of the LIST to reflect the difference
+    	t.start();
+    	for(int i=TIMES-1;i>0;i--){
+    		array.remove(i);
+    	}
+    	System.out.println("the running time for deleting element with ArrayList is"+t.stop());
+    	
+    	t.start();
+    	for(int i=TIMES-1;i>0;i--){
+    		link.remove(i);
+    	}
+    	System.out.println("the running time for deleting element with LinkedList is"+t.stop());
+    	
+    	//2. 2)deleting from the middle
+    	//(should be commented when experiment with the getIndex method)
+    	// each time delete the element in the middle of the LIST to reflect the difference
+    	t.start();
+    	int index=0;
+    	for(int i=TIMES-1;i>0;i--){
+    		index=array.size()/2;
+    		array.remove(index);
+    	}
+    	System.out.println("the running time for deleting element with ArrayList is"+t.stop());
+    	
+    	index=0;
+    	t.start();
+    	for(int i=TIMES-1;i>0;i--){
+    		index=array.size()/2;
+    		link.remove(index);
+    	}
+    	System.out.println("the running time for deleting element with LinkedList is"+t.stop());
+    	
+    	
+    	
+    	//3. getIndex
+    	t.start();
+    	for(int i=0;i<TIMES;i++){
+    		array.indexOf(i);
+    	}
+    	System.out.println("the running time for getIndex element with ArrayList is"+t.stop());
+    	
+    	t.start();
+    	for(int i=0;i<TIMES;i++){
+    		link.indexOf(i);
+    	}
+    	System.out.println("the running time for getIndex element with LinkedList is"+t.stop());
+
+3)Results:
+	[OPERATION						LINKEDLIST						ARRAYLIST]
+	add								8.6								12.5
+	delete
+		delete in the middle		10								430
+		delete from the front		10 								946	
+		delete from the bottom		5								5
+	getIndex						7								8
+
+4)Observation: 
+	As the chart above shows. 
+	1.Compared with ARRAYLIST, LINKEDLIST takes less time to add new elements
+		Explanation:
+			When linked list is adding an element, it takes only constant time, because
+			all it needs to do is just change the myTailer pointer to point to the new one
+			
+			When ArrayList is adding an element, normally it takes constant time, but when the
+			array is full, extra time will be needed to create a new array and make copies of
+			each element, which extend the running time.
+	2.ARRAYLIST takes less time to delete
+		Explanation:
+			Every time when an array is trying to delete an element, shifting element will consumes
+			time.And time clasp will be different when delete from different position.
+			
+			But wherever the position starts, linked list will still be better than arraylist.
+
+	3.Both of them don't have great divergences
+		Explanation:
+			Whichever data structure is used, if trying to get the index of an element from the list,
+			iteration through every element of the list will be needed, thus leading to same time 
+			elapse with these two arrays.
+	
+	
+Experiment 2
+
+1)Description:
+	We conduct an experiment on both the LINKEDLIST from java library and the LIST offered in the lab.
+	The doubly-linked list has two-way pointers of each ListNode, which obviates the need to
+	create another helper pointer q to keep track of the former ListNode. Therefore, when we are
+	trying to remove an item from the List, we don't need to execute the code to update the helper pointer q.
+	In this case, the running time of the a doubly-linked list should be near half of the  time of a singly-linked 
+	List
+	
+	Still, we are experimenting with removing 1000000 elements from each of the 
+	different data implementation respectively.
+	
+	Also, since the List the lab provide does not have the remove(int index) method, we add a new
+	method called removeIndex(int index) to satisfy the need.
+	
+2)Code:
+	1. added code to remove by Index with List
+	/**
+	 * to remove an element from List at index
+	 * @param index
+	 */
+	public void removeIndex(int index){
+		ListNode p =myHead,q=myHead;
+		if(index==0){
+			myHead=p.myNext;
+		}else{
+			for(int i=0;i<index;i++){
+				q=p;
+				p=p.myNext;
+			}
+			q.myNext=p.myNext;
+		}	
+	}
+	2. Main code to conduct the experiment
+	Timer t=new Timer();
+		LinkedList<Integer> l1=new LinkedList<Integer>();
+		List l2=new List();
+		
+		final int TIMES=100000;
+    	//adding
+    	t.start();
+    	for(int i=0;i<TIMES;i++){
+    		l1.add(0);
+    	}
+    	t.stop();
+    	
+    	
+    	t.start();
+    	for(int i=0;i<TIMES;i++){
+    		l2.add(0);
+    	}
+    	t.stop();
+
+    	t.start();
+    	for(int i=TIMES-1;i>0;i--){
+    		l1.remove(i);
+    	}
+    	System.out.println("the running time for deleting element with java library linked list is"+t.stop());
+    	
+    	t.start();
+    	for(int i=TIMES-1;i>0;i--){
+    		l2.removeIndex(i);
+    	}
+    	System.out.println("the running time for deleting element with lab offered LinkedList is"+t.stop());
+	
+	
+3)Results:
+	[OPERATION				JAVA LIBRARY LINKEDLIST(??)				LAB PROVIDE LIST(Singly-linked list)]						
+	delete								14								11362
+	
+4)Observation:
+	As we can see that, when deleting backwards constantly , there is a huge difference between the delete operation of 
+	JAVA LIBRARY LINKEDLIST and LAB PROVIDE LIST, which proves that the JAVA LIBRARY LINKEDLIST is doubly-linked list. 
+	Because, with doubly-linked list, you can access the element from backwards, therefore the running time will be much
+	less compared to singly-linked list that can only access element from the front.
+	
+	
+

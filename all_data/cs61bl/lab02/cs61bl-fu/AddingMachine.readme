@@ -1,0 +1,19 @@
+Q: Which version did you implement?
+
+The one-loop version.
+
+Q: Describe how the other version would work.
+
+It would have one main loop that is always true. The inner loop would have a "nextInt != 0" condition so that it would close after each subtotal (or 0 entry).
+
+Q: Which version do you prefer?
+
+The one-loop version.
+
+One-loop version advantages:
+1. Only have to keep track of one path (you know that everything restarts after each numeric entry).
+2. Generally better practices to not use a large number of subloops.
+
+Two-loop version advantages:
+1. More intuitive code.
+2. Harder to mess up writing (less edge cases to worry about).

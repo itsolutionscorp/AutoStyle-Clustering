@@ -1,0 +1,12 @@
+The following are the answers with my reasoning:
+
+
+Alpha: HeapSort because moves are same for in order and reverse order. Runtime is NlogN, see merge.
+
+Beta: InsertionSort because needs fewest comparisons for in order and most for reverse. For length 17 reverse order list it takes 136 comparisons (16+15+14..) and in order. See SelectionSort.
+
+Delta: MergeSort because its runtime is NlogN and it should have more comparisons than heapSort but similar runtime. See HeapSort.
+
+Gamma: QuickSort because its the fastest for a very large list. In its own league <3
+
+Epsilon: SelectionSort because it has the same comparisons as insertionSort for reverse order, but it also has that number for in order. See InsertionSort.

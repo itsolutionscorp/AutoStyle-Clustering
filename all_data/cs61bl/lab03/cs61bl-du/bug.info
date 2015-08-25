@@ -1,0 +1,40 @@
+The method contains1MoreThan correctly returns true when the first
+argument is any one character and the second argument is an empty
+string. It also correctly returns true when the first argument holds
+the exact same string as the second argument, plus one more additional
+character at the very end. The method will also correctly return true
+when one or both of the arguments are variables pointing to strings that
+satisfy the condition.
+
+Contains1MoreThan correctly returns false when there is no difference
+between the first and second arguments, as well as when there may be
+differences in the exact characters contained in the two arguments, but
+the number of characters is the same. The method will also correctly
+return false when one or both of the arguments are variables pointing to
+strings that satisfy the condition.
+
+I was not able to find any cases in which contains1MoreThan returned true
+incorrectly.
+
+However, contains1MoreThan incorrectly returns false when a single
+character is inserted into the the middle of a first argument string that
+is otherwise identical to the second argument. For example, the pair of
+strings "abcd" and "abd" would return a false, although the condition is
+satisfied in that exactly one character, "c," was inserted into the string
+"abd."
+
+I was not able to find any cases that caused contains1MoreThan to crash.
+However, it should be noted that contains1MoreThan's arguments must be
+strings or variables that point to strings, or it will not run.
+
+I believe the reason behind the cases leading to incorrect false returns
+is in the second else if case of the code. Provided that neither string s
+nor myString are empty, contains1MoreThan proceeds to check the characters
+of each string against each other, in order. It compares the first of
+the characters of the strings, and then moves on to the second, and so on
+until it encounters a pair of characters that do not match up, or until
+either myString or string s are empty. Because it checks the characters in
+order, as soon as a pair of characters to not equate, it returns false.
+This ignores the possibility that the rest of the myString is identical to
+the rest of string s, save for one additional character inserted into the
+middle, or the beginning.

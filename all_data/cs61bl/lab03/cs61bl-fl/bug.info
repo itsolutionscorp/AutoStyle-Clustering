@@ -1,0 +1,9 @@
+1.(abc,ab)
+2.(ab,abc),(abc,abc),(abcd,ab)
+3. no pairs of strings
+4.(abc,ac),(abc,bc)
+After the bug is fixed, the following cases are used to test it.
+1.(abc,ac),(abc,bc),(abc,ab) //should be true
+2.(ab,abc),(abc,abc),(abcd,ab) //should be false
+
+We know the difference between "==" and "equals()".

@@ -1,0 +1,29 @@
+1. Describe all pairs of arguments to check for which contains1MoreThan correctly returns true
+
+when s1 is the result of adding one more char to s2
+For example, (r42r, 42r) , (5r2xw, 5rxw) are true
+
+2. Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+
+when s1 is not the result of adding one more char to s2
+
+For example, ( 323, 323), (t94d, t9) are false
+
+3. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, 
+   that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+
+No pairs of strings
+
+4. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+
+when s1 is result of adding one char to the front of the s2, the code will return false even though it should be true
+
+5. Describe all pairs of arguments to check for which contains1MoreThan crashes.
+
+No pairs of strings
+
+---------------
+result of check("ocde", "cde") came out to be false even though it should be true. check("abc2", "abc") returned true like it should be
+which showed me that the last else part was the problem. I used System.out.println to print out result of myString.substring(1) and s and
+it came out to be same. However, when I system.out.println(mystring.substring(1) == s), it showed false. Therefore, I found out how to compare
+strings which was .equals and used it to fix it.

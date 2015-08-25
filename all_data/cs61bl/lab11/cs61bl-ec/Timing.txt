@@ -1,0 +1,155 @@
+
+EXPERIMENT 1 - Using only methods common to both ArrayList and LinkedList, design an experiment to show performance differences between the two List implementations.
+
+Using a For loop, we added 10,000,000 items to a LinkedList and an ArrayList. Using Timer, here are the results below: 
+
+ArrayListDemo
+ll.get(size/2) 5000000
+1 milliseconds elapsed
+
+LinkedListDemo
+ll.get(size/2) 5000000
+99 milliseconds elapsed
+
+It looks like an ArrayList runs on constant time - O(1) - while a LinkedList runs on linear time - O(n). 
+
+
+
+
+
+
+(Code for Reference) 
+
+/*******************************************************************/
+
+import java.util.*;
+
+public class LinkedListDemo {
+
+	public static void main(String args[]) {
+		// create a linked list
+		LinkedList ll = new LinkedList();
+		// add elements to the linked list
+		final int size = 10000000; 
+		for (int i = 0; i < size; i++) {
+			ll.add(i); 
+		}
+		// System.out.println("Original contents of ll: " + ll);
+		Timer t = new Timer();
+		t.start();
+		System.out.println("LinkedListDemo"); 
+		System.out.println("ll.get(size/2) " + ll.get(size/2)); 
+		long elapsedMs = t.stop();
+		System.out.println (elapsedMs + " milliseconds elapsed");
+	}
+}
+
+)
+
+/********************************************************************/
+
+import java.util.*;
+
+public class ArrayListDemo {
+
+	public static void main(String args[]) {
+		// create a linked list
+		ArrayList ll = new ArrayList();
+		// add elements to the linked list
+		final int size = 10000000; 
+		for (int i = 0; i < size; i++) {
+			ll.add(i); 
+		}
+		// System.out.println("Original contents of ll: " + ll);
+		Timer t = new Timer();
+		t.start();
+		System.out.println("ArrayListDemo"); 
+		System.out.println("ll.get(size/2) " + ll.get(size/2)); 
+		long elapsedMs = t.stop();
+		System.out.println (elapsedMs + " milliseconds elapsed");
+
+	}
+}
+
+
+
+
+
+
+EXPERIMENT 2 - The online documenation for Java's LinkedList claims that it's implemented as a doubly-linked list. Design an experiment that supports this claim. In particular, your experiment should show that the underlying implementation is not a singly-linked list with a head and tail pointer.
+
+In this experiment, we requested to find the second to last item in a list so we can tell the difference between the two. Java's Linked List as a doubly-linked list not only has a back pointer to its previous item but also a pointer to its tail, allowing it to retrieve the second-to-last item very quickly. However, in our singular linked version, we have to travel from the beginning all the way to the second to last node. 
+
+Here are the results below: 
+
+
+SingularLinkedListDemo
+ll.get(size - 2) 99998
+7 milliseconds elapsed
+
+LinkedListDemo
+ll.get(size - 2) 99998
+1 milliseconds elapsed
+
+
+
+
+
+
+
+(Code for Reference) 
+
+/*******************************************************************/
+
+
+import java.util.*;
+
+public class LinkedListDemo {
+
+	public static void main(String args[]) {
+		// create a linked list
+		LinkedList ll = new LinkedList();
+		// add elements to the linked list
+		final int size = 100000; 
+		for (int i = 0; i < size; i++) {
+			ll.add(i); 
+		}
+		// System.out.println("Original contents of ll: " + ll);
+		Timer t = new Timer();
+		t.start();
+		System.out.println("LinkedListDemo"); 
+		System.out.println("ll.get(size - 2) " + ll.get(size - 2)); 
+		long elapsedMs = t.stop();
+		System.out.println (elapsedMs + " milliseconds elapsed");
+	}
+}
+
+/********************************************************************/
+
+
+public class SingularLinkedListDemo {
+
+	public static void main(String args[]) {
+		// create a linked list
+		List ll = new List();
+		// add elements to the linked list
+		final int size = 100000; 
+		for (int i = 0; i < size; i++) {
+			ll.add(i); 
+		}
+		// System.out.println("Original contents of ll: " + ll);
+		Timer t = new Timer();
+		t.start();
+		System.out.println("SingularLinkedListDemo"); 
+		System.out.println("ll.get(size - 2) " + ll.get(size - 2)); 
+		long elapsedMs = t.stop();
+		System.out.println (elapsedMs + " milliseconds elapsed");
+
+	}
+}
+
+
+
+
+
+ 

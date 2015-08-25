@@ -1,0 +1,4 @@
+1) The function returns true when s has a length 1 more than the length of our current string.
+2) It returns false when s is longer than current string's length by more than 1 or current string has length 0.
+3) n/a
+4) If the character is inserted at the front (or anywhere in the middle), the function incorrectly returns false.

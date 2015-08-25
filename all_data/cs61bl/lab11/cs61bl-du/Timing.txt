@@ -1,0 +1,8 @@
+
+Experiment 1:
+We created two identical lists and tested each of the methods.
+ArrayList was faster at finding/returning/changing an element at a specific index.
+LinkedList was faster at adding a new element because there is no worst-case scenario.
+
+Experiment 2:
+Keeping next-ing through the list until hasNext returns false. Check the pointer of the current object's next to see if it points to the very first item in the list.

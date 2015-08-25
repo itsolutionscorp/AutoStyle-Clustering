@@ -1,0 +1,45 @@
+Experiment 1:
+
+We added Integers from 1 to 10,000,000 to a linked list and an array list. Then, the timer was started after calling the get(int index) method for both the linked list and the array list.
+
+To get the Integer stored at index 5,000,000, the linked list took 109 milliseconds. However the array list only took 1 millisecond to get the Integer at index 5,000,000. 
+
+The significant difference in run time is because the array list can look up an int index and return the item stored there in theta(1) time, while the linked list must iterate through its nodes to find the item at the 5,000,000th node. This iteration depends on the index and the length of the linked list, and thus takes linear theta (n) time.
+
+Experiment 2:  
+
+We constructed a linked list with 10,000,000 elements (with Integers ranging from 1 to 10,000,000. If this were a singly linked list, then theoretically, calling remove (int index) on index 9,999,999 should take much longer than calling remove on index 5,000,000. The singly linked list must iterate through twice as many nodes to reach the item stored at the 9,999,999th node, compared to reaching the item stored at the 5,000,000 node. However, when we actually timed how long it took for Java's linked list to remove the item at the 9,999,999th index, it took an average of 0 milliseconds. Compare this to the 98 milliseconds it took for the the linked list to remove the item stored at index 5,000,000. 
+
+Our experiment results proved that there is a faster way to access items and nodes towards the end of the linked list, than to access items in the middle of the linked list. This means that Java's linked list class is actually a doubly linked list with pointers to nodes both before and after each node. Items in the middle take the longest time to access, since iterating backwards or forwards won't decrease the amount of iteration needed. 
+
+public static void main(String[] args) {
+    	LinkedList<Integer> myLink = new LinkedList();
+    	ArrayList<Integer> myArray = new ArrayList<Integer>(10000000);
+     	for (int i = 0; i < 10000000; i++) {
+    		myLink.add(i);
+    		myArray.add(i);
+    	} 
+ ////// EXPERIMENT 1   
+		Timer mytime = new Timer();
+     	mytime.start();
+     	myLink.get(5000000);
+     	System.out.println("get for my link at the middle index is " + mytime.stop());
+ ////// should be 111
+     	mytime.reset();
+     	mytime.start();
+     	myArray.get(5000000);
+     	System.out.println("get for my array at the middle index is " + mytime.stop());
+     	mytime.reset();
+ ////// should be 0
+
+ ////// EXPERIMENT 2
+     	mytime.start();
+     	myLink.remove(5000000);
+     	System.out.println("remove for my link at the middle index is " + mytime.stop());
+ ////// should be 98
+     	mytime.reset();
+     	mytime.start();
+     	myLink.removeLast();
+     	System.out.println("remove for my link at last index is " + mytime.stop());
+ ////// should be 0
+     	}

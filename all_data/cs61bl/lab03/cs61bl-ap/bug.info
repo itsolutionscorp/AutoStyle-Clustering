@@ -1,0 +1,17 @@
+1. check("abc2", "abc");
+2. check("abc", "def"); check("abcd", "dab");
+3. NA
+4. check("3123", "123"); check("asndf", "asdf");
+5. check(null, "");
+
+
+check("abc", "def"); // should be false
+check("abc2", "abc"); // should be true
+check("3123", "123");// true
+check("abcd", "dab");// false
+check("asndf", "asdf");//true
+check(null, "");//crashes
+
+Explanation
+
+We printed the initial strings below the result. We found that the strings are correctly printing out. Thus, we went to the inital method and realised that we used '==' for a String. However, for strings, we need to use .equals(). After we replaced it, the program worked fine.

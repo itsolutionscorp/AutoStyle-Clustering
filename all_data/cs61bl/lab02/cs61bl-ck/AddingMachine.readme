@@ -1,0 +1,13 @@
+Which version did you implement for the exercise?
+	We used only one while loop for our code. We also used inner if loops within the code.
+
+Describe in words how the other version would work without actually coding it?
+	We could have had a second while loop within the first that ran while the last input and the current input were not equal to zero.
+
+Which version do you prefer? 
+Describe two reasons for preferring the one-loop version and two reasons for preferring the two-loop version.
+	We preferred to use our version. The one loop version was nice because it would run faster 
+	and would not have to repeat the program as many times. The one loop also was more logical in our opinion because
+	it translated the rules that were given to us directly to the code
+	The two loop version might have been nice because it seemed like it would take up less lines of code.
+	This also might make it easier to understand to an outside observer because it is more structured.

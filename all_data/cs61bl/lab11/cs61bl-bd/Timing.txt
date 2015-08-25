@@ -1,0 +1,31 @@
+1. Describe your experiment 1 and its results, and explain why 
+   it distinguishes between an ArrayList and a LinkedList.
+   
+   In experiment 1, I would compare using the add(E e), contains(Object o), 
+   and get(int index) methods on an ArrayList and a LinkedList. Adding an 
+   element to the end of an ArrayList could potentially take a longer time 
+   if there is no more space in the ArrayList in order to add the element, 
+   and would therefore have to expand its capacity. On the other hand, adding 
+   to a LinkedList would take constant time because all you would have to do 
+   is point myNext of the tail node to the element you want to add. The contains
+   method for both ArrayList and LinkedList would take linear time because you
+   would have to iterate through the entire list from the beginning until you 
+   find Object o, and if Object o is not in the list, you would have to iterate
+   through the entire list from the beginning to end. The get method would take
+   constant time for ArrayList and linear time for LinkedList because an ArrayList
+   has indices you can access immediately whereas for a LinkedList you would have
+   to iterate through the list from the beginning, keep track of a count until you
+   reach the specified index, and then return that node. 
+
+2. Describe your experiment 2 and its results, and explain why 
+   it distinguishes between a doubly linked list and a singly linked list 
+   with head and tail pointers.
+   
+   To show that Java's LinkedList implements a doubly linked list, we could
+   experiment by using the addFirst(E e) method. If it is a doubly linked list,
+   you could easily add the element to the beginning of the list by pointing
+   myPrev to that element. However, if it were a singly linked list, you would 
+   have to create a temporary variable that points to the original list, change
+   the head pointer to point to the element to be added to the beginning, and then
+   point the myNext of the added element to the original list pointed to by the
+   temporary variable. 

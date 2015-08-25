@@ -1,0 +1,18 @@
+
+Alpha: Heap sort
+		- takes approximately the same amount of time no matter what ordering the list has
+		- takes fewer comparison than a merge sort for all ordering
+
+Beta: Insertion sort
+		- takes least time for an inorder list
+		- takes longest time for an reverse order list
+
+Gamma: Quick sort
+		- takes siginificantly more time to sort an inorder list or a reverse ordered list
+
+Delta: Merge sort
+		- takes approximately the same amount of time no matter what ordering the list has
+		- takes more comparison than a heap sort for all ordering
+
+Epsilon: Selection sort
+		- takes a siginificant amount of time not matter what ordering the list has

@@ -1,0 +1,26 @@
+1. Adding 10,000,000 integers : 4213 milliseconds for ArrayList,9772 milliseconds for LinkedList
+
+   Getting(last index)	     : 0 ms for ArrayList, 0 ms for LinkedList
+(using 10,000,000 integers for rest of methods)
+
+  
+   Getting (middle index): 0 ms for ArrayList, 33 ms for LinkedList
+
+   Contain (middle index): 26 sec for ArrayList, 51 ms for LinkedList
+
+   Contain (last index): 43 ms for ArrayList, 98 ms for LinkedList
+
+   Contain (out of bounds index): 36 ms for ArrayList, 98 ms for linkedlist
+
+   Size : 0 ms for ArrayList, 0 ms for LinkedList
+
+ indexOf (middle) : 24 ms for arraylist, 56 ms for linkedlist
+
+  As one can see, ArrayList is constant time for the get method (similarly to an array), whereas linkedlist is not. Also, adding is much faster for arraylist. This makes sense since inserting to arrays and accessing things from an array are instantanous (arraylists act similarly), while in linkedlist, it goes through the list to get a value from the index (and goes through the list to find an empty spot).
+
+2. Timing the remove method (integer on the last index) for both lists (with 10,000,000 integers) gives us:
+
+77 ms for SingleList
+0 ms for LinkedList
+
+Thus, it is obvious, that in singlelist, it starts from the beginning of the list to search through the list for the object (that is located at the end of the list). However, in doublelist, it started from the end of the list to search for the object (thus, the time was instantaneous).

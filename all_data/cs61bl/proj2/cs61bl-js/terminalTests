@@ -1,0 +1,341 @@
+1) Testing checkout of files and previous branch
+
+///////////////////////////////////////////
+
+echo '1' > a
+echo '4' > b
+
+java Gitlet init
+
+java Gitlet log
+// expecting to print the very first commit
+
+**** commit 1 ********
+java Gitlet add a
+java Gitlet commit 'added 1 a'
+**********************
+
+**** commit 2 ********
+java Gitlet add b
+java Gitlet commit 'added 4 to b'
+**********************
+
+echo 'changed this' > a
+echo 'changed this b' > b
+
+/**** commt 3******/
+java Gitlet add a
+java Gitlet add b
+java Gitlet commit 'changed a'
+*******************
+
+echo 'changed again ' > b
+
+Test Checkout
+
+java Gitlet checkout 1 a
+java Gitlet checkout b
+
+cat a // expecting to see '1'
+cat b /// expecting to see 'changed this b'
+
+java Gitlet log
+
+' changed a'
+'added 4 to be'
+'added 1'
+'initial commit'
+
+//////////////////////////////////////////////////////////////
+
+2) Testing Reset
+
+echo '1' > a
+echo '4' > b
+echo '5' > c
+
+java Gitlet init
+
+java Gitlet add a
+java Gitlet add b
+java Gitlet commit 'first commit'
+
+java Gitlet rm a
+java Gitlet add c
+java Gitlet commit 'second commit'
+
+echo 'blah' > a
+java Gitlet add a
+java Gitlet commit 'third commit'
+
+echo 'changed' > b
+echo 'changed c' > c
+java Gitlet reset 2
+
+cat a // should be 'blah' since it was rmved and changed
+cat b // should be '4'
+cat c / /should be '5'
+
+java Gitlet log
+
+'second commit'
+'first commit'
+'initial commit'
+
+//////////////////////////////////////////////////////////////
+
+3) Testing nested dirs with checkout
+
+mkdir nest1
+mkdir nest1/nest2
+mkdir nest1/nest2/nest3
+mkdir nest1/nest2/nest3/nest4
+
+echo '1' > a
+echo '2' > nest1/a
+echo '3' > nest1/nest2/nest3/nest4/a
+
+java Gitlet init
+java Gitlet add a
+java Gitlet commit 'first a'
+
+java Gitlet add nest1/a
+java Gitlet add nest1/nest2/nest3/nest4/a
+java Gitlet commit 'nest1 nest4 a'
+
+echo 'chnaged no nest' > a
+echo 'changed nest 1' > nest1/a
+echo 'changed nest 4' > nest1/nest2/nest3/nest4/a
+
+java Gitlet add a
+java Gitlet add nest1/a
+java Gitlet add nest1/nest2/nest3/nest4/a
+
+java Gitlet commit 'changed everything'
+
+java Gitlet checkout 2 a
+java Gitlet checkout 2 nest1/a
+java Gitlet checkout 2 nest1/nest2/nest3/nest4/a
+
+cat a        // expect 1
+cat nest1/a  //expect 2
+cat nest1/nest2/nest3/nest4/a  // expect 3
+
+java Gitlet log
+'changed everything'
+'nest1 nest4 a'
+'first a'
+'initial commit'
+
+///////////////////////////////////////////////////////////////////
+
+4) Testing checkout on branch
+
+echo '1' > a
+echo '2' > b
+
+java Gitlet init
+java Gitlet add a
+java Gitlet add b
+java Gitlet commit 'first on master'
+
+java Gitlet branch branch2
+
+java Gitlet status
+// expecting
+'*master'
+'branch2'
+
+echo '1 master' > a
+echo '2 master' > b
+
+java Gitlet add a
+java Gitlet add b
+
+java Gitlet commit 'master branched off'
+
+java Gitlet checkout branch2
+
+cat a // expect 1
+cat b // expect 2
+
+echo '1 branch2' > a
+echo '2 branch2' > b
+
+java Gitlet add a
+java Gitlet add b
+java Gitlet commit 'branch2 now off'
+
+java Gitlet log
+'bracnh 2 now off'
+'first on master'
+'initial commit'
+
+java Gitlet checkout master
+cat a // expect '1 master'
+cat b // expect '2 master'
+
+java Gitlet log
+
+5)
+echo ‘a1’ > a
+echo ‘b1’ > b
+echo ‘c1’ > c
+java Gitlet init
+java Gitlet add a
+java Gitlet add b
+java Gitlet commit 'first on master'
+echo ‘b2’ > b
+java Gitlet add b
+java Gitlet commit '2nd on master'
+echo ‘b3’ > b
+echo ‘c2’ > c
+java Gitlet add b
+java Gitlet add c
+java Gitlet commit ‘3rd on master’
+java Gitlet branch branch2
+echo ‘b4’ > b
+java Gitlet add b
+java Gitlet commit ‘4th on master’
+echo ‘c3’ > c
+java Gitlet add c
+java Gitlet commit ‘5th on master’
+java Gitlet rm a
+java Gitlet commit ‘6th on master’
+java Gitlet checkout branch2
+echo ‘branch2 b1’ > b
+java Gitlet add b
+java Gitlet commit ‘cat
+echo ‘branch2 b2’ > b
+echo ‘branch2 c1’ > c
+java Gitlet add b
+java Gitlet add c
+java Gitlet commit ‘dog’
+java Gitlet rm b
+java Gitlet rm c
+java Gitlet commit 'to solve conflict'
+java Gitlet merge master
+java Gitlet log
+
+
+java Gitlet rebase master
+java Gitlet log
+
+6)
+echo '1' > a
+echo ‘2’ > b
+
+@Test init
+java Gitlet init
+
+@Test log 
+java Gitlet log
+// Prints the initial commit 
+
+@Test add
+java Gitlet add a
+java Gitlet commit 'added 1 a'
+java Gitlet add b
+java Gitlet commit 'added 2 to b'
+
+echo 'changed this' > a
+echo 'changed this b' > b
+
+java Gitlet add a
+java Gitlet add b
+java Gitlet commit 'changed a'
+
+
+echo 'changed again ' > b
+
+
+@Test Checkout
+java Gitlet checkout [commit 1] a
+java Gitlet checkout b
+
+cat a // expecting to see '1'
+cat b /// expecting to see 'changed this b'
+
+@Test log
+java Gitlet log
+
+' changed a'
+'added 4 to be'
+'added 1'
+'initial commit'
+
+*****************
+
+echo '1' > a
+echo ‘2’ > b
+echo ‘3’ > c
+
+java Gitlet init
+
+java Gitlet add a
+java Gitlet add b
+java Gitlet commit ‘commit 1’
+
+java Gitlet rm a
+java Gitlet add c
+java Gitlet commit ‘commit 2’
+
+echo 'blah' > a
+java Gitlet add a
+java Gitlet commit ‘commit 3’
+
+echo 'changed' > b
+echo 'changed c' > c
+java Gitlet reset [commit 2 id]
+
+cat b // should be ‘2’
+cat c // should be ‘3’
+
+@Test log
+java Gitlet log
+
+‘commit 2’
+‘commit 1’
+'initial commit'
+
+*****************
+
+echo '1' > a
+echo '2' > b
+
+java Gitlet init
+java Gitlet add a
+java Gitlet add b
+java Gitlet commit ‘first commit’
+
+java Gitlet branch branch2
+
+
+echo '1 master' > a
+echo '2 master' > b
+
+java Gitlet add a
+java Gitlet add b
+
+java Gitlet commit ‘gg master branch’
+
+java Gitlet checkout branch2
+
+cat a // expect 1
+cat b // expect 2
+
+echo '1 branch2' > a
+echo '2 branch2' > b
+
+java Gitlet add a
+java Gitlet add b
+java Gitlet commit ‘gg master branch 2’
+
+java Gitlet log
+‘gg master branch 2’
+‘gg master branch’
+'initial commit'
+
+java Gitlet checkout master
+cat a // expect '1 master'
+cat b // expect '2 master'

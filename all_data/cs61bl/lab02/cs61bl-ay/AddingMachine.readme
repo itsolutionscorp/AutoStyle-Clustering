@@ -1,0 +1,8 @@
+1> We implemented the exercise with a single loop.
+
+2> Inside the forever true loop, we can implement another while loop that checks for if the variable justStarting is true. Then inside this inner loop, we can use several if statements that checks for if the input is zero. If the input is not zero, we can increment the subtotal variable. If the input IS zero, we print subtotal, set it to zero and change justStarting to false, which cause the inner loop to end. Outside the inner loop, if the next input is not zero, then we change the justStarting back to true, which activates the inner loop again in next iteration. Else, we will print total and exit the big loop.
+
+3> I prefer the first one because it is more straightforward.
+   I prefer the first one because it is a single loop and might be more efficient
+   I prefer the second one because the code is neat.
+   I prefer the second one because the logic it easier to be understood and the approach is easier.

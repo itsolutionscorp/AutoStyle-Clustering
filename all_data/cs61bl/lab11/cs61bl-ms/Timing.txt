@@ -1,0 +1,12 @@
+Experiment 1
+
+Add method: ArrayList is faster.
+get method: ArrayList is faster.
+remove method: LinkedList is faster.
+insert(add) method: LinkedList is faster.
+
+Conclusion: While each element in ArrayList has an index number, LinkedList uses doulbly linked list. Add and get methods are faster using ArrayList because ArrayList knows what is the last index, and it doesn't have to go through all the previous data like LinkedList. On the other hand, remove and insert methods are faster using LinkedList because ArrayList does not allow empty spot in its structure, and it has to resize everytime. LinkedList does not have to resize.
+
+Experiment 2
+
+A DoublyLinkedList can go back a node while a SinglyLinkedList can only go forward. Any index method is faster for doublyLInkedlist because it can start from its tail if the index is closer to its tail. To prove this, the timer reported the same performance when a doublyLinkedList removes the second or second from last element. A singlyLinkedList takes longer to remove the second from last element than the second element because it can only start from the head.

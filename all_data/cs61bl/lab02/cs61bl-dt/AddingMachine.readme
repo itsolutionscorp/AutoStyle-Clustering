@@ -1,0 +1,11 @@
+1. We used the single while loop version. 
+2. The double while loop version be
+	while true:
+		while justStarting is equal to true
+			if input is 0 then terminate this loop and return subtotal
+			else add input to subtotal and total
+			
+		print total 
+		
+3. We prefer the single loop version because it is faster to process and it is easier to debug
+	the double loop version is easier to visualize and easier to manipulate. 

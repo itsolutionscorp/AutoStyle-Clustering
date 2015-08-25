@@ -1,0 +1,26 @@
+1.  - Check to see if adding anything to a null string returns true.
+    - Check to see if adding a character anywhere in myString returns true.
+    - Check for capital letters (all should be the same)
+         
+2.  - Check to see if adding 1 character to a "null" string with a space in
+      it returns false.
+    - Check to see if aside from adding 1 character, one or more of the
+      original characters were changed.
+    - Check to see if adding more than 1 character returns false.
+    - Check for capital letters (if any different, false)
+
+3.  - No pairs of strings (I'm assuming we're going off of my altered
+          contains1MoreThan, not the original one given to us)
+    
+4.  - No pairs of strings (I'm assuming we're going off of my altered
+          contains1MoreThan, not the original one given to us)
+
+5.  - check(null, null); creates an error. 
+    - Possibly anything that is too long.
+
+
+The original contains1MoreThan would only return true if a character was added at 
+the end. I modiffied the else case when it checks to see if the first characters 
+of the pair are the same. I created a remainder of myString withouth the first character, 
+then added in the first character at the end (since it checks to see if myString.length() == 1 
+when s.length == 0), and recursively checked the rest of it with s.

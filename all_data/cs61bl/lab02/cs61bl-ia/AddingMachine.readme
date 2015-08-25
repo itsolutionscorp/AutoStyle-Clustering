@@ -1,0 +1,11 @@
+We implemented the one loop version of the AddingMachine. 
+
+A two loop version would include one while loop for values of k that are not 0, which only exits when the next inputted value is 0. The outer while loop handles the cases where k is 0. 
+
+Benefits of one loop: 
+-More direct
+-Less Runtime
+
+Benefits of two loops:
+-Easier to read
+-More organized

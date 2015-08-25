@@ -1,0 +1,13 @@
+1. correctly returns true when the addition is at the end of the first string
+
+2. correctly returns false when the first string is not the result of adding one character to the second string
+
+3. never incorrectly returns true
+
+4. incorrectly returns false when the added character is not at the end of the first string
+
+5. never crashes
+
+Explanation:
+
+The last else clause of contains1MoreThan will always return false, because the references myString.substring(1) and s will always point to different string objects, and '==' checks whether two references point to the same object.

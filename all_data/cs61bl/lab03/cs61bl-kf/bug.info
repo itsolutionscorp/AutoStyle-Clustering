@@ -1,0 +1,9 @@
+1.	Contains1MoreThan will correctly return true when the letter added is added at the end of the word.
+2.	It will correctly return false for all pairs of strings.
+3.	It will incorrectly return true for no pairs of strings.
+4.	It will incorrectly return false when the added letter is at the beginning of the word of inserted into the middle.
+5.	The program will not crash.
+
+First we determined that it was wrong when the extra character was placed at the beginning or in the middle.  It was correct when the extra character was placed at the end.  It works this way because when it is at the end, it is determined by the if statements checking length.  We figured it out by working out examples that should have worked using the function on paper but did not.  This lead us to realize that the comparison == that it is using will not work, because a new object is created everytime substring is called.  So using == will return false when comparing the two different objects.  Instead, .equals() should be used in order to determine equivalency.
+
+

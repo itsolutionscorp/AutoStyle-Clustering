@@ -1,0 +1,101 @@
+
+Experiment 1
+############################################################################
+#######################Test Sample##########################################
+public static void main (String[] args) throws Exception {
+		if (args.length != 1) {
+			System.err.println("arg should be a number");
+			System.exit(1);
+		}
+		int n = Integer.parseInt(args[0]);
+		double[] values = new double [n];
+		int k;
+		for (k = 0; k < n; k++) {
+			values[k] = Math.random();
+		}
+		Timer t1 = new Timer();
+		Timer t2 = new Timer();
+		LinkedList<Integer> L2 = new LinkedList<Integer>();
+		ArrayList<Integer> L1 = new ArrayList<Integer>();
+		t1.start();
+		for(int i =0; i<n; i++){
+			L1.add(i);
+		}
+		long elapsedMs1 = t1.stop();
+		t2.start();
+		for(int i =0; i<n; i++){
+			L2.add(i);
+		}
+		long elapsedMs2 = t2.stop();
+		
+		System.out.println (elapsedMs1 + " milliseconds elapsed for ArrayList");
+		System.out.println (elapsedMs2 + " milliseconds elapsed for LinkedList");
+		if (n < 20) {
+			for (k = 0; k < n; k++) {
+				
+				System.out.println(values[k]);
+			}
+		}
+	}
+
+}
+#######################Test Sample##########################################
+############################################################################
+Test Method
+#1. get() 
+		if (args.length != 1) {
+			System.err.println("arg should be a number");
+			System.exit(1);
+		}
+		int n = Integer.parseInt(args[0]);
+		double[] values = new double [(int) n];
+		int k;
+		for (k = 0; k < n; k++) {
+			values[k] = Math.random();
+		}
+		Timer t1 = new Timer();
+		Timer t2 = new Timer();
+		LinkedList<Integer> L2 = new LinkedList<Integer>();
+		ArrayList<Integer> L1 = new ArrayList<Integer>();
+		t1.start();
+		for(int i =0; i<n; i++){
+			L1.add(i);
+		}
+		long elapsedMs1 = t1.stop();
+		t2.start();
+		for(int i =0; i<n; i++){
+			L2.add(i);
+		}
+		long elapsedMs2 = t2.stop();
+		
+		
+		t1.start();
+		L1.get(n/3*2);
+		long elapsedMs3 = t1.stop();
+		t2.start();
+		L2.get(n/3*2);
+		long elapsedMs4 = t2.stop();
+For the size of 50000000 elements array, get() method takes in arrayList and 
+linkedlist are in below:
+
+0 milliseconds elapsed for ArrayList
+51 milliseconds elapsed for LinkedList
+
+This is becuase the run time of arraylist is O(1) and for linkedlist is O(n). Since
+knowing an index in the array can directly return the value in that index, however, 
+in linkedlist, it needs to iterate the whole list. 
+
+
+Experiment 2
+code: 	LinkedList<Integer> L2 = new LinkedList<Integer>();
+		for(int i =0; i<30; i++){
+			L2.add(i);
+		}
+		Iterator<Integer> I2 = L2.descendingIterator();
+		for(int i= 0; i<30 ; i++){
+			System.out.println(I2.next());
+		}
+result: 
+29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 
+
+it gives a Iterator with descending order this show that LinkedList is definitely doubly linked list since any single linked list can not find element backward; 

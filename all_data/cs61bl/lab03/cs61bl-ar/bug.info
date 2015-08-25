@@ -1,0 +1,19 @@
+1. Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+
+As long as the additional character is the last character of the first string. e.g. "abc1" and "abc"
+
+2. Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+
+When there are more than 1 additional characters and they are located at the last of the first string. e.g. "abc12" and "abc"
+
+3. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+
+The program will not incorrectly return true.
+
+4. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+
+When the additional character is not the last character of the first string. e.g. "1abc", "a1bc", "ab1c"and "abc"
+
+5. Describe all pairs of arguments to check for which contains1MoreThan crashes.
+
+When null is passed in as the first string, the program will crash.

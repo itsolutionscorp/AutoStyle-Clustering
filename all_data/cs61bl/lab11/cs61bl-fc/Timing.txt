@@ -1,0 +1,15 @@
+Experiment 1
+Using only methods common to both ArrayList and LinkedList, design an experiment to show performance differences between the two List implementations.
+	Describe your experiment 1 and its results, and explain why it distinguishes between an ArrayList and a LinkedList.
+Ans: 
+	Create an ArrayList and a LinkedList that are lengthed 100. When you call a get(99) methods in both of them, we can tell that ArrayList acts much faster than LinkedList. Because Arraylist has an index itself, however Linkedlist connects by its next indicator.
+
+	Create an ArrayList and a LinkedList that are lengthed 100. When you call remove(50) method in both fo them, we can tell that ArrayList acts much slower than LinkedList. Because when removing an element from Arraylist, it has to move everything after that a place before. however for Linkedlist, it only needs to reset the "next" node before the deleted one. 
+
+
+Experiment 2
+
+The online documenation for Java's LinkedList claims that it's implemented as a doubly-linked list. Design an experiment that supports this claim. In particular, your experiment should show that the underlying implementation is not a singly-linked list with a head and tail pointer.
+	Describe your experiment 2 and its results, and explain why it distinguishes between a doubly linked list and a singly linked list with head and tail pointers.
+Ans:
+	Create several lists of different sizes and time the performance of .indexOf() and .lastIndexOf() when searching for the same element. If it is doubly-linked, when searching an element after the middle point, lastIndexOf should be faster than indexOf.

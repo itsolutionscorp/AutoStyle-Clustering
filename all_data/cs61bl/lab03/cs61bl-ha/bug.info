@@ -1,0 +1,1 @@
+In the contains1MoreTHan file, there is a bug where if you add a letter in the middle, its not going to hold true, for example check("abcdc", "abcc");

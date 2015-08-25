@@ -1,0 +1,6 @@
+1. Check correctly returns true if myString has one character inserted at the end of s. 
+2. Check correctly returns false when myString is replaced (ie. "a into b"), when a character
+is removed, and when it is left alone. It correctly returns false also when more than one character is added.
+3. We could not find any cases in which contains1MoreThan incorrectly returns true.
+4. Check incorrectly returns false when a new character is inserted in any place other
+than the end. 

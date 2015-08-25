@@ -1,0 +1,7 @@
+1. When s null and myString is not null, when the insertion occurs after the last index in the string and all other characters are identical
+2. When myString is null 
+3. No pairs of strings
+4. When the insertion is not after the last index in the string and all other characters are identical 
+5. When s1 or s2 are not strings or are null
+
+Bug: contains1MoreThan(); only returns true for strings with length > 0 if the insertion occurs after the last index in the string even if all other characters are identical since the recursion step terminates as soon as one dissimilarity occurs in the two strings, causing return myString.substring(1) == s; to evaluate to false.

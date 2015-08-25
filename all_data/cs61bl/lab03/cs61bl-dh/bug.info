@@ -1,0 +1,14 @@
+ 1. 
+ 	s is empty and myString is 1 character
+ 	the inserted character is the last character in myString
+
+2. 
+	myString is empty
+	if the strings have more than 1 difference
+	if the strings are exactly the same
+3.
+	Never
+4. 
+	If the inserted character is in the middle of myString
+5. 
+	Never

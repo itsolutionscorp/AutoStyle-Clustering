@@ -1,0 +1,16 @@
+Which version did you implement for the exercise?
+- I implemented the single loop version for this exercise.
+
+Describe in words how the other version should work, without actually coding it.
+- The two loop version should enter the second loop when the input is any number 
+other than zero and add to the total and subtotal.When the input is 0, it should 
+exit the inner loop and finish the first loop by adding to the total and subtotal 
+and indicating that the previous input was a zero, so the new subtotal can be reset 
+to zero and it can exit the scanner if the next input is also a zero.
+
+Which version do you prefer? Describe two reasons for preferring the one-loop version 
+and two reasons for preferring the two-loop version.
+- Personally, I prefer the single loop version because it is easier for me to understand.
+The one-loop version can be easier for other to understand as well, and it is performing 
+a more simple computation. The two-loop version can be preferred because it is more concise
+and can compute different types of inputs separately.

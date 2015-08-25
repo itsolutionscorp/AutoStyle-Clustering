@@ -1,0 +1,86 @@
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.Arrays;
+
+@RunWith(JUnit4.class)
+public class InsertionSortTest {
+        
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+        
+    @Test
+    public void isOK1() {
+        int[] arr = {1, 5, 4, 6, 8};
+
+        // This isOK call should return nothing because the array is sorted
+        // up through the element at index 1.
+        InsertionSort.isOK(arr, 1);
+
+        // This isOK call should throw an exception because the element 4
+        // makes the array up through the element at index 3 out of order.
+        exception.expect(IllegalStateException.class);
+        InsertionSort.isOK(arr, 3);
+    }
+    
+    @Test
+    public void isOK2() {
+        int[] arr1 = {3, 5, 7, 11, 17, 13};
+        
+        InsertionSort.isOK(arr1, 4);
+        
+        exception.expect(IllegalStateException.class);
+        InsertionSort.isOK(arr1, 5);
+
+        int[] arr2 = {11, 10, 9, 8, 7};
+        InsertionSort.isOK(arr2, 0);
+        
+        int[] arr3 = {3, 5, 7, 11, 17}; 
+        InsertionSort.isOK(arr3, 4);
+    }
+
+    @Test
+    public void insert1() {
+        int[] arr = {4, 5, 6, 2, 3, 9, 1, 7, 8, 0};
+        
+        for (int i = 0; i < arr.length - 1; i++) {
+            InsertionSort.insert(arr, i);
+        }
+    }
+
+    @Test
+    public void insert2() {
+    	 int[] arr = {1, 2, 4, 3, 7, 3, 5, 15, 13, 17};
+         
+         exception.expect(ArrayIndexOutOfBoundsException.class);
+         InsertionSort.insert(arr, -1);
+         
+         exception.expect(ArrayIndexOutOfBoundsException.class);
+         InsertionSort.insert(arr, 100);
+         
+    }
+
+    @Test
+    public void insertionSort1() {
+        int[] arr = {4, 5, 6, 2, 3, 9, 1, 7, 8, 0};
+        int[] result = InsertionSort.insertionSort(arr);
+        int[] check = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        
+        assertEquals(Arrays.toString(result), Arrays.toString(check));
+    }
+
+    @Test
+    public void insertionSort2() {
+    	 int[] arr = {1, 2, 3, 4, 5, 6};
+         int[] result = InsertionSort.insertionSort(arr);
+         int[] check = {1, 2, 3, 4, 5, 6};
+         assertEquals(Arrays.toString(result), Arrays.toString(check));
+
+    }
+
+}

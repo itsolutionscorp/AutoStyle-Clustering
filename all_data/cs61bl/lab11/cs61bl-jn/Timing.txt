@@ -1,0 +1,36 @@
+For Experiment 1, we had an ArrayList<String> with length of 6500000, filled with the String "h", and a LinkedList<String> that also had the same length and contents. We then ran the arraylist.get(6500000/2), which ran in 0 ms, while running LinkedList.get(6500000/2) ran in 23 milliseconds. 
+This shows that for Experiment one, our experiments distinguished the difference, since for the ArrayList, the bigO value is constant, while for LinkedList, the bigO value is linear. Increasing the length increases the time for the LinkedList, but for the Arraylist, it was still 0.
+
+Experiment 2 involves using the same LinkedList as Experiment 1. This time, we tested LinkedList.get(6500000/2), which ran in 47 ms, and then ran LinkedList.get(6500000-1), which ran in 0 ms. We also ran LinkedList.get(1),which also ran in 0 ms.
+This shows that LinkedList must be a doubly linked list, for if it were a singly linked list, running get(6500000-1) should almost be twice as long as getting an index in the middle. But instead, getting the index of length-1 is instant, which suggests that the LinkedList could call myTail's previous, or myHead's next.
+
+
+CODE:
+		ArrayList<String> test=new ArrayList<String>();
+		int count=9500000;
+		for (int x=0; x<count; x++)
+		{
+			test.add(x,"h");
+		}
+		LinkedList<String> testes= new LinkedList<String>();
+		for (int x=0; x<count; x++)
+		{
+			testes.add(x,"h");
+		}
+		Timer thisisstupid= new Timer();
+		thisisstupid.start();
+		test.get(count/2);
+		System.out.println(thisisstupid.stop());
+		Timer thisisdumb=new Timer();
+		thisisdumb.start();
+		testes.get(count/2);
+		System.out.println(thisisdumb.stop());
+		Timer thisisstupids= new Timer();
+		thisisstupids.start();
+		testes.get(count-1);
+		System.out.println(thisisstupids.stop());
+		Timer thisissparta= new Timer();
+		thisissparta.start();
+		testes.get(1);
+		System.out.println(thisissparta.stop());
+		

@@ -1,0 +1,5 @@
+Beta: Insertion Sort because it makes N comparisons for an inorder list of length N. It is also fast on a sorted list but really slow on an unsorted list 
+Gamma: Quick Sort because it is the slowest even when the list is in order. 
+Epsilon: Selection sort because it takes the longest time when the list has a very large number of elements. 
+Alpha: Merge Sort because it is highly stable and makes the same amount of comparisons and movements for every list of size N. 
+Delta: Heap Sort because although it runs similarly to merge sort, it is less stable and the amount of comparisons tends to vary.

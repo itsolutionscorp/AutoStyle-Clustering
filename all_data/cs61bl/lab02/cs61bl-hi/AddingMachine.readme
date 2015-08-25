@@ -1,0 +1,7 @@
+We implemented the single while loop.
+
+The two loops would have allowed us to keep a variable that would not rewrite itself. In between while loops, we could have a variable that keeps changing and keep track of whether the previous input was 0.
+
+The two loop method is easier to comprehend and makes it easier to debug, but it requires more code and is more taxing on memory. In addition, more lines of code increases the chances of error in its complexity.
+
+We chose the other one because it was simpler and more efficient.

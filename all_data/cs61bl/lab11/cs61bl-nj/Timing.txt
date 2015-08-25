@@ -1,0 +1,62 @@
+1. For the first experiment, we first initialized an ArrayList and a LinkedList and put 1000000 integers into both lists using a for loop. Then we
+checked how much time it takes an ArrayList and a LinkedList to get the 500000th element of the array. Since ArrayList has the property of finding an
+element using the index, it takes shorter time than LinkedList which needs to go through every single element before the 500000th element. The result
+of our experiment is that the ArrayList took 0 mscd, and the LinkedList took 8 mscd. Then we tested how much time it takes an ArrayList and a LinkedList
+to remove an element from the beginning of the list. Since LinkedList can change its head to the next node in the list, it only takes O(1) time; the
+ArrayList, however, needs O(n) time because it needs to move all the elements in the list one position forward. The result of our experiment proves this
+hypothesis. The ArrayList took 1 mscd and the LinkedList took 0 mscd.
+
+2.For the second experiment, we tested how long it took a LinkedList to get an element from the middle of the list and from the end of the list. If the 
+LinkedList is double-linked, getting an element from the end of the list should take much less time than taking an element from the middle of the list,
+because the list can access the last element from myPrev of the first element. The result proves our hypothesis. It took 0 mscd to get the last element
+in the list, but it took 6 mscd to get the element from the middle of the list.
+
+Below is our code for the two experiments:
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+import junit.framework.TestCase;
+
+
+public class TimerTest extends TestCase {
+	public void testDiff() {
+
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+		LinkedList<Integer> link = new LinkedList<Integer>();
+		Timer test = new Timer();
+		for (int i =0; i<1000000; i++) {
+			arr.add(i);
+		}
+		for (int i =0; i<1000000; i++) {
+			link.add(i);
+		}
+		test.start();
+		arr.get(500000);
+		long c = test.stop();
+		test.start();
+		link.get(500000);
+		long d = test.stop();
+		test.reset();
+		System.out.println("ArrayList time: "+c);
+		System.out.println("LinkedList time:"+d);
+		test.start();
+		arr.remove(0);
+		long e = test.stop();
+		test.reset();
+		test.start();
+		link.remove(0);
+		long f = test.stop();
+		System.out.println("ArrayList time: "+e);
+		System.out.println("LinkedList time:"+f);
+		
+		test.start();
+		link.get(999998);
+		long g = test.stop();
+		test.start();
+		link.get(500000);
+		long h = test.stop();
+		System.out.println("getting the last element: "+g);
+		System.out.println("getting a middle element:"+h);
+	}
+}

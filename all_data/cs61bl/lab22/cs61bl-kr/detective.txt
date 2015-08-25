@@ -1,0 +1,18 @@
+Alpha is merge sort. It has the best run times for every order of list except for in-order, where beta
+is the fastest. 
+
+Delta also has fast run times, but alpha does less comparisons. Heapsort and merge sort
+have both O(n log n) run times, but heapsort does significantly more comparisons. So delta is heapsort
+and alpha is merge sort. 
+
+Beta is insertion sort. It has the best run time when the list is in order and the worst when it is 
+reverse-order. 
+
+Epsilon is selection sort. It has a consistently slow run time despite the order and size of the list. 
+Selection sort runs in O(n^2) because it moves through the list and compares. It does not matter what 
+the order of the list is. Therefore, epsilon is selection sort. 
+
+Gamma is quicksort because it is one of the fastest for random lists, but slowest for reverse ordered lists
+and in order lists. Quicksort has an O(n log n) run time when the list is random, resulting in one of the 
+fastest, but O(n^2) when the list is reversed or in order. Therefore quicksort is gamma. 
+

@@ -1,0 +1,65 @@
+public class InsertionSort {
+    
+    // Precondition: elements 0 through k-1 of list are in increasing order.
+    // Postcondition: elements 0 through k of list are in increasing order.
+    public static void insert (int list[], int k) {
+    	
+    	for (int i = 0; i < k; i++) {
+    		if (list[k] < list[i]) {
+    			int start = k;
+    			int end = i;
+    			int bigger;
+    			while (start > end) {
+    				bigger = list[start - 1];  
+    				list[start - 1] = list[start];
+    				list[start] = bigger;
+    				start--;
+    			}
+    		}
+    	}
+    }
+    
+    // Does nothing when the first k elements of LIST are sorted in
+    // increasing order.
+    // Throws an IllegalStateException otherwise.
+    
+    public static void isOK (int[] list, int k) {
+    	if (k > list.length - 1) {
+    		throw new IllegalStateException("K value too high");
+    	} else if (k < 0) {
+    		throw new IllegalStateException("K value too low");
+    	} int lowest = list[0];
+    		for (int i = 0; i < k; i++) {
+    			if (lowest > list[i]) {
+    				throw new IllegalStateException("List is unordered");
+    			} lowest = list[i];
+    	}
+
+    }
+
+    public static int[] insertionSort(int[] list) {
+        int[] rtn = new int[list.length];
+        for (int k = 0; k < list.length; k++) {
+            rtn[k] = list[k];
+        }
+        for (int k = 0; k < rtn.length; k++) {
+            insert(rtn, k);
+            try {
+                isOK(rtn, k);
+            } catch (IllegalStateException e) {
+                System.err.println("inconsistency at position " + k);
+            }
+        }
+        return rtn;
+    }
+    
+    public static void main (String[] args) {
+        int[] list = {3, 1, 7, 4, 5, 9, 2, 8, 6};
+        list = insertionSort(list);
+        for (int k = 0; k < list.length; k++) {
+            System.out.print(list[k]);
+        }
+        System.out.println();
+    }
+
+}

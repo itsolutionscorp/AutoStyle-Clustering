@@ -1,0 +1,46 @@
+ConstainMoreThan
+// == compare the reference not the content
+
+
+
+Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+
+The arguments correctly returns true when s is empty and the length of myString is one. For example check (“a”,””)
+The arguments correctly returns true value when the added character is the first ‘digit’, for example. check(“2abc”,”abc”).
+The arguments correctly returns true value when the added character is the middle ‘digit’, for example. check(“ab2c”,”abc”).
+The arguments correctly returns true value when the added character is the last ‘digit’, for example. check(“abc2”,”abc”).
+
+
+
+Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+
+The arguments correctly return false when the length of myString is zero. For example check (“”,””) check(“”,”a”)
+The arguments correctly return false when the two letters are added to myString. For example check ("ab",""), check("2abc","ab")
+The arguments correctly return false when myString is one letter length larger than s, but the other part is different. For example check ("2abc","abd")
+The arguments correctly return false when myString and s differ one letter
+ 
+
+
+Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+
+This is no case for the code incorrectly returns true.   
+
+
+
+Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+
+The arguments incorrectly return false, when the inserted character is in the middle or at the beginning of the words. such as check(“2a”,”a); check(“a2b”,”ab”) 
+
+
+
+Describe all pairs of arguments to check for which contains1MoreThan crashes.
+
+check ("2abc","abc"), check ("ab2c","abc")
+
+
+
+The error is coming from the last else statement 
+return myString.substring(1) == s. 
+As string is an object type, myString and s store the reference value that point to the object instead of the object itself. Thus, myString.substring(1) == s would always return false as myString and s are two different object.
+
+	

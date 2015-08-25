@@ -1,0 +1,23 @@
+1. Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+Answer: The pairs of arguments that contain an insertion at the end of the string along with all the characters before, matching each other. 
+For example: (“abcd”, “abc”)
+2. Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+Answer: The pairs of arguments that contain more than one insertion, or different characters before the insertion. When myString is zero. It is rightly sensitive to the same letters but uppercase or lowercase. An example of a correct false argument is
+("abc", "def"); // should be false
+("abc", ""); //false
+("", "def");  //false
+("", "");    //false
+("abc", "deffae");	//false
+("abcsse", "def");	//false
+("abc", "defa");	//false
+
+3. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+-No pairs of string
+4. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+-When the insertion of myString is not at the end of the string. 
+		check("4123", "123"); /
+		check("1243", "123"); 
+5. Describe all pairs of arguments to check for which contains1MoreThan crashes.
+-When one or both of the arguments is not a string. 
+-When 2 string arguments are not given
+

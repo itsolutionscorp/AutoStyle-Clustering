@@ -1,0 +1,14 @@
+1. Which version did you implement for the exercise?
+
+	We used the version with one while loop.
+
+2. Describe in words how the other version would work, without actually coding it.
+
+	The second loop would check if k is not zero and would do all the behavior including taking in numbers and changing the subtotal and total. Outside the loop would print the subtotal and check if the second zero appears and print the total and return.
+
+3. Which version do you prefer? Describe two reasons for preferring the one-loop version and two reasons for preferring the two-loop version.
+
+	The one while loop version is better firstly because the zeros are checked with if clauses all the time and secondly because the single while loop is easier to follow step by step.
+
+	The two while loop version is better firstly because it could be written with less code beacuse it asks for the input only once and secondly because the structure separates the case for handling zeroes and nonzeroes. 
+

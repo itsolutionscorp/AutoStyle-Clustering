@@ -1,0 +1,24 @@
+1. Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+
+Any pairs of arguments where the first string is equivalent to the second string with a single character added onto the end.
+
+2. Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+
+Any pairs of arguments where the first string is not exactly more than 1 character longer than the second string, and any pairs of arguments where the first string does not contain all of the characters of the second string.
+
+3. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+
+We did not find any examples where contains1MoreThan incorrectly returned true.
+
+4. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+
+Any pairs of arguments where the first string consists of inserting exactly 1 character into the second string, but not at the end of the string.
+
+5. Describe all pairs of arguments to check for which contains1MoreThan crashes.
+
+We did not find any examples where contains1MoreThan crashed.
+
+6. What's wrong with contains1MoreThan?
+A substring of a string does not have reference equality to the string that it represents. Thus, line 22 will always evaluate to false, even when it should evaluate to true.
+
+"Testing shows the presence, not the absence of bugs". - Dijkstra

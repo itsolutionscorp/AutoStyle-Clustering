@@ -1,0 +1,11 @@
+1. contains1MoreThan returns true correctly when you add a letter to the end of the string.
+
+2. It returns false correctly when there are two different strings. 
+
+3. It never incorrectly returns true. 
+
+4. It incorrectly returned false when we added a letter either at the beginning or somewhere inside of the string. 
+
+5. It crashes if you do not input a string. 
+
+It was wrong because it had "==" instead of "equals()". Strings are objects, not primitive values, so == refers to the reference, which would be false. Equals() checks to see if the actual value is the same. 

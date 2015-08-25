@@ -1,0 +1,37 @@
+initial config file, goal file, comments
+dads,dads.goal,shortest solution is 58 moves
+dads+90,dads+90.goal,Dads rotated
+dads+180,dads+180.goal,Dads rotated
+dads+270,dads+270.goal,Dads rotated
+blockado,blockado.goal,Blockado (solvable in 74 moves)
+init.from.handout,goal.1.from.handout,"hard puzzle from project; referred to as ""The Donkey"" in Winning Ways (can be solved in 83 moves)"
+handout.config.1+90,handout.goal+90,Donkey rotated
+handout.config.1+180,handout.goal+180,Donkey rotated
+handout.config.1+270,handout.goal+270,Donkey rotated
+handout.config.2,goal.1.from.handout,"the second hard puzzle from project; referred to as ""The Century"" in Winning Ways (needs 100 moves)"
+century+180,century+180.goal,Century rotated 180 degrees
+handout.config.2,century.1.5.goal,"an even harder puzzle; referred to as ""Century and a Half"" in Winning Ways (needs 150 moves)"
+century+180,century.1.5+180.goal,Century and a Half rotated 180 degrees
+pandemonium,pandemonium.goal,6x6 board; needs 103 moves
+big.tray.1,big.tray.1.goal,100x100 tray with 1 block that needs to move to the other end of the tray
+big.tray.3,big.tray.3.goal,100x100 tray with 2 blocks that need to move to the other end of the tray
+big.tray.4,many.blocks.20.goal,ditto
+big.tray.4,many.blocks.20+180.goal,ditto
+big.tray.4,many.blocks.100.goal,ditto
+d209,d209.goal,www.puzzleworld.org/slidingblockpuzzles/d209.htm
+super-century,super-century.goal,www.puzzleworld.org/slidingblockpuzzles/superc.htm
+supercompo,supercompo.goal,www.puzzleworld.org/slidingblockpuzzles/4x5.htm
+lane.rouge,lane.rouge.goal,
+c22,22.goal,
+c25,15.23-27.30.41.goal,
+c26,15.23-27.30.41.goal,
+c43-45,45.goal,
+c46,46.goal,
+c53,53.54.64.goal,
+c54,53.54.64.goal,
+c55,55.56.goal,
+c64,53.54.64.goal,
+c71,71.goal,
+little.house,little.house.goal,
+quzzle,quzzle.goal,
+quzzle-killer,quzzle-killer.goal,

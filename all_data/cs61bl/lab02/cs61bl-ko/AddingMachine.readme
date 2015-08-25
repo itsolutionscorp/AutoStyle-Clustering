@@ -1,0 +1,10 @@
+Rahul Rangnekar (ko)
+Kelly Trinh (kf)
+
+1) We used a single while loop to complete the exercise.
+
+2) If we had two while loops, we could use the inner loop to continuously add numbers unless a 0 is hit. If a 0 is hit, it would go to the outer while loop, print the subtotal, add the subtotal to the total, reset the subtotal to 0, and then continue into the inner loop if the next number is not a 0. If the next number is a 0, the total would be printed and the program would be exited. 
+
+3) One-Loop: (1) simpler to code, (2) easier to see all three cases (non-zero, one zero, two zeros).
+Two-Loop: (1) more concise, (2) don't need to account for all cases as separate statements, just in case more feature or requirements are added.
+We prefer the one-loop.

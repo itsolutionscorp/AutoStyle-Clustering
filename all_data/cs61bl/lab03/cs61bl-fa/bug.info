@@ -1,0 +1,18 @@
+1) one character strings that are the same character like myString="a" with 
+   s = "", strings that differ by one character at the end like
+    myString = "javas" paired with  s = "java".
+2) strings with lengths of 0, like myString = "" with s = "", strings that do not
+   contain common characters like myString= "abc" with s ="def", strings that differ
+   by more than one character like myString = "javssa" and s = "java", strings like
+   myString = "" with s ="d". 
+3) No pair of strings. 
+4) Strings where the extra character is in the middle or beginning of the string, like 
+  my String = "javsa" paired with  s = "java" or myString ="sjava" with s ="java".
+5) Crashes when the arguments are not of type string, like integer arguments. Or, if
+   the arguments are of type null.
+  
+6) The error with the contains1MoreThan method is that the base case
+   uses == to test for string equality. However, because strings are objects
+   the equals method must be used to test equality. I figured it out by remembering
+   that == only compares references, not the actual equality of the objects. 
+  

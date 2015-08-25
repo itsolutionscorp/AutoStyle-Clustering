@@ -1,0 +1,106 @@
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+
+@RunWith(JUnit4.class)
+public class InsertionSortTest {
+        
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+        
+    @Test
+    public void isOK1() {
+        int[] arr = {1, 5, 4, 6, 8};
+
+        // This isOK call should return nothing because the array is sorted
+        // up through the element at index 1.
+        InsertionSort.isOK(arr, 1);
+
+        // This isOK call should throw an exception because the element 4
+        // makes the array up through the element at index 3 out of order.
+        exception.expect(IllegalStateException.class);
+        InsertionSort.isOK(arr, 3);
+    }
+    
+    @Test
+    public void isOK2() {
+    	int[] arr1 = {3, 3, 3};
+    	
+    	// This isOK call should return nothing because all the numbers
+    	// are the same, so the array is in order.
+    	InsertionSort.isOK(arr1, 2);
+    	
+    	int[] arr2 = {1};
+    	
+    	// This isOK call should return nothing because there is only one
+    	// number, so it has to be considered "in order."
+    	InsertionSort.isOK(arr2, 0);
+    	
+    	int[] arr3 = {1, 2, 3, 4, 5};
+    	
+    	// This isOK call should return nothing because the entire array
+    	// is in order.
+    	InsertionSort.isOK(arr3, 4);
+    }
+
+    @Test
+    public void insert1() {
+        int[] arr = {4, 5, 6, 2, 3, 9, 1, 7, 8, 0};
+        
+        for (int i = 0; i < arr.length - 1; i++) {
+            InsertionSort.insert(arr, i);
+        }
+    }
+
+    @Test
+    public void insert2() {
+
+        int[] arr1 = {3, 3, 3, 3, 3};
+        int[] arr2 = {1, 2, 2, 4, 4, 3};
+        
+        for (int i = 0; i < arr1.length - 1; i++) {
+            InsertionSort.insert(arr1, i);
+        }
+        try {
+            InsertionSort.isOK(arr1, 4);
+        } catch (IllegalStateException e) {
+        	System.err.println(e.getMessage());
+        }
+        
+        for (int i = 0; i < arr2.length - 1; i++) {
+            InsertionSort.insert(arr2, i);
+        }
+        
+        try {
+            InsertionSort.isOK(arr2, 5);
+        } catch (IllegalStateException e) {
+        	System.err.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void insertionSort1() {
+        int[] arr = {4, 5, 6, 2, 3, 9, 1, 7, 8, 0};
+        int[] result = InsertionSort.insertionSort(arr);
+        int[] check = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        
+        assertEquals(Arrays.toString(result), Arrays.toString(check));
+    }
+
+    @Test
+    public void insertionSort2() {
+
+        // YOUR CODE HERE
+        int[] arr = {4, 5, 2, 2, 3, 9, 1, 7, 8, 0};
+        int[] result = InsertionSort.insertionSort(arr);
+        int[] check = {0, 1, 2, 2, 3, 4, 5, 7, 8, 9};
+        
+        assertEquals(Arrays.toString(result), Arrays.toString(check));
+
+    }
+
+}

@@ -1,0 +1,77 @@
+EXPERIMENT 1
+		ArrayList al = new ArrayList();
+    	LinkedList ll = new LinkedList();
+    	Timer t = new Timer();
+    	
+    	t.start();
+    	for (int i = 0; i < 10000000; i++) {
+    		al.add(i);
+    	}
+    	System.out.println(t.stop());
+    	t.reset();
+    	
+    	
+    	t.start();
+    	for (int i = 0; i < 10000000; i++) {
+    		ll.add(i);
+    	}
+    	System.out.println(t.stop());
+    	t.reset();
+    	
+    	
+    	t.start();
+    	al.get(5000000);
+    	System.out.println(t.stop());
+    	t.reset();
+    	
+    	
+    	t.start();
+    	ll.get(5000000);
+    	System.out.println(t.stop());
+    	t.reset();
+
+For experiment 1, we timed how long it would take to add 10000000 
+elements to both the ArrayList and LinkedList, then timed how long it would take to get the 5000000th
+element. It took ~8000 milliseconds to add elements into the Array List
+and ~2000 milliseconds to add elements into the LinkedList.
+It took 0 milliseconds to get the element from the ArrayList
+and around 20-40 milliseconds to get the element from the LinkedList.
+It distinguishes between the two lists because adding elements into ArrayLists
+are supposed to take longer than adding elements into Linked Lists.
+Also indexing into ArrayLists takes constant time, whereas operations indexing into LinkedLists have
+to traverse through the list from either the beginning or end.
+
+
+
+EXPERIMENT 2
+		ArrayList al = new ArrayList();
+    	LinkedList ll = new LinkedList();
+    	Timer t = new Timer();
+    	
+    	for (int i = 0; i < 10000000; i++) {
+    		al.add(i);
+    	}
+    	
+    	for (int i = 0; i < 10000000; i++) {
+    		ll.add(i);
+    	}
+    	
+    	t.start();
+    	ll.get(3);
+    	System.out.println(t.stop());
+    	t.reset();
+    	
+    	t.start();
+    	ll.get(9999997);
+    	System.out.println(t.stop());
+    	t.reset();
+
+For experiment 2, we had a LinkedList with 10000000 elements
+and timed how long it would take to index into the 3rd and 9999997th elements.
+Both of these experiments took about 0 milliseconds.
+Because it's a doubly-linked list, when you index, it will start traversing
+from either the beginning or end of the list, whichever is closer, so 
+indexing near the beginning and indexing near the end should take a similar
+amount of time. If it was a singly linked list, indexing near the end of 
+the list would take significantly longer because it can only traverse from
+the beginning of the list forwards.

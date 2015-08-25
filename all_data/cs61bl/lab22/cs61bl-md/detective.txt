@@ -1,0 +1,44 @@
+Insertion : Best n, Avg n^2, Worst n^2
+Selection : Best n^2, Avg, n^2, Worst n^2
+Merge : Best nlogn, Avg nlogn, Worst nlogn
+Quick : Best nlogn, Avg, Worst n^2
+Heap : Best nlogn, Avg nlogn, Worst nlogn
+
+Alpha = Merge sort
+N : 500
+Random : 3834/8976/3
+InOrder : 2272/8976/0
+ReverseOrder : 2216/8976/0
+--> Number of movement is always constant, so it is merge sort. (When two sub-list are merged each other, number of movement is always equal to the total number of elements in merge result.) Also this sort requires much less comparisons than others.
+
+
+Beta = Insertion sort
+N : 32
+Random : 259 com, 291 mov, 0 t
+InOrder : 31 com, 62 mov, 0 t
+ReverseOrder : 496 com, 558 mov, 0 t
+--> n-1 comparison in inOrder and n(n + 1) / 2 comparison in reverseOrder
+
+
+Gamma = Quick sort
+N : 500
+Random : 8002/3658/0
+InOrder : 125748/499/1
+ReverseOrder : 125998/1249/0
+--> Selection of the quicksort pivot is the first element in not-yet-sorted list. Significantly increased number of comparison in both inorder and reverse order indicates quicksort.
+
+
+Delta = Heap sort
+N : 500
+Random : 7394/6521/1
+InOrder : 7756/6852/1
+ReverseOrder : 7010/6174/1
+--> Always similar number of comparisons and movements.
+
+
+Epsilon = Selection sort
+N : 32
+Random : 496 com, 93 mov, 0 t
+InOrder : 496 com, 0 mov, 0 t
+ReverseOrder : 496 com, 48 mov, 0 t
+--> always n(n + 1)/2 comparison, 0 movement in InOrder

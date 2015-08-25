@@ -1,0 +1,54 @@
+Timer Experiments
+
+Experiment 1:
+
+Procedure:
+Using Timer.java, we can measure how long it takes for different 
+programs to run so that we can compare their run times.
+We can do this my creating a main method in which we create either a linked list or 
+an array list. Then we can start the timer and tell the array list do do a function 
+such as add, remove, or size a million times. After the function has been processed we 
+can stop the timer and compare the times for a linked list vs. an array list.
+  
+Timing experiments for java.util classes: 
+For a linked list to add 1 million elements, it took 267 seconds. 
+For a linked list to remove 1 million elements, it took 12 seconds. 
+For a linked list to get the size in a 1 million element 
+list 1 million times, it takes 2 seconds.
+For a array list to add 1 million elements, it took 20 seconds. 
+For a array list to get the size in a 1 million element 
+list 1 million times, it takes less than a second. 
+
+Description:
+The linked list is faster at functions such as adding items to the list since it
+can just add a new node. Array Lists, on the other hand, are faster at indexing to certain 
+values in the lists. This shows that depending on how the list is being used, different 
+implementations may be better. 
+
+
+Experiment 2:
+
+Procedure:
+In the main method in the timer class, we can create a new Linked List. We can start 
+the timer, run a function a million times, and the stop the timer. For this experiment, it 
+is best to add 1 million elements to a list and the access the 1000th element and the 
+999000th element and then compare times. A double linked list should be able to access both
+elements at the same speed since it can use both previous and next to access the elements. 
+In a single linked list it would be faster to get the elements at the beginning rather
+than the end since there is no way to access the previous element. 
+
+Timing experiments for java.util classes: 
+For a linked list to get the 1000th in a 1 million element 
+list 1 million times, it 1760 seconds. 
+For a linked list to get the 999000th in a 1 million element 
+list 1 million times, it 1775 seconds. 
+
+Description:
+We know that it is double linked, not single linked, since it is takes the same amount of 
+time to access both elements, meaning it can traverse the list both forward and backward. 
+If it was a single linked list, it would take longer to get the 999000th element since 
+it would have to use myNext to traverse through 999000 elements to get the element we want.   
+
+
+
+

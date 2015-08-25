@@ -1,0 +1,26 @@
+The bug is that the program doesn't check if the one added character is in middle of the string.
+For example, if you compared "a2bc" with "abc", it should return true, but the program will return
+false.
+
+Also, in the last else case within the contains1MoreThan method, they use an == which compares 2
+objects. However, this would always come out as false because the substring method used in that
+line will always create a new String object which causes that to always be something other than
+the string s you compare it to.
+
+1. Adding a character to the end of the string will always work
+
+2. It would correctly return false when there is more than one character added to the end of the
+string
+
+3. It never returns true incorrectly for any pairs of strings
+
+4. It incorrectly returns false if there is a character in the middle of the string, or whenever
+the comparison reaches the last else statement as described above. So if the added character is
+in the beginning of the string or in the middle, it will incorrectly return false.
+
+5. If you enter a non-String into the method, the code will crash.
+
+We figured out the bug by thinking about the fact that the String is an object and the fact that
+we knew that we needed to use the .equals() method a opposed to the == operator. Then we figured
+out that the substring method would always return a new String and so the == would never come out
+as true.

@@ -1,0 +1,23 @@
+Alpha: Mergesort
+
+We know this because the number of comparisons is much less than that of Delta which we narrowed down to merge and heap sort due to indications based on scale and list order. Merge sort takes nlogn comparisons whereas heap sort takes n + nlogn.
+
+
+Beta: Insertionsort
+
+We know this because it takes a much longer amount of time for reverse order lists which indicates n^2 time and it doesn’t have a constant ration of comparisons. 
+
+
+Gamma: Quicksort
+
+We know this because it performed well at various list lengths for random and almost ordered list, however it failed horrifically at in order and reverse order lists which makes sense because quick sort works best when the pivot is near the median.
+
+
+Delta: Heapsort
+
+We know this based on the process of elimination ;)
+
+
+Epsilon: Selectionsort
+
+We know this because when given an in order list. the number of movements is 0 and the number of comparisons is equal to comparing each element to every element after it which is (n)(n-1)/2.

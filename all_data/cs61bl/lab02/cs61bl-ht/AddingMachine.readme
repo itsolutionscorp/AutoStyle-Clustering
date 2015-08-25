@@ -1,0 +1,9 @@
+1. Uses a single loop
+
+2. use another loop to summing up the numbers until getting zero, which replaces two last conditional statements.
+
+3. A single loop version
+	First, every iteration has one input.
+	Second, it's more clear that it shows every cases.
+
+ 

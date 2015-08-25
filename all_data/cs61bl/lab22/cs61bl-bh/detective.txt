@@ -1,0 +1,9 @@
+Alpha is heap sort. Both Alpha and Delta run fast in all situations, but Alpha uses many less comparisons.
+
+Beta is insertion sort. Beta and Epsilon had the worst runtimes with larger lists, but Beta's runtime improved dramatically when the list was already sorted.
+
+Gamma is quicksort. Gamma had a good runtime with larger lists except when the list was already in order or in reverse order.
+
+Delta is merge sort. Delta runs fast in all situations and uses more comparisons than Alpha
+
+Epsilon is selection sort. Epsilon had a bad runtime with larger lists and didn't improve when the list was already sorted.

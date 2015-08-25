@@ -1,0 +1,7 @@
+1) It's always true when the first argument has an extra character at the end
+2) It's always false when they contain completely different letters or more than one extra
+3) There is no pairs 
+4) When you insert it somewhere else
+5) No pairs of strings
+
+It doesn't take order into account order and only works when you add an extra character at the end

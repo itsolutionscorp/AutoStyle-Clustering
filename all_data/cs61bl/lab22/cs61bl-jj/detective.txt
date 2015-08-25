@@ -1,0 +1,16 @@
+Beta: InsertionSort
+A lot more comparisons when the list is in ReverseOrder and the least number of comparisons when the list is InOrder, matching the conditions for InsertionSort.  
+
+Alpha: MergeSort
+Fewest number of comparisons meaning shortest runtime out of all of them for the Random List, which matches the case for MergeSort.  
+
+Gamma: Quicksort
+Noticeably worst case behavior occurs for the Inorder and Reverse order cases as compared to when the list is Random, which is the case for Quicksort.  
+
+Delta: HeapSort
+Similar number of comparisons for Inorder, Reverse, and Random lists, which is analogous to the consistent runtime for selection sort or HeapSort for any ordering of the elements, but overall much fewer comparisons for each than the Epsilon option which indicates HeapSort since it has a lesser runtime than Selection Sort.  
+
+Epsilon:Selection Sort
+Same number of comparisons for Inorder, Reverse, and Random lists, but overall much more comparisons for each than Delta, indicating that this sort has the consistent runtime that Selection Sort and Heap Sort have for all types of ordering of algorithms but the is Selection Sort and not HeapSort because the number of comparisons is greater indicating a higher runtime than the Delta option.  
+
+

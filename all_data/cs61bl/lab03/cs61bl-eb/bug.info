@@ -1,0 +1,15 @@
+
+1) Arguments like ("abc2", "abc") return true correctly. 
+2) Arguments like ("abc", "def") return false correctly. 
+3) We cannot find such pairs of strings that return true incorrecty. 
+4) Arguments like ("abc", "bc") return false incorrectly. 
+5) We cannot find such pairs of strings that result in a crash. 
+**Explanation of the Bug**
+
+The bug resides in the last else statement : 
+"return myString.substring(1) == s;"
+
+This statement checks the rest of my string is equal to s when the first letter of my string does not equal the first letter of s. However, the "==" operator checks the pointer reference (the memory location of the string object) instead of the actual content in the string. Therefore, because mystring and s will always be in different memory locations (they are two objects), this line will always return false even when the content is the same. The correct way to compare two strings is to use the method "myString.substring(1).equals(s)". 
+
+
+-Yunsheng Bai (ec) and Audrey Tsai (eb) 

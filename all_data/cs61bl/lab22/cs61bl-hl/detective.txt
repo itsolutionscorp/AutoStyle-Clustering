@@ -1,0 +1,36 @@
+# of comparisons
+N	16	32	64	128
+alpha	42	124	304	740
+beta	59	263	1070	4640
+gamma	101	244	607	1282
+delta	80	226	567	1422
+epsilon	120	496	2016	8128
+
+alpha = O(n)
+beta = O(n^2)
+gamma = O(n)
+delta = O(nlogn)
+epsilon = O(nlogn)
+
+# of movements
+N	16	32	64
+alpha	128	320	768
+beta	81	371	1271
+gamma	66	154	324
+delta	129	281	643
+epsilon	45	93	189
+
+alpha = O(n)
+beta = O(n^2)
+gamma = O(n)
+delta = O(n)
+epsilon = O(n)
+
+Conclusion
+alpha corresponds to bubblesort
+beta corresponds to quicksort (it has the worst case)
+gamma corresponds to selection sort?
+delta corresponds to insertion sort 
+epsilon corresponds to mergesort
+
+

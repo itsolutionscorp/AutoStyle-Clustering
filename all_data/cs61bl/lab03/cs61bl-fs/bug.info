@@ -1,0 +1,23 @@
+1. Pairs that correctly return true are pairs where the first pair is the second with a character added at the end.
+
+2. Correctly returns false when:
+	a. the first string is of length 0
+	b. when the first string is the second with 0 or two or more characters added to the end
+	
+3. The bug only causes incorrect falses because the == operator can yield false for two strings that we consider to be equal. Thus there will be no incorrect true results.
+
+
+4. Incorrectly returns false when the inserted character is not at the end of the smaller string and the length of the smaller string is 1 or larger. 
+   We got confused by check("a"," ") returning false but then realized that space counts as a character so it's correct.
+	
+	
+5. We could not find any case where the program crashed. There are cases where it won't compile (such as passing check something that is not a string)
+   but weren't if this is what was meant by crash.
+	
+	
+	
+	******
+	
+	Explanation of the bug: the == comparison operator used in the last else statement compares bits, so it will not recognize that two strings are 
+	"equal" even if they consist of the same characters because strings are objects not primitive data types and thus two different strings will have 
+	different bit patterns even if they read them the same way.

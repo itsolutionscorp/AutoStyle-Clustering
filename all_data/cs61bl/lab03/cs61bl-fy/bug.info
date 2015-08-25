@@ -1,0 +1,30 @@
+		Exercise: When It Works, and When It Doesn't
+		
+		Test cases
+		
+		check("abc", "def"); // should be false
+		check("abc2", "abc"); // should be true
+		
+		//Added Checks below (Number 1)
+		check("2", ""); // should be true
+		check("a2", "a"); // should be true
+		
+		//Added Checks below (Number 2)
+		check("abc1", "def");
+		check("abc11", "abc");
+		
+		//No pairs of strings (Number 3)
+		
+		//Added Checks below (Number 4)
+		check("ab2c", "abc"); // should be true
+		check("a2bc", "abc"); 
+		check("2abc", "abc");
+	
+		//No pairs of Strings (Number 5)
+		
+		
+		Explanation of the Bug
+			return myString.substring(1) == s;
+		The line given above doesn't compare the data in the first argument, but compares reference.
+		As substring method makes new string, it always return false.
+		

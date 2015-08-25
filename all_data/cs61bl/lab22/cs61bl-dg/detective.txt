@@ -1,0 +1,26 @@
+Dan March, cs61bl-dg
+Joseph Simonian, cs61bl-fo
+
+Alpha - Heap sort
+
+The runtime for this algorithm is relatively constant, despite original list ordering. This is likely 
+because of the fact that not many comparisons are needed to implement it.
+
+Beta - Insertion Sort
+
+For an ordered list, this algorithm doesn’t take long at all, but for a reversed order list, it takes 
+a very long time. 
+
+Gamma - Quick Sort
+
+The runtime for this is long, despite whether the original list was relatively ordered or unordered.
+
+Delta - Merge Sort
+
+The runtime for this is relatively constant with respect to original list ordering, but the number of 
+comparisons required is greater than that for other algorithms we’ve dealt with here, such as the 
+heap sort.
+
+Epsilon - Selection Sort
+
+Despite the ordering of the original list, this algorithm takes a long time to complete. 

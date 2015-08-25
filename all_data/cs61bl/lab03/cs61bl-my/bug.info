@@ -1,0 +1,22 @@
+1) Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+A:Any pair that the extra letter is exactly the last letter.
+
+2)Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+A:Any pair that does not have exactly 1 extra letter in the end in mystring.
+
+3)Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+A:No pairs.
+
+4)Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+A:When the extra letter is not the last letter.
+
+5)Describe all pairs of arguments to check for which contains1MoreThan crashes.
+A:It will never crash.
+
+Explanation of the Bug:
+The code "myString.substring(1) == s" will always be false, because myString.substring(1) and s do not point to the same object. For example, if myString = "1a" and s = "a", myString.substring(1) will be "a", but this "a" is a different object from the "a" that s point to.
+We tried some pairs and finally found a example that was not correct. Then we analyze the code and find this bug.
+
+
+
+

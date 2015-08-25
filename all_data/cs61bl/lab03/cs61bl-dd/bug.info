@@ -1,0 +1,5 @@
+1. The pairs that the program correctly returns true are (abc2,abc), (abcde,abcd). The difference occurs at the end of the string.
+2. The pairs that the program correctly returns false are (abc,def), (abcdee,abc), (abc,cba),(abdce,abcd). These pairs either have same length, more than one different characters, more than one added characters or in wrong order.
+3.No pairs of strings.
+4.(fabc,abc),(abdc,abc). These pairs do not have the change either at the middle of the string or at the end of the string.
+5.When the arguments are not strings.

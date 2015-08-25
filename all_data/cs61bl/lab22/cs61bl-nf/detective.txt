@@ -1,0 +1,5 @@
+Alpha: mergesort: # comparisons was always approximately (but less than) n*log(n)
+Beta: insertion: usually slow, except for an array that was already sorted
+Gamma: Quicksort: Fast on random arrays, but slow on arrays that were already ordered
+Delta: Heapsort: the last one that was left
+Epsilon: Selection sort: Always as slow as beta at its slowest

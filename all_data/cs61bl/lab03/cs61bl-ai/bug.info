@@ -1,0 +1,19 @@
+1. Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+if the strings are the same and myString - s = 1
+
+2.Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+myString and s are the same length
+s is longer than myString
+myString - s >1
+myString does not share the same chars as s
+
+3. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+no pairs of strings
+
+4. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+When the added char is not the last char
+
+5. Describe all pairs of arguments to check for which contains1MoreThan crashes.
+If the inputs are not both strings.
+
+The bug is that there isn't a condition to check whether a character that isn't the last one is the addition. This would require comparing the recursive calls to ensure that there is only ONE addition. The else condition checks if they point to the same object, but it should check to see if the contents are the same.

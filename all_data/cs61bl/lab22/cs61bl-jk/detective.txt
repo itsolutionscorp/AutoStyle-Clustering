@@ -1,0 +1,22 @@
+# Sorting out the sorts cs61bl
+
+ > Epsilon is selection sort: 
+ 	because for different lists, the comparisons are always n^2
+ 
+ > Beta is Insertion sort: 
+ 	It's the second slowest and have n^2 comparason for reverse ordered lists, n comparason for inorder list
+ 	
+ > Gamma is quick sort:
+ 	For inorder and Reverse order, this is very slow; but for average case, it's relatively fast. 
+ 	
+ > Alpha is merge sort:
+ 	It need less comparison compared to heap sort..
+ 
+ > Delta is heap sort: 
+ 	heap sort is like selection sort, so the run time for different lists are almost the same
+ 	
+ Alpha - MergeSort
+ Beta - InsertionSort
+ Gamma - QuickSort
+ Delta - HeapSort
+ Epsilon - SelectionSort

@@ -1,0 +1,7 @@
+1. Time how long looking up an index takes, and adding a new element takes since both data structures have those methods. Also you can time how long it takes to remove an element from the structure.
+
+2. Our evidence suggests that linked lists run faster if there are a lot of adding new elements. It also suggests that looking up an index is faster in Arraylists.
+
+Our experiment 2 starts at the tail and the proceeds to iterate through the structure while at the same timing iterating starting at the head. Doubly linked lists have two pointers where single linked lists have one pointer.
+
+

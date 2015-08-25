@@ -1,0 +1,27 @@
+Corresponding relationship:
+Alpha: Merge Sort Algorithm
+Beta: Insertion Sort Algorithm
+Gamma: Selection Sort Algorithm
+Delta: Heap Sort Algorithm
+Epsilon: Quicksort Algorithm
+
+How do we determine it:
+First of all we can determine that button Epsilon refers to the 
+Quicksort algorithm. The reason is that Quicksort always does 
+n*(n-1)/2 comparisons no matter what the order of the list is. 
+Also Quicksort does not need to do any movements if the list is 
+already inorder. This is what button Epsilon shows. 
+Button Gamma refers to the selection sort algorithm, because when
+ the list is inorder, selection sort algorithm only needs to do
+  n-1 moves, which is what button gamma shows. 
+Button Beta refers to insertion sort algorithm, because when the 
+list is in order, it only needs to do n-1 comparisons. However, 
+when the list is random, this algorithm would do a lot of comparisons 
+and movements. This is what button Beta shows.
+For the rest two buttons, button alpha refers to merge sort algorithm 
+and button delta refers to heap sort algorithm. The reason is that
+ when we do the heap sort algorithm, the total times of comparison
+  will be greater than the times of movement, while the merge sort
+   algorithm would have the opposite result. Since when we click button alpha,
+    the number of comparison is less than the number of movements, alpha would 
+    refers to merge sort algorithm. Therefore Delta would refer to heap sort algorithm.

@@ -1,0 +1,11 @@
+Which version did you implement for the exercise?
+	We did the single loop version.
+
+Describe in words how the other version would work, without actually coding it.
+	The two-loop version would have another while loop inside the while (true) that iterates as long as justStarting is true, and another one where subtotals are returned from a single zero input until two zeros are inputted. Once this happens, the code exits the second while loop and returns the total.
+
+    Which version do you prefer? Describe two reasons for preferring the one-loop version and two reasons for preferring the two-loop version.
+	We prefer the single loop version. It decreases the chance of having an infinite loop and is simpler to understand.
+
+	The two-loop version is modular in the sense that it has one loop for dealing with subtotals and another one for dealing with the total. Another advantage would be faster run time because it does not have to check whether two zeros were entered every iteration.
+

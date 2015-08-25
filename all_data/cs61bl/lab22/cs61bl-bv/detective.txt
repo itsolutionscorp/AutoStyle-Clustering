@@ -1,0 +1,20 @@
+Steven Truong cs61bl-bv
+Eric Huynh cs61bl-bu
+
+ALPHA: Heap Sort 
+	By elimnation we know that this must be heap sort assuming our predictions are correct with the other four sorts. When the array is in order or in reverse order, the number of comparisons are similar. When we switch over to more random arrays, the number of comaparisons changes.
+	
+
+BETA: Insertion Sort 
+	Made a large InOrder array and Alpha yields the quickest sort time out of the 5 sorts. When passing in a reversed array, it has the almost the worst run time. However when it sorts an already sorted array, it's time is quicker than selection sort. Also, when a reversed array list is passed in, it makes an insanely large number of comparisons and movements. 
+
+
+GAMMA: Quick Sort
+	Made a huge InOrder array and this yields the worst case for the Quicksort algorithm. Also, given an array with n elements, EPSILON makes n*(n-1) / 2 comparisons.
+
+
+DELTA: Merge Sort
+	Comparing all types of arrays (InOrder, ReverseOrder, AlmostOrder, and Random) with the same length shows approximately the same number of comparisons for the delta sort. Since merge sort partitions and makes the same number of comparisons in any case, it makes sense that this is merge sort. This is further supported by the fact that the number of movements is consistent. 
+
+EPSILON: Selection Sort 
+	Made a large InOrder array and Gamma yields the quickest sort time out of the 5 sorts. On the other hand, when passing in a reversed array to Gamma, it has the worst runtime. These are the characteristics of selection sort. 

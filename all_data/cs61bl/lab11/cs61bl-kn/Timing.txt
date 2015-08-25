@@ -1,0 +1,11 @@
+Experiment 1:
+We can compare the run times of the get and the run times of the add. The run time of get should be constant for ArrayList while it is linear for linked list, while
+the add is linear for arraylist (after it has met capacity) and constant for the linked list since it has a pointer to the tail.
+
+
+Experiment 2:
+To test that the LinkedList class is implemented as a doubly-linked list and not a singly-linked list with a head and tail pointer, we propose to time
+how fast descendingIterator and listIterator compares for each execution of next. If they are the same time at each execution of next, then it's 
+doubly linked. If it were not, it would take linear time to get the next item each time other than when at the tail since it must start from the head. Also, we can test how fast
+LinkedList's reverse method is. If it is a doubly-linked list, then regardless of the size, it will take the same time to reverse because it only needs 
+to set the head pointer to the tail and the tail pointer to the head.

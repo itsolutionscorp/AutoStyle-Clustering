@@ -1,0 +1,15 @@
+1. All pairs of arguments for which contains1MoreThan correctly returns true
+	All pairs where both strings are the same, but one has exactly one more character at the end (just the end).
+2. All pairs of arguments for which contains1MoreThan correctly returns false
+	All pairs where one string needs to do more than just adding a character to become exactly the other string (extra actions may include scrambling then adding, like "abc" to "acbd").
+3. All pairs of arguments for which contains1MoreThan incorrectly returns true
+	No pairs of string.
+4. All pairs of arguments for which contains1MoreThan incorrectly returns false
+	All pairs where the single added character is added anywhere besides the end (for example, "dabc" and "abc" should return true, but it returns false).
+5. All pairs for which contains1MoreThan crashes
+	All pairs where one or both of arguments are not String type.
+	
+The contains1MoreThan method iterates through both string by individual character, but it can't detect if the added character is added anywhere besides the end.
+It can only detect added character if it's added at the end.
+We figured this out by changing the position of the added character, and find that the position matters.
+Moreover, we found that the function behaves as it should be, returning false for all cases where it should be returning false.

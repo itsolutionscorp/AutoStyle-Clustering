@@ -1,0 +1,5 @@
+Alpha: Heap sort. The number of movements is constant. 
+Beta: Insertion sort, because the inorder array takes n-1 comparisons to be in order. In Insertion Sort, every element is looked at if the elements are in order. 
+Gamma: Selection sort, because in selection sort, elements are swapped with each other to find the correct order, which means n-1 steps, or movements. 
+Delta: Mergesort, by process of elimination.
+Epsilon: Quicksort, because the number of movements is less than that for mergesort.

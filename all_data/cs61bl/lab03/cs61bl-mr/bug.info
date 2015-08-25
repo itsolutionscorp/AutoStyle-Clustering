@@ -1,0 +1,18 @@
+1. The inserted letter is located at the end of the string.
+2. It correctly returns false if more than one letter are added; if no letter is added; if the 
+letters in myString do not contain the same letters with the same order of the letters in String s.
+3. No pair of strings.
+4. The inserted letter is located in the beginning or in the middle of the string.
+5. As long as an user puts strings into the method as parameters, it is not going to crash.
+
+The bug exists in the line "return myString.substring(1) == s;". While the content of 
+myString.substring(1) may be the same as s, "==" will only compare the reference of these two
+reference variables rather than the content of the objects. myString.substring(1) and s are pointing
+to different objects; therefore, this line will always return false whether myString.substring(1) and
+s are actually the same or not. We called check on the pair "2a" and "a", and the pair "a2b" and "ab".
+These two pairs should all return true, while the program returned false for both of them. We conclude
+that the bug will cause the program to return false incorrectly when the inserted letter is in the
+beginning or in the middle of a string. In these two cases, the line that actually returns the result
+is the line "return myString.substring(1) == s;", because these two cases do not satisfy the condition
+"myString.length() == 0" or "s.length() == 0". Hence, we determined that the bug is in the line "return
+ myString.substring(1) == s;".

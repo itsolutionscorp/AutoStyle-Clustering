@@ -1,0 +1,25 @@
+Experiment 1
+
+In order to determine performance differences between ArrayList and LinkedList, we 
+would check how long it takes to (a) create new lists, (b) add to these lists, and 
+(c) delete items from new lists. This can be done using the methods available in both 
+ArrayList and LinkedList. If these commands are placed in the main method, we will be 
+able to use the Timer class to determine how long it takes each class to perform the 
+given actions. It is important to note that each class must perform the creation and
+deletion actions the same number of times. 
+
+The results distinguish between the two because it shows that the implementation time 
+between ArrayList and LinkedList is different. Specifically, we see that ArrayList is 
+faster in get(), but slower when using remove(). Insertions and removals are faster in 
+LinkedList.
+
+Experiment 2
+LinkedList can be proven to be a doubly-linked list rather than a singly-linked list
+because of the properties of a doubly-linked list versus a singly-linked list. 
+Specifically, doubly-linked lists have a myPrev instance variable (or an equivalent
+instance variable that points at the previous node). This can be checked by looking to
+see if, when a new LinkedList is created, changing a given node changes the myPrev
+variable of the node related to myNext. 
+
+The List wrapper can confuse things in the experiment, but we can see that the myPrev
+instance variable proves that LinkedList is, in fact, a doubly-linked list.

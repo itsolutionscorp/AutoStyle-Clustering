@@ -1,0 +1,7 @@
+1. Two strings whose characters are identical except for the additional of a single character. 
+2. Two strings where the difference of their length is not one. Two strings that differ by more than two characters.
+3. There are no pairs of strings. 
+4. Two identical strings who share all but one character and the aforementioned character is not placed at the end of the second string. Two strings that differ by only one character, but differ in order of their characters. 
+5. There are no pairs of strings. 
+
+The error in the method is that it checks the consecutive order of both strings instead of just the additional single character's location. 

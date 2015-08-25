@@ -1,0 +1,34 @@
+First button: Selection sort because it scanned all the items to find the smallest.
+Then, it swapped into the position as the first item. This process
+repeated on the remaining items. It also has a lot of movement which happens in selection 
+sort in order to go through the need to sort list and put it in the already sorted
+list.
+
+
+Second button: Heap sort because it added all the items into a heap. Then it popped the
+largest item from the heap and inserted that item at the end. This process
+repeated for all the items. There is a lot of movement because it needs to bubble down t
+reorder. However, it doensn't have as much because the run time is O(n log n).
+
+
+Third button: Merge sort because there was two arrays and it picked the smaller of the
+2 values to put into the final array. This process repeated until we ended
+up with a complete final array. This has the second least movements and there isn't a lot of
+movement in merge sort since you are comparing within the sub-groups.
+
+
+Fourth button: Insertion sort because we are starting with one element on the left and
+one unsorted element will be on the left. It took the first unsorted
+item and inserted it into the sorted list. Then it repeated. It should have the second
+most movement because the run time is O(n^2) if it's worst and O(n) if it's best. Also,
+it should have a little more movement since it needs to also be sorted and swapped.
+
+
+Fifth button: Quicksort because it picked a pivot/middle item. Then it partitioned to
+the left and right side (one being less than the pivot and one being
+more than the pivot). The pivot goes between the two lists and quicksort
+is repeated on the sublists until a sublist of size 1 is obtained.
+Then it combined the lists. Also, it has a lot of comparisons and less movement.
+
+
+

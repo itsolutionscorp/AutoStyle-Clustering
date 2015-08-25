@@ -1,0 +1,26 @@
+
+
+ALPHA : Merge Sort
+Regardless of whether the list is in order or reverse, 
+it does the same number of comparisons
+
+
+BETA : Insertion Sort
+If it is already sorted, it runs faster since it just adds 
+the element to the end. If it is in reversed order, it takes a lot 
+longer since it has to add the element to the front of the list.
+
+GAMMA : Quick Sort
+It has the fastest runtime.
+
+
+DELTA: Heap Sort
+Heap sort should be slightly faster for a reversed list since it doesnt have to 
+bubble down elements when adding the element to the heap.
+
+
+
+EPISILON : Selection Sort
+It takes the exact number of moves for a list inorder and a list in reverse order. 
+Selection sort finds the minimum and adds it to a new list, so it should make the 
+same number of movements regardless of whether it is in inorder or in revers order.

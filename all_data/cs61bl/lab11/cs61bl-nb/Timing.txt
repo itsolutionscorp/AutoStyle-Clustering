@@ -1,0 +1,5 @@
+Experiment 1: We implement an arraylist and an linkedlist both with 1000000 integers. Then we try to get 100000th element in both lists. After we use timer, it takes 0 millionsecs to get 100000th element in arraylist, but it takes 2 millionsecs to get 100000th element in linkedlist. We repeated several times to get different elements. We find it always takes 0 millionsecs to get element in arraylist, but the time varies for linkedlist. 
+Because indexing into arraylist takes constant time, but finding an element in linkedlink at nth position takes O(n) time.
+
+Experiment 2: We implement an singly linked list (with tail pointer) and a linkedlist imported from java.util. Both list has 1000000 integers. Then we tried to get the second to last element of both list. it takes longer when we timer the singly linked list. 
+So we can get a conclusion that the imported LinkedList is implemented by doubly linkedlist. Because it can traverse both ways, so it takes less time.

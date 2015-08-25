@@ -1,0 +1,25 @@
+﻿Alpha: Selection Sort
+Beta: Insertion Sort
+Gamma:  Heap Sort
+Delta: Merge Sort
+Epsilon: Quick Sort
+
+
+1. N = 32, Inorder: A: 80/320/0 B: 31/62/0 G: 558/31/0 D:231/304/0 E: 496/0/0
+
+E made no movements, can only be Quick Sort
+B made 31 comparison, therefore Beta is Insertion Sort
+ 
+2. N = 32, ReverseOrder: A: 80/320/0 B: 496/558/1 G: 574/79/1 D: 202/270/0 E: 496/48/0
+
+A made same movements, therefore Alpha is Selection Sort
+
+Test B: for insertion sort, the reverse order takes far more time, correct
+
+3. N = 7033, ReverseOrder: (Time)  G: 68 D: 5
+    N = 7033, Random: (Time) G: 3 D: 3
+
+It took G far more time to sort the reverse order, therefore, Gamma is Heap Sort.
+On the contrary, it took D almost the same time to sort both of them, therefore, Delta is Merge Sort.
+
+

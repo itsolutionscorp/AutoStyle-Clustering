@@ -1,0 +1,11 @@
+1. All pairs of strings where one string has the original letters of the other string together and then the 1 extra character at the end.
+
+2. All pairs that have more than or less than 1 extra character.
+
+3. No pairs.
+
+4. All pairs of strings where one string has the original letters of the other string but the 1 extra character is not at the end. (it could be in the front or somewhere in the middle)
+
+5. No pairs.
+
+What is wrong with the method is that it was comparing strings with the "==" operator instead of equals. The == operator just sees if the two strings are the exact same copy. I figured it out by using a debugger and seeing that the == operator returned false even though the two strings contained the same characters.

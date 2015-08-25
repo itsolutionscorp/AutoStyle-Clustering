@@ -1,0 +1,4 @@
+1.) We used the one while loop version 
+2.) In the other version (two while loops), in the inner while loop, it keeps track of the subtotal until a zero is called. 
+The outer while loop keeps track of the total and stops when it detects 2 consecutive 0s.
+3.) We prefer the method which only requires 1 while loop. The one while loop is easier to read and debug for humans and runs at a much more efficient rate.  

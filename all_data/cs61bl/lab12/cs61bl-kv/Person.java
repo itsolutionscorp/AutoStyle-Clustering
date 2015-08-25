@@ -1,0 +1,35 @@
+public class Person {
+
+	private String myName;
+	public boolean iveChanged = false;
+
+	public Person(String name) {
+		this.myName = name;
+	}
+
+	// return a String representation of the Person object
+	public String toString() {
+		return myName;
+	}
+
+	// Change the name of the person
+	public void changeName(String newName) {
+		this.myName = newName;
+	}
+	
+	@Override
+	public int hashCode(){
+		return myName.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object o){
+		if (!(o instanceof Person)){
+			return false;
+		}
+		return this.myName == ((Person) o).myName;
+	}
+	
+	// TODO add additional methods
+	
+}

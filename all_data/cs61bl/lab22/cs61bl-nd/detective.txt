@@ -1,0 +1,10 @@
+
+alpha is merge : no matter what selection the comparisions were roughly equal and actionswere exactly equal. This is what we would expect from merge since its only vriation is if one list runs out of item for comparison.
+
+beta is selection : inOrder< random< ReverseOrder. If the largest thing is first then it craps on the functions fidning the smallest item.
+
+gamma is quicksort : This performs better when it is random. In quicksort if it is reverseOrdered or ordered then it gets all heaped into one list to be sorted (thus crapping on its runtime).
+
+delta is heap : runs in a near 1:1 ratio, that kinda of horrible consistency has to come from heap, which runs terrible compared to merge but maintains about ~2000 each action and movement with its log time.
+
+epsilon is insertion : there is 0 movements if it is inorder. It sucks if the list is not. Since insertion just appends if it is already in order, it would have 0 movements.

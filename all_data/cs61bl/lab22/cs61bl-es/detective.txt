@@ -1,0 +1,19 @@
+Alpha: Heapsort because it was faster to sort inorder and reverse
+lists than almost ordered or random lists.
+
+Beta: Insertion sort because for an already ordered list of N items,
+there will only be N-1 comparisons for each time you expand the size of 
+the subset you're looking at.
+
+Gamma: Quicksort because it used less comparisons for a random list.
+If a list is inorder, reverse, or almost, it would likely choose a pivot that
+is farther from the median and take longer to sort the whole list.
+
+Delta: Merge sort because it took about the same amount of comparisons
+for each list property (~17000-18000 for a 1045-element list). 
+
+Epsilon: Selection sort because the number of comparisons should be the same
+regardless of what the list properties are since for the ith iteration, you
+always have to iterate through the last n - i + 1 items to find the smallest
+item in the list to put in the sorted sublist and because calling selection
+sort on a already sorted list should have 0 movements.

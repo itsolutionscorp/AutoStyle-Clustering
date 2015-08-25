@@ -1,0 +1,11 @@
+Q. Which version did you implement for the exercise?
+A. We use only single loop.
+
+Q.Describe in words how the other version would work, without actually coding it.
+A.The inner loop controls the "subtotal" loop, and the outer loop      controls the "total" loop.
+
+Q.Which version do you prefer? Describe two reasons for preferring the 	 one-loop version and two reasons for preferring the two-loop version.
+A.We prefer "single loop" version. 
+  Reasons for one-loop version: simple; save spaces (not bothering 	writing another loop, looks "nicer")
+  Reasons for two-loop version: Straight forward; think easier
+

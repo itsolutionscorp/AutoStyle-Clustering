@@ -1,0 +1,8 @@
+
+We implemented the single loop version. 
+The double loop would work by entering the a second loop inside the main while loop when adding up subtotals.
+ We prefer the one-loop version. 
+ 
+ One reason for preferring the one-loop version is that it has less loops, so while designing it one would have to worry less about infinity loop errors. The single-loop method might be more intuitive, especially since my partner and I both individually implemented a single-loop.
+ 
+ One reason for preferring the double-loop version is that its implementation might require less code. The double loop is probably also more easy to understand by someone who is seeing it for the first time. 

@@ -1,0 +1,18 @@
+1) Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+	It returns true if the length of the argument s is 0, while "MyString" contains only 1 more char, when the string "s" contains exactly one more character than the instance variable Mystring for the debug object. (it continues through recursion to find the last char in the char array for "s" and makes sure that it only holds 1 more value). That's what the last condition, the "else" tests for. To see if whether the instance variable MyString's substring will equal "s", and if so, then true. 
+
+2) Describe all pairs of arguments to check for which contains1MoreThan correctly returns false
+	contains1MoreThan will return false if the Instance Variable Mystring that is contained in the debug object has a length of 0. Also if the string argument "s" has a length of 0, while the instance variable MyString continues to go on in length. (e.g: comparing "adb" with "adbbb"). The final case would be when the instance variable myString has a length > 0, s != 0, the two chars at the zero position in the char array do not equal each other and the substring of MyString doesn't equal s. 
+
+3) Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+	
+	There are no pairs which will return true due to the bug in the else case which makes basically everything false. 
+
+4) Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+	When you insert a " " after s, you get a false, when it should be true. A blank char is still a char and "def" is different from "def " (should pass the contains1MoreThan function). Also you get the error when trying to check "a" with "ad" because MyString.length will equal 0 and thus spit out false before checking any other cases. It returns false when you insert something to the Mystring at the beginning or middle. 
+
+5) Describe all pairs of arguments to check for which contains1MoreThan crashes.
+	When you input "nulls" for the MyString and String s, the program crashes when it tries to compare nulls or grab the length of a null value. 
+
+
+The Bugs: The bug is that the "==" method is being used to compare strings, when in fact the ".equals()" method should be used in order to compare strings. The difference is that the "==" is comparing bit location values, while the ".equals()" will compare the actual values that the references will be holding. This is because Strings are not primitives like char's. 

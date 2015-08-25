@@ -1,0 +1,14 @@
+1. Pairs that correctly return true involve two identical strings in which one of the two has an additional character at the end, or in which one of the strings is empty and the other one is 
+a single character long.
+
+2. Pairs that correctly return false are of two strings that are not at all identical or in which one of the two has more than one character added at any point.
+
+3. No pairs of strings could incorrectly return true.
+
+4. Pairs that incorrectly return false involve one of the two identical strings having a character inserted at some point other than the end.
+
+5. Pairs that cause a crash include one or two arguments that are not string types. 
+
+The problem with the contains1MoreThan method is that it compares the two strings character by character and checks if they are the same. Therefore, if the additional character happens to be 
+in a place other than the end of the identical portion of the two strings, the method will return false. We figured this out by using the strings "Anna" and "Ana." Note that the additional 
+character, an extra "n", appears within the string rather than at the end of it.

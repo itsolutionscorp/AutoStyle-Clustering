@@ -1,0 +1,15 @@
+
+1) Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+	All arguments that have the same letters and in the same order as the other argument, except for the last letter.
+	 
+2) Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+	Different words except for when the first word has one extra letter inserted anywhere , and same words 
+	
+3) Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+	If spaces are not considered characters to compare, then if we submit check("abc ", "abc"), then this could be considered incorrectly true.
+
+4) Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+	If the first argument has an extra letter than the second argument inserted anywhere except at the end. 
+	
+5) Describe all pairs of arguments to check for which contains1MoreThan crashes.
+	If one enters null for any argument, then the method crashes. 

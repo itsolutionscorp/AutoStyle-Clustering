@@ -1,0 +1,5 @@
+1. We implemented the one with a single loop.
+
+2. In the double loop version, we imagine it would have something to do with the subtotals and totals. There could be a loop for subtotals, and every time you reached the end of a subtotal (first 0 input), you would add that into the total. 
+
+3. We like the single loop version better. It just seems more intuitive as well as easier/cleaner to read.

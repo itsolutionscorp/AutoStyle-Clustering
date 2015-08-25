@@ -1,0 +1,13 @@
+Alpha - Heap Sort
+	The numbers of movements and comparisons for Alpha is the same for both in order and reversed order
+Beta - Insertion Sort
+	The number of comparisons needed for an in order list of n elements is (n-1), while for a reversed order list, it is n*(n-1)
+	For an ordered list, for each insertion, we need to only compare to one element
+	For a reversed list, for each insertion, we need to compare to 1 more time than the last insertion
+Gamma - Quick Sort
+	Gamma Sort takes a lot more time to do in order and reversed order list
+Delta - Merge Sort
+	Delta Sort takes a consistent time to do both in order and reversed order and random order
+Epsilon - Selection Sort
+	When we did an Epsilon sort on an in order list with n elements, we got no movements but n*(n-1) comparisons. This is also the arithmetic sequence sum, which means at every step, we're comparing one more time than the previous step, with no movement.
+	This is why we thought Epsilon is Selection Sort

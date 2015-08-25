@@ -1,0 +1,9 @@
+Alpha: Merge Sort - movements are the same for inorder and reverse order
+
+Beta: Insertion Sort - backward was bad inorder amazing
+
+Gamma: Quicksort - sucky for in order and reverse order
+
+Delta: HeapSort - Process of elimination.
+
+Epsilon: Selection Sort - constant comparisons

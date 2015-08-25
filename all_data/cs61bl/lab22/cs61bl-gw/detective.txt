@@ -1,0 +1,10 @@
+Alpha: Merge sort because it doesn’t require that much comparison but it requires a lot of movement. 
+
+Beta: Insertion because it only requires N-1 comparison.
+
+Gamma:  Selection sort because it has a huge amount of comparisons and it has 0 movement because we have to go through each of the elements on the list and get the smallest so far and put it in front the the list and do it recursively.
+
+Delta: heap sort because it requires a reason able amount of comparison as well as movement. 
+
+Epsilon: Quick sort because it doesn’t require any movement. Basically we just choose the head as divider and categorize the smaller elements on the left side and larger elements on the right side. Then, we do it recursively and append together each of the separate elements together at the end.
+

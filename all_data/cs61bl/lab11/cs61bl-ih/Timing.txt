@@ -1,0 +1,8 @@
+Timer
+Experiment 1: Suppose the list is a,b,c,d,e, we would like to find one elements of the list, such as c.
+results: ArrayList search is pretty fast compared to Linkedlist search operation. get(int index) in ArrayList gives the performance of O(1) while LinkedList performance is O(n).
+
+Experiment 2: Suppose the list is a,b,c,d,e, we would like to find one elements of the list, such as c.
+Doubly Linked list has two way directionns head and tail. Singly linked list uses less memory per node but doubly linked list uses more memory per node than singly linked list
+(Head and tail).
+Singly linked list: Complexity of insertion and deletion at known position is O(n). Doubly linked list: Complexity of Insertion and Deletion at known position is O(1).

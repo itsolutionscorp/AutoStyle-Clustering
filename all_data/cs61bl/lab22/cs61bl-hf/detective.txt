@@ -1,0 +1,7 @@
+Buttons    sort types(comparison)
+
+1st       :- selection
+2nd       :- merge 
+3rd       :- Heap
+4th       :- merge
+5th       :- insertion

@@ -1,0 +1,63 @@
+﻿1. We started off creating an ArrayList and LinkedList of 10 million elements each, a number that we thought would appropriately display the differences in runtime of operations on the two objects.
+We tested 3 methods, add, remove and get
+
+We found that arrayLists are generally faster for the get method.
+
+For the remove method, on the other hand, Linked Lists operate much quicker.
+
+Finally, the add method of both objects always gave just about 0 runtime.
+
+
+
+2.  Since the LinkedList is supposedly a doubly linked list, with both a head and tail pointer, we reasoned that if we could verify that removing or getting an element in the middle of the list takes significantly longer than at the beginning or end of the list, it would be pretty reasonable evidence that a Linked List is a doubly linked List. Indeed, we found that this was indeed the case.
+
+Using our previous code, with just a modification of the element indices (99,999 v 999,999) (one somewhere in the middle, and one right at the end of the list), we found that Linked Lists take significantly less time if we operate at the ends of a List.
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+
+
+public class experiments {
+	private static ArrayList<Integer> a = new ArrayList<Integer>();
+	private static LinkedList<Integer> b = new LinkedList<Integer>();
+	private static Timer t;
+	public static void main(String[] args) {
+		t = new Timer();
+		for (int i = 0; i<10000000; i++){
+			a.add(new Integer(0));
+			b.add(new Integer(0));
+		}
+		t.start();
+		a.get(999999);
+		System.out.println(t.stop());
+		
+		t.reset();
+		
+		t.start();
+		b.get(999999);
+		System.out.println(t.stop());
+		
+		t.start();
+		a.remove(999999);
+		System.out.println(t.stop());
+		
+		t.reset();
+		
+		t.start();
+		b.remove(999999);
+		System.out.println(t.stop());
+		
+		t.start();
+		a.add(new Integer(0));
+		System.out.println(t.stop());
+		
+		t.reset();
+		
+		t.start();
+		b.add(new Integer(0));
+		System.out.println(t.stop());
+		
+	}
+}
+

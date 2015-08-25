@@ -1,0 +1,12 @@
+1. When s and myString differ by one character, and that character is at the very end of the String.
+2. contains1MoreThan correctly returns false for all original cases where it should return false. This is because == will return false whenever .equals(str2) returns false.
+3. It never incorrectly returns true. 
+4. Whenever s and myString differ by one character, and that character in NOT at the end of the String (somewhere in the middle).
+5. Never crashes.
+
+Explanation:
+return myString == s;
+   should be
+return myString.substring(1).equals(s);
+
+	The bug was found by reading through the code and noticing that String comparison was done with == instead of .equals(str2)

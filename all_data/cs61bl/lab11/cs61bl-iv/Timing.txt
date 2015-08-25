@@ -1,0 +1,21 @@
+Experiment #1
+
+ArrayLists and LinkedLists are both types of List and, thus, have similar methods and functionality. The purpose of this experiment is to observe the performance differences between ArrayLists and LinkedLists using the Timer class. We focused on the most commonly used methods that the two lists share: add, remove, contains, get, and size.
+
+To be able to analyze the differences, we created a new class named ArrayvLinked (name not important), imported ArrayList and LinkedList from the java.util package, and created a main method. Inside this main method, we declared and initialized an ArrayList and a LinkedList named array and linked, respectively. We also created a new timer named t.
+
+For the add method, wrapped a for loop that added Integers from 1 to 1,000,000 to either array or linked and timed how long it would take to finish. To time, we wrapped the for loop with t.start() and t.stop(). The elapsed time was stored in a long named "elapsed" and then printed out. Array took 45 milliseconds to add all the integers and linked took 907 milliseconds, which is much longer. For the remove method, we kept the for loop but wrapped remove(500000) with t.start() and t.stop(). Array took 0 ms and linked took 6 ms. Similarly, contains(500000) took 0 ms for array and 6 ms for linked.
+
+From this experiment, it seems that ArrayLists are much faster at adding, removing, and getting objects. This can be attributed to the fact that LinkedLists are doubly linked and rely on "nodes", which slows down the adding process. Rather than being able to go to a given index and remove an Integer or get the Integer, LinkedLists must go through each "node" to reach the desired object. Furthermore, when LinkedLists remove objects, they have to relink everything; ArrayLists just remove the object.
+
+Experiment #2
+
+Doubly linked lists may be more efficient than singly linked lists in situations where we may want to go backwards in a LinkedList. The Java-implemented LinkedList is a doubly linked list. To prove this, we added Integers to a LinkedList 1 to 1000000 and timed how long it would take to get 1, 500000, and 999999 in the Java-implemented LinkedList and the List that we implemented in Lab 12. We also timed how long each list would take if we iterated through the odd-indexed nodes and removed the node before it.
+
+To set up this experiment, we wrapped t.start() and t.stop() (like in Experiment 1) around our get method. In the second part of the experiment, we wrapped t.start() and t.stop() around our for loop that removed the "even nodes.""
+
+In the singly-linked list, it took 0 ms to get 1, 7 ms to 500000, and 9 ms to get 999999. In a doubly-linked list, it took 1 ms to get 1, 4 ms to get 200000, 6 ms to get 500000, 3 ms to get 800000, and 1 ms to get 999999. The amount of time that it takes to get a certain element seems to follow a bell-curve, rather than just increasing.
+
+In our second experiment, the singly-linked list took 15023 ms to remove the even "nodes" and the doubly-linked list took 11841 ms to do the same. 
+
+From these findings, we can see that the doubly-linked list allows us to go backwards in the list and find the objects more efficiently rather than going through the start of the list again. For further experiments, we could probably try to set up a for loop that starts at 999999 and gets each element down to 0.

@@ -1,0 +1,13 @@
+A: Selection sort
+comparison is less than movement
+
+B: Insertion sort
+Comparison is close to movement
+
+G: Selection sort
+
+D: Merge sort
+Movement is more than comparison
+
+E: Quick sort
+Comparison is much more than movement.

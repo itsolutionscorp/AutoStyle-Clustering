@@ -1,0 +1,3 @@
+1. We use one loop version.
+2. The two loop version would have a loop for calculating each subtotal within the loop for the total. 
+3. I prefer one loop version because it has less loop control conditions to check and it has probably has fewer lines to write. The two loop version would be easier to think through and would be more straightforward to write. 

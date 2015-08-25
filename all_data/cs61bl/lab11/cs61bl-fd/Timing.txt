@@ -1,0 +1,44 @@
+**Experiment 1**
+Our experiment will aim to show performance differences between 
+ArrayLists and LinkedLists by testing adding and getting with each 
+type of list. We created three static variables: two lists, an 
+ArrayList and a LinkedList, and an int that stores the index of the 
+last thing added. We made 4 different methods, two for adding and 
+getting from the ArrayList, and two for adding and getting from the 
+LinkedList. In the main method, we used the format of the main method 
+for Sorter.java and timed how long it took for each list to add a 
+certain number of randomly generated doubles and then timed again for 
+how long it took to get the last double put in. We made all our 
+variables and methods static so we could reference them in the main 
+method, so we cleared the arrays at the end of the main method as well. 
+We switched out certain lines in the main method depending on whether 
+we wanted to test the ArrayList or the LinkedList, and depending on 
+whether we wanted to test adding or getting. 
+
+We found that there is a slight performance difference in the adding 
+methods for ArrayLists and LinkedLists. In terms of data, we found that 
+adding 10,000 doubles to the ArrayList took 12 milliseconds (ms), and 
+adding 1,000,000 doubles took 83 ms. For the LinkedList, adding 10,000 
+doubles took 12 ms, and adding 1,000,000 doubles took 1139 ms. The 
+performance for both ArrayLists and LinkedLists is O(n), but ArrayLists 
+perform more quickly by a certain fraction, 7/100 versus 19/20 for 
+LinkedLists. 
+
+We found a significant performance difference in the getting methods for 
+ArrayLists and LinkedLists. In terms of data, we found that getting the 
+middle element in an ArrayList with 10,000 values took 0 ms, and getting 
+with 1,000,000 values also took 0 ms. Getting the middle element in a 
+LinkedList with 10,000 values took 1 ms, and getting with 1,000,000 values 
+took 10 ms. Getting for ArrayLists, then, operates in O(1)/constant time, 
+whereas getting for LinkedLists operates in O(n) time. 
+
+
+**Experiment 2**
+Using the same class we wrote for Experiment 1, we put 1,000,000 doubles 
+in the LinkedList. If the LinkedList were implemented as a singly-linked 
+list with head and tail pointers, the second-to-last element in the list 
+would take the longest to get. However, if it were implemented as a 
+doubly-linked list, the middle element would take longest to get. Running 
+our program, it took 0 ms to get the second-to-last element, whereas it 
+took 10 ms to get the middle element. Thus, the LinkedList is implemented 
+as a doubly-linked list. 

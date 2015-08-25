@@ -1,0 +1,15 @@
+Experiment 1:
+	We created a list of about 10000000 represented by an ArrayList and by a LinkedList.
+	We asked each representation to get the approximately middle element.
+	The ArrayList took 3 milliseconds, while the LinkedList took 22 milliseconds.
+	This shows that the get method performs better on the ArrayList.
+	ArrayList just has to ask for the element at an index while Linked has to iterate over every
+	node, so ArrayList runs in constant time, while Linked runs in linear time.
+	
+Experiment 2:
+	We created a linkedlist of size 10000000 and timed how long it took to peekFirst() and peekLast(),
+	which are methods that return the first and last elements respectively.
+	Both took ~0ms which suggests that there must be a way for linkedlists to look at the previous node.
+	If there were no backward links, it should have taken a much longer time for peekLast() to 
+	executed compared to peekFirst().
+	Each method took constant time.

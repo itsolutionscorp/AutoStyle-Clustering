@@ -1,0 +1,16 @@
+Experiment 1:
+	Method: create an ArrayList and a LinkedList, add N elements to both using a for loop to compare runtime
+			the test range is 200,000 < N < 500,000
+	Result: above N = 250,000, ArrayList's runtime seems constant and predictable (16ms), much slower than LinkedList (varies between values under 15ms)
+			in the range 350,000 < N < 450,000, LinkedList's runtime increases significantly, up to 100ms while ArrayList's runtime remains almost constant
+			for reference, at N = 2,500,000, LinkedList's runtime is ten times ArrayList's runtime (~80ms vs ~800ms)
+	Interpretation: ArrayList is better for list of large number of elements, while LinkedList is significantly faster with lower number of elements
+	
+Experiment 2:
+	Method: create a LinkedList and add N (a large number, large enough so that adding takes noticeable time) elements into it
+			time the duration it takes for the LinkedList to access a node at an almost-last index
+	Result: the time it takes to access an almost-last node is seemingly instant
+			the time it takes to access a middle-ish node is noticeable
+	Interpretation: it is a doubly-linked list, since iterating through a whole singly-linked list to find a node should take roughly the same time as adding elements into it
+					but accessing the almost-last elements takes an instant, so it is assumed that the List assess the index, and determine which end it should be iterating from.
+					it also makes sense that accessing the middle node takes the most time

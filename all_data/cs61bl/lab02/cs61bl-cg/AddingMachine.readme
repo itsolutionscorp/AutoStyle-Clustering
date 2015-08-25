@@ -1,0 +1,12 @@
+
+    Which version did you implement for the exercise?
+    	We implemented the version with a single loop, using a flag as the tracker for the consecutive 0 case.
+    	
+    Describe in words how the other version would work, without actually coding it.
+    	The other version would use two loops, with the outer loop keeping track of the total, and the inner loop keeping track of the subtotal. 
+    	
+    Which version do you prefer? Describe two reasons for preferring the one-loop version and two reasons for preferring the two-loop version.
+		We prefer the single loop version because it was more intuitive to think about/reach a solution. The single loop version could also be preferred because
+		it has a more efficient runtime, since every input wouldn't have to run through both loops. The two loop version could potentially be better for finding bugs
+		in the total/subtotal mechanism due to the problem being split into 2 separate components. The two-loop version is also probably stylistically easier to 
+		understand, since the components of the program are split conveniently.  

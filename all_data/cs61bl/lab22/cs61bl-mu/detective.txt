@@ -1,0 +1,10 @@
+Alpha = Heap Sort
+It does not take that much on a small number
+Beta = Insertion Sort
+because in order takes very less and and reverse takes a lot
+Gamma = Quick Sort
+In order and reverse takes the same amount of comparison
+Delta = Merge Sort
+all comparisons and movements are approximately same
+Epsilon = selection sort 
+because all the comparisons are the same

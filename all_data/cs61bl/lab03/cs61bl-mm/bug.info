@@ -1,0 +1,24 @@
+1. contains1MoreThan will correctly return true in the case that
+the first string contains one extra character than the second string
+at the end. (Ex., "abcd" and "abc")
+
+2. contains1MoreThan will correctly return false in the case that
+the first string contains either:
+- more than one extra character than the second string (Ex., "abcde" and "abc")
+- different characters than the second string, no matter what length (Ex., "abcd" and "dfg")
+- the same or less characters than the second string (Ex., "1" and "12")
+
+3. contains1MoreThan will incorrectly return true for no pairs of strings.
+
+4. contains1MoreThan will incorrectly return false in the case that
+the first string contains one extra character than the second string
+at any point in the string. (Ex., "abc" and "bc")
+
+5. contains1MoreThan will crash in the case that the two arguments
+passed in are not of the String type.
+
+The contains1MoreThan method is buggy on the line:
+	return myString.substring(1) == s;
+This line checks if the rest of the first string points
+to the same string (object) as the second string, not for
+the same values inside the strings.

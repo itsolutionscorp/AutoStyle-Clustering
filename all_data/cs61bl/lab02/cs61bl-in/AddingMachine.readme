@@ -1,0 +1,5 @@
+We used the single loop version of the Adding Machine.
+The two-loop version would have the subtotals calculated in a loop within the loop that calculates the entire total. Upon hitting a zero the inner loop would terminate and add to the total. If the outer loop hits a zero then it too would terminate and return the total.
+I prefer the one loop version.
+The one loop version is good because it is simple to read and intuitive to code.
+the two loop version has simpler if/else cases and does not need to store and continually edit a next/last variable.

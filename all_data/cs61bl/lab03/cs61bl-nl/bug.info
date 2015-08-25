@@ -1,0 +1,11 @@
+1. check("abc", "abc2"); // correctly returns true
+2. check("abd2", "abc"); // correctly returns false
+3. no pairs of strings   // incorrectly returns true(no pairs of strings)
+4. check("ab2c", "abc"); // incorrectly returns false
+5. check(23,2);          // crash case
+
+Bug explain:
+else if (myString.charAt(0) == s.charAt(0)) {
+	Debug remainder = new Debug(myString.substring(1)); 	return remainder.contains1MoreThan(s.substring(1)); 
+}
+This "else if" condition only checks letters in order. It only returns true when letter is inserted at the end of the string. For example, "abc2" and "abc" returns true, but "ab2c" and "abc" returns false.  

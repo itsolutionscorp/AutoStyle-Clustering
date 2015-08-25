@@ -1,0 +1,150 @@
+Kevin Wu (ks)
+Cynthia Diaz (ji)
+
+Timing
+
+Experiment 1:
+From the DSA textbook, we see that size(), isEmpty() are O(1) time.
+The add(i,e) is O(n) time, but add(0,e) is O(n) for ArrayLists while it is O(1) for LinkedLists.
+
+We will test these three methods(size, isEmpty, add):
+
+We write a TimeTest.java test file which imports the ArrayList and LinkedList classes from java.util.ArrayList and java.util.LinkedList.
+We can then write a main method that uses each of the methods described above and use the Timer class to time each one.
+
+We do this by copying the code from Sorter.java (from a previous lab) and rather than using the sort method, we make an ArrayList or LinkedList and then use the size(), isEmpty(), and add(0,e) methods. We start the timer before each of the methods runs.
+
+
+LinkedList.isEmpty() on an Empty LinkedList took 0 milliseconds.
+
+LinkedList.add(0,e) [where e is a random number, and there are args # of numbers generated -- args is the number we type into terminal]
+
+For 500,000 arguments, the LinkedList took 72 milliseconds to add all the elements to the beginning. 
+
+The LinkedList.isEmpty() after adding all these elements still took 0 seconds. The LinkedList.size() after adding all these elements also too 0 seconds.
+
+
+
+
+For the ArrayList class, an Empty ArrayList took 0 milliseconds to complete the isEmpty, and size methods, just like a LinkedList.
+
+To add 500,000 elements to the ArrayList, it took an untimely amount of time (I stopped it).
+
+To add 50,000 elements (1 order of magnitude smaller), it took 194 milliseconds.
+
+To get the same time, as the LinkedList class, I needed to only use an arg of 30,000. 
+
+
+
+Our conclusions are that LinkedList is much better at adding an element to the beginning (add(0,e)). 
+
+Attached at the end is our code for the last experiment (Adding elements to the beginning of an ArrayList). 
+
+
+
+Experiment 2:
+To test that the LinkedList is a doubly LinkedList, all we have to do is see how long it takes to remove/return the second to last item in a LinkedList. 
+If the list is a singly LinkedList then there is no way to access Tail.prev node. Then, we would have to iterate until the end to remove the item. 
+However, if it is a doubly LinkedList, then there would be a reference to Tail.prev and we could retrive the item after on call to Tail.Prev. 
+
+Again we will use the Timer.java to time the operation. We will use only one experiment with an Arbitrarily long list. Since we suspect that it is an operation of O(1) time it should take almost no time with even a large number of elements (Tail element is stored). However, if it is actually a singly linkedList then this operation will take a long time (more than 30 seconds at which point ill stop it).
+
+For the operation with 5,000,000 elements in the list, the program itself took some time to run (due to needing to add the elements) but the timer timed the get(i) method and returned 0 milliseconds.
+
+We conclude that it is a doubly linked list. If it weren't it would have taken about as much time as it did to add all the elements (~15 seconds). 
+
+
+Attached is our code to time this. 
+
+
+
+
+
+
+
+
+
+CODE FOR EXPERIMENT 1:
+import java.util.LinkedList;
+import java.util.ArrayList;
+
+public class AListVSLL{
+	
+	public static void main (String[] args) throws Exception {
+		if (args.length!= 1){
+			System.err.println("arg should be a number");
+			System.exit(1);
+			
+		}
+		int n = Integer.parseInt(args[0]);
+		double[] values = new double [n];
+		int k;
+		for (k = 0 ; k<n; k++){
+			values[k] = Math.random();
+			
+		}
+		Timer t = new Timer();
+		
+		ArrayList l1 = new ArrayList();
+		
+		t.start();
+		l1.isEmpty();
+		l1.size();
+		for (int j= 0; j< k; j++){
+			l1.add(values[j]);
+		}
+		
+		long elapsedMs = t.stop();
+		System.out.println(elapsedMs + "milliseconds elapsed");
+		if (n<20){
+			for (k= 0 ; k< n; k++){
+				System.out.println(values[k]);
+			}
+		}
+			
+	
+}
+}
+
+
+
+CODE FOR EXPERIMENT 2:
+import java.util.LinkedList;
+
+public class DBLORNOT {
+	public static void main (String[] args) throws Exception {
+		if (args.length!= 1){
+			System.err.println("arg should be a number");
+			System.exit(1);
+			
+		}
+		int n = Integer.parseInt(args[0]);
+		double[] values = new double [n];
+		int k;
+		for (k = 0 ; k<n; k++){
+			values[k] = Math.random();
+			
+		}
+		Timer t = new Timer();
+		
+		LinkedList l1 = new LinkedList();
+		for (int j= 0; j< k; j++){
+			l1.add(values[j]);
+		}
+		t.start();
+		l1.get(k-1);
+		
+		
+		long elapsedMs = t.stop();
+		System.out.println(elapsedMs + "milliseconds elapsed");
+		if (n<20){
+			for (k= 0 ; k< n; k++){
+				System.out.println(values[k]);
+			}
+		}
+			
+	}
+}
+
+
+

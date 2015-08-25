@@ -1,0 +1,31 @@
+Experiment 1: We made an ArrayList and a LinkedList containing the same number of integers using a for loop and called the get method with the same index as the argument.
+	After timing the run times, we found that ArrayList processing was a lot faster than LinkedList processing. 
+	This is because ArrayList keeps indices of its elements, allowing get method to directly access the element in the index (runtime of O(1)).
+	Meanwhile, LinkedList requires that we check all ListNodes up to the ListNode at the given index. This means that LinkedList runs the get method at O(n).
+
+	ArrayList arr = new ArrayList();
+    	for (long i = 0; i<100000; i++){
+    		arr.add(i);
+    	}
+
+    	LinkedList link = new LinkedList();
+    	for (long i = 0; i<100000; i++){
+    		link.add(i);
+    	}
+
+    	Timer t1 = new Timer();
+	t1.start();
+	arr.get(59865);
+	
+	long elapsedMs = t1.stop();
+	System.out.println (elapsedMs + " Milliseconds elapsed");
+
+	Timer t2 = new Timer();
+	t2.start();
+	link.get(59865);
+	long elapsed = t2.stop();
+	System.out.println (elapsed + " milliseconds elapsed");
+
+Experiment 2: 
+
+	

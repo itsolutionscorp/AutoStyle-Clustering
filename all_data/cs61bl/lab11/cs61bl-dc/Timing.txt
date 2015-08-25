@@ -1,0 +1,3 @@
+1. From doing experiments on ArrayLists and LinkedLists, we tested the runtime of adding, getting, and removing 10000 elements. What we found was that the ArrayList was faster at both adding and getting elements. The two types of lists had the same runtime when it came to removing the middle element. What this shows is the pros and cons of using each list over the other. 
+
+2. To test whether an ArrayList is a doubly-linked list, we timed it against our own ArrayList that had a tail pointer. Because the ArrayList took more time than our own ArrayList, we can conclude that it is doubly-linked and not singly-linked with a head and tail pointer. 

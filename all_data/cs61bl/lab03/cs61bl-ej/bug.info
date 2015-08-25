@@ -1,0 +1,17 @@
+1. contains1MoreThan only correctly returns true when the extra character
+is at the end of the string.
+
+2. It correctly returns false if the difference in length between myString
+and the input string s is not equal to 1, even if all of the other
+characters match up. 
+
+3. It incorrectly returns true for no pairs of strings.
+
+4. It incorrectly returns false if the extra character is at the beginning
+or middle of the string because in the last else statement of contains1MoreThan,
+myString.substring(1) and s are referencing two different string objects
+and will return false even if the strings look the same, since == checks if the two
+things on either side are referencing the same object.
+
+5. It crashes for no pairs of strings but will crash if the type that is inputted
+is not correct.

@@ -1,0 +1,61 @@
+Experiment 1:
+In order to compare the efficiency of each class (both ArrayList and Linked List), 
+I would want to test how fast each of the classes is at retrieving a piece of data
+from a sequence. ArrayList should perform the operation in constant time whereas 
+LinkedList should perform in O(n) time.
+	Test:
+		ArrayList<Integer> arrayNums = new ArrayList<Integer>();
+		LinkedList<Integer> linkedNums = new LinkedList<Integer>();
+		Timer one = new Timer();
+		Timer two = new Timer();
+		for (int i = 0; i < 1000000; i++) {
+			arrayNums.add((Integer)i);
+			linkedNums.add((Integer)i);
+		}
+		one.start();
+		for (int i = 0; i < 1000000; i++) {
+			if (i == 99999) {
+				arrayNums.get(i);
+			}
+		long time1 = one.stop();
+		two.start();
+		for (int i = 0; i < 1000000; i++) {
+			if (i == 99999) {
+				linkedNums.get(i);
+			}
+		long time2 = two.stop();
+		if (time1 < time 2) {
+			System.out.println("ArrayLists were faster by " + (time2 - time1));
+		} else {
+			System.out.println("LinkedLists were faster by " + (time1 - time2));
+
+Experiment 2:
+I would essentially perform the same test as in experiment 1, however the difference
+would be that I create one LinkedList and one normal List and compare the times. The
+time for the LinkedList should be shorter (in O(1)) than the regular (singly linked)
+List (in O(n)).
+	Test:
+		List regNums = new List(); //singly linked list
+		LinkedList<Integer> linkedNums = new LinkedList<Integer>(); //doubly linked
+		Timer one = new Timer();
+		Timer two = new Timer();
+		for (int i = 0; i < 1000000; i++) {
+			regNums.add((Integer)i);
+			linkedNums.add((Integer)i);
+		}
+		one.start();
+		for (int i = 0; i < 1000000; i++) {
+			if (i == 99999) {
+				regNums.remove(i);
+			}
+		long time1 = one.stop();
+		two.start();
+		for (int i = 0; i < 1000000; i++) {
+			if (i == 99999) {
+				linkedNums.remove(i);
+			}
+		long time2 = two.stop();
+		if (time1 < time 2) {
+			System.out.println("There was an error bc Lists were faster by " + (time2 - time1));
+		} else {
+			System.out.println("LinkedLists were faster by " + (time1 - time2));

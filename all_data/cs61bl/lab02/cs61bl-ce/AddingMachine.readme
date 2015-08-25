@@ -1,0 +1,7 @@
+One while loop.
+
+The other version could be using an inner while loop checks for whether the last user input was 0 and if it wasn't 0 it would run the other two if cases (when the user input is zero vs non-zero).
+
+One loop might be better we just need three cases to cover all of the problems. We used lastk to store the last user input.
+
+Two loops might be better because you could just have two cases that checks for whether or not the last user input was 0. It might be more efficient than the one loop.

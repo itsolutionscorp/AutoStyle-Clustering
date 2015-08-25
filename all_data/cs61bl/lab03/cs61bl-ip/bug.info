@@ -1,0 +1,19 @@
+1. Pairs that should correctly return true should have the first argument 
+the same as the second with the exception of one additional character in 
+any spot within the String.
+
+2. Pairs that should not correctly return true either do not have the same
+String at all, or have more than one additional character in any spot. The
+length could also differ by greater than one.
+
+3. There are no pairs where contains1MoreThan will incorrectly return true.
+
+4. contains1Morethan returns false incorrectly when the character is anywhere
+but at the end of String s.
+
+5. There were no pairs we used that crashed the function.
+
+What was wrong:
+The function was trying to compare two strings using '==' but that only checks
+if they reference the same data (which is why it works for primitive data like
+numbers). By changing it to use the equals() method it worked.

@@ -1,0 +1,76 @@
+(1) In this experiment, we will compare the runtimes for adding an item to either
+an array list or a linked list.
+
+ARRAY LIST
+	/** In an array list, the worst case runtime is O(n) because after the item
+	is found, the entire array must be re-sized and re-copied.
+	*/
+	public static void add (int[] values, int pos, int newInt) {
+		if (pos < 0 || pos >= values.length) {
+			return;
+		}
+		for (int k = values.length - 1; pos < k; k--) {
+			values[k] = values[k - 1];
+		}
+		values[pos] = newInt;
+	}
+	
+LINKED LIST
+
+	// This add method was taken from stackoverflow.com
+	
+	/** In a linked list, the runtime is O(1) because each element in a linked
+	list maintains two pointers so all one needs to do is change the necessary 
+	pointer locations.
+	*/
+	public void add(int item) {
+	    if(curr != null)
+	    {
+	        Node newNode = new Node(item, curr.next);
+	        curr.next = newNode;
+	        curr = newNode;
+	    }
+	    else
+	    {
+	        head = tail = new Node(item, null);
+	        curr = head;
+	    }
+	}
+	
+	
+(2) This experiment demonstrates what happens when one deletes an item from a
+doubly-linked list.
+
+	// This remove method was taken from stackexchange.com
+
+	/** This code shows that there are pointers which refer to both the previous node
+	AND the next node.
+	*/
+	public void remove(T data) {
+	    if (isEmpty()) {
+	        throw new NoSuchElementException();
+	    }
+	
+	    for (Node<T> current = this.head; current != null; current = current.getNext()) {
+	        if (current.getData().equals(data)) {
+	            Node<T> previous = current.getPrevious();
+	            Node<T> next = current.getNext();
+	
+	            if (this.size == 1) { // At head with size == 1
+	                this.head = this.tail = null;
+	            } else if (previous == null) { // At head with size > 1
+	                this.head = next;
+	                next.setPrevious(previous);
+	            } else if (next == null) { // At tail
+	                previous.setNext(next);
+	                this.tail = previous;
+	            } else { // Rest of cases
+	                previous.setNext(next);
+	                next.setPrevious(previous);
+	            }
+	            this.size--;
+	            return;
+	        }
+	    }
+	    throw new NoSuchElementException();
+	}

@@ -1,0 +1,13 @@
+We used the version with the single loop. 
+
+The other version will have an inner loop that keeps track of subtotal and total, and resets the subtotal when a zero is input. The outer loop recognizes when a second zero is input after the first. 
+
+Two reasons the single loop version is preferred:
+1.) It runs faster. The order of growth is smaller. 
+2.) It takes less code. 
+
+Two reasons why the double loop version is preferred:
+1.) We only need to add each input to the subtotal, while the single loop version adds the input both to the subtotal and to the total. The double loop version is less repetitive.
+2.) Easier to debug; if the total is incorrect, then we know
+that our implementation of the subtotal is incorrect. 
+

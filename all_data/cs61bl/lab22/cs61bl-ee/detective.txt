@@ -1,0 +1,9 @@
+Epsilon - selection sort,  since no matter if the array is sorted or unsorted, the runtime doesnot change a lot.
+
+Gamma - Quick sort,  since gamma does well in random array but especially bad in ordered and reverse ordered array.
+
+Beta - Insertion sort, since Beta does especially well in ordered array, and when it comes to reverse ordered one, it doesnot work well.
+
+Delta - Merge sort, no matter what kind the array is, it all does the best.
+
+Alpha- Heap sort, since when it comes to random array, it is worse than Delta. We think it is probabaly because of the insertion need to bubble up all the time.

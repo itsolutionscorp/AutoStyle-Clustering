@@ -1,0 +1,20 @@
+- Which version did you implement for the exercise?
+	We did the two loop version.
+	
+- Describe in words how the other version would work, without actually coding it.
+	The way it would work is that we first check the user input, the total would be added
+	up till the user key in 0. We add a if statement to check the second 0 input within
+	the elseif funciton.
+	
+- Which version do you prefer? Describe two reasons for preferring the one-loop 
+  version and two reasons for preferring the two-loop version.
+	
+	We prefer one-loop version. One loop is easier to not make mistakes. It might run 
+	faster as well. 
+	
+	Reasons for preferring the two-loop version are - 
+	1. Keep the code shorter and cleaner
+	2.Easier to read.
+	
+Vincent Sun (mm)
+Timothy Yu (ni)

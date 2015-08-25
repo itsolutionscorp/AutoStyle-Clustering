@@ -1,0 +1,22 @@
+1. All arguments where:
+	a. myString.len = s.len + 1
+	b. myString = s + "?" [i.e. the character must be added to the back of s]
+
+2. All arguments where:
+	a. myString.len != s.len + 1
+	b. Adding a character to the END of s wouldn't make it equivalent to myString.
+
+3. No pairs of strings.
+
+4. All arguments where
+	a. adding a character to somewhere other than the end of s would result in myString.
+
+5. No pairs of strings.
+
+
+THE BUG
+-------
+The bug was in the last clause. We were checking the equality between two strings, when we
+should have been using the String.equals method, since strings are objects and == isn't the right
+tool for the job. == should be used for primitives and for checking if two references point to the exact
+same object. 

@@ -1,0 +1,43 @@
+1. We used the single loop given.
+2. The second loop was to be used for calculating the subtotals. Using
+the justStarting boolean, we would figure out if two zeros were consecutive,
+with the help of some if-statements. 
+3. We preferred the look of the second-loop method (although the first was easier to
+code initially). The one-loop method is easier to follow (as you don't have to 
+follow 2 loops) and it has an if statement dedicated to the subtotals and totals
+seperately. The double loop method was more "semantically meaningful", and had the while
+loop dedicated to subtotal calculation, with total calculated outside of the loop. Another
+reason would be that the justStarting boolean was used for what it was named for. 
+
+Second Method:
+
+import java.util.*;
+
+public class CopyOfAddingMachine {
+
+	public static void main (String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		boolean justStarting = true;
+		int total = 0;
+		int subtotal = 0;
+		while (true) {
+		    int k = 1;
+		    while (k != 0) {
+		    	k = scanner.nextInt();
+		    	if (k == 0) {
+		    		System.out.println(subtotal);
+		    		justStarting = false; 
+		    	subtotal = subtotal + k;
+		    	}
+		    }
+		    justStarting =! justStarting; 
+		    total = total + subtotal;
+		    subtotal = 0;
+		    if (justStarting) {
+		    	System.out.println(total);
+		    	return;
+		    }
+		    justStarting = true;
+		}
+	}
+}

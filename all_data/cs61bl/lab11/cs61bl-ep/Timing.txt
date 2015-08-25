@@ -1,0 +1,28 @@
+Experiment 1 Results:
+
+Using the add method in a "for" loop to add integers from 1 to 1000000:
+77 milliseconds elapsed for ArrayList add method
+1764 milliseconds elapsed for LinkedList add method
+This makes sense, considering when inserting to the end of a list, as we did here, LinkedList is performing memory allocation for each insertion and therefore consuming much more time than ArrayList.
+
+
+Using the get method to get the element at position 500000:
+0 milliseconds elapsed for ArrayList get method
+6 milliseconds elapsed for LinkedList get method
+This makes sense, considering ArrayList get method is O(1) while LinkedList get method is O(k), where k is the position.
+
+
+
+Experiment 2 Results:
+
+First we created a LinkedList containing consecutive integers from 0 to 10 million. Then, we timed how long it took to get the elements at the middle, beginning, and end of the list. The times were as follows:
+
+24 milliseconds elapsed for LinkedList get method on index 5000000
+0 milliseconds elapsed for LinkedList get method on index 0
+0 milliseconds elapsed for LinkedList get method on index 10000000
+
+If LinkedList were singly-linked, we would expect that calling get on the last element would take longer than calling it on the middle element.  Instead, we see that the time for getting the first and last elements is 0ms, while the time for getting the middle element is 24ms.  This shows that LinkedList must be a doubly-linked list, and as the documentation says, "Operations that index into the list will traverse the list from the beginning or the end, whichever is closer to the specified index."
+
+
+
+Sang Lee (em) & Maggie Aytac (ep)

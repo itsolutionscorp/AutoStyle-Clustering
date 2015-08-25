@@ -1,0 +1,10 @@
+Experiment 1:
+Create a LinkedList and an ArrayList of 10000 random elements.
+Time the addition, retrieval, and removal of elements
+finding the item at a certain position is faster in an ArrayList
+removing and adding items are faster in a LinkedList
+
+Experiment 2:
+Create a LinkedList and a List from lab of 10000 random elements
+Time the removal of elements
+removing items from a LinkedList is faster than in a List, because LinkedListis doubly linked

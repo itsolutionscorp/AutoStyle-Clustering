@@ -1,0 +1,6 @@
+We think Beta is Insertion sort since it has a huge run time difference between in-oder and reverseOrder.
+We think Alpha is Selection sort since it has almost no difference in run time between in-order and reverseOrder.
+We think Gamma is Quick sort since it has a very short run time when N is very large and reverseOrder is slower.
+We think Delta is Merge sort since its run time does not effect by the list order and it can compute fast when N gets really big.
+We think Epsilon is Heap sort since when input is in-order, the movement is 0 and runtime is relatively same for all the orders.
+

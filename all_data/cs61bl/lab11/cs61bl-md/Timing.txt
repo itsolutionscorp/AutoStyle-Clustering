@@ -1,0 +1,101 @@
+Jayoung Ryu (hd)
+
+Experiment 1. 
+The code is as following. This test compares the time elapsed when adding N elements
+to LinkedList and ArrayList. 
+
+		Scanner c = new Scanner(System.in);
+		System.out.print("N for first experiment : ");
+		N = c.nextInt();
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+		LinkedList<Integer> link = new LinkedList<Integer>();
+		Timer t = new Timer();
+		t.start();
+		for (int i = 0 ; i < N ; i++) {
+			arr.add(i);
+		}
+		double elapsedMs = t.stop();
+		System.out.println("ArrayList adding "+ N + " numbers: "+elapsedMs + "ms");
+		
+		t.reset();
+		t.start();
+		for (int i = 0 ; i < N ; i++) {
+			link.add(i);
+		}
+		elapsedMs = t.stop();
+		System.out.println("LinkedList adding "+ N + " numbers: "+elapsedMs + "ms");
+	
+	<Result>
+	1) ArrayList
+		Adding 10000 elements took : 8 9 9 8 8 / avg: 8.4 (ms)
+		Adding 1000000 elements took : 168 167 176 165 177 / avg: 170.6 (ms)
+		Adding 10000000 elements took : 8854 ms
+		Big-O analysis : 10-fold increase of N resulted in 51-fold increase of time.
+		--> Slightly higher order than O(n)
+	2) LinkedList
+		Adding 10000 elements took : 6 7 6 6 6 / avg: 6.2 (ms)
+		Adding 1000000 elements took : 1787 1832 1703 1747 1754 / avg: 1765 (ms)
+		Adding 10000000 elements took : 22087 ms
+		Big-O analysis : 10-fold increase of N resulted in 12-fold increase of time.
+		--> Slightly higher order than O(n)
+	Although the big-O seemed to be similar, total time was very different.
+	Adding elements to LinkedList has turned out much slower than adding to ArrayList.
+	
+		
+	*Note : There was large inconsistency between three timing data of ArrayList : 
+	considering big-O, 100-fold increment from 10000 to 1000000 has to be about 
+	2500 considering 10 fold increment results in 51 fold for time, but it is only
+	about 200.
+	In LinkedList, the difference was smaller between expected 144 and actual ~250.
+	
+Experiment 2.
+The test for the second experiment removes every elements (N removal) of the list,
+by removing last element of the list repeatedly until the list becomes empty.
+Timing is compared for singly linked list(List of LintNode.java), 
+doubly linked list(List of Sequence.java), and LinkedList.
+The test is implemented as the following code.
+
+System.out.print("N for second experiment : ");
+		N = c.nextInt();
+		Sequence DLink = new Sequence();
+		List mylist = new List();
+		LinkedList<Integer> linked = new LinkedList<Integer>();
+		for(int i = 0; i < N; i++){
+			DLink.addToSequence(i);
+			mylist.add(i);
+			linked.add(i);
+		}
+		
+		t.reset();
+		t.start();
+		for (int i = N-1; i >= 0; i--) {
+			DLink.delete(i);
+		}
+		elapsedMs = t.stop();
+		System.out.println("Deleting from doubly linked list: " +elapsedMs + " ms");
+		
+		t.reset();
+		t.start();
+		for (int i = N-1; i >= 0; i--) {
+			mylist.remove(i);
+		}
+		elapsedMs = t.stop();
+		System.out.println("Deleting from singly linked List: " +elapsedMs + " ms");
+		
+		
+		t.reset();
+		t.start();
+		for (int i = N-1; i >= 0; i--) {
+			linked.remove(i);
+		}
+		elapsedMs = t.stop();
+		System.out.println("Deleting from doubly LinkedList: " +elapsedMs + " ms");
+		
+	<Result>
+ 	N 				   : 100  1000  5000
+ 	doubly linked list : 0    0     0
+ 	singly linked list : 10   126   258953
+ 	LinkedList         : 0    2     3
+ As the timing of singly linked list is significantly larger than both doubly linked list
+ and LinkedList, and both resulted in similar timing, it is likely that LinkedList is
+ doubly linked list.

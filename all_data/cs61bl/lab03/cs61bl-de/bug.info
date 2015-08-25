@@ -1,0 +1,11 @@
+1. only for pairs where only one character is added to the END of the string
+
+2. (1) when the length of myString is more than 1 character different from s (2) when both strings have the same length (3) when myString is null (4) when there is more than one character is different in my String
+
+3. No Pairs of strings
+
+4. (1) when one character is added to the beginning (2) when one character is added in the middle
+
+5.No pairs of strings
+
+the last else statement is implemented incorrectly. by running the code by hand we saw why the code only worked when a character was added in the and (by checking that the length is 0), and realized that the bug was by not comparing it to the rest of s.

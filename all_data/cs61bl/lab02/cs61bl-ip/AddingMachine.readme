@@ -1,0 +1,5 @@
+We implemented the version that only requires one while loop.
+
+The other version using two while loops would have a second while checking if the "last value" was 0. If it wasn't, it would add normally. If it was, it would end the while loop and add, checking to see if the current value was 0 (in which case it would return).
+
+I prefer this version (with one while loop) because while loops are hard to follow during debugging so you want to minimalize this as much as possible. Two advantages to this design are 1) fewer while loops and 2) fewer lines of code. Two advantages to the other design are 1) simpler conditional logic (you don't need to have an if-clause in an if-clause) and 2) less complicated to implement.

@@ -1,0 +1,72 @@
+EXPERIMENT 1:
+	create a large arraylist and linkedlist of the same size.
+	fill up both and retrieve the last element. The results were that the ArrayList was able to retrieve the 
+	element instantaneously whereas the linkedlist took a while. This happens because linkedlists have run time of O(n)
+	for retrieval (at worst) beacuse one must iterate through the linkedlist until the proper element is found.
+	
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		for (int i = 0; i < 9999999; i++){
+			list.add(i);
+		}
+		Timer timer = new Timer();
+		timer.start();
+		list.get(99999);
+		timer.stop();
+		System.out.println("TIME ELAPSED FOR ARRAYLIST: " + timer.elapsed());
+
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		for (int i = 0; i < 9999999; i++){
+			list.add(i);
+		}
+		Timer timer = new Timer();
+		timer.start();
+		list.get(999999);
+		timer.stop();
+		System.out.println("TIME ELAPSED FOR LINKEDLIST: " + timer.elapsed());
+		
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		for (int i = 0; i < 9999999; i++){
+			list.add(i);
+		}
+		Iterator listIter = list.descendingIterator();
+		
+		RESULTS : TIME ELAPSED FOR ARRAYLIST: 0
+			      TIME ELAPSED FOR LINKEDLIST: 5
+			      
+EXPERIMENT 2:
+	create a large linkedlist then: 
+		TEST LinkedList's descending iterator and interator and compare time that has elapsed
+		This distinguishes between a doubly linked list because a singly linked list would take FAR longer to 
+		iterate in a descending fashion (because the singly linked list would have to iterate through the entire list every time
+		to get to the last element!)
+		
+		
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		for (int i = 0; i < 9999999; i++){
+			list.add(i);
+		}
+		Iterator listIter = list.iterator();
+		Timer timer = new Timer();
+		timer.start();
+		while (listIter.hasNext()){
+			listIter.next();
+		}
+		timer.stop();
+		System.out.println("Time ELAPSED FOR FORAWRD ITERATION: " +timer.elapsed());
+	
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		for (int i = 0; i < 9999999; i++){
+			list.add(i);
+		}
+		Iterator listIter = list.descendingIterator();
+		Timer timer = new Timer();
+		timer.start();
+		while (listIter.hasNext()){
+			listIter.next();
+		}
+		timer.stop();
+		System.out.println("Time ELAPSED FOR DESCENDING ITERATION: " +timer.elapsed());
+		
+		RESULTS:
+		 Time ELAPSED FOR DESCENDING ITERATION: 86
+		 Time ELAPSED FOR FORAWRD ITERATION: 78

@@ -1,0 +1,13 @@
+
+List size n = 14,000 (we experimented with sorted and unsorted lists)
+
+
+Alpha =  Merge Sort- close to Gamma’s time and number of comparisons, but slightly greater number of movements. Merge Sort is another ‘divide and conquer’ sorting algorithm, so it should be close to gamma. This ran a lot faster when the list was ordered. Merge Sort merges together sublists to create ordered sublists, so if the list is already sorted, this should run fast.
+
+Beta = Insertion Sort - this makes a lot of comparisons and is slow. When the list is already ordered, however, it makes fewer comparisons than when the list is unordered.
+
+Gamma = Quick Sort: On average, quickSort runs in nlogn time (worse case: n^2, but that’s rare). Gamma was one of the quickest sorting algorithms (sorted n in 54-128 seconds). It was close to Delta (which we think is merge sort, also nlogn time), but Gamma made slightly fewer comparisons. 
+
+Delta = Heap sort. We chose this to be kinda by trial and error. We figured alpha was either merge sort or heap sort since both run in nlogn time. There was no difference in the number of comparisons made between sorted and unsorted lists, so we chose heap sort for this one.
+
+Selection = Epsilon - both beta and epsilon were the slowest algorithms. We chose Epsilon for selection sort since it’s runtime for a sorted list was roughly equal to its runtime for an unsorted list. This is because Selection sort has to go through the entire array to find the smallest item, even if the smallest item is in the beginning of the list. So if the list is already sorted, it still requires a lot of comparisons.

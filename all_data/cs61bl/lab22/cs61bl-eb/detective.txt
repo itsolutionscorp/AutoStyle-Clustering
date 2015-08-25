@@ -1,0 +1,10 @@
+Beta is insertion sort, because for small, sorted arrays, it takes roughly n comparisons. 
+
+Epsilon is selection sort, because for small, sorted arrays, it takes rouhly n * (n-1) / 2 comparisons. 
+
+Gamma is QuickSort, because for large, sorted arrays, it takes much longer than the other sorting algorithms like MergeSort and HeapSort. 
+
+Alpha is MergeSort, because for small, sorted arrays, it takes n log n / 2 comparisons. 
+
+Delta is HeapSort, because it is relatively quick with random and assorted large data.  
+

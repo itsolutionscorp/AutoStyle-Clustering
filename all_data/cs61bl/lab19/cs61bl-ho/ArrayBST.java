@@ -1,0 +1,219 @@
+import java.util.ArrayList;
+
+public class ArrayBST {
+    private ArrayList<Node> contents = new ArrayList<Node>();
+
+    public void insert(int value) {
+        Node root = this.getNode(1);
+        if (root != null) {
+			insertInSubtree(1, value);
+        } else {
+			Node newNode = new Node(value);
+            this.setNode(1, newNode);
+        }
+    }
+
+	/**
+	 * Used to print out the tree sideways.
+	 */
+	@Override
+	public String toString() {
+		return toStringHelper(1, "");
+	}
+
+	/* Recursive helper method for toString. */
+	private String toStringHelper(int index, String soFar) {
+		if (getNode(index) == null) {
+			return "";
+		} else {
+			String toReturn = "";
+			int rightChild = getRightOf(index);
+			toReturn += toStringHelper(rightChild, "        " + soFar);
+			if (getNode(rightChild) != null) {
+				toReturn += soFar + "    /";
+			}
+			toReturn += "\n" + soFar + getNode(index) + "\n";
+			int leftChild = getLeftOf(index);
+			if (getNode(leftChild) != null) {
+				toReturn += soFar + "    \\";
+			}
+			toReturn += toStringHelper(leftChild, "        " + soFar);
+			return toReturn;
+		}
+	}
+
+    private Node getNode(int index) {
+        if (index >= contents.size()) {
+            return null;
+        } else {
+            return contents.get(index);
+        }
+    }
+
+    private void setNode(int index, Node n) {
+		// In the case that the ArrayList is not big enough
+		// add null elements until it is the right size
+        while (index + 1 >= contents.size()) {
+            contents.add(null);
+        }
+        contents.set(index, n);
+    }
+
+	/**
+	 * Returns the index of the node to the left of the node at i.
+	 */
+	private int getLeftOf(int i) {
+		if(i >= contents.size()){
+			System.out.println("index out of bounds");
+			return 0;
+		}
+		else if(2*i >= contents.size()){
+			return 0;
+		}
+		else if(contents.get(2*i) != null){ 
+			return 2*i;
+		}
+		else {
+			return 0;
+		}
+	}
+
+	/**
+	 * Returns the index of the node to the right of the node at i.
+	 */
+	private int getRightOf(int i) {
+		if(i >= contents.size()){
+			System.out.println("index out of bounds");
+			return 0;
+		}
+		else if(2*i+1 >= contents.size()){
+			return 0;
+		}
+		else if(contents.get(2*i+1) != null){ 
+			return 2*i+1;
+		}
+		else {
+			return 0;
+		}
+	}
+
+	/**
+	 * Returns the index of the node that is the parent of the node at i.
+	 */
+	private int getParentOf(int i) {
+		if(i >= contents.size()){
+			System.out.println("index out of bounds");
+			return 0;
+		}
+		else if(contents.get((i - i % 2) / 2) != null){
+			return (i - i % 2) / 2;
+		}
+		else {
+			return 0;
+		}
+	}
+
+	/**
+	 * Adds the given node as a left child of the node at the given index.
+	 */
+	private void setLeft(int index, Node n) {
+		if(getNode(index) == null){
+			System.out.println("can't have a child without a parent");
+			return;
+		}
+		else{
+			setNode(index*2, n);
+		}
+	}
+
+	/**
+	 * Adds the given node as the right child of the node at the given index.
+	 */
+	private void setRight(int index, Node n) {
+		if(getNode(index) == null){
+			System.out.println("can't have a child without a parent");
+			return;
+		}
+		else{
+			setNode(index*2+1, n);
+		}
+	}
+
+	/**
+	 * Inserts a value into this subtree according to the BST invariants. This
+	 * won't work until you complete the missing methods.
+	 */
+	private void insertInSubtree(int subTreeRootIndex, int value) {
+		Node subTreeRoot = getNode(subTreeRootIndex);
+		// is it already here in the tree?
+		if (subTreeRoot.value() == value) {
+			return;
+		}
+		// should it go in the left subtree?
+		else if (value < subTreeRoot.value()) {
+			int left = getLeftOf(subTreeRootIndex);
+			if (getNode(left) != null) {
+				insertInSubtree(left, value);
+			} else {
+				setLeft(subTreeRootIndex, new Node(value));
+			}
+		}
+		// should it go in the right subtree?
+		else {
+			int right = getRightOf(subTreeRootIndex);
+			if (getNode(right) != null) {
+				insertInSubtree(right, value);
+			} else {
+				setRight(subTreeRootIndex, new Node(value));
+			}
+		}
+	}
+	
+	public boolean contains (int value) {
+	    return containsHelper (contents.get(1), value);
+	}
+	
+	public boolean containsHelper (Node root, int value){
+		if(root == null){
+			return false;
+		}
+		else if(root.myValue == value){
+			return true;
+		}
+		else if(value < root.myValue){
+			return containsHelper (contents.get(getLeftOf(contents.indexOf(root))), value);
+		}
+		else return containsHelper (contents.get(getRightOf(contents.indexOf(root))), value);
+	}
+
+	public class Node {
+        private int myValue;
+
+		private Node(int value) {
+			myValue = value;
+        }
+
+		public int value() {
+			return myValue;
+		}
+
+		@Override
+		public String toString() {
+			return Integer.toString(myValue);
+		}
+    }
+
+    public static void main(String[] args) {
+        ArrayBST bst = new ArrayBST();
+        bst.insert(9);
+        bst.insert(8);
+        bst.insert(7);
+        bst.insert(6);
+        bst.insert(11);
+        bst.insert(10);
+		System.out.println(bst);
+		System.out.println(bst.contains(10));
+		System.out.println(bst.contains(3));
+    }
+
+}

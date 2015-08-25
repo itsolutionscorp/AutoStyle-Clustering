@@ -1,0 +1,50 @@
+For the first experiment I wrote a test that times adding to a new array list and then another that times adding to a new list.
+The ArrayList shows up as significantly faster. The time passed was anywhere from 18-21 miliseconds for 1,000,000 strings added
+while the linked list shows up as ~75 miliseconds for the same number of added strings.
+I would assume that the time difference comes from the fact that for every added element the ArrayList
+merely appends something to the end, whereas the linked list needs to link each element to its previous as well.
+
+
+For the second experiment I added a bunch of elements to the beginning of the lists. This is when the doubly linked list 
+far surpassed the ArrrayList. It's previous pointer was what made it faster to add to the beginning of the list. 
+The ArrayList took around 405 miliseconds whereas the linkedlist took 76
+
+Below is the relevant code.
+
+import java.util.*;
+
+public class ListTimer{
+	public static void main(String [] args){
+		Timer arr = new Timer();
+		ArrayList<String> a = new ArrayList();
+		arr.start();
+		for(int i = 0; i < 1000000; i++){
+			a.add("hi");
+		}
+		arr.stop();
+		System.out.println(arr.elapsed());
+
+		Timer lis = new Timer();
+		LinkedList l = new LinkedList();
+		lis.start();
+		for(int i = 0; i < 1000000; i++){
+			l.add("hi");
+		}
+		lis.stop();
+		System.out.println(lis.elapsed());
+
+		arr.start();
+		for(int i = 0; i <1000; i++){
+			a.add(0, "hi");
+		}
+		arr.stop();
+		System.out.println(arr.elapsed());
+
+		lis.start();
+		for(int i = 0; i <1000; i++){
+			l.add(0, "hi");
+		}
+		lis.stop();
+		System.out.println(lis.elapsed());
+	}
+}

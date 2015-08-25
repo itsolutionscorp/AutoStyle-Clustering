@@ -1,0 +1,4 @@
+Experiment 1: We created an ArrayList and a LinkedList both of size 1000000 and tested how long it took to perform
+	the get and contains method. There was a slight difference of a couple seconds between the times for the contains 
+	method, with LinkedList in the lead. For the get method, both completed the task in less than a millisecond. This
+	shows that the get method probably runs in constant time for both and the contains method runs in linear time for both.

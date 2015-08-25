@@ -1,0 +1,8 @@
+1. When the first argument is the second argument and has an extra character added at the end (e.g. "asdf2", "asdf")
+2. all pairs of strings
+3. When the inserted character is not at the end (ie. in the beginning or somewhere in the middle) (e.g."2asdf", "asdf")
+4. no pairs of strings
+5. When the argument is not a string
+
+The problem with the contains1MoreThan is that the final else case improperly compares the myString.substring(1) to s. Since strings are objects, == sees if it points to the same things, rather than if the contents are equal. Properly, to fix the bug, the code should be changed to myString.substring(1).equals(s).
+We figured out this code because I have experience with java and noticed that you can't compare strings with ==.

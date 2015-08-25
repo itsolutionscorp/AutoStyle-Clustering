@@ -1,0 +1,93 @@
+Experiment 1:
+
+In experiment 1 I add ten million Strings to an ArrayList and ten million strings to a LinkedList. Then, I time how long it takes to recall ten thousand Strings from random positions in the lists. For the ArrayList, the runtime was very small, measured with the timer. On the other hand, the time requirement was relatively large for the linked list: 
+
+This gave evidence that LinkedLists will perform worse when looking up objects:
+
+class java.util.ArrayList: 1
+class java.util.LinkedList: 7240
+
+public static void getTest (java.util.List a, Timer t1, java.util.List b, Timer t2) {
+        System.out.println("getTest:");
+        java.util.Collection store = new java.util.ArrayDeque();
+        for (int i = 0; i < 10000000; i ++) {
+            store.add("a");
+        }
+        a.addAll(store);
+        b.addAll(store);
+        t1.start();
+        for (int i = 0; i < 1000; i ++ ) {
+            a.get((int)(Math.random()*a.size()));
+        }
+        t1.stop();
+        t2.start();
+        for (int i = 0; i < 1000; i ++ ) {
+            b.get((int)(Math.random()*a.size()));
+        }
+        t2.stop();
+        System.out.println(a.getClass().toString() + ": " + t1.elapsed());
+        System.out.println(b.getClass().toString() + ": " + t2.elapsed());
+    }
+
+I also tested the time requirements for removing an object from the beginning of the lists. I added ten million strings again to each. Then I removed the first thousand from the beginnings of each data structure. 
+
+This gave evidence that Linked Lists will perform better when removing objects (we know from experience adding performance is likewise enhanced):
+
+class java.util.ArrayList: 4482
+class java.util.LinkedList: 0
+
+public static void removeTest2 (java.util.List a, Timer t1, java.util.List b, Timer t2) {
+        System.out.println("removeTest2:");
+        java.util.Collection store = new java.util.ArrayDeque();
+        for (int i = 0; i < 10000000; i ++) {
+            store.add("a");
+        }
+        a.addAll(store);
+        b.addAll(store);
+        t1.start();
+        for (int i = 0; i < 1000; i ++ ) {
+            a.remove(0);
+        }
+        t1.stop();
+        t2.start();
+        for (int i = 0; i < 1000; i ++ ) {
+            b.remove(0);
+        }
+        t2.stop();
+        System.out.println(a.getClass().toString() + ": " + t1.elapsed());
+        System.out.println(b.getClass().toString() + ": " + t2.elapsed());
+    }
+
+
+Experiment 2:
+A singly-linked or doubly-linked list will in general take O(n) time to iterate forwards through the list, where n is the number of elements in the list. On the other hand, a doubly-linked list will take O(n) time to iterate backwards, while a singly-linked list will take O(n^2), because for each element you are reporting backwards, you have to start from the head and traverse the list to get to it. I tested the amount of time required to iterate backwards through the LinkedList and did so for different initial lengths of an array.
+
+Here is the code:
+//Designed to separate regular singly and doubly linked list functionality.
+    public static void iterateBackTest (java.util.List a, Timer t, int size) {
+        System.out.println("IterateBackTest (Size " + size + "): ");
+        for (int i = 0; i < size; i ++) {
+            a.add("a");
+        }
+        t.start();
+        for (int i = a.size() - 1; i >= 0; i --) {
+            a.get(i);
+        }
+        t.stop();
+        System.out.println(a.getClass().toString() + ": " + t.elapsed());
+    }
+
+The results were the following: 
+
+         length       time       dt/dl
+         10000          48          48
+         20000         165         117
+         30000         416         251
+         40000         761         345
+         50000        1205         444
+         60000        1845         640
+         70000        2440         595
+         80000        3175         735
+         90000        3751         576
+
+There is a lot of random variation due to the computer, but in general, we see the slope approaching a constant value, which is consistent with O(n) time — a linear relationship at large n. This is good evidence that the linkedList class is doubly-linked.

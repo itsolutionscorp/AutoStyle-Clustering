@@ -1,0 +1,30 @@
+Beta is insertion sort 
+
+Epsilon is selection sort
+
+Alpha is merge sort
+
+Gamma is quick sort 
+
+Delta is heap sort
+
+
+Gamma very slow for in Order and reverse order, but super fast for almost order and random
+
+Gamma is quick sort - it works very quick except when the list is in order or in reverse order it is slow and can even cause a stack overflow exception to be thrown. This is because for those arrangements the pivot is either max or min and thus the code will run in O(n^2) time
+
+Beta is very quick for in order, very slow for reverse order, pretty quick for almost order, slower for random
+
+Beta is insertion sort
+
+Epsilon moves nothing for in order, is very slow in everything
+
+Epsilon is selection sort
+Makes less movements than others, but is generally slow (in fact none for an already sorted list!)
+
+Alpha is quick for all types of lists
+makes much less comparisons than Delta — merge sort!
+
+Delta - quick for everything
+makes more comparisons — heap sort!
+

@@ -1,0 +1,100 @@
+*Experiment 1
+	the code we used is shown below.
+		ArrayList<Integer> al = new ArrayList<Integer>();
+		LinkedList l = new LinkedList();
+		Timer t = new Timer();
+
+		int numToPut = 10000;
+		int numToDo = 10000;
+
+		for (int k = 0; k < numToDo; k++) {
+			al.add(numToPut);
+		}
+		t.start();
+		for (int k = 0; k < numToDo; k++) {
+			al.get(k);
+		}
+		System.out.println("array list takes " + t.stop() + "nano second");
+		for (int k = 0; k < numToDo; k++) {
+			l.add(numToPut);
+		}
+		
+		t.start();
+		for (int k = 0; k < numToDo; k++) {
+			l.get(k);
+		}
+		System.out.println("linked list takes " + t.stop() + "nano second");
+
+	the result (numToDo = 10000) is below.
+		array list takes 2nano second
+		linked list takes 73nano second
+
+	the result (numToDo = 20000) is below.
+		array list takes 2nano second
+		linked list takes 265nano second
+
+	the result (numToDo = 30000) is below.
+		array list takes 3nano second
+		linked list takes 787nano second
+
+	the result (numToDo = 40000) is below.
+		array list takes 3nano second
+		linked list takes 1128nano second	
+
+	the result (numToDo = 50000) is below.
+		array list takes 4nano second
+		linked list takes 1599nano second
+
+	** our conclusion **
+	LinkList’s get() method has a longer runtime, while ArrayList’s get() method has a shorter runtime.  This experiment distinguishes both of classes because LinkList has to go through all the pointers to get the desired element, while ArrayList can just jump to the desired element and get it.
+
+
+*Experiment 2
+	the code we used is shown below.
+				LinkedList l = new LinkedList();
+		Timer t = new Timer();
+
+		int numToPut = 10000;
+		int numToDo = 10000;
+
+		for (int k = 0; k < numToDo; k++) {
+			l.add(numToPut);
+		}
+
+		t.start();
+		for (int k = 0; k < numToDo; k++) {
+			l.get(k);
+		}
+		System.out.println("doubly linked list takes " + t.stop()
+				+ "nano second");
+
+		List sList = new List();
+
+		for (int k = 0; k < numToDo; k++) {
+			sList.add(numToPut);
+		}
+		t.start();
+		for (int k = 0; k < numToDo; k++) {
+			sList.get(k);
+		}
+		System.out.println("single linked list takes " + t.stop()
+				+ "nano second");
+
+	the result(numToDo = 10000) is below.
+		doubly linked list takes 70nano second
+		single linked list takes 126nano second
+	the result(numToDo = 20000) is below.
+		doubly linked list takes 267nano second
+		single linked list takes 513nano second
+	the result(numToDO = 30000) is below.
+		doubly linked list takes 583nano second
+		single linked list takes 1119nano second
+	the result(numToDO = 40000) is below.
+		doubly linked list takes 1078nano second
+		single linked list takes 1966nano second	
+	the result(numToDO = 50000) is below.
+		doubly linked list takes 1671nano second
+		single linked list takes 2891nano second
+
+	**our conclusion**
+	A doubly linked list’s get() method’s runtime is shorter than that of the singly linked list because of the following: if we need to access an element in the second half of the list, we can start at the end of the doubly linked list and use myPrev to step backwards rather than starting from the front and using myNext to get to the desired element.  This optimizes the runtime in accessing the element.  Rather than iterating through more elements from the front, we can iterate through fewer from the back.

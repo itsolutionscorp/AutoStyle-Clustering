@@ -1,0 +1,16 @@
+Authors: Nathaniel Low (ag) Andrew Hild (ah)
+
+===
+Experiment 1:
+
+We tested add(), contains(), and clear() methods on both ArrayList and LinkedList. We found that it took twice as long to add n=200000 objects to a LinkedList
+as it did to add to an ArrayList, but it took the same amount of time for both to find a given object at the end of the collection and to clear all objects
+from the collection.
+
+===
+Experiment 2:
+
+We propose to implement a reverse iterator on a singly-linked list as implemented in previous labs, and then time its iteration compared to the reverseIterator() 
+method in LinkedList. Because we have to make more assignment statements for our singly-linked list than a doubly-linked implementation would require,
+we should be able to show that for large list sizes, the official LinkedList implementation is more efficient since it can reference Prev and Next 
+variables rather than depending on assigning new temporary variables on each call to next().

@@ -1,0 +1,33 @@
+1. Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+Ans. The program returns true for all the cases for which myString is exactly one char added to the end of s.
+
+2. Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+Ans. It correctly returns false in the following cases:
+	-If s and myString are completely different.
+	-If s and myString differ by more than one char.
+	-If s has one more char than myString.
+3. Describe all pairs of arguments to check for which contains1MoreThan incorrectly 
+returns true, that is, when the first string argument to check is not the result of 
+inserting exactly one character into the second.
+Ans. None
+
+4. Describe all pairs of arguments to check for which contains1MoreThan incorrectly 
+returns false, that is, when the first string argument to check is the result of 
+inserting exactly one character into the second.
+Ans. Whenever a char is added to anywhere except the end of s.
+
+5. Describe all pairs of arguments to check for which contains1MoreThan crashes.
+
+Ans. Anything other than String object, such as integers will crash the program.
+
+
+
+Explanation of the Bug
+The program incorrectly generates false for the case of myString 
+having one additional character in the beginning or in the middle of s. 
+The reason is the following line:
+return myString.substring(1) == s;
+which is supposed to compare the contents of two string objects, but it is 
+actually comparing their references. The correct way to compare two string 
+object is as follows:
+return myString.substring(1).equals(s);

@@ -1,0 +1,11 @@
+contains1MoreThan correctly returns true for any pair of strings where myString has a single extra character added at the END of s. 
+
+contains1MoreThan correctly returns false for any pair of strings where myString is not simply s with a single extra character added in somewhere. 
+
+contains1MoreThan incorrectly returns true for no pairs of strings. 
+
+contains1MoreThan incorrectly returns false for any pair of strings where myString has a single extra character added in the MIDDLE or BEGINNING of the string, s. 
+
+contains1MoreThan crashes when either of the strings in the pair is null. A NullPointerException appears since the object isn't a string so there's no code in the body that accounts for it. 
+
+The problem with contains1MoreThan is the last else statement with the ==. This should be changed to a .equals() method as referenced in the string documentation. == will always return false since even if the characters in the string are equal, the two strings are actually not equal to one another. They are separate objects with different addresses. However, .equals() checks for character equivalency in the strings. I found this out just by reading the documentation and thinking about why my tests that should have been true checked out false. 

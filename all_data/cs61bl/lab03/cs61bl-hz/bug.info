@@ -1,0 +1,16 @@
+1.) Any string pair where all the but the last character of the first string are in the same 
+exact order.  The first string will contain one additional character and thus return true correctly.
+
+2.) Any pair of strings with different lengths, different characters, and different orders of
+the same characters.
+
+3.) No pairs of strings
+
+4.) When you insert any single character in any position except the last position, then
+the check will return false when it should return true.
+
+5.) No pairs of strings.
+
+ 
+ The 'else if' statement breaks if the characters are not exactly the same in the same order. But it 
+ doesn't take into account inserting characters into the middle of a string. 

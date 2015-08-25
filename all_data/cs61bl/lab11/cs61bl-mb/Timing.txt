@@ -1,0 +1,33 @@
+Experiment one: 
+
+We created one arrayList of integers and one linkedList of integers. 
+We then added 1,000,000 elements to each list - the numbers 0 through 999999.
+The time required for the arrayList and linkedList were 241 and 293 ms respectively,
+indicating that adding elements requires similar processing power for both structures.
+
+Next, I used the get() method to retrieve 10,000 different elements in each list.
+This took 6 ms for the arrayList and 223 ms for the linkedList. 
+It is clearly much easier to get an index in the arrayList. 
+
+Next, I used the contains() method to find 10,000 different elements in each list.
+This took 179 ms for  the arrayList and 498 ms for the linkedList.
+In this task, it also appeared much easier for the arrayList to search for a given element.
+
+Finally, I removed 1000 elements from each list.
+This took 4523 ms for the arrayList and 7 ms for the linkedList.
+It is much less efficient removing from the arrayList because all of its elements must be shifted. 
+
+The arrayList and linkList are different data structures with performance differences 
+for different manipulations, such as adding, finding, or removing. 
+
+
+Experiment two:
+
+I created a linkedList with 100,000 integers stored. 
+I then used two methods of linkedList - the listIterator and the descendingIterator
+to iterate through all of the elements of the list. 
+The descendingIterator iterates across the elements in reverse sequential order.
+Using the timer, I found both operations to take very similar amounts of time.
+
+This indicates that there is both forward and reverse linking. 
+If 	linkedList were only a singly linked list, reverse iteration would take much longer. 

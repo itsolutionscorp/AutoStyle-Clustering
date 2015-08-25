@@ -1,0 +1,78 @@
+EXPERIMENT 1:
+    add()  add "a" to both lists for 100 times, 1000times, ..., 10000000 times
+                      result :       arraylist                linkedlist
+                      100         0                         1
+                      1000        1                         1
+                      10000       4                         5
+                      100000      13                        8
+                      1000000     78                        343
+                      10000000    843                       4682
+    analysis: LinkedList grows faster than Arraylist in this case. This is because when adding an item, arraylist runs O(1)
+    times since it keeps track of the index of each element, while linkedList runs O(n)(n is the length of the list). In our
+    experiment, we add n items to the list, so arraylist runs O(n)times while linkedlist runs O(n^2) times.
+
+
+EXPERIMENT 2:
+    record the time for a linkedlist to get its 20000th element, 50000th element and 80000th element
+                      result :             20000      50000     80000
+                               *100 times   15         30        12
+                               *1000times   124        303       124
+    analysis: this proves that linkedList is implemented as a doubly-linked list because if it only has single pointers, 
+    the run-time of .get(int n) should increase as n increases. however, the runtime of .get(1/5*lst.size()) and .get(4/5*lst.size())
+    is almost the same. This result shows that linkedList actually has a backward pointer that allows it to search for an 
+    element from its tail if its index is closer to the tail
+
+
+
+        //experiment1
+    public static void main (String [] args) {
+    	Timer arrayListTimer = new Timer();
+    	Timer linkedListTimer = new Timer();
+    	ArrayList<String> a = new ArrayList<String>();
+    	LinkedList<String> l= new LinkedList<String>();
+    	long[] times = new long[2];
+    	
+    	arrayListTimer.start();
+    	for (int i = 0; i<1000000; i++) {
+    		a.add("a");
+    	}
+    	times[0]=arrayListTimer.stop();
+    	arrayListTimer.reset();
+    	
+    	linkedListTimer.start();
+    	for (int i = 0; i<1000000; i++) {
+    		l.add("a");
+    	}
+    	times[1]=linkedListTimer.stop();
+    	linkedListTimer.reset();
+    	System.out.println(times[0]);
+    	System.out.println(times[1]);
+        
+
+
+        //experiment2
+        long[] track = new long[3];
+    	String result;
+    	linkedListTimer.start();
+    	for(int i = 0; i<1000; i++) {
+    		result = l.get(20000);
+    	}
+    	track[0]=linkedListTimer.stop();
+    	linkedListTimer.reset();
+    	
+    	linkedListTimer.start();
+    	for(int i = 0; i<1000; i++) {
+    		result = l.get(50000);
+    	}
+    	track[1]=linkedListTimer.stop();
+    	linkedListTimer.reset();
+    	
+    	linkedListTimer.start();
+    	for(int i = 0; i<1000; i++) {
+    		result = l.get(80000);
+    	}
+    	track[2]=linkedListTimer.stop();
+    	linkedListTimer.reset();
+    	
+    	System.out.println(track[0]+" "+track[1]+" "+track[2]);
+    }

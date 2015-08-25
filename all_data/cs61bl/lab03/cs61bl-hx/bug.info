@@ -1,0 +1,18 @@
+
+1. For all pairs of arguments in which one argument has one more character
+at the end - not counting spaces - the program correctly returns true.
+
+2. When there is more than one character, the program correctly returns false.
+
+3. No pairs of strings will cause the program to incorrectly return true.
+
+4. When one correct character is added to the beginning of an argument, or if
+a space character is added at the end, the program incorrectly returns false.
+
+5. No pairs of strings will cause the program to crash.
+
+EXPLANATION: The bug occurs when we compare the substring to the rest of the other string
+using a comparison (==) instead of .equals(); as a result, even if both arguments have the
+same string value, they are not considered the same. We discovered the bug when we added
+one character to the beginning of the first argument. As a result, the first argument was not
+correctly compared to the second one.

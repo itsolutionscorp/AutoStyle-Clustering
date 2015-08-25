@@ -1,0 +1,5 @@
+1. No inner loop was used for this assignment;
+2. The other way would have another while loop inside
+and inside that would be while the input isnt 0 add to the subtotal;
+3. the one loop only needs one conditional, also it is easier to follow.
+the two loop makes the code simpler and also allows a better display to be made.

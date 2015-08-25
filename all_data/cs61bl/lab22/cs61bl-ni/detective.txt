@@ -1,0 +1,9 @@
+Alpha - heap sort - very similar to merge sort, but uses less comparisons
+
+Beta - insertion sort - If a list of N items is sorted already, it should do N - 1 comparisons (1 comparison per item as it goes through list)
+
+Gamma - quick sort - it is slowest if it the list is in random order (make sure to make the list big enough to see the difference in times)
+
+Delta - merge sort - runtime is about the same for reverseorder and inorder (and it is fast).
+
+Epsilon - Selection sort - If a list of N items is sorted already, it should do many many comparisons (it goes through list for each element), but it should have 0 movements since it's a destructive sorting method that does not do anything to the list.

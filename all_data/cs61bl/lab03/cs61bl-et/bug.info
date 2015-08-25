@@ -1,0 +1,5 @@
+Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+Describe all pairs of arguments to check for which contains1MoreThan crashes.

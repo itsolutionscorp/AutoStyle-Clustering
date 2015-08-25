@@ -1,0 +1,376 @@
+import java.util.*;
+
+public class AmoebaFamily implements Iterable<AmoebaFamily.Amoeba>{
+
+	public Amoeba myRoot = null;
+	private static int level = 0;
+	private static int familySize = 0;
+	
+	// A constructor that starts an Amoeba family with an amoeba
+	// with the given name.
+	public AmoebaFamily(String name) {
+		myRoot = new Amoeba(name, null);
+	}
+
+	// Add a new amoeba named childName as the youngest child
+	// of the amoeba named parentName.
+	// Precondition: the amoeba family contains an amoeba named parentName.
+	public void addChild(String parentName, String childName) {
+		if (myRoot != null) {
+            myRoot.addChild(parentName, childName);
+		}
+	}
+
+	// Makes all Amoeba names only lower case letters.
+	public void makeNamesLowercase() {
+		// Your goal is to make this as similar as possible to addChild
+		if (myRoot != null) {
+			myRoot.makeNamesLowercase();
+		}
+		
+	}
+
+	// Replaces the name of an amoeba named currentName with the name newName.
+	// Precondition: the amoeba family contains exactly one amoeba named currentName.
+	public void replaceName(String currentName, String newName) {
+		// Your goal is to make this as similar as possible to addChild
+		if (myRoot != null) {
+			myRoot.replaceName(currentName, newName);
+		}
+		
+	}
+
+	// Print the names of all amoebas in the family, one on each line.
+	// later you will write print() that has more interesting formatting
+	public void printFlat() {
+		// Your goal is to make this as similar as possible to addChild
+		if (myRoot != null) {
+			myRoot.printFlat();
+		}
+	}
+
+	// Print the names of all amoebas in the family.
+	// Names should appear in preorder, with children's names
+	// printed oldest first.
+	// Members of the family constructed with the main program above
+	// should be printed in the following sequence:
+	// Amos McCoy, mom/dad, me, Mike, Bart, Lisa, Homer, Marge,
+	// Bill, Hilary, Fred, Wilma, auntie
+    // This is the pretty print exercise.
+	public void print() {
+		if (myRoot != null) {
+			myRoot.print();
+		}
+	}
+	 
+	// returns the length of the longest name in the Amoeba Family
+	public int longestNameLength() {
+		if (myRoot != null) {
+			return myRoot.longestNameLength();
+		}
+		return 0;
+	}
+    
+	// instead of returning the length of the longest name, this method should
+	// return the name that is longest.
+	public String longestName() {
+		// your goal is to make this look as similar as possible to
+		// longestNameLength
+		if (myRoot != null) {
+			return myRoot.longestName();
+		}
+		return "";
+	}
+
+	public int size() {
+		if (myRoot != null) {
+			return myRoot.size();
+		}
+		return 0;
+	}
+	
+	public int height() {
+		if (myRoot != null) {
+			return myRoot.height();
+		}
+		return 0;
+	}
+	
+	public boolean isBinary () {
+		if (myRoot != null) {
+			return isBinary(myRoot);
+		}
+		return true;
+	}
+	
+	private static boolean isBinary (Amoeba a) {
+		boolean binaryParent = (a.myChildren == null || a.myChildren.size() <= 2);
+		for (Amoeba amoebaChild : a.myChildren) {
+			return (isBinary(amoebaChild) && binaryParent);
+		}
+		return (a.myChildren == null || a.myChildren.size() <= 2);
+	}
+	// Return an iterator of the amoeba family.
+	public Iterator<Amoeba> iterator() {
+		return new AmoebaIterator();
+	}
+
+	public static void main(String[] args) {
+		AmoebaFamily family = new AmoebaFamily("Amos McCoy");
+		family.addChild("Amos McCoy", "mom/dad");
+		family.addChild("Amos McCoy", "auntie");
+		family.addChild("mom/dad", "me");
+		family.addChild("mom/dad", "Fred");
+		family.addChild("mom/dad", "Wilma");
+		family.addChild("me", "Mike");
+		family.addChild("me", "Homer");
+		family.addChild("me", "Marge");
+		family.addChild("Mike", "Bart");
+		family.addChild("Mike", "Lisa");
+		family.addChild("Marge", "Bill");
+		family.addChild("Marge", "Hilary");
+		System.out.println("Here's the family:");
+		family.print();
+		for (Amoeba a : family) {
+			System.out.println(a);
+		}
+		/*AmoebaFamily family2 = new AmoebaFamily("Abdi");
+		family2.addChild("Abdi", "Dilek");
+		family2.addChild("Abdi", "Haluk");
+		family2.addChild("Dilek", "Osman");
+		family2.addChild("Haluk", "Jon");
+		family2.addChild("Haluk", "Maggie");
+		System.out.println(family2.isBinary()); */
+		//family.makeNamesLowercase();
+		//family.replaceName("Bill",  "Chelsea");
+		//family.print();
+		//System.out.println("longest name: " + family.longestName());
+		//System.out.println("family size: " + family.size());
+		//System.out.println("tree height: " + family.height());
+	}
+	
+	//A Breadth-First Amoeba Iterator:
+	public class AmoebaIterator implements Iterator<Amoeba> {
+		// Amoebas in the family are enumerated in preorder,
+		// with children enumerated oldest first.
+		// Members of the family constructed with the main program above
+		// should be enumerated in the following sequence:
+		// Amos McCoy, mom/dad, me, Mike, Bart, Lisa, Homer, Marge,
+		// Bill, Hilary, Fred, Wilma
+		// Complete enumeration of a family of N amoebas should take
+		// O(N) operations.
+
+		// You will supply the details of this class in a future lab.
+
+		private Queue fringe = new LinkedList();
+		
+		public AmoebaIterator() {
+			if (myRoot != null) {
+				fringe.add(myRoot);
+			}
+		}
+
+		public boolean hasNext() {
+			return !fringe.isEmpty();
+		}
+
+		public Amoeba next() {
+			Amoeba a = (Amoeba) fringe.remove();
+			if (a.myChildren != null) {
+				for (Amoeba amoebaChild : a.myChildren) {
+					fringe.add(amoebaChild);
+				}
+			}
+			return a;
+		}
+
+		public void remove() {
+			// Not used for now -- removal from a tree can be difficult.
+			// Once you've learned about different ways to remove from
+			// trees, it might be a good exercise to come back and 
+			// try to implement this.
+		}
+
+	} // end of AmoebaIterator nested class
+	
+	/*Depth-First Iterator:
+	public class AmoebaIterator implements Iterator<Amoeba> {
+		// Amoebas in the family are enumerated in preorder,
+		// with children enumerated oldest first.
+		// Members of the family constructed with the main program above
+		// should be enumerated in the following sequence:
+		// Amos McCoy, mom/dad, me, Mike, Bart, Lisa, Homer, Marge,
+		// Bill, Hilary, Fred, Wilma
+		// Complete enumeration of a family of N amoebas should take
+		// O(N) operations.
+
+		// You will supply the details of this class in a future lab.
+
+		private Stack fringe = new Stack();
+		
+		public AmoebaIterator() {
+			if (myRoot != null) {
+				fringe.push(myRoot);
+			}
+		}
+
+		public boolean hasNext() {
+			return !fringe.isEmpty();
+		}
+
+		public Amoeba next() {
+			Amoeba a = (Amoeba) fringe.pop();
+			Stack temp = new Stack();
+			if (a.myChildren != null) {
+				for (Amoeba amoebaChild : a.myChildren) {
+					temp.push(amoebaChild);
+				}
+				for (Amoeba amoebaChild : a.myChildren) {
+					fringe.push(temp.pop());
+				}
+			}
+			return a;
+		}
+
+		public void remove() {
+			// Not used for now -- removal from a tree can be difficult.
+			// Once you've learned about different ways to remove from
+			// trees, it might be a good exercise to come back and 
+			// try to implement this.
+		}
+
+	} // end of AmoebaIterator nested class
+	
+	*/
+	
+	public static class Amoeba {
+
+		public String myName; // amoeba's name
+		public Amoeba myParent; // amoeba's parent
+		public ArrayList<Amoeba> myChildren; // amoeba's children
+
+		public Amoeba(String name, Amoeba parent) {
+			myName = name;
+			myParent = parent;
+			myChildren = new ArrayList<Amoeba>();
+		}
+
+		public String toString() {
+			return myName;
+		}
+
+		public Amoeba parent() {
+			return myParent;
+        }
+
+        //Add a child if parent name matches an amoeba's name,
+        //or if parentName matches any of the descendents
+        public void addChild(String parentName, String childName) {
+            if (myName.equals(parentName)) {
+                Amoeba child = new Amoeba(childName, this);
+                myChildren.add(child);
+            } else {
+                for (Amoeba a : myChildren) {
+                    a.addChild(parentName, childName);
+                }
+            }
+        }
+
+        //Add more void recursive functions below
+
+        public void makeNamesLowercase() {
+        	myName = myName.toLowerCase();
+        	for (Amoeba a : myChildren) {
+        		a.makeNamesLowercase();
+        	}
+        }
+        
+        public void replaceName (String currentName, String newName) {
+        	if (myName.equals(currentName)) {
+        		myName = newName;
+        	}
+        	else {
+        		for (Amoeba a : myChildren) {
+                    a.replaceName(currentName, newName);
+                }
+        	}
+        }
+        
+        public void printFlat() {
+        	System.out.println(myName);
+        	for (Amoeba a : myChildren) {
+                a.printFlat();
+            }
+        }
+       
+        public void print() {
+      			prettyPrint(this);
+     	}
+
+    	public static void prettyPrint(Amoeba a) {
+    		prettyPrintSpaces(level);
+    		System.out.println(a.myName);
+    		level ++;
+    		for (Amoeba amoebaChild : a.myChildren) {
+    			prettyPrintSpaces(level);
+    			prettyPrint(amoebaChild);
+    		}
+    		level --;
+    	}
+
+    	public static void prettyPrintSpaces (int level) {
+    		while (level > 0) {
+    			System.out.print("    ");
+    			level--;
+    		}
+    	}        
+        //Returns the length of the longest name of this Amoeba's children
+        public int longestNameLength() {
+            int maxLengthSeen = myName.length();
+            for (Amoeba a : myChildren) {
+                maxLengthSeen = Math.max(maxLengthSeen, a.longestNameLength());
+            }
+            return maxLengthSeen;
+        }
+        
+        public String longestName() {
+        	String longest = myName;
+        	for (Amoeba a: myChildren) {
+        		if (a.longestName().length() > longest.length()) {
+        			longest = a.myName;
+        		}
+        	}
+        	return longest;
+        }
+        
+        public int size() {
+    		sizeHelper(this);
+    		return familySize;
+    	}
+
+    	// Static helper method for longestName
+    	public static void sizeHelper(Amoeba a) {
+    		familySize++;
+    		for (Amoeba amoebaChild : a.myChildren) {
+    				sizeHelper(amoebaChild);
+    		}
+    	}
+    	
+    	public int height() {
+    		return heightHelper(this);
+    	}
+
+    	private static int heightHelper(Amoeba a) {
+    		if (a.myChildren.isEmpty()) {
+    			return 1;
+    		} else {
+    			int bestSoFar = 1;
+    	        for (Amoeba amoebaChild : a.myChildren) {
+    	            bestSoFar = Math.max(heightHelper(amoebaChild), bestSoFar);
+    	        }
+    	        bestSoFar ++;
+    	        return bestSoFar;
+    	    }
+    	}
+	}
+}

@@ -1,0 +1,18 @@
+
+1.Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+	When the length of myString is 1 and length of s is 0;
+	when mystring has 1 character more than s and the difference is the last or the first character of mystring.
+
+2.Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+	When the length of myString is 0;
+	my string is the same as s.
+    
+3.Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+	No pair of strings.
+
+4.Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second. 
+	when mystring has 1 character more than s and the difference is not the last or the first character of mystring.
+
+5.Describe all pairs of arguments to check for which contains1MoreThan crashes.
+	When one or two arguments are not strings.
+

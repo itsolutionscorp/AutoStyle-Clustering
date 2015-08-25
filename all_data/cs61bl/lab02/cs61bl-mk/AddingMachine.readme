@@ -1,0 +1,8 @@
+
+    Which version did you implement for the exercise?
+    	We used one while loop in this exercise.
+    Describe in words how the other version would work, without actually coding it.
+    	The two-loop version would have one main loop given, and another loop that tests the value of justStarting. Within that second loop, there is an if statement where justStarting would be changed.
+    Which version do you prefer? Describe two reasons for preferring the one-loop version and two reasons for preferring the two-loop version.
+		We prefer the version with one loop. We think it is easier to manage with only one loop, and it should be more efficient.
+		One may prefer the two-loop version because it may seem clearer, and that the program is running by itself.

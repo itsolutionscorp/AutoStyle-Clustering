@@ -1,0 +1,11 @@
+cs61bl-dh Samuel Chia
+cs61bl-dn Kinsa Durst
+
+We implemented the version using only 1 while loop
+
+The version using 2 loops has the inner loop constantly adding subtotal calculation, and when the user inputs zero, it kicks you out of the inner loop, resets subtotoal, and check to see if the user inputs zero again. 
+
+We prefer the way we did it because it is more logical in our brains. The one loop version is more straight forward in understanding the prompt, but requires more steps in checking the value of input. The code is also easier to read/follow
+
+The version using 2 loops is shorter and more efficient. As long as 0's are not inputted, the version using 2 while loops will not have to run through all the code again because it will stay in the inner while loop until a 0 is inputted. 
+

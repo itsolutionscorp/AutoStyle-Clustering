@@ -1,0 +1,11 @@
+1. All the pairs whereby the insertion of the character is after the last character of the string of s2 will return true correctly.
+
+2. All the pairs where there are more than one insertions of characters or no insertions of charcaters in s2 will return false correctly.
+
+All the pairs whereby they differ in more than one character, as well as have character sequence jumbled up will return false correctly too.
+
+3. no pairs of strings
+
+4. All single character insertions which is not at the end of the 2nd string, s2.
+
+5. no pairs of strings

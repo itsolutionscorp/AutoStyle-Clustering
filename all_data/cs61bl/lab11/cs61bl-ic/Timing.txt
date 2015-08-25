@@ -1,0 +1,25 @@
+Aidan Clark IM, Jiyoung Jeong.
+
+Experiment 1:
+
+We created two lists, one LinkedList and one ArrayList, and added 100000 elements to each, followed by getting all 100000 elements in each, and then deleted 10000 elements in each (1000000 took too long), timing each step along the way. The following was the output:
+
+For ArrayList, adding 100000 elements took:
+18
+For Linked List, adding 100000 elements took:
+21
+For ArrayList, getting 100000 elements took:
+16
+For Linked List, getting 100000 elements took:
+7759
+For ArrayList, removing 10000 elements took:
+408
+For Linked List, removing 10000 elements took:
+241
+
+The results indicate that arraylist is slightly faster while adding, two orders of magnitude faster when getting, but almost twice as slow when deleting.
+
+Experiment 2:
+
+We tested this by creating a long LinkedList (of length 10000), and measured getting elements at the beginning of the list and at the end of the list. In both cases, this took an equally short amount of time. The only way this is possible is if the LinkedList was able to access the 9999th item in only a few jumps, which means it had to be able to jump to the end and go backwards.
+

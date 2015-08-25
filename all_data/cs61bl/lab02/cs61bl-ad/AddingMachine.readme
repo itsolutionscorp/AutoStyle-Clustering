@@ -1,0 +1,5 @@
+1. We implemented a single-loop solution.
+
+2. While the input is not equal to zero, you can continue to update the subtotal until you get an input that is zero which would exit the while loop and execute the remaining code that determines what you print and whether you reenter the while statement or not.
+
+3. We prefer the single-loop version because the conditional statements make it clear how many zeroes have been entered and allow us to control the updating of variables more frequently. The code is easier to read as well. The double loop version may also be advantageous because it would be a bit simpler but more dependent on iteration. It would be intuitive if you could picture the movement through the while loop but could also be buggy since so much of your process is dependent on your while loop working efficiently.

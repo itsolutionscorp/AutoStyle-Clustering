@@ -1,0 +1,10 @@
+Adding Machine Questions
+1) Which version did you implement for the exercise?
+We implemented the one loop version.
+
+2) Describe in words how the other version would work, without actually coding it.
+The outside loop would have the condition that the integer entered is not 0. The inside loop would represent the summation of a subtotal, with the condition that the integer entered is not 0 and the flag for justStarting is not true. When a 0 is entered, the inner while loop will exit, the subtotal will be calculated, and the user will again be prompted for an integer. If it is again 0, the outside loop will break and the program will end after printing the total.
+
+3) Which version do you prefer? Describe two reasons for preferring the one-loop version and two reasons for preferring the two-loop version.
+I prefer the one loop version. It is easier to implement. It is also less lines of code.
+The two-loop version may be preferred because it avoids the possibility of a infinite loop. Also, it is easier to understand as it clearly goes over the two cases that cause the loops to break: the first and second 0's. 

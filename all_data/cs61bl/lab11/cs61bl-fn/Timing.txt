@@ -1,0 +1,70 @@
+Experiment 1
+LinkedList l = new LinkedList();
+		Timer k = new Timer();
+		k.start();
+		for (int i= 0; i<10000000; i ++) {
+			l.add(i);
+			}
+		System.out.println("linkedlist add 10000000 elements costs " + k.stop());
+		ArrayList a = new ArrayList();
+		Timer m = new Timer();
+		m.start();
+		for (int i= 0; i<10000000; i ++) {
+			a.add(i);
+			}
+		System.out.println("arraylist add 10000000 elements costs " + k.stop());
+linkedlist add 10000000 elements costs 8527
+arraylist add 10000000 elements costs 0
+After our experiment, we think the linkedlist's add is theta(n) 
+while the arrayList.add is theta(1);
+we think the difference results from the ways of accessing data in the two lists.
+arraylist can be accessed by its index while linkedlist has go over the item one by one.
+
+LinkedList l = new LinkedList();
+		Timer k = new Timer();
+		for (int i= 0; i<10000000; i ++) {
+			l.add(10000000-i);
+			}
+		k.start();
+		Collections.sort(l);
+		System.out.println("linkedlist sort 10000000 elements costs " + k.stop());
+		ArrayList a = new ArrayList();
+		Timer m = new Timer();
+		for (int i= 0; i<10000000; i ++) {
+			a.add(10000000-1);
+			}
+		m.start();
+		Collections.sort(a);
+		System.out.println("arraylist sort 10000000 elements costs " + k.stop());
+	}
+linkedlist sort 10000000 elements costs 1899
+arraylist sort 10000000 elements costs 0
+After our experiment, we think the linkedlist's sort seems faster than theta(n)
+, compared with the add experiment at before, we cannot determine its algorithm.
+while the arrayList.sort is theta(1);
+we think the difference results from the same issue. linked list can only be
+accessed by going over the item one by one.
+
+Experiment 2
+LinkedList l = new LinkedList();
+		Timer k = new Timer();
+		k.start();
+		for (int i= 0; i<10000000; i ++) {
+			l.add(10000000-i);
+			}
+		System.out.println("linkedlist add 10000000 elements costs " + k.stop());
+		k.reset();
+		k.start();
+		for (int i= 0; i<200000; i ++) {
+			l.get(10000000-1-i);
+			}
+		System.out.println("linkedlist get last 20% elements costs " + k.stop());
+		k.reset();
+		k.start();
+		for (int i= 0; i<200000; i ++) {
+			l.get(i);
+			}
+		System.out.println("linkedlist get first 20% elements costs " + k.stop());
+linkedlist get last 20% elements costs 55419
+linkedlist get first 20% elements costs 161360
+According to our result, the last 20% is much faster, so it would not be a single-linked list.

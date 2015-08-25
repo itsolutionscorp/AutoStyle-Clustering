@@ -1,0 +1,11 @@
+Alpha   Heap sort 
+Inorder 16>>32>>64  comparison 32>>80>>192
+Beta    Insertion sort
+we use a Inorder list of length 16, beta takes 15 comparison >> Beta Insertion sort
+Gamma   Selection sort
+movement is always n-1 for inOrder list 
+Delta   Merge sort
+the only one remaining
+Epsilon  Quick sort
+movement is always 0, comparison n * (n -1)/2
+

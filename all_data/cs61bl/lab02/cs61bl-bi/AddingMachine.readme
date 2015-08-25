@@ -1,0 +1,7 @@
+1. We implemented the version with a single loop.
+
+2. A version with two loops would have a nested while loop that checks whether justStarting is true or false. Inside that loop, the program would check whether or not k = 0 and either add k to the subtotal and total or change the value of justStarting to false and print the subtotal. Outside the nested while loop, the program would then again check whether or not k = 0 and either change the value of justStarting to true as well as adding k to the subtotal and total, or print the total and exit out of the program.
+
+3.We preferred the single loop because it’s more intuitive to think in terms of multiple if statements than a while loop inside a while loop, and the code looks cleaner and easier to follow.
+The two-loop version could be preferable because the single loop version repeats some code and the two-loop version is more concise. It could also be easier to tell which state the program is in because the while loop with the justStarting variable is separate from the other code.
+

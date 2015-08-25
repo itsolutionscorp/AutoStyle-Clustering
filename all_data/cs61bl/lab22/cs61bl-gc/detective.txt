@@ -1,0 +1,15 @@
+Alpha - Heap sort
+	Has significantly more movements than comparisons. Alpha is fast for in order and reverse order lists. Alpha is slightly slower for random lists. There are few number of comparisons and more movements, which reflect a heap sort because there are more movements from bubbling down.
+
+Beta - Insertion sort
+	Beta is really fast for in order lists. Beta is also slow for random lists and reverse lists. For in order lists, the number of comparisons is N-1.
+
+Gamma - Quicksort
+	Extremely slow when the list is in reverse order. Extremely slow for in order lists. It is only fast for random lists. Quick sort has the worst case runtime for in order or reverse order lists because it results in the maximum number of comparisons.
+
+Delta - Merge sort
+	Delta is fast when the list is in reverse order, in order, and random. For a given N size, the total time to sort remains relatively constant among the three lists. There are many comparisons which matches merge sort because every time you merge any sub arrays, there need to be comparisons.
+
+Epsilon - Selection sort
+	Has the most comparisons and the least movements for random lists. Its experimental results stay the same every time. Selection sort starts at the leftmost index of the unsorted portion and finds the minimum value to place at the end of the sorted portion.  Therefore, there are minimal movements but many comparisons. The number of comparisons and movements are constant for the same list size. 
+

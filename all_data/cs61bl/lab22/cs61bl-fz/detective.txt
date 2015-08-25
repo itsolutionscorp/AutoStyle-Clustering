@@ -1,0 +1,4 @@
+alpha - heap sort. requires less comparisons to be made due to only needing a min heap
+beta - insertion sort. runs much faster given a sorted list
+gamma - quick sort. runs really slow given a sorted list. runs in n^2 time
+delta - merge sort. requires a lot more comparisons bc we need to merge at each level (recursive)

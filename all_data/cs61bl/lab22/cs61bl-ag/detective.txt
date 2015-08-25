@@ -1,0 +1,5 @@
+Alpha: HeapSort
+Beta: SelectionSort
+Gamma: MergeSort
+Delta: QuickSort
+Epsilon: InsertionSort

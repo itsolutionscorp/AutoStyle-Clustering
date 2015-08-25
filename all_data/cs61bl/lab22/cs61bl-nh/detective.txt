@@ -1,0 +1,9 @@
+Alpha is probably a heap sort since it does roughly the same number of movements and comparisons regardless of if the initial list is in order or is in reverse order. This would make sense because the numbers would shift around in the heap when inserted in. 
+
+Beta is an Insertion Sort since when you have a list that is in order it runs in O(n) time, but when you have a list that is in reverse order the runtime(# comparisons) jumps up to around O(n^2). 
+
+Epsilon is likely to be a Selection Sort because for already sorted lists, it does n^2 comparisons, but has exactly 0 movements (which makes sense for this particular algorithm since it is moving numbers around in order to make a sorted collection in a collection it considers to be unsorted).
+
+Gamma may be a very badly done Quicksort, which divides the list up at something like the first index (instead of n/2), and thus can take up to O(n^2).
+
+That leaves Delta as being the Mergesort. This is because every time you merge two sorted collections, the actions that take place are probably considered movements. Also, the runtime is O(nlogn).

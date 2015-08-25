@@ -1,0 +1,30 @@
+Given String a, b and you're calling a.contains1MoreThan(b) ...
+
+1) Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+Correctly returns true if a.substring(1) and b are the same, but a has one extra character at the end.
+
+2) Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+Correctly returns false when a does not have exactly one more character than b.
+
+3) Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+No pair of strings
+
+4) Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+Incorrectly returns false when a has one character inserted either at the beginning or the middle. For example:
+check("abdc", "abc");
+check("abcd", "abc");
+
+5) Describe all pairs of arguments to check for which contains1MoreThan crashes.
+No pair of strings
+
+The countains1MoreThan method does not check for whether or not the string has an extra character inserted at the beginning or middle. It will catch "abcd" has one more than "abc", but not "dabc" has one more than "abc" or "abdc" has one more than "abc". This is because in the line that states:
+
+return myString.substring(1) == s;
+
+This will check whether or not myString.substring(1) and s are pointing at the same String object. By using the substring method an entirely new String object is created. The == will check whether the references are the same regardless of the value, and because myString.substring(1) and s are two separate String objects, it will always return false.
+
+If you were to say:
+
+return myString.substring(1).equals(s);
+
+Then the code works.

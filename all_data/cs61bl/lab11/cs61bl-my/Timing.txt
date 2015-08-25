@@ -1,0 +1,22 @@
+Experiment 1:
+
+-Create an ArrayList and LinkedList with 10000 element of random integers
+-Test the methods : Add, Remove, Get, Contains
+-Results:
+	-Add:
+		The LinkedList was much quicker in adding 10000 elements to the list, taking only 25 milliseconds compared to 73 milliseconds for the ArrayList. 
+	-Remove:
+		The LinkedList was faster at removing 10000 elements from the list, taking between 17-33 milliseconds, compared to 73-213 milliseconds for the ArrayList
+	-Get
+		This was the same time between the two, taking 0 milliseconds to get the item at position 9999
+	-Contains
+		Also the same time between the two for checking to see if the char 'a' was in the List, about 17 milliseconds
+
+Experiment 2:
+
+-Create an ArrayList with 1000000 items
+-Test the time it takes to remove the first and the second to last item
+-If it is doubly-linked, they should take roughly the same amount of time (namely 0), because the list can look backwards. A singely-linked list with a head and tail can immediately access the first and last elements, but will take time to access the ones in between.
+
+-Results
+	- It worked! The list took the exact same amount of time to remove the second to last element as the first element.

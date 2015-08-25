@@ -1,0 +1,8 @@
+1. When a character is added at the end, when a character is added to an empty string.
+2. When there are multiple characters added, when characters are removed, when the strings are the same, when the order of the characters in the string is changed.
+3. Never.
+4. When a character is added anywhere but the end to a non-empty string.
+5. Never.
+
+The bug in the method is due to the confusion between == and .equals(). This programmer should be using myString.subString(1).equals(s) instead of myString.subString(1) == s. == checks if two reference variables point to the same object, while .equals() checks if two objects have the same instance variables. This caused the program to incorrectly identify strings as different which were actually the same.
+We figured this out by reading the program closely and tracing sample cases.

@@ -1,0 +1,40 @@
+1. 1) when s is added at the end of myString, check returns true  
+   check("abc2", "abc") --> is true and returns true
+   check("iii1", "iii") --> is true and returns true
+   even when I reference String object into a variable and pass it in, 
+   s added to end of myString works
+   
+   2) when s is "",and myString is a single character
+   check(" ","");
+   check("a","");
+   check("1","");
+   check("@","");
+   
+2. 1) when myString ==""(except s being null).	
+   
+   check("", " ");
+   check("", "");	
+   check("","1");
+   check("","a");
+   check("","@");
+   check("","abc");
+
+   2) when s is "",but myString is more than a letter.
+   
+   check("  ","");
+   check("ab","");
+   check("12","");
+   
+3.I could not find one.
+   
+4. When s is added to the front or in the middle, JVM returns incorrectly returns false.
+   1abc, abc --> is true but returns false
+   a1bc, abc --> is true but returns false 
+   
+5. when you pass null as an argument for check method, the system crashes.
+
+   check("12",null);
+   check(null,"");
+   check(null,null);
+   
+And yes,I made all these tests for AccountTester and Debug to get used to Java interface a little more.

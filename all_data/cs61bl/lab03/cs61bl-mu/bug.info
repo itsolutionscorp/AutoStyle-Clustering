@@ -1,0 +1,12 @@
+1. Only one character differ at the end will return true.
+2. Differ one or more character between two strings will 
+   always return false(Except both of them are null or either 
+   of them is null, and also except only one differ at the end).
+3. No pairs of strings. 
+4. Only one character differ between two strings but not at the end.
+5. Both of them are null, or either of the strings is null.
+
+
+I found that == and .equals() are testing different things. == is testing 
+if two objects are pointing to the same place in memory. .equals() is testing
+the content of those two objects.  

@@ -1,0 +1,30 @@
+write down which button corresponds to which sorting algorithm. For each, explain how you determined it.
+
+Alpha- Heap
+	Alpha made less comparisons in the best case scenario as opposed to delta and gamma. Alpha tended to 
+	have more variety in total run time compared to Delta. Delta's run time was much more constant when it 
+	came to randomly generated lists. Note that based on runtimes, it was clear that beta and episolon were the slowest two of the five, implying that 
+	alpha gamma and delta were not of the selection/insertion variety.
+
+
+Beta- Insertion
+	Beta had the some of the slowest run time for best and worst case.
+	When it came to best case however, it made exactly n comparisons, indicating that it was an insertion algorithm.
+
+
+Gamma- Quick Sort
+	Out of Alpha, Gamma, and Delta, Gamma had the slowest time for 
+	worst case scenario. Quick Sort has worst case n^2
+
+
+
+Delta- Merge
+	Out of alpha and delta, merge made the most amount of comparisons in
+	when the list was in order. It stays constant between in order and reverse order. Delta occasionally
+	had large variance in run time when sorting random lists consecutively.
+
+
+Epsilon- Selection
+	Epsilon had the slowest run time for both best case
+	and worst case. In addition, it made the same amount
+	of comparisons for best and worse.

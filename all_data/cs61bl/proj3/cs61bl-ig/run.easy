@@ -1,0 +1,691 @@
+#!/bin/bash
+# bash shell script to try solving the puzzles in ~cs61bl/code/proj3/easy.
+# Copy this script into the directory that contains your Solver and
+# Checker classes.  Make sure this script is executable by saying
+#	chmod +x run.easy
+# if necessary.  Then just say
+#	./run.easy
+# to try them all.
+d=easy
+export CLASSPATH=$CLASSPATH:Checker.jar
+echo "Running easy puzzles"
+echo "These should all say 'Verified', without any 'Wrong exit status' messages"
+echo "*** Start with some solvable puzzles."
+
+echo ""
+echo "trying init.from.handout"
+/bin/rm -f /tmp/out$$
+java Solver $d/init.from.handout $d/goal.2.from.handout > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+	java Checker $d/init.from.handout $d/goal.2.from.handout < /tmp/out$$
+fi
+
+echo ""
+echo "trying 1x1"
+/bin/rm -f /tmp/out$$
+java Solver $d/1x1 $d/1x1.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/1x1 $d/1x1.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying 1x2, one block"
+/bin/rm -f /tmp/out$$
+java Solver $d/1x2.one.block $d/1x2.one.block.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/1x2.one.block $d/1x2.one.block.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying 1x2, two blocks"
+/bin/rm -f /tmp/out$$
+java Solver $d/1x2.two.blocks $d/1x2.two.blocks.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/1x2.two.blocks $d/1x2.two.blocks.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying easy"
+/bin/rm -f /tmp/out$$
+java Solver $d/easy $d/easy.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/easy $d/easy.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying full.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/full.1 $d/easy.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/full.1 $d/easy.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying big.block.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/big.block.1 $d/big.block.1.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/big.block.1 $d/big.block.1.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying big.block.2"
+/bin/rm -f /tmp/out$$
+java Solver $d/big.block.2 $d/big.block.2.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/big.block.2 $d/big.block.2.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying big.block.3"
+/bin/rm -f /tmp/out$$
+java Solver $d/big.block.3 $d/big.block.3.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/big.block.3 $d/big.block.3.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying big.block.4"
+/bin/rm -f /tmp/out$$
+java Solver $d/big.block.4 $d/big.block.4.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/big.block.4 $d/big.block.4.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying big.tray.2"
+/bin/rm -f /tmp/out$$
+java Solver $d/big.tray.2 $d/big.tray.2.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/big.tray.2 $d/big.tray.2.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying big.search.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/big.search.1 $d/big.search.1.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/big.search.1 $d/big.search.1.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying big.search.2"
+/bin/rm -f /tmp/out$$
+java Solver $d/big.search.2 $d/big.search.2.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/big.search.2 $d/big.search.2.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying check.diff.blocks"
+/bin/rm -f /tmp/out$$
+java Solver $d/check.diff.blocks $d/check.diff.blocks.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/check.diff.blocks $d/check.diff.blocks.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying enormous.full.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/enormous.full.1 $d/enormous.full.goal.1 > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/enormous.full.1 $d/enormous.full.goal.1 < /tmp/out$$
+fi
+
+echo ""
+echo "trying enormous.full.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/enormous.full.1 $d/enormous.full.goal.2 > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/enormous.full.1 $d/enormous.full.goal.2 < /tmp/out$$
+fi
+
+echo ""
+echo "trying forced.match.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/forced.match.1 $d/forced.match.1.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/forced.match.1 $d/forced.match.1.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying forced.match.1+90"
+/bin/rm -f /tmp/out$$
+java Solver $d/forced.match.1+90 $d/forced.match.1+90.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/forced.match.1+90 $d/forced.match.1+90.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying forced.match.2"
+/bin/rm -f /tmp/out$$
+java Solver $d/forced.match.2 $d/forced.match.2.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/forced.match.2 $d/forced.match.2.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying immed.match.0"
+/bin/rm -f /tmp/out$$
+java Solver $d/immed.match.0 $d/immed.match.0.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/immed.match.0 $d/immed.match.0.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying immed.match.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/immed.match.1 $d/immed.match.1.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/immed.match.1 $d/immed.match.1.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying immed.match.2"
+/bin/rm -f /tmp/out$$
+java Solver $d/immed.match.2 $d/immed.match.2.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/immed.match.2 $d/immed.match.2.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying immed.match.2+90"
+/bin/rm -f /tmp/out$$
+java Solver $d/immed.match.2+90 $d/immed.match.2+90.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/immed.match.2+90 $d/immed.match.2+90.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying immed.match.2+180"
+/bin/rm -f /tmp/out$$
+java Solver $d/immed.match.2+180 $d/immed.match.2+180.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/immed.match.2+180 $d/immed.match.2+180.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying immed.match.2+270"
+/bin/rm -f /tmp/out$$
+java Solver $d/immed.match.2+270 $d/immed.match.2+270.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/immed.match.2+270 $d/immed.match.2+270.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying instant.match.0"
+/bin/rm -f /tmp/out$$
+java Solver $d/instant.match.0 $d/instant.match.0.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/instant.match.0 $d/instant.match.0.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying instant.match.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/instant.match.1 $d/instant.match.1.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/instant.match.1 $d/instant.match.1.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying instant.match.1+90"
+/bin/rm -f /tmp/out$$
+java Solver $d/instant.match.1+90 $d/instant.match.1+90.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/instant.match.1+90 $d/instant.match.1+90.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying instant.match.2"
+/bin/rm -f /tmp/out$$
+java Solver $d/instant.match.2 $d/instant.match.2.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/instant.match.2 $d/instant.match.2.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying instant.match.3"
+/bin/rm -f /tmp/out$$
+java Solver $d/instant.match.3 $d/instant.match.3.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/instant.match.3 $d/instant.match.3.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying instant.match.3+90"
+/bin/rm -f /tmp/out$$
+java Solver $d/instant.match.3+90 $d/instant.match.3+90.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/instant.match.3+90 $d/instant.match.3+90.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying no.move.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/no.move.1 $d/no.move.1.goal.6 > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/no.move.1 $d/no.move.1.goal.6 < /tmp/out$$
+fi
+
+echo ""
+echo "trying no.move.2"
+/bin/rm -f /tmp/out$$
+java Solver $d/no.move.2 $d/no.move.2.goal.6 > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/no.move.2 $d/no.move.2.goal.6 < /tmp/out$$
+fi
+
+echo ""
+echo "trying no.move.3"
+/bin/rm -f /tmp/out$$
+java Solver $d/no.move.3 $d/no.move.3.goal.6 > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/no.move.3 $d/no.move.3.goal.6 < /tmp/out$$
+fi
+
+echo ""
+echo "trying 140x140"
+/bin/rm -f /tmp/out$$
+java Solver $d/140x140 $d/140x140.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/140x140 $d/140x140.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying 140x140 2"
+/bin/rm -f /tmp/out$$
+java Solver $d/140x140 $d/140x140.goal.2 > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/140x140 $d/140x140.goal.2 < /tmp/out$$
+fi
+
+echo ""
+echo "trying small.search"
+/bin/rm -f /tmp/out$$
+java Solver $d/small.search $d/small.search.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/small.search $d/small.search.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying small.search+90"
+/bin/rm -f /tmp/out$$
+java Solver $d/small.search+90 $d/small.search+90.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/small.search+90 $d/small.search+90.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying tree+90"
+/bin/rm -f /tmp/out$$
+java Solver $d/tree+90 $d/tree+90.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/tree+90 $d/tree+90.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying tree+180"
+/bin/rm -f /tmp/out$$
+java Solver $d/tree+180 $d/tree+180.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/tree+180 $d/tree+180.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying tree+270"
+/bin/rm -f /tmp/out$$
+java Solver $d/tree+270 $d/tree+270.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/tree+270 $d/tree+270.goal < /tmp/out$$
+fi
+
+echo ""
+echo "trying tree"
+/bin/rm -f /tmp/out$$
+java Solver $d/tree $d/tree.goal > /tmp/out$$
+if [ "$?" -ne 0 ] ; then
+    echo "*** Wrong exit status"
+else
+    java Checker $d/tree $d/tree.goal < /tmp/out$$
+fi
+
+echo ""
+echo "*** Now try some unsolvable puzzles."
+echo ""
+echo "trying enormous.3"
+/bin/rm -f /tmp/out$$
+java Solver $d/enormous.3 $d/enormous.deadend.1 > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying 140x140 with impossible goal"
+/bin/rm -f /tmp/out$$
+java Solver $d/140x140 $d/140x140.impossible.goal > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying enormous.full.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/enormous.full.1 $d/enormous.full.deadend.2 > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying full.2"
+/bin/rm -f /tmp/out$$
+java Solver $d/full.2 $d/easy.goal  > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying impossible.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/impossible.1 $d/impossible.1.goal > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying impossible.1+90"
+/bin/rm -f /tmp/out$$
+java Solver $d/impossible.1+90 $d/impossible.1+90.goal > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying impossible.3"
+/bin/rm -f /tmp/out$$
+java Solver $d/impossible.3 $d/impossible.3.goal > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying impossible.3x4"
+/bin/rm -f /tmp/out$$
+java Solver $d/impossible.3x4 $d/impossible.3x4.goal.1 > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying impossible.4"
+/bin/rm -f /tmp/out$$
+java Solver $d/impossible.4 $d/impossible.4.goal > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying impossible.4+90"
+/bin/rm -f /tmp/out$$
+java Solver $d/impossible.4+90 $d/impossible.4+90.goal > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying impossible.4+180"
+/bin/rm -f /tmp/out$$
+java Solver $d/impossible.4+180 $d/impossible.4+180.goal > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying impossible.4+270"
+/bin/rm -f /tmp/out$$
+java Solver $d/impossible.4+270 $d/impossible.4+270.goal > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying impossible.4x3"
+/bin/rm -f /tmp/out$$
+java Solver $d/impossible.4x3 $d/impossible.4x3.goal.1 > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying no.move.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/no.move.1 $d/no.move.1.deadend.goal.6 > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying no.move.2"
+/bin/rm -f /tmp/out$$
+java Solver $d/no.move.2 $d/no.move.2.deadend.goal.6 > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying no.move.3"
+/bin/rm -f /tmp/out$$
+java Solver $d/no.move.3 $d/no.move.3.deadend.goal.6 > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+
+echo ""
+echo "trying one.move.1"
+/bin/rm -f /tmp/out$$
+java Solver $d/one.move.1 $d/one.move.1.deadend.goal.6 > /tmp/out$$
+if [ -s /tmp/out$$ ]
+then
+    echo "*** Impossible goal. Output produced, should have been none."
+    /bin/rm -f /tmp/out$$
+elif [ "$?" -ne 1 ]
+then
+    echo "*** Wrong exit status"
+else
+    echo "Verified"
+fi
+

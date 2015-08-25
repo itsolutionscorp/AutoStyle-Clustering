@@ -1,0 +1,57 @@
+Timing.txt
+
+@@@Experiment 1; 
+Using only methods common to both ArrayList and LinkedList, design an experiment to show performance differences between the two List implementations.
+
+
+Assumption 1 : lookup time in get() ArrayList is O(1) and get() LinkedLis is O(n);
+
+subExperiment 1
+creat a while loop to add n = 1000 object into ArrayList A.
+call get(n) on A
+Set a timer T1 one line above the while loop and T1.start();
+end the timer T1 by T1.end() at after while loop end. 
+
+subExperiment 1.5 
+creat a while loop to add n = 1 object into ArrayList A.
+call get(n) on A
+Set a timer T1 one line above the while loop and T1.start();
+end the timer T1 by T1.end() at after while loop end. 
+
+subExperiment 2
+creat a while loop to add n = 1000 object into LinkedList L.
+call get(n) on L
+Set a timer T2 one line above the while loop and T2.start();
+end the timer T2 by T1.end() at after while loop end. 
+
+subExperiment 2.5
+creat a while loop to add n = 1 object into LinkedList L.
+call get(n) on L
+Set a timer T2 one line above the while loop and T2.start();
+end the timer T2 by T1.end() at after while loop end. 
+
+
+
+subExperiment 2.5 gives the constant time operation for ArrayList
+subExperiment 1.5  gives the constant time operation for LinkedList
+
+
+compare the result
+t1.tAccum  = and t2.tAccum we can see the 
+get in LinkedList is O(n) and  in ArrayList is O(1)
+
+
+
+@@@Experiment 2;
+
+result: it is doubly LinkedList.
+
+1 method
+creat a LinkedList and and a reference to firstNode
+change first item's Mynext points to the third Node. 
+and them call T.myPre on third Node to see whether or not it is null.
+
+2. method 2
+read from the eclipse to tell whether or not it has field call pre or similar 
+
+

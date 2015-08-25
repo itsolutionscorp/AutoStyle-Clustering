@@ -1,0 +1,21 @@
+ALPHA
+This corresponds to heap sort. Takes more comparisons when in random order, so we guess that this is due to the longer time the random order would take to create the heap (before being sorted in time proportional to N log N).
+
+BETA
+Corresponds to insertion sort. Went from having 31 comparisons when in order, to having 496 comparisons when in reverse order.  Insertion sort comparisons are minimized with sorted arrays (because you only do one comparison in the inner loop per iteration of your outer loop) and maximized with reverse sorted arrays.
+RUNTIME: normal: O(N^2), sorted: better
+
+GAMMA
+Corresponds to quicksort.  When the array was reverse sorted, it had slightly more comparisons than when the array was not reverse sorted.  Quicksort, when reverse sorted, exhibits N^2 behavior rather than its usual N log N behavior.
+
+DELTA
+This corresponds to merge sort.  All the comparisons for different orders seemed to be relatively similar, and merge sort has total time proportional to N log N (and, unlike QuickSort, does not have a worst-case that makes it run in time worse than this).
+
+EPSILON
+Corresponds to selection sort. Has 496 comparisons whether in order, in reverse order, in almost order, or in random order.  Selection sort's inner loop must run its entire length no matter what the array looks like.
+RUNTIME: O(N^2)
+
+
+
+
+Sang Lee (em) & Maggie Aytac (ep)

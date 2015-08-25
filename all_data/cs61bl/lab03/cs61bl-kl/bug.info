@@ -1,0 +1,27 @@
+bug.info
+
+
+1) Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+	Correctly returns when first string has zero length.
+	Correctly returns when second string has no length, and first string has length 1.
+	Correctly returns when the one over character is added to the very end of first string. e.g. ( "abc2", "abc")
+	
+
+2) Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+ Correctly returns false when two strings are same length with more than one character added. ("abc" "def")
+ Correctly returns false when more than two characters rae added. "a2bc3d"  "abcd"
+
+3) Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+	No pairs.
+
+4) Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+	Incorrectly returns false instead true when first String contains exactly one character more in any location but the very end. e.g. ("2abc", "abc") ("a2bc", "abc") ("ab2c", "abc")
+	
+5) Describe all pairs of arguments to check for which contains1MoreThan crashes.
+   Crashes when arguments are of the wrong type. e.g. ( 4, "abc")
+
+
+6) Determine what's wrong with the contains1MoreThan method, and how you figured it out. 
+
+	The problem is the use of == instead of equals to. Equals to looks for the value similarity while == looks for exact same object. 
+	We figured this out by looking at why the pair ("2abc" , "abc") was return false when it should return true. The other parts of the code work as expected.

@@ -1,0 +1,26 @@
+1.
+abc2,abc
+cate,cat
+hate,hat
+ucb,uc
+2.
+abc,def
+like,love
+ucb,ucla
+3.
+h + ""
+when you conpare with one-letter imput with some empty, it will almost tell it is true , however you do not make any comparision at all since you hace a fake imput(which is actually empty).
+4.
+ubc,uc
+pop,poop
+ho,o
+tahe,hat
+when you insert the letter to the original word other than in the end 
+when your word with extra letter appears in the sequence different from the original word, it will always tell that it is false
+5.
+h + ""
+ubc,uc
+pop,poop
+ho,o
+tahe,hat
+When you compare a letter with nothing and when your word whose lette apear in different order.

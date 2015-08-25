@@ -1,0 +1,12 @@
+Experiment 1)
+Using timing class provided by the lab, we construct two test cases, timing the two data types. We instantiate time.start() then we create a new ArrayList
+and add 1000 elements in it. After that, we try to get the no. 500 element from the Arraylist and then we get the time.elapsed and time.stop methods to see the
+result. We do the same for the Linked list. We choose to .get(500) element so that we can see the comparisson between the two datatypes. The time for the 
+Linkedlist should be bigger than the Arraylist because Linkedlist has to loop all over the elements. The arraylist, on the otherhand will give as an instant result
+for the array slot.
+
+Experiment 2)
+On this experiment, we create a new Linkedlist and add 100 elements in it. Then we loop all over it for a bigger number let's say 200 and we try to check, 
+if the element positioned at 100 is the same as the one positioned at 200. If the linked list was single, if it reached the 100th element then the .next should 
+be null. On the other hand, the doubly linked list when it reaches  100 the .next should be .myHead, and the first element of the list should result.
+

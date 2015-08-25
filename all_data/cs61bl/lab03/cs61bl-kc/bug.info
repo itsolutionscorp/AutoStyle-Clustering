@@ -1,0 +1,11 @@
+1. contains1MoreThan returns true when a character is inserted to an empty string.
+
+2. contains1MoreThan returns false when more than one character is inserted, or if one or more characters in myString are different from argument s.
+
+3. no strings.
+
+4. contains1MoreThan returns false instead of true when a character is inserted anywhere except the end of argument s.
+
+5. no strings.
+
+Bug: Line 21 should be changed to myString.substring(1).equals(s) because strings cannot be directly compared with "==".

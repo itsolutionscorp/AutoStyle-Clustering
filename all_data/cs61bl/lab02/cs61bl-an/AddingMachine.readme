@@ -1,0 +1,26 @@
+Which version did you implement for the exercise?
+
+The version we implemented is single loop.
+
+
+
+Describe in words how the other version would work, without actually coding it.
+
+The other version uses two loops with one inside the other.
+Here is how it works:
+The inner loop keeps track of k value, when k is not equal to 0, the subtotal value will be added with value k, and k would change to the scanned next int value.
+The outer loop has a true condition, when k equals to 0, the inner loop condition no longer fulfills and statements after inner loop will be executed. Here, subtotal value will be printed out and added to the total value. The next int value will also be scanned to see whether should print out the total value and return from the program.
+
+
+
+Which version do you prefer? Describe two reasons for preferring the one-loop version and two reasons for preferring the two-loop version.
+
+We prefer single loop version.
+Two-loop over one-loop:
+Logic is more clear as inner loop calculates the value of subtotal and outer loop sums up the subtotal value.
+A good practice of using "while" loop to achieve the same effect as "if" condition.
+
+One-loop over two-loop:
+There is no need to use two loops as there is not a too complicated program.
+A good practice of using "if" condition to achieve the same effect as "while" loop.
+

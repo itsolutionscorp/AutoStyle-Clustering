@@ -1,0 +1,3 @@
+1. We implemented a single loop. 
+2. The other version would work by creating another while loop that is active when the variable justStarting was true or not. This could then keep track of whether or not you just typed in a 0. 
+3. We prefer the one-loop process because it was what came to our minds first. It also only utilizes if-else statements which can be easier to follow. However, the double-loop could have more concise code. We couldn't think of another reason but think that it could possibly run faster if it had less code. 

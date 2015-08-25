@@ -1,0 +1,14 @@
+We found the following bug:
+
+The comparison checks if each letter is the same position in the 2 strings
+
+1. if the extra letter is inserted at the end, then check works as desired.
+Also, if s is empty and myString has 1 character, then it works.
+
+2. if myString is empty, then it correctly returns false.
+
+3. no pairs of strings
+
+4. It incorrectly returns false when the new character in myString is not inserted at the end of s.
+
+5.

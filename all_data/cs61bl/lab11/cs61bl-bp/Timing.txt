@@ -1,0 +1,16 @@
+Experiment 1:
+
+1) Initialize ArrayList (AL) and LinkedList(LL) with 999999 Integer objects.
+2) Use timer to compare add(),get(),contains(), and size() run times.
+
+Adding time for ALs and LLs are nearly the same with AL taking 17 s and LL taking 15 s. It makes sense that AL takes longer because it has to resize the array when the number of elements exceeds the size of the array. However, both are O(n).
+Search times were nearly the same as well with 6s and 5s respectively for AL and LL. This also makes sense because searching is an O(n) operation.
+Get times were instant for AL but took 1 second for LL. This is because getting for an array is instant, taking O(1) time while LL takes O(n) time.
+Size is instant for both because they both store the size of the list as a variable.
+
+Experiment 2:
+1) Use the LinkedList from experiment 1.
+2) Take the run times to get index 0, 500000, and 999990.
+
+Run time for the first index will be instant. Run time for middle will take longer (3 seconds).
+However, run time for indices near the end will be instant as well, showing that the LinkedList is iterating from the tail rather than the head, proving that it is a doubly-linked list.

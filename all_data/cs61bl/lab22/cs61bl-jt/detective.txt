@@ -1,0 +1,5 @@
+Epsilon: selection sort
+Alpha: merge sort
+Beta: insertion sort
+Gamma: quick sort
+Delta: heap sort

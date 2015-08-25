@@ -1,0 +1,10 @@
+1. pairs in which the extra character was at the end of myString
+2. all pairs of strings
+3. no pairs of strings
+4. pairs in which the extra character is anywhere but the end of myString
+5. pairs in which myString or s is null.
+
+contains1MoreThan used the wrong equality comparison to compare the substring of myString to s when the first characters
+are different (which means any character in the middle, since it is recursive).
+
+My IDE (IntelliJ) immediately highlighted the incorrect ==.

@@ -1,0 +1,5 @@
+Alpha: Merge Sort (when comparing to Delta, with a same size list of 300 integers, the comparisons / movements counts are more constant...sticking with the fact that Merge Sort is always NlogN. However, delta's comparison/movment counts vary greatly [with respect to alphas] and this is due to the fact that quick sort is typically NlogN but CAN be N*N)
+Beta: list of 300 --> exponentiall more movements (44850)(reverseOrder) but in Random order (24094) so Selection Sort
+Gamma: list of 300 --> exponential move movements (45598)(reverseOrder)but in Random order (3847) so Heap Sort
+Delta: Quick Sort
+Epsilon is insertion Sort. When you create an inOrder list, 0 movements are made. you simply filter through the list and make comparisons, and when no changes are made (because it is in order) no movements are made.

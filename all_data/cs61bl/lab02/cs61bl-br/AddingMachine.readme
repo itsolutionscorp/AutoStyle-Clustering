@@ -1,0 +1,7 @@
+1) 1 loop version
+2) The two loop version would work by:
+	- Have second while loop check for while justStarting is true (i.e. we haven't hit a 0)
+	- exit while loop when you hit a 0 and check for next input
+		- if next input = 0 --> return & exit
+		- else, set justStarting back to true and start all over again.
+3)The one loop version is preferable because the user's input is only scanned once per loop.

@@ -1,0 +1,10 @@
+1. Returns true when myString is the same as s2, but has one extra character at the end.
+2. Returns false when myString is not the same and does not have an extra character at the end.
+3. No pair of strings causes an incorrect true return.
+4. Returns false incorrectly when myString and s2 are the same but a character is added before or in between myString.
+5. Crashes when the input is of the wrong type (not a string) or null.
+
+Explanation:
+The debug program truncates every character of myString that is the same as the corresponding letter of s2, using recursive calls.
+However it does not take into account if an extra character is added before or in between myString. My last two checks show this.
+I could not find a way to cause the program to incorrectly return true.

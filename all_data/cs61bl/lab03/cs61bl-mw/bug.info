@@ -1,0 +1,11 @@
+1. When one of the string has one more character than the other string.
+2. When one of the string does not have one more character than the other string.
+3. None pairs of strings.
+4. When one of the string has one more character, but that extra character is not at the end.
+5. None pairs of strings.
+
+Explanation of the bug
+The operator == only compare the reference to the strings char. So we need to use the function equals() when comparing 2 strings to see if they have the same number of strings.
+We figured it out by realizing that string is an array of characters. So it is referred to by a pointer.
+
+

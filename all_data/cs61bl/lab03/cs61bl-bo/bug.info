@@ -1,0 +1,10 @@
+1. contains1MoreThan will correctly return true when the first string contains an inserted character at the end of the second string.
+From the results of "abc2" and "abc", along with analyzing the code, when the character is at the end, the program will run properly as it is comparing an integer value.
+2. contains1MoreThan will correctly return false when the first string differs entirely from the second string or differs by more than one character.
+We tested strings that differed by one character and were the same length.
+3. contains1MoreThan incorrectly returns true for no pairs of strings.
+None of our tests were false positives, and we were unable to determine anything from looking at the program.
+4. contains1MoreThan incorrectly returns false if the extra character is inserted in the beginning or middle of the string because it is comparing pointers rather than the string itself in the else clause.
+"ab2c"/"abc" and "2abc"/"abc" will both return false even though they only differ my one letter because the program compares pointers to strings rather than the string.
+5. contains1MoreThan will crash for incredibly long pairs of strings as there will be a stack overflow.
+Common problem to most recursive programs.

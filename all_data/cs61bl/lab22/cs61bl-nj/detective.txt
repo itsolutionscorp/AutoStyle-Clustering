@@ -1,0 +1,49 @@
+	Answer:
+	Alpha - Heap Sort
+	Beta - Insertion Sort
+	Gamma - Quick Sort
+	Delta - Merge Sort
+	Epsilon - Selection Sort	
+	To test each method of sort, we generated two list with 12,000 numbers, one of which is an sorted while 
+the other is in reverse order,so that we can see the difference between different sort methods more clearly.
+	Below is a chart of the result of our test:
+	Alpha:
+		Inorder:
+		time:6, Comparison: 84304, Move:327232
+		ReverseOrder:
+		time:26, Comparison 79312, Move:327232
+	Beta:
+		Inorder:
+		time:5, Comparison: 11999, Move: 23998
+		ReverseOrder:
+		time:153, Comparison: 71994000, Move:72017998
+	Gamma:
+		Inorder:
+		time:160, Comparison: 72017998, Move: 11999
+		ReverseOrder:
+		time: 146, Comparison: 72023998, Move:29999
+	Delta:
+		Inorder:
+		time:14, Comparison: 299947, Move:221430
+		ReverseOrder:
+		time:14, Comparison: 278217, Move:203060
+	Epsilon:
+		Inorder:
+		time:272, Comparison:71994000, Move:0
+		ReverseOrder:
+		time: 201, Comparison: 71994000, Move:18000
+	From the result we can see that Epsilon generated 0 movement when the list is in sorted order. In the allSorts.txt
+we discovered that only selection sort can have 0 movement when the list in sorted order. Therefore, Epsilon is selection
+sort.
+	Then we noticed that only Beta behaves significantly different when the list is in reverse order compared to a list of
+sorted order. According to our knowledge of sort methods, only insertion sort behaves significantly better when the list
+is in sorted order rather than in reverse order, because it does need to swap anything in the list and only takes O(N) time
+to go through the whole list. On the other hand, the number of comparison made by Beta when the list is sorted also matches
+our expectation of insertion sort, because insertion sort should do comparison only for the number of elements minus one times
+when the list is sorted. Therefore, Beta is insertion sort.
+	Then we observed that among Alpha, Gamma and Delta, Gamma is the slowest. Among heap sort, merge sort and quick sort, only
+quick sort will take a long time when the list is sorted or in reverse order, because it has to go through the whole list to find
+the median. Therefore, Gamma is quick sort.
+	If we compare heap sort to merge sort, we will notice that merge sort always takes N*logN time to run whether the list is sorted
+or not, while heap sort may take a shorter time to run if the list is sorted because it takes shorter time to generate a heap. Therefore,
+Alpha should be heap sort and Delta should be merge sort.

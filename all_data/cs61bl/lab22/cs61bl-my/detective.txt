@@ -1,0 +1,9 @@
+Alpha: Merge Sort. We calculated the most comparisons (worst case) that Merge sort could have and compared it to 32 (N)
+
+Beta: Insertion Sort. We had an inorder list and beta made 32 comparisons, which is (N) and so we concluded it was beta.
+
+Gamma: QuickSort. We put the list in reverse order and then doubled the elements in the list, and the growth skyrocketed.
+
+Delta: Heap Sort. This was the last one standing.
+
+Epsilon: Selection Sort. We calculated the exact amount of comparisons using n(n-1)/2 and it came out exact.

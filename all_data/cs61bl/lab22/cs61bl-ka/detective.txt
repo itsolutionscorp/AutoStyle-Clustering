@@ -1,0 +1,21 @@
+For Alpha Button:
+
+This is Heap sort. This is because it was about the same for ordered lists and reversed lists, and since we simply add each node to a min heap, and return everything by removing from said heap. It was also quite similar in runtime to almost order and random.
+
+For Beta Button:
+
+This is Insertion sort. In the in Order case, in insertion sort should make one comparison for each of the last (n -1) nodes. It would also have to move each of these elements twice into the new list.
+
+
+For Gamma Button:
+
+This is Quicksort. For extreme cases like Inordered list or reverseordered list, quicksort should should make n -1 comparisons for the first node, n- 2 for the next, ... 1 for the second to last. Also, it shouldn't need to make too many moves while inorder, as it selects the pivot at the front, and then compares everything after the pivot to the pivot itself.
+
+For Delta Button:
+
+This is Merge sort. This one's worst case always seemed better than all of the others' which is true of merge sort; merge sorts worst case is quicker than quicksorts average.
+
+For Epsilon Button:
+
+This is selection sort, as no movements were made to the already sorted list, and exactly 499500 movements were made when applied to a list of size 1000. This equals 1000*(1000 - 1) / 2 which is the summation of all integers from 1 to one thousand, which means that one thousand comparisons were made for the first element, 999 for the second, ... 1 for the 1000th.
+

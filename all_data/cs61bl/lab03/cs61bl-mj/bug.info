@@ -1,0 +1,17 @@
+When It Works, and When It Doesn't
+
+1. When myString is the result of adding a single character at the end of the argument s
+
+2a. When myString is the result of adding more than a single character at the end of the argument s
+2b. When the length of myString is less than or equal to that of argument s
+2c. When myString and s have different characters (more than the one specified in contains1MoreThan)
+
+3. No pair of strings
+
+4. When the single character is added to myString in a position other than the end of the string
+
+5. Same as 4 if crashing is interpreted as incorrect output. To actually crash, we can provide it with extremely large strings which would consume all available memory and make the program crash.
+
+Explanation of the Bug
+
+The method contains1MoreThan checks for the equality of characters in all positions in myString and s apart from the final character in the correct case. However, it does not consider the possibility that the character can inserted in a place other than the end of the string and returns incorrect output in those cases. To fix this, in the case of mismatch of characters in one position, we should increment the array index of myString by 1 and continue the program. In case of another mismatch, it returns false. If all other characters match, it returns true. We should include a boolean to keep track of whether we have array index so as to not shift it more than once.

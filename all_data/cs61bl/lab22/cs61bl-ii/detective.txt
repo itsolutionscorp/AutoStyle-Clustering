@@ -1,0 +1,5 @@
+episolon: insertion sort(the reverse makes no movement )
+gamma: selection sort(the order and the reverse takes the same number of comparisions)
+alpha: quicksort(the sorted array and the reverse is almost the same time and the-almost-in-order takes significantly less time)
+beta: heapsort(takes longer in reverse order than merge)
+delta: mergesort (by deduction)

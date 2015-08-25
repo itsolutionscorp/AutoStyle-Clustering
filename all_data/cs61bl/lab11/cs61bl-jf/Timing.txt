@@ -1,0 +1,4 @@
+exp1: Set and Get methods are more efficicent in arrayList. Add and remove is more efficient in LinkedList.
+This demonstrates the underlying data structure in LinkedList and Arraylist.
+
+exp2: Get for index at start or end is very quick but in middle, it is very slow which means doubly linked list. 

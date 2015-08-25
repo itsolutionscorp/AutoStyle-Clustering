@@ -1,0 +1,9 @@
+Alpha - Heap Sort, since the number of movements are the same for any type of list
+
+Beta - QuickSort, since for a ReverseOrder list the number of comparisons would we N(N-1)/2 
+
+Gamma -  Selection sort, since the number of comparison are always the maximum and very similar in different types of lists.
+
+Delta - Merge Sort, since counting the number of comparisons for reverse order would be 72 and delta is the only algorithm that give us that number of comparisons
+
+Epsilon - Insertion sort, since for an InOrder list no movements should be made for insertion sort since they are all already in the right order and the number of comparison would be the sum of 1 to N.

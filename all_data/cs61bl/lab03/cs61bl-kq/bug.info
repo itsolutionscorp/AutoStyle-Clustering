@@ -1,0 +1,7 @@
+ contains1MoreThan correctly returns true for when myString is the argument s with one character inserted at the end and when myString is length 1 while the argument s is length 0.
+ contains1MoreThan correctly returns false for when myString is not result of inserting exactly one character into the argument s.
+ No pairs of strings. 
+contains1MoreThan incorrectly returns false for when myString is the result of inserting exactly one character into the argument s somewhere other than at the end of s.
+ No pairs of strings.
+
+The problems is that whenever myString is the result of inserting exactly one character into the argument s at the beginning or middle of s, it returns false instead of true. We figured this out by testing pairs of string where the insertion is made at the beginning of the argument s and where the insertion is made at the end of the argument s. At first, we thought that the problem was with the substring method, but after playing around with the substring method, we determined that it was not the bug. The bug is that when comparing strings, you need to use .equals not ==, because strings are objects where "equals" is a method belonging to the class String. In the test cases where this bug occurs, substring creates a new String object from myString with the same value as the argument s, but the new String object is not the same object as s. Hence myString.substring(1) != s while myString.substring(1).equals(s).

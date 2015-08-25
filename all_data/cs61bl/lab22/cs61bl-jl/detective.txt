@@ -1,0 +1,14 @@
+Beta: is Insertion Sort because the best case scenario is O(n)
+
+Epsilon: is selection Sort because the best case scenario is O(n^2) and the worst case scenario is also n^2
+
+
+Gamma: is quick sort because using a sorted list its runtime is n^2
+
+
+Alpha: is mergersort since its inorder is nlogn and its comparison numbers never changed. 
+
+
+
+Delta: is heapsort because the different orders or lack of order alter the number of movements that the heap makes, which corresponds to the varying movements of bubbling up and bubbling down. It also has O(nlogn) runtime. 
+

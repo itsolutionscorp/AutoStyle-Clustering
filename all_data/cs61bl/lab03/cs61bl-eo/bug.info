@@ -1,0 +1,47 @@
+bug.info
+
+
+Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+	some of the possible inputs that will return true are:
+		"abcd" "abc"
+		"ab" "a"
+		"what" "wha"
+		"lynda" "lynd"
+
+Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+	some of the possible inputs that will return false are:
+		"abc" "dxc"
+		"123" "nope"
+		"who" "how"
+		"lynda" "ynda"
+
+
+Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, 
+that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+	“aba”  “aba”
+	“def”  “fed”
+	“sos” “sos” 
+	“pencil” “licnep”
+
+Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false,
+that is, when the first string argument to check is the result of inserting exactly one character into the second.
+	When the original list is blank it returns false. When you add something to nothing, even when its adding 
+	exactly one character, it will return false
+	“irc” “circle”
+	“hon” “phone” 
+ 	“ove” “love”
+ 	
+Describe all pairs of arguments to check for which contains1MoreThan crashes.
+	“def” “check” “book”
+	“lynda” “alara” “pencil”
+ 	
+ 	If we looked at our code and check for what is wrong with it we can use the debug 
+	we can see this results,
+
+		1) The return type of our code is string but we are returning the contains1morethan is a 
+		boolean function. Our function and return type have to be same type.
+		2) Also it is a boolean function but it takes a string parameter
+		3) An other point is that, our check method is void type which means that it should not 
+		be return anything but when we are calling the function in returns something; it 
+		should not.
+ 	

@@ -1,0 +1,106 @@
+Experiment 1:
+To compare ArrayList and LinkedList, we are mainly going to test two operations: getting item at certain index in the list and storing item into the list. First, we will try to put 1000000 Integer objects into both List (at the end of the list). The results are following:
+
+LinkedList: average around 1600 milliseconds.
+ArrayList: average around 1100 milliseconds.
+
+Then, we will try to retrieve the 9900000th item in a list of 10000000.
+
+LinkedList: on average 3 milliseconds.
+ArrayList: on average 1 millisecond.
+
+The result shows that the difference in times the two lists take to complete the same tasks is not trivial; therefore, the two are implemented very differently.
+
+Experiment 2:
+Create a new LinkedList object and put 1000000 items in it. Create a normal iterator and an descending iterator that iterates from the end of the list. Compare the times that the two take to print out all the number in the list. If LinkedList is a doubly LinkedList, the two iterator should take about the same time.
+
+Result: Both takes around 190 milliseconds. Hypothesis confirmed.
+
+code:
+experiment 1:
+the first part is a slight modification to the following code for second part.
+
+public class ExperimentArray {
+		
+		public static void add(ArrayList<Integer> L, int num) {
+			while(num > 0) {
+				L.addLast(num);
+				num --;
+			}
+		}
+		
+		public static void main (String[] args) throws Exception {
+			if (args.length != 1) {
+				System.err.println("arg should be a number");
+				System.exit(1);
+			}
+			ArrayList<Integer> test = new ArrayList<Integer>();
+			int n = Integer.parseInt(args[0]);
+			Timer t = new Timer();
+			add(test, n);
+			t.start();
+			System.out.println(test.get(9900000));
+			long elapsedMs = t.stop();
+			System.out.println (elapsedMs + " milliseconds elapsed");
+		}
+
+}
+
+
+public class ExperimentLinked {
+		
+		public static void add(LinkedList<Integer> L, int num) {
+			while(num > 0) {
+				L.addLast(num);
+				num --;
+			}
+		}
+		
+		public static void main (String[] args) throws Exception {
+			if (args.length != 1) {
+				System.err.println("arg should be a number");
+				System.exit(1);
+			}
+			LinkedList<Integer> test = new LinkedList<Integer>();
+			int n = Integer.parseInt(args[0]);
+			Timer t = new Timer();
+			add(test, n);
+			t.start();
+			System.out.println(test.get(9900000));
+			long elapsedMs = t.stop();
+			System.out.println (elapsedMs + " milliseconds elapsed");
+		}
+
+}
+
+experiment 2:
+The desending iterator simply involves changing test.iterator to test.descendingIterator.
+
+public class Experiment {
+		
+		public static void add(LinkedList<Integer> L, int num) {
+			while(num > 0) {
+				L.add(num);
+				num --;
+			}
+		}
+		
+		public static void main (String[] args) throws Exception {
+			if (args.length != 1) {
+				System.err.println("arg should be a number");
+				System.exit(1);
+			}
+			int n = Integer.parseInt(args[0]);
+			LinkedList test = new LinkedList<Integer>();
+			add(test, n);
+			Iterator iter  = test.iterator();
+			Timer t = new Timer();
+			t.start();
+			while (iter.hasNext()) {
+				System.out.println(iter.next());;
+			}
+			long elapsedMs = t.stop();
+			System.out.println (elapsedMs + " milliseconds elapsed");
+		}
+
+}

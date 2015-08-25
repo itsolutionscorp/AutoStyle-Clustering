@@ -1,0 +1,10 @@
+1. Pairs of the form (String + char, String)
+2. Pairs that normally do not work, not of the form (null, anything) or (anything, null)
+3. no pairs of strings
+4. Pairs that normally work, not of the form (String + char, String)
+5. Pairs of the form (null, anything) or (anything, null)
+
+Bug:
+	return myString.substring(1) == s;
+...should be:
+	return myString.substring(1).equals(s);

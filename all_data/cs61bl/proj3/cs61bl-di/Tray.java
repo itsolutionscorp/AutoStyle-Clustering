@@ -1,0 +1,459 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.lang.Math;
+
+public class Tray {
+	private Map<Integer, Piece> pieces;
+	private int[][] fill;
+
+	private int width, height;
+
+	private Tray previousTray;
+	private Move move;
+
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	/**
+	 * Takes the input file and generates the initial Tray object. Reports if
+	 * any of the inputs are malformed or invalid. Will generate the pieces
+	 * specified in the input file. Validity is assumed.
+	 * 
+	 * @param inputFile
+	 *            The input to the program. The initial state.
+	 */
+	public Tray(File inputFile) {
+
+		try {
+			Scanner sc = new Scanner(inputFile);
+
+			width = sc.nextInt();
+			height = sc.nextInt();
+
+			Piece p;
+			int pieceCounter = 1;
+			int x1, x2, y1, y2;
+
+			pieces = new HashMap<Integer, Piece>();
+			fill = new int[width][height];
+
+			for (int j = 0; j < height; j++) {
+				for (int i = 0; i < width; i++) {
+					fill[i][j] = -1;
+				}
+			}
+
+			while (sc.hasNext()) {
+				x1 = sc.nextInt();
+				y1 = sc.nextInt();
+				x2 = sc.nextInt();
+				y2 = sc.nextInt();
+
+				pieces.put(pieceCounter,
+						new Piece(pieceCounter, x1, y1, x2, y2));
+
+				for (int i = x1; i < x2 + 1; i++) {
+					for (int j = y1; j < y2 + 1; j++) {
+						fill[i][j] = pieceCounter;
+					}
+				}
+				pieceCounter += 1;
+			}
+
+			previousTray = null;
+			move = null;
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+
+	}
+
+	/**
+	 * Returns piece at given position
+	 * 
+	 * @param x
+	 *            Target x coordinate
+	 * @param y
+	 *            Target y coordinate
+	 * 
+	 */
+	public int pieceAt(int x, int y) {
+		return fill[x][y];
+	}
+
+	/**
+	 * Returns piece at given position
+	 * 
+	 * @param x
+	 *            Target x coordinate
+	 * @param y
+	 *            Target y coordinate
+	 * 
+	 */
+	public Piece pieceAtCoord(int x, int y) {
+		if (fill[x][y] == -1) {
+			return null;
+		}
+		return pieces.get(fill[x][y]);
+	}
+
+	/**
+	 * Creates a new Tray instance by taking oldTray, copying over its pieces
+	 * and information, and then making the move.
+	 * 
+	 * @param oldTray
+	 *            The previous tray.
+	 * @param moveToMake
+	 *            The move that we're going to be executing on oldTray to
+	 *            generate this Tray.
+	 */
+	public Tray(Tray oldTray, Move moveToMake) {
+		width = oldTray.width;
+		height = oldTray.height;
+
+		previousTray = oldTray;
+		move = moveToMake;
+
+		pieces = new HashMap<Integer, Piece>();
+		fill = new int[width][height];
+
+		// copy old fill
+		for (int j = 0; j < height; j++) {
+			for (int i = 0; i < width; i++) {
+				fill[i][j] = oldTray.fill[i][j];
+			}
+		}
+
+		// copy over old pieces
+		for (int id : oldTray.pieces.keySet()) {
+			Piece np = oldTray.pieces.get(id).copyPiece();
+			pieces.put(id, np);
+			// np.updateCoords(moveToMake.getPostX(), moveToMake.getPostY());
+		}
+
+		movePiece(oldTray.pieceAt(moveToMake.getPreX(), moveToMake.getPreY()),
+				moveToMake);
+	}
+
+	/**
+	 * Moves piece p from (preX, preY) to (postX, postY)
+	 * 
+	 * @param p
+	 *            Piece of interest
+	 * @param preX
+	 *            Initial x coordinate
+	 * @param preY
+	 *            Initial y coordinate
+	 * @param postX
+	 *            Target x coordinate
+	 * @param postY
+	 *            Target y coordinate
+	 */
+	public void movePiece(int id, int preX, int preY, int postX, int postY) {
+		if (!pieces.containsKey(id)) {
+			throw new IllegalStateException("Error: movePiece.");
+		}
+
+		// extract piece from HashMap
+		Piece target = pieces.get(id);
+		int w = target.myWidth();
+		int h = target.myHeight();
+
+		// unfill
+		for (int j = preY; j < preY + h; j++) {
+			for (int i = preX; i < preX + w; i++) {
+				fill[i][j] = -1;
+			}
+		}
+
+		// update the piece's coordinates
+		target.updateCoords(postX, postY);
+
+		// refill
+		for (int j = postY; j < postY + h; j++) {
+			for (int i = postX; i < postX + w; i++) {
+				fill[i][j] = id;
+			}
+		}
+	}
+
+	/**
+	 * Executes a move on this tray
+	 * 
+	 * @param p
+	 *            The piece we're trying to move
+	 * @param m
+	 *            The move we're trying to make
+	 */
+	public void movePiece(Piece p, Move m) {
+		movePiece(p.getID(), m.getPreX(), m.getPreY(), m.getPostX(),
+				m.getPostY());
+	}
+
+	/**
+	 * Exectures a move on this tray
+	 * 
+	 * @param id
+	 *            The ID of the piece that we're trying to move
+	 * @param m
+	 *            The move we're trying to make
+	 */
+	public void movePiece(int id, Move m) {
+		movePiece(id, m.getPreX(), m.getPreY(), m.getPostX(), m.getPostY());
+	}
+
+	/**
+	 * Generates a hashCode. Iterates over pieces, summing up their hashCodes
+	 * with a multiplicative factor + some prime magic.
+	 * 
+	 * @return The hashCode generated by this Tray instance
+	 */
+	public int hashCode() {
+		int hash = 0;
+
+		for (int j = 0; j < height; j += 1) {
+			for (int i = 0; i < width; i += 1) {
+				Piece p = pieces.get(pieceAt(i, j));
+				if (p == null) {
+					hash += 17 * i + 653 * j + i * j;
+				} else {
+					hash += 31 * i * p.myHeight() + 47
+							* (j * p.myWidth() + 167) + 7 * i * j;
+				}
+			}
+		}
+		return hash;
+	}
+
+	/**
+	 * Given a list of moves, generates the next iteration of Trays.
+	 * 
+	 * @param moves
+	 *            The list of valid moves that can be made in this Tray
+	 *            configuration.
+	 * @return A list of Trays that are the result of executing the input moves
+	 *         on this.
+	 */
+	public List<Tray> generateTrays(List<Move> moves) {
+		ArrayList<Tray> newTrays = new ArrayList<Tray>();
+		for (Move m : moves) {
+			newTrays.add(doMove(m));
+		}
+		return newTrays;
+	}
+
+	/**
+	 * Creates a new Tray, which is the result of making move m on this.
+	 * 
+	 * @param m
+	 *            The move that we're making.
+	 * @return The resulting (NEW!!) Tray.
+	 */
+	public Tray doMove(Move m) {
+		Tray rtn = new Tray(this, m);
+		return rtn;
+	}
+
+	/**
+	 * Generates all possible moves that we can make at this current state.
+	 * 
+	 * @return All the moves we could make.
+	 */
+	public List<Move> generateValidMoves() {
+
+		ArrayList<Move> validMoves = new ArrayList<Move>();
+		for (int id : pieces.keySet()) {
+			// System.out.println("Looking at piece " + id);
+			for (Move m : generateMoveForPiece(pieces.get(id))) {
+				validMoves.add(m);
+			}
+		}
+		return validMoves;
+	}
+
+	/**
+	 * Returns the move that got this tray to its current state from
+	 * previousTray
+	 * 
+	 * @return The move that got us here
+	 */
+	public Move getMove() {
+		return move;
+	}
+
+	/**
+	 * Generates valid move for piece.
+	 * 
+	 * @param Existing
+	 *            piece on the board
+	 * 
+	 * @return A valid move for piece
+	 */
+	public List<Move> generateMoveForPiece(Piece p) {
+
+		ArrayList<Move> newMoves = new ArrayList<Move>();
+		int x1 = p.x1();
+		int y1 = p.y1();
+		int x2 = p.x2();
+		int y2 = p.y2();
+		int w = p.myWidth();
+		int h = p.myHeight();
+		boolean valid;
+
+		valid = true;
+		// moving right
+		for (int j = y1; j < y1 + h; j++) {
+			if (x2 + 1 >= width || pieceAt(x2 + 1, j) != -1) {
+				valid = false;
+				break;
+			}
+		}
+		if (valid) {
+			newMoves.add(new Move(x1, y1, x1 + 1, y1));
+		}
+
+		valid = true;
+		// moving left
+		for (int j = y1; j < y1 + h; j++) {
+			if (x1 - 1 < 0 || pieceAt(x1 - 1, j) != -1) {
+				valid = false;
+				break;
+			}
+		}
+		if (valid) {
+			newMoves.add(new Move(x1, y1, x1 - 1, y1));
+		}
+
+		valid = true;
+		// moving up
+		for (int i = x1; i < x1 + w; i++) {
+			if (y1 - 1 < 0 || pieceAt(i, y1 - 1) != -1) {
+				valid = false;
+				break;
+			}
+		}
+		if (valid) {
+			newMoves.add(new Move(x1, y1, x1, y1 - 1));
+		}
+
+		valid = true;
+		// moving down
+		for (int i = x1; i < x1 + w; i++) {
+			if (y2 + 1 >= height || pieceAt(i, y2 + 1) != -1) {
+				valid = false;
+				break;
+			}
+		}
+		if (valid) {
+			newMoves.add(new Move(x1, y1, x1, y1 + 1));
+		}
+
+		return newMoves;
+	}
+
+	/**
+	 * Returns the width of the piece at the given coordinates
+	 * 
+	 * @param x
+	 *            x of the piece we're inspecting
+	 * @param y
+	 *            y of the piece we're inspecting
+	 * @return the width of the block at (x, y)
+	 */
+	public int blockWidthAt(int x, int y) {
+		return pieces.get(pieceAt(x, y)).myWidth();
+	}
+
+	/**
+	 * Returns the height of the piece at the given coordinates
+	 * 
+	 * @param x
+	 *            x of the piece we're inspecting
+	 * @param y
+	 *            y of the piece we're inspecting
+	 * @return the height of the block at (x, y)
+	 */
+	public int blockHeightAt(int x, int y) {
+		return pieces.get(pieceAt(x, y)).myHeight();
+	}
+
+	/**
+	 * Returns whether or not this tray is equal to the input
+	 * 
+	 * @param other
+	 *            the tray we're comparing to this
+	 * @return whether or not the two trays are equal
+	 */
+	public boolean equals(Tray other) {
+		if (other == null) {
+			return false;
+		}
+
+		for (int j = 0; j < height; j++) {
+			for (int i = 0; i < width; i++) {
+				if (pieceAt(i, j) != -1) {
+					Piece curr = pieces.get(pieceAt(i, j));
+					Piece op = other.pieces.get(other.pieceAt(i, j));
+
+					if (!curr.equals(op)) {
+						return false;
+					}
+
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * The toString for this Tray
+	 * 
+	 * @return the toString for this trays
+	 */
+	public String toString() {
+		String rtn = "HashCode: " + hashCode() + "\n";
+		int id;
+
+		rtn += "    ";
+		for (int i = 0; i < width; i++) {
+			rtn += i + "   ";
+		}
+		rtn += "\n   ";
+		for (int i = 0; i < width; i++) {
+			rtn += "____";
+		}
+		rtn += "\n";
+
+		for (int j = 0; j < height; j++) {
+			rtn += j + " | ";
+			for (int i = 0; i < width; i++) {
+				id = fill[i][j];
+				if (id == -1) {
+					rtn += "-   ";
+				} else {
+					rtn += id + " ";
+					for (int q = 1; q < 4 - Integer.toString(id).length(); q++) {
+						rtn += " ";
+					}
+					;
+				}
+			}
+			rtn += "\n";
+		}
+
+		return rtn;
+	}
+}

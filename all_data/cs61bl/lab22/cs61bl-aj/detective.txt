@@ -1,0 +1,5 @@
+Alpha - Heapsort. Making a min heap means less comparisons are required to be made. 
+Beta - Insertion sort. Given an already sorted list, runs significantly faster. 
+Gamma - Quicksort. Runs in N^2 time given an already sorted list. 
+Delta - mergesort. Merging on each recursive call requires many more comparisons to be made. 
+Epsilon - Selection sort. Runs in N^2 time regardless of the kind of given list. 

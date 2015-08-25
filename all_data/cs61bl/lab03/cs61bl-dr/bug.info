@@ -1,0 +1,17 @@
+
+1. When the inserted character appears at the end of s1, and s1 and s2 are otherwise identical,
+   check correctly returns true.
+2. When the arguments should actually return false, check always correctly returns false.
+3. No pairs of Strings.
+4. When the inserted character appears in the beginning or middle of s1, and s1 and s2 are 
+   otherwise identical, check incorrectly returns false. 
+ 5. No pairs of Strings.
+ 
+ The issue is that in the else statement, the code was attempting to compare entire Strings
+ using "==", but that cannot be used to compare objects, because it just checks if what is stored
+ in the variable is equal (e.g. memory address or primitive data). The .equals method has to 
+ be used to compare actual object content.
+ 
+ We figured this out by determining that the logic was definitely correct in the method, and 
+ therefore it was likely a misuse of the Java language/methods/operators. We remembered that the 
+ .equals method is used for comparing objects and after trying it, all test cases passed.

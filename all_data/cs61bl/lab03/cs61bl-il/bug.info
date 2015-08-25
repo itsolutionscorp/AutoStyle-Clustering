@@ -1,0 +1,15 @@
+1. pairs where myString is the result of adding a single character to the end of s.
+
+2. pairs whose myString is not the result of adding a single character to s.
+
+3. no pairs of strings
+
+4. pairs where myString is the result of adding a single character to s except at the end (in front or in the middle).
+
+5. no pairs of strings 
+
+
+Explanation of bug:
+	"==" signs do not compare where objects contain same contexts, but compare the refereneces. so "abc".substring(1) == "bc" will be evaluated false.
+	so inside the else statement, the line must be replaced with
+		return myString.substring(1).equals(s);

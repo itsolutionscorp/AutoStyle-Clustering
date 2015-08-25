@@ -1,0 +1,22 @@
+
+1. Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+	**The code will correctly return true if myString has exactly the same letters in the same order as s, and the
+	the extra character was added to the very end.
+	
+2. Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+	**Correctly returns false if the two strings are completely different.  Also returns false if you're
+	adding more than one character or you haven't added any characters or you deducted a character.
+
+3. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, 
+	that is, when the first string argument to check is not the result of inserting exactly one character 
+	into the second.
+    **No pairs of strings
+
+
+4. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, 
+	that is, when the first string argument to check is the result of inserting exactly one character 
+	into the second.
+	**When you insert the character anywhere except at the end.
+	
+5. Describe all pairs of arguments to check for which contains1MoreThan crashes.
+	**When one of more of the arguments are not strings.  For example, if you put an int for one of the arguments.

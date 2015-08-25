@@ -1,0 +1,126 @@
+Experiment 1:
+
+Relevant Code:
+
+    public static void main(String[] args) {
+    	LinkedList<Integer> LL = new LinkedList<Integer>();
+    	ArrayList<Integer> AL = new ArrayList<Integer>();
+    	Timer timer = new Timer();
+    	timer.start();
+    	for (int i = 0; i < 5000; i++) {
+    		LL.add(1); //Add ones to the first 5000 elements of LinkedList LL
+    	}
+    	System.out.println(timer.stop());
+    	timer.start();
+    	for (int i = 0; i < 5000; i++) {
+    		AL.add(1); //Add ones to the first 500 elements of AL
+    	}
+    	System.out.println(timer.stop());
+    	timer.start();
+    	for (int i = 0; i < 5000; i ++) {
+    		LL.add(0, 1); //Adds ones to the BEGINNING of LL 5000 times
+    	}
+    	System.out.println(timer.stop());
+    	timer.start();
+    	for (int i = 0; i < 5000; i ++) {
+    		AL.add(0, 1); //Adds ones to the BEGINNING of AL 5000 times
+    	}
+    	System.out.println(timer.stop());
+    	timer.start();
+    	LL.add(5000, 2); //Tests the speed of adding an element to the middle of LL
+    	System.out.println(timer.stop());
+    	timer.start();
+    	AL.add(5000, 2); //Tests the speed of adding an element to the middle of AL
+    	System.out.println(timer.stop());
+    	timer.start();
+    	LL.contains(2); //Tests the speed of calling contains on an object existing in the middle of LL
+    	System.out.println(timer.stop());
+    	timer.start();
+    	AL.contains(2); //Tests the speed of calling contains on an object existing in the middle of AL
+    	System.out.println(timer.stop());
+    	timer.start();
+    	LL.indexOf(2); //Tests the speed of calling indexOf on an object existing in the middle of LL
+    	System.out.println(timer.stop());
+    	timer.start();
+    	AL.indexOf(2); //Tests the speed of calling indexOf on an object existing in the middle of AL
+    	System.out.println(timer.stop());
+    	timer.start();
+    	LL.get(10000); //Tests the speed of calling get on an object existing at the end of LL
+    	System.out.println(timer.stop());
+    	timer.start();
+    	AL.get(10000); //Tests the speed of calling get on an object existing at the end of AL
+    	System.out.println(timer.stop());
+    	
+    	
+    	
+    	
+    }
+
+For experiment 1, we tested the code above. It compared the differences in:
+ -the time it takes to add elements to the end of each list; LL: (6, 19, 4, 4, 17) AL: (11, 5, 27, 3, 6)
+ -the time it takes to add elements to the beginning of each list; LL: (10, 25, 5, 5, 7) AL: (95, 115, 83, 27, 94)
+ -the time it takes to add an element to the middle of each list; LL: (0, 0, 0, 0, 0) AL: (0, 0, 0, 0, 0)
+ -the time it takes to check if a list contains an element that exists only in its middle; LL: (5, 2, 2, 2, 3) AL: (2, 0, 1, 4, 11)
+ -the time it takes to check what the element of each list is at a middle index; LL: (1, 0, 0, 0, 1) AL: (0, 16, 1, 0, 0)
+ -the time it takes to get the final element of each list; LL: (0, 0, 0, 0, 0) AL: (0, 0, 0, 0, 0)
+ 
+ The numbers listed next to each method represent the results our experiment achieved through five rounds of testing.
+ 
+ In general, it appeared that ArrayLists were slower than LinkedLists. This is most apparent in the experiment in which we added 5000 elements to the beginning of each list.
+ It took the LinkedList only 25 milliseconds at worst to achieve this, whereas it took the ArrayList 115 at its worst, and 27 at its best.
+ 
+ In all other parts of the experiment, the data indicate that ArrayLists were slower on average through all five trials (except for getting the last element, where both were quite fast).
+ 
+ 
+EXPERIMENT 2
+
+For this experiment we utilized Java's LinkedList class to test the claim that it really was doubly linked. 
+We compared these results to the results of running the same tests on our singly linked LinkedList from lab 11. 
+
+Relevant Code:
+
+    public static void main(String[] args) {
+    	LinkedList<Integer> DLL = new LinkedList<Integer>();
+    	List SLL = new List();
+    	Timer timer = new Timer();
+    	timer.start();
+    	for (int i = 0; i < 5000; i++) {
+    		DLL.add(1); //Add ones to the first 5000 elements of LinkedList DLL
+    	}
+    	System.out.println(timer.stop());
+    	timer.start();
+    	for (int i = 0; i < 5000; i++) {
+    		SLL.add(1); //Add ones to the first 5000 elements of SLL
+    	}
+    	System.out.println(timer.stop());
+    	timer.start();
+    	DLL.contains(2); //Tests the speed of calling contains on an object that does not exist in DLL
+    	System.out.println(timer.stop());
+    	timer.start();
+    	SLL.contains(2); //Tests the speed of calling contains on an object that does not exist in SLL
+    	System.out.println(timer.stop());
+    	timer.start();
+    	DLL.get(4999); //Tests the speed of calling get on an object existing at the end of LL
+    	System.out.println(timer.stop());
+    	timer.start();
+    	SLL.get(4999); //Tests the speed of calling get on an object existing at the end of AL
+    	System.out.println(timer.stop());
+    	
+    	
+    }
+    
+    
+For experiment 2, we tested the code above. It compared the differences in:
+ -the time it takes to add elements to the end of each list; DLL: (4, 2, 11, 8, 20, 7) SLL: (16, 20, 18, 17, 23, 25)
+ -the time it takes to check if a list contains an element that does not exist in the list; DLL: (10, 3, 5, 3, 2, 5) SLL: (9, 5, 4, 14, 4, 14)
+ -the time it takes to get the final element of each list; DLL: (0, 0, 0, 0, 0, 0) SLL: (1, 0, 0, 0, 4, 0)
+ 
+  The numbers listed next to each method represent the results our experiment achieved through six rounds of testing.
+  
+  It did indeed appear that Java's claim that their LinkedList implementation is in fact doubly linked.
+  In general, it appeared that Java's LinkedList was much faster than our version of a singly linked List.
+  This is especially apparent in adding elements to the end of the lists. Java's LinkedList was much faster on average, and in all trials, than our singly LinkedList.
+  	This is likely due to the fact that, if Java's claim is true, then Java's DLL can easily change its myTail to reference a new ListNode, as it can change both its myPrev and myNext, and easily attach it to the previous tail.
+  This is also demonstrated in traversing through all the elements in the lists attempting to find an element that does not exist within.
+  	Java's was able to traverse through itself much faster on average than our LinkedList, likely due to the fact that it can go through itself both forwards and backwards.
+  Even the time it took for each list to retrieve its final element demonstrated that Java's list took virtually no time, while our implementation took a measurable amount of time.

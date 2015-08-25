@@ -1,0 +1,107 @@
+Experiment 1
+For this experiment we ran 3 tests on the add, get, and remove methods. To time adding and getting, we used a list size of 600000 and got approximately O(n) run times for both linked lists and arraylists. The get and remove methods were the ones that primarily distinguished efficiency. The get method for arraylists always ran at constant time, and came out much much faster for arraylists, while linked lists ran at O(n). Getting is faster for arraylists because the indexs are provided, while linkedlists need to access the next element. Remove on the other hand, was O(1) for linked lists and O(n) for arraylists. This happens because arraylists have to shift all the elements over after each remove, while linkedlists just change the head pointer to the next object.
+
+    	ArrayList<Integer> lst1 = new ArrayList<Integer>(10);
+    	LinkedList<Integer> lst2 = new LinkedList<Integer>();
+    	int i = 0;
+    	Timer time = new Timer();
+ 
+    	time.start();
+    	while (i < 600000) {
+    		lst1.add(i);
+    		i++;
+    	}
+    	double t1 = time.stop();
+    	time.reset();
+    	
+    	i = 0;
+    	time.start();
+    	while (i < 600000) {
+    		lst2.add(i);
+    		i++;
+    	}
+    	double t2 = time.stop();
+    	time.reset();
+    	System.out.println("1  "+(double) t1/1000+" s   " + (double) t2/1000+" s");
+    		 		
+    	
+    	i = 0;
+    	time.start();
+    	while(i<lst1.size()/80) {
+    		lst1.get(i);
+    		i++;
+    	}
+    	double t3 = time.stop();
+    	time.reset();
+    	
+    	i = 0;
+    	time.start();
+    	while(i<lst2.size()/80) {
+    		lst2.get(i);
+    		i++;
+    	}
+    	double t4 = time.stop();
+    	time.reset();
+  
+    	System.out.println("2  "+(double) t3/1000+" s   "+(double) t4/1000+" s");
+    	 
+    	i = 0;
+    	time.start();
+    	while(i<lst1.size()) {
+    		lst1.remove(0);
+    		i++;
+    	}
+    	double t5 = time.stop();
+    	time.reset();
+    	
+    	time.start();
+    	while(i<lst2.size()){
+    		lst2.remove();
+    		i++;
+    	}
+    	double t6 = time.stop();
+    	time.reset();
+    	
+    	
+    	System.out.println("3 " + (double) t5/1000 + " s  " + (double) t6/1000 +" s");
+
+Experiment 2
+For experiment 2, we ran tests on the add and remove(index) methods of the linked list on 2 different sized lists to see how the size affected run time. Add method still ran at constant time with O(1), because both times came out very fast. For the remove(index) method, a doubly linked list is much faster than a singly linked list when trying to remove the second to last element in the list. We can prove this by creating a list of size 5 million and 10 million, with both having almost the same runtime O(1) to remove the second to last element. This happens because there should be a pointer to the last element in the list, and from there it only has to find the previous element and remove that, happening almost instantly. A singly linked list would need to iterate through the entire list twice in order to remove the second to last element and point the prev element to the last element.
+
+LinkedList<Integer> list = new LinkedList<Integer>();
+    	LinkedList<Integer> list2 = new LinkedList<Integer>();
+    	
+    	
+    	Timer time = new Timer();
+    	int i = 0;
+    	time.start();
+    	while(i<5000000){
+    		list.add(i);
+    		i++;
+    	}
+    	double t = time.stop();
+    	time.reset();
+    
+    	i = 0;
+    	time.start();
+    	while(i<10000000){
+    		list2.add(i);
+    		i++;
+    	}
+    	double t1 = time.stop();
+    	time.reset();
+    	
+    	i = 4999999;
+    	time.start();
+    	list.remove(i);
+    	double t2 = time.stop();
+    	time.reset();
+    	
+    	i = 9999999;
+    	time.start();
+    	list2.remove(i);
+    	double t3 = time.stop();
+    	time.reset();
+    	
+    	System.out.println(t/1000 + "  " + t1/1000);
+    	System.out.println(t2/1000 + "  " + t3/1000);

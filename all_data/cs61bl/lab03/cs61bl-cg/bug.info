@@ -1,0 +1,14 @@
+1. When the first string has one character added to the end of the second string, then the program returns true.
+Cases: ("abc2", "abc"), ("1234", "123"), (";,.", ";,")
+
+2. The program returns false correctly for the cases where the strings have the same number of characters and are not the same or do not have one letter added to it. Also when the second string has one less character than the first string.
+Cases: ("abc", "def"), ("123", "1234"), ("abc", "abc")
+
+3. No pairs of strings
+
+4. In the cases that are incorrectly false, any extra characters located at any point except for the end are considered false.
+Cases: ("abfc", "abc"), ("abcd", "bcd")
+
+5. When anything other than a string is inputed, then the program crashes. (s, s), (s, "abc")
+
+The contains1MoreThan method does not check if an extra character exists within the string or at the beginning of the string. There needs to be something to also check for the order. We figured it out by testing for the ("abfc", "abc"), ("abcd", "bcd") cases.

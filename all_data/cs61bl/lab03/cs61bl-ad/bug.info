@@ -1,0 +1,12 @@
+1. It returns true if there's only one character in the string. It also returns true if the first characters of each string are the same, and after recursing through the remainders of each string (range 1:), it finds one character when the length of the original string is 1. 
+
+2. It returns false if the string has no length or if it runs out of letters before the original string (because that would make it shorter than the original string). It also returns false if there are more than 1 character difference (i.e. if myString.length != 1 when s.length == 0).
+
+3. There are no cases where it will incorrectly yield true.
+
+4. We used a test where we inserted a letter into the middle of the original string and the program was not able to recognize, leading us to believe thaere is a problem with the else statement of the program. Tests that insert letters into the middle of the original words will yield an incorrectly false result.
+
+5. Putting objects that aren't strings into it causes an error and the program doesn't run.
+
+THE BUG -- After putting print statements in the else statement, we found that the statement "return myString.substring(1) == s" does not function appropriately because strings cannot be compared using the boolean operator "==." Although the strings may be identical (as we found when we printed them mid-compilation), they still yielded the boolean result of false because they couldn't be compared. When we changed the line to myString.substring(1).equals(s), it yielded a result of true because the comparison operator was correct for working with strings.
+

@@ -1,0 +1,13 @@
+
+alpha: faster reverse order than in order, second fastest overall (HEAP)
+beta: second slowest random, second fastest in order, slow reverse order (INSERTION)
+gamma:fastest random; in order slow, slow reverse order (MERGE)
+delta:fastest reverse order, fast in order, fastest, fastest overall (QUICKSORT)
+epsilon: slowest (SELECTION)
+
+
+We concluded that alpha represented heap sort, beta was insertion sort, gamma was the merge sort, delta represented quick sort, and epsilon was selection.
+
+Epsilon, which ran the slowest on all lists (order, reverse order, and random), was decided as selection because out of the five different sorting algorithms considered, selection has the worst runtime. For both ordered and reverse ordered lists, selection sorting has a runtime  of O(n^2). On the other hand, insertion has a runtime of O(n) if the list is sorted, and runtimes of O(n^2) for all other lists. Therefore, beta was the obvious choice for insertion because it was one of the slowest when sorting random and reverse order lists, but was the second fastest when sorting in order lists.
+
+After analyzing epsilon and beta, we looked at delta, which consistently had the fastest runtimes for every type of list. From this, we concluded that delta was quick sort, which generally has the fastest runtimes out of the five. We decided that gamma was represented by the merge sort because, though slow with in order and reverse lists, it had the fastest times for sorting random lists. Because merge splits the list into two and sorts the two smaller lists simultaneously, it will have a faster runtime for random lists than other sorting algorithms, aside from quick sort. This left us with alpha, which we concluded was the heap sort. 

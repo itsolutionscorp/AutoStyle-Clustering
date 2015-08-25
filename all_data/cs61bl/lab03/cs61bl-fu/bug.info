@@ -1,0 +1,20 @@
+1. When contains1MoreThan is true:
+	- s = "" and myString is any string of length 1.
+	- when myString is the result of adding one character to s.
+	
+2. When contains1MoreThan is false:
+	- when both of their (s, myString) first characters are different.
+	- when myString is the empty string (or both).
+	
+3. No pairs return incorrectly true.
+
+4. When contains1MoreThan is incorrectly false:
+	- when an additional character is added anywhere in myString except for the end. 
+	For example, 'check("abcd", "bcd");' returns false even though they only differ by one character.
+	
+5. When contains1MoreThan crashes:
+	- when either input is the null value.
+	
+What's wrong: It only returns true correctly if the additional character is added to the end of myString.
+If it's inserted within the string, the method does not recognize it and incorrectly returns false. 
+We figured this out by testing many different possibilities of string pairs and eventually noticed the bug.

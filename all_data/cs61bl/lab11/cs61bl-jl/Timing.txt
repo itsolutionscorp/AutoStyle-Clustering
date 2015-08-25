@@ -1,0 +1,46 @@
+Experiment 1: 
+
+I compared the runtimes of ArrayList vs Linked Lists by finding how long it takes each to add(with ~100,000 N), remove, and get objects. 
+The conclusions that I found were roughly as so: 
+
+For ArrayList: 
+	 get: O(1)
+     add: O(1) at best, but O(n) worst-case
+     remove: O(n)
+
+For LinkedLists: 
+	get: O(n)
+    add: O(1)
+    remove: O(n)
+
+Times:
+
+ArrayList: 
+get: 1.54 ms 
+add: 13.20 ms 
+remove: 199.96 ms 
+
+LinkedLists: 
+get: 85.09 ms 
+add: 9.55 ms 
+remove: 85.77 ms 
+
+From these results, it is quite clear that the following evaluations can be made: 
+ArrayList is superior in terms of get, while LinkedLists are optimal for adding and removing. 
+
+_________________________________________________________________________________________________________________________________
+
+Experiment 2: 
+
+In order to determine that the linkedlist is in fact a doubly linked list, I would design the following algorithm:
+
+For loop through all the nodes of the linked list. 
+For each iteration, I would store the current, previous, next pointers at each node, in two different arrays, aptly called "previous" and "next", and "current". 
+
+I then would make the appropriate comparisons to ensure the previous of a certain node indeed matches its previous node, following the same logic with 
+the next nodes. 
+
+If all the nodes correspond with their previous and next nodes, then the LinkedList class is a doubly-linked structure, as claimed. 
+
+
+

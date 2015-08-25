@@ -1,0 +1,16 @@
+Detective result:
+ 
+Alpha: Merge sort, 
+Since merge sort, gamma sort and heap sort all have a runtime proportional to O(NlogN) but it has less comparisons compared to others since when merging two sorted sublists, you can use binary search which cost less comparison.
+ 
+Beta: Insertion sort,
+Because when n=20000, Alpha, Gamma and Delta have similar runtime, and Beta has significantly longer runtime. Since merge sort, gamma sort and heap sort all have a runtime proportional to O(NlogN), and we already know Epsilon is selection sort, we know Beta has to be insertion sort.
+ 
+Gamma: Quick sort, 
+Because under almost order arrangement, it has much more comparisons than Delta and Alpha, which indicates that Gamma might be quick sort since if the list is almost ordered, the pivot almost has to go all the way to the end of the list to finish one partition.
+ 
+Delta: Heap sort, 
+Since we already find out the other types of sorts, we can conclude that Delta is heap sort.
+ 
+Epsilon: Selection sort, 
+Because it has very stable number of movements plus comparison in any kind of arrangements, which reflects the fact that in best case or worst case, selection sort is always proportional to O(n^2). Also the number of movements plus comparison is the greatest among all sorting methods, which lead us to selection sort.

@@ -1,0 +1,15 @@
+I implemented the single loop version. The double loop version would work by having 
+the outer loop act as the entire simulator, while the inner loop would handle the
+times when a 0 is entered and the subtotal restarts. The outer loop would keep
+track of the total, and the inner loop keep track of the subtotal. I prefer the single
+loop option. The condition for the outer loop would check for consecutive zeroes, while
+the condition for the inner loop would check for a single zero.
+Reasons for single loop:
+    1) easier to use; nested loops can be difficult to keep track of
+    2) no conditional for the loop is needed; its just always true
+Reasons for double loop:
+    1) More organized - each loop takes care of each case for consecutive/single zeroes
+      instead of meshing both cases into one loop
+    2) More intuitive and informative; the loop conditions immediately tell the user
+       more information about the simulator versus the single loop condition
+       of simply "true".

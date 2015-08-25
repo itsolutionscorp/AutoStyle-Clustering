@@ -1,0 +1,11 @@
+1. contains1MoreThan correctly returns true when s is an empty string and myString is only one character long. It also works when myString is the same as s except for an additional character at the very end.
+2. contains1MoreThan correctly returns false when myString is an empty string.
+3. contains1MoreThan incorrectly returns true for no pairs of strings
+4.contains1MoreThan incorrectly returns false when myString is the same as s except for an additional character that exists anywhere but at the end.
+5. contains1MoreThan crashes when myString = null, s = null, or both myString and s are equal to null. 
+
+
+
+Bug: the last else clause uses the == operator instead of the .equals() method (it compares for reference equality instead of value equality).
+
+We figured it out by first noting that strings should never be compared using the == operator, so when we saw that in the code, we flagged it in our minds. 

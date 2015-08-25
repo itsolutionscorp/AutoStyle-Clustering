@@ -1,0 +1,5 @@
+Alpha:Quicksort
+Beta:merge sort
+Gamma:heap sort
+Delta:insertion sort
+Epsilon:selection sort

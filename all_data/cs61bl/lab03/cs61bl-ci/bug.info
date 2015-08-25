@@ -1,0 +1,28 @@
+1.Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+
+check("abc2", "abc"); 
+check("a", ""); 
+
+2.Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+
+check("abc", "def");
+check("123", "1234");
+
+3.Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+
+no pairs of strings
+
+4.Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+
+check("abc", "ac");
+check("123123", "13123");
+
+5.Describe all pairs of arguments to check for which contains1MoreThan crashes.
+
+no pairs of strings
+
+
+THE BUG:
+in line 22, it should use ".equals()" method to check whether two strings are the same instead of using "==". Because for objects, "==" just checks whether two objects points to same RAM ADDRESS. So we should use ".equals()" method instead of "==".
+
+

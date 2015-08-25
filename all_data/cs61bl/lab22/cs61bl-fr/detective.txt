@@ -1,0 +1,23 @@
+For a reverse order list with n = 2001,
+	Beta took 		2001000 ~ O(n^2) comparisons and
+					2005000 ~ O(n^2) movements,
+	Gamma took	 	2006000 ~ O(n^2) comparisons and
+					5000 ~ O(n) movements,
+	Epsilon took 	2001000 ~ O(n^2) comparisons and
+					3000 ~ O(n) movements,
+and for an in order list with n = 2001,
+	Beta took 		2000 ~ O(n) comparisons and
+					4000 ~ O(n) movements,
+	Gamma took	 	2005000 ~ O(n^2) comparisons and
+					2000 ~ O(n) movements,
+	Epsilon took 	2001000 ~ O(n^2) comparisons and
+					0 ~ O(1) movements,
+
+so Beta is Selection Sort, Gamma is QuickSort, and Epsilon is Insertion Sort.
+
+For an in order list with n = 1024,
+	Alpha took		5120 ~ O(n*logn) comparisons and
+					20480 ~ O(n*logn) movements,
+	Delta took		18060 ~ O(n*logn) comparisons and
+					15086 ~ O(n*logn) movements,
+so Alpha is Merge sort and Delta is Heap Sort.

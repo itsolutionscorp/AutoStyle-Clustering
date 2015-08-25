@@ -1,0 +1,17 @@
+Experiment 1
+
+
+Testing the performance of removing items from the beggining of both type of lists. The ArrayList takes linear time while the LinkedList takes approximately constant time.
+100000 element:
+103616 (ArrayList)
+65856 (LinkedList)
+10000000 element:
+5447553 (ArrayList)
+77044 (LinkedList)
+
+
+Experiment 2
+
+Timing removeLast(); should be constant in the doubly linked list versus the time of a regular linkedlist will be linear. 
+
+For 100000 element Linked list the time to removeLast() is 359274 nano seconds. And for 10000000 elements the time is 160559 nano seconds.

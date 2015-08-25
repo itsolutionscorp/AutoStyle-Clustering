@@ -1,0 +1,10 @@
+1. A pair of strings with an additional character at the end.
+2. A pair of strings that is completely different from each other.
+   A pair of strings with a string and another string with two or more additional characters
+3. no pair of strings
+4. Pairs of strings with an additional character in different places of the string
+   (ab2c, a2bc, 2abc)
+5. no pair of strings
+
+contains1MoreThan method is wrong, because it only returns true when the additional string
+is added to the end of another string. 

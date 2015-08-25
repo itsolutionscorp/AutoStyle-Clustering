@@ -1,0 +1,12 @@
+1. -When the length of the first string is 1 and the length of the second string is 0. 
+2. -When the length of the first string is 0. 
+3. - no pairs of strings
+4. -When the first string is the second string with one character added to the front of it.
+-When the first string is the second string with one character added in the middle of it
+5. - If the arguments given are not strings 
+
+Explanation:
+The problem is that == checks whether the two strings point to the same object (this is incorrect when you are trying to check when myString.substring(1) == s). We aren't trying to check whether they point to the same object, only that the characters are the same. This is what causes the error in the recursion.  
+
+
+

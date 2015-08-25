@@ -1,0 +1,47 @@
+For experiment 1, we tried to implement adding a small value (n items) initially for both the ArrayList and LinkList. The timing reflects a similar timing taken for LinkedList than ArrayList for smaller values (n approximately equals to 1,000,000) of n. However, as we increase n to 20,000,000, the timing taken for ArrayList becomes significantly shorter(0.607 sec) compared to that of LinkedList (22.406 sec). 
+
+For experiment 2, we tried to remove a value at the front of the LinkedList (i = 1,000,000), at the middle of the LinkedList (i=10,000,000) and at the end of the LinkedList (i = 19,000,000). 
+The timing results are in the following respective order: (11ms, 57 ms, 8 ms). Hence, we can conclude that the LinkedList stores two pointers (one for myHead, one for myTail) and depending on the index to remove, the program either invokes myHead.myNext multiple times or myTail.myPrev. Thus, we can observe the similarity in timing when removing the i=1,000,000 and i=19,000,000 but yet a significant longer timing when removing the element in the middle of the LinkedList. 
+
+Should the LinkedList not be doubly linked, the timing for (i=19,000,000) will be significantly longer than both (i=1,000,000 and i = 10,000,000).
+
+
+
+public static void main(String[]args) {
+    	
+    	Timer t = new Timer();
+    	
+    	ArrayList l1 = new ArrayList();
+    	LinkedList l2 = new LinkedList();
+    	
+    	t.start();
+    	for (int n=0;n<20000000;n++) {
+    		l1.add("a");
+    	}
+    	t.stop();
+    	System.out.println("ArrayList");
+    	System.out.println(t.elapsed());
+    	t.reset();
+    	System.out.println("LinkedList");
+    	t.start();
+    	for (int n=0;n<20000000;n++) {
+    		l2.add("a");
+    	}
+    	t.stop();
+    	System.out.println(t.elapsed());
+//Experiment 2    	
+    	t.reset();
+    	t.start();
+    	l2.remove(10000000);
+    	t.stop();
+    	System.out.println("LinkedList:" + t.elapsed());
+    	t.reset();
+    	t.start();
+    	l2.remove(19000000);
+    	t.stop();
+    	System.out.println("LinkedList:" + t.elapsed());
+    	t.reset();
+    	t.start();
+    	l2.remove(1000000);
+    	t.stop();
+    	System.out.println("LinkedList:" + t.elapsed());

@@ -1,0 +1,11 @@
+1. The “contains1MoreThan” method correctly returns true when the string object “myString” has one character added in front of the string “s”.
+
+2. The “contains1MoreThan” method correctly returns false when the string object “myString” has either more than one character added to “s” or if there is one more character added at the end of “s” but the other contents inside of the string are different.
+
+3. There are no pairs that are incorrectly returned true when string “myString” is a result of adding one character to string “s”.
+
+4. The method “contains1MoreThan” incorrectly returns false when the character that is added to “s” is added to the front of the string.
+
+5. There are no pairs of strings that crash in the “contains1MoreThan” method.
+
+Explanation: The method “contains1MoreThan” incorrectly returns false when the character that is added to “s” is added to the front of the string, because the code compares the substring of the 2nd character of “myString” to string “s” through the “==” operator, which compares whether the two objects point to the same object. However, since they have the same contents but refer to different objects, it will return false even though they are the same content-wise. Thus if we use the “.equals()” operator, it would fix the bug. 

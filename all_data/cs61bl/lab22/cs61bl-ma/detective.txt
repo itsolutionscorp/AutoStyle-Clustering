@@ -1,0 +1,12 @@
+BETA is insertion sort. It has the fastest runtime with inorder list, making only N-1 comparisons. 
+Insertion sorts also have the worst run time for reverse order lists, which is the case for BETA.
+
+EPSILON is selection sort. It's the slowest sorting method as well as consistently slow, regardless of list ordering. 
+
+GAMMA is quicksort. It's one of the quickest sorting methods. More importantly, it's faster for randomly sorted lists and slower for more ordered lists. It's terrible for completely ordered or reverse ordered lists. This is because quicksort picks the first value as the dividor, and said dividior will always be either a min or a max in a fully order list, making quicksort terrible in this case. It's great for random lists however. 
+
+ALPHA and DELTA are both consistent. We determined that:
+
+ALPHA is merge sort, because it's consistently one of the fastest, making very few comparisons. 
+
+DELTA heap sort. It is the most consistent sorting method, but makes more comparisons than ALPHA. These characteristics fit the heap sort model.

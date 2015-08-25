@@ -1,0 +1,11 @@
+1. contains1MoreThan correctly returns true when the extra character is added to the end of the string (ex: abc2, abc).
+
+2. contains1MoreThan correctly returns false when the two strings contain completely different characters (ex: abc, def).
+
+3. contains1MoreThan never returns a false true for a legitimate pair of strings.
+
+4. contains1MoreThan incorrectly returns false when the extra character is added to a position other than the end of the string (ex: 2abc, abc).
+
+5. contains1MoreThan crashes for arguments that are not strings or for infinite strings.
+
+The bug in contains1MoreThan involves trying to compare two strings using the == symbol. This does not work because strings are not primitive types. Instead, the .equals() method must be used.

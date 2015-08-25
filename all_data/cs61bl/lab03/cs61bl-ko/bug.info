@@ -1,0 +1,18 @@
+Rahul Rangnekar (cs61bl-ko), Steven Ho (cs61bl-kk)
+
+1. contains1MoreThan correctly returns true when myString is exactly one more character than the string that is passed in and the order of the string passed in is intact, and when myString is a single character and the string that is passed in is empty.
+
+2. contains1MoreThan correctly returns false when myString is null,
+when both myString and the string passed in are null, 
+when myString is longer than the string passed in by more than one, when myString is shorter than or equal in length to the string passed in, and when myString is one character longer than the string passed in but the order of the string passed in is mixed up in myString.
+
+3. contains1MoreThan will never incorrectly return true.
+
+4. contains1MoreThan incorrectly returns false when myString and the string passed in are the same characters, except myString contains an additional character NOT at its end. Characters include letters, numbers, special characters, and spaces.
+
+5. contains1MoreThan will never crash.
+
+
+Explanation of the Bug: 
+The bug occurs in line 22, "return myString.substring(1) == s;" The problem is the == sign, which checks for the same bits and not for equality. Therefore, the code is checking for the same reference points to a string object and not two objects that have equal contents. The == sign should be changed to a .equal() method so that the equality of the contents can be assessed.
+

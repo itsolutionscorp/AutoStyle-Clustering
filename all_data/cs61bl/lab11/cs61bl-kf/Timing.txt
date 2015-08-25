@@ -1,0 +1,36 @@
+Experiment 1:
+
+We can test the differences between an ArrayList and LinkedList by initializing them and using a for loop to add many items to them.
+
+public static void main(String[] args) {
+			ArrayList<Integer> intList = new ArrayList<Integer>();
+			Timer t1 = new Timer();
+			t1.start();
+			for (int i = 0; i < 1000000; i ++) {
+				intList.add(i);		
+			}
+			t1.stop();
+			System.out.println("array time " + t1.elapsed());
+			
+			LinkedList<Integer> linkList = new LinkedList<Integer>();
+			Timer t2 = new Timer();
+			t2.start();
+			for (int i = 0; i < 1000000; i ++) {
+				linkList.add(i);		
+			}
+			t2.stop();
+			System.out.println("link time " + t2.elapsed());
+
+		}
+
+
+This is how we timed adding 1000000 items to each list.
+The linked list took 147ms to do this while the ArrayLIst took 37ms.
+The linked list takes longer since it has to go to its end before it can add an item, while an arraylist does not.
+
+
+
+Experiment 2:
+
+After adding a million things to each list, we tried calling get(999999) to get the second to last item in each list. The Linkedlist, which is doubly linked, is able to start at the end and go backwards to that index, so it does this must faster.
+

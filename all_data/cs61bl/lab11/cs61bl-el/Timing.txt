@@ -1,0 +1,37 @@
+Timing experiments for java.util classes
+
+EXPERIMENT 1
+
+When comparing the add() methods of ArrayList of Integers and LinkedList of Integers, 
+we set up a for loop to add N integers to the list.  When setting N to 1,000,000, we noticed that
+the LinkedList consistently had a faster runtime than the ArrayList when appending lists of 1,000,000 items.
+This makes sense since LinkedLists have O(1) for appending a sequence of length n
+ to the end of another sequence length m, while ArrayLists have at best case O(n) and worst case O(n+m).
+ 
+ We then experimented with removing the 400,000 element from each list.  On average, 
+ ArrayList took 3 milliseconds
+ LinkedList took 14 milliseconds
+ LinkedList has O(k) runtime, while ArrayList has O(n-k) runtime.  So runtime will depends, however in our
+ test, the ArrayList was usually faster than the LinkedList.
+ 
+ We also experimented with returning the kth element.  In this case k was 400,000. On average, 
+ ArrayList took 0 milliseconds
+LinkedList took 15 milliseconds
+ This makes supports what we know about the runtimes of ArrayLists and LinkedLists.  For an ArrayList to index
+ into the array takes O(1).  However, LinkedLists have to check every node and will thus take O(k) runtime.
+ Therefore, we can expect ArrayLists to be much faster than LinkedList at getting the kth element.
+ 
+EXPERIMENT 2
+
+A singly linked list with only and head and tail pointer will only be able to access the next node, but not
+the previous node.  However, a doubly linked list be able to access both the previous and next nodes.
+A doubly linked list will be faster, because it can add and delete nodes from either the front or tail of
+the list.  If we delete a node from the end of a long singly linked list, it takes O(n) time.  In contrast, 
+it only takes a doubly linked list O(1) time to delete the last node of a long linked list.  For singly linked
+list, you can only remove the last nodes one at a time.  Also doubly linked lists can easily remove a node
+by linking the previous node to the next node, while it takes a lot more work for singly linked lists to do so.
+
+SingleLinkedList took 102 milliseconds
+DoubleLinkedList took 83 milliseconds
+The experiment timing results fit what we expected for the runtimes.
+

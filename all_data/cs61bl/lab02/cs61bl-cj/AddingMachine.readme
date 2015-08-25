@@ -1,0 +1,9 @@
+1) I implemented the version with 2 while loops
+
+2) In the other version I'd keep track of the case of 2 consecutive
+zeroes with a boolean variable called DoubleZero, and split the three-cases
+with conditionals (non-zero value, zero but DoubleZero false, and zero but DoubleZero true)
+
+3) I prefer the single while loop because it seems more efficient and seems more readable.
+The double while-loop has the advantage of being a more intuitive approach, and its easier to think of.
+

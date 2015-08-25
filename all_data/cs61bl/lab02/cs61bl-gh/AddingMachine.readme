@@ -1,0 +1,11 @@
+1. We implemented the version with one loop.
+2. In the second version, with in the smaller loop, the subtotal would be incremented
+in the condition of nextInt is not zero. We add subtotal to the total. 
+After the smaller loop, if the subtotal is still zero and juststarting is not true,
+we print the total and return. Otherwise, we print the subtotal and reset it to zero.
+Set juststarting to false.
+
+3. We prefer the first version because 1. It clearly keeps track of the previous input.
+2. It separates the adding process from the printing process.
+For the second version: 1. It clearly separates the subtotal process from the total process.
+2. Incrementing total fewer times.

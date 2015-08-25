@@ -1,0 +1,9 @@
+Alpha: This is merge sort because it runs fast even when a list is already sorted. 
+
+Beta: We determined this to be insertion sort by making an already-sorted list. The result was only N minus one comparisons (N - 1), because all insertion sort has to do is one comparison in the inner loop per iteration of the outer loop when the list is already sorted. Also, using a reverse-ordered list to test, beta sort runs very slowly. This matches the fact that such a list results in insertion sort’s worst runtime.
+
+Gamma: This is quicksort, because although it runs rather quickly for an out of order list, it greatly slows down when the list is either ordered or reverse ordered.
+
+Delta: This is heapsort, because it performs similarly to quicksort when the list is out of order, but does not lose a lot of performance when the list is either ordered or reverse ordered, unlike quicksort.
+
+Epsilon: This is selection sort, because its average runtime is N squared. Unlike insertion sort, which is faster when the list is already sorted, this does not follow that trend. 

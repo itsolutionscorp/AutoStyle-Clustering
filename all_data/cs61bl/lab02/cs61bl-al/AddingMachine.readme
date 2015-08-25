@@ -1,0 +1,10 @@
+As mentioned previously, there are two main different ways of writing the adding machine simulator, one which uses a single loop, and one which uses two loops with one inside the other.
+In a file named AddingMachine.readme, answer the following:
+
+* Which version did you implement for the exercise?
+Single loop.
+* Describe in words how the other version would work, without actually coding it.
+The condition of the first loop would be the consecutive input numbers are both zero. The condition of the inside loop would be the input number is zero.
+* Which version do you prefer? Describe two reasons for preferring the one-loop version and two reasons for preferring the two-loop version.
+Single-loop version. Because it only contains one loop so it is simple to code and it is easy to find any bugs. 
+ 

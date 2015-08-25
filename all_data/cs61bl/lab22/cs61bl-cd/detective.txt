@@ -1,0 +1,5 @@
+Beta: Insertion sort. In-oder and reverseOrder has really large difference in run time
+Alpha: Selection sort. In-order and reverseOrder had about the same run time
+Gamma: Quick sort. Short run time for large N. It's also much slower for reverse order. 
+Delta: Merge sort. Also short run time for large N. The list order doesn't affer it's runtime.
+Epsilon: Heap sort. There's zero runtime when the list is inOrder.

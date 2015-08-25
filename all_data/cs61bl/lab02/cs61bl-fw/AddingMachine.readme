@@ -1,0 +1,8 @@
+1. We use single loop version. 
+
+2. the idea of double loop version:
+   calculate each subtotal by inner loop
+   calculate each total in outer loop and to a variable to decide if there is a consecutive 0
+   
+3. single loop: straightforward to write code and spend less running time
+   double loop: the structure is clearer than single loop, it will make the code shorter.   

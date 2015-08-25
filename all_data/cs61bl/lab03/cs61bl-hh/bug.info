@@ -1,0 +1,11 @@
+1. Contains1MoreThan correctly returns true when: on all strings in where the first arguement is EXACTLY the same as the second except for ONE character. This only supports "simple" characters such as A-Z, numbers, and basic symbols: !@#$%^&*().
+
+2. Contains1MoreThan correctly returns false when: on all valid strings that do not follow the guidelines listed above. For e.g when the strings are exactly the same or when the first string does not match with the exception of one character.
+
+3. Contains1MoreThan incorrectly returns true when: Does not incorrectly return true on any string. 
+
+4. Contains1MoreThan incorrectly returns false when: the strings contain complex or unsupported characters such as ☺ or ♥, when the strings are in different case(upper-lower case), or when the strings contain the necessary characters but are arranged in a different order.
+
+5. Contains1MoreThan crashes when: An invalid arguement(that is not a string) is inserted or too many or too few arguements are inserted.
+
+The Bug with Contains1MoreThan is that for strings of longer than one character, the program first analyzes whether the first two characters are equal prior to analyzing the rest of the strings. 

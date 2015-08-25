@@ -1,0 +1,19 @@
+1) Experiment 1 tested a variety of different list operations, namely insertion, deletion, and get.
+We created both an ArrayList and LinkedList of 1000 elements and tested the operations and found discrepancies
+in time when a) inserting into a given index because ArrayLists have to manipulate array indices in order to
+insert at a certain index, while LinkedLists only change pointers, b) deleting from each list because ArrayLists copy
+portions of the array past the point of the deletion while LinkedLists again only change pointers, c) getting elements
+from the arrays where ArrayLists are quicker because each element is referenced to while LinkedLists are iterated through
+in order to reach the position of retrieval. These discrepancies in clock time found in our results help distinguish
+ArrayLists and LinkedLists.
+
+2) To test for the implementation of Java's LinkedList as a doubly linked list, we need to identify the
+efficiency differences between a doubly linked and singly linked list. The differences lie in the runtime of
+insertion and deletion. Because a doubly linked listnode knows both its previous and next node, the runtime of
+insertion and deletion is constant O(1). In contrast, the singly linked list must start iterating from the head
+every time an insertion or deletion is called, making the runtime of those operations linear runtime. Using this
+information, we can design an experiment to test whether Java's LinkedList implementation is actually as a doubly
+linked list. We would design the experiment by creating 2 large lists of around 2000 items, and then call an insertion
+near the end of the list, with one of the lists being a doubly linked list, and the other a singly linked list.
+If there is a difference in clock time, with the doubly linked list performing faster, then we can conclude that
+Java's implementation is a doubly linked list.  

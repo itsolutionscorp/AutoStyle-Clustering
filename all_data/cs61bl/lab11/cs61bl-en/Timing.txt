@@ -1,0 +1,77 @@
+Experiment setup. User input n was used to make an n lengthed sequence with a for loop by adding
+random double values to the list. I made a new Timer object and put the tested method between the start and
+stop method. I printed the time value to see how much time it lapsed for each experiment. (Code is at the bottom. 
+Commented out code is from prior experiments.)
+
+Experiment 1: 
+*Method: get(index)
+The user input k(code uses variable m) was used to get the k'th item of n.
+I tested the run time of returning the kth item of a sequence of length n for both LinkedList 
+and ArrayList. 
+n = 100000000  k = 999999
+ArrayList's runtime was 0 milliseconds, while LinkedList's runtime was 22 milliseconds. This distinguishes
+between an ArrayList and LinkedList because it shows the different methods used to get an item from the two different
+lists. ArrayLists have easy index access at constant time(O(1)) while LinkedLists don't.
+For LinkedLists, the pointer has to iterate through the nodes until the indexed node is reached (O(k)).
+I tried larger n values but got OutofMemoryErrors. I also noticed as k reaches n, runtimes for both reaches 0.
+
+*Method: addAll(Collection c)
+The user input m was used to made an m lengthed sequence using the same method as the one for the n lengthed sequence.
+I tested appending another sequence of length n to the end of another sequence of length m. 
+m = 9999999 n = 8888888
+ArrayList's runtime was 1528 milliseconds while LinkedList's runtime was 49328 milliseconds. Since LinkedLists have more 
+overhead, I am assuming this is causing the time difference. I noticed that when I tested add() in a for loop
+for both, they had similar times. There is no append in the List class so I cannot test that.
+
+
+Experiment 2:
+I can test the claim that Java's LinkedList is a doubly-linked list by testing the time it takes to remove a node at 
+position k of a sequence of length n.
+n = 10000000 m = 999
+ArrayList's runtime was 38 milliseconds while LinkedList's runtime was 1 milliseconds. If it was a single-linked list,
+the runtimes between the two won't be that different: linked: O(k) and arrayList O(n-k) because to delete a 
+LinkedList node, the reference of the node before it needs to be changed when the pointer is pointing to
+the node at node k. However, deleting a node for a doubly linked list makes the process easier as it has a reference
+to the previous node. 
+
+   public static void main (String[] args) {
+    	ArrayList<Double> array = new ArrayList<Double>();
+    	ArrayList<Double> array2 = new ArrayList<Double>();
+    	LinkedList<Double> linked = new LinkedList<Double>();
+    	LinkedList<Double> linked2 = new LinkedList<Double>();
+    	if (args.length != 2) {
+			System.err.println("two args and both numbers");
+			System.exit(1);
+		}
+		int n = Integer.parseInt(args[0]);
+		int m = Integer.parseInt(args[1]);
+
+		for (int i = 0; i <=n; i++) {
+			array.add(Math.random());
+		}
+//		for (int i = 0; i <=m; i++) {
+//			array2.add(Math.random());
+//		}
+		
+		Timer t = new Timer();
+		t.start();
+//		array.addAll(array2);
+		double d = array.remove(m);
+		long passedTime = t.stop();
+		
+		System.out.println (passedTime + " milliseconds elapsed for ArrayLists val " + d );
+
+		for (int i = 0; i <=n; i++) {
+			linked.add(Math.random());
+		}
+//		for (int i = 0; i <=m; i++) {
+//			linked2.add(Math.random());
+//		}
+		Timer t2 = new Timer();
+		t2.start();
+//		linked.addAll(linked2);
+		double d2 = linked.remove(m);
+		long passedTime2 = t2.stop();
+		
+		System.out.println (passedTime2 + " milliseconds elapsed for Linked Lists val " + d2);
+		

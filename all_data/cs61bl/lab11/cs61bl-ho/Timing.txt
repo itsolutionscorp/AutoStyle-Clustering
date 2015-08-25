@@ -1,0 +1,140 @@
+﻿***Experiment 1.***
+
+/* Test Code
+
+    public static void main (String[] args) throws Exception {
+		if (args.length != 1) {
+			System.err.println("arg should be a number");
+			System.exit(1);
+		}
+		int n = Integer.parseInt(args[0]);
+		double[] values = new double [n];
+		ArrayList<Double> a = new ArrayList<Double> ();
+		LinkedList<Double> b = new LinkedList<Double> ();
+		int k;
+		for (k = 0; k < n; k++) {
+			values[k] = Math.random();
+			a.add(values[k]);
+			b.add(values[k]);
+		}
+		Timer t = new Timer();
+		t.start();
+		a.sort(t);
+		long elapsedMs = t.stop();
+		System.out.println ("sort ArrayList " + elapsedMs + " milliseconds elapsed");
+		t.reset();
+		t.start();
+		b.sort(t);
+		elapsedMs = t.stop();
+		System.out.println ("sort LinkedList " + elapsedMs + " milliseconds elapsed");
+		t.reset();
+		t.start();
+		a.get((int)(n/2));
+		elapsedMs = t.stop();
+		System.out.println ("get middle element of ArrayList " + elapsedMs + " milliseconds elapsed");
+		t.reset();
+		t.start();
+		b.get((int)(n/2));
+		elapsedMs = t.stop();
+		System.out.println ("get middle element of LinkedList " + elapsedMs + " milliseconds elapsed");
+		t.reset();
+		t.start();
+		a.add(5.0);
+		elapsedMs = t.stop();
+		System.out.println ("add 5.0 into ArrayList " + elapsedMs + " milliseconds elapsed");
+		t.reset();
+		t.start();
+		b.add(5.0);
+		elapsedMs = t.stop();
+		System.out.println ("add 5.0 into LinkedList " + elapsedMs + " milliseconds elapsed");
+		t.reset();
+		t.start();
+		a.lastIndexOf(5.0);
+		elapsedMs = t.stop();
+		System.out.println ("find last 5.0 in ArrayList " + elapsedMs + " milliseconds elapsed");
+		t.reset();
+		t.start();
+		b.lastIndexOf(5.0);
+		elapsedMs = t.stop();
+		System.out.println ("find last 5.0 in LinkedList " + elapsedMs + " milliseconds elapsed");
+		t.reset();
+		t.start();
+		a.remove(n-1);
+		elapsedMs = t.stop();
+		System.out.println ("remove the second last double in ArrayList " + elapsedMs + " milliseconds elapsed");
+		t.reset();
+		t.start();
+		b.remove(n-1);
+		elapsedMs = t.stop();
+		System.out.println ("remove the second last double in LinkedList " + elapsedMs + " milliseconds elapsed");
+		t.reset();
+		t.start();
+		a.toArray();
+		elapsedMs = t.stop();
+		System.out.println ("ArrayList to Array " + elapsedMs + " milliseconds elapsed");
+		t.reset();
+		t.start();
+		b.toArray();
+		elapsedMs = t.stop();
+		System.out.println ("LinkedList to Array " + elapsedMs + " milliseconds elapsed");
+		
+    }
+    
+	@Override
+	public int compare(Object o1, Object o2) {
+		if ((Double)o1 < (Double)o2){
+			return 1;
+		} else if ((Double)o1 > (Double)o2) {
+			return -1;
+		}
+		return 0;
+    }
+*/
+
+Configurations: n=10000000
+
+Results:
+sort ArrayList 56026 milliseconds elapsed
+sort LinkedList 47286 milliseconds elapsed
+get middle element of ArrayList 0 milliseconds elapsed
+get middle element of LinkedList 129 milliseconds elapsed
+add 5.0 into ArrayList 0 milliseconds elapsed
+add 5.0 into LinkedList 0 milliseconds elapsed
+find last 5.0 in ArrayList 0 milliseconds elapsed
+find last 5.0 in LinkedList 0 milliseconds elapsed
+remove the second last double in ArrayList 0 milliseconds elapsed
+remove the second last double in LinkedList 0 milliseconds elapsed
+ArrayList to Array 65 milliseconds elapsed
+LinkedList to Array 313 milliseconds elapsed
+
+Conclusion: 
+Of same/similar performance: sort, add (to the end), find (go over the list), remove (the end)
+Of different performance: 
+	get the element in the middle: ArrayList: directly find, O(1)
+                                       LinkedList: one by one, O(n)
+	to Araay: ArrayList: copy, t=O(n)
+                  LinkedList: one by one + copy, should be of ct compared with ArrayList, where c>1.
+
+
+***Experiment 2.***
+
+/* Test Code, following Experiment 1
+t.start();
+		b.get((int)(n/2));
+		double elapsedMs = t.stop();
+		System.out.println ("get the middle element of LinkedList " + elapsedMs + " milliseconds elapsed");
+		t.start();
+		b.get((int)(3*(n/4)));
+		elapsedMs = t.stop();
+		System.out.println ("get the element of 3/4 position in LinkedList " + elapsedMs + " milliseconds elapsed");
+
+*/
+
+Results:
+get the middle element of LinkedList 158.0 milliseconds elapsed
+get the element of 3/4 position in LinkedList 56.0 milliseconds elapsed
+
+
+Conclusion:
+If it is a a singly linked list with head and tail pointers, it should take more time to get the element of ¾ position than to get the one in the middle. However, the results denote that this is a double-linked list, as it takes less time to get the latter element.
+

@@ -1,0 +1,15 @@
+	Alpha: tree sort, 
+		no matter what order the list is, it always has relatively the fewest comparison, and better performance
+		
+	Beta: insertion sort
+		for in order and reverse order, performance has a big difference
+
+	Gamma: quick sort
+		when list is in order and reverse order, has worst performanse compared to random ordered
+
+	Delta: merge sort
+		better performance compared to other sort when list size is large, but comparison and movement size is still large
+
+	Epsilon: selection sort
+		no matter what order the list is , always some comparison
+

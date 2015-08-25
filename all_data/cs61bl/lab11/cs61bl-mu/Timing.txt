@@ -1,0 +1,8 @@
+Timer.txt
+
+Experiment1
+We have tried to put 10000000 into each instance of arraylist and linkedlist. Then we tried to index into the middle of both. Then we found out that indexing using arraylist only takes 0 sec. But using linked list takes 86 sec. This is quite a huge difference. This is why arraylist indexing takes O(1) but not for linked list. It depends on the values we are going to index to, so it is O(k) for linked list where k is the index of the element we want to get. It is longer for linked list because linked list is a connection of nodes and to access a particular index element, we need to start from the head and move one by one until we reach our destination.
+
+Experiment2
+We have repeated the same procedure from experiment1 except this time we are accessing not the middle of all the elements of both arraylist and linked list. This time we tried to access the 7500000 out of 10000000 elements. It turns out that it proves java linked list is a doubly linked list. Because from the first experiment we found out that to access the middle of the elements takes about 86 secs. But this time, although we are accessing an element even further, this only takes 42 secs. It is not as long as experiment1 because the linked list is not going through the list and move one by one from the head and it can access using its feature of doubly linked list using .myPrev. As for the array, it is still 0 sec. So the arraylist is O(1) while the linked list is O(n-k) where n is the total number of elements and k is the index.
+

@@ -1,0 +1,25 @@
+Correctly returns true:
+	When a char is added to the end of s
+Correctly returns false:
+	When s and myString are different string of the same length
+	Both empty Strings
+	Both are same String
+	Length of s is greater than length of myString
+Incorrectly returns true:
+	None that we could find
+Incorrectly returns false:
+	When a char is added anywhere but the end of s in myString
+	Giving no arguments/parameters
+Crashes:
+	If your argument is anything but a String
+	
+The Bug is that the final catch statement "else" will always return false because the myString points to a different "abc" than the "abc" in s. This is because they are different objects.
+We figured this out by running myString and s though multiple tests and comparisons. Through the tests checks we were able to isolate it to the last catch ("else") as the part of the code that was causing us problems. Then we rand checks in that block of code to determine what was truly different about myString and s:
+	System.out.println(myString.substring(1));
+	System.out.println(s);
+	System.out.println(myString.substring(1)==s);
+	myString.substring("abc" = "abc");
+	System.out.println(myString.substring(1).getClass().getName);
+	System.out.println(s.getClass().getName);
+We ended up fixing the bug by replacing the line of code with:
+	return myString.substring(1).equals(s);

@@ -1,0 +1,19 @@
+Experiment 1:
+
+We compared six different timers. One timer was dedicated to measuring the time required to add, get, and remove 1000000 elements from each type of list. Here is an example of the code for the first timer 
+		Timer LinkedListAdd = new Timer();
+		LinkedListAdd.start();
+		
+		LinkedList<String> firstList = new LinkedList<String>();
+		for(int i=0; i<10000000; i++){
+		firstList.add("a");
+		}
+		LinkedListAdd.stop();
+		System.out.println("Linked list add: " + LinkedListAdd.elapsed());
+
+The results showed that the lists took approximately the same amount of time to add elements, but the linkedList was immensely more efficient at removing elements, while the arrayList was immensely more efficient at getting elements. This result is consistent with our intuition of how linkList and arrayLists work. 
+
+
+Experiment 2:
+
+We compared the time it took to remove a node from a singly linked list with the time it took to remove a node from Java’s linked list, a doubly linked list. The double linked list took approximately twice as long as the simply linked list because it has to redirect two references (myNext and myPrev) as opposed to just redirecting one. This confirms that Java’s linked list is in fact a doubly linked list.

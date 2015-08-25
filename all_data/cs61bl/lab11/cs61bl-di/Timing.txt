@@ -1,0 +1,10 @@
+M. Rosengarten: DI
+G. Syrop: DJ
+
+Experiment 1:
+
+We created a new LinkedList and a new ArrayList with respective Timers. Using a for loop, we started the timers, added very large numbers to both and stopping the timers upon loop completion. We then called .contain() on both Lists expecting the LinkedList to operate faster than the ArrayList, but to our surprise the performance of both varied sporadically with each call. No clear distinction could be made, but we're sure further experimentation with other Interfaces would have reinforced our hypothesis.
+
+Experiment 2:
+
+A simple experiment to test Java's LinkedList doubly-linked claim would require a singly-linked list for comparison. After instantiating both, make each list hold 1000 nodes (holding integers 1 to 1000) and compare the speed with which each list is able to access the second-to-last node (999). Java's doubly-linked list should be able to access this in two steps, going backwards from node 1 to node 1000 and backwards again to node 999, while the singly linked list would have to be iterated through 999 times in order to reach the same node.

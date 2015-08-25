@@ -1,0 +1,7 @@
+Which version did you implement for the exercise?
+We used a single loop to create the adding machine.
+Describe in words how the other version would work, without actually coding it.
+The second loop would activate once a subtotal was returned and check for a following 0. If there was no following 0 then it would exit the second loop and return back to the first loop, in essence setting the justStarting variable to true again.
+Which version do you prefer?
+It is cleaner and simpler, uses a boolean in place of an unwieldy while loop. The two-loop version may be more logical to code for some, while the one-loop version is more elegant and easier to debug.
+

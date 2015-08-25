@@ -1,0 +1,10 @@
+Rahul Rangnekar(ko), Steven Ho (kk)
+Experiment 1: We have shown that ArrayList takes exponentially more time than a LinkedList to add integers into itself. We first instantiated a timer and an array list object. Then we started the timer and ran a for loop that would add every number from 0 to 1,000,000 into the array list. We stopped the timer and printed out the elapsed time. We repeated this test and the time it took revolved around 36 seconds.
+
+To test the speed of linked lists, we instantiated a new timer and a linked list object. We repeated the process of starting the timer and adding the 1,000,000 numbers and printed out the elapsed time, which revolved around 189 seconds.
+
+Therefore, we have evidence that an array list (in general) is faster than a linked list.
+
+Experiment 2:
+
+Java's built-in linked list class is a doubly-linked list, and we proved this through the remove function. We instantiated a linked list object and added in every number from 0 to 1,000,000. Then, we instantiated a timer object and started it. We called the remove method on an integer near beginning of the linked list (we used 5). This operation took almost no time at all (only 0 to 1 milliseconds). Then we removed 500,000 and it only took 4 milliseconds. Finally, we removed a number at the end (we used 999.995) and it only took 0 milliseconds consistently. We know that single linked lists take much more time to remove a link at the end of a list because they have to iterate through every node until they reach the end of the linked list. We also know that doubly-linked lists remove items verfy fast because they can use their myPrev methods to go to the end of a list quickly. Therefore, we have deduced that since the execution time of removing an element from anywhere in the list was so short for Java's linked lists, we have evidence that it is a doubly-linked list. 

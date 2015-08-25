@@ -1,0 +1,17 @@
+1. 
+if the length of s is 0 and the length of myString is 1.
+if the last letter of myString is the only additional character and the rest is the same as s.
+2.
+otherwise, and when the myString length is 0.
+3. 
+No pairs of strings
+4.
+if the first letter of myString is the only additional character, and the rest is the same as s.
+If the additional character is inserted in the middle of myString, it will give a false negative.
+5.
+When the arguments put into check is not a String.
+
+
+In the following line,
+return myString.substring(1) == s;
+we cannot compare String objects with ==, we rather use the method string1.equals(string2).

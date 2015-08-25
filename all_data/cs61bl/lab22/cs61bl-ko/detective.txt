@@ -1,0 +1,36 @@
+Answer:
+We think that Alpha isHeap Sort, Beta is Insertion sort, Gamma is Quick sort, Delta is Merge Sort, and Epsilon is Selection sort.
+
+We split the five functions into two groups based on their performance on a random order of list. Alpha, Gamma, and Delta performed pretty well while Beta and Epsilon were just terrible. This told us that the first group of Alpha, Gamma, and Delta must have been either HeapSort, QuickSort, and MergeSort. The second group of Beta and Epsilon must have been either Insertion Sort and Selection Sort. We then decided that Beta was insertion sort because we saw that it performed better than Epsilon on a list that was already in order. This must mean that Epsilon is Selection Sort.
+
+Now for the other group. We knew that Gamma was QuickSort based on its performance on an ordered list at 11345 elements. Alpha and Delta did pretty well, whereas Gamma was pretty bad. Since quicksort generally does badly on ordered and reverse ordered list, we knew Gamma was QuickSort. To differentiate Alpha and Delta, we knew that they must be either Merge Sort or Heap Sort. In order to tell, we tested their performance on an inOrder list. We know that heapsort will not have as many comparisons as a merge sort because bubbling down will not really occur in a min heap if the list is in order. Because Alpha had much fewer comparisons than delta on a 23170 element list, we can conclude that Alpha is Heap Sort and Delta is Merge Sort.
+
+Our notes:
+Alpha 
+more movements than comparisons
+at 357, still super fast (1)
+at 2272, stilllll 1 time
+gets kinda big at 24491 (14 seconds)
+at the end (1048576) it takes only 362 seconds
+
+Beta is really slow (insertion)
+same comparisons to movements at 76 items, 1 time
+SO MANY MOVEMENTS at 357
+Consistently takes (5-6 seconds) at 2272
+SUPER EXPONENTIAL at 24491 (299 seconds)
+at the end (1048576) sooooo bad af!! cant even even
+
+gamma half movements
+Super fast, still half movements
+still as fast as Alpha (1 second)
+a little faster than Alpha at 24491 (10 seconds)
+
+delta same 
+takes a little more time that gamma (1-2 seconds instead of 1)
+is faster than gamma at 24491 (5 seconds)
+
+epsilon (selection)
+log few movements,
+lots of time
+takes the most time at 2272 (10 seconds)
+definitely the worst at 24491 (520 seconds)

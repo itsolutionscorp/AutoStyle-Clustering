@@ -1,0 +1,14 @@
+1.abcd abc
+  a    " "
+
+2.abcde abc
+
+3.no
+
+4.abcd abd
+  c2d   cd
+
+5.no crashes
+
+We think the bug is that the contains1MoreThan method cannot check the situation that on characater is inserted among them. Only if at the beginning or end can be correctly true.
+When it went for a different character in s1 and s2, shouldn't it be false right away, it should also check the next string, if the next string are same, it should be true.

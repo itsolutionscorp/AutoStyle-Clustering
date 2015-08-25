@@ -1,0 +1,90 @@
+Madeline (gg), Ignatius (gc)
+Experiment 1
+We added a main method with the following code in Timer.java for experiement 1.
+    	ArrayList<Integer> arr = new ArrayList<Integer>();
+    	LinkedList<Integer> l = new LinkedList<Integer>();
+    	Timer t = new Timer();
+    	
+    	t.start();
+    	int a =0;
+    	for(int i = 0; i<300000; i++){
+    	arr.add(a+i);
+    	}
+    	System.out.println(t.stop());
+    	
+    	t.start();
+    	for(int i = 0; i<300000; i++){
+        	l.add(a+i);
+        }
+    	System.out.println(t.stop());
+    	
+    	t.start();
+    	arr.contains(1);
+    	System.out.println(t.stop());
+    	
+    	t.start();
+    	l.contains(1);
+    	System.out.println(t.stop());
+    	
+    	t.start();
+    	arr.contains(200000);
+    	System.out.println(t.stop());
+    	
+    	t.start();
+    	l.contains(200000);
+    	System.out.println(t.stop());
+    	
+    	t.start();
+    	arr.get(100000);
+    	System.out.println(t.stop());
+    	
+    	t.start();
+    	l.get(100000);
+    	System.out.println(t.stop());
+    	
+    	t.start();
+    	arr.get(200000);
+    	System.out.println(t.stop());
+    	
+    	t.start();
+    	l.get(200000);
+    	System.out.println(t.stop());
+
+This was the output from the console:
+31
+14
+0
+1
+11
+7
+0
+3
+0
+3
+
+It distinguishes between ArrayList and LinkedList as it shows the difference in runtime for various operations, namely add, contains and get. For add, the ArrayList took much longer presumably due to extra operations in increasing the size while for a LinkedList, you just have to add on to the last node. For contains, the LinkedList was faster as the reference variables only point to the next node rather than the entire list as the ArrayList does. For get, the ArrayList was faster because it has a built-in index where access is instantaneous, whereas for LinkedList, it has to process through n-1 number of nodes before returning the right value.
+
+Experiment 2
+For this experiment, we had the following code in main:
+Timer t = new Timer();
+    	LinkedList<Integer> ll = new LinkedList<Integer>();
+    	
+    	for (int i =0; i < 300000; i++) {
+    		ll.add(i);
+    	}
+    	
+    	t.start();
+    	ll.get(100000);
+    	System.out.println(t.stop());
+    	
+    	t.start();
+    	ll.get(200000);
+    	System.out.println(t.stop());
+    	
+    }
+
+The output in the console was:
+2
+2
+
+This demonstrates that the LinkedList is able to traverse both from the start and end of the list depending on which is closer to the index. This would only be possible if each node had a reference to the previous node to allow for access from the back. Hence, this is evidence that the LinkedList is doubly-linked as a singly-linked one with head and tail pointers would not have a 2,2 result but something similar to 2,5.

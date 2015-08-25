@@ -1,0 +1,6 @@
+I implemented the version of the Adding Machine involving one while loop rather than the nested while loop code.
+The version involving the nested while loop would have subtotal inside the nested while loop and the total within
+the first while loop, and update the total when the nested while loop ends. I prefer the code with one while
+loop because it is more simple to follow. Two reasons for preferring the one-loop version would be simpler and
+less susceptible for an infinite loop. On the other hand, two while loops would be beneficial because you could
+use less variables and involves simpler, more readable code.

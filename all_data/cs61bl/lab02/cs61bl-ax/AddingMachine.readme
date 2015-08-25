@@ -1,0 +1,7 @@
+We implemented AddingMachine with one loop.
+
+In order to use two loops, one would create an inner loop that handles each individual subtotal while the outer loop handles the whole stream of numbers. The inner loop would start every time a new subtotal starts, and exit each time a zero is reached. 
+
+We prefer the one loop version because it is the one we came up with first. The one loop version avoids the confusion of an extra loop and it is easier to read and follow the logic of it on paper. However, the two loop version makes it clearer that there is two things the function does, printing a subtotal and a total. It also could potentially take less lines of code to write.
+
+

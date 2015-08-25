@@ -1,0 +1,5 @@
+Beta is insertion sort 
+Epsilon is selection sort this two are pretty long 
+Alpha is QuickSort compparisons are less  than movements
+Gamma is merge Sort comparisons are more than movement
+delta is heap sort comparisons are just about to movements

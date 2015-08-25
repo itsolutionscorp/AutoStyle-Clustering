@@ -1,0 +1,5 @@
+Alpha: MergeSort, always the same regardless to any order of the lists.
+Beta: InsertSort, When it is inorder, it is has small number of comparison but when it is ReverseOrder, it has a lot of comparison but insert still run fast.
+Gamma: QuickSort, when inorder list, it is very slow.
+Delta: HeapSort, fairly constant time regardless of the any order of the lists, the number of comparison is almost the same, the same as selectionsort because the heap, remove from the heap is linear.
+Epsilon: SelectionSort, always have the same number of comparison, when it is inorder, it has 0 movement, and when it is almostsort, it has very low movement. Because we iterate through the list, it has the same number of comparisons regardless.

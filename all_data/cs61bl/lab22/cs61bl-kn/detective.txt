@@ -1,0 +1,7 @@
+So, we couldn't access the page and we tried hard to but here is how we
+would have gone about matching the sorts. Insertion sort would be significantly faster for sorted lists
+and much slower for reversed lists. Quicksort would be really fast on a random list as there's a higher probability 
+of getting a median but much slower for reversed and sorted lists. Mergesort is stable but heapsort isn't. So as the
+execution of the sorting algorithm happens we can see items that have been supposedly sorted change positions 
+relative to where they were initially sorted to. For smaller lists, heapsort will likely be slower than mergesort due 
+to the heapify process.

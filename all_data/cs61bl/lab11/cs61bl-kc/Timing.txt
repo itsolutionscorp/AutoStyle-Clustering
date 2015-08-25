@@ -1,0 +1,6 @@
+Experiment 1:
+Implement LinkedList and Arraylist. Insert and remove using iterators for LInkedList and time how long it takes to find the position. Grab an element in the arraylist and comapre it to the time it takes to grab an element in the linkedlist. Also, try adding and removing for the arraylist and see how long it takes.
+This will test to see which one allows fast random access and also tests to see how LinkedList and ArrayList is different. Arraylist has a hard time adding or removing (except for the end) because it would require shifting whereas it is much easier for linkedlist.
+
+Experiment 2:
+Prior to when the node being inserted or deleted, check if the myNext variable is changed. Doubly linked list is supposed to help change myNext variable being insertion or deletion occurs. Check if you can access the previous node when the node has been changed.

@@ -1,0 +1,55 @@
+import java.util.*;
+
+public class Test {
+	public static void main(String[] args) {
+		ArrayList l1 = new ArrayList();
+		LinkedList l2 = new LinkedList();
+		Timer t = new Timer();
+		
+		for (int i = 0; i < 1000000; i++) {
+			l1.add(i, (Integer) i);
+		}
+		
+		for (int i = 0; i < 1000000; i++) {
+			l2.add(i, (Integer) i);
+		}
+		
+		//Experiment 1
+		t.reset();
+		t.start();
+		l1.get(500000);
+		System.out.println(t.elapsed());
+		
+		t.reset();
+		t.start();
+		l2.get(500000);
+		System.out.println(t.elapsed());
+		
+		//Experiment 2
+		t.reset();
+		t.start();
+		l2.get(999990);
+		System.out.println(t.elapsed());
+		
+		t.reset();
+		t.start();
+		l2.get(500000);
+		System.out.println(t.elapsed());
+
+		t.reset();
+		t.start();
+		l2.get(250000);
+		System.out.println(t.elapsed());
+	}
+}
+
+Output:
+0
+4
+0
+2
+1
+
+Experiment 1: This experiment makes use of the common get method of both ArrayList and LinkedList. The ArrayList can get the item of given index much faster than the LinkedList because ArrayList makes use of Array which can access to the item of given index with constant time O(1). However, the LinkedList's get method will go over each object one by one until the given index. The time is proportional to the index O(n).
+
+Experiment 2: To verify the LinkedList is double-linked, the experiment is designed to test the LinkedList can trace backwards. The get method's run time to get the item close to the end is faster than the run time to get the item in the middle. It proves that the LinkedList can go backwards, which means it has pointer to previous object. 

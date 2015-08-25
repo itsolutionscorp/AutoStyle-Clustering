@@ -1,0 +1,29 @@
+Experiment 1:
+	Each method common to both ArrayList and LinkedList were performed n number of times (n was dependent on the method). A for loop iterating from i=0 to i=n was used to perform the repetition, and i was added to the list. The timer was started before the for loop and stopped after the for loop. After the time elapsed was recorded, the timer was reset.
+
+add method: (n = 10^7)
+	ArrayList = 147 milliseconds
+	LinkedList = 2711 milliseconds
+
+get method: (n = 10^4)
+	ArrayList = 3 milliseconds
+	LinkedList = 188 milliseconds
+
+remove method: (n = 5 * 10^3)
+	*removed element at index 3000	
+	ArrayList = 15 milliseconds
+	LinkedList = 116 milliseconds
+
+contains method: (n = 1e4)
+	ArrayList = 270 milliseconds
+	LinkedList = 508 milliseconds
+
+Through these results, we conclude that ArrayList are superior for all methods with an n large enough for the difference to be noticeable in milliseconds. LinkedLists may be superior for lower n though.
+
+Experiment 2
+	If java's LinkedList is implemented as doubly linked list, Java's linkedList should be able to retrieve index i - 1 and i, where i is a random number, much faster than 2 random random indices. 
+	For test 1, 30000 random indices were retrieved from the linked list. 
+	For test 2, 15000 random indices and index + 1 were retrieved from the linked list.
+
+test 2 was consistently faster than test 1; therefore, we conclude that Java's linkedList is indeed a doubly linked list. 
+	

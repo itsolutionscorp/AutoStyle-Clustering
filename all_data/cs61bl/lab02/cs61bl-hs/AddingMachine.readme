@@ -1,0 +1,10 @@
+1. We implemented the single while loop, which contained nested if-else statements.
+
+2. The outer loop would return the total, while the inner loop would return the subtotal.
+
+3. One-loop version:
+	1). One less loop to worry about coding
+	2). Might be tedious to use nested if-else, but it isn't as 		confusing to code
+   Two-loop version:
+	1). Less risk of syntax errors
+	2). Not as tedious to code

@@ -1,0 +1,8 @@
+1. If the extra character is at the end of myString, the method will return True correctly.
+2. It correctly returns false for strings of the same length, if there is more than one difference in strings of different lengths. 
+3. We did not find any pairs of arguments for which contains1MoreThan incorrectly returns true. 
+4. contains1MoreThan incorrectly returns false when there is one difference but the difference is not at the end. 
+5. No pairs of strings cause contains1MoreThan to crash.
+
+The bug is that the string comparisons done with == only checks if the references refer to the same object. The String method .equals should be used in this case instead
+of ==. We figured it out by checking "2abc" and "abc", because this goes into the last else case that contains the incorrect comparison.  

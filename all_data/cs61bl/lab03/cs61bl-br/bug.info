@@ -1,0 +1,11 @@
+1) Whenever you add only one character to the END of the string.
+
+2) Whenever there is more thane one character added at the END of the string, or if there is NO character at the end. 
+
+3) None
+
+4) Whenever you try adding a character in the middle or the start of the string. The starting character doesn't work because "==" should be ".equals()" in last else statement of "contains1MoreThan()".
+
+5) if you don't pass it a string.
+
+We reread the question many many many many many times. 

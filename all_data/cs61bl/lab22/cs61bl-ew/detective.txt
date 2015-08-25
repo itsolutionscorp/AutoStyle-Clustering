@@ -1,0 +1,36 @@
+detective.txt
+
+
+
+
+
+
+
+Alpha:
+heap sort:
+	acts as a heap array
+	runtime for random is longer then normal. 
+
+	
+Beta:
+	insertion sort:
+	checking of the next is smaller or bigger then the first.
+	runtime n in best case, n^2 in worst case
+		we had n-1 comparisons for the experimental tests
+
+Gamma:
+	quick sort:
+	picks the first and compares the rest of the element and sorts it
+	runtime at worst is n, best case is log(n)
+
+
+Delta:
+	merge sort:
+	splits the array in half into smaller pieces and merges them after sorting it
+	runtime is nlog(n)
+
+Epsilon:
+	selection sort:
+	going into each individual one and finding the smallest
+	runtime would be n^2, n + (n-1) + (n-2) + .... + 1 comparisons
+

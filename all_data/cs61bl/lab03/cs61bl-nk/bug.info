@@ -1,0 +1,25 @@
+
+1. This program correctly returns true when string s
+is just an additional letter inserted to myString.
+
+2. This program correctly returns false when the length of myString
+and string s are the same, so no new letters are inserted.
+Even if there are letters in s that are replaced, this program
+returns false correctly. 
+
+3. No pairs of strings give an incorrect true. 
+
+4. The program incorrectly returns false when you insert exactly one 
+letter into anywhere inside myString except the end.
+
+5. No pairs of strings will cause it to crash. 
+It will crash when arguments other than strings are passed into the argument. 
+
+
+The last else case in the contains1MoreThan method doesn't check the value of the
+string inputs. It just checks to see if they are the same thing. 
+This is why when you input myString as abc and string s as abcd, it will incorrectly return a false,
+when in fact it is true that you just inserted an extra letter to abc. 
+
+We figured this out with repeated calls to check, and then going through the method
+ourselves with each input. 

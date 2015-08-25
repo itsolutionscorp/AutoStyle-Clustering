@@ -1,0 +1,22 @@
+
+
+In experiment 1, we compared the implementation of ArrayList and LinkedList by timing the effect of adding a List (ArrayList
+and LinkedList, respectively) to index 2500000 of a List (ArrayList and LinkedList, respectively) of size 5000000 using the 
+addAll(index, Collection) method. 
+Consistently, the ArrayList took ~20 time and the LinkedList took ~3000 time units to perform this action. Even when the
+arguments to addAll were swapped (ArrayList adding a LinkedList collection of items, LinkedList adding ArrayList collection of items), 
+LinkedList took significantly longer. This shows the extra time a LinkedList takes to create the Link structure with each added 
+element, modifying the pointers to the next and previous elements for each added element (going into each node of the new LinkedList 
+and working with it to set information), whereas an ArrayList only needs to extract each element and store the reference in the position 
+at some index.
+
+In experiment 2, we showed that Java's LinkedList is implemented as a doubly linked list. 
+In a long, singly linked list, to obtain the index of any element requires iterating through the whole list until that element.
+There isn't a good way to iterate backwards through a singly linked list.
+Skimming over the LinkedList methods, we discovered there were many methods that appeared to begin at the end (descendingIterator, etc)
+supporting the idea of a doubly linked list that can go backwards through pointers to the previous link. 
+We tested this idea by calling indexOf(Object o) and lastIndexOf(Object o) in a LinkedList of size 5000001 on the last object (making certain
+that it was a unique object in the LinkedList). As expected, indexOf took some time (~300) but lastIndexOf took almost no time (0) to
+find the index of the last element. It seemed that lastIndexOf was able to find the element more quickly because in Java's LinkedList implementation,
+lastIndexOf begins searching from the tail (to the head). It is able to search from tail to head 
+due to the references to previous links in each link.  

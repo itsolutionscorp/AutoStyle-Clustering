@@ -1,0 +1,21 @@
+1. Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+Both of the strings are one letter long.
+One of the strings is a one character addition to the back of the other. 
+2. Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+One string is the other with an addition in the back. 
+Both strings are the same length with more than one change. 
+3. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, 
+that is, when the first string argument to check is not the result of inserting exactly one character 
+into the second.
+The second string is a one character addition to the first string. 
+4. Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false,
+ that is, when the first string argument to check is the result of inserting exactly one character 
+ into the second.
+ One string has an addition in the front. 
+ One string has an insertion to the other string. 
+5. Describe all pairs of arguments to check for which contains1MoreThan crashes.
+If given non-strings. 
+
+Explanation of the bug:
+The program doesn't work when a string has an addition to it in the front, or when the addition
+is to the middle or not-ends of the string. 

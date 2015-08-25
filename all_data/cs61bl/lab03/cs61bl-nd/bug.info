@@ -1,0 +1,6 @@
+1. When the character is added at the end.
+2. When more than one character is inserted and compared (it uses length)
+3. No pairs of strings
+4. It returns false when the character added is not appended to the end.
+5. It crashes when the arguments are not strings. There is no try and exception suite. 
+

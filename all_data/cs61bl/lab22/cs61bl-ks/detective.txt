@@ -1,0 +1,12 @@
+I ran detective for a list of n=32:
+
+
+Alpha - Heap Sort b/c InOrder and Reverse take the same amount of effort and the number of movements is the same for all of them (which makes sense for heaps)
+
+Beta - Insertion Sort b/c it ran best for InOrder (~3n = O(n)) and reverse was the worse (~1000 which is close to O(n^2))
+
+Gamma - Quicksort b/c it worked best for a random order but worse for InOrder and Reverse Order which ran in about the same time. 
+
+Delta - Merge Sort b/c # of comparisons isn't too dependent on order. 
+
+Epsilon - Selection Sort b/c there's always 496 comparisons: n(n-1)/2 = 496

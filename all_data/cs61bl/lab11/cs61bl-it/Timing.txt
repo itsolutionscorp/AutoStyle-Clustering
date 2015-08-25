@@ -1,0 +1,15 @@
+We intialized an arraylist and a linkedlist, each with m number of integers between 1 and m.
+for m = 1000, 10000, ..., 100000000
+As a performance metric we called contains method on both to find the last element m,
+and we got the following timings in msec for each m:
+
+LinkedList times = [0, 0, 0, 0, 1, 0, 0, 0, 0]
+ArrayList times  = [0, 0, 0, 0, 0, 0, 1, 1, 1]
+
+We also tried contain for finding the middle elements (m/2) and found this:
+LinkedList times = [0, 0, 0, 0, 0, 0, 1, 0, 0]
+ArrayList times = [0, 0, 0, 0, 0, 0, 0, 2, 0]
+
+These show that the worse timing for LinkedList are better than the worse timing for
+ArrayList. Additionally, they are both O(number of elements).
+.

@@ -1,0 +1,11 @@
+We used the while loop given, and used no other while loops.
+
+A version of the adding machine using two while loops might
+operate on the condition that justStarting is true. When two
+0s in succession are input into the method, justStarting
+could be redefined as false and the loop would end.
+
+The version using only one while loop likely uses more if
+clauses in order to check how to handle every type of input
+situation. The other version merely waits for a certain
+condition to be satisfied before it outputs the total.

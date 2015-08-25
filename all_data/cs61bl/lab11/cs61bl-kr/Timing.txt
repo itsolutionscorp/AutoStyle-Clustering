@@ -1,0 +1,63 @@
+Experiment 1:
+The time for a million runs to get a certain component for a size 8 at spot 4 for LinkedList and ArrayList respectively were 7 seconds
+and 5 seconds. This shows the difference because ArrayList have linear runtime for the get method whereas LinkedList
+has n runtime. Thus ArrayList generally have lower times when implemented, but LinkedList may have lower times if
+we get values at the beginning or end of the list. (Which we will explain more in experiment two.
+
+import java.util.ArrayList;
+
+public class ArrayTest {
+
+	public static void main(String[] args) {
+		ArrayList<String> array = new ArrayList<String>(8);
+		Timer t = new Timer();
+		array.add("apple");
+		array.add("banana");
+		array.add("cantaloupe");
+		array.add("watermelon");
+		array.add("appl");
+		array.add("banan");
+		array.add("cantaloup");
+		array.add("watermelo");
+		
+		t.start();
+		for (int i = 0; i < 1000000; i++) {
+			array.get(4);
+		}
+		System.out.print(t.stop());
+	}
+
+}
+
+import java.util.ArrayList;
+
+public class ArrayTest {
+
+	public static void main(String[] args) {
+		ArrayList<String> array = new ArrayList<String>(8);
+		Timer t = new Timer();
+		array.add("apple");
+		array.add("banana");
+		array.add("cantaloupe");
+		array.add("watermelon");
+		array.add("appl");
+		array.add("banan");
+		array.add("cantaloup");
+		array.add("watermelo");
+		
+		t.start();
+		for (int i = 0; i < 1000000; i++) {
+			remove(
+		}
+		System.out.print(t.stop());
+	}
+
+}
+
+Experiment 2:
+To distinguish from a doubly Linked List and a single Linked List with a head and tail, we made an experiment that removed the last 
+element of the linked list. If it was a single linked list then each time we removed the tail, the program would
+have to comb through the list until it reached the end to assign a new tail. However a doubly Linked List reassigns
+the last value of myNext and myPrev to the new object! Thus we can tell the difference by how fast the Doubly Linked
+List performs. Thus in a list of 5000 elements, it took 1 milisec to remove all 5000 elements because of how a
+doubly-linked list is designed. 

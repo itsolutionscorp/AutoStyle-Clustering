@@ -1,0 +1,16 @@
+Alpha - heap sort
+We thought that either alpha or delta was heap sort. However we decided that alpha was heap sort; you don't need as many comparisons since a heap data structure can quickly retrieve the next smallest element in the collection to be sorted, once the heap is built.
+
+Also, the number of movements made were the same across all types of list orderings. Since each number in the list is removed and added to another sorted list, the number of movements would be the same regardless of the ordering of the list.
+
+Beta - insertion sort
+The number of comparisons vary greatly whether the list is in order or in reverse order. When the list is in order, insertion sort only makes O(n) comparisons and when the list is reverse order, it makes O(n^2) comparisons.
+
+Gamma - quick sort
+The number of comparisons were smaller for random and almost random lists compared to in order and reverse order lists. This is true because the runtime gets faster when you pick a random number as the pivot rather than the biggest or smallest number of the list.
+
+Delta - merge sort
+The number of comparisons stayed pretty consistent across all types of lists, since each list must be halved and compared regardless of the ordering. The number of comparisons for merge sort is proportional to n*log(n) regardless of the ordering of the list. 
+
+Epsilon - selection sort
+The number of comparisons was always the same whether the list was ordered, reversed, or random. And when the list was ordered, there were zero movements which is expected for selection sort. 

@@ -1,0 +1,12 @@
+1. when a character is added at the end or added to an empty string.
+2. all pair of strings
+3. no pairs of strings
+4. insert a character in the middle or in the front
+5. when you don't put in strings as the arguments or don't escape some special character such as a single quote or a "\"
+
+We figured it out by tracking the values of myString and s through main for pairs of
+strings that would cause the program to fail. The bug is that contains1MoreThan does 
+not take into account that a string is an object, not a primitive, so it can't 
+be compared using a ==. Instead, we should use a method that compares each char of
+the string because those are the primitive components of a string. == should be changed
+to .equals(String)

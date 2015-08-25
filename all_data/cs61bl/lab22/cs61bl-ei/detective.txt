@@ -1,0 +1,24 @@
+Erik Riiska - ei
+Min Gu Jo - by
+
+- Alpha : HeapSort 
+	It has similar comparisons for all orders since numbers are put into a min heap and gets the minimum number from it no matter what the order is. 
+	However, it has different number of movements. Inorder and reverse order have similar number of movements.
+	Almost and random order have similar too. However, inorder and reverse order have smaller number of movements. 
+	This is because the order is already sorted so the movements should not occur many times. 
+
+- Beta : Insertion Sort
+	It has the worst comparisons and movements when the array is reversed. This is because it has to visit every number and change its place with the previous till it gets to the start index.
+	If the array is almost sorted, it will have less comparisons in a loop and less movements. 
+- Gamma : QuickSort. 
+	It has the worst numbers of comparisons in the array of sorted and reversed order. 
+	QuickSort has to compare numbers with the divider N^2 when the divider is the smallest or largest of the array. 
+	If the divider is around median, the sort method has to compare only NlogN times. 
+	
+- Delta : Merge sort
+	because in all the cases, it has almost similar comparisons and movements for each. This makes sense because no matter what the order the array
+	is composed of, merge sort will partition an array into pieces and merge them back. 
+- Epsilon : Selection sort. It has the constant worse number of comparisons. 
+	This is because selection sort loops through the every item in an array to find the minimum every time. 
+	If an array has numbers in almost sorted or sorted order, there should be low movement number because selection sort 
+	will not see the minimum number often along the way since it's usually or always the first number of the loop. So it stays there.  

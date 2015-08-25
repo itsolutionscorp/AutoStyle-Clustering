@@ -1,0 +1,27 @@
+
+    Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+    	Pairs of arguments that have exactly a string length difference of 1 and differ by only the character at the very end of myString 
+    	correctly return true.  
+    
+    Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+    	Pairs of arguments that differ by more or less than 1 in string length or do not differ by just the last character in myString 
+    	correctly return false. 
+    
+    Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is 
+    not the result of inserting exactly one character into the second.
+    	No pairs of arguments passed to check will incorrectly return true. 
+    	
+    Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is 
+    the result of inserting exactly one character into the second.
+    	Any pair of arguments where the single differing character is at any other position other than the end, contains1MoreThan will incorrectly
+    	return false. For example, for the strings "1abc" and "abc", contains1MoreThan will incorrectly return false.  
+    
+    Describe all pairs of arguments to check for which contains1MoreThan crashes.
+    	We found no pairs of arguments that would cause contains1MoreThan to crash. 
+    	
+   
+   	Explanation of bug:
+   		The contains1MoreThan method does not correctly account for single character differences in positions other than at the last position. 
+   		We found this bug by systematically testing first whether differing lengths by more than 1 of the strings was being correctly picked up by 
+   		the program, and then whether or not the program was picking up on different positions of the differing character. 
+   		We found our bug upon testing that second part.

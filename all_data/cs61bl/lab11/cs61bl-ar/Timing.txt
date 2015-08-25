@@ -1,0 +1,75 @@
+EXP1
+
+import java.util.*;
+
+public class test {
+  
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 ArrayList arrayList = new ArrayList();
+	     LinkedList linkedList = new LinkedList();
+		int count = Integer.parseInt(args[0]);
+		Timer t = new Timer();
+		t.start();
+		for(int i = 0 ; i<count;i++){
+			arrayList.add(1);
+		}
+		long elapsedMs = t.stop();
+		Timer a = new Timer();
+		a.start();
+		for(int i = 0 ; i<count;i++){
+			linkedList.add(1);
+		}
+		long elapsedMs1 = a.stop();
+		System.out.println ("array list costs "+elapsedMs + " milliseconds elapsed");
+		System.out.println ("linked list costs "+elapsedMs1 + " milliseconds elapsed");
+	}
+
+}
+
+When run the code with count 1000000,the result are :
+
+ " array list costs 26 milliseconds elapsed
+  linked list costs 108 milliseconds elapsed "
+
+So we can see linkedlist has lower time effiency compared to array list concerning add method.
+Because arraylist can use index so that it could easily reach the end and add the element.
+But for Linkedlist,it has to iterated the whole linkedlist to get the endding and add the element.
+
+EXP2
+
+import java.util.*;
+
+public class test {
+  
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	     LinkedList linkedList = new LinkedList();
+		int count = Integer.parseInt(args[0]);
+		Timer t = new Timer();
+	
+		for(int i = 0 ; i<count;i++){
+			linkedList.add(1);
+		}
+		t.start();
+		for(int i = count/2;i<count-1;i++){
+			linkedList.get(i);
+		}
+		long elapsedMs = t.stop();
+		t.start();
+		for(int i = 1;i<count/2;i++){
+			linkedList.get(i);
+		}
+		long elapsedMs1 = t.stop();
+		System.out.println ("linkedList forthword costs "+elapsedMs + " milliseconds elapsed");
+		System.out.println ("linkedList backword costs "+elapsedMs1 + " milliseconds elapsed");
+	}
+
+}
+
+When run the code with count 100000 ,the result are :
+  "linkedList costs 2494 milliseconds elapsed 
+   linkedList costs 2328 milliseconds elapsed"
+
+We created a linkedlist with 100000 elements.And we get element from the first half and the second half of the list.If the linkedlist is implicited a single list.So the time costing for the first 50000 elements is explicitly larger than the backword.But the result shows that the time it cost is the same.So to accelerate,the linked list first reached to the middle and then according to the index it shoud reach search forword and backword and 
+only doulble way linkedlist could finish .So that means the time costing on first 50000 elements are approximately equals to the time on searching the last 50000 element.And the result proved our theory.

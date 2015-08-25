@@ -1,0 +1,8 @@
+Which version did you implement for the exercise?
+We implemented a single while loop.
+
+Describe in words how the other version would work, without actually coding it.
+There would be another while loop where the loop exists when two zeroes are inputted consecutively.
+
+Which version do you prefer? Describe two reasons for preferring the one-loop version and two reasons for preferring the two-loop version.
+We prefer the single loop because it uses an instance variable which allows for a more efficient runtime compared to having to run through another loop every time the program is run.

@@ -1,0 +1,15 @@
+1. "", anything
+   string of length one, ""
+   s and an extra character inserted at the end, s
+
+2. "", ""
+   myString has at most as many characters as s
+   myString has more than one extra character inserted
+
+3. No such cases
+
+4. myString has one extra letter inserted anywhere but the end
+
+5. when s or myString is null
+
+Bug: Using the == operator to compare strings (objectS) returns whether the first argument refers to the same object as the second argument, not whether their values are the same. To determine value equivalence, use the string function equals().

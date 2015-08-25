@@ -1,0 +1,3 @@
+1. We used the version with one while loop.
+2. The other version would involve a while loop with condition of lastinput not equal to 0; this works because when both lastinput and input are 0 the program will display the total and then terminate.
+3. I prefer our version because it uses fewer interative loop and the logic is more intuitive.

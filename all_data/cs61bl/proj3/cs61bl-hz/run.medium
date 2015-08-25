@@ -1,0 +1,94 @@
+#!/bin/bash
+m=.
+echo '===================================================================='
+echo "Running medium puzzles"
+echo '--- c15'
+$m/runsuccess.sh c15 15.23-27.30.41.goal medium
+echo '--- c16'
+$m/runsuccess.sh c16 16.19.20.goal medium
+echo '--- c18'
+$m/runsuccess.sh c18 18.21.goal medium
+echo '--- c19'
+$m/runsuccess.sh c19 16.19.20.goal medium
+echo '--- c20'
+$m/runsuccess.sh c20.21 16.19.20.goal medium
+echo '--- c21'
+$m/runsuccess.sh c20.21 18.21.goal medium
+echo '--- c23'
+$m/runsuccess.sh c23 15.23-27.30.41.goal medium
+echo '--- c24'
+$m/runsuccess.sh c24 15.23-27.30.41.goal medium
+echo '--- c27a'
+$m/runsuccess.sh c27a 15.23-27.30.41.goal medium
+echo '--- c27b'
+$m/runsuccess.sh c27b 15.23-27.30.41.goal medium
+echo '--- c27c'
+$m/runsuccess.sh c27c 15.23-27.30.41.goal medium
+echo '--- c27d'
+$m/runsuccess.sh c27d 15.23-27.30.41.goal medium
+echo '--- c28'
+$m/runsuccess.sh c28 28.goal medium
+echo '--- c29'
+$m/runsuccess.sh c29 29.goal medium
+echo '--- c30'
+$m/runsuccess.sh c15 15.23-27.30.41.goal medium
+echo '--- c31'
+$m/runsuccess.sh c31 31.goal medium
+echo '--- c32'
+$m/runsuccess.sh c32 32.goal medium
+echo '--- c33'
+$m/runsuccess.sh c33 33.goal medium
+echo '--- c34'
+$m/runsuccess.sh c34 34.goal medium
+echo '--- c35'
+$m/runsuccess.sh c35 35.goal medium
+echo '--- c36'
+$m/runsuccess.sh c36 36.goal medium
+echo '--- c37'
+$m/runsuccess.sh c37 37.goal medium
+echo '--- c38'
+$m/runsuccess.sh c38 38.goal medium
+echo '--- c39'
+$m/runsuccess.sh c39 39.goal medium
+echo '--- c40'
+$m/runsuccess.sh c40 40.goal medium
+echo '--- c41'
+$m/runsuccess.sh c15 15.23-27.30.41.goal medium
+echo '--- c43'
+$m/runsuccess.sh c43-45 43.goal medium
+echo '--- c44'
+$m/runsuccess.sh c43-45 44.goal medium
+echo '--- c50'
+$m/runsuccess.sh c50-51 50.52.goal medium
+echo '--- c51'
+$m/runsuccess.sh c50-51 51.goal medium
+echo '--- c52'
+$m/runsuccess.sh c52 50.52.goal medium
+echo '--- c56'
+$m/runsuccess.sh c56 55.56.goal medium
+
+echo '=== dads'
+echo '--- regular dads'
+$m/runsuccess.sh dads dads.goal medium
+echo '--- dads rotated 90 degrees'
+$m/runsuccess.sh dads+90 dads+90.goal medium
+echo '--- dads rotated 180 degrees'
+$m/runsuccess.sh dads+180 dads+180.goal medium
+echo '--- dads rotated 270 degrees'
+$m/runsuccess.sh dads+270 dads+270.goal medium
+
+echo '=== donkey'
+echo '--- regular donkey'
+$m/runsuccess.sh init.from.handout goal.1.from.handout medium
+echo '--- donkey rotated 90 degrees'
+$m/runsuccess.sh handout.config.1+90 handout.goal+90 medium
+echo '--- donkey rotated 180 degrees'
+$m/runsuccess.sh handout.config.1+180 handout.goal+180 medium
+echo '--- donkey rotated 27 degrees'
+$m/runsuccess.sh handout.config.1+270 handout.goal+270 medium
+
+echo '=== other'
+echo '--- big tray'
+$m/runsuccess.sh big.tray.4 big.tray.4.goal medium
+echo '--- blockado'
+$m/runsuccess.sh blockado blockado.goal medium

@@ -1,0 +1,24 @@
+1. Arguments that correctly return True:
+	- A pair in which one string has the same combination of characters as the other, but with an additional character at the end.
+	
+2. Arguments that correctly return False:
+	-Strings in which the length differs by more than one
+	-Strings which differ by more than one character
+	
+3. Arguments that incorrectly return True:
+	-No pairs of strings
+	
+4. Arguments that incorrectly return False:
+	-Pairs in which one string is of length n and the other of length n + 1, and the only differing character is not at the end.
+	
+5. Non-strings (incorrect parameters), long strings that cause a maximum recursion depth to be reached
+
+
+Explanation of the bug:
+
+After exploring many possibilities of what the bug could be, we found everything above the final else statement to be correct.
+That left only the final else statement to be incorrect. While the line looked as if it had no errors, we realized that you cannot compare whether two different String objects have the same characters with the "==" method.
+The final else statement was attempting to discern whether the characters in two different objects were the same, but in reality was testing whether they were the same object, rather than testing for the same instance variables within those objects.
+To fix this, one could simply use the .equals() method for string comparison.
+	
+	

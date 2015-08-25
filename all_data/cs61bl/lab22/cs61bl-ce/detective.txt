@@ -1,0 +1,18 @@
+Alpha: Merge Sort
+This is merge sort because merge takes n(logn) time to run. This means that when the list was in order and in reverse
+order, it should take the same amount of time. It did this.
+
+Beta: Insertion Sort
+This is insertion sort because sorting a list in order took significantly fewer comparisons than comparing a list in 
+reverse order. (in order < almost < random < reverse order)
+
+Gamma: Quick Sort
+This is quick sort because the number of comparisons for reverse order and sorted order were both more than the time 
+needed for the random sort.
+
+Delta: Heap Sort
+We figured this out through the process of elimination.
+
+Epsilon: Selection Sort
+This is selection sort because the number of comparisons needed for the list, regardless of random, in order, reverse, or
+almost sorting order.

@@ -1,0 +1,23 @@
+ArrayList addition over 100000 iterations took 21 ms.
+LinkedList addition over 100000 iterations took 261 ms.
+
+ArrayList removal over 100000 iterations never finished.
+LinkedList removal over 100000 iterations took 18 ms.
+
+ArrayList get for size 100000 iterations 0 ms.
+LinkedList get size 100000 iterations took 4 ms.
+
+This shows that ArrayLists are superior at finding fixed lists, but horrible at rearranging them
+in comparison to LinkedList.
+
+SinglyLinkedList add for 100000 iterations took forever
+DoublyLinkedList add for 100000 iterations took 284ms.
+
+SinglyLinkedList remove for size 100000 took forever
+DoublyLinkedList remove for size 100000 took 0ms.
+
+This shows that Doubly LinkedLists are much better at operations that can
+possibly be done faster by being able to look backwards.  Remove, 
+with the ability to see backwards upon reaching the desired node, can
+remove the node with only two lines of code, having the prev next be the next
+and the next prev be the prev of the removed node.

@@ -1,0 +1,7 @@
+first 
+we setup the arraylist and the linklist very big. it need to be very big in order to make sure the timer worked.
+1.test get(int index) method in both tinkliest and array list. we found that linklist is O(n) and arraylist is O(1)
+2.test the delete method in both collection. we found that arrayList vary a lot fromO(n) to O(1).linkedlist is just O(1)
+3.test the insert. linked list runs at O(1) and arrayList is O(n)
+
+Second linkedList should have the ability to call previous node, so our experiment is to implement a linkedlist and make it implement the utterable class, but within the utterator class, we make sure that the next() does not stop when current.myNext==myHead so that the next() will never stop and have a recursive answer.

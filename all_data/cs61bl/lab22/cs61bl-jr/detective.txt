@@ -1,0 +1,6 @@
+Alpha: heap sort because it runs on nlogn comparisons
+Beta: insertion sort because when you do reverse order you have to do n^2 comparisons.
+Gamma: quick sort because it has the fastest time in random sort consistently.
+Delta: merge sort because faster than alpha which is heap sort
+Epsilon: selection sort because when in order there were 0 movements, it had the longest time
+

@@ -1,0 +1,9 @@
+1. every single time you exactly 1 additional char into the end of the string 
+2. every single time you add anything but 1 additional char into the end of the string OR take away chars from the string 
+3. No pair of strings 
+4. every single time you add exactly 1 additional char to the beginning of the string OR in the middle of the string 
+5. crashes when you use (null, null) as its parameters 
+
+details of the bug: 
+program only checks at the end of the string; and gives us incorrect results if there was exactly one addition to the front or the middle. 
+We discovered this by just running tests checking additions in the front, middle, and the end of the string. 

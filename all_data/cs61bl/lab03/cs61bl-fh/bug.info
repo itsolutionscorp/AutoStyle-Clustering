@@ -1,0 +1,28 @@
+1. The program correctly returns true for all pairs of arguments in which the extra letter is
+   added onto the end of the first argument.
+
+2. The program correctly returns false for all pairs in which the first argument is 2 or more
+   letters longer than the second, or the arguments are the same length, or the second
+   argument is longer than the first one.
+   
+3. We could not find any false positives. No pairs of strings.
+4. False negatives were returned for all pairs where the extra letter was at a different 
+   spot than the end of the first string. For example, (abcd, abc) would correctly return
+   true, but (dabc, abc) or (abdc, abc) would incorrectly return false.
+5. No pairs of strings. Non-string arguments are caught by the compiler, and no valid combination
+   of string arguments could cause the program to crash.
+   
+Through testing, we determined that the bug only results in false negatives (or inappropriate
+false's). Moreover, the bug only occurs if the extra character in the first string is located
+either at the front of the string or somewhere in the middle. A correct positive is returned
+if the extra character is located at the end of the first string. This information points to the
+last line of the program as the culprit, which is only executed if neither the first nor the 
+second string is empty, and if the first letters of both strings are not the same (this second
+condition may be met during a recursive call to contains1MoreThan). Upon further testing of the
+substring method, we found something unexpected:
+
+("bbc".substring(1) == "bc") returns false.
+
+Something about the functionality of the substring method causes the equality condition to 
+hold false, even though ("bbc".substring(1)) returns "bc" and ("bc" == "bc") returns true. 
+Further examination of the Java API is required to understand this occurrence.

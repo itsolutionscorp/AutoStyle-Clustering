@@ -1,0 +1,83 @@
+Timing.txt
+
+Describe your experiment 1 and its results, and explain why it distinguishes between an ArrayList and a LinkedList.
+
+For the first part of our experiment we tested instantiating to the LinkedList and ArrayList. 
+When we first created the test we tried:
+
+		//Add test
+
+		Timer ticktock = new Timer();
+		ticktock.start();
+		ArrayList<Integer> check1 = new ArrayList<Integer>();
+		for (int i = 0; i < 10000; i++) {
+			check1.add(i);
+		}
+		System.out.println("Adding 10000 to ArrayList takes " + ticktock.stop()+ " time");
+		ticktock.reset();
+
+	
+	
+		LinkedList<Integer> check2 = new LinkedList<Integer>();
+
+		ticktock.start();
+		for (int i = 0; i < 10000; i++) {
+			check2.add(i);
+		}
+		System.out.println("Adding 10000 to LinkedList takes " + ticktock.stop() " time");
+		ticktock.reset();
+
+
+		//Remove Test
+		
+		ticktock.start();
+		check1.remove(100000);
+		System.out.println("Removing 100000 from  ArrayList of 1000000 takes " + ticktock.stop()+ " time");
+		ticktock.reset();
+
+		ticktock.start();
+		check2.remove(100000);
+		System.out.println("Removing 100000 from  LinkedList of 1000000 takes " + ticktock.stop() + " time" );
+		ticktock.reset();
+		
+		
+		
+results:
+Adding 1000000 to ArrayList takes 73 time
+Adding 1000000 to LinkedList takes 148 time
+Removing 100000 from  ArrayList of 1000000 takes 1 time
+Removing 100000 from  LinkedList of 1000000 takes 3 time
+		
+
+
+
+(instantiation)When we tried this the runtime for both ranged between 4-6. 
+This didn't help because the runtimes where so close that we couldn't tell which one was more efficient. 
+So we decided to add 100000 instead. When we did this, runtime for ArrayList was 12-13 and for LinkedList was 16-18. 
+Although it was a bit more clear which one was running quicker, we tried one more test. 1000000 had a greater variation.
+ArrayList produced runtime between 80-90 and LinkList produced times closer to 160. At this point LinkList runtime was twice as long as ArrayList
+
+(remove)For the second part of experiment 1, we tested to check how long it would take to remove something within the linkedList and the ArrayList. 
+When we checked to see what would happen if we removed something at the center of the arrayList and at the center of the LinkedList. 
+We were getting similar results for this so we decided to try checking something closer to the end of the list and noticed that LinkedList where running slightly slower than arrayList. 
+We think this is because LinkedList are doubly Linked so when we try running it towards the end of the list, there is that pointer pointing to previous. 
+Whereas arrayList must run through the whole list before getting to the item we are searching for.
+
+(add)We also checked for add in . 
+When we checked for add we didn't really see any time variations until we increased our numbers to 10000's 
+but when we did we noted that adding to a particular part in our ArrayList was quicker than adding to any particular part in linkedList. 
+We think that adding to ArrayList is constant time whereas adding to LinkedList is linear time. 
+When we add to linkedList we have to run through each item before reaching the item we want but its not the same for array list.
+
+
+
+
+
+Describe your experiment 2 and its results, and explain why it distinguishes between a doubly linked list and a singly linked list with head and tail pointers.
+
+Doubly Linked List vs SinglyLinked List:
+
+Four our set up, we created doubly linked list since a singly linked list is basically a linked list. 
+Then we ran the same tests as above but using our new list method and comparing it to the singly linked list information from Expariment 1
+The main difference between both is that SinglyLinked list need some sort of instance variable that test us what my next will be 
+while doubly Linked list gives us both the my Next and my previous so we do not need to run through the whole linked list to reach certain values.

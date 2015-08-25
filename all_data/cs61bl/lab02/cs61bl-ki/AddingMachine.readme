@@ -1,0 +1,3 @@
+1. We implemented the version that only uses 1 while loop.
+2. The other version would use the second loop whenever a 0 has been inputted, thus changing the normal state of the original loop. This second loop will keep track of if a second 0 is inputted in a row. 
+3. We prefer the first loop because we can understand it better conceptually. The one loop version is simpler, only uses 1 loop, and it is more straightforward and readable. The two loop version separates the process into 2 different states and more actively checks if 0 is inputted twice. 

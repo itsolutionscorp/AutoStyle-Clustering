@@ -1,0 +1,45 @@
+
+public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
+	
+	public BinarySearchTree() {
+		super();
+	}
+	
+	public BinarySearchTree(TreeNode t) {
+		super(t);
+	}
+	
+	public boolean contains(T key) {
+		if (myRoot == null) {
+			return false;
+		} else {
+			return containsHelper(myRoot, key);
+		}
+	}
+	
+	private boolean containsHelper (TreeNode t, T key) {
+		if (t.myItem == null) {
+			return false;
+		} else if (key.compareTo(t.myItem) < 0) {
+			return containsHelper(t.myLeft, key);
+		} else {
+			return containsHelper(t.myRight, key);
+		}
+	}
+	
+	public void add(T key) {
+		myRoot = add(myRoot, key);
+	}
+	
+	private TreeNode add(TreeNode t, T key) {
+	    if (t == null) {
+	        return new TreeNode(key);
+	    } else if (key.compareTo(t.myItem) < 0) {
+	        t.myLeft = add(t.myLeft, key);
+	        return t;
+	    } else {
+	        t.myRight = add(t.myRight, key);
+	        return t;
+	    }
+	}
+}

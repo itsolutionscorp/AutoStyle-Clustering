@@ -1,0 +1,7 @@
+1. When 1 more character is added to the end of the string, contains1MoreThan correctly returns true.
+2. When the strings are the same length with 1 or more character difference, the method correctly returns false. When the strings are of different lengths with more than 1 character difference, the method correctly returns false. When the strings are the same, the method correctly returns false.
+3. No pairs of strings incorrectly returns true.
+4. When there is 1 character difference in the beginning or middle of the string, the method incorrectly returns false. 
+5. When s is null, the method crashes.
+
+There needs to be a case written for what should be done when the string is null because the method crashes when the string is null. We discovered this by testing.  The == operator checks if the objects are the same rather than if they’re equal. 

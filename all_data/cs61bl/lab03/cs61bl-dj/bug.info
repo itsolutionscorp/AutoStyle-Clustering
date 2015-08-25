@@ -1,0 +1,19 @@
+
+1. Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+It correctly returns true when s1 has one more char than s2 at the end and all other characters are in an identical order.
+
+
+2.Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+It correctly returns false when s1 has more than one character added to it and when s1 and s2 are the same length but do not contain identical characters.
+
+3.Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, when the first string argument to check is not the result of inserting exactly one character into the second.
+No pairs of strings incorrectly returns true.
+
+4.Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, when the first string argument to check is the result of inserting exactly one character into the second.
+It incorrectly returns false when s2 has one more character than s1 anywhere but the end of the string.
+
+5.Describe all pairs of arguments to check for which contains1MoreThan crashes
+If you were to pass in two infinitely long strings (or maybe just very, very long strings), the compiler would read maximum recursion depth and crash.
+
+Explanation of the Bug:
+The last line of the contain1MoreThan method uses the “==“ operator instead of .equals(). “==“ checks to see if two variables are pointing to the same object. .equals() checks to see if two objects have the same content.

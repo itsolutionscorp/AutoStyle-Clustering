@@ -1,0 +1,26 @@
+Writeup of timing experiments for lab11.
+Rocky Kamen-Rubio (Login MF) and Rohan Nijhawan (Login FH)
+
+EXPERIMENT 1:
+
+We created an ArrayList and a Linked list, each of length 10000 and timed the time it took the JVM to get the 
+last element 10,000 times in a for loop. The ArrayList was about 5 miliseconds faster, and and the difference
+became more apparent as we increased the sizes and the number of accesses to be made. This illustrates how LinkedLists are 
+significantly less efficient for accessing a random element of the list than ArrayList.
+
+We did the same but for adding an element to the end of the list, and the results essentially flipped with
+the LinkedList being about 4 miliseconds faster, and gaining a larger advantage as we increased the number
+of additions to be made, illustrating how ArrayLists are less efficient for adding elements because all 
+the previous elements must be copied over.
+
+
+EXPERIMENT 2:
+
+Similarly to experiment 1, we compared the runtimes of accessing the first element several thousand times,
+compared to accessing the last element. Accessing the last one took substantially longer for sufficiently long
+lists. This suggests there is no "tail" accessing the last element, and that we must traverse the whole list.
+We also used the List class defined earlier in the lab (which we know to be a single linked list)
+ to compare the runtimes of adding ~100,000 elements to it and LinkedList, and found that Linked list took 
+ much longer for large values, suggesting that it is a doubly linked list.
+
+

@@ -1,0 +1,23 @@
+Austin Chi	bh
+Christopher Zhang mz
+
+1) the pairs that return true are the ones that 
+   are in the same order with the second parameter having an extra character
+   added at the end of the first parameter.
+   For example "1234" and "123" will return true because only a 4
+   must be added to the end of 123 for the two strings to match.
+
+2) the pairs that correctly return false are ones that have more than two
+   different characters between the first and second parameters.
+   For example "abc" and "def" returns false because there is no way of 
+   making the two strings contain the same characters through the addition of a
+   4th character.
+
+3)I could not find any pairs of arguments where contains1MoreThan incorrectly returns true. 
+
+4)contains1MoreThan incorrectly returns false when the order of the strings are different but the characters within the strings are the same. For example, "efag" and "efg" returns false because the ordering of the two strings is different even though "efag" has the three of the same characters as "efg". Also 
+the program doesn't recognize certain special characters. For example
+"/?a" and "/?a^" returns false even though it should return true.
+
+5) We have found that the error within this program is in contains1MoreThan, 
+specifically the == is not correct in comparing objects. To fix this one must implement the .equals() instead of the == because strings are not primitives but are objects.

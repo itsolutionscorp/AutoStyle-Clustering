@@ -1,0 +1,13 @@
+1. All arguments for which contains1MoreThan returns true are arguments in which the original myString is essentially the string s with a character added to the front or end of it.
+
+2. All arguements for which contains1MoreThan returns false correctly are arguments where more than one of the characters in both myString and the string s are different and not in similar orders for when a character is inserted into the string s. Arguments in which the length of myString is less or equal to than s.length() or greather than the length of s.length + 1 will also correctly return false.
+
+3. There are no arguments that can make contains1MoreThan incorrectly returns true.
+
+4. Arguments of myString where characters are inserted anywhere but the end of the string s will incorrectly return false.
+
+5. Pairs of arguments that are too big for the program to handle and arguments that aren't string types will make the program crash.
+
+Explanation of the Bug:
+
+Another main bug encountered is that contains1MoreThan tries to compare two strings via an == operator in the last else condition. The comparison should be made by a ".equals()" method instead since the strings are an object and the == comparator would only check to see that the reference s and myString are pointing to the same object - it does not check if the content of the Strings themselves are the same as the user is probably intending to. And of course, another main bug of contains1MoreThan is that it doesn't check to see if a character was inserted elsewhere in the string s as the program's objective is to check and see if myString is the string s but with a character inserted at any position in the string s. 

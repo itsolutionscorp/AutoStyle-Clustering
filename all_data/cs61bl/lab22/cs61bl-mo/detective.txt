@@ -1,0 +1,5 @@
+alpha - Heap because in order and reverse order take the same number of comparisons.
+beta - Insertion because reverse order takes a lot more comparisons n*(n-1)/2
+gamma - Merge because the order only makes a small amount of difference.
+delta - Quick because all comparisons are similar.
+epsilon - Selection, because the order does not matter.

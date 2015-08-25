@@ -1,0 +1,26 @@
+
+1.Describe all pairs of arguments to check for which contains1MoreThan correctly returns true.
+
+When the character is inserted into the right-most position, then the program returns true.
+
+2.Describe all pairs of arguments to check for which contains1MoreThan correctly returns false.
+
+1).there is no character or more than one character inserted
+2).the number of characters in each of the pair is the same
+3).the characters in each of them are totally different
+
+3.Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns true, that is, 
+when the first string argument to check is not the result of inserting exactly one character into the second.
+
+No pairs of strings
+
+4.Describe all pairs of arguments to check for which contains1MoreThan incorrectly returns false, that is, 
+when the first string argument to check is the result of inserting exactly one character into the second.
+
+When the character is inserted into the left-most or middle of the string. then the program incorrectly 
+returns false.
+
+5.Describe all pairs of arguments to check for which contains1MoreThan crashes. 
+
+When the arguments we put into the parameter does not belong to the String class, then the program crashes.
+  

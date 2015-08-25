@@ -1,0 +1,6 @@
+Submitted by:
+Julia Son-Bell (NE)
+Soohee Lee (MP)
+----------
+
+	Method contains1MoreThan does not work correctly because it only confirms if one character was added to the end of the string, not if it was added anywhere else.

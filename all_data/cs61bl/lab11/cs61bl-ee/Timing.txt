@@ -1,0 +1,47 @@
+1. My experiment is first keep adding value to arrayList and LinkedList, which arrayList will be faster in small number of iterations. But when the array is full up to it needs to "resize". Then LinkedList will be faster than ArrayList because it needs to make an new array and copy all the value back. Second, we checked the efficiency of looking up a value in a large list. ArrayList is more efficient cause it only needs constant time while LinkedList needs to traverse until the index.
+
+ 2. Our second experiment is use getFirst and getLast, cause in double linked list, they both use constant time(myHead find its item and myHead.prev find its item), and the result meet our expectation.
+
+Code:
+
+    public static void main(String[] args){
+    	Timer a = new Timer();
+    	Timer b = new Timer();
+    	ArrayList arrList = new ArrayList();
+    	LinkedList linkedList = new LinkedList();
+    	a.start();
+    	for(int i =0; i< 400000;i++){
+    		
+    		arrList.add(1);
+    		arrList.add(0,2);    		
+    		
+    	}
+    	a.stop();
+    	System.out.println(a.elapsed());
+    	
+    	b.start();
+    	for(int i =0; i< 400000;i++){
+    		
+    		linkedList.add(1); 		
+    		linkedList.add(0,2);
+    		
+    		
+    	}
+    	b.stop();
+    	System.out.println(b.elapsed());
+    	
+    	a.reset();
+    	b.reset();
+    	
+    	a.start();
+    	arrList.get(390000);
+    	a.stop();
+    	System.out.println(a.elapsed());
+    	
+    	
+    	b.start();
+    	linkedList.get(390000);
+    	b.stop();
+    	System.out.println(b.elapsed());
+    	
+

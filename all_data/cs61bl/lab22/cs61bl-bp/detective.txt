@@ -1,0 +1,5 @@
+Beta corresponds to insertion sort because it involves the least number of comparisons for lists that are already sorted.
+Epsilon corresponds to selection sort because it involves many comparisons, 0 movements for in order lists, and runs more slowly than the others.
+Gamma corresponds to quick sort (from remaining sorts) because it has a worst-case in reverse sorted lists.
+From the remaining two, alpha corresponds to heap sort as it has less comparisons but more movements, which makes sense considering that each element must be bubbled up when added to the heap.
+Lastly, delta corresponds to merge sort as there are more comparisons but more movements, which results from merging two sorted lists together.

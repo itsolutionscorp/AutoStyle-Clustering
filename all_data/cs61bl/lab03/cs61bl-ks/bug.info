@@ -1,0 +1,15 @@
+1. Returns true for when a string is inserted at the end (abc -> abc2).
+
+2. When the strings are same length, when more than one is inserted, when characters are rearranged.
+
+3. No such case founded.
+
+4. Incorrectly returns false when the single added letter is placed somewhere other than the end of the string. 
+
+5. All the pairs that described above. We must test if the test gives us false with the cases described in quesiton 2 and
+	also we need to check if when the letter is added anywhere in myString. 
+
+Explanation of the Bug:
+	Since strings act as object in java, we should have used string method to check if myString.substring(1) is equal to s.
+	In original code, we had myString.substring(1) == s , which gave us an error. 
+	Instead, using string method, myString.substring(1).equals(s) lets us what we exactly want to do. 

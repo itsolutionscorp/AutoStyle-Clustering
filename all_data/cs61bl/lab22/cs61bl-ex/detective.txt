@@ -1,0 +1,5 @@
+Alpha : Heap sort because of process of elimination but also because it was similar to merge for all lists but took more timecd
+Beta : Insertion sort because it has an n runtime when the list is already inOrder but makes the maximum number of comparisons for a reverse order list.
+Delta : Merge sort because the time it took always ended up being N log N
+Epsilon : Selection sort because it has the exact same number of comparisons regardless of how the list is arranged
+Gamma : Quicksort because it had incredibly long runtimes for only inOrder and reverse order

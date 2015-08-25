@@ -1,0 +1,31 @@
+Steven Truong cs61bl-bv
+Eric Huynh cs61bl-bu
+
+Experiment 1: 
+
+We tested the get method in both ArrayList and LinkedList. Initially it would seem that both the LinkedList and ArrayList loop through themselves to figure out if they contain a specified element. However, when an ArrayList calls on get, uses the indexOf method, allowing for constant time. On the other hand, when LinkedList calls on get, it must loop through itself x amount of times - x representing the index - and thereby it is classified to be running in linear time.
+
+Experiment 2:
+
+To show that the Java implemented LinkedList is a doubly linked list, we can:
+
+1. Use the previous pointer of the head node to point to the end of the list.
+2. Use the next pointer of the tail node to point to the front of the list.
+
+In doing this, both aforementioned pointers are pointing at each other and it is clear that the list is doubly linked. Otherwise, if the LinkedList was only singly-linked, then its obvious that the head's previous pointer wouldn't even exist in the first place.
+
+In terms of runtime, we can show that the Java LinkedList is a doubly LinkedList since with the previous pointer on each node, the remove method for the Java LinkedList is more efficient. A singly LinkedList doesn't have the advantage of having a previous node reference that would be useful when removing a node. 
+
+Questions:
+
+1. Experiment 1 resulted in ArrayList having a much faster runtime when getting an item from a certain index. This observation distinguishes the ArrayList from the LinkedList since the ArrayList uses the indexOf method whereas a LinkedList has to loop through itself until it has reached the desired index.
+
+- 0 ms for ArrayList
+- 5 ms for LinkedList
+
+2. Experiment 2 shows that the Java implemented LinkedList is a double LinkedList since the pointers are referencing each other (head to tail and tail to head). Furthermore we also had both methioned pointers point to the head of the LinkedList thereby furthering the fact that the LinkedList is doubly linked. 
+
+- 8 ms for Java’s LinkedList implementation (doubly)
+- 63 ms for the Lab’s LinkedList implementation (single)
+
+With the runtime experiment in testing the remove method, it is evident that the Java's doubly LinkedList remove method is quicker - indicating that the Java LinkedList is doubly linked. On the other hand, our singly linked implementation's remove method isn't as efficient because it lacks the previous reference that allows the remove method to run faster. 

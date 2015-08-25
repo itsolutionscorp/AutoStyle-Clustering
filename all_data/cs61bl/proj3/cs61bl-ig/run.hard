@@ -1,0 +1,71 @@
+#!/bin/bash
+h=.
+echo '===================================================================='
+echo "Running hard puzzles"
+echo '=== century and century 1.5'
+echo '--- test 1'
+$h/runsuccess.sh handout.config.2 goal.1.from.handout hard
+echo '--- test 2'
+$h/runsuccess.sh century+180 century+180.goal hard
+echo '--- test 3'
+$h/runsuccess.sh handout.config.2 century.1.5.goal hard
+echo '--- test 4'
+$h/runsuccess.sh century+180 century.1.5+180.goal hard
+
+echo '=== tests with lots of blocks or space'
+echo '--- test 5'
+$h/runsuccess.sh big.tray.4 many.blocks.20.goal hard
+echo '--- test 6'
+$h/runsuccess.sh big.tray.4 many.blocks.20+180.goal hard
+echo '--- test 7'
+$h/runsuccess.sh big.tray.4 many.blocks.100.goal hard
+echo '--- test 8'
+$h/runsuccess.sh big.tray.1 big.tray.1.goal hard
+echo '--- test 9'
+$h/runsuccess.sh big.tray.3 big.tray.3.goal hard
+
+echo '=== more tests'
+echo '--- test 10'
+$h/runsuccess.sh c22 22.goal hard
+echo '--- test 11'
+$h/runsuccess.sh c25 15.23-27.30.41.goal hard
+echo '--- test 12'
+$h/runsuccess.sh c26 15.23-27.30.41.goal hard
+echo '--- test 13'
+$h/runsuccess.sh c43-45 45.goal hard
+echo '--- test 14'
+$h/runsuccess.sh c46 46.goal hard
+
+echo '=== tests with 6x5 boards'
+echo '--- test 15'
+$h/runsuccess.sh c53 53.54.64.goal hard
+echo '--- test 16'
+$h/runsuccess.sh c54 53.54.64.goal hard
+echo '--- test 17'
+$h/runsuccess.sh c55 55.56.goal hard
+echo '--- test 18'
+$h/runsuccess.sh c64 53.54.64.goal hard
+
+echo '=== tests with 6x6 boards'
+echo '--- test 19'
+$h/runsuccess.sh c71 71.goal hard
+echo '--- test 20'
+$h/runsuccess.sh pandemonium pandemonium.goal hard
+
+echo '=== more hard puzzles'
+echo '--- test 21'
+$h/runsuccess.sh supercompo supercompo.goal hard
+echo '--- test 22'
+$h/runsuccess.sh lane.rouge lane.rouge.goal hard
+echo '--- test 23'
+$h/runsuccess.sh d209 d209.goal hard
+echo '--- test 24'
+$h/runsuccess.sh little.house little.house.goal hard
+echo '--- test 25'
+$h/runsuccess.sh super-century super-century.goal hard
+echo '--- test 26'
+$h/runsuccess.sh quzzle quzzle.goal hard
+echo '--- test 27'
+$h/runsuccess.sh quzzle-killer quzzle-killer.goal hard
+echo '--- test 28'
+$h/runsuccess.sh blockado blockado.goal hard

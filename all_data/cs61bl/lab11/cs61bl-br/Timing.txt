@@ -1,0 +1,150 @@
+*Disclaimer: I realize time usually isn't a good way to determine program efficiency, however, since these
+tests were performed on the same computer, milliseconds apart, I believe that is is a good tool for comparison.  
+Question 1:
+I created a new class Called Tester which created a new Array list and a new linked list.
+In the main method, I determined and compared the time difference for both lists to execute 
+the same methods.  For example, I added 1000 new elements to both lists.  For this test, I found
+the linked list to be much faster than the array list.  I then got the object at each index in the 10000
+element long array.  For this experiment, I found the array list to be much faster than the linked list.
+Finally, I compared the time it takes for each list to remove half of its values, one at a time, and found
+that the linked list was faster.  My experiments distinguish between a linked list and an array list because 
+they show that it is easier to add to a linked list than an array list, but much harder to get values at a 
+specified index in a linked list than an array list.  
+
+Question 2:
+For this experiment, I used our List class to create a singly linked list with head and tail pointers and compared
+it to the linked list created by a built-in java class.  I determined the difference between the two linked lists
+as the doubly linked list takes significantly less time to remove 10000 items from the list of strings and then 
+add 1000 elements to the front of the linked list again.  
+For the singly linked list however, it takes over ten times the amount of time to execute the same statements. 
+This is because, the singly linked list needs to reassign the head and tail instance variables with every addition
+or removal, and in general, needs to execute more commands to add or remove elements from the linked list.  However,
+the doubly linked list can execute these methods much more efficiently and easily.  
+  
+  Code used:
+  
+  import java.util.*;
+public class Tester {
+	private static LinkedList<Object> link;
+	private static ArrayList<Object> array;
+	private static Timer daTime;
+	
+	public Tester() {
+		daTime = new Timer();
+		link = new LinkedList<Object>();
+		link.add("happy");
+		link.add("sad");
+		link.add("frown");
+		link.add("bye");
+		link.add("quintessential");
+		
+		array = new ArrayList<Object>();
+		array.add("happy");
+		array.add("sad");
+		array.add("frown");
+		array.add("bye");
+		array.add("quintessential");
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		Tester myTester = new Tester();
+		daTime.start();
+		link.contains("quintessential");
+		link.isEmpty();
+		link.get(4);
+		
+		link.add("happy");
+		link.add("sad");
+		link.add("frown");
+		link.add("bye");
+		link.add("quintessential");
+		link.remove("sad");
+		for(int i = 0; i < 100000; i++){
+			link.add("added!");
+		}
+		//for(int k = 0; k < 100000; k++) {
+		//	link.get(k);
+		//}
+		for(int k = 0; k < 10000; k++) {
+			link.remove(k);
+		}
+		daTime.stop();
+		System.out.println("Linked List time " + daTime.elapsed());
+		
+		daTime.reset();
+		daTime.start();
+		array.contains("quintessential");
+		array.isEmpty();
+		array.get(4);
+		array.add("happy");
+		array.add("sad");
+		array.add("frown");
+		array.add("bye");
+		array.add("quintessential");
+		array.remove("sad");
+		for(int i = 0; i < 100000; i++){
+			array.add("added!");
+		}
+		//for(int k = 0; k < 100000; k++) {
+		//	array.get(k);
+		//}
+		for(int k = 0; k < 10000; k++) {
+			array.remove(k);
+		}
+		
+		daTime.stop();
+		System.out.println("Array List time " + daTime.elapsed());
+		daTime.reset();
+		
+		
+		daTime.start();
+		for(int b = 0; b < link.size(); b++){
+			link.remove(b);
+		}
+		
+		for(int j = 0; j < 1000; j++){
+		link.addFirst("Booyeah");
+		}
+		daTime.stop();
+		System.out.println("Doubly linked list time " + daTime.elapsed());
+		daTime.reset();
+		
+		List myList = new List();
+		myList.add("happy");
+		myList.add("sad");
+		myList.add("frown");
+		myList.add("bye");
+		myList.add("quintessential");
+		myList.add("happy");
+		myList.add("sad");
+		myList.add("frown");
+		myList.add("bye");
+		myList.add("quintessential");
+		myList.remove("sad");
+		for(int i = 0; i < 100000; i++){
+			myList.add("added!");
+		}
+		for(int k = 0; k < 10000; k++) {
+			myList.remove(k);
+		}
+		
+		daTime.start();
+		for(int b = 0; b < myList.size(); b++){
+			myList.remove(b);
+		}
+		
+		for(int j = 0; j < 1000; j++){
+		myList.addToFront("Booyeah");
+		}
+		daTime.stop();
+		System.out.println("Singly list time " + daTime.elapsed());
+		daTime.reset();
+		
+		
+		
+	}
+
+}
+  
