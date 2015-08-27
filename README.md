@@ -16,7 +16,7 @@ Autostyle is made up of a number of scripts, but the three main components are:
 
 1. Create a directory that you will store the processed data in. It should probably be in `assignments/[language of your choice]/[assignment name]`. This directory is henceforth called `[data_dir]`.
 
-2. Filter our submission that aren't correct using some autograder, number your source files 0 to n, and clean your code down to just the function you want. Then store this stuff in `[data_dir]/src`.
+2. Filter submissions that aren't correct using some autograder, number your source files 0 to n, and clean your code down to just the function you want. Then store this stuff in `[data_dir]/src`.
 
 3. Create a matrix of the tree edit distance between every pair of submissions. Store this in `[data_dir]/gen/ast_dist_matrix.np`.
 

@@ -3,24 +3,22 @@
 import sys
 import re
 import sexpdata # Install: pip install sexpdata
-from zss import * # Install: pip install zss
 import pdb
 import traceback
 
-class MyNode(object):
+class Node(object):
     
-    def __init__(self, label, depth):
-        self.my_label = label
-        self.my_depth = depth
-        self.my_children = list()
+    def __init__(self, label):
+        self.label = label
+        self.children = list()
 
     @staticmethod
     def get_children(node):
-        return node.my_children
+        return node.children
 
     @staticmethod
     def get_label(node):
-        return str(node.my_depth) + "##" + str(node.my_label)
+        return str(node.my_depth) + "##" + str(node.label)
 
     @staticmethod
     def get_depth(node):
@@ -28,9 +26,9 @@ class MyNode(object):
 
     def addkid(self, node, before=False):
         if before: 
-            self.my_children.insert(0, node)
+            self.children.insert(0, node)
         else: 
-            self.my_children.append(node)
+            self.children.append(node)
         return self
 
 def main():
@@ -80,7 +78,7 @@ def ast_from_sexp(sexp):
     return root
 
 def wst_from_sexp(sexp):
-    root = MyNode("root", 0) 
+    root = Node("root", 0) 
     construct_wst_level(root, sexp)
     return root
 
@@ -178,13 +176,13 @@ def construct_wst_level(parent, sub_sexp):
     if not sub_sexp:
         return
     elif classname in set(["Bracket", "Symbol"]):
-        parent.addkid(MyNode(sub_sexp._val, MyNode.get_depth(parent) + 1))
+        parent.addkid(Node(sub_sexp._val, Node.get_depth(parent) + 1))
         return
     elif classname in set(["str", "int", "bool", "float"]):
-        parent.addkid(MyNode(sub_sexp, MyNode.get_depth(parent) + 1))
+        parent.addkid(Node(sub_sexp, Node.get_depth(parent) + 1))
         return
     else: 
-        level_boss = MyNode(sub_sexp.pop(0)._val, MyNode.get_depth(parent) + 1)
+        level_boss = Node(sub_sexp.pop(0)._val, Node.get_depth(parent) + 1)
         parent.addkid(level_boss)
         for e in sub_sexp:
             construct_wst_level(level_boss, e)
@@ -243,13 +241,13 @@ def printTree(node):
             printHelper(child, indentation + '    ')
     printHelper(node, '')
 
-def printWST(MyNode):
+def printWST(Node):
     stack = []
-    stack.append(MyNode)
+    stack.append(Node)
     while stack:
         current = stack.pop()
-        print MyNode.get_label(current)
-        stack += MyNode.get_children(current)[::-1]
+        print Node.get_label(current)
+        stack += Node.get_children(current)[::-1]
 
 if __name__ == '__main__' :
     main()

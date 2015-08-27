@@ -13,7 +13,6 @@ import os
 sys.path.append("../syntax_tree")
 import tree
 import PyGram
-import zss
 import argparse
 
 def main():
