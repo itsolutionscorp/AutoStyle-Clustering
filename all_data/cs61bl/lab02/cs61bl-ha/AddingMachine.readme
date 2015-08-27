@@ -1,3 +1,0 @@
-1. We used the version that had only a single loop. 
-2. The other version of the program would use two while loops. The inner while loop would check if the input is not 0, and add to the subtotal and set the boolean to True. Once the input is 0, the subtotal will be printed and reset and then the boolean will be updated.If a second 0 is entered then the boolean is checked and the program prints the total and terminates. 
-3. We prefer the single loop approach because it is more intuitive. It is also cleaner than the two loop approach. 

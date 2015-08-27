@@ -1,7 +1,0 @@
-We used a single loop to implement the adding machine. It seemed intuitive to simply use if statements for the limited possible inputs.
-
-The version using two loops would have subtotal as its own loop within a continuously running total loop. Both loops break when they receive a zero input.
-
-The single loop version is simpler and usually more efficient than a double while loop.
-
-The double loop is more organized and may require less code depending on the implementation.

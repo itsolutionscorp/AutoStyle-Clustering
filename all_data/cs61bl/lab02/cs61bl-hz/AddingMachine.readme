@@ -1,7 +1,0 @@
-Which version did you implement for the exercise?
-	We used a single loop.
-Describe in words how the other version would work, without actually coding it.
-	In the second loop, you would count the zeros and continue until there are two zeros in a row. 
-Which version do you prefer? Describe two reasons for preferring the one-loop version and two reasons for preferring the two-loop version.
-	We prefer the single loop. It is easier to think about and it makes the code less complicated. 
-	Two-loop: This helps keep the code more compact and is easier to read. 

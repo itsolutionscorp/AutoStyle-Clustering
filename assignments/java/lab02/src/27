@@ -1,0 +1,22 @@
+public static void main(String[] args){
+  Scanner scanner=new Scanner(System.in);
+  boolean justStarting=true;
+  int total=0;
+  int subtotal=0;
+  int lastinput=0;
+  while (true) {
+    System.out.print("Put a number");
+    int input=scanner.nextInt();
+    subtotal=subtotal + input;
+    total=total + input;
+    if ((input == 0) && (lastinput != 0)) {
+      System.out.println(subtotal);
+      subtotal=0;
+    }
+    if ((lastinput == input) && (input == 0)) {
+      System.out.println(total);
+    }
+    lastinput=input;
+  }
+}
+

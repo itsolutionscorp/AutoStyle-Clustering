@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class AddingMachine {
+
+	public static void main (String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		boolean justStarting = true;
+		int total = 0;
+		int subtotal = 0;
+		boolean lastZero = false;
+		while (true) {
+		    // TODO Your code here
+			int k;
+			k = scanner.nextInt();
+			subtotal = subtotal + k;
+			total = total + k;
+			if (k != 0) {
+				lastZero = false;
+			}
+			if (k == 0) {
+				if (lastZero) {
+					System.out.println(total);
+					return;
+				}
+				System.out.println(subtotal);
+				subtotal = 0;
+				lastZero = true;	
+				}
+			}
+		}
+	}
+

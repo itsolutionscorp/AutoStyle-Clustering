@@ -1,7 +1,0 @@
-1. We implemented the one-loop
-2. The two-loop version would work using a second loop within a larger loop that
-calculates the subtotal between 0's. The larger loop would take the subtotals from
-each segment and add it to the total.
-3. We preferred the one-loop, because it was more intuitive and we found it easier to follow
-along with. The two-loop potentially uses less conditional clauses and as a result the code
-could potentially be shorter.

@@ -1,7 +1,0 @@
--Single loop
--Two loops version works by having while loop that adds n to subtotal if n!=0,
-and escapes the loop if n==0 and print subtotal and resets subtotal to 0 outside the loop.
-
-- We prefer two-loop version.
-- Single-loop version is easy to code at the first time, and we can find where the bug is more easily.
-- Two-loop version would be easier to understand, and it is better in composition.

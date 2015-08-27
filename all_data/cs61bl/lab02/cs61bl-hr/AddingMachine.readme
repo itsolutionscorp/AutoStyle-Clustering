@@ -1,6 +1,0 @@
-I used the one loop version.
-The other version might work by using a inner while loop to change 
-the total and the outer loop would change the subtotal.
-I prefer the one loop version because it is straight forward for a human and faster.
-The two loop version might be preferable because the code might be shorter
-and look more streamlined

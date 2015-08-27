@@ -1,0 +1,41 @@
+public static void main(String[] args){
+  Scanner scanner=new Scanner(System.in);
+  boolean justStarting=true;
+  int total=0;
+  int subtotal=0;
+  int k;
+  k=scanner.nextInt();
+  int n=0;
+  int kold=3;
+  while (true) {
+    if (n > 0) {
+      k=scanner.nextInt();
+      if (k != 0) {
+        subtotal=subtotal + k;
+      }
+ else       if (k == 0) {
+        if (kold == 0) {
+          total=total + subtotal;
+          System.out.println("total " + total);
+          return;
+        }
+ else         total=total + subtotal;
+        System.out.println("subtotal " + subtotal);
+        subtotal=0;
+      }
+    }
+ else     if (justStarting) {
+      if (k != 0) {
+        subtotal=subtotal + k;
+      }
+ else       if (k == 0) {
+        total=total + subtotal;
+        System.out.println("subtotal is " + subtotal);
+        subtotal=0;
+      }
+    }
+    n=n + 1;
+    kold=k;
+  }
+}
+

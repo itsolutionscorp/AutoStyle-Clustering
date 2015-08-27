@@ -1,3 +1,0 @@
-1) We implemented the single-loop version.
-2) The outer loop would wait for the first 0, and the inner loop would wait for the second 0.
-3) We obviously prefer the first version. The overhead of simply keeping track of a "prev" variable is less than the overhead of dealing with another loop. Additionally, it was more intuitive for us and was the first thing that popped into our heads.

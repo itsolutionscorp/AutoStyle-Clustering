@@ -1,8 +1,0 @@
-1. We implemented the one-loop version.
-2. The two-loop version would function by using the inner loop to handle adding up a subtotal and using the outer loop to add the subtotal to the total and check to see if the number entered previously was zero. 
-3. We prefer the one-loop version because:
-	1) It is a highly intuitive solution
-	2) It seemed the most efficient solution to the problem
-But someone might prefer the two-loop version because:
-	1) It can be better conceptualized as a FSM
-	2) It keeps the subtotal and total computations separate.

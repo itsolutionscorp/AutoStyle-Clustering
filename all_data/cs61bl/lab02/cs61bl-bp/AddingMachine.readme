@@ -1,5 +1,0 @@
-1)The version that we implemented is a single loop method. We used if statements to determine whether or not the the number inputted is a zero as well as the second number.
-
-2) We believe the other version would work by creating another while loop inside the main while loop. Inside the inner while loop it would use a similar structure as the outer while loop looking for the next number which may be zero (it then would terminate the program).
-
-3)The one loop version may be easier to read but the two loop version may make more intuitive sense. The coding for the two loop version may make it easier to find bugs due to the first and second check for the total and subtotal addition.

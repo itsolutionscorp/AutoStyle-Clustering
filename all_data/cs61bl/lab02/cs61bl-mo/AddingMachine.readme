@@ -1,3 +1,0 @@
-1) We used one loop.
-2) Inside the first while loop add another while loop that says while(currentK != 0 && previousK != 0), and end the program after this while loop completes.
-3) The one loop version, because it seemed more straightforward, and it's easier to follow the code since there is only one while loop.

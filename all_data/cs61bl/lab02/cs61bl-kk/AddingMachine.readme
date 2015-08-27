@@ -1,5 +1,0 @@
-1. We used the single loop version.
-
-2. The subtotal would loop until the user gave a 0 to the console, then it would exit the second loop and reset the subtotal. Then the second loop would start again.
-
-3. We prefer the one loop version. The one loop version is more linear and easier to understand. The two loop version is more compact and is more symbolic of the process involved.

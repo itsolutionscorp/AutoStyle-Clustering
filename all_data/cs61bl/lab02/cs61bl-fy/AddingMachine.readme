@@ -1,6 +1,0 @@
-Which version did you implement for the exercise?
-	We implemented the version that only had one while loop.
-Describe in words how the other version would work, without actually coding it.
-	The other version would have another while loop within the first while loop to keep track of the subtotal. 
-Which version do you prefer? Describe two reasons for preferring the one-loop version and two reasons for preferring the two-loop version.
-	I used the one-loop version because I thought it was simpler to just have if statements within the while loop as conditionals for executing instead of having the code cycle through another while loop.

@@ -1,0 +1,27 @@
+public static void main(String[] args){
+  Scanner scanner=new Scanner(System.in);
+  boolean justStarting=true;
+  int total=0;
+  int subtotal=0;
+  while (true) {
+    int k;
+    k=scanner.nextInt();
+    if (k == 0) {
+      if (justStarting == false) {
+        System.out.println("total" + " " + total);
+        return;
+      }
+ else {
+        justStarting=false;
+        System.out.println("subtotal" + " " + subtotal);
+        subtotal=0;
+      }
+    }
+ else {
+      total=total + k;
+      subtotal=subtotal + k;
+      justStarting=true;
+    }
+  }
+}
+

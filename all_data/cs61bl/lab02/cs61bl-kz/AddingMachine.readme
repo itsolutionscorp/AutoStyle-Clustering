@@ -1,8 +1,0 @@
-We implemented a single loop for the addingmachine.
-
-To implement a version with two loops, the inner while loop can check if the user input was not "0". 
-If it was zero, then the program would check whether to print subtotal or total.
-
-The two loop version may have less code, and might not require nested if statements.
-The extra while loop adds another potential source for error.
-The single loop version might have better readability.

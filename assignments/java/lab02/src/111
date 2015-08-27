@@ -1,0 +1,29 @@
+public static void main(String[] args){
+  Scanner scanner=new Scanner(System.in);
+  boolean justStarting=true;
+  int total=0;
+  int subtotal=0;
+  while (true) {
+    int k;
+    k=scanner.nextInt();
+    int tracker=0;
+    if (k != 0) {
+      subtotal=subtotal + k;
+      total=total + k;
+      justStarting=true;
+    }
+ else {
+      if (justStarting) {
+        System.out.println("subtotal " + subtotal);
+        subtotal=0;
+        tracker=tracker + 1;
+        justStarting=false;
+      }
+ else {
+        System.out.println("total " + total);
+        return;
+      }
+    }
+  }
+}
+

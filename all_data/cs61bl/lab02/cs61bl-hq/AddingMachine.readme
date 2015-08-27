@@ -1,9 +1,0 @@
-Q: Which version did you implement for the exercise?
-A: We implemented the two-loop version of the exercise, making a second loop that ran until the user entered a 0.
-
-Q: Describe in words how the other version would work, without actually coding it.
-A: The one-loop version would use an if clause in place of the second loop, and the code outside of the second loop would be placed in an else clause. Moreover, while in our case, user input was taken at two points (right inside the first loop and at the end of the second loop), the one-loop version would only need to take user input at its start.  
-
-Q: Which version do you prefer? Describe two reasons for preferring the one-loop version and two reasons for preferring the two-loop version.
-A: The one-loop version would be better than the two-loop version because it means fewer code. Another reason would be that it is more efficient simply because it is one loop versus two. 
-The two-loop version might be preferred because it clearly separates the problem into two processes, which makes conceptualizing easier. In addition, because it is separated into two processes, you can easily debug one process without having to affect the second one. 

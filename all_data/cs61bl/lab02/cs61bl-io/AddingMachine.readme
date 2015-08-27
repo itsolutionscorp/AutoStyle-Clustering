@@ -1,8 +1,0 @@
-The version I implemented for this version only involves a single loop.
-
-For the double loop version, the way it would work is have an inner loop for the subtotal that would reset everytime there was a zero entered.
-Whenever there is another zero entered when the subtotal is zero, display the total and then exit.
-
-The benefit of the single loop is that all subtotal and total can be handled simultaneously and it avoids nesting two loops together.
-The double loop allows for only needing to handle the subtotal, making the exit case straightforward as it only depends on the subtotal
-rather than having to check the last case and the current case.

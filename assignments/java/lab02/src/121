@@ -1,0 +1,24 @@
+public static void main(String[] args){
+  Scanner scanner=new Scanner(System.in);
+  boolean justStarting=true;
+  int total=0;
+  int subtotal=0;
+  while (true) {
+    int input=scanner.nextInt();
+    if (input == 0 && justStarting) {
+      System.out.println(subtotal);
+      total=total + subtotal;
+      subtotal=0;
+      justStarting=false;
+    }
+ else     if (input == 0 && justStarting == false) {
+      System.out.println(total);
+      return;
+    }
+ else {
+      justStarting=true;
+      subtotal=subtotal + input;
+    }
+  }
+}
+

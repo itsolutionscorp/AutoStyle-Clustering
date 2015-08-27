@@ -1,6 +1,0 @@
-1. We implemented the version with one loop.
-
-2. The outside loop would track the total value while the inside loop that would function so long as the current value did not equal 0 would track the subtotal. Every time we exited the inside loop, we’d print the subtotal, and add the subtotal to the total before returning to the inside loop unless a second zero was typed, in which case the script would terminate and print the total.
-
-3. We prefer the one loop version. The one loop version feels more intuitive to write for us and with just one loop it is easier to avoid an infinite loop or other bugs.
-It is easier to keep track of the subtotal and total in the two loop version and it seems like it might be more readable to someone who did not write it.

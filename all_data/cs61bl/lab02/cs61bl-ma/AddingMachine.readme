@@ -1,8 +1,0 @@
-We implemented the single loop version of the adding machine.
-
-The double loop version would work differently than the single loop.
-The outside loop would keep track of whether a second consecutive zero was input, and the loop would exit when the second zero was input.
-The inside loop would keep track of whether a single zero was input. This loop would keep track of the subtotal, and then when the second zero was input, would allow the outside loop to print the total.
-
-We prefer the first version. Two reasons for preferring this version include its simplicity, as it involves only one while loop. It could also be faster, as one while loop is generally faster than nested loops.
-However, some people may prefer the loop within a loop. In this case, two reasons for preferring this design include a smaller amount of code to write, and doesn't need to track as many variables.

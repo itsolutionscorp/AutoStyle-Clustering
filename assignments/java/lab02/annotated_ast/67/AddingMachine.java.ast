@@ -1,0 +1,1 @@
+( main ( iter::6 ( nextInt::8 )( cond::9 ( ==::9 )( cond::10 ( print::12 )( +::13 )( print::17 ))( +::22 ))))

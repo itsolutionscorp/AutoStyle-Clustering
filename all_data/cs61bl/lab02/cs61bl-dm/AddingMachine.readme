@@ -1,7 +1,0 @@
-For the exercise we implemented a single loop method.
-
-For the other version, which would be a two loop method, it function as the outside loop would be for adding the total. The inside loop would be for adding the subtotal until a zero would occur and its subtotal would be adding to the outside total, which would reset the inside subtotal to zero. 
-
-We would prefer the one loop method because there are if/else conditions that run through every single time and we do not have to worry about if it would go through the two loop method. Also one additional reason why we prefer the one loop method is because the run time is efficent since there is only one loop. 
-
-For the two loop method there would be a concise distinction between the subtotal and total variables. Another reason would be that the code would be easier to read and follow rather than the one loop method because in the one loop method there are many nested if/else conditions. 

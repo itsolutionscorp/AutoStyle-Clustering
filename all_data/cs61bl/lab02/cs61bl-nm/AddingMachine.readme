@@ -1,5 +1,0 @@
-- We implemented a single loop.
-
-- In a double loop method, we would implement a while loop to control the scanning and a second while loop to control the conditions.
-
--We prefer the first method because the second while loop involves a simple condition which can be integrated easily into the first. Hence we have less brackets to take care of and more readibility.

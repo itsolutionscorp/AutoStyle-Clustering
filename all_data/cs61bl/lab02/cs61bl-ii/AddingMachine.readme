@@ -1,4 +1,0 @@
-1. We used the single loop version.
-2. The outer loop executes every time subtotal is set back to zero. Basically a loop that resets the state of the variables in the inner loop. The inner loop computes the subtotal, and prints/exits the inner loop when a zero is received. 
-3. We prefer the one-loop version. Single loop is easier to read. It is also the first version we came up with, so the one that made more sense to us logically.
-   The two-loop version is better structured, as it makes use of states.

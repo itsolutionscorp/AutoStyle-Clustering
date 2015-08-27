@@ -1,6 +1,0 @@
-We used the single loop version to create the adding machine.
-
-The two loop version would work if there was a boolean in the outside loop that when true continues to add the subtotal together. When the boolean is false by the user inputting 0, it will go into the inner loop print subtotal, set subtotal to 0, and ask for the user input again. If the user input is 0 again, the loop will then print the total and end the program. If it is not 0 again, the loop will add the input to the subtotal and set the boolean to false. This will exit the inner loop and return to the outer loop.
-
-We prefer the single loop because it is less complex and what could be done by a nested loop is more easily done by using if statements.
-The nested loop version is shorter and is better for more complex problems.

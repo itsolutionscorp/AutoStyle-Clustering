@@ -1,7 +1,0 @@
-1. We implemented a version with one loop and two conditionals within the loop.
-
-2. You could keep track of two variables while trying to find out when they both equal 0 to break the loop.
-
-3. Our version! 
-One-loop: easier to keep track of one loop and (probably) takes less memory.
-Two-loop: less conditionals means less code complexity and it is more clear when the loop breaks.

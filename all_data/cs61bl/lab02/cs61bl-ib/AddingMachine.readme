@@ -1,5 +1,0 @@
-1. We implemented the single loop method.
-2. There would two loops; the inner loop would handle the inputs between each sutobtal, and the outer loop would print out the actual subtotal and total.  
-3. I like our version better because: 
-	1. The run-time would probably be faster since there's only one loop
-	2. It's simpler to read and understand, and making your code understandable is one of the most important parts of coding.

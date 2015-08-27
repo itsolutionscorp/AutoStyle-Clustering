@@ -1,8 +1,0 @@
-We used a single loop for our AddingMachine (the given 'while (true) {}' statement). 
-
-The other version would use a nested while loop. The second while loop (placed within the given while loop) would run until k = 0. The subtotal would always be a sum of itself and k, similar to the total.If 0 is inputted, iszero would be changed to true, the subtotal would be printed, and the subtotal would be reset to 0. There would also be an if statement to check if iszero is already true. If so, it would print out the total, followed by a return statement so the program would stop. 
-
-I prefer my version of not having a second while loop and replacing it with an 'if (k!= 0)' statement. One reason for preferring this is because it is more explicit. Instead of relying on indentation to see which statements are executed outside of while loops, there are very clear if/else conditionals which reduces confusion when others work with our code. Also, everything is placed under the initial while loop. Having a second while loop on the other hand, can be a pain as statements will either be within both loops or in one loop and outside the other, making it harder for people to read. 
-
-One reason it's beneficial to have the second while loop would be because there aren't as many if/else conditionals which makes the code harder to follow. For example, in our code there is an if/else conditional nested within an else. This wouldn't have been the case had we implemented a second while loop. In addition, a second while loop would make the code more concise which is better when being shared with others/editted by others. It has the same amount of information to consider with less extraneous lines. 
-

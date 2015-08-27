@@ -1,5 +1,0 @@
-1) We used the Single Loop
-
-2) The two loop method would be another while loop within while(true) loop just to check if the inputed value is Zero
-
-3) The single version is simpler, all you have to do is set conditionals to check if the user inputed a zero or not

@@ -1,3 +1,0 @@
-1.one-loop
-2.the two-loop version: use one while loop to keep track of the subtotal and the other to keep track of the total. The condition for the inner while loop should be to check when k does not equal 0.
-3. We prefer the one loop version makes more logical sense to us. Its more straightforward and is probably more efficient since we only have to iterate through one loop. On the other hand the two loop version allows us to not have to check an if statement everytime to see if K = 0, and also makes the code somewhat more concise.

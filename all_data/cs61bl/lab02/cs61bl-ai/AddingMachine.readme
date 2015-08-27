@@ -1,4 +1,0 @@
-1. We used one while loop
-2. Put a subtotal while loop inside a total while loop and exit the subtotal while loop once you get a 0. The total while loop is not terminated until two 0's come up in a row
-3. I prefer the one-loop version because it is easier to avoid infinite loops. Also it is easier to keep track of variables. The 2-loop version has less if statements. In 2 loops you dont need to keep track of the prev varaible. 
-

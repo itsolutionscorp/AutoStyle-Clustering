@@ -228,7 +228,7 @@ def generate_java_ast(filename, function_name, class_name):
     '''
     current_dir = os.getcwd()
     filename = filename.replace("/src/", "/annotated_ast/")
-    filepath = current_dir + "/" + filename + "/" + class_name + ".java.ast"
+    filepath = os.path.join(current_dir, filename, class_name + '.java.ast')
     # First check if the ast has already been stored. If not, recalculate it. 
     if os.path.exists(filepath):
         with open(filepath) as a:

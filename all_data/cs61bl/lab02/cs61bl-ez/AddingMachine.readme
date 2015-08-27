@@ -1,9 +1,0 @@
---> We implemented the one while method loop!  It was super fun!  
-
---> The second while loop would have the condition while(k != 0) and update the subtotal and total.  When k =0, it will break out of the
-inner while loop, set the boolean expression, and then print out the subtotal.  If k = 0 again, then it will print out the total and exit the program.
-
---> I prefer the one loop version because it was more intuitive to us.  If/else statements are more elegant, and the code appears to us to have 
-better readability.  Two reasons for preferring the two loop version is that it doesn't need any if/else statements (which results in shorter code).  
-The two loop version also separates the two different conditions in two different blocks (the inner while for when k != 0 and the outer while 
-when k = 0).  The if/else method has three if/else statements.
