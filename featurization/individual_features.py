@@ -497,7 +497,8 @@ def has_nested(ast, node_type):
     label, line = get_label_and_line(ast)
     if label in node_type:
         for child in children:
-            if has_node(child, node_type):
+            has, child_line = has_node(child, node_type)
+            if has:
                 return True, line
     else:
         for child in children:

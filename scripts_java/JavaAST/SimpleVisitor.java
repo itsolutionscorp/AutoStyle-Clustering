@@ -1,3 +1,4 @@
+import org.eclipse.jdt.core.dom.Assignment;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.BlockComment;
@@ -7,6 +8,7 @@ import org.eclipse.jdt.core.dom.EnhancedForStatement;
 import org.eclipse.jdt.core.dom.ForStatement;
 import org.eclipse.jdt.core.dom.IfStatement;
 import org.eclipse.jdt.core.dom.InfixExpression;
+import org.eclipse.jdt.core.dom.InstanceofExpression;
 import org.eclipse.jdt.core.dom.Javadoc;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
@@ -144,7 +146,28 @@ public class SimpleVisitor extends ASTVisitor {
 	public void endVisit(PostfixExpression n){
 		endVisitItem();
 	}
+
+
+    @Override
+	public boolean visit(InstanceofExpression n){
+		return visitItem("instanceof", getLineNumberInMethod(n));
+	}
 	
+	@Override
+	public void endVisit(InstanceofExpression n){
+		endVisitItem();
+	}
+
+	@Override
+	public boolean visit(Assignment n){
+		return visitItem(n.getOperator().toString(), getLineNumberInMethod(n));
+	}
+	
+	@Override
+	public void endVisit(Assignment n){
+		endVisitItem();
+	}
+
 	@Override
 	public boolean visit(EnhancedForStatement n){
 		return visitItem("iter", getLineNumberInMethod(n));

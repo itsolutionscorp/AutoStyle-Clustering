@@ -36,13 +36,13 @@ public class ASTWriter {
 				String commentlessCode = ASTBuilder.uncomment(ASTBuilder.readFileToString(submissionFile));
 				String cleanCode = ASTBuilder.clean(commentlessCode, methodName);
 				//System.out.println(commentlessCode);
-				String ast = ASTBuilder.parse(commentlessCode, methodName, addLines);
+				String ast = ASTBuilder.parse(commentlessCode, methodName,false);
 				if (ast != null){
+					File astFile = new File("../../assignments/java/" + assignment + "/ast/" + submissionDir.getName() + "/" + fileName + ".ast");
+					writeFile(astFile, ast);
 					if (addLines){
-						File astFile = new File("../../assignments/java/" + assignment + "/annotated_ast/" + submissionDir.getName() + "/" + fileName + ".ast");
-						writeFile(astFile, ast);
-					} else {
-						File astFile = new File("../../assignments/java/" + assignment + "/ast/" + submissionDir.getName() + "/" + fileName + ".ast");
+				        ast = ASTBuilder.parse(commentlessCode, methodName, true);
+						astFile = new File("../../assignments/java/" + assignment + "/annotated_ast/" + submissionDir.getName() + "/" + fileName + ".ast");
 						writeFile(astFile, ast);
 					}
 					File cleanFile = new File("../../assignments/java/" + assignment + "/src/" + submissionDir.getName());

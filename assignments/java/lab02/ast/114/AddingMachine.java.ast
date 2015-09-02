@@ -1,1 +1,1 @@
-( main ( iter ( nextInt )( iter ( != )( cond )( nextInt ))( cond ( println ( + ))( cond ( == )( println ( + ))( println ( + ))))))
+( main ( iter ( nextInt )( iter ( != )( cond ( = ))( += )( += )( = ( nextInt )))( cond ( println ( + ))( cond ( == )( println ( + ))( println ( + ))( = )))))

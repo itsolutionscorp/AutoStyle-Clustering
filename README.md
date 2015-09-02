@@ -47,7 +47,7 @@ Autostyle is made up of a number of scripts, but the three main components are:
 
 7. Run the web ui!
 
-# How to run the web_ui:
+# How to run the web ui:
 
 1. `cd web_ui/`
 2. `python run.py`
