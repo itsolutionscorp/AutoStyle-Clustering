@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request
+from flask import render_template, request, send_file
 import os
 import re
 import sys
@@ -9,6 +9,7 @@ import glob
 sys.path.insert(0, os.path.abspath('../visualization/'))
 sys.path.insert(0, os.path.abspath('../featurization/'))
 sys.path.insert(0, os.path.abspath('../scripts_python/'))
+sys.path.insert(0, os.path.abspath('./scripts_python/'))
 from style_chain import generate_chain, interpret_list_of_hints
 from individual_features import generate_individual_features, skeleton_from_source
 from python_ast_dump import dump_single_ast
@@ -19,6 +20,20 @@ feedback = None
 chain = None
 posts = None
 hints = None
+
+@app.route('/plot/src/<num>/')
+def plot_source(num):
+    with open(os.path.join('..', 'assignments', 'java', 'lab02', 'src', str(num))) as f:
+        return f.read()
+
+@app.route('/plot/coordinates.csv')
+def coords():
+    with open(os.path.join('..', 'assignments', 'java', 'lab02', 'gen', 'coordinates.csv')) as f:
+        return f.read()
+
+@app.route('/plot/')
+def plot():    
+    return render_template("plot.html",  source="src/", coordinates="coordinates.csv")
 
 
 @app.route('/')
