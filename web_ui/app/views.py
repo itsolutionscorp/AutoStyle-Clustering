@@ -33,15 +33,22 @@ def coords():
 
 @app.route('/plot/')
 def plot():    
-    return render_template("plot.html",  source="src/", coordinates="coordinates.csv")
+    directories = [item.lstrip('../assignments/')for item in glob.glob('../assignments/*/*')]
+    return render_template("plot.html",  directory=os.path.join('..', 'assignments', 'java', 'lab02'), language='java', directories=directories, source="src/", coordinates="coordinates.csv")
 
 
 @app.route('/')
 @app.route('/index')
 def index():
     posts = []
+    return render_template("index.html")
+
+
+@app.route('/chain')
+def chain():
+    posts = []
     directories = [item.lstrip('../assignments/')for item in glob.glob('../assignments/*/*')]
-    return render_template("index.html", ast_dist=3, flog_diff=0, title='Home', posts=posts, directories=directories)
+    return render_template("chain.html", ast_dist=3, flog_diff=0, title='Home', posts=posts, directories=directories)
 
 
 @app.route('/submit_form/', methods=['POST'])
@@ -86,7 +93,7 @@ def submit_form():
       lang = data_loc.split("/")[0]
       if lang == "java":
         lang = "text/x-java"
-    return render_template("index.html",
+    return render_template("chain.html",
                            ast_dist=max_hints,
                            flog_diff=flog,
                            title='Home',

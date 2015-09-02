@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-
-<!-- Example based on http://bl.ocks.org/mbostock/3887118 -->
-<!-- Tooltip example from http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html -->
-
-<style>
+ <html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Autograding for Style</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/slider.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contrib/codemirror/lib/codemirror.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/plot.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='js/bootstrap.min.js')}}" />
+  <script type='text/javascript' src='//code.jquery.com/jquery-1.10.1.js'></script>
+  <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.carousel.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.theme.default.min.css')}}">
+  <script src="{{ url_for('static', filename='owl/owl.carousel.js')}}"></script>
+  <style>
 body {
   font: 11px sans-serif;
 }
@@ -22,19 +31,40 @@ body {
 }
 
 .tooltip {
-  position: absolute;
+  position: fixed;
   max-width: 900px;
   max-height: 1200px;
   pointer-events: none;
 }
 
 </style>
-<body>
+</head>
 
+<body style="position: relative; min-height: 120%">
+
+    <!-- Begin page content -->
+    <div class="wrapper" id="main-content">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header" style="">
+          <a class="navbar-brand" href="#">Autograding for Style</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li class="active"><a href="plot">Plot</a></li>
+            <li><a href="chain">Chain</a></li>
+            <li><a href="improve">Improve</a></li>
+        </ul>
+        
+      </div>
+    </nav>
+
+<!-- Example based on http://bl.ocks.org/mbostock/3887118 -->
+<!-- Tooltip example from http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html -->
 <script src=../static/js/d3.v3.min.js></script>
 <script>
 
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
+var margin = {top: 90, right: 20, bottom: 180, left: 40},
     width = 960 - margin.left - margin.right,
     height = 720 - margin.top - margin.bottom;
 
@@ -62,14 +92,14 @@ var cValue = function(d) { return 0;},
     color = d3.scale.category10();
 
 // add the graph canvas to the body of the webpage
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#main-content").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // add the tooltip area to the webpage
-var tooltip = d3.select("body").append("div")
+var tooltip = d3.select("#main-content").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
@@ -129,7 +159,13 @@ var tooltip = d3.select("body").append("div")
                   tooltip.html("file: " + d.filename + ", flog: <span style='color: green'>" + d.flog + "</span>" + 
                     "<br><div style='background:lightsteelblue; max-width: 900px; border-radius:8px; border: 0px; padding:4px 8px 4px 8px;'><pre>" + allText + "</pre></div>")
                         .style("left", (d3.event.pageX + 16) + "px")
-                        .style("top", (d3.event.pageY - 40) + "px");
+                        .style("top", function() {
+                        if(d3.event.pageY + 300 > margin.bottom){
+                            return d3.event.pageY - 300 + "px";
+                        }else{
+                            return d3.event.pageY + "px";
+                        }
+                        });
               }
           }
       }
@@ -157,5 +193,14 @@ var tooltip = d3.select("body").append("div")
 });
 
 </script>
+    </div>
+<div id="footer">
+    <div class="container">
+        <p class="text-muted credit"><br><u>Autograding for Style</u>: Rohan Roy Choudhury, Joseph Moghadam, HeZheng Yin, Mukund Chillakanti, Armando Fox <br> Last updated: 2 September 2015</p>
+    </div>
+</div>
+
 </body>
 </html>
+
+

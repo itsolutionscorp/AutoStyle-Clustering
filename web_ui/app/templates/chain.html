@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Autograding for Style</title>
+  <link rel="stylesheet" href={{home|string() + "static/css/slider.css"}} >
+  <link rel="stylesheet" type="text/css" href={{home|string() + "static/contrib/codemirror/lib/codemirror.css" }} />
+  <link rel="stylesheet" type="text/css" href={{home|string() + "static/css/bootstrap.min.css" }} />
+  <link rel="stylesheet" type="text/css" href={{home|string() + "static/css/index.css"}} />
+  <link rel="stylesheet" type="text/css" href={{home|string() + "static/js/bootstrap.min.js"}} />
+  <script type='text/javascript' src='//code.jquery.com/jquery-1.10.1.js'></script>
+  <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href={{home|string() +"static/owl/assets/owl.carousel.css"}}>
+  <link rel="stylesheet" href={{home|string() +"static/owl/assets/owl.carousel.min.css"}}>
+  <link rel="stylesheet" href={{home|string() +"static/owl/assets/owl.theme.default.min.css"}}>
+  <script src={{home|string() +"static/owl/owl.carousel.js"}}></script>
+</head>
+
+
+
+<body style="position: relative; min-height: 120%">
+
+    <!-- Begin page content -->
+    <div class="wrapper" id="main-content">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header" style="">
+          <a class="navbar-brand" href="#">Autograding for Style</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="improve">Improve</a></li>
+        </ul>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="index" class="form-control" name="start" value={{start}}>
+            </div>
+          <select class="form-control" name="directory">
+            {% for d in directories %}
+              {% if d == directory %}
+                <option value="{{d}}" selected="selected">{{d}}</option>
+              {% else %}
+                <option value="{{d}}">{{d}}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+          <button type="submit" class="btn btn-success" style="background-color: #149bdf; border-color: #0480be")>Submit</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="row" id= "thirdrow">
+     <form method="post" action="{{ url_for('submit_form') }}" name="sliders-form">
+          <fieldset>
+             <div class="col" id="one">
+                <div style="margin-left: 25%;">
+                <label for="ast_slider" class="control-label" style="margin-right: 10px;">Maximum number of hints:</label>
+                <input id="ast_sld" value="{{ast_dist}}" name="ast_slider" data-slider-id='ast_slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="{{ast_dist}}" data-slider-tooltip="show">
+                <code style="color: #258AC7;background-color: #F2F2F9;" id="ast_val">{{ast_dist}}</code>
+                </div>
+             </div>
+             <div class="col" id="two">
+               <div style="margin-right: 25%;">
+                 <label for="flog_slider" class="control-label" style="margin-right: 10px;">Flog score difference:</label>
+                 <input id="flog_sld" value="{{flog_diff}}" name="flog_slider"  data-slider-id='flog_slider' type="text" data-slider-min="0" data-slider-max="2" data-slider-step="0.01" data-slider-tooltip="show" />
+                 <code style="color: #258AC7;background-color: #F2F2F9;" id="flog_val">{{flog_diff}}</code>
+              </div>
+             </div>
+             <input name="feedback" id="feedback" type="hidden" value="">
+          </fieldset>
+      </form>
+    </div>
+
+  <div id="sync1"  class="owl-carousel">  
+      {% for post in posts %}
+        <div class="item">
+              <textarea id="{{'code' + loop.index|string()}}">{{ post.code }}</textarea>
+       </div>
+      {% endfor %}
+  </div>
+
+ <div id="sync2"  class="owl-carousel">
+      {% for post in posts %}   
+      <div class="item">
+        {% set outer_loop = loop.index|string()%}
+        {% if loop.index < posts|length %}
+          <code style="color: #3c763d;background-color: #dff0d8; margin-left:25%">To improve your style, consider...</code>
+              {% for hint in post.positive_hint %}
+                <div class="input-group" style="margin-left:25%;">
+                   <span class="input-group-addon">
+                     <input id="{{'positive' + outer_loop + loop.index|string()}}" type="checkbox">
+                   </span>
+                   <input id="{{'positivehint' + outer_loop + loop.index|string()}}" readonly value="{{hint}}" style="width: 100%">
+                 </div>
+              {% endfor %}
+              {% if post.positive_hint|length == 0 %}
+                <div></div>
+              {% endif %}
+          <code style="color: #a94442;background-color: #f2dede; margin-left:25%">You might also want to consider...</code>
+          {% for hint in post.negative_hint %}
+              <div class="input-group" style="margin-left:25%;">
+                <span class="input-group-addon">
+                  <input id="{{'negative' + outer_loop + loop.index|string()}}" type="checkbox">
+                </span>
+                <input id="{{'negativehint' + outer_loop + loop.index|string()}}" readonly value="{{hint}}" style="width: 100%">
+              </div>
+              {% endfor %}
+  
+        {% endif %}
+        </div>
+      {% endfor %}    
+  </div>
+
+  </div>
+
+
+
+
+  <script src={{home|string() + "static/less/slider.less"}}></script>
+  <script src={{home|string() + "static/js/bootstrap-slider.js"}}></script>
+
+
+<script type="text/javascript">
+
+ 
+  var sync1 = $("#sync1");
+  var sync2 = $("#sync2");
+
+  
+    sync1.owlCarousel({
+            stagePadding: 10,
+            center : false,
+            loop : false,
+            items : 3,
+            margin:10,
+            dots: true,
+            nav : false,
+        });
+
+        sync2.owlCarousel({
+            stagePadding: 10,
+            center : false,
+            loop : false,
+            items : 2,
+            margin:0,
+            nav : false,
+            dots: true,
+            nav: true
+        });
+ 
+ var done = 1;
+
+ sync1.on('change.owl.carousel', function(event) {
+  if (done == 1){
+    if (event.namespace && event.property.name === 'position') {
+      var target = event.relatedTarget.relative(event.property.value, true);
+      done = 0;
+      sync2.trigger('to.owl.carousel', [target,300,true]);
+      done = 1;
+    }
+  }
+})
+
+sync2.on('change.owl.carousel', function(event) {
+  if (done == 1){
+    if (event.namespace && event.property.name === 'position') {
+      var target = event.relatedTarget.relative(event.property.value, true);
+      done = 0; 
+      sync1.trigger('to.owl.carousel', [target,300,true]);
+      done = 1;
+    }
+  }
+})
+
+</script>
+
+
+
+<script>
+  var forms = document.querySelectorAll("form")
+  var form = forms[0];
+  var sliders_form = forms[1];
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    var params = {"start": form.elements.start.value, "directory":form.elements.directory.value, "feedback": sliders_form.elements.feedback.value, "ast_slider":sliders_form.elements.ast_slider.value, "flog_slider":sliders_form.elements.flog_slider.value};
+    var form_new = document.createElement("form");
+    form_new.setAttribute("method", "post");
+    form_new.setAttribute("action", '/submit_form/');
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form_new.appendChild(hiddenField);
+         }
+    }
+
+    document.body.appendChild(form_new);
+    form_new.submit();
+
+  });
+
+</script>
+
+
+<script type="text/javascript">
+
+
+var ast_slider = $('#ast_sld').slider({
+  formatter: function(value) {
+    return 'AST edit distance ' + value;
+  },
+  value: {{ast_dist}}
+});  
+ 
+var flog_slider = $('#flog_sld').slider({
+  formatter: function(value) {
+    return 'Flog score difference ' + value;
+  },
+  value: {{flog_diff}}
+});  
+
+flog_slider.on("slide",
+  function (slideEvt) {
+                
+                $('#flog_val').text(slideEvt.value);
+
+                }
+              );
+
+
+ast_slider.on("slide",
+  function (slideEvt) {
+                
+                $('#ast_val').text(slideEvt.value);
+                }
+              );
+
+
+
+var submit_btn = $('#subbtn');
+submit_btn.on('click',  
+  function (ev) {
+                {% for post in posts %}
+                  {% set outer_loop = loop.index|string()%}
+                  {% for hint in post.positive_hint %}
+                       document.getElementById("feedback").value += "{{'p,' + outer_loop + ',' +loop.index|string()}}" + "," + 
+                        +$('#{{"positive" + outer_loop + loop.index|string()}}').is(':checked')+ " ";
+                  {% endfor %}
+                  {% for hint in post.negative_hint %}
+                       document.getElementById("feedback").value += "{{'n,' + outer_loop + ',' + loop.index|string()}}" + "," + 
+                        +$('#{{"negative" + outer_loop + loop.index|string()}}').is(':checked')+ " ";
+                  {% endfor %}
+               
+                {% endfor %}
+  });
+
+
+{% for post in posts %}
+  {% set outer_loop = loop.index|string()%}
+  {% for hint in post.positive_hint %}
+        var {{'positiveline' + outer_loop + loop.index|string()}} = $('#{{'positivehint' + outer_loop + loop.index|string()}}');
+        {{'positiveline' + outer_loop + loop.index|string()}}.on('mouseover',
+          function(ev){
+            var editor = $('.CodeMirror')[{{post['positive_hint_locations'][loop.index-1]}}].CodeMirror;
+            editor.addLineClass({{post['positive_lines'][loop.index-1]}}-1, "background", 'CodeMirror-activeline-background-pos');
+          });
+        var {{'positiveline' + outer_loop + loop.index|string()}} = $('#{{'positivehint' + outer_loop + loop.index|string()}}');
+        {{'positiveline' + outer_loop + loop.index|string()}}.on('mouseout',
+          function(ev){
+            var editor = $('.CodeMirror')[{{post['positive_hint_locations'][loop.index-1]}}].CodeMirror;
+            editor.removeLineClass({{post['positive_lines'][loop.index-1]}}-1, "background", 'CodeMirror-activeline-background-pos');
+          });
+  {% endfor %}
+  {% for hint in post.negative_hint %}
+       var {{'negativeline' + outer_loop + loop.index|string()}} = $('#{{'negativehint' + outer_loop + loop.index|string()}}');
+          {{'negativeline' + outer_loop + loop.index|string()}}.on('mouseover',
+          function(ev){
+           var editor = $('.CodeMirror')[{{post['negative_hint_locations'][loop.index-1]}}].CodeMirror;
+           editor.addLineClass({{post['negative_lines'][loop.index-1]}}-1, "background", 'CodeMirror-activeline-background-neg');
+
+          });
+             var {{'negativeline' + outer_loop + loop.index|string()}} = $('#{{'negativehint' + outer_loop + loop.index|string()}}');
+          {{'negativeline' + outer_loop + loop.index|string()}}.on('mouseout',
+          function(ev){
+           var editor = $('.CodeMirror')[{{post['negative_hint_locations'][loop.index-1]}}].CodeMirror;
+           editor.removeLineClass({{post['negative_lines'][loop.index-1]}}-1, "background", 'CodeMirror-activeline-background-neg');
+
+          });
+  {% endfor %}
+
+{% endfor %}
+
+
+</script>      
+
+<script src={{home|string() + "static/contrib/codemirror/lib/codemirror.js"}}></script>
+<script src={{home|string() + "static/contrib/codemirror/mode/properties/properties.js"}}></script>
+<script src={{home|string() + "static/contrib/codemirror/mode/python/python.js"}}></script>
+<script src={{home|string() + "static/contrib/codemirror/mode/ruby/ruby.js"}}></script>
+<script src={{home|string() + "static/contrib/codemirror/mode/clike/clike.js"}}></script>
+
+<script type="text/javascript">
+
+         {% for post in posts %}
+        //Set up code mirror
+        CodeMirror.fromTextArea(document.getElementById("code"+{{loop.index}}), {
+            lineNumbers: false,
+            mode: "{{language}}",
+            lineWrapping: false
+        });
+        {% endfor %}
+
+</script>
+
+
+<style type="text/css">
+.CodeMirror {
+  border: 1px solid #eee;
+  height: 50%;
+  width: 100%;
+}
+.CodeMirror-scroll {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+#ast_slider .slider-selection {
+  background: #BABABA;
+}  
+</style>
+
+<div id="footer">
+    <div class="container">
+        <p class="text-muted credit"><br><u>Autograding for Style</u>: Rohan Roy Choudhury, Joseph Moghadam, HeZheng Yin, Mukund Chillakanti, Armando Fox <br> Last updated: 15 April 2015</p>
+    </div>
+</div>
+
+</body>
+</html>
+
