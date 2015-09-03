@@ -236,8 +236,25 @@ var tooltip = d3.select("#main-content").append("div")
           tooltip.transition()
                .duration(500)
                .style("opacity", 0);
-      });
+      })
+      .on("click", function(d) {
+        var form_new = document.createElement("form");
+        var params = {"start":d.filename, "directory":"{{ directory }}", "feedback":"", "ast_slider":"3", "flog_slider":"0"};
+        form_new.setAttribute("method", "post");
+        form_new.setAttribute("action", "/submit_form/");
+        for(var key in params) {
+            if(params.hasOwnProperty(key)) {
+                var hiddenField = document.createElement("input");
+                hiddenField.setAttribute("type", "hidden");
+                hiddenField.setAttribute("name", key);
+                hiddenField.setAttribute("value", params[key]);
 
+                form_new.appendChild(hiddenField);
+            }
+        }
+        document.body.appendChild(form_new);
+        form_new.submit();
+      });
 });
 
 </script>
@@ -250,7 +267,7 @@ var tooltip = d3.select("#main-content").append("div")
     var params = {"directory":form.elements.directory.value};
     var form_new = document.createElement("form");
     form_new.setAttribute("method", "post");
-    form_new.setAttribute("action", '/submit_plot/');
+    form_new.setAttribute("action", "/submit_plot/");
     for(var key in params) {
         if(params.hasOwnProperty(key)) {
             var hiddenField = document.createElement("input");
