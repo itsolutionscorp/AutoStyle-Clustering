@@ -28,14 +28,13 @@
           <a class="navbar-brand" href="#">Autograding for Style</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li class="active"><a href="#">Improve</a></li>
+            <li><a href="../">Home</a></li>
+            <li><a href="../plot">Plot</a></li>
+            <li><a href="../chain">Chain</a></li>
+            <li class="active"><a href="../improve">Improve</a></li>
         </ul>
-        <div id="navbar" class="navbar-collapse collapse">
+ <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="index" class="form-control" name="start" value={{start}}>
-            </div>
           <select class="form-control" name="directory">
             {% for d in directories %}
               {% if d == directory %}
@@ -47,7 +46,7 @@
           </select>
           <button type="submit" class="btn btn-success" style="background-color: #5cb85c; border-color: #4cae4c">Submit</button>
           </form>
-        </div>
+        </div>       
       </div>
     </nav>
     <div class="row" id= "thirdrow">

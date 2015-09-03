@@ -21,20 +21,26 @@ chain = None
 posts = None
 hints = None
 
-@app.route('/plot/src/<num>/')
-def plot_source(num):
-    with open(os.path.join('..', 'assignments', 'java', 'lab02', 'src', str(num))) as f:
+@app.route('/submit_plot/src/<language>/<assignment>/<num>/')
+def plot_source(language, assignment, num):
+    with open(os.path.join('..', 'assignments', language, assignment, 'src', str(num))) as f:
         return f.read()
 
-@app.route('/plot/coordinates.csv')
-def coords():
-    with open(os.path.join('..', 'assignments', 'java', 'lab02', 'gen', 'coordinates.csv')) as f:
+@app.route('/submit_plot/coordinates/<language>/<assignment>')
+def coords(language, assignment):
+    with open(os.path.join('..', 'assignments', language, assignment, 'gen', 'coordinates.csv')) as f:
         return f.read()
 
 @app.route('/plot/')
 def plot():    
     directories = [item.lstrip('../assignments/')for item in glob.glob('../assignments/*/*')]
-    return render_template("plot.html",  directory=os.path.join('..', 'assignments', 'java', 'lab02'), language='java', directories=directories, source="src/", coordinates="coordinates.csv")
+    return render_template("plot.html",  directories=directories)
+
+@app.route('/submit_plot/', methods=['POST'])
+def submit_plot():    
+    data_loc = request.form['directory']
+    directories = [item.lstrip('../assignments/')for item in glob.glob('../assignments/*/*')]
+    return render_template("submit_plot.html",  directory=data_loc, directories=directories)
 
 
 @app.route('/')
