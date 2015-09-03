@@ -15,9 +15,6 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.theme.default.min.css')}}">
   <script src="{{ url_for('static', filename='owl/owl.carousel.js')}}"></script>
   <style>
-body {
-  font: 11px sans-serif;
-}
 
 .axis path,
 .axis line {
@@ -31,7 +28,7 @@ body {
 }
 
 .tooltip {
-  position: fixed;
+  position: absolute;
   max-width: 900px;
   max-height: 1200px;
   pointer-events: none;
@@ -50,23 +47,52 @@ body {
           <a class="navbar-brand" href="#">Autograding for Style</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
-            <li class="active"><a href="plot">Plot</a></li>
-            <li><a href="chain">Chain</a></li>
-            <li><a href="improve">Improve</a></li>
+            <li><a href="../">Home</a></li>
+            <li class="active"><a href="../plot">Plot</a></li>
+            <li><a href="../chain">Chain</a></li>
+            <li><a href="../improve">Improve</a></li>
         </ul>
-        
+ <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+          <select class="form-control" name="directory">
+            {% for d in directories %}
+              {% if d == directory %}
+                <option value="{{d}}" selected="selected">{{d}}</option>
+              {% else %}
+                <option value="{{d}}">{{d}}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+          <button type="submit" class="btn btn-success" style="background-color: #5cb85c; border-color: #4cae4c">Submit</button>
+          </form>
+        </div>       
       </div>
     </nav>
 
 <!-- Example based on http://bl.ocks.org/mbostock/3887118 -->
-<!-- Tooltip example from http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html -->
+<!-- Tooltip example from http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html and https://gist.github.com/biovisualize/1016860 -->
 <script src=../static/js/d3.v3.min.js></script>
 <script>
 
-var margin = {top: 90, right: 20, bottom: 180, left: 40},
+var w = $(window).width();
+var h = $(window).height();
+
+var margin = {top: 90, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 720 - margin.top - margin.bottom;
+
+var padding = {
+    x: 1,
+    y: 1 
+};
+
+
+var scene = {
+    x: margin.left + padding.x,
+    y: margin.top + padding.y,
+    width: w - (margin.left * 2) - (padding.x * 2),
+    height: h - (margin.top * 2) - (padding.y * 2)
+};
 
 /* 
  * value accessor - returns the value to encode for a given data object.
@@ -157,20 +183,42 @@ var tooltip = d3.select("#main-content").append("div")
                         .duration(200)
                         .style("opacity", .9);
                   tooltip.html("file: " + d.filename + ", flog: <span style='color: green'>" + d.flog + "</span>" + 
-                    "<br><div style='background:lightsteelblue; max-width: 900px; border-radius:8px; border: 0px; padding:4px 8px 4px 8px;'><pre>" + allText + "</pre></div>")
+                          "<br><div style='background:lightsteelblue; max-width: 900px; border-radius:8px; border: 0px; padding:4px 8px 4px 8px;'><pre style=\"font-size: 10px\">" + allText + "</pre></div>")
                         .style("left", (d3.event.pageX + 16) + "px")
                         .style("top", function() {
-                        if(d3.event.pageY + 300 > margin.bottom){
-                            return d3.event.pageY - 300 + "px";
-                        }else{
-                            return d3.event.pageY + "px";
+                            var pos = positionTooltip(
+                                {
+                                x: d3.event.pageX,
+                                y: d3.event.pageY
+                                }, scene, tooltip);
+                            return (pos.top - 10) + "px";
                         }
-                        });
+
+);
               }
           }
       }
       rawFile.send(null);
   }
+
+    function positionTooltip(mouse, scene, tooltip)
+    {
+        //Distance of element from the right edge of viewport
+        if (scene.width - (mouse.x + tooltip.width) < 20)
+        { //If tooltip exceeds the X coordinate of viewport
+            mouse.x = mouse.x - tooltip.width - 20;
+        }
+        //Distance of element from the bottom of viewport
+        if (scene.height - (mouse.y + $('.tooltip').height()
+) < 5)
+        { //If tooltip exceeds the Y coordinate of viewport
+            mouse.y = mouse.y - $('.tooltip').height() + 20;
+        }
+        return {
+            top: mouse.y,
+            left: mouse.x
+        };
+    }
 
   // draw dots
   svg.selectAll(".dot")
