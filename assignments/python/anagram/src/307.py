@@ -1,4 +1,4 @@
-def detect_anagram(word, list_of_anagrams):
+def detect_anagrams(word, list_of_anagrams):
     word_chars = []
     anagrams = []
     for ch in word:

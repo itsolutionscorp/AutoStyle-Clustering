@@ -8,7 +8,7 @@ Autostyle is made up of a number of scripts, but the three main components are:
 
 1. The web_ui, which you can start by running `run.py` in the `web_ui` folder.
 
-2. `style_chain.py`, which is the backend of the web ui. It's in the `visualization` folder. This handles all the logic for how to gneerate a hint for a submission.
+2. `style_chain.py`, which is the backend of the web ui. It's in the `visualization` folder. This handles all the logic for how to generate a hint for a submission.
 
 3. `individual_features.py`, which can generate features for each submission. Calculating features for a submission allow you to turn that submission into a vector, allowing you to easily manipulate and compare your data.
 
@@ -88,3 +88,6 @@ Most scripts should be run from the top level of the repo. The exception is the 
 # Contributors
 
 - Joseph Moghadam, moghadam.joseph@gmail.com. If you have any questions about what anythin in the repo does, please ask me! I should be pretty responsive.
+- Rohan Roy Choudhury, rrc@berkeley.edu
+- Hezheng Yin, hezheng.yin@berkeley.edu
+- Armando Fox, fox@cs.berkeley.edu
