@@ -79,6 +79,7 @@
       {% for post in posts %}
         <div class="item">
               <textarea id="{{'code' + loop.index|string()}}">{{ post.code }}</textarea>
+              <code id="{{'flog' + loop.index|string()}}">{{ post.flog }}</code>
        </div>
       {% endfor %}
   </div>
