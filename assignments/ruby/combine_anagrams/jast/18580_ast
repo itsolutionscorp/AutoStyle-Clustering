@@ -1,0 +1,1 @@
+{root {{defn {{combine_anagrams }}{{args {{argname }}}}{{call {{iter {{call {{lvar {{lvarname }}}}{{group_by }}}}{{args {{argname }}}}{{call {{call {{call {{call {{lvar {{lvarname }}}}{{downcase }}}}{{split }}{{str {{strname }}}}}}{{sort! }}}}{{join }}}}}}{{values }}}}}}}
