@@ -2,11 +2,11 @@
  <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Autograding for Style</title>
+  <title>Autostyle</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/slider.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contrib/codemirror/lib/codemirror.css') }}" />
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/improve.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/improve_style.css')}}" />
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='js/bootstrap.min.js')}}" />
   <script type='text/javascript' src='//code.jquery.com/jquery-1.10.1.js'></script>
   <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -25,19 +25,10 @@
       <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header" style="">
-          <a class="navbar-brand" href="../">Autograding for Style</a>
+          <a class="navbar-brand" href="../">Autostyle</a>
         </div>
-        <ul class="nav navbar-nav">
-            <li><a href="../">Home</a></li>
-            <li><a href="../plot">Plot</a></li>
-            <li><a href="../chain">Chain</a></li>
-            <li class="active"><a href="../improve">Improve</a></li>
-        </ul>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="index" class="form-control" name="start" value={{start}}>
-            </div>
           <select class="form-control" name="directory">
             {% for d in directories %}
               {% if d == directory %}
@@ -47,31 +38,49 @@
               {% endif %}
             {% endfor %}
           </select>
-          <button type="submit" class="btn btn-success" style="background-color: #5cb85c; border-color: #4cae4c">Submit</button>
           </form>
         </div>
       </div>
     </nav>
-    <div class="row" id= "thirdrow">
-
+    <div class="row" id= "thirdrow" style="text-align:center; margin-top: 25px; margin-bottom: 25px">
+        {% if error is defined %}
+        <code>{{error}}</code>
+        {% endif %}
     </div>
 
-  <table style="width: 100%;">
+<div style="text-align:center; margin-bottom: 25px">
+              <form class="form">
+
+          <button type="submit" hidden = "true" class="btn btn-info" onmouseover="document.getElementById('submitlabel').style.display = 'block';">Submit</button>
+                  <label style="color: red" id="submitlabel" hidden="true">Note: processing your code may take up to 10 seconds </label>
+          </form>
+
+</div>
+
+
+        <table style="width: 100%;">
   <tr>
+      {% if post.code is defined %}
     <td style="width: 50%; padding-left: 2%; padding-right: 0.5%">
         <div id="bloc1" class="item">
+            <label>Here's your original code:</label>
               <textarea id="initialcode">{{ post.code }}</textarea>
        </div>
     </td>
-    <td style="width: 50%; padding-left: 0.5%; padding-right: 2%">
+      <td style="width: 50%; padding-left: 0.5%; padding-right: 2%">
+          {% else %}
+          <td style="width: 50%; padding-left: 25%; padding-right: 25%">
+    {% endif %}
+
         <div id="bloc1" class="item">
-              <textarea id="newcode">Enter your new code here
-              </textarea>
+            <label>Enter your new code here:</label>
+              <textarea id="newcode"></textarea>
        </div>
     </td>
   </tr>
-  </table> 
+  </table>
 
+{% if post.code is defined %}
   <div>  
     <div class="item">
           <code style="color: #3c763d;background-color: #dff0d8; margin-left:25%; margin-right:25%">To improve your style, consider...</code>
@@ -112,12 +121,12 @@
         <textarea id="skeletoncode" hidden=true>{{ post.skeleton }}</textarea>
     </div>
   </div>
+    </div>
+
+    {% endif %}
 
 
-  </div>
 
-
-  
 
   <script src="{{ url_for('static', filename='less/slider.less')}}"></script>
   <script src="{{ url_for('static', filename='js/bootstrap-slider.js')}}"></script>
@@ -140,14 +149,14 @@
 
 <script>
   var forms = document.querySelectorAll("form")
-  var form = forms[0];
-  var sliders_form = forms[1];
+  var select_assignment_form = forms[0];
+  var form = forms[1];
   form.addEventListener("submit", function(event) {
- 
-    event.preventDefault(); 
-    var editor = $('.CodeMirror')[1].CodeMirror;
+    event.preventDefault();
+    //var editor = $('.CodeMirror')[0].CodeMirror;
+    var editor = $('#cm_newcode')[0].CodeMirror
     newcode_text = editor.getValue();
-    var params = {"start": form.elements.start.value, "directory":form.elements.directory.value, "new_submission": newcode_text};
+    var params = {"directory":select_assignment_form.elements.directory.value, "new_submission": newcode_text};
     var form_new = document.createElement("form");
     form_new.setAttribute("method", "post");
     form_new.setAttribute("action", '/submit_improveform/');
@@ -164,8 +173,8 @@
    // $("#overlay").show();
     // console.log("shown overlay")
     document.body.appendChild(form_new);
-    setTimeout(form_new.submit(), 3);
-
+   // setTimeout(form_new.submit(), 3);
+    form_new.submit()
   });
 
 </script>
@@ -203,19 +212,28 @@
 <script src="{{ url_for('static', filename='contrib/codemirror/mode/ruby/ruby.js')}}"></script>
 <script src="{{ url_for('static', filename='contrib/codemirror/mode/clike/clike.js')}}"></script>
 
+
 <script type="text/javascript">
+      CodeMirror.fromTextArea(document.getElementById("newcode"), {
+            lineNumbers: false,
+             {% if language is defined %}
+                mode: "{{language}}",
+            {% else %}
+                mode: "python",
+            {% endif %}
+            lineWrapping: false
+        });
+       $(".CodeMirror")[0].setAttribute("id", "cm_newcode")
+</script>
+    <script type="text/javascript">
         //Set up code mirror
         CodeMirror.fromTextArea(document.getElementById("initialcode"), {
             lineNumbers: false,
             mode: "{{language}}",
             lineWrapping: false,
         });
-                CodeMirror.fromTextArea(document.getElementById("newcode"), {
-            lineNumbers: false,
-            mode: "{{language}}",
-            lineWrapping: false
-        });
-    
+</script>
+<script type="text/javascript">
         CodeMirror.fromTextArea(document.getElementById("skeletoncode"), {
             lineNumbers: false,
             mode: "{{language}}",
@@ -243,11 +261,7 @@
 }  
 </style>
 
-<div id="footer">
-    <div class="container">
-        <p class="text-muted credit"><br><u>Autograding for Style</u>: Rohan Roy Choudhury, Joseph Moghadam, HeZheng Yin, Mukund Chillakanti, Armando Fox <br> Last updated: 15 April 2015</p>
-    </div>
-</div>
+
 
 </body>
 </html>

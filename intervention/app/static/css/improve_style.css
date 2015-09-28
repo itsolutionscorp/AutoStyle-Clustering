@@ -12,11 +12,6 @@ html, body {
 }
 /* Set the fixed height of the footer here */
 
-#footer {
-    height: 70px; /* .push must be the same height as .footer */
-    background-color: #f5f5f5; 
-}
-
 
 /* Custom page CSS
 -------------------------------------------------- */
@@ -40,7 +35,6 @@ width:100%;
     }
 
 div#thirdrow.row{
-  height: 150px;
   padding-top: 40px;
 }
 #one {
