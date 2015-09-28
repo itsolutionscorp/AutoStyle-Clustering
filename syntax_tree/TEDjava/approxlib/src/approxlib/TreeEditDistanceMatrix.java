@@ -16,7 +16,11 @@ public class TreeEditDistanceMatrix {
 
 	public static void main(String[] args) {
 		String home_dir = args[0];
-	 	File folder = new File(home_dir+"/ast/");
+		String ast_dir = "/ast/";
+		if (args.length > 1  && args[1].equals("ruby")){
+			ast_dir = "/jast/";
+		}
+	 	File folder = new File(home_dir+ast_dir);
 	 	File[] listOfFiles = folder.listFiles(new FilenameFilter() {
 	 	    public boolean accept(File dir, String name) {
 	 	        return name.toLowerCase().endsWith("ast");
@@ -34,7 +38,7 @@ public class TreeEditDistanceMatrix {
 	 	LblTree[] trees = new LblTree[listOfFiles.length];
 	 	for (int i = 0; i < listOfFiles.length; i++) 
 	 	{
-	 		String t = home_dir+"/ast/"+listOfFiles[i].getName();
+	 		String t = home_dir+ast_dir+listOfFiles[i].getName();
 	 		try {
 	             trees[i] = LblTree.fromString((new BufferedReader(new FileReader(t))).readLine());
 	         } catch (Exception e) {
