@@ -439,6 +439,30 @@ def generate_chain(start_index, max_hints, style_score_weight, home_dir = "./",
     c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=max_hints)
     return c
 
+def generate_chain_loaded(start_index, max_hints, style_score_weight, style_scores, style_features,line_num_matrix, distances,
+                          home_dir = "./", feedback=None, old_chain=None, data_dir='data/',
+                          libcall_dict='util/lib_call_dict.pkl', language="ruby"):
+    '''
+    Create a new chain object. This is the interface with the web app.
+    Disclaimer: Assumes data_dir has a particular structure.
+    '''
+    home_dir = home_dir.rstrip("/") + "/"
+    data_dir = data_dir.rstrip("/") + "/"
+    feature_dir = home_dir + data_dir + 'feature/'
+    source_dir = home_dir + data_dir + 'src/'
+    feature_names = np.genfromtxt(feature_dir + 'style_features_names.np', dtype='str', delimiter='\n')
+    score_names = np.genfromtxt(feature_dir + 'style_scores_names.np', dtype='str', delimiter='\n')
+    weights_file = home_dir+data_dir + 'gen/weights.np'
+    ast_distance_weight=0.05
+    if language == "ruby":
+        if len(style_scores.shape)==1:
+            style_scores = style_scores[:, np.newaxis]
+        with open(home_dir + libcall_dict, 'r') as f:
+            libcall_dict = pickle.load(f)
+
+    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=max_hints)
+    return c
+
 def unicode_to_str(input_u):
     if isinstance(input_u, dict):
         return {unicode_to_str(key):unicode_to_str(value) for key,value in input_u.iteritems()}
