@@ -1,24 +1,35 @@
 from app import app
-from flask import render_template, request, send_file
+from flask import render_template, request
 import os
 import re
 import sys
 import numpy as np
 import subprocess
 import glob
+import imp
 sys.path.insert(1, os.path.abspath('../featurization/'))
 sys.path.insert(1, os.path.abspath('../scripts_python/'))
-from style_chain import generate_chain, interpret_list_of_hints
+sys.path.insert(1, os.path.abspath('../syntax_tree/'))
+from style_chain import generate_chain_loaded, interpret_list_of_hints
 from individual_features import generate_individual_features
 from python_ast_dump import dump_single_ast
 oldpost = {}
 
-def intervene_python(newcode, home_dir, data_dir):
-    pass
-
-def intervene_ruby():
-    raise Exception
-
+def test_correctness_61a_hw4(directory, filename):
+    res = (True, "Your code works.")
+    output = None
+    try:
+        mod = imp.load_source(filename, directory+filename) 
+        output = mod.num_common_letters("steal", "least")
+    except:
+      res = (False, "")
+    if output != 5 and output != "5":
+      res = (False, "For num_common_letters(steal, least), the output should be 5. Your code returns " + str(output))
+    try:
+        os.system("rm " + directory + filename.rstrip(".py") + ".pyc")
+    except OSError:
+        pass
+    return res
 
 @app.route('/')
 @app.route('/improve/')
