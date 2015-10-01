@@ -42,16 +42,24 @@
         </div>
       </div>
     </nav>
+        <div class="row"  style="text-align:left; margin-top: 25px; margin-bottom: 25px; padding-top: 20px; padding-left: 20px">
+        Things to note:
+        <ul>
+  <li>Please ensure the name of your function is "<b>num_common_letters</b>"</li>
+  <li>Please restrict your code to a <b>single</b> function</li>
+</ul>
+<br>  <br> 
+    </div>
     <div class="row" id= "thirdrow" style="text-align:center; margin-top: 25px; margin-bottom: 25px">
         {% if error is defined %}
         <code>{{error}}</code>
         {% endif %}
     </div>
 
-<div style="text-align:center; margin-bottom: 25px">
+<div style="text-align:center; margin-bottom: 25px; padding-top:0px">
               <form class="form">
 
-          <button type="submit" hidden = "true" class="btn btn-info" onmouseover="document.getElementById('submitlabel').style.display = 'block';">Submit</button>
+          <button type="submit" id = "submitbtn" class="btn btn-info" onmouseover="document.getElementById('submitlabel').style.display = 'block';">Submit</button>
                   <label style="color: red" id="submitlabel" hidden="true">Note: processing your code may take up to 10 seconds </label>
           </form>
 
@@ -153,6 +161,8 @@
   var form = forms[1];
   form.addEventListener("submit", function(event) {
     event.preventDefault();
+    $('#submitbtn').prop('disabled', true);
+    $('#submitbtn').text("Analyzing you code...");
     //var editor = $('.CodeMirror')[0].CodeMirror;
     var editor = $('#cm_newcode')[0].CodeMirror
     newcode_text = editor.getValue();
@@ -225,6 +235,8 @@
         });
        $(".CodeMirror")[0].setAttribute("id", "cm_newcode")
 </script>
+
+{% if post.code is defined %}
     <script type="text/javascript">
         //Set up code mirror
         CodeMirror.fromTextArea(document.getElementById("initialcode"), {
@@ -242,6 +254,7 @@
         $("#skeletondiv").hide();
 
 </script>
+{% endif %}
 
 
 
