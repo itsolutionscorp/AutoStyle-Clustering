@@ -78,6 +78,8 @@
   <div id="sync1"  class="owl-carousel">  
       {% for post in posts %}
         <div class="item">
+                <code id="{{'flog' + loop.index|string()}}">{{ post.flog }}</code>
+                <code id="{{'index' + loop.index|string()}}" style="color: #258AC7;background-color: #F2F2F9;">({{ post.index }})</code>
               <textarea id="{{'code' + loop.index|string()}}">{{ post.code }}</textarea>
        </div>
       {% endfor %}

@@ -91,9 +91,9 @@ def submit_form():
           hints.append(ph) 
         for nh in neg_hints[0]:
           hints.append(nh)
-        posts.append({'code': cl.source_code, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint': interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1], 'positive_hint_locations': pos_hints[2], 'negative_hint_locations': neg_hints[2]})
+        posts.append({'index': cl.index, 'code': cl.source_code, 'flog': cl.flog_score, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint': interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1], 'positive_hint_locations': pos_hints[2], 'negative_hint_locations': neg_hints[2]})
       else:
-        posts.append({'code': cl.source_code, 'positive_hint': "", 'negative_hint': ''})
+        posts.append({'index':cl.index, 'code': cl.source_code, 'flog': cl.flog_score, 'positive_hint': "", 'negative_hint': ''})
       cl = cl.next
       directories = [each_item.lstrip('../assignments/') for each_item in glob.glob('../assignments/*/*')]
       lang = data_loc.split("/")[0]

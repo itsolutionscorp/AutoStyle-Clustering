@@ -1,0 +1,1 @@
+{root {{defn {{combine_anagrams }}{{args {{argname }}}}{{lasgn {{lasgnname }}{{call {{iter {{call {{lvar {{lvarname }}}}{{group_by }}}}{{args {{argname }}}}{{call {{call {{lvar {{lvarname }}}}{{chars }}}}{{sort }}}}}}{{values }}}}}}{{call {{mynil }}{{p }}{{lvar {{lvarname }}}}}}}}}

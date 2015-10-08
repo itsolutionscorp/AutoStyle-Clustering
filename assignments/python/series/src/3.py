@@ -1,7 +1,7 @@
 from series import slices
 from functools import reduce
 import operator
-def largest_product(nums, length):
+def slices(nums, length):
     if not nums: return 1
     tmp = 0
     list_of_slices = slices.slices(nums, length)

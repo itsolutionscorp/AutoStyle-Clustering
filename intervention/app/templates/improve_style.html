@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Autostyle</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/slider.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contrib/codemirror/lib/codemirror.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/improve_style.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='js/bootstrap.min.js')}}" />
+  <script type='text/javascript' src='//code.jquery.com/jquery-1.10.1.js'></script>
+  <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.carousel.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.theme.default.min.css')}}">
+  <script src="{{ url_for('static', filename='owl/owl.carousel.js')}}"></script>
+</head>
+
+
+
+<body style="position: relative; min-height: 120%">
+    </div> -->
+    <!-- Begin page content -->
+    <div class="wrapper" id="main-content">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header" style="">
+          <a class="navbar-brand" href="../">Autostyle</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+          <select class="form-control" name="directory">
+            {% for d in directories %}
+              {% if d == directory %}
+                <option value="{{d}}" selected="selected">{{d}}</option>
+              {% else %}
+                <option value="{{d}}">{{d}}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+          </form>
+        </div>
+      </div>
+    </nav>
+        <div class="row"  style="text-align:left; margin-top: 25px; margin-bottom: 25px; padding-top: 20px; padding-left: 20px">
+        Things to note:
+        <ul>
+  <li>Please ensure the name of your function is "<b>num_common_letters</b>"</li>
+  <li>Please restrict your code to a <b>single</b> function</li>
+</ul>
+<br>  <br> 
+    </div>
+    <div class="row" id= "thirdrow" style="text-align:center; margin-top: 25px; margin-bottom: 25px">
+        {% if error is defined %}
+        <code>{{error}}</code>
+        {% endif %}
+    </div>
+
+<div style="text-align:center; margin-bottom: 25px; padding-top:0px">
+              <form class="form">
+
+          <button type="submit" id = "submitbtn" class="btn btn-info" onmouseover="document.getElementById('submitlabel').style.display = 'block';">Submit</button>
+                  <label style="color: red" id="submitlabel" hidden="true">Note: processing your code may take up to 10 seconds </label>
+          </form>
+
+</div>
+
+
+        <table style="width: 100%;">
+  <tr>
+      {% if post.code is defined %}
+    <td style="width: 50%; padding-left: 2%; padding-right: 0.5%">
+        <div id="bloc1" class="item">
+            <label>Here's your original code:</label>
+              <textarea id="initialcode">{{ post.code }}</textarea>
+       </div>
+    </td>
+      <td style="width: 50%; padding-left: 0.5%; padding-right: 2%">
+          {% else %}
+          <td style="width: 50%; padding-left: 25%; padding-right: 25%">
+    {% endif %}
+
+        <div id="bloc1" class="item">
+            <label>Enter your new code here:</label>
+              <textarea id="newcode"></textarea>
+       </div>
+    </td>
+  </tr>
+  </table>
+
+{% if post.code is defined %}
+  <div>  
+    <div class="item">
+          <code style="color: #3c763d;background-color: #dff0d8; margin-left:25%; margin-right:25%">To improve your style, consider...</code>
+              {% for hint in post.positive_hint %}
+                <div class="input-group" style="margin-left:25%; margin-right:25%">
+                   <span class="input-group-addon">
+                     <input id="{{'positive' + loop.index|string()}}" type="checkbox">
+                   </span>
+                   <input id="{{'positivehint' + loop.index|string()}}" readonly value="{{hint}}" style="width: 100%">
+                 </div>
+              {% endfor %}
+              {% if post.positive_hint|length == 0 %}
+                <div></div>
+              {% endif %}
+          <code style="color: #a94442;background-color: #f2dede; margin-left:25%; margin-right:25%">You might also want to consider...</code>
+          {% for hint in post.negative_hint %}
+              <div class="input-group" style="margin-left:25%; margin-right:25%">
+                <span class="input-group-addon">
+                  <input id="{{'negative' + loop.index|string()}}" type="checkbox">
+                </span>
+                <input type="text" id="{{'negativehint' + loop.index|string()}}" readonly value="{{hint}}" style="width: 100%">
+              </div>
+              {% endfor %}
+        </div>
+  </div>
+
+
+
+<div>  
+    
+    <div  style="margin-left:25%; margin-right:25%; margin-top: 20px">
+        <input id="stuck_checkbox" type="checkbox" onchange="toggleSkeleton();"></input>
+        <label for="stuck_checbox"><b> &nbsp&nbsp Help, I'm stuck! </b></label>
+
+    </div><!-- /input-group -->
+
+    <div id="skeletondiv" class="item" style="margin-left:25%; margin-right:25%; min-height:50px;">
+        <textarea id="skeletoncode" hidden=true>{{ post.skeleton }}</textarea>
+    </div>
+  </div>
+    </div>
+
+    {% endif %}
+
+
+
+
+  <script src="{{ url_for('static', filename='less/slider.less')}}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap-slider.js')}}"></script>
+
+
+<script type="text/javascript">
+  function toggleSkeleton(){
+     if(document.getElementById("stuck_checkbox").checked == 1){
+        $("#skeletondiv").show();
+        $("#stuck_checkbox").siblings('label').html("<b> &nbsp&nbsp Here's a skeleton of what your improved solution might look like... </b>");
+    } else{
+      $("#skeletondiv").hide();
+      $("#stuck_checkbox").siblings('label').html("<b> &nbsp&nbsp Help, I'm stuck! </b>");
+    }
+  }
+</script>
+
+
+
+
+<script>
+  var forms = document.querySelectorAll("form")
+  var select_assignment_form = forms[0];
+  var form = forms[1];
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    $('#submitbtn').prop('disabled', true);
+    $('#submitbtn').text("Analyzing you code...");
+    //var editor = $('.CodeMirror')[0].CodeMirror;
+    var editor = $('#cm_newcode')[0].CodeMirror
+    newcode_text = editor.getValue();
+    var params = {"directory":select_assignment_form.elements.directory.value, "new_submission": newcode_text};
+    var form_new = document.createElement("form");
+    form_new.setAttribute("method", "post");
+    form_new.setAttribute("action", '/submit_improveform/');
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form_new.appendChild(hiddenField);
+         }
+    }
+   // $("#overlay").show();
+    // console.log("shown overlay")
+    document.body.appendChild(form_new);
+   // setTimeout(form_new.submit(), 3);
+    form_new.submit()
+  });
+
+</script>
+
+
+
+<script type="text/javascript">
+
+  {% for hint in post.negative_hint %}
+       var {{'negativeline' + loop.index|string()}} = $('#{{'negativehint' + loop.index|string()}}');
+          {{'negativeline' + loop.index|string()}}.on('mouseover',
+          function(ev){
+           var editor = $('.CodeMirror')[{{post['negative_hint_locations'][loop.index-1]}}].CodeMirror;
+           editor.addLineClass({{post['negative_lines'][loop.index-1]}}-1, "background", 'CodeMirror-activeline-background-neg');
+
+          });
+             var {{'negativeline' + loop.index|string()}} = $('#{{'negativehint' + loop.index|string()}}');
+          {{'negativeline' + loop.index|string()}}.on('mouseout',
+          function(ev){
+           var editor = $('.CodeMirror')[{{post['negative_hint_locations'][loop.index-1]}}].CodeMirror;
+           editor.removeLineClass({{post['negative_lines'][loop.index-1]}}-1, "background", 'CodeMirror-activeline-background-neg');
+
+          });
+  {% endfor %}
+
+
+
+</script> 
+
+
+
+<script src="{{ url_for('static', filename='contrib/codemirror/lib/codemirror.js')}}"></script>
+<script src="{{ url_for('static', filename='contrib/codemirror/mode/properties/properties.js')}}"></script>
+<script src="{{ url_for('static', filename='contrib/codemirror/mode/python/python.js')}}"></script>
+<script src="{{ url_for('static', filename='contrib/codemirror/mode/ruby/ruby.js')}}"></script>
+<script src="{{ url_for('static', filename='contrib/codemirror/mode/clike/clike.js')}}"></script>
+
+
+<script type="text/javascript">
+      CodeMirror.fromTextArea(document.getElementById("newcode"), {
+            lineNumbers: false,
+             {% if language is defined %}
+                mode: "{{language}}",
+            {% else %}
+                mode: "python",
+            {% endif %}
+            lineWrapping: false
+        });
+       $(".CodeMirror")[0].setAttribute("id", "cm_newcode")
+</script>
+
+{% if post.code is defined %}
+    <script type="text/javascript">
+        //Set up code mirror
+        CodeMirror.fromTextArea(document.getElementById("initialcode"), {
+            lineNumbers: false,
+            mode: "{{language}}",
+            lineWrapping: false,
+        });
+</script>
+<script type="text/javascript">
+        CodeMirror.fromTextArea(document.getElementById("skeletoncode"), {
+            lineNumbers: false,
+            mode: "{{language}}",
+            lineWrapping: false
+        });
+        $("#skeletondiv").hide();
+
+</script>
+{% endif %}
+
+
+
+<style type="text/css">
+.CodeMirror {
+  border: 1px solid #eee;
+  height: 50%;
+  width: 100%;
+}
+.CodeMirror-scroll {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+#ast_slider .slider-selection {
+  background: #BABABA;
+}  
+</style>
+
+
+
+</body>
+</html>
+
