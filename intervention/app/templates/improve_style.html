@@ -162,7 +162,7 @@
   form.addEventListener("submit", function(event) {
     event.preventDefault();
     $('#submitbtn').prop('disabled', true);
-    $('#submitbtn').text("Analyzing you code...");
+    $('#submitbtn').text("Analyzing your code...");
     //var editor = $('.CodeMirror')[0].CodeMirror;
     var editor = $('#cm_newcode')[0].CodeMirror
     newcode_text = editor.getValue();

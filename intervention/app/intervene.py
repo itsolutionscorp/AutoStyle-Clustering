@@ -7,12 +7,9 @@ import numpy as np
 import subprocess
 import glob
 import imp
-sys.path.insert(1, os.path.abspath('../featurization/'))
-sys.path.insert(1, os.path.abspath('../scripts_python/'))
-sys.path.insert(1, os.path.abspath('../syntax_tree/'))
-from style_chain import generate_chain_loaded, interpret_list_of_hints
-from individual_features import generate_individual_features
-from python_ast_dump import dump_single_ast
+from scripts.style_chain import generate_chain_loaded, interpret_list_of_hints
+from scripts.individual_features import generate_individual_features
+from scripts.python_ast_dump import dump_single_ast
 oldpost = {}
 
 def test_correctness_61a_hw4(directory, filename):
@@ -37,7 +34,7 @@ def improve():
     global oldpost
     post = {}
     oldpost = post
-    directories = [item.lstrip('../intervention/data/')for item in glob.glob('../intervention/data/*/*')]
+    directories = [item.lstrip('data/')for item in glob.glob('data/*/*')]
     return render_template("improve_style.html",  post=post, directories=directories)
 
 def repl_matches(matchobj):
@@ -48,9 +45,8 @@ def improve_submit():
     global oldpost
     data_loc = request.form['directory']
     newcode = request.form['new_submission']
-    home_dir = os.path.abspath('../') + "/"
-    data_dir = home_dir+"intervention/data/" + data_loc
-    directories = [item.lstrip('../intervention/data/')for item in glob.glob('../intervention/data/*/*')]
+    data_dir = os.path.abspath("data/") + "/" + data_loc
+    directories = [item.lstrip('data/')for item in glob.glob('data/*/*')]
     lang = data_loc.split("/")[0]
     with open( data_dir+"/save/" + str(len(glob.glob(data_dir+"/save/*.py"))) + ".py", "w") as f:
         f.write(newcode)
@@ -80,7 +76,7 @@ def improve_submit():
                     return render_template("improve_style.html",  post= oldpost, directories=directories, error="Your code does not return the right result. Please fix it and resubmit. " + codeoutput, language = lang)
             
             # process edit distance
-            proc = subprocess.Popen(["java -jar "+ home_dir+"syntax_tree/TreeEditDistance.jar " + data_dir + " " + "python"], stdout=subprocess.PIPE, shell=True)
+            proc = subprocess.Popen(["java -jar "+ "scripts/TreeEditDistance.jar " + data_dir + " " + "python"], stdout=subprocess.PIPE, shell=True)
             (ed, err) = proc.communicate()
             ed = ed.rstrip(",").split(',')
             row = np.array(ed, ndmin=2).astype(np.float)
@@ -102,7 +98,7 @@ def improve_submit():
             style_scores = np.loadtxt(data_dir + '/feature/style_scores.np', ndmin=2)
             style_scores = np.insert(style_scores, style_scores.shape[0], ss, axis = 0)
             try:
-                cl = generate_chain_loaded(start_index = int(start_index), max_hints = 4, style_score_weight = 0.14, home_dir = home_dir, data_dir = "intervention/data/" + data_loc, language="python", style_scores = style_scores, style_features = style_features, line_num_matrix = line_num_matrix, distances = dist_matrix).head
+                cl = generate_chain_loaded(start_index = int(start_index), max_hints = 4, style_score_weight = 0.14, home_dir = home_dir, data_dir = "intervention/data/" + data_loc, language="python", style_scores = style_scores, style_features = style_features, line_num_matrix = line_num_matrix, distances = dist_matrix, libcall_dict=os.path.abspath('util/lib_call_dict.pkl')).head
             except Exception as e:
                 print e
         except Exception as e:
@@ -121,7 +117,8 @@ def improve_submit():
             except Exception as e:
                 print "Failed to remove generated src file", e
     elif lang == "ruby" or lang == u"ruby":
-        cl = intervene_ruby(newcode, home_dir, data_dir)
+        pass
+        # cl = intervene_ruby(newcode, home_dir, data_dir)
     else:
         raise Exception
 
@@ -134,7 +131,7 @@ def improve_submit():
         for nh in neg_hints[0]:
             hints.append(nh)
     except:
-        error = "Sorry, unable to process your solution. Please report this to us."
+        error = "Done."
         oldpost['code'] = newcode
         return render_template("improve_style.html",  post= oldpost, directories=directories, error=error, language = lang)
 

@@ -349,13 +349,13 @@ def interpret_list_of_hints(features, is_not_hint):
         elif feature == 'nested conditionals':
             all_advice += '...' + 'restructuring your function to ' + use_not + 'use nested conditionals' + '.\n'
         elif feature == 'explicit iteration':
-            all_advice += '...' + 'restructuring your function to ' + use_not + 'use explicit iteration' + '.\n'
+            all_advice += '...' + 'restructuring your function to ' + use_not + 'use an explicit loop' + '.\n'
         elif feature == 'nested explicit iteration':
-            all_advice += '...' + 'restructuring your function to ' + use_not + 'use nested iteration' + '.\n'
+            all_advice += '...' + 'restructuring your function to ' + use_not + 'use nested loops' + '.\n'
         elif feature == 'sequential conditional':
             all_advice += '...' + 'restructuring your function to ' + use_not + 'use sequential conditional blocks' + '.\n'
         elif feature == 'sequential iteration':
-            all_advice += '...' + 'restructuring your function to ' + use_not + 'use sequential iteration blocks' + '.\n'
+            all_advice += '...' + 'restructuring your function to ' + use_not + 'use sequential iteration blocks (loops)' + '.\n'
         elif feature == 'recursion':
             all_advice += '...' + 'restructuring your function to ' + use_not + 'recursion' + '.\n'
         elif feature in ["Continue", "AugAssign", "Exec", "Global", "Yield", "In", "Nonlocal", "YieldFrom", "With"]:
@@ -440,24 +440,23 @@ def generate_chain(start_index, max_hints, style_score_weight, home_dir = "./",
     return c
 
 def generate_chain_loaded(start_index, max_hints, style_score_weight, style_scores, style_features,line_num_matrix, distances,
-                          home_dir = "./", feedback=None, old_chain=None, data_dir='data/',
+                        feedback=None, old_chain=None, data_dir='data/',
                           libcall_dict='util/lib_call_dict.pkl', language="ruby"):
     '''
     Create a new chain object. This is the interface with the web app.
     Disclaimer: Assumes data_dir has a particular structure.
     '''
-    home_dir = home_dir.rstrip("/") + "/"
     data_dir = data_dir.rstrip("/") + "/"
-    feature_dir = home_dir + data_dir + 'feature/'
-    source_dir = home_dir + data_dir + 'src/'
+    feature_dir = data_dir + 'feature/'
+    source_dir =  data_dir + 'src/'
     feature_names = np.genfromtxt(feature_dir + 'style_features_names.np', dtype='str', delimiter='\n')
     score_names = np.genfromtxt(feature_dir + 'style_scores_names.np', dtype='str', delimiter='\n')
-    weights_file = home_dir+data_dir + 'gen/weights.np'
+    weights_file = data_dir + 'gen/weights.np'
     ast_distance_weight=0.05
     if language == "ruby":
         if len(style_scores.shape)==1:
             style_scores = style_scores[:, np.newaxis]
-        with open(home_dir + libcall_dict, 'r') as f:
+        with open(libcall_dict, 'r') as f:
             libcall_dict = pickle.load(f)
 
     c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=max_hints)
