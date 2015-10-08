@@ -62,7 +62,7 @@ def submit_form():
     global hints
     global chain
     data_loc = request.form['directory']
-    start_index = int(request.form['start'])
+    start_index = int(float(request.form['start']))
     max_hints = int(request.form['ast_slider'])
     flog = float(request.form['flog_slider'])
     feedback = request.form['feedback']

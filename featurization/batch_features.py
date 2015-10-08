@@ -25,6 +25,26 @@ def natural_sort(l):
     alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ] 
     return sorted(l, key = alphanum_key)
 
+def generate_coordinates(matrix_file, clusters_file, flog_file):
+    '''
+    Perform t-SNE on a distance matrix and write 2D coordinates to a csv file
+    matrix_file: file that contains features of distance matrix
+    '''
+    matrix = np.loadtxt(matrix_file)
+    clusters = np.loadtxt(clusters_file).astype(int)
+    flog_feature = np.loadtxt(flog_file)
+
+    plotting_data = calc_tsne(data, PERPLEX=30)
+    clusters.shape = (matrix.shape[0], 1)
+    flog_feature.shape = (matrix.shape[0], 1)
+    filename = np.array(range(1, matrix.shape[0] + 1))
+    filename.shape = (matrix.shape[0], 1)
+    csv_output_data = np.concatenate((plotting_data, lusters), axis=1)
+    csv_output_data = np.concatenate((csv_output_data, flog_feature), axis=1)
+    csv_output_data = np.concatenate((csv_output_data, filename), axis=1)
+    np.savetxt("coordinates.csv", csv_output_data, fmt='%.2f', delimiter=',', header='xaxis,yaxis,cluster,flog,filename')
+
+
 def main():
     '''
     Parse command line arguments, pass them to generate_individual_features,
