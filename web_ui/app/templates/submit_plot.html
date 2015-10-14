@@ -7,9 +7,13 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contrib/codemirror/lib/codemirror.css') }}" />
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/plot.css')}}" />
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='js/bootstrap.min.js')}}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/d3.slider.css')}}" />
+
   <script type='text/javascript' src='//code.jquery.com/jquery-1.10.1.js'></script>
   <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script type='text/javascript' src="{{ url_for('static', filename='js/d3.v3.min.js')}}"></script>
+  <script type='text/javascript' src="{{ url_for('static', filename='js/d3.slider.js')}}"></script>
+
   <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.carousel.css')}}">
   <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.carousel.min.css')}}">
   <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.theme.default.min.css')}}">
@@ -52,7 +56,7 @@
             <li><a href="../chain">Chain</a></li>
             <li><a href="../improve">Improve</a></li>
         </ul>
- <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
           <select class="form-control" name="directory">
             {% for d in directories %}
@@ -67,11 +71,10 @@
           </form>
         </div>       
       </div>
-    </nav>
+      </nav>
 
 <!-- Example based on http://bl.ocks.org/mbostock/3887118 -->
 <!-- Tooltip example from http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html and https://gist.github.com/biovisualize/1016860 -->
-<script src=../static/js/d3.v3.min.js></script>
 <script>
 
 var w = $(window).width();
@@ -220,6 +223,57 @@ var tooltip = d3.select("#main-content").append("div")
         };
     }
 
+
+    var flog_scores = data.map(function(d){return d.flog});
+    var max_flog = Math.max.apply(null, flog_scores);
+    var min_flog = Math.min.apply(null, flog_scores);
+    console.log(max_flog);
+    console.log(min_flog);
+    var upper_bound = (1/120) * (max_flog - min_flog); // 120 and 180 have no particular meaning, chosen manually when I played around it
+    var lower_bound = (1/180) * (max_flog - min_flog);
+
+    var xs = data.map(function(d){return xMap(d)});
+    var ys = data.map(function(d){return yMap(d)});
+
+    d3.select('#slider1').call(d3.slider()
+      .axis(true)
+      .min(min_flog)
+      .max(max_flog)
+      .on("slide", function(evt, value){
+        for(i = 0; i < data.length - 1; i++){
+          for(j = i + 1; j < data.length; j++){
+            var diff = Math.abs(data[i].flog - data[j].flog);
+            if(lower_bound <= diff && diff <= upper_bound){
+              svg.append('line')
+                .attr({
+                  x1: xs[i],
+                  y1: ys[i],
+                  x2: xs[j],
+                  y2: ys[j],
+                  stroke: 'grey'
+                });
+            }
+          }
+        }
+      }));
+
+    for(i = 0; i < data.length - 1; i++){
+      for(j = i + 1; j < data.length; j++){
+        var diff = Math.abs(data[i].flog - data[j].flog);
+        if(lower_bound <= diff && diff <= upper_bound){
+            svg.append('line')
+                .attr({
+                  x1: xs[i],
+                  y1: ys[i],
+                  x2: xs[j],
+                  y2: ys[j],
+                  stroke: 'grey'
+                });
+        }
+      }
+    }
+
+
   // draw dots
   svg.selectAll(".dot")
       .data(data)
@@ -256,36 +310,6 @@ var tooltip = d3.select("#main-content").append("div")
         form_new.submit();
       });
 
-      //console.log(data.length);
-      //console.log(data);
-
-      var flog_scores = data.map(function(d){return d.flog});
-      var max_flog = Math.max.apply(null, flog_scores);
-      var min_flog = Math.min.apply(null, flog_scores);
-      console.log(max_flog);
-      console.log(min_flog);
-      var upper_bound = (1/120) * (max_flog - min_flog); // 120 and 180 have no particular meaning, chosen manually when I played around it
-      var lower_bound = (1/180) * (max_flog - min_flog);
-
-      var xs = data.map(function(d){return xMap(d)});
-      var ys = data.map(function(d){return yMap(d)});
-
-      for(i = 0; i < data.length - 1; i++){
-        for(j = i + 1; j < data.length; j++){
-          var diff = Math.abs(data[i].flog - data[j].flog);
-          if(lower_bound <= diff && diff <= upper_bound){
-            svg.append('line')
-              .attr({
-                x1: xs[i],
-                y1: ys[i],
-                x2: xs[j],
-                y2: ys[j],
-                stroke: '#000'
-              })
-          }
-        }
-      }
-
 });
 
 </script>
@@ -316,13 +340,16 @@ var tooltip = d3.select("#main-content").append("div")
   });
 
 </script>
+    
 
+      <div id="slider1">></div>
     </div>
-<div id="footer">
+
+  <div id="footer">
     <div class="container">
         <p class="text-muted credit"><br><u>Autograding for Style</u>: Rohan Roy Choudhury, Joseph Moghadam, HeZheng Yin, Mukund Chillakanti, Armando Fox <br> Last updated: 2 September 2015</p>
     </div>
-</div>
+  </div>
 
 </body>
 </html>
