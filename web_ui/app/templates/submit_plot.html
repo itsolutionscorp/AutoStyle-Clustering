@@ -114,7 +114,7 @@ var yValue = function(d) { return d.yaxis;}, // data -> value
     yAxis = d3.svg.axis().scale(yScale).orient("left");
 
 // setup fill color
-var cValue = function(d) { return 0;},
+var cValue = function(d) { return d.cluster;},
     color = d3.scale.category10();
 
 // add the graph canvas to the body of the webpage
@@ -255,6 +255,37 @@ var tooltip = d3.select("#main-content").append("div")
         document.body.appendChild(form_new);
         form_new.submit();
       });
+
+      //console.log(data.length);
+      //console.log(data);
+
+      var flog_scores = data.map(function(d){return d.flog});
+      var max_flog = Math.max.apply(null, flog_scores);
+      var min_flog = Math.min.apply(null, flog_scores);
+      console.log(max_flog);
+      console.log(min_flog);
+      var upper_bound = (1/120) * (max_flog - min_flog); // 120 and 180 have no particular meaning, chosen manually when I played around it
+      var lower_bound = (1/180) * (max_flog - min_flog);
+
+      var xs = data.map(function(d){return xMap(d)});
+      var ys = data.map(function(d){return yMap(d)});
+
+      for(i = 0; i < data.length - 1; i++){
+        for(j = i + 1; j < data.length; j++){
+          var diff = Math.abs(data[i].flog - data[j].flog);
+          if(lower_bound <= diff && diff <= upper_bound){
+            svg.append('line')
+              .attr({
+                x1: xs[i],
+                y1: ys[i],
+                x2: xs[j],
+                y2: ys[j],
+                stroke: '#000'
+              })
+          }
+        }
+      }
+
 });
 
 </script>

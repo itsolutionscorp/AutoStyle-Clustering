@@ -23,7 +23,8 @@ hints = None
 
 @app.route('/submit_plot/src/<language>/<assignment>/<num>/')
 def plot_source(language, assignment, num):
-    with open(os.path.join('..', 'assignments', language, assignment, 'src', str(num))) as f:
+    extension = "" if language != "python" else ".py"
+    with open(os.path.join('..', 'assignments', language, assignment, 'src', str(int(float(num))) + extension)) as f:
         return f.read()
 
 @app.route('/submit_plot/coordinates/<language>/<assignment>')
