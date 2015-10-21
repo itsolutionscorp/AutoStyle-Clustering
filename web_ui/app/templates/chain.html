@@ -111,7 +111,16 @@
                 <input id="{{'negativehint' + outer_loop + loop.index|string()}}" readonly value="{{hint}}" style="width: 100%">
               </div>
               {% endfor %}
-  
+        <code style="color: #D2691E;background-color: #F5DEB3; margin-left:25%">Here's some approach advice...</code>
+                 {% for hint in post.approach_hint %}
+              <div class="input-group" style="margin-left:25%;">
+                <span class="input-group-addon">
+                  <input id="{{'approach' + outer_loop + loop.index|string()}}" type="checkbox">
+                </span>
+                <input id="{{'approachhint' + outer_loop + loop.index|string()}}" readonly value="{{hint}}" style="width: 100%">
+              </div>
+              {% endfor %}
+
         {% endif %}
         </div>
       {% endfor %}    

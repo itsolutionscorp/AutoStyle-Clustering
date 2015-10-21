@@ -88,11 +88,12 @@ def submit_form():
       if cl.next:
         pos_hints = cl.get_positive_hint()
         neg_hints = cl.get_negative_hint()
+        approach_hints = cl.get_approach_hint()
         for ph in pos_hints[0]:
           hints.append(ph) 
         for nh in neg_hints[0]:
           hints.append(nh)
-        posts.append({'index': cl.index, 'code': cl.source_code, 'flog': cl.flog_score, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint': interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1], 'positive_hint_locations': pos_hints[2], 'negative_hint_locations': neg_hints[2]})
+        posts.append({'index': cl.index, 'code': cl.source_code, 'flog': cl.flog_score, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint': interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1], 'positive_hint_locations': pos_hints[2], 'negative_hint_locations': neg_hints[2], "approach_hint": approach_hints})
       else:
         posts.append({'index':cl.index, 'code': cl.source_code, 'flog': cl.flog_score, 'positive_hint': "", 'negative_hint': ''})
       cl = cl.next
@@ -203,6 +204,7 @@ def improve_submit():
     hints = []
     pos_hints = cl.get_positive_hint()
     neg_hints = cl.get_negative_hint()
+    approach_hints = cl.get_approach_hint()
     print pos_hints
     print neg_hints
     for ph in pos_hints[0]:
@@ -223,7 +225,7 @@ def improve_submit():
           else:
             skeleton += "-"
       skeleton = re.sub("#.*\n", "",skeleton)
-    post = {'code': cl.source_code, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint': interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1], 'positive_hint_locations': pos_hints[2], 'negative_hint_locations': neg_hints[2], 'skeleton':skeleton}
+    post = {'code': cl.source_code, 'positive_hint': interpret_list_of_hints(pos_hints[0], False).split("\n")[1:-1], 'positive_lines': pos_hints[1], 'negative_lines': neg_hints[1], 'negative_hint': interpret_list_of_hints(neg_hints[0], True).split("\n")[1:-1], 'positive_hint_locations': pos_hints[2], 'negative_hint_locations': neg_hints[2], 'skeleton':skeleton, 'approach_hint':approach_hints}
     if lang == "java":
         lang = "text/x-java"
     directories = [item.lstrip('../assignments/')for item in glob.glob('../assignments/*/*')]

@@ -233,11 +233,11 @@ class ChainLink:
 
     def get_approach_hint(self):
         clusters = self.chain.clusters
-        closest_neighbors = np.argmin(self.chain.dist_matrix[self.index])[:5] # TODO make it a parameter, 5 is the k for kNN algorithm
+        closest_neighbors = np.argsort(self.chain.dist_matrix[self.index])[1:6] # TODO make it a parameter, 5 is the k for kNN algorithm
         ind = np.argsort(clusters[:, 0])
         sorted_clusters = clusters[ind, :]
-        cluster = np.argmax(np.bincount(sorted_clusters[closest_neighbors, 1]))
-        return self.chain.manual_hints[cluster][2] # TODO the third column stores hints
+        cluster = np.argmax(np.bincount(sorted_clusters[closest_neighbors, 1].astype(int)))
+        return [self.chain.manual_hints[cluster][2]] # TODO the third column stores hints
 
     def get_sorted_hints(self, next_link, num_hints, is_not_hint, must_be_structural, used_hints):
         '''
