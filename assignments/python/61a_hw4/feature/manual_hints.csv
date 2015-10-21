@@ -1,11 +1,11 @@
 cluster,type,hints
-0,b,Your approach is great!
-1,a,You need to consider a completely different approach (we'll assist you with subgoals will assist you)
-2,a,iofweigjwe
-3,a,gwegewweg
-4,a,oewnfoiwf
-5,t,weipgjewpg
-6,a,wgiwpwgg
-7,t,powejgoejwwe
-8,a,pwogjwpogew
-9,t,You need to consider a completely different approach (we'll assist you with subgoals will assist you)
+0,a,Your general approach to the problem is correct, but you need to use python constructs more effectively to improve your style. The hints will help you do so.
+1,t,You need to consider a completely different approach (we'll assist you with subgoals will assist you)
+2,b,Your approach is correct!
+3,t,You need to consider a completely different approach (we'll assist you with subgoals will assist you)
+4,b,Your approach is correct!
+5,a,Your general approach to the problem is correct, but you need to use python constructs more effectively to improve your style. The hints will help you do so.
+6,t,You need to consider a completely different approach (we'll assist you with subgoals will assist you)
+7,t,You need to consider a completely different approach (we'll assist you with subgoals will assist you)
+8,t,You need to consider a completely different approach (we'll assist you with subgoals will assist you)
+9,a,Your general approach to the problem is correct, but you need to use python constructs more effectively to improve your style. The hints will help you do so.
