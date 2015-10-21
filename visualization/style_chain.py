@@ -17,6 +17,7 @@ import numpy as np
 import os
 import pickle
 import re
+import csv
 from collections import OrderedDict
 
 NUM_STRUCTURAL_FEATURES = 8
@@ -27,7 +28,7 @@ class Chain():
     relevant to all links in the chain.
     '''
 
-    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=3):
+    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, clusters, manual_hints, max_hints=3):
         '''
         Initialize a chain starting at start_index.
         This also initializes all of the constants.
@@ -54,6 +55,8 @@ class Chain():
         self.negative_feedback_scale = -10000
         self.num_structural_features = NUM_STRUCTURAL_FEATURES
 
+        self.clusters = clusters
+        self.manual_hints = manual_hints
         self.initialize_weights()
         if feedback:
             self.update_weights(feedback, old_chain)
@@ -227,7 +230,14 @@ class ChainLink:
         if self.negative_hint == None:
             self.negative_hint, self.negative_hint_lines, self.negative_hint_locations = self.generate_hint(True)
         return self.negative_hint, self.negative_hint_lines, self.negative_hint_locations
-            
+
+    def get_approach_hint(self):
+        clusters = self.chain.clusters
+        closest_neighbors = np.argmin(self.chain.dist_matrix[self.index])[:5] # TODO make it a parameter, 5 is the k for kNN algorithm
+        ind = np.argsort(clusters[:, 0])
+        sorted_clusters = clusters[ind, :]
+        cluster = np.argmax(np.bincount(sorted_clusters[closest_neighbors, 1]))
+        return self.chain.manual_hints[cluster][2] # TODO the third column stores hints
 
     def get_sorted_hints(self, next_link, num_hints, is_not_hint, must_be_structural, used_hints):
         '''
@@ -423,6 +433,11 @@ def generate_chain(start_index, max_hints, style_score_weight, home_dir = "./",
     feature_dir = home_dir + data_dir + 'feature/'
     source_dir = home_dir + data_dir + 'src/'
     distances = np.loadtxt(home_dir + data_dir + 'gen/ast_dist_matrix.np')
+    clusters = np.loadtxt(home_dir + data_dir + 'gen/coordinates.csv', delimiter=",", skiprows = 1, usecols = [2, 3])
+    manual_hints = []
+    with open(feature_dir + "/manual_hints.csv", "r") as f:
+        for line in f.readlines()[1:]:
+            manual_hints.append(line.split(","))
     style_scores = np.loadtxt(feature_dir + 'style_scores.np', ndmin=2)
     style_features = np.loadtxt(feature_dir + 'style_features.np', ndmin=2)
     feature_names = np.genfromtxt(feature_dir + 'style_features_names.np', dtype='str', delimiter='\n')
@@ -436,7 +451,7 @@ def generate_chain(start_index, max_hints, style_score_weight, home_dir = "./",
         with open(home_dir + libcall_dict, 'r') as f:
             libcall_dict = pickle.load(f)
 
-    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=max_hints)
+    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, clusters, manual_hints, max_hints=max_hints)
     return c
 
 def unicode_to_str(input_u):
