@@ -99,6 +99,7 @@ def main():
     parser.add_argument('-t', '--tsne', action='store_true', help='include this option to visualize the clusters using tsne')
     parser.add_argument('-i', '--individual-plots', action='store_true', help='include this option to plot each cluster individually in addition to all clusters together')
     parser.add_argument('-d', '--distance-matrix', action='store_true', help='include this option if data is a distance matrix, instead of features. This option should only be included if plotting with tsne')
+    parser.add_argument('-o', help='output location of coordinates file')
     args = parser.parse_args()
     data = np.loadtxt(args.data)
     clusters = np.loadtxt(args.clusters).astype(int)
@@ -124,14 +125,17 @@ def main():
     else:
         if use_tsne:
             plotting_data = calc_tsne(sorted_data, PERPLEX=30)
-            sorted_index.shape = (265, 1)
-            sorted_clusters.shape = (265, 1)
-            sorted_flog_feature.shape = (265, 1)
+            
+            #sorted_index.shape = (265, 1)
+            #sorted_clusters.shape = (265, 1)
+            #sorted_flog_feature.shape = (265, 1)
+            sorted_index.shape += (1,)
+            sorted_clusters.shape += (1,)
+            sorted_flog_feature.shape += (1,)
             csv_output_data = np.concatenate((plotting_data, sorted_index), axis=1) 
             csv_output_data = np.concatenate((csv_output_data, sorted_clusters), axis=1)
             csv_output_data = np.concatenate((csv_output_data, sorted_flog_feature), axis=1)
-            #np.savetxt("new_coordinates.csv", csv_output_data, fmt='%.2f %.2f %i %i %.2f', delimiter=',', header='xaxis,yaxis,filename,cluster,flog')
-            np.savetxt("new_coordinates.csv", csv_output_data, delimiter=',', header='xaxis,yaxis,filename,cluster,flog')
+            np.savetxt(args.o, csv_output_data, delimiter=',', header='xaxis,yaxis,filename,cluster,flog')
         else:
             plotting_data = sorted_data
 
