@@ -65,7 +65,7 @@ def ast_from_sexp(s):
     except Exception:
         print s    
 
-def abc_score(ast):
+def abc_score(ast, num_lines):
     '''
     Return a simple abc score of submission index.
     Abc score counts assignments, branches, and conditionals.
@@ -86,7 +86,7 @@ def abc_score(ast):
         elif key in ["Compare","Try", "ExceptHandler"]:
             cond+=1
         stack += Node.get_children(current)[::-1]
-    score = round(math.sqrt(branch ** 2 + assign ** 2 + cond ** 2 + .4 * (calls ** 2) + cpts ** 2), 2)
+    score = round(math.sqrt(branch ** 2 + (2 * assign ** 2) + cond ** 2 + (.2 * (calls ** 2)) + cpts ** 2 + (num_lines**2)), 2)
     return [score, ], [0, ]
 
 def loops_and_recursion(tree):
@@ -675,14 +675,14 @@ def save_matrix(feature_vector, output_feature_file, submission_index):
     np.savetxt(output_feature_file, all_features)
         
 
-def handle_feature(ast, language, function_name, index, feature, class_name):
+def handle_feature(ast, language, function_name, index, feature, class_name, num_lines):
     '''
     Returns the feature value of the submission with the given index.
     '''
     if (ast is None):
         raise Exception
     if feature == 'abc':
-        return abc_score(ast)
+        return abc_score(ast, num_lines)
     if feature == 'flog':
         return flog_score(index)
     elif feature == 'libcall':
@@ -710,12 +710,15 @@ def generate_individual_features(language, function_name, index, features, home_
     SOURCE_FILES = natural_sort(glob.glob(HOME_DIR + 'src/*'))
     
     ast = generate_ast(language, index, function_name, class_name)
+    f = open(SOURCE_FILES[index])
+    num_lines = len(f.readlines())
+    f.close()
     printTree(ast)
     
     feature_vector = []
     feature_lines = []
     for feature in features:
-        feature_values, feature_values_lines = handle_feature(ast, language, function_name, index, feature, class_name)
+        feature_values, feature_values_lines = handle_feature(ast, language, function_name, index, feature, class_name, num_lines)
         feature_vector += feature_values
         feature_lines += feature_values_lines
     return list_to_2d_np(feature_vector), list_to_2d_np(feature_lines)
