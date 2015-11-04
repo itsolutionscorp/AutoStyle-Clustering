@@ -1,11 +1,11 @@
 cluster,type,hints
-0,a,Your general approach to the problem is correct, but you need to use python constructs more effectively to improve your style. The hints will help you do so.
-1,t,You need to consider a completely different approach (we'll assist you with subgoals will assist you)
+0,a,Instead of looping over the words think about how you can get the unique letters in each word and how you can compare them elegantly.
+1,t,Think about how you can check if an element in one list is also in another without looping over the second list
 2,b,Your approach is correct!
-3,t,You need to consider a completely different approach (we'll assist you with subgoals will assist you)
-4,b,Your approach is correct!
-5,a,Your general approach to the problem is correct, but you need to use python constructs more effectively to improve your style. The hints will help you do so.
-6,t,You need to consider a completely different approach (we'll assist you with subgoals will assist you)
-7,t,You need to consider a completely different approach (we'll assist you with subgoals will assist you)
-8,t,You need to consider a completely different approach (we'll assist you with subgoals will assist you)
-9,a,Your general approach to the problem is correct, but you need to use python constructs more effectively to improve your style. The hints will help you do so.
+3,t,Think about how you can check if an element in one list is also in another without looping over the second list
+4,b,Instead of looping over the words think about how you can get the unique letters in each word and how you can compare them elegantly.
+5,a,Instead of looping over the words think about how you can get the unique letters in each word and how you can compare them elegantly.
+6,t,Think about how you can check if an element in one list is also in another without looping over the second list
+7,t,Think about how you can check if an element in one list is also in another without looping over the second list
+8,t,Think about how you can check if an element in one list is also in another without looping over the second list
+9,a,Instead of looping over the words think about how you can get the unique letters in each word and how you can compare them elegantly.
