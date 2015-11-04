@@ -27,7 +27,7 @@ class Chain():
     relevant to all links in the chain.
     '''
 
-    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=3):
+    def __init__(self, source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=3, source_code=None):
         '''
         Initialize a chain starting at start_index.
         This also initializes all of the constants.
@@ -57,13 +57,13 @@ class Chain():
         self.initialize_weights()
         if feedback:
             self.update_weights(feedback, old_chain)
-        self.grow_chain(start_index)
+        self.grow_chain(start_index, source_code = source_code)
         
-    def grow_chain(self, start_index):
+    def grow_chain(self, start_index, source_code = None):
         '''
         Build a chain object from start_index.
         '''
-        cl = ChainLink(start_index, None, self, 0)
+        cl = ChainLink(start_index, None, self, 0, source_code)
         self.head = cl
         self.length = 1
         while True:
@@ -141,7 +141,7 @@ class ChainLink:
     to only one link in the chain.
     '''
     
-    def __init__(self, index, prev_link, chain, pos_in_chain = 0):
+    def __init__(self, index, prev_link, chain, pos_in_chain = 0, source_code = None):
         '''
         Every chain link is associated with an 
         index from which you can learn everything about it
@@ -158,8 +158,11 @@ class ChainLink:
         self.positive_hint = None
         self.negative_hint = None
         self.position_in_chain = pos_in_chain
-        with open(self.chain.files[self.index], 'r') as f:
-            self.source_code = f.read()
+        if source_code != None:
+            self.source_code = source_code
+        else:
+            with open(self.chain.files[self.index], 'r') as f:
+                self.source_code = f.read()
         
     def generate_successor(self, threshold):
         '''
@@ -413,7 +416,7 @@ def sparse_add_into(sparse_vector, vector, scale):
 
 def generate_chain(start_index, max_hints, style_score_weight, home_dir = "./",
                    feedback=None, old_chain=None, data_dir='data/', weights_file='weights.np',
-                   libcall_dict='util/lib_call_dict.pkl', language="ruby"):
+                   libcall_dict='util/lib_call_dict.pkl', language="ruby", source_code = None):
     '''
     Create a new chain object. This is the interface with the web app.
     Disclaimer: Assumes data_dir has a particular structure. 
@@ -435,8 +438,7 @@ def generate_chain(start_index, max_hints, style_score_weight, home_dir = "./",
             style_scores = style_scores[:, np.newaxis]
         with open(home_dir + libcall_dict, 'r') as f:
             libcall_dict = pickle.load(f)
-
-    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=max_hints)
+    c = Chain(source_dir, distances, style_scores, style_features, feature_names, score_names, weights_file, libcall_dict, start_index, ast_distance_weight, style_score_weight, feedback, old_chain, line_num_matrix, max_hints=max_hints, source_code=source_code)
     return c
 
 def generate_chain_loaded(start_index, max_hints, style_score_weight, style_scores, style_features,line_num_matrix, distances,
