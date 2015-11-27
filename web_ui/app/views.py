@@ -43,6 +43,12 @@ def submit_plot():
     directories = [item.lstrip('../assignments/')for item in glob.glob('../assignments/*/*')]
     return render_template("submit_plot.html",  directory=data_loc, directories=directories)
 
+@app.route('/results/')
+def results():    
+    files = glob.glob("../intervention/results/*")
+    cdf = pd.read_csv("control_df.csv", sep="~", index_col = 0).T.to_dict()
+    adf = pd.read_csv("auto_df.csv", sep="~", index_col = 0).T.to_dict()
+    return render_template("results.html", cdf, adf)
 
 @app.route('/')
 @app.route('/index')
