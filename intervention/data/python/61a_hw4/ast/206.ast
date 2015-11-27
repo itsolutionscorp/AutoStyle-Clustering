@@ -1,1 +1,0 @@
-{Module {{FunctionDeffunction0 {{arguments {{Name {{Param }}}}{{Name {{Param }}}}}}{{Assign {{Name {{Store }}}}{{Num }}}}{{For {{Name {{Store }}}}{{Call {{get_string {{Load }}}}{{Name {{Load }}}}}}{{If {{Compare {{Name {{Load }}}}{{In }}{{Call {{get_list {{Load }}}}{{Name {{Load }}}}}}}}{{AugAssign {{Name {{Store }}}}{{Add }}{{Num }}}}}}}}{{Return {{Name {{Load }}}}}}}}}

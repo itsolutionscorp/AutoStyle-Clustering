@@ -1,1 +1,0 @@
-{Module {{FunctionDeffunction0 {{arguments {{Name {{Param }}}}{{Name {{Param }}}}}}{{Return {{Call {{len {{Load }}}}{{Call {{list {{Load }}}}{{BinOp {{Call {{set {{Load }}}}{{Name {{Load }}}}}}{{BitAnd }}{{Call {{set {{Load }}}}{{Name {{Load }}}}}}}}}}}}}}}}}
