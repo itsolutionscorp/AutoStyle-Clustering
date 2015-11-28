@@ -1,26 +1,26 @@
-~student_id~timestamp~time_taken~flog_score~code~pos_hints~neg_hint~approach_hints~skeleton~cluster
-1114006_1447540630_23_5_11.95.py~../intervention/results/1114006~1447540630~23~10.33~"def num_common_letters(goal_word, guess):
+~student_id~timestamp~time_taken~flog_score~code~pos_hints~neg_hint~approach_hints~skeleton~cluster~sid~type
+1114006_1447540630_23_5_11.95.py~1114006~1447540630~23~10.33~"def num_common_letters(goal_word, guess):
 	counter = 0
 	cache = []
 	for letter in list(goal_word):
 		if letter in list(guess) and letter not in cache:
 			counter += 1
 			cache += letter
-	return counter"~"...using a binary operation (<<, >>, &, ^, ~, |)....using a call to len....using set comprehension."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111703_1447799212_273_4_8.73.py~../intervention/results/111703~1447799212~273~5.31~"def num_common_letters(goal_word, guess):
+	return counter"~"...using a binary operation (<<, >>, &, ^, ~, |)....using a call to len....using set comprehension."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~1~auto
+111703_1447799212_273_4_8.73.py~111703~1447799212~273~5.31~"def num_common_letters(goal_word, guess):
 	first = set(goal_word)
 	second = set(guess)
-	return len([x for x in first if x in second])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using list comprehension....not using the in operator.~~~4
-111307_1447457963_515_4_5.37.py~../intervention/results/111307~1447457963~515~3.58~"def num_common_letters(goal_word, guess):
+	return len([x for x in first if x in second])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using list comprehension....not using the in operator.~~~4~2~auto
+111307_1447457963_515_4_5.37.py~111307~1447457963~515~3.58~"def num_common_letters(goal_word, guess):
 	repeated = {character for character in goal_word if character in guess}
-	return len(repeated)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...not using the in operator....not using set comprehension.~~~4
-1113015_1447460523_117_2_7.86.py~../intervention/results/1113015~1447460523~117~6.99~"def num_common_letters(goal_word, guess):
+	return len(repeated)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...not using the in operator....not using set comprehension.~~~4~3~auto
+1113015_1447460523_117_2_7.86.py~1113015~1447460523~117~6.99~"def num_common_letters(goal_word, guess):
 	match_list = []
 	for x in goal_word:
 		if x in guess and x not in match_list:
 			match_list.append(x)
-	return len(match_list)"~"...using list comprehension....using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1113017_1447462085_1573_6_27.22.py~../intervention/results/1113017~1447462085~1573~22.11~"def num_common_letters(goal_word, guess):
+	return len(match_list)"~"...using list comprehension....using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~4~auto
+1113017_1447462085_1573_6_27.22.py~1113017~1447462085~1573~22.11~"def num_common_letters(goal_word, guess):
 	goal_matrix = []
 	while goal_word:
 		if not goal_word[0:1] in goal_matrix:
@@ -44,74 +44,74 @@
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~6
-1114001_1447538689_87_2_8.76.py~../intervention/results/1114001~1447538689~87~6.99~"def num_common_letters(goal_word, guess):
+    return ---------    "~6~5~auto
+1114001_1447538689_87_2_8.76.py~1114001~1447538689~87~6.99~"def num_common_letters(goal_word, guess):
 	common_letters = []
 	for letter in guess:
 		if letter in goal_word and letter not in common_letters:
 			common_letters.append(letter)
-	return len(common_letters)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1113015_1447460403_57_2_9.04.py~../intervention/results/1113015~1447460403~57~8.17~"def num_common_letters(goal_word, guess):
+	return len(common_letters)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~6~auto
+1113015_1447460403_57_2_9.04.py~1113015~1447460403~57~8.17~"def num_common_letters(goal_word, guess):
 	match_list = []
 	for x in goal_word:
 		if x in guess:
 			if x not in match_list:
 				match_list.append(x)
-	return len(match_list)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use nested conditionals (i.e. an if statement inside an if statement)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111306_1447456944_15_4_4.38.py~../intervention/results/111306~1447456944~15~2.68~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4
-111102_1447285135_25_4.py~../intervention/results/111102~1447285135~25~2.61~"def num_common_letters(goal_word, guess):
-	return len(set([word for word in guess if word in goal_word]))"~"...using a call to list....using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4.py
-111103_1447286394_26_4.py~../intervention/results/111103~1447286394~26~2.61~"def num_common_letters(goal_word, guess):
-	return len(set([letter for letter in guess if letter in goal_word]))"~"...using a call to list....using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4.py
-1114010_1447544293_257_2_8.38.py~../intervention/results/1114010~1447544293~257~6.8~"def num_common_letters(goal_word, guess):
+	return len(match_list)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use nested conditionals (i.e. an if statement inside an if statement)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~4~auto
+111306_1447456944_15_4_4.38.py~111306~1447456944~15~2.68~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4~7~auto
+111102_1447285135_25_4.py~111102~1447285135~25~2.61~"def num_common_letters(goal_word, guess):
+	return len(set([word for word in guess if word in goal_word]))"~"...using a call to list....using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~8~auto
+111103_1447286394_26_4.py~111103~1447286394~26~2.61~"def num_common_letters(goal_word, guess):
+	return len(set([letter for letter in guess if letter in goal_word]))"~"...using a call to list....using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~9~auto
+1114010_1447544293_257_2_8.38.py~1114010~1447544293~257~6.8~"def num_common_letters(goal_word, guess):
 	s = set(goal_word)
 	a = set(guess)
 	u = s.intersection(a)
-	return len(u)"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111311_1447460337_7_4_5.22.py~../intervention/results/111311~1447460337~7~5.22~"def num_common_letters(goal_word, guess):
+	return len(u)"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~10~auto
+111311_1447460337_7_4_5.22.py~111311~1447460337~7~5.22~"def num_common_letters(goal_word, guess):
 	unique_word = set(goal_word)
 	unique_guess = set(guess)
-	return len(unique_word.intersection(unique_guess))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |)....using a call to list."~~~~4
-111304_1447460245_333_2_10.25.py~../intervention/results/111304~1447460245~333~10.25~"def num_common_letters(goal_word, guess):
+	return len(unique_word.intersection(unique_guess))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |)....using a call to list."~~~~4~11~auto
+111304_1447460245_333_2_10.25.py~111304~1447460245~333~10.25~"def num_common_letters(goal_word, guess):
     uni_common_list = []
     l1=list(goal_word)
     l2=list(guess)
     common_list = [x for x in l1 if x in l2]
     common_set = set(common_list)
-    return len(common_set)"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list....not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111706_1447802690_129_2_8.82.py~../intervention/results/111706~1447802690~129~8.82~"def num_common_letters(a,b):
+    return len(common_set)"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list....not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~12~auto
+111706_1447802690_129_2_8.82.py~111706~1447802690~129~8.82~"def num_common_letters(a,b):
 	blist = list()
 	btemp = [ele for ele in b]
 	for l in a:
 		if l in btemp and l not in blist:
 			blist+=l
-	return len(blist)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using list comprehension.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111305_1447458346_44_4_3.49.py~../intervention/results/111305~1447458346~44~3.49~"def num_common_letters(goal_word, guess):
-	return len([letter for letter in list(set(goal_word)) if letter in list(set(guess))])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list....not using list comprehension....not using the in operator.~~~4
-111707_1447802272_234_5_10.33.py~../intervention/results/111707~1447802272~234~10.33~"def num_common_letters(goal_word, guess):
+	return len(blist)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using list comprehension.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~13~auto
+111305_1447458346_44_4_3.49.py~111305~1447458346~44~3.49~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in list(set(goal_word)) if letter in list(set(guess))])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list....not using list comprehension....not using the in operator.~~~4~14~auto
+111707_1447802272_234_5_10.33.py~111707~1447802272~234~10.33~"def num_common_letters(goal_word, guess):
 	count = 0
 	matches = []
 	for x in list(goal_word):
 		if x in list(guess) and x not in matches:
 			count += 1
 			matches += x
-	return count"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to len....using set comprehension."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-1114011_1447542694_38_5_9.58.py~../intervention/results/1114011~1447542694~38~9.58~"def num_common_letters(goal_word, guess):
+	return count"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to len....using set comprehension."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~15~auto
+1114011_1447542694_38_5_9.58.py~1114011~1447542694~38~9.58~"def num_common_letters(goal_word, guess):
     repeats = []
     result = 0
     for letter in guess:
         if letter in goal_word and letter not in repeats:
             result += 1
         repeats.append(letter)
-    return result"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-1114006_1447541494_97_4_4.1.py~../intervention/results/1114006~1447541494~97~2.19~"def num_common_letters(goal_word, guess):
-	return len(set(guess))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4
-111103_1447287289_303_4.py~../intervention/results/111103~1447287289~303~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4.py
-111705_1447798999_648_4_4.22.py~../intervention/results/111705~1447798999~648~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) and set(guess))"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~~~~4
-111305_1447456940_28_5_10.59.py~../intervention/results/111305~1447456940~28~10.59~"def num_common_letters(goal_word, guess):
+    return result"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~16~auto
+1114006_1447541494_97_4_4.1.py~1114006~1447541494~97~2.19~"def num_common_letters(goal_word, guess):
+	return len(set(guess))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4~1~auto
+111103_1447287289_303_4.py~111103~1447287289~303~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~9~auto
+111705_1447798999_648_4_4.22.py~111705~1447798999~648~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) and set(guess))"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~~~~4~17~auto
+111305_1447456940_28_5_10.59.py~111305~1447456940~28~10.59~"def num_common_letters(goal_word, guess):
 	common_letters = []
 	num_common = 0
 	for guess_letter in guess:
@@ -119,88 +119,88 @@
 			if (guess_letter == goal_letter) & (guess_letter not in common_letters):
 				num_common += 1
 				common_letters.append(guess_letter)
-	return num_common"~...using the in operator....using a call to len....using set comprehension.~"...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a binary operation (<<, >>, &, ^, ~, |)."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111715_1447804545_62_4_2.41.py~../intervention/results/111715~1447804545~62~2.41~"def num_common_letters(goal_word, guess):
-    return len(set(goal_word) & set(guess))"~~~~~4
-1113016_1447461383_995_5_11.3.py~../intervention/results/1113016~1447461383~995~9.58~"def num_common_letters(goal_word, guess):
+	return num_common"~...using the in operator....using a call to len....using set comprehension.~"...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a binary operation (<<, >>, &, ^, ~, |)."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~14~auto
+111715_1447804545_62_4_2.41.py~111715~1447804545~62~2.41~"def num_common_letters(goal_word, guess):
+    return len(set(goal_word) & set(guess))"~~~~~4~18~auto
+1113016_1447461383_995_5_11.3.py~1113016~1447461383~995~9.58~"def num_common_letters(goal_word, guess):
     found = []
     count = 0
     for i in guess:
         if (i in goal_word and i not in found):
             found.append(i)
             count +=1
-    return count"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-1114005_1447541177_267_4_5.27.py~../intervention/results/1114005~1447541177~267~3.44~"def num_common_letters(goal_word, guess):
+    return count"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~19~auto
+1114005_1447541177_267_4_5.27.py~1114005~1447541177~267~3.44~"def num_common_letters(goal_word, guess):
 	1 & 1
-	return len([s for s in set(goal_word) if s in guess])"~~"...not using a call to set....not using a binary operation (<<, >>, &, ^, ~, |)....not using list comprehension....not using the in operator."~~~4
-111704_1447798598_62_4_4.34.py~../intervention/results/111704~1447798598~62~2.61~"def num_common_letters(goal_word, guess):
-	return len([letter for letter in set(guess) if letter in goal_word])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using list comprehension....not using the in operator.~~~4
-111909_1447991041_753_4_2.41.py~../intervention/results/111909~1447991041~753~2.41~"def num_common_letters(goal_word, guess):
-    return len(set(goal_word) & set(guess))"~~~~~4
-1114003_1447542838_110_4_2.41.py~../intervention/results/1114003~1447542838~110~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-111305_1447458811_46_4_2.86.py~../intervention/results/111305~1447458811~46~2.86~"def num_common_letters(goal_word, guess):
-	return len([letter for letter in set(goal_word) if letter in set(guess)])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4
-111701_1447799295_177_4_4.22.py~../intervention/results/111701~1447799295~177~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-1114011_1447543523_15_4_3.71.py~../intervention/results/1114011~1447543523~15~3.71~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess])"~~"...not using a call to set....not using a binary operation (<<, >>, &, ^, ~, |)....not using list comprehension....not using the in operator."~~~4~20~auto
+111704_1447798598_62_4_4.34.py~111704~1447798598~62~2.61~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in set(guess) if letter in goal_word])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using list comprehension....not using the in operator.~~~4~21~auto
+111909_1447991041_753_4_2.41.py~111909~1447991041~753~2.41~"def num_common_letters(goal_word, guess):
+    return len(set(goal_word) & set(guess))"~~~~~4~22~auto
+1114003_1447542838_110_4_2.41.py~1114003~1447542838~110~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~23~auto
+111305_1447458811_46_4_2.86.py~111305~1447458811~46~2.86~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in set(goal_word) if letter in set(guess)])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~14~auto
+111701_1447799295_177_4_4.22.py~111701~1447799295~177~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~24~auto
+1114011_1447543523_15_4_3.71.py~1114011~1447543523~15~3.71~"def num_common_letters(goal_word, guess):
     without_repeats = set(guess)
-    return sum([1 for letter in without_repeats if letter in goal_word])"~"...using a call to len....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using a call to sum....not using list comprehension....not using the in operator.~~~4
-111311_1447459756_9_5_11.3.py~../intervention/results/111311~1447459756~9~9.58~"def num_common_letters(goal_word, guess):
+    return sum([1 for letter in without_repeats if letter in goal_word])"~"...using a call to len....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using a call to sum....not using list comprehension....not using the in operator.~~~4~16~auto
+111311_1447459756_9_5_11.3.py~111311~1447459756~9~9.58~"def num_common_letters(goal_word, guess):
 	matching_letters = []
 	total = 0
 	for letter in guess:
 		if letter in goal_word and letter not in matching_letters:
 			matching_letters.append(letter)
 			total += 1
-	return total"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-1114005_1447539111_83_2_11.96.py~../intervention/results/1114005~1447539111~83~10.34~"def num_common_letters(goal_word, guess):
+	return total"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~11~auto
+1114005_1447539111_83_2_11.96.py~1114005~1447539111~83~10.34~"def num_common_letters(goal_word, guess):
 	word1 = sorted(set(goal_word))
 	word2 = sorted(set(guess))
 	same = 0
 	for x in word1:
 		if x in word2:
 			same += 1
-	return same"~"...using a call to len....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set....not using a call to sorted.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111906_1447990116_297_2_6.78.py~../intervention/results/111906~1447990116~297~6.78~"def num_common_letter(goal_word, guess):
+	return same"~"...using a call to len....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set....not using a call to sorted.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~20~auto
+111906_1447990116_297_2_6.78.py~111906~1447990116~297~6.78~"def num_common_letter(goal_word, guess):
 	goal_word= ""I give up""
 	guess = ""Yes""
 	if goal_word==gues:
 		return ""What?""
-	return (goal_word)"~"...using a call to len....using a call to set....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...restructuring your function to not use a conditional.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1113016_1447462289_903_4_5.59.py~../intervention/results/1113016~1447462289~903~3.9~"def num_common_letters(goal_word, guess):
+	return (goal_word)"~"...using a call to len....using a call to set....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...restructuring your function to not use a conditional.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~25~auto
+1113016_1447462289_903_4_5.59.py~1113016~1447462289~903~3.9~"def num_common_letters(goal_word, guess):
     guess = """".join(set(guess))
-    return sum([1 if x in goal_word else 0 for x in guess])"~"...using a call to len....using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to sum....not using an if-expression....not using list comprehension.~~~4
-111708_1447802398_335_4_5.5.py~../intervention/results/111708~1447802398~335~3.77~"def num_common_letters(goal_word, guess):
+    return sum([1 if x in goal_word else 0 for x in guess])"~"...using a call to len....using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to sum....not using an if-expression....not using list comprehension.~~~4~19~auto
+111708_1447802398_335_4_5.5.py~111708~1447802398~335~3.77~"def num_common_letters(goal_word, guess):
 	goal_word, guess = set([letter for letter in goal_word]), set([letter for letter in guess])
-	return len(set.intersection(guess, goal_word))"~"...using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using list comprehension.~~~4
-111707_1447803939_55_2_6.69.py~../intervention/results/111707~1447803939~55~6.69~"def num_common_letters(goal_word, guess):
+	return len(set.intersection(guess, goal_word))"~"...using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using list comprehension.~~~4~26~auto
+111707_1447803939_55_2_6.69.py~111707~1447803939~55~6.69~"def num_common_letters(goal_word, guess):
 	goal_set = set(goal_word)
 	guess_set = set(guess)
 	matches = goal_set & guess_set
-	return len(matches)"~...using list comprehension....using the in operator....using a call to list.~"...not using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111907_1447993008_31_4_2.41.py~../intervention/results/111907~1447993008~31~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word).intersection(guess))"~~~~~4
-111707_1447804281_45_4_3.77.py~../intervention/results/111707~1447804281~45~3.77~"def num_common_letters(goal_word, guess):
+	return len(matches)"~...using list comprehension....using the in operator....using a call to list.~"...not using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~15~auto
+111907_1447993008_31_4_2.41.py~111907~1447993008~31~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(guess))"~~~~~4~27~auto
+111707_1447804281_45_4_3.77.py~111707~1447804281~45~3.77~"def num_common_letters(goal_word, guess):
 	matches = list({x for x in set(goal_word) & set(guess)})
-	return len(matches)"~~...not using set comprehension....not using a call to list.~~~4
-111101_1447284327_539_4_5.73.py~../intervention/results/111101~1447284327~539~4.1~"def num_common_letters(goal_word, guess):
+	return len(matches)"~~...not using set comprehension....not using a call to list.~~~4~15~auto
+111101_1447284327_539_4_5.73.py~111101~1447284327~539~4.1~"def num_common_letters(goal_word, guess):
     lst = []
-    return len([lst.append(x) for x in goal_word if (x in guess and x not in lst)])"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4
-1114010_1447543824_88_2_8.93.py~../intervention/results/1114010~1447543824~88~7.47~"def num_common_letters(goal_word, guess):
+    return len([lst.append(x) for x in goal_word if (x in guess and x not in lst)])"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~28~auto
+1114010_1447543824_88_2_8.93.py~1114010~1447543824~88~7.47~"def num_common_letters(goal_word, guess):
 	s = set([goal_word[i] for i in range(len(goal_word))])
 	a = set([guess[j] for j in range(len(guess))])
 	u = s.intersection(a)
-	return len(u)"~"...using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to range....not using list comprehension.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111302_1447458940_67_4_4.22.py~../intervention/results/111302~1447458940~67~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & (set(guess)))"~~~~~4
-111311_1447460298_59_4_6.02.py~../intervention/results/111311~1447460298~59~5.22~"def num_common_letters(goal_word, guess):
+	return len(u)"~"...using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to range....not using list comprehension.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~10~auto
+111302_1447458940_67_4_4.22.py~111302~1447458940~67~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & (set(guess)))"~~~~~4~29~auto
+111311_1447460298_59_4_6.02.py~111311~1447460298~59~5.22~"def num_common_letters(goal_word, guess):
 	unique_word = set(goal_word)
 	unique_guess = set(guess)
-	return len(unique_word.intersection(unique_guess))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |)....using a call to list."~~~~4
-111305_1447458506_21_4_2.86.py~../intervention/results/111305~1447458506~21~2.86~"def num_common_letters(goal_word, guess):
-	return len([letter for letter in set(goal_word) if letter in set(guess)])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4
-1114006_1447538955_31_5_10.59.py~../intervention/results/1114006~1447538955~31~10.59~"def num_common_letters(goal_word, guess):
+	return len(unique_word.intersection(unique_guess))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |)....using a call to list."~~~~4~11~auto
+111305_1447458506_21_4_2.86.py~111305~1447458506~21~2.86~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in set(goal_word) if letter in set(guess)])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~14~auto
+1114006_1447538955_31_5_10.59.py~1114006~1447538955~31~10.59~"def num_common_letters(goal_word, guess):
 	counter = 0
 	cache = []
 	for letter in goal_word:
@@ -208,21 +208,21 @@
 			if letter == x and letter not in cache:
 				cache.append(letter)
 				counter += 1
-	return counter"~...using the in operator....using a call to len....using a call to set.~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111305_1447458649_46_4_2.86.py~../intervention/results/111305~1447458649~46~2.86~"def num_common_letters(goal_word, guess):
-	return len([letter for letter in set(goal_word) if letter in set(guess)])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4
-1114001_1447539136_66_4_5.18.py~../intervention/results/1114001~1447539136~66~3.29~"def num_common_letters(goal_word, guess):
+	return counter"~...using the in operator....using a call to len....using a call to set.~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~1~auto
+111305_1447458649_46_4_2.86.py~111305~1447458649~46~2.86~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in set(goal_word) if letter in set(guess)])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~14~auto
+1114001_1447539136_66_4_5.18.py~1114001~1447539136~66~3.29~"def num_common_letters(goal_word, guess):
 	2 << 1
-	return len(set(goal_word).intersection(guess))"~~~~~4
-111307_1447459000_302_4_5.37.py~../intervention/results/111307~1447459000~302~3.58~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(guess))"~~~~~4~6~auto
+111307_1447459000_302_4_5.37.py~111307~1447459000~302~3.58~"def num_common_letters(goal_word, guess):
 	repeated = {character for character in goal_word if character in guess}
-	return len(repeated)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...not using the in operator....not using set comprehension.~~~4
-1114001_1447539039_20_4_4.22.py~../intervention/results/1114001~1447539039~20~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word).intersection(guess))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4
-1114002_1447543487_124_4_5.46.py~../intervention/results/1114002~1447543487~124~3.71~"def num_common_letters(goal_word, guess):
+	return len(repeated)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...not using the in operator....not using set comprehension.~~~4~3~auto
+1114001_1447539039_20_4_4.22.py~1114001~1447539039~20~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(guess))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4~6~auto
+1114002_1447543487_124_4_5.46.py~1114002~1447543487~124~3.71~"def num_common_letters(goal_word, guess):
 	unique = set(goal_word)
-	return len([match for match in unique if match in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using list comprehension....not using the in operator.~~~4
-111703_1447798322_385_5_15.09.py~../intervention/results/111703~1447798322~385~10.62~"def num_common_letters(goal_word, guess):
+	return len([match for match in unique if match in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using list comprehension....not using the in operator.~~~4~30~auto
+111703_1447798322_385_5_15.09.py~111703~1447798322~385~10.62~"def num_common_letters(goal_word, guess):
 	count = 0
 	commons = []
 	for letter1 in goal_word:
@@ -230,47 +230,47 @@
 			if letter1 == letter2 and not letter1 in commons:
 				count += 1
 				commons.append(letter1)
-	return count"~...using a call to len....using a call to set....using list comprehension.~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111311_1447460206_448_4_6.94.py~../intervention/results/111311~1447460206~448~5.31~"def num_common_letters(goal_word, guess):
+	return count"~...using a call to len....using a call to set....using list comprehension.~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~2~auto
+111311_1447460206_448_4_6.94.py~111311~1447460206~448~5.31~"def num_common_letters(goal_word, guess):
 	unique_word = set(goal_word)
 	unique_guess = set(guess)
-	return len([x for x in unique_guess if x in unique_word])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using list comprehension....not using the in operator.~~~4
-1113014_1447462027_274_4_2.68.py~../intervention/results/1113014~1447462027~274~2.68~"def num_common_letters(goal_word, guess):
-	return len((set(goal_word)).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4
-111311_1447460515_174_4_2.68.py~../intervention/results/111311~1447460515~174~2.68~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4
-1114005_1447541263_83_4_5.27.py~../intervention/results/1114005~1447541263~83~3.44~"def num_common_letters(goal_word, guess):
+	return len([x for x in unique_guess if x in unique_word])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using list comprehension....not using the in operator.~~~4~11~auto
+1113014_1447462027_274_4_2.68.py~1113014~1447462027~274~2.68~"def num_common_letters(goal_word, guess):
+	return len((set(goal_word)).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4~31~auto
+111311_1447460515_174_4_2.68.py~111311~1447460515~174~2.68~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4~11~auto
+1114005_1447541263_83_4_5.27.py~1114005~1447541263~83~3.44~"def num_common_letters(goal_word, guess):
 	1 & 1
-	return len([s for s in set(goal_word) if s in guess])"~~"...not using a call to set....not using a binary operation (<<, >>, &, ^, ~, |)....not using list comprehension....not using the in operator."~~~4
-1114008_1447540759_241_2_5.46.py~../intervention/results/1114008~1447540759~241~3.71~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess])"~~"...not using a call to set....not using a binary operation (<<, >>, &, ^, ~, |)....not using list comprehension....not using the in operator."~~~4~20~auto
+1114008_1447540759_241_2_5.46.py~1114008~1447540759~241~3.71~"def num_common_letters(goal_word, guess):
 	a = set([letter for letter in goal_word if letter in guess])
-	return len(a & a)"~...using a call to list.~"...not using a binary operation (<<, >>, &, ^, ~, |)....not using list comprehension....not using the in operator."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111303_1447456589_15_4_4.22.py~../intervention/results/111303~1447456589~15~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-1114010_1447544808_58_2_8.44.py~../intervention/results/1114010~1447544808~58~6.87~"def num_common_letters(goal_word, guess):
+	return len(a & a)"~...using a call to list.~"...not using a binary operation (<<, >>, &, ^, ~, |)....not using list comprehension....not using the in operator."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~32~auto
+111303_1447456589_15_4_4.22.py~111303~1447456589~15~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~33~auto
+1114010_1447544808_58_2_8.44.py~1114010~1447544808~58~6.87~"def num_common_letters(goal_word, guess):
 	s = set(goal_word)
 	a = set(guess)
 	u = [i for i in a if i in s]
-	return len(u)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111703_1447798660_333_2_11.05.py~../intervention/results/111703~1447798660~333~6.87~"def num_common_letters(goal_word, guess):
+	return len(u)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~10~auto
+111703_1447798660_333_2_11.05.py~111703~1447798660~333~6.87~"def num_common_letters(goal_word, guess):
 	first = set(goal_word)
 	second = set(guess)
 	commons = [x for x in first if x in second]
-	return len(commons)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111305_1447459259_25_4_4.22.py~../intervention/results/111305~1447459259~25~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-1114010_1447544418_122_2_8.44.py~../intervention/results/1114010~1447544418~122~6.87~"def num_common_letters(goal_word, guess):
+	return len(commons)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~2~auto
+111305_1447459259_25_4_4.22.py~111305~1447459259~25~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~14~auto
+1114010_1447544418_122_2_8.44.py~1114010~1447544418~122~6.87~"def num_common_letters(goal_word, guess):
 	s = set(goal_word)
 	a = set(guess)
 	u = [i for i in a if i in s]
-	return len(u)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1114007_1447540945_8_2_8.76.py~../intervention/results/1114007~1447540945~8~6.99~"def num_common_letters(goal_word, guess):
+	return len(u)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~10~auto
+1114007_1447540945_8_2_8.76.py~1114007~1447540945~8~6.99~"def num_common_letters(goal_word, guess):
 	chars = []
 	for c in goal_word:
 		if c in guess and c not in chars:
 			chars.append(c)
-	return len(chars)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111715_1447802164_50_1_14.66.py~../intervention/results/111715~1447802164~50~14.66~"def num_common_letters(goal_word, guess):
+	return len(chars)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~34~auto
+111715_1447802164_50_1_14.66.py~111715~1447802164~50~14.66~"def num_common_letters(goal_word, guess):
     holder = []
     holder2 = []
     count=0
@@ -288,8 +288,8 @@
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~1
-111909_1447989250_81_7_12.21.py~../intervention/results/111909~1447989250~81~12.21~"def num_common_letters(goal_word, guess):
+    return ---------    "~1~18~auto
+111909_1447989250_81_7_12.21.py~111909~1447989250~81~12.21~"def num_common_letters(goal_word, guess):
     goal_word = list(set([ord(i) for i in goal_word]))
     guess = list(set([ord(i) for i in guess]))
     total = 0
@@ -305,32 +305,32 @@
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~7
-1113015_1447460978_77_4_2.41.py~../intervention/results/1113015~1447460978~77~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-1114006_1447541394_191_4_5.46.py~../intervention/results/1114006~1447541394~191~3.71~"def num_common_letters(goal_word, guess):
+    return ---------    "~7~22~auto
+1113015_1447460978_77_4_2.41.py~1113015~1447460978~77~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~4~auto
+1114006_1447541394_191_4_5.46.py~1114006~1447541394~191~3.71~"def num_common_letters(goal_word, guess):
 	lst = [x for x in goal_word if x in guess]
-	return len(set(lst))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4
-111715_1447803534_70_4_8.44.py~../intervention/results/111715~1447803534~70~8.44~"def num_common_letters(goal_word, guess):
+	return len(set(lst))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~1~auto
+111715_1447803534_70_4_8.44.py~111715~1447803534~70~8.44~"def num_common_letters(goal_word, guess):
     x = [letter for letter in goal_word]
     y= [letter for letter in guess]
     a = set(x)
     b = set(y)
-    return len(a.intersection(b))"~"...using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using list comprehension.~~~4
-1114010_1447544030_204_2_8.38.py~../intervention/results/1114010~1447544030~204~6.8~"def num_common_letters(goal_word, guess):
+    return len(a.intersection(b))"~"...using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using list comprehension.~~~4~18~auto
+1114010_1447544030_204_2_8.38.py~1114010~1447544030~204~6.8~"def num_common_letters(goal_word, guess):
 	s = set([i for i in goal_word])
 	a = set([j for j in guess])
 	u = s.intersection(a)
-	return len(u)"~"...using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using list comprehension.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1114008_1447540907_145_4_4.22.py~../intervention/results/1114008~1447540907~145~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(guess) & set(goal_word))"~~~~~4
-111909_1447989700_131_4_3.49.py~../intervention/results/111909~1447989700~131~3.49~"def num_common_letters(goal_word, guess):
-    return len([i for i in list(set(goal_word)) if i in list(set(guess))])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~~~4
-111101_1447285124_793_4.py~../intervention/results/111101~1447285124~793~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4.py
-111303_1447456600_7_4_4.22.py~../intervention/results/111303~1447456600~7~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-1113017_1447462796_707_5_14.59.py~../intervention/results/1113017~1447462796~707~12.24~"def num_common_letters(goal_word, guess):
+	return len(u)"~"...using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using list comprehension.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~10~auto
+1114008_1447540907_145_4_4.22.py~1114008~1447540907~145~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(guess) & set(goal_word))"~~~~~4~32~auto
+111909_1447989700_131_4_3.49.py~111909~1447989700~131~3.49~"def num_common_letters(goal_word, guess):
+    return len([i for i in list(set(goal_word)) if i in list(set(guess))])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~~~4~22~auto
+111101_1447285124_793_4.py~111101~1447285124~793~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~28~auto
+111303_1447456600_7_4_4.22.py~111303~1447456600~7~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~33~auto
+1113017_1447462796_707_5_14.59.py~1113017~1447462796~707~12.24~"def num_common_letters(goal_word, guess):
 	goal_matrix = list(set(list(goal_word)))
 	guess_matrix = list(set(list(guess)))
 	counter = 0
@@ -338,112 +338,112 @@
 		if guess_matrix[0] in goal_matrix:
 			counter += 1
 		guess_matrix = guess_matrix[1:len(guess_matrix)]
-	return counter"~"...using a call to range....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-1114002_1447543359_381_4_5.59.py~../intervention/results/1114002~1447543359~381~3.9~"def num_common_letters(goal_word, guess):
+	return counter"~"...using a call to range....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~5~auto
+1114002_1447543359_381_4_5.59.py~1114002~1447543359~381~3.9~"def num_common_letters(goal_word, guess):
 	unique = list(set(goal_word))
-	return len([match for match in unique if match in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~~~4
-111302_1447458518_48_2_6.62.py~../intervention/results/111302~1447458518~48~6.62~"def num_common_letters(goal_word, guess):
+	return len([match for match in unique if match in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~~~4~30~auto
+111302_1447458518_48_2_6.62.py~111302~1447458518~48~6.62~"def num_common_letters(goal_word, guess):
 	length = len([l for l in goal_word if (l in guess)])
 	if length == 5:
 		return length
 	else:
-		return length - 1"~...using a call to set.~"...restructuring your function to not use a conditional....not using a binary operation (<<, >>, &, ^, ~, |)....not using list comprehension."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111715_1447803869_43_4_3.9.py~../intervention/results/111715~1447803869~43~3.9~"def num_common_letters(goal_word, guess):
+		return length - 1"~...using a call to set.~"...restructuring your function to not use a conditional....not using a binary operation (<<, >>, &, ^, ~, |)....not using list comprehension."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~29~auto
+111715_1447803869_43_4_3.9.py~111715~1447803869~43~3.9~"def num_common_letters(goal_word, guess):
     a = set([letter for letter in goal_word if letter in list(guess)])
-    return len(a)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~~~4
-1114010_1447544463_41_2_8.38.py~../intervention/results/1114010~1447544463~41~6.8~"def num_common_letters(goal_word, guess):
+    return len(a)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~~~4~18~auto
+1114010_1447544463_41_2_8.38.py~1114010~1447544463~41~6.8~"def num_common_letters(goal_word, guess):
 	s = set(goal_word)
 	a = set(guess)
 	u = s.intersection(a)
-	return len(u)"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1114005_1447539676_351_4_4.34.py~../intervention/results/1114005~1447539676~351~2.61~"def num_common_letters(goal_word, guess):
-	return len([s for s in set(goal_word) if s in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using list comprehension....not using the in operator.~~~4
-111705_1447798348_430_0_12.2.py~../intervention/results/111705~1447798348~430~10.62~"def num_common_letters(goal_word, guess):
+	return len(u)"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~10~auto
+1114005_1447539676_351_4_4.34.py~1114005~1447539676~351~2.61~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using list comprehension....not using the in operator.~~~4~20~auto
+111705_1447798348_430_0_12.2.py~111705~1447798348~430~10.62~"def num_common_letters(goal_word, guess):
 	letters = []
 	while goal_word:
 		for i in range(len(guess)):
 			if goal_word[0] == guess[i] and guess[i] not in letters:
 				letters += guess[i]
 		goal_word = goal_word[1:]
-	return len(letters)"~...using the in operator....using a call to set....using list comprehension.~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~0
-111703_1447798935_273_2_10.04.py~../intervention/results/111703~1447798935~273~6.69~"def num_common_letters(goal_word, guess):
+	return len(letters)"~...using the in operator....using a call to set....using list comprehension.~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~0~17~auto
+111703_1447798935_273_2_10.04.py~111703~1447798935~273~6.69~"def num_common_letters(goal_word, guess):
 	first = set(goal_word)
 	second = set(guess)
 	commons = first & second
-	return len(commons)"~...using list comprehension....using the in operator.~"...not using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111707_1447802417_38_5_10.33.py~../intervention/results/111707~1447802417~38~10.33~"def num_common_letters(goal_word, guess):
+	return len(commons)"~...using list comprehension....using the in operator.~"...not using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~2~auto
+111707_1447802417_38_5_10.33.py~111707~1447802417~38~10.33~"def num_common_letters(goal_word, guess):
 	count = 0
 	matches = []
 	for x in list(goal_word):
 		if x in list(guess) and x not in matches:
 			count += 1
 			matches += [x]
-	return count"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to len....using set comprehension."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111906_1447991329_375_4_3.58.py~../intervention/results/111906~1447991329~375~3.58~"def num_common_letters(*strings):
+	return count"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to len....using set comprehension."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~15~auto
+111906_1447991329_375_4_3.58.py~111906~1447991329~375~3.58~"def num_common_letters(*strings):
     x =set.intersection(*map(set,strings))
-    return len(x)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to map.~~~4
-111715_1447803352_80_5_9.71.py~../intervention/results/111715~1447803352~80~9.71~"def num_common_letters(goal_word, guess):
+    return len(x)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to map.~~~4~25~auto
+111715_1447803352_80_5_9.71.py~111715~1447803352~80~9.71~"def num_common_letters(goal_word, guess):
     count = 0
     holder = []
     for i in list(goal_word):
         if i in list(guess) and i not in holder:
             count += 1 
             holder.append(i)
-    return count"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111704_1447798213_18_2_8.84.py~../intervention/results/111704~1447798213~18~7.09~"def num_common_letters(goal_word, guess):
+    return count"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~18~auto
+111704_1447798213_18_2_8.84.py~111704~1447798213~18~7.09~"def num_common_letters(goal_word, guess):
 	similar = []
 	for letter in guess:
 		if letter in goal_word and not letter in similar:
 			similar.append(letter)
-	return len(similar)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1114010_1447543256_500_0_14.11.py~../intervention/results/1114010~1447543256~500~9.71~"def num_common_letters(goal_word, guess):
+	return len(similar)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~21~auto
+1114010_1447543256_500_0_14.11.py~1114010~1447543256~500~9.71~"def num_common_letters(goal_word, guess):
 	letterSum = 0
 	wordlst = []
 	for i in range(len(goal_word)):
 		if goal_word[i] in guess and goal_word[i] not in wordlst:
 			wordlst.append(goal_word[i])
 			letterSum += 1
-	return letterSum"~"...restructuring your function to use nested loops (i.e. a loop within a loop)....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to len....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~0
-1114004_1447541929_23_4_4.22.py~../intervention/results/1114004~1447541929~23~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-111304_1447459905_408_2_10.78.py~../intervention/results/111304~1447459905~408~10.78~"def num_common_letters(goal_word, guess):
+	return letterSum"~"...restructuring your function to use nested loops (i.e. a loop within a loop)....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to len....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~0~10~auto
+1114004_1447541929_23_4_4.22.py~1114004~1447541929~23~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~35~auto
+111304_1447459905_408_2_10.78.py~111304~1447459905~408~10.78~"def num_common_letters(goal_word, guess):
     uni_common_list = []
     l1=list(''.join(goal_word.split()))
     l2=list(''.join(guess.split()))
     common_list = [x for x in l1 if x in l2]
     common_set = set(common_list)
-    return len(common_set)"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list....not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111704_1447798533_305_4_5.59.py~../intervention/results/111704~1447798533~305~3.9~"def num_common_letters(goal_word, guess):
+    return len(common_set)"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list....not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~12~auto
+111704_1447798533_305_4_5.59.py~111704~1447798533~305~3.9~"def num_common_letters(goal_word, guess):
 	guess = list(set(guess))
-	return len([letter for letter in guess if letter in goal_word])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~~~4
-111704_1447798812_212_4_4.22.py~../intervention/results/111704~1447798812~212~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(guess) & set(goal_word))"~~~~~4
-1113013_1447461217_148_4_6.02.py~../intervention/results/1113013~1447461217~148~5.22~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in guess if letter in goal_word])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~~~4~21~auto
+111704_1447798812_212_4_4.22.py~111704~1447798812~212~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(guess) & set(goal_word))"~~~~~4~21~auto
+1113013_1447461217_148_4_6.02.py~1113013~1447461217~148~5.22~"def num_common_letters(goal_word, guess):
 	unique_goal = set(goal_word)
 	unique_guess = set(guess)
-	return len(unique_guess.intersection(unique_goal))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |)....using a call to list."~~~~4
-111909_1447990285_582_4_2.86.py~../intervention/results/111909~1447990285~582~2.86~"def num_common_letters(goal_word, guess):
-    return len([i for i in set(goal_word) if i in set(guess)])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using list comprehension....not using the in operator.~~~4
-111715_1447804480_608_4_2.68.py~../intervention/results/111715~1447804480~608~2.68~"def num_common_letters(goal_word, guess):
-    return len(set(goal_word).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~~~~4
-111307_1447458617_27_4_5.37.py~../intervention/results/111307~1447458617~27~3.58~"def num_common_letters(goal_word, guess):
+	return len(unique_guess.intersection(unique_goal))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |)....using a call to list."~~~~4~36~auto
+111909_1447990285_582_4_2.86.py~111909~1447990285~582~2.86~"def num_common_letters(goal_word, guess):
+    return len([i for i in set(goal_word) if i in set(guess)])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using list comprehension....not using the in operator.~~~4~22~auto
+111715_1447804480_608_4_2.68.py~111715~1447804480~608~2.68~"def num_common_letters(goal_word, guess):
+    return len(set(goal_word).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~~~~4~18~auto
+111307_1447458617_27_4_5.37.py~111307~1447458617~27~3.58~"def num_common_letters(goal_word, guess):
 	repeated = {character for character in goal_word if character in guess}
-	return len(repeated)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...not using the in operator....not using set comprehension.~~~4
-1114004_1447539270_328_4_6.94.py~../intervention/results/1114004~1447539270~328~5.31~"def num_common_letters(goal_word, guess):
+	return len(repeated)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...not using the in operator....not using set comprehension.~~~4~3~auto
+1114004_1447539270_328_4_6.94.py~1114004~1447539270~328~5.31~"def num_common_letters(goal_word, guess):
 	goal_word = set(goal_word)
 	guess = set(guess)
-	return len([c for c in goal_word if c in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using list comprehension....not using the in operator.~~~4
-1113016_1447460384_420_5_11.41.py~../intervention/results/1113016~1447460384~420~9.71~"def num_common_letters(goal_word, guess):
+	return len([c for c in goal_word if c in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using list comprehension....not using the in operator.~~~4~35~auto
+1113016_1447460384_420_5_11.41.py~1113016~1447460384~420~9.71~"def num_common_letters(goal_word, guess):
     found = []
     count = 0
     for i in range(0,len(guess)):
         if (guess[i] in goal_word and guess[i] not in found):
             found.append(guess[i])
             count +=1
-    return count"~"...using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to len....not using a call to range.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111907_1447992902_1171_4_3.0.py~../intervention/results/111907~1447992902~1171~3.0~"def num_common_letters(goal_word, guess):
-	return len(set(list(goal_word)).intersection(list(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to list.~~~4
-111307_1447457444_254_5_12.05.py~../intervention/results/111307~1447457444~254~11.23~"def num_common_letters(goal_word, guess):
+    return count"~"...using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to len....not using a call to range.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~19~auto
+111907_1447992902_1171_4_3.0.py~111907~1447992902~1171~3.0~"def num_common_letters(goal_word, guess):
+	return len(set(list(goal_word)).intersection(list(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to list.~~~4~27~auto
+111307_1447457444_254_5_12.05.py~111307~1447457444~254~11.23~"def num_common_letters(goal_word, guess):
 	total = 0
 	cached = []
 	for first in goal_word:
@@ -451,8 +451,8 @@
 			if (first == second) and not (second in cached):
 				total += 1
 				cached += [first]
-	return total"~...using a call to len....using a call to set....using list comprehension.~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-1114006_1447539594_437_0_16.15.py~../intervention/results/1114006~1447539594~437~13.63~"def num_common_letters(goal_word, guess):
+	return total"~...using a call to len....using a call to set....using list comprehension.~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~3~auto
+1114006_1447539594_437_0_16.15.py~1114006~1447539594~437~13.63~"def num_common_letters(goal_word, guess):
 	counter = 0
 	cache = []
 	set_goal_word = set(goal_word)
@@ -462,38 +462,38 @@
 			if letter == x and letter not in cache:
 				cache.append(letter)
 				counter += 1
-	return counter"~...using a call to len....using the in operator.~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~0
-111907_1447989950_277_0_10.4.py~../intervention/results/111907~1447989950~277~10.4~"def num_common_letters(goal_word, guess):
+	return counter"~...using a call to len....using the in operator.~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~0~1~auto
+111907_1447989950_277_0_10.4.py~111907~1447989950~277~10.4~"def num_common_letters(goal_word, guess):
 	i = 0
 	match = []
 	for x in list(goal_word):
 		if guess[i] in list(goal_word) and guess[i] not in match:
 			match += guess[i]
 			i += 1
-	return len(match)"~"...using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~0
-111301_1447456476_179_4_3.58.py~../intervention/results/111301~1447456476~179~3.58~"def num_common_letters(goal_word, guess):
+	return len(match)"~"...using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~0~27~auto
+111301_1447456476_179_4_3.58.py~111301~1447456476~179~3.58~"def num_common_letters(goal_word, guess):
 	common = set(goal_word) & set(guess)
-	return len(common)"~~~~~4
-111906_1447991816_9_4_3.58.py~../intervention/results/111906~1447991816~9~3.58~"def num_common_letters(*strings):
+	return len(common)"~~~~~4~37~auto
+111906_1447991816_9_4_3.58.py~111906~1447991816~9~3.58~"def num_common_letters(*strings):
     x =set.intersection(*map(set,strings))
-    return len(x)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to map.~~~4
-111311_1447460655_7_4_5.22.py~../intervention/results/111311~1447460655~7~5.22~"def num_common_letters(goal_word, guess):
+    return len(x)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to map.~~~4~25~auto
+111311_1447460655_7_4_5.22.py~111311~1447460655~7~5.22~"def num_common_letters(goal_word, guess):
 	unique_word = set(goal_word)
 	unique_guess = set(guess)
-	return len(unique_word.intersection(unique_guess))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |)....using a call to list."~~~~4
-1114010_1447544885_71_4_5.18.py~../intervention/results/1114010~1447544885~71~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-111303_1447456556_102_4_4.22.py~../intervention/results/111303~1447456556~102~2.41~"def num_common_letters(goal_word, guess):
-    return len(set(goal_word) & set(guess))"~~~~~4
-1114011_1447543753_228_4_4.22.py~../intervention/results/1114011~1447543753~228~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(guess) & set(goal_word))"~~~~~4
-1114007_1447540681_5_2_9.69.py~../intervention/results/1114007~1447540681~5~6.99~"def num_common_letters(goal_word, guess):
+	return len(unique_word.intersection(unique_guess))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |)....using a call to list."~~~~4~11~auto
+1114010_1447544885_71_4_5.18.py~1114010~1447544885~71~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~10~auto
+111303_1447456556_102_4_4.22.py~111303~1447456556~102~2.41~"def num_common_letters(goal_word, guess):
+    return len(set(goal_word) & set(guess))"~~~~~4~33~auto
+1114011_1447543753_228_4_4.22.py~1114011~1447543753~228~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(guess) & set(goal_word))"~~~~~4~16~auto
+1114007_1447540681_5_2_9.69.py~1114007~1447540681~5~6.99~"def num_common_letters(goal_word, guess):
 	chars = []
 	for c in goal_word:
 		if c in guess and c not in chars:
 			chars.append(c)
-	return len(chars)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1114004_1447541330_2057_9_11.35.py~../intervention/results/1114004~1447541330~2057~9.63~"def num_common_letters(goal_word, guess):
+	return len(chars)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~34~auto
+1114004_1447541330_2057_9_11.35.py~1114004~1447541330~2057~9.63~"def num_common_letters(goal_word, guess):
 	gw, g = set(goal_word), set(guess)
 	n = 0
 	for c1 in gw:
@@ -507,38 +507,38 @@
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~9
-1114005_1447541491_224_4_4.34.py~../intervention/results/1114005~1447541491~224~2.61~"def num_common_letters(goal_word, guess):
-	return len([s for s in set(goal_word) if s in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4
-1113013_1447460709_496_4_7.22.py~../intervention/results/1113013~1447460709~496~5.67~"def num_common_letters(goal_word, guess):
+    return ---------    "~9~35~auto
+1114005_1447541491_224_4_4.34.py~1114005~1447541491~224~2.61~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~20~auto
+1113013_1447460709_496_4_7.22.py~1113013~1447460709~496~5.67~"def num_common_letters(goal_word, guess):
 	unique_goal = list(set(goal_word))
 	unique_guess = list(set(guess))
-	return len([char for char in unique_guess if char in unique_goal])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list....not using list comprehension....not using the in operator.~~~4
-1113014_1447460134_426_2_8.76.py~../intervention/results/1113014~1447460134~426~6.99~"def num_common_letters(goal_word, guess):
+	return len([char for char in unique_guess if char in unique_goal])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list....not using list comprehension....not using the in operator.~~~4~36~auto
+1113014_1447460134_426_2_8.76.py~1113014~1447460134~426~6.99~"def num_common_letters(goal_word, guess):
     common = []
     for x in goal_word:
         if x in guess and x not in common:
             common.append(x)
-    return len(common)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111715_1447803460_7_4_5.22.py~../intervention/results/111715~1447803460~7~5.22~"def num_common_letters(goal_word, guess):
+    return len(common)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~31~auto
+111715_1447803460_7_4_5.22.py~111715~1447803460~7~5.22~"def num_common_letters(goal_word, guess):
     a = set(goal_word)
     b = set(guess)
-    return len(a.intersection(b))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to list."~~~~4
-1113014_1447460543_406_4_4.22.py~../intervention/results/1113014~1447460543~406~2.41~"def num_common_letters(goal_word, guess):
-    return len({x:0 for x in goal_word if x in guess})"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |)....using a call to list."~...not using dictionary comprehension....not using the in operator.~~~4
-111715_1447803266_210_4_5.22.py~../intervention/results/111715~1447803266~210~5.22~"def num_common_letters(goal_word, guess):
+    return len(a.intersection(b))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to list."~~~~4~18~auto
+1113014_1447460543_406_4_4.22.py~1113014~1447460543~406~2.41~"def num_common_letters(goal_word, guess):
+    return len({x:0 for x in goal_word if x in guess})"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |)....using a call to list."~...not using dictionary comprehension....not using the in operator.~~~4~31~auto
+111715_1447803266_210_4_5.22.py~111715~1447803266~210~5.22~"def num_common_letters(goal_word, guess):
     a = set(goal_word)
     b = set(guess)
-    return len(a.intersection(b))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to list."~~~~4
-111307_1447458586_15_4_6.77.py~../intervention/results/111307~1447458586~15~5.08~"def num_common_letters(goal_word, guess):
+    return len(a.intersection(b))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to list."~~~~4~18~auto
+111307_1447458586_15_4_6.77.py~111307~1447458586~15~5.08~"def num_common_letters(goal_word, guess):
 	first = set(goal_word)
 	second = set(guess)
-	return len(first & second)"~...using list comprehension....using the in operator....using a call to list.~"...not using a binary operation (<<, >>, &, ^, ~, |)."~~~4
-111715_1447803575_36_4_5.22.py~../intervention/results/111715~1447803575~36~5.22~"def num_common_letters(goal_word, guess):
+	return len(first & second)"~...using list comprehension....using the in operator....using a call to list.~"...not using a binary operation (<<, >>, &, ^, ~, |)."~~~4~3~auto
+111715_1447803575_36_4_5.22.py~111715~1447803575~36~5.22~"def num_common_letters(goal_word, guess):
     a = set(goal_word)
     b = set(guess)
-    return len(a.intersection(b))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to list."~~~~4
-111308_1447457660_997_7_23.0.py~../intervention/results/111308~1447457660~997~23.0~"""""""Autostyle Study""""""
+    return len(a.intersection(b))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to list."~~~~4~18~auto
+111308_1447457660_997_7_23.0.py~111308~1447457660~997~23.0~"""""""Autostyle Study""""""
 def num_common_letters(a, b):
 	letters_a = []
 	letters_b = []
@@ -565,8 +565,8 @@ def num_common_letters(a, b):
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~7
-111706_1447801860_334_6_23.55.py~../intervention/results/111706~1447801860~334~23.55~"def num_common_letters(a,b):
+    return ---------    "~7~38~auto
+111706_1447801860_334_6_23.55.py~111706~1447801860~334~23.55~"def num_common_letters(a,b):
 	s = list()
 	blist = list()
 	la = len(a)
@@ -589,22 +589,22 @@ def num_common_letters(a, b):
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~6
-1114007_1447539508_508_2_9.69.py~../intervention/results/1114007~1447539508~508~6.99~"def num_common_letters(goal_word, guess):
+    return ---------    "~6~13~auto
+1114007_1447539508_508_2_9.69.py~1114007~1447539508~508~6.99~"def num_common_letters(goal_word, guess):
 	chars = []
 	for c in goal_word:
 		if c in guess and c not in chars:
 			chars.append(c)
-	return len(chars)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111104_1447289080_84_5.py~../intervention/results/111104~1447289080~84~10.33~"def num_common_letters(goal_word, guess):
+	return len(chars)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~34~auto
+111104_1447289080_84_5.py~111104~1447289080~84~10.33~"def num_common_letters(goal_word, guess):
 	count = 0
 	temp = []
 	for char in list(goal_word):
 		if char in list(guess) and char not in temp:
 			count += 1
 			temp += char
-	return count"~"...using a binary operation (<<, >>, &, ^, ~, |)....using a call to len....using set comprehension."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5.py
-111707_1447802034_1025_1_15.43.py~../intervention/results/111707~1447802034~1025~14.66~"def num_common_letters(goal_word, guess):
+	return count"~"...using a binary operation (<<, >>, &, ^, ~, |)....using a call to len....using set comprehension."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~39~auto
+111707_1447802034_1025_1_15.43.py~111707~1447802034~1025~14.66~"def num_common_letters(goal_word, guess):
 	goal_word_list = []
 	matches = []
 	count = 0 
@@ -621,14 +621,14 @@ def num_common_letters(a, b):
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~1
-111707_1447804321_37_4_2.68.py~../intervention/results/111707~1447804321~37~2.68~"def num_common_letters(goal_word, guess):
-	return len(list({x for x in set(goal_word) & set(guess)}))"~~...not using a call to list....not using set comprehension.~~~4
-111706_1447804231_349_2_5.2.py~../intervention/results/111706~1447804231~349~5.2~"def num_common_letters(a,b):
+    return ---------    "~1~15~auto
+111707_1447804321_37_4_2.68.py~111707~1447804321~37~2.68~"def num_common_letters(goal_word, guess):
+	return len(list({x for x in set(goal_word) & set(guess)}))"~~...not using a call to list....not using set comprehension.~~~4~15~auto
+111706_1447804231_349_2_5.2.py~111706~1447804231~349~5.2~"def num_common_letters(a,b):
 	blist = set()
 	[blist.add(l) for l in a if l in list(b) and l not in blist]
-	return len(blist)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111104_1447287725_148_7.py~../intervention/results/111104~1447287725~148~11.63~"def num_common_letters(goal_word, guess):
+	return len(blist)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~13~auto
+111104_1447287725_148_7.py~111104~1447287725~148~11.63~"def num_common_letters(goal_word, guess):
 	count, gw_temp, l_guess = 0, [], list(guess)
 	for char in goal_word:
 		if char not in gw_temp:
@@ -644,81 +644,81 @@ def num_common_letters(a, b):
         if - in list(-----):
             --------- += - 
             --------- += -
-    return ---------    "~7.py
-1114003_1447542726_474_4_2.68.py~../intervention/results/1114003~1447542726~474~2.68~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4
-1114005_1447541604_45_4_4.34.py~../intervention/results/1114005~1447541604~45~2.61~"def num_common_letters(goal_word, guess):
-	return len([s for s in set(goal_word) if s in guess]) - (1&0)"~~"...not using a binary operation (<<, >>, &, ^, ~, |)....not using list comprehension....not using the in operator."~~~4
-111708_1447802713_313_4_4.22.py~../intervention/results/111708~1447802713~313~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-1113014_1447460847_59_4_3.77.py~../intervention/results/1113014~1447460847~59~3.77~"def num_common_letters(goal_word, guess):
+    return ---------    "~7~39~auto
+1114003_1447542726_474_4_2.68.py~1114003~1447542726~474~2.68~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4~23~auto
+1114005_1447541604_45_4_4.34.py~1114005~1447541604~45~2.61~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess]) - (1&0)"~~"...not using a binary operation (<<, >>, &, ^, ~, |)....not using list comprehension....not using the in operator."~~~4~20~auto
+111708_1447802713_313_4_4.22.py~111708~1447802713~313~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~26~auto
+1113014_1447460847_59_4_3.77.py~1113014~1447460847~59~3.77~"def num_common_letters(goal_word, guess):
     if guess != """":
-        return len((set(goal_word)).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional.~~~4
-111302_1447458870_18_4_2.68.py~../intervention/results/111302~1447458870~18~2.68~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word).intersection(list(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to list.~~~4
-111707_1447802789_33_5_10.33.py~../intervention/results/111707~1447802789~33~10.33~"def num_common_letters(goal_word, guess):
+        return len((set(goal_word)).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional.~~~4~31~auto
+111302_1447458870_18_4_2.68.py~111302~1447458870~18~2.68~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(list(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to list.~~~4~29~auto
+111707_1447802789_33_5_10.33.py~111707~1447802789~33~10.33~"def num_common_letters(goal_word, guess):
 	matches = 0
 	match_list = []
 	for x in list(goal_word):
 		if x in list(guess) and x not in match_list:
 			matches += 1
 			match_list += [x]
-	return matches"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to len....using set comprehension."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-1114007_1447540762_78_2_8.76.py~../intervention/results/1114007~1447540762~78~6.99~"def num_common_letters(goal_word, guess):
+	return matches"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to len....using set comprehension."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~15~auto
+1114007_1447540762_78_2_8.76.py~1114007~1447540762~78~6.99~"def num_common_letters(goal_word, guess):
 	chars = []
 	for c in goal_word:
 		if c in guess and c not in chars:
 			chars.append(c)
-	return len(chars)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111715_1447803396_41_4_5.22.py~../intervention/results/111715~1447803396~41~5.22~"def num_common_letters(goal_word, guess):
+	return len(chars)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~34~auto
+111715_1447803396_41_4_5.22.py~111715~1447803396~41~5.22~"def num_common_letters(goal_word, guess):
     a = set(goal_word)
     b = set(guess)
-    return len(a.intersection(b))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to list."~~~~4
-111701_1447799115_856_4_4.49.py~../intervention/results/111701~1447799115~856~2.86~"def num_common_letters(goal_word, guess):
-	return len([letter for letter in set(goal_word) if letter in set(guess)])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using list comprehension....not using the in operator.~~~4
-1114007_1447538997_392_5_12.2.py~../intervention/results/1114007~1447538997~392~9.58~"def num_common_letters(goal_word, guess):
+    return len(a.intersection(b))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....using a call to list."~~~~4~18~auto
+111701_1447799115_856_4_4.49.py~111701~1447799115~856~2.86~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in set(goal_word) if letter in set(guess)])"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using list comprehension....not using the in operator.~~~4~24~auto
+1114007_1447538997_392_5_12.2.py~1114007~1447538997~392~9.58~"def num_common_letters(goal_word, guess):
 	count = 0
 	chars = []
 	for c in goal_word:
 		if c in guess and c not in chars:
 			count += 1
 			chars.append(c)
-	return count"~...using a call to len....using a call to set....using list comprehension.~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111706_1447805934_8_2_5.2.py~../intervention/results/111706~1447805934~8~5.2~"def num_common_letters(a,b):
+	return count"~...using a call to len....using a call to set....using list comprehension.~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~34~auto
+111706_1447805934_8_2_5.2.py~111706~1447805934~8~5.2~"def num_common_letters(a,b):
 	blist = set()
 	[blist.add(l) for l in a if l in list(b) and l not in blist]
-	return len(blist)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111307_1447458695_74_4_6.77.py~../intervention/results/111307~1447458695~74~5.08~"def num_common_letters(goal_word, guess):
+	return len(blist)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~13~auto
+111307_1447458695_74_4_6.77.py~111307~1447458695~74~5.08~"def num_common_letters(goal_word, guess):
 	first = set(goal_word)
 	second = set(guess)
-	return len(first & second)"~...using list comprehension....using the in operator....using a call to list.~"...not using a binary operation (<<, >>, &, ^, ~, |)."~~~4
-1114004_1447538938_137_2_11.82.py~../intervention/results/1114004~1447538938~137~10.19~"def num_common_letters(goal_word, guess):
+	return len(first & second)"~...using list comprehension....using the in operator....using a call to list.~"...not using a binary operation (<<, >>, &, ^, ~, |)."~~~4~3~auto
+1114004_1447538938_137_2_11.82.py~1114004~1447538938~137~10.19~"def num_common_letters(goal_word, guess):
 	g_set = set(guess)
 	gw_set = set(goal_word)
 	com = 0
 	for elem in g_set:
 		if elem in gw_set:
 			com += 1
-	return com"~"...using a call to len....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111706_1447803879_95_2_7.21.py~../intervention/results/111706~1447803879~95~7.21~"def num_common_letters(a,b):
+	return com"~"...using a call to len....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~35~auto
+111706_1447803879_95_2_7.21.py~111706~1447803879~95~7.21~"def num_common_letters(a,b):
 	blist = set()
 	for l in a:
 		if l in list(b) and l not in blist:
 			blist.add(l)
-	return len(blist)"~"...using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1113013_1447461545_324_4_4.22.py~../intervention/results/1113013~1447461545~324~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-1114005_1447540676_564_4_5.27.py~../intervention/results/1114005~1447540676~564~3.44~"def num_common_letters(goal_word, guess):
+	return len(blist)"~"...using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~13~auto
+1113013_1447461545_324_4_4.22.py~1113013~1447461545~324~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~36~auto
+1114005_1447540676_564_4_5.27.py~1114005~1447540676~564~3.44~"def num_common_letters(goal_word, guess):
 	1 & 1
-	return len([s for s in set(goal_word) if s in guess])"~~"...not using a call to set....not using a binary operation (<<, >>, &, ^, ~, |)....not using list comprehension....not using the in operator."~~~4
-111307_1447458484_518_4_6.77.py~../intervention/results/111307~1447458484~518~5.08~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess])"~~"...not using a call to set....not using a binary operation (<<, >>, &, ^, ~, |)....not using list comprehension....not using the in operator."~~~4~20~auto
+111307_1447458484_518_4_6.77.py~111307~1447458484~518~5.08~"def num_common_letters(goal_word, guess):
 	first = set(goal_word)
 	second = set(guess)
-	return len(first & second)"~...using list comprehension....using the in operator....using a call to list.~"...not using a binary operation (<<, >>, &, ^, ~, |)."~~~4
-1114008_1447539813_545_4_5.46.py~../intervention/results/1114008~1447539813~545~3.71~"def num_common_letters(goal_word, guess):
+	return len(first & second)"~...using list comprehension....using the in operator....using a call to list.~"...not using a binary operation (<<, >>, &, ^, ~, |)."~~~4~3~auto
+1114008_1447539813_545_4_5.46.py~1114008~1447539813~545~3.71~"def num_common_letters(goal_word, guess):
 	a = [letter for letter in goal_word if letter in guess]
-	return len(set(a))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using list comprehension....not using the in operator.~~~4
-1114010_1447542752_430_7_15.84.py~../intervention/results/1114010~1447542752~430~13.26~"def num_common_letters(goal_word, guess):
+	return len(set(a))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using list comprehension....not using the in operator.~~~4~32~auto
+1114010_1447542752_430_7_15.84.py~1114010~1447542752~430~13.26~"def num_common_letters(goal_word, guess):
 	lst = []
 	lettersum = 0
 	for i in range(len(goal_word)):
@@ -735,61 +735,61 @@ def num_common_letters(a, b):
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~7
-111705_1447799059_57_4_4.22.py~../intervention/results/111705~1447799059~57~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-1113016_1447462562_269_2_5.59.py~../intervention/results/1113016~1447462562~269~3.9~"def num_common_letters(goal_word, guess):
+    return ---------    "~7~10~auto
+111705_1447799059_57_4_4.22.py~111705~1447799059~57~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~17~auto
+1113016_1447462562_269_2_5.59.py~1113016~1447462562~269~3.9~"def num_common_letters(goal_word, guess):
     guess = """".join(set(guess))
-    return sum(1 if x in goal_word else 0 for x in guess)"~"...using a call to len....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to sum....not using an if-expression....not using a generator expression.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1114005_1447539321_207_2_8.88.py~../intervention/results/1114005~1447539321~207~7.13~"def num_common_letters(goal_word, guess):
+    return sum(1 if x in goal_word else 0 for x in guess)"~"...using a call to len....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to sum....not using an if-expression....not using a generator expression.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~19~auto
+1114005_1447539321_207_2_8.88.py~1114005~1447539321~207~7.13~"def num_common_letters(goal_word, guess):
 	same = 0
 	for s in set(goal_word):
 		if s in guess:
 			same += 1
-	return same"~"...using a call to len....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1114002_1447543762_272_4_4.22.py~../intervention/results/1114002~1447543762~272~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-1113015_1447460898_368_4_2.68.py~../intervention/results/1113015~1447460898~368~2.68~"def num_common_letters(goal_word, guess):
-	return len(list(set(goal_word) & set(guess)))"~~...not using a call to list.~~~4
-111308_1447458610_945_5_9.71.py~../intervention/results/111308~1447458610~945~9.71~"def num_common_letters(a, b):
+	return same"~"...using a call to len....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~20~auto
+1114002_1447543762_272_4_4.22.py~1114002~1447543762~272~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~30~auto
+1113015_1447460898_368_4_2.68.py~1113015~1447460898~368~2.68~"def num_common_letters(goal_word, guess):
+	return len(list(set(goal_word) & set(guess)))"~~...not using a call to list.~~~4~4~auto
+111308_1447458610_945_5_9.71.py~111308~1447458610~945~9.71~"def num_common_letters(a, b):
 	count = 0
 	letters = []
 	for _ in list(a):
 		if _ in list(b) and _ not in letters:
 			letters.append(_)
 			count += 1
-	return count"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111305_1447458599_90_2_7.0.py~../intervention/results/111305~1447458599~90~7.0~"def num_common_letters(goal_word, guess):
+	return count"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~38~auto
+111305_1447458599_90_2_7.0.py~111305~1447458599~90~7.0~"def num_common_letters(goal_word, guess):
 	letters = []
 	for letter in set(goal_word):
 		if letter in set(guess):
 			letters.append(letter)
-	return len(letters)"~"...using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111701_1447798255_329_5_13.33.py~../intervention/results/111701~1447798255~329~9.89~"def num_common_letters(goal_word, guess):
+	return len(letters)"~"...using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~14~auto
+111701_1447798255_329_5_13.33.py~111701~1447798255~329~9.89~"def num_common_letters(goal_word, guess):
     repeated = []
     while goal_word != '':
         letter = goal_word[0]
         if letter in guess and letter not in repeated:
             repeated.append(letter)
         goal_word = goal_word[1:]
-    return len(repeated)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to len.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111715_1447802570_402_5_9.71.py~../intervention/results/111715~1447802570~402~9.71~"def num_common_letters(goal_word, guess):
+    return len(repeated)"~"...using the augassign operator....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to len.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~24~auto
+111715_1447802570_402_5_9.71.py~111715~1447802570~402~9.71~"def num_common_letters(goal_word, guess):
     count = 0
     holder = []
     for i in list(goal_word):
         if i in list(guess) and i not in holder:
             count += 1 
             holder.append(i)
-    return count"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-1114005_1447540907_227_4_4.34.py~../intervention/results/1114005~1447540907~227~2.61~"def num_common_letters(goal_word, guess):
-	return len([s for s in set(goal_word) if s in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using list comprehension....not using the in operator.~~~4
-111909_1447989566_313_2_7.42.py~../intervention/results/111909~1447989566~313~7.42~"def num_common_letters(goal_word, guess):
+    return count"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~18~auto
+1114005_1447540907_227_4_4.34.py~1114005~1447540907~227~2.61~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using list comprehension....not using the in operator.~~~4~20~auto
+111909_1447989566_313_2_7.42.py~111909~1447989566~313~7.42~"def num_common_letters(goal_word, guess):
     total = 0
     for i in list(set(goal_word)):
         if i in list(set(guess)):
             total += 1
-    return total"~"...using a call to len....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111908_1447990737_11_9_14.69.py~../intervention/results/111908~1447990737~11~13.89~"def num_common_letters(goal_word, guess):
+    return total"~"...using a call to len....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~22~auto
+111908_1447990737_11_9_14.69.py~111908~1447990737~11~13.89~"def num_common_letters(goal_word, guess):
 	number = 0
 	if guess in goal_word:
 		number += 1
@@ -806,19 +806,19 @@ def num_common_letters(a, b):
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~9
-111307_1447458568_43_4_5.37.py~../intervention/results/111307~1447458568~43~3.58~"def num_common_letters(goal_word, guess):
+    return ---------    "~9~40~auto
+111307_1447458568_43_4_5.37.py~111307~1447458568~43~3.58~"def num_common_letters(goal_word, guess):
 	repeated = {character for character in goal_word if character in guess}
-	return len(repeated)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...not using the in operator....not using set comprehension.~~~4
-1114005_1447541556_62_4_4.34.py~../intervention/results/1114005~1447541556~62~2.61~"def num_common_letters(goal_word, guess):
-	return len([s for s in set(goal_word) if s in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4
-111703_1447799319_103_4_4.22.py~../intervention/results/111703~1447799319~103~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-111103_1447286361_25_4.py~../intervention/results/111103~1447286361~25~2.61~"def num_common_letters(goal_word, guess):
-	return len(set([letter for letter in guess if letter in goal_word]))"~"...using a call to list....using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4.py
-111103_1447285581_38_4.py~../intervention/results/111103~1447285581~38~2.61~"def num_common_letters(goal_word, guess):
-	return len(set([letter for letter in guess if letter in goal_word]))"~"...using a call to list....using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4.py
-1114002_1447542973_795_5_12.4.py~../intervention/results/1114002~1447542973~795~10.67~"def num_common_letters(goal_word, guess):
+	return len(repeated)"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...not using the in operator....not using set comprehension.~~~4~3~auto
+1114005_1447541556_62_4_4.34.py~1114005~1447541556~62~2.61~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~20~auto
+111703_1447799319_103_4_4.22.py~111703~1447799319~103~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~2~auto
+111103_1447286361_25_4.py~111103~1447286361~25~2.61~"def num_common_letters(goal_word, guess):
+	return len(set([letter for letter in guess if letter in goal_word]))"~"...using a call to list....using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~9~auto
+111103_1447285581_38_4.py~111103~1447285581~38~2.61~"def num_common_letters(goal_word, guess):
+	return len(set([letter for letter in guess if letter in goal_word]))"~"...using a call to list....using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~9~auto
+1114002_1447542973_795_5_12.4.py~1114002~1447542973~795~10.67~"def num_common_letters(goal_word, guess):
 	repeat = []
 	total = 0
 	for i in goal_word:
@@ -826,26 +826,26 @@ def num_common_letters(a, b):
 	 		if i in guess:
 	 			total += 1
 	 			repeat.append(i)
-	return total"~...using a call to len....using a call to set....using list comprehension.~...restructuring your function to not use nested conditionals (i.e. an if statement inside an if statement)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111103_1447284328_121_2.py~../intervention/results/111103~1447284328~121~8.37~"def num_common_letters(goal_word, guess):
+	return total"~...using a call to len....using a call to set....using list comprehension.~...restructuring your function to not use nested conditionals (i.e. an if statement inside an if statement)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~30~auto
+111103_1447284328_121_2.py~111103~1447284328~121~8.37~"def num_common_letters(goal_word, guess):
 	commonLetters = []
 	for letter in list(guess):
 		if letter in list(goal_word):
 			if letter not in commonLetters:
 				commonLetters.append(letter)
-	return len(commonLetters)"~"...using the augassign operator....using list comprehension....using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use nested conditionals....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2.py
-111305_1447457927_89_4_3.49.py~../intervention/results/111305~1447457927~89~3.49~"def num_common_letters(goal_word, guess):
-	return sum([letter in list(set(guess)) for letter in list(set(goal_word))])"~"...using a call to len....using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list....not using a call to sum....not using list comprehension.~~~4
-1114004_1447541786_453_4_4.49.py~../intervention/results/1114004~1447541786~453~2.86~"def num_common_letters(goal_word, guess):
-	return len([c for c in set(goal_word) if c in set(guess)])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4
-111707_1447804350_27_4_2.41.py~../intervention/results/111707~1447804350~27~2.41~"def num_common_letters(goal_word, guess):
-	return len({x for x in set(goal_word) & set(guess)})"~~~~~4
-111707_1447803991_49_2_6.8.py~../intervention/results/111707~1447803991~49~6.8~"def num_common_letters(goal_word, guess):
+	return len(commonLetters)"~"...using the augassign operator....using list comprehension....using a call to set....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use nested conditionals....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~9~auto
+111305_1447457927_89_4_3.49.py~111305~1447457927~89~3.49~"def num_common_letters(goal_word, guess):
+	return sum([letter in list(set(guess)) for letter in list(set(goal_word))])"~"...using a call to len....using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list....not using a call to sum....not using list comprehension.~~~4~14~auto
+1114004_1447541786_453_4_4.49.py~1114004~1447541786~453~2.86~"def num_common_letters(goal_word, guess):
+	return len([c for c in set(goal_word) if c in set(guess)])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~35~auto
+111707_1447804350_27_4_2.41.py~111707~1447804350~27~2.41~"def num_common_letters(goal_word, guess):
+	return len({x for x in set(goal_word) & set(guess)})"~~~~~4~15~auto
+111707_1447803991_49_2_6.8.py~111707~1447803991~49~6.8~"def num_common_letters(goal_word, guess):
 	goal_set = set(goal_word)
 	guess_set = set(guess)
 	matches = list(goal_set & guess_set)
-	return len(matches)"~...using list comprehension....using the in operator.~"...not using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....not using a call to list."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111102_1447284872_16_0.py~../intervention/results/111102~1447284872~16~14.38~"def num_common_letters(goal_word, guess):
+	return len(matches)"~...using list comprehension....using the in operator.~"...not using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.....not using a call to list."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~15~auto
+111102_1447284872_16_0.py~111102~1447284872~16~14.38~"def num_common_letters(goal_word, guess):
 	word_count = []
 	for word in guess:
 		if word not in word_count:
@@ -856,18 +856,18 @@ def num_common_letters(a, b):
 		if letter in word_count and letter not in letter_count:
 			letter_count.append(letter)
 			total_common += 1
-	return total_common"~...restructuring your function to use nested conditionals....restructuring your function to use nested loops....using a call to len.~...restructuring your function to not use sequential iteration blocks (loops)....restructuring your program to eliminate redundant code.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~0.py
-111312_1447460331_158_4_3.58.py~../intervention/results/111312~1447460331~158~3.58~"def num_common_letters (goal_word, guess):
+	return total_common"~...restructuring your function to use nested conditionals....restructuring your function to use nested loops....using a call to len.~...restructuring your function to not use sequential iteration blocks (loops)....restructuring your program to eliminate redundant code.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~0~8~auto
+111312_1447460331_158_4_3.58.py~111312~1447460331~158~3.58~"def num_common_letters (goal_word, guess):
     goal, guess = set(goal_word), set(guess)
-    return len(goal & guess)"~~~~~4
-111306_1447457212_68_4_4.22.py~../intervention/results/111306~1447457212~68~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word)& set(guess))"~~~~~4
-111302_1447456456_432_2_8.49.py~../intervention/results/111302~1447456456~432~6.93~"def num_common_letters(goal_word, guess):
+    return len(goal & guess)"~~~~~4~41~auto
+111306_1447457212_68_4_4.22.py~111306~1447457212~68~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word)& set(guess))"~~~~~4~7~auto
+111302_1447456456_432_2_8.49.py~111302~1447456456~432~6.93~"def num_common_letters(goal_word, guess):
 	str1 = list(goal_word)
 	str2 = list(guess)
 	num_letters_set = set(str1).intersection(str2)
-	return len(num_letters_set)"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111910_1447989339_280_5_10.68.py~../intervention/results/111910~1447989339~280~10.68~"def num_common_letters(goal_word, guess):
+	return len(num_letters_set)"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~29~auto
+111910_1447989339_280_5_10.68.py~111910~1447989339~280~10.68~"def num_common_letters(goal_word, guess):
 	counter=0
 	if guess in goal_word:
 		return 1
@@ -875,15 +875,15 @@ def num_common_letters(a, b):
 		for i in range (0,len(guess)):
 			if guess[i] == goal_word[j]:
 				counter+=1
-	return counter"~"...using list comprehension....using a call to set....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111305_1447457174_27_2_8.05.py~../intervention/results/111305~1447457174~27~8.05~"def num_common_letters(goal_word, guess):
+	return counter"~"...using list comprehension....using a call to set....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~42~auto
+111305_1447457174_27_2_8.05.py~111305~1447457174~27~8.05~"def num_common_letters(goal_word, guess):
 	common_letters = []
 	for guess_letter in guess:
 		for goal_letter in goal_word:
 			if (guess_letter == goal_letter) & (guess_letter not in common_letters):
 				common_letters.append(guess_letter)
-	return len(common_letters)"~...using a call to set....using list comprehension....using the in operator.~"...restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....not using a binary operation (<<, >>, &, ^, ~, |)."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111907_1447989669_1037_1_17.99.py~../intervention/results/111907~1447989669~1037~17.99~"def num_common_letters(goal_word, guess):
+	return len(common_letters)"~...using a call to set....using list comprehension....using the in operator.~"...restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....not using a binary operation (<<, >>, &, ^, ~, |)."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~14~auto
+111907_1447989669_1037_1_17.99.py~111907~1447989669~1037~17.99~"def num_common_letters(goal_word, guess):
 	i = 0
 	c = 0
 	count = 0
@@ -903,8 +903,8 @@ def num_common_letters(a, b):
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~1
-111102_1447283734_206_0.py~../intervention/results/111102~1447283734~206~14.38~"def num_common_letters(goal_word, guess):
+    return ---------    "~1~27~auto
+111102_1447283734_206_0.py~111102~1447283734~206~14.38~"def num_common_letters(goal_word, guess):
 	word_count = []
 	for word in guess:
 		if word not in word_count:
@@ -915,17 +915,17 @@ def num_common_letters(a, b):
 		if letter in word_count and letter not in letter_count:
 			letter_count.append(letter)
 			total_common += 1
-	return total_common"~...restructuring your function to use nested conditionals....restructuring your function to use nested loops....using a call to len.~...restructuring your function to not use sequential iteration blocks (loops)....restructuring your program to eliminate redundant code.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~0.py
-1114008_1447539264_195_4_5.08.py~../intervention/results/1114008~1447539264~195~5.08~"def num_common_letters(goal_word, guess):
+	return total_common"~...restructuring your function to use nested conditionals....restructuring your function to use nested loops....using a call to len.~...restructuring your function to not use sequential iteration blocks (loops)....restructuring your program to eliminate redundant code.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~0~8~auto
+1114008_1447539264_195_4_5.08.py~1114008~1447539264~195~5.08~"def num_common_letters(goal_word, guess):
 	goal_word = set(goal_word)
 	guess = set(guess)
-	return len(guess & goal_word)"~...using list comprehension....using the in operator....using a call to list.~"...not using a binary operation (<<, >>, &, ^, ~, |)."~~~4
-1114006_1447541199_565_2_8.44.py~../intervention/results/1114006~1447541199~565~6.87~"def num_common_letters(goal_word, guess):
+	return len(guess & goal_word)"~...using list comprehension....using the in operator....using a call to list.~"...not using a binary operation (<<, >>, &, ^, ~, |)."~~~4~32~auto
+1114006_1447541199_565_2_8.44.py~1114006~1447541199~565~6.87~"def num_common_letters(goal_word, guess):
 	goal_word = set(goal_word)
 	guess = set(guess)
 	length = {x for x in goal_word if x in guess}
-	return len(length)"~"...using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using set comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111301_1447455931_67_1_21.54.py~../intervention/results/111301~1447455931~67~21.54~"def num_common_letters(goal_word, guess):
+	return len(length)"~"...using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using set comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~1~auto
+111301_1447455931_67_1_21.54.py~111301~1447455931~67~21.54~"def num_common_letters(goal_word, guess):
 	goal_word = ''.join(sorted(''.join(set(goal_word))))
 	guess = ''.join(sorted(''.join(set(guess))))
 	print(goal_word, guess)
@@ -947,17 +947,17 @@ def num_common_letters(a, b):
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~1
-1113014_1447460726_180_4_4.38.py~../intervention/results/1113014~1447460726~180~2.68~"def num_common_letters(goal_word, guess):
-    return len((set(goal_word)).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4
-1114006_1447540604_405_2_11.22.py~../intervention/results/1114006~1447540604~405~8.65~"def num_common_letters(goal_word, guess):
+    return ---------    "~1~37~auto
+1113014_1447460726_180_4_4.38.py~1113014~1447460726~180~2.68~"def num_common_letters(goal_word, guess):
+    return len((set(goal_word)).intersection(set(guess)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4~31~auto
+1114006_1447540604_405_2_11.22.py~1114006~1447540604~405~8.65~"def num_common_letters(goal_word, guess):
 	counter = 0 
 	goal_word = list(set(goal_word))
 	for letter in goal_word:
 		if letter in guess:
 			counter += 1
-	return counter"~...using a call to len....using a call to range....using list comprehension.~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1114003_1447542249_89_5_10.59.py~../intervention/results/1114003~1447542249~89~10.59~"def num_common_letters(goal_word, guess):
+	return counter"~...using a call to len....using a call to range....using list comprehension.~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to set....not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~1~auto
+1114003_1447542249_89_5_10.59.py~1114003~1447542249~89~10.59~"def num_common_letters(goal_word, guess):
 	letters_used = []
 	total = 0
 	for letter in guess:
@@ -965,27 +965,27 @@ def num_common_letters(a, b):
 			if letter == letter2 and letter not in letters_used:
 				letters_used.append(letter)
 				total += 1
-	return total"~...using the in operator....using a call to len....using a call to set.~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111706_1447805879_1355_2_5.2.py~../intervention/results/111706~1447805879~1355~5.2~"def num_common_letters(a,b):
+	return total"~...using the in operator....using a call to len....using a call to set.~...restructuring your function to not use nested loops (i.e. a loop within a loop)....restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~23~auto
+111706_1447805879_1355_2_5.2.py~111706~1447805879~1355~5.2~"def num_common_letters(a,b):
 	blist = set()
 	[blist.add(l) for l in a if l in list(b) and l not in blist]
-	return len(blist)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111715_1447803052_480_2_5.59.py~../intervention/results/111715~1447803052~480~5.59~"def num_common_letters(goal_word, guess):
+	return len(blist)"~"...using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~...not using a call to list....not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~13~auto
+111715_1447803052_480_2_5.59.py~111715~1447803052~480~5.59~"def num_common_letters(goal_word, guess):
     a = set(list(goal_word))
     b = set(list(guess))
-    return len(a.intersection(b))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111707_1447804233_69_4_3.58.py~../intervention/results/111707~1447804233~69~3.58~"def num_common_letters(goal_word, guess):
+    return len(a.intersection(b))"~"...using list comprehension....using the in operator....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...not using a call to list.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~18~auto
+111707_1447804233_69_4_3.58.py~111707~1447804233~69~3.58~"def num_common_letters(goal_word, guess):
 	matches = {x for x in set(goal_word) & set(guess)}
-	return len(matches)"~...using a call to list.~...not using set comprehension.~~~4
-111102_1447284044_48_5.py~../intervention/results/111102~1447284044~48~9.58~"def num_common_letters(goal_word, guess):
+	return len(matches)"~...using a call to list.~...not using set comprehension.~~~4~15~auto
+111102_1447284044_48_5.py~111102~1447284044~48~9.58~"def num_common_letters(goal_word, guess):
 	total_common = 0
 	word_count = []
 	for each_letter in guess:
 		if each_letter in goal_word and each_letter not in word_count:
 			word_count.append(each_letter)
 			total_common += 1
-	return total_common"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5.py
-1114006_1447539792_176_9_11.82.py~../intervention/results/1114006~1447539792~176~10.19~"def num_common_letters(goal_word, guess):
+	return total_common"~"...using a call to len....using a call to set....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~8~auto
+1114006_1447539792_176_9_11.82.py~1114006~1447539792~176~10.19~"def num_common_letters(goal_word, guess):
 	counter = 0
 	set_goal_word = set(goal_word)
 	set_guess = set(guess)
@@ -999,48 +999,48 @@ def num_common_letters(a, b):
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~9
-111301_1447456295_162_4_3.9.py~../intervention/results/111301~1447456295~162~3.9~"def num_common_letters(goal_word, guess):
+    return ---------    "~9~1~auto
+111301_1447456295_162_4_3.9.py~111301~1447456295~162~3.9~"def num_common_letters(goal_word, guess):
 	common = [l for l in set(goal_word) if l in set(guess)]
-	return len(common)"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4
-111305_1447458881_67_4_2.61.py~../intervention/results/111305~1447458881~67~2.61~"def num_common_letters(goal_word, guess):
-	return len([letter for letter in set(goal_word) if letter in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4
-1114011_1447542904_206_5_11.35.py~../intervention/results/1114011~1447542904~206~9.63~"def num_common_letters(goal_word, guess):
+	return len(common)"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~37~auto
+111305_1447458881_67_4_2.61.py~111305~1447458881~67~2.61~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in set(goal_word) if letter in guess])"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using list comprehension....not using the in operator.~~~4~14~auto
+1114011_1447542904_206_5_11.35.py~1114011~1447542904~206~9.63~"def num_common_letters(goal_word, guess):
     repeats = set()
     result = 0
     for letter in guess:
         if letter in goal_word and letter not in repeats:
             result += 1
         repeats.update(letter)
-    return result"~"...using a call to len....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111303_1447456570_11_4_4.22.py~../intervention/results/111303~1447456570~11~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word) & set(guess))"~~~~~4
-111301_1447456129_195_5_10.33.py~../intervention/results/111301~1447456129~195~10.33~"def num_common_letters(goal_word, guess):
+    return result"~"...using a call to len....using list comprehension....using a binary operation (<<, >>, &, ^, ~, |)."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension).~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~16~auto
+111303_1447456570_11_4_4.22.py~111303~1447456570~11~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~~~~~4~33~auto
+111301_1447456129_195_5_10.33.py~111301~1447456129~195~10.33~"def num_common_letters(goal_word, guess):
 	count = 0
 	repeats = []
 	for letter in list(goal_word):
 		if letter in list(guess) and letter not in repeats:
 			count += 1
 			repeats += letter
-	return count"~"...using a binary operation (<<, >>, &, ^, ~, |)....using a call to len....using set comprehension."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
-111304_1447460411_164_2_8.73.py~../intervention/results/111304~1447460411~164~8.73~"def num_common_letters(goal_word, guess):
+	return count"~"...using a binary operation (<<, >>, &, ^, ~, |)....using a call to len....using set comprehension."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using a call to list....not using the augassign operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~37~auto
+111304_1447460411_164_2_8.73.py~111304~1447460411~164~8.73~"def num_common_letters(goal_word, guess):
     uni_common_list = []
     s1=set(list(goal_word))
     s2=set(list(guess))
     common_set = [x for x in s1 if x in s2]
-    return len(common_set)"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list....not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-1114001_1447539067_26_4_5.18.py~../intervention/results/1114001~1447539067~26~2.41~"def num_common_letters(goal_word, guess):
-	return len(set(goal_word).intersection(guess))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4
-111308_1447459094_481_4_2.68.py~../intervention/results/111308~1447459094~481~2.68~"def num_common_letters(a, b):
-	return len(set(a).intersection(set(b)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4
-1114010_1447544748_282_2_8.29.py~../intervention/results/1114010~1447544748~282~6.69~"def num_common_letters(goal_word, guess):
+    return len(common_set)"~"...using a binary operation (<<, >>, &, ^, ~, |)."~...not using a call to set....not using a call to list....not using list comprehension....not using the in operator.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~12~auto
+1114001_1447539067_26_4_5.18.py~1114001~1447539067~26~2.41~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(guess))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4~6~auto
+111308_1447459094_481_4_2.68.py~111308~1447459094~481~2.68~"def num_common_letters(a, b):
+	return len(set(a).intersection(set(b)))"~"...using a binary operation (<<, >>, &, ^, ~, |)."~~~~4~38~auto
+1114010_1447544748_282_2_8.29.py~1114010~1447544748~282~6.69~"def num_common_letters(goal_word, guess):
 	s = set(goal_word)
 	a = set(guess)
 	u = s & a
-	return len(u)"~...using list comprehension....using the in operator.~"...not using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2
-111103_1447287326_5_4.py~../intervention/results/111103~1447287326~5~2.41~"def num_common_letters(goal_word, guess):
-    return len(set(goal_word) & set(guess))"~~~~~4.py
-111707_1447802560_25_1_14.66.py~../intervention/results/111707~1447802560~25~14.66~"def num_common_letters(goal_word, guess):
+	return len(u)"~...using list comprehension....using the in operator.~"...not using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with your call to set.."~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~2~10~auto
+111103_1447287326_5_4.py~111103~1447287326~5~2.41~"def num_common_letters(goal_word, guess):
+    return len(set(goal_word) & set(guess))"~~~~~4~9~auto
+111707_1447802560_25_1_14.66.py~111707~1447802560~25~14.66~"def num_common_letters(goal_word, guess):
 	goal_word_list = []
 	matches = []
 	count = 0 
@@ -1057,8 +1057,8 @@ def num_common_letters(a, b):
         if - in list(-----) --- - --- in ---------:
             --------- += - 
             --------- += -
-    return ---------    "~1
-111708_1447801936_573_5_12.5.py~../intervention/results/111708~1447801936~573~10.78~"def num_common_letters(goal_word, guess):
+    return ---------    "~1~15~auto
+111708_1447801936_573_5_12.5.py~111708~1447801936~573~10.78~"def num_common_letters(goal_word, guess):
 	letters = [letter for letter in goal_word]
 	common_letters = 0
 	for i in range(len(guess)):
@@ -1066,4 +1066,4 @@ def num_common_letters(a, b):
 			common_letters += 1
 	if guess in goal_word:
 		return 1
-	return common_letters"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using list comprehension....not using a call to len.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5
+	return common_letters"~"...using a call to set....using a binary operation (<<, >>, &, ^, ~, |). Try to combine it with you call to set.."~...restructuring your function to not use a conditional....restructuring your function to not use an explicit loop (e.g. use list/dict comprehension)....not using list comprehension....not using a call to len.~Think about what python construct/function you can use to get all the unique letters in each word. Then consider how you can compare these using a single operation. (HINT: use the suggestions above).~~5~26~auto

@@ -3,17 +3,15 @@
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>Autostyle</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/slider.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contrib/codemirror/lib/codemirror.css') }}" />
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/plot.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/results.css')}}" />
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='js/bootstrap.min.js')}}" />
   <script type='text/javascript' src='//code.jquery.com/jquery-1.10.1.js'></script>
   <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.carousel.css')}}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.carousel.min.css')}}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='owl/assets/owl.theme.default.min.css')}}">
   <script src="{{ url_for('static', filename='owl/owl.carousel.js')}}"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+
   <style>
 
 .axis path,
@@ -36,34 +34,241 @@
 
 </style>
 </head>
-
 <body style="position: relative; min-height: 120%">
-
     <!-- Begin page content -->
     <div class="wrapper" id="main-content">
       <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header" style="">
-          <a class="navbar-brand" href="../">Autostyle (Instructor Mode)</a>
+        <div class="container">
+          <div class="navbar-header" style="">
+            <a class="navbar-brand" href="../">Autostyle (Instructor Mode)</a>
+          </div>
+          <ul class="nav navbar-nav">
+              <li><a href="../">Home</a></li>
+              <li class="active"><a href="../plot">Plot</a></li>
+              <li><a href="../chain">Chain</a></li>
+              <li><a href="../improve">Improve</a></li>
+          </ul>
         </div>
-        <ul class="nav navbar-nav">
-            <li><a href="../">Home</a></li>
-            <li class="active"><a href="../plot">Plot</a></li>
-            <li><a href="../chain">Chain</a></li>
-            <li><a href="../improve">Improve</a></li>
-        </ul>
-   
-      </div>
-    </nav>
-
-
+      </nav>
     </div>
-<div id="footer">
+
+
+<script>
+function get_time(unix_timestamp){
+  var date = new Date(unix_timestamp*1000);
+  // Hours part from the timestamp
+  var hours = date.getHours();
+  // Minutes part from the timestamp
+  var minutes = "0" + date.getMinutes();
+  // Seconds part from the timestamp
+  var seconds = "0" + date.getSeconds();
+
+  // Will display time in 10:30:23 format
+  return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+}
+
+
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var padding = {
+    x: 1,
+    y: 1 
+};
+
+
+var w = $(window).width();
+var h = $(window).height();
+
+
+var scene = {
+    x: margin.left + padding.x,
+    y: margin.top + padding.y,
+    width: w - (margin.left * 2) - (padding.x * 2),
+    height: h - (margin.top * 2) - (padding.y * 2)
+};
+/* 
+ * value accessor - returns the value to encode for a given data object.
+ * scale - maps value to a visual display encoding, such as a pixel position.
+ * map function - maps from data value to display value
+ * axis - sets up axis
+ */ 
+
+// setup x 
+var xValue = function(d) { return d.sid;}, // data -> value
+    xScale = d3.scale.linear().range([0, width]), // value -> display
+    xMap = function(d) { return xScale(xValue(d));}, // data -> display
+    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+
+// setup y
+var yValue = function(d) { return d.flog;}, // data -> value
+    yScale = d3.scale.linear().range([height, 0]), // value -> display
+    yMap = function(d) { return yScale(yValue(d));}, // data -> display
+    yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+// setup fill color
+{% if type == "all_df.csv"%} 
+var cValue = function(d) { return d.type;},
+    color = d3.scale.category10();
+{% else %} 
+var cValue = function(d) { return d.cluster;},
+    color = d3.scale.category10();
+{% endif %} 
+
+// add the graph canvas to the body of the webpage
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// add the tooltip area to the webpage
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+// load data
+
+var psv = d3.dsv("~", "text/csv");
+
+psv("get_results/{{type}}", function(error, data) {
+  // change string (from CSV) into number format
+  data.forEach(function(d) {
+    d.flog = +d.flog_score;
+    d.sid = +d.sid;
+  });
+
+ 
+  // don't want dots overlapping axis, so add in buffer to data domain
+  xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
+  yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+
+  // x-axis
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("x", width)
+      .attr("y", -6)
+      .style("text-anchor", "end")
+      .text("Student");
+
+  // y-axis
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Flog score");
+
+  // draw dots
+  svg.selectAll(".dot")
+      .data(data)
+    .enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", 3.5)
+      .attr("cx", xMap)
+      .attr("cy", yMap)
+      .style("fill", function(d) { return color(cValue(d));}) 
+      .on("mouseover", function(d) {
+          tooltip.transition()
+               .duration(200)
+               .style("opacity", .9);
+            tooltip.html("<code><b>sid:</b> " + d.student_id + ", <b>time taken:</b> " + d.time_taken + "secs <b>time: </b>" + get_time(d.timestamp) + " <b>flog:</b> <span style='color: green'>" + d.flog + "</span></code>" + 
+                          "<br><div style='background:lightsteelblue; max-width: 900px; border-radius:8px; border: 0px; padding:4px 8px 4px 8px;'><pre style=\"font-size: 10px\">" + d.code + "</pre></div>")
+                    .style("left", (d3.event.pageX + 16) + "px")
+                    .style("top", function() {
+                        var pos = positionTooltip(
+                            {
+                            x: d3.event.pageX,
+                            y: d3.event.pageY
+                            }, scene, tooltip);
+                        return (pos.top - 10) + "px";
+            });
+
+
+      })
+      .on("mouseout", function(d) {
+          tooltip.transition()
+               .duration(500)
+               .style("opacity", 0);
+      });
+
+    function positionTooltip(mouse, scene, tooltip)
+    {
+        //Distance of element from the right edge of viewport
+        if (scene.width - (mouse.x + tooltip.width) < 20)
+        { //If tooltip exceeds the X coordinate of viewport
+            mouse.x = mouse.x - tooltip.width - 20;
+        }
+        //Distance of element from the bottom of viewport
+        if (scene.height - (mouse.y + $('.tooltip').height()
+) < 5)
+        { //If tooltip exceeds the Y coordinate of viewport
+            mouse.y = mouse.y - $('.tooltip').height() + 20;
+        }
+        return {
+            top: mouse.y,
+            left: mouse.x
+        };
+    }
+
+      var xs = data.map(function(d){return xMap(d)});
+    var ys = data.map(function(d){return yMap(d)});
+
+      for(i = 0; i < data.length - 1; i++){
+          for(j = i + 1; j < data.length; j++){
+            if ((data[i].sid == data[j].sid) && (data[i].flog != data[j].flog)){
+              svg.append('line')
+                .attr({
+                  x1: xs[i],
+                  y1: ys[i],
+                  x2: xs[j],
+                  y2: ys[j],
+                  stroke: 'grey'
+                });
+            }
+          }
+        }
+
+  // draw legend
+  var legend = svg.selectAll(".legend")
+      .data(color.domain())
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  // draw legend colored rectangles
+  legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+
+  // draw legend text
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d;})
+});
+
+</script>
+
+
+  <div id="footer">
     <div class="container">
         <p class="text-muted credit"><br><u>Autograding for Style</u>: Rohan Roy Choudhury, Joseph Moghadam, HeZheng Yin, Mukund Chillakanti, Armando Fox <br> Last updated: 2 September 2015</p>
     </div>
-</div>
-
+  </div>
 </body>
 </html>
 
