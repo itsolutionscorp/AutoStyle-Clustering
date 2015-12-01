@@ -220,8 +220,10 @@ psv("get_results/{{type}}", function(error, data) {
         };
     }
 
-      var xs = data.map(function(d){return xMap(d)});
+    var xs = data.map(function(d){return xMap(d)});
     var ys = data.map(function(d){return yMap(d)});
+
+    var countmap = {}
 
       for(i = 0; i < data.length - 1; i++){
           for(j = i + 1; j < data.length; j++){
@@ -235,8 +237,33 @@ psv("get_results/{{type}}", function(error, data) {
                   stroke: 'grey'
                 });
             }
+            if (data[i].sid == data[j].sid && data[i].flog == data[j].flog){
+              if (!([data[i].sid, data[i].flog] in countmap)){
+                  countmap[[data[i].sid, data[i].flog]] = 2
+              } else{
+                  countmap[[data[i].sid, data[i].flog]] += 1
+              }
+
+            }
           }
         }
+
+      for(i = 0; i < data.length - 1; i++){
+          for(j = i + 1; j < data.length; j++){
+              if ([data[i].sid, data[i].flog] in countmap){
+                  svg.append("text")
+                    .attr("x", xs[i])
+                    .attr("y", ys[i])
+                    .attr("font-size", "7px")
+                    .attr("dy", "-3px")
+                    .attr("dx", "3px")
+                    .attr("font-family", "sans-serif")
+                    .attr("font-weight", "100")
+                    .text(countmap[[data[i].sid, data[i].flog]]);
+              }
+
+          }
+      }
 
   // draw legend
   var legend = svg.selectAll(".legend")
