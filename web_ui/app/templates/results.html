@@ -224,33 +224,48 @@ psv("get_results/{{type}}", function(error, data) {
     var ys = data.map(function(d){return yMap(d)});
 
     var countmap = {}
+    function onlyUnique(value, index, self) { 
+        return self.indexOf(value) === index;
+    }
 
       for(i = 0; i < data.length - 1; i++){
           for(j = i + 1; j < data.length; j++){
-            if ((data[i].sid == data[j].sid) && (data[i].flog != data[j].flog)){
-              svg.append('line')
-                .attr({
-                  x1: xs[i],
-                  y1: ys[i],
-                  x2: xs[j],
-                  y2: ys[j],
-                  stroke: 'grey'
-                });
-            }
-            if (data[i].sid == data[j].sid && data[i].flog == data[j].flog){
-              if (!([data[i].sid, data[i].flog] in countmap)){
-                  countmap[[data[i].sid, data[i].flog]] = 2
-              } else{
-                  countmap[[data[i].sid, data[i].flog]] += 1
+            if (data[i].sid == data[j].sid) {
+              if (data[i].flog != data[j].flog){
+                var stroke_color = 'grey';
+                if (data[i].hints == "skeleton"){
+                  stroke_color = 'blue';
+                }else if (data[i].hints == "approach"){
+                  stroke_color = 'orange';
+                }else if (data[i].hints == "auto"){
+                  stroke_color = 'green';
+                }
+                svg.append('line')
+                  .attr({
+                    x1: xs[i],
+                    y1: ys[i],
+                    x2: xs[j],
+                    y2: ys[j],
+                    stroke: stroke_color
+                  });
+              }else{
+                if (!([data[i].sid, data[i].flog] in countmap)){
+                  countmap[[data[i].sid, data[i].flog]] = [data[i].timestamp, data[j].timestamp]
+                  // countmap[[data[i].sid, data[i].flog]].push(data[i].timestamp)
+                  // countmap[[data[i].sid, data[i].flog]].push(data[j].timestamp)
+                } else{
+                  countmap[[data[i].sid, data[i].flog]].push(data[i].timestamp)
+                }
               }
-
             }
           }
         }
 
+      var done = [];
+
       for(i = 0; i < data.length - 1; i++){
           for(j = i + 1; j < data.length; j++){
-              if ([data[i].sid, data[i].flog] in countmap){
+              if ([data[i].sid, data[i].flog] in countmap && !([data[i].sid, data[i].flog] in done)){
                   svg.append("text")
                     .attr("x", xs[i])
                     .attr("y", ys[i])
@@ -259,7 +274,7 @@ psv("get_results/{{type}}", function(error, data) {
                     .attr("dx", "3px")
                     .attr("font-family", "sans-serif")
                     .attr("font-weight", "100")
-                    .text(countmap[[data[i].sid, data[i].flog]]);
+                    .text(countmap[[data[i].sid, data[i].flog]].filter(onlyUnique).length);
               }
 
           }
