@@ -83,6 +83,8 @@ def abc_score(ast, num_lines):
             calls += 1
         elif key in ("If", "While", "For", "Raise", "Break", "cond", "iter"):
             branch += 1
+        elif key in ("ListComp"):
+            cpts += 2
         elif key in ["Compare","Try", "ExceptHandler"]:
             cond+=1
         stack += Node.get_children(current)[::-1]
