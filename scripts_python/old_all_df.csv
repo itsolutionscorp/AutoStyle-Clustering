@@ -1,0 +1,2730 @@
+~code~flog_score~hints~sid~student_id~time_taken~timestamp~type
+1114006_1447540630_23_5_11.95.py~"def num_common_letters(goal_word, guess):
+	counter = 0
+	cache = []
+	for letter in list(goal_word):
+		if letter in list(guess) and letter not in cache:
+			counter += 1
+			cache += letter
+	return counter"~10.71~approach~1~1114006~23~1447540630~auto
+111703_1447799212_273_4_8.73.py~"def num_common_letters(goal_word, guess):
+	first = set(goal_word)
+	second = set(guess)
+	return len([x for x in first if x in second])"~5.67~auto~2~111703~273~1447799212~auto
+111307_1447457963_515_4_5.37.py~"def num_common_letters(goal_word, guess):
+	repeated = {character for character in goal_word if character in guess}
+	return len(repeated)"~3.58~auto~3~111307~515~1447457963~auto
+1113015_1447460523_117_2_7.86.py~"def num_common_letters(goal_word, guess):
+	match_list = []
+	for x in goal_word:
+		if x in guess and x not in match_list:
+			match_list.append(x)
+	return len(match_list)"~7.54~approach~4~1113015~117~1447460523~auto
+1113017_1447462085_1573_6_27.22.py~"def num_common_letters(goal_word, guess):
+	goal_matrix = []
+	while goal_word:
+		if not goal_word[0:1] in goal_matrix:
+			goal_matrix.append(goal_word[0:1])
+		goal_word = goal_word[1:len(goal_word)]
+	return_value = 0
+	guess_matrix = []
+	while guess:
+		if not guess[0:1] in guess_matrix:
+			guess_matrix.append(guess[0:1])
+		guess = guess[1:len(guess)]
+	while guess_matrix:
+		if guess_matrix[0] in goal_matrix:
+			print(guess_matrix[0])
+			return_value += 1
+		guess_matrix = guess_matrix[1:len(guess_matrix)]
+	return return_value"~23.0~skeleton~5~1113017~1573~1447462085~auto
+1114001_1447538689_87_2_8.76.py~"def num_common_letters(goal_word, guess):
+	common_letters = []
+	for letter in guess:
+		if letter in goal_word and letter not in common_letters:
+			common_letters.append(letter)
+	return len(common_letters)"~7.54~approach~6~1114001~87~1447538689~auto
+1113015_1447460403_57_2_9.04.py~"def num_common_letters(goal_word, guess):
+	match_list = []
+	for x in goal_word:
+		if x in guess:
+			if x not in match_list:
+				match_list.append(x)
+	return len(match_list)"~8.65~approach~4~1113015~57~1447460403~auto
+111306_1447456944_15_4_4.38.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(set(guess)))"~2.68~auto~7~111306~15~1447456944~auto
+120718_1449536087_417_2_9.1.py~"def num_common_letters(goal_word, guess):
+	l = []
+	for g in guess:
+		if g in set(goal_word) and g not in l:
+			l += g 
+	return len(l)"~7.92~approach~8~120718~417~1449536087~auto
+111102_1447285135_25_4.py~"def num_common_letters(goal_word, guess):
+	return len(set([word for word in guess if word in goal_word]))"~3.29~auto~9~111102~25~1447285135~auto
+111103_1447286394_26_4.py~"def num_common_letters(goal_word, guess):
+	return len(set([letter for letter in guess if letter in goal_word]))"~3.29~auto~10~111103~26~1447286394~auto
+1114010_1447544293_257_2_8.38.py~"def num_common_letters(goal_word, guess):
+	s = set(goal_word)
+	a = set(guess)
+	u = s.intersection(a)
+	return len(u)"~6.8~approach~11~1114010~257~1447544293~auto
+111311_1447460337_7_4_5.22.py~"def num_common_letters(goal_word, guess):
+	unique_word = set(goal_word)
+	unique_guess = set(guess)
+	return len(unique_word.intersection(unique_guess))"~5.22~auto~12~111311~7~1447460337~auto
+111304_1447460245_333_2_10.25.py~"def num_common_letters(goal_word, guess):
+    uni_common_list = []
+    l1=list(goal_word)
+    l2=list(guess)
+    common_list = [x for x in l1 if x in l2]
+    common_set = set(common_list)
+    return len(common_set)"~11.0~approach~13~111304~333~1447460245~auto
+111706_1447802690_129_2_8.82.py~"def num_common_letters(a,b):
+	blist = list()
+	btemp = [ele for ele in b]
+	for l in a:
+		if l in btemp and l not in blist:
+			blist+=l
+	return len(blist)"~9.26~approach~14~111706~129~1447802690~auto
+120719_1449535000_25_4_3.71.py~"def num_common_letters(goal_word, guess):
+  	union = [x for x in guess if x in goal_word]
+  	return len(set(union))"~4.22~auto~15~120719~25~1449535000~auto
+111305_1447458346_44_4_3.49.py~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in list(set(goal_word)) if letter in list(set(guess))])"~4.02~auto~16~111305~44~1447458346~auto
+111707_1447802272_234_5_10.33.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	matches = []
+	for x in list(goal_word):
+		if x in list(guess) and x not in matches:
+			count += 1
+			matches += x
+	return count"~10.71~approach~17~111707~234~1447802272~auto
+1114011_1447542694_38_5_9.58.py~"def num_common_letters(goal_word, guess):
+    repeats = []
+    result = 0
+    for letter in guess:
+        if letter in goal_word and letter not in repeats:
+            result += 1
+        repeats.append(letter)
+    return result"~9.99~approach~18~1114011~38~1447542694~auto
+1114006_1447541494_97_4_4.1.py~"def num_common_letters(goal_word, guess):
+	return len(set(guess) & set(goal_word))"~2.41~auto~1~1114006~97~1447541494~auto
+120721_1449535257_32_2_3.9.py~"def num_common_letters(goal_word, guess):
+	elements = set(list(letter for letter in goal_word if letter in guess))
+	return len(elements)"~3.9~approach~19~120721~32~1449535257~auto
+111103_1447287289_303_4.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~10~111103~303~1447287289~auto
+111705_1447798999_648_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) and set(guess))"~2.41~auto~20~111705~648~1447798999~auto
+120721_1449535176_141_2_3.9.py~"def num_common_letters(goal_word, guess):
+	elements = set(list(letter for letter in goal_word if letter in guess))
+	return len(elements)"~3.9~approach~19~120721~141~1449535176~auto
+111305_1447456940_28_5_10.59.py~"def num_common_letters(goal_word, guess):
+	common_letters = []
+	num_common = 0
+	for guess_letter in guess:
+		for goal_letter in goal_word:
+			if (guess_letter == goal_letter) & (guess_letter not in common_letters):
+				num_common += 1
+				common_letters.append(guess_letter)
+	return num_common"~10.78~approach~16~111305~28~1447456940~auto
+120717_1449536495_11_7_9.65.py~"def num_common_letter(goal_word, guess):
+    if len(guess) == 0 or len(goal_word) == 0:
+        return 0
+    elif guess[-1] in set(goal_word):
+        set(goal_word).remove(guess[-1])
+        return 1 + num_common_letter(set(goal_word), guess[:-1])
+    else:
+        return num_common_letter(goal_word, guess[:-1])"~9.65~skeleton~21~120717~11~1449536495~auto
+111715_1447804545_62_4_2.41.py~"def num_common_letters(goal_word, guess):
+    return len(set(goal_word) & set(guess))"~2.41~none~22~111715~62~1447804545~auto
+1113016_1447461383_995_5_11.3.py~"def num_common_letters(goal_word, guess):
+    found = []
+    count = 0
+    for i in guess:
+        if (i in goal_word and i not in found):
+            found.append(i)
+            count +=1
+    return count"~9.99~approach~23~1113016~995~1447461383~auto
+1114005_1447541177_267_4_5.27.py~"def num_common_letters(goal_word, guess):
+	1 & 1
+	return len([s for s in set(goal_word) if s in guess])"~3.97~auto~24~1114005~267~1447541177~auto
+120804_1449615364_16_4_3.58.py~"def num_common_letters(goal_word, guess):
+    intersection = set(goal_word) & set(guess)
+    return len(intersection)"~3.58~none~25~120804~16~1449615364~auto
+111704_1447798598_62_4_4.34.py~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in set(guess) if letter in goal_word])"~3.29~auto~26~111704~62~1447798598~auto
+111909_1447991041_753_4_2.41.py~"def num_common_letters(goal_word, guess):
+    return len(set(goal_word) & set(guess))"~2.41~none~27~111909~753~1447991041~auto
+1114003_1447542838_110_4_2.41.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~28~1114003~110~1447542838~auto
+111305_1447458811_46_4_2.86.py~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in set(goal_word) if letter in set(guess)])"~3.49~auto~16~111305~46~1447458811~auto
+120718_1449535367_117_5_10.4.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    word_list = []
+    for i in range(len(goal_word)):
+        if goal_word[i] in list(guess) and goal_word[i] not in word_list:
+            word_list += goal_word[i]
+            count += 1
+    return count"~10.78~approach~8~120718~117~1449535367~auto
+120721_1449535221_43_4_3.71.py~"def num_common_letters(goal_word, guess):
+	elements = set([letter for letter in goal_word if letter in guess])
+	return len(elements)"~4.22~auto~19~120721~43~1449535221~auto
+111701_1447799295_177_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~29~111701~177~1447799295~auto
+1114011_1447543523_15_4_3.71.py~"def num_common_letters(goal_word, guess):
+    without_repeats = set(guess)
+    return sum([1 for letter in without_repeats if letter in goal_word])"~4.22~auto~18~1114011~15~1447543523~auto
+111311_1447459756_9_5_11.3.py~"def num_common_letters(goal_word, guess):
+	matching_letters = []
+	total = 0
+	for letter in guess:
+		if letter in goal_word and letter not in matching_letters:
+			matching_letters.append(letter)
+			total += 1
+	return total"~9.99~approach~12~111311~9~1447459756~auto
+1114005_1447539111_83_2_11.96.py~"def num_common_letters(goal_word, guess):
+	word1 = sorted(set(goal_word))
+	word2 = sorted(set(guess))
+	same = 0
+	for x in word1:
+		if x in word2:
+			same += 1
+	return same"~10.34~approach~24~1114005~83~1447539111~auto
+111906_1447990116_297_2_6.78.py~"def num_common_letter(goal_word, guess):
+	goal_word= ""I give up""
+	guess = ""Yes""
+	if goal_word==gues:
+		return ""What?""
+	return (goal_word)"~6.78~approach~30~111906~297~1447990116~auto
+1113016_1447462289_903_4_5.59.py~"def num_common_letters(goal_word, guess):
+    guess = """".join(set(guess))
+    return sum([1 if x in goal_word else 0 for x in guess])"~4.38~auto~23~1113016~903~1447462289~auto
+111708_1447802398_335_4_5.5.py~"def num_common_letters(goal_word, guess):
+	goal_word, guess = set([letter for letter in goal_word]), set([letter for letter in guess])
+	return len(set.intersection(guess, goal_word))"~5.5~auto~31~111708~335~1447802398~auto
+111707_1447803939_55_2_6.69.py~"def num_common_letters(goal_word, guess):
+	goal_set = set(goal_word)
+	guess_set = set(guess)
+	matches = goal_set & guess_set
+	return len(matches)"~6.69~approach~17~111707~55~1447803939~auto
+120718_1449534837_269_5_11.95.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    word_list = []
+    for w in list(goal_word):
+        if w in list(guess) and w not in word_list:
+            word_list += w
+            count += 1
+    return count"~10.71~approach~8~120718~269~1449534837~auto
+111907_1447993008_31_4_2.41.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(guess))"~2.41~none~32~111907~31~1447993008~auto
+111707_1447804281_45_4_3.77.py~"def num_common_letters(goal_word, guess):
+	matches = list({x for x in set(goal_word) & set(guess)})
+	return len(matches)"~3.77~auto~17~111707~45~1447804281~auto
+111101_1447284327_539_4_5.73.py~"def num_common_letters(goal_word, guess):
+    lst = []
+    return len([lst.append(x) for x in goal_word if (x in guess and x not in lst)])"~5.73~auto~33~111101~539~1447284327~auto
+1114010_1447543824_88_2_8.93.py~"def num_common_letters(goal_word, guess):
+	s = set([goal_word[i] for i in range(len(goal_word))])
+	a = set([guess[j] for j in range(len(guess))])
+	u = s.intersection(a)
+	return len(u)"~8.47~approach~11~1114010~88~1447543824~auto
+111302_1447458940_67_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & (set(guess)))"~2.41~none~34~111302~67~1447458940~auto
+111311_1447460298_59_4_6.02.py~"def num_common_letters(goal_word, guess):
+	unique_word = set(goal_word)
+	unique_guess = set(guess)
+	return len(unique_word.intersection(unique_guess))"~5.22~auto~12~111311~59~1447460298~auto
+111305_1447458506_21_4_2.86.py~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in set(goal_word) if letter in set(guess)])"~3.49~auto~16~111305~21~1447458506~auto
+1114006_1447538955_31_5_10.59.py~"def num_common_letters(goal_word, guess):
+	counter = 0
+	cache = []
+	for letter in goal_word:
+		for x in guess: 
+			if letter == x and letter not in cache:
+				cache.append(letter)
+				counter += 1
+	return counter"~10.78~approach~1~1114006~31~1447538955~auto
+111305_1447458649_46_4_2.86.py~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in set(goal_word) if letter in set(guess)])"~3.49~auto~16~111305~46~1447458649~auto
+120721_1449535031_163_4_3.58.py~"def num_common_letters(goal_word, guess):
+	elements = {letter for letter in goal_word if letter in guess}
+	return len(elements)"~3.58~auto~19~120721~163~1449535031~auto
+1114001_1447539136_66_4_5.18.py~"def num_common_letters(goal_word, guess):
+	2 << 1
+	return len(set(goal_word).intersection(guess))"~3.29~none~6~1114001~66~1447539136~auto
+111307_1447459000_302_4_5.37.py~"def num_common_letters(goal_word, guess):
+	repeated = {character for character in goal_word if character in guess}
+	return len(repeated)"~3.58~auto~3~111307~302~1447459000~auto
+1114001_1447539039_20_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(guess))"~2.41~auto~6~1114001~20~1447539039~auto
+120719_1449534331_72_4_3.71.py~"def num_common_letters(goal_word, guess):
+	union = [x for x in guess if x in goal_word]
+	return len(set(union))"~4.22~auto~15~120719~72~1449534331~auto
+1114002_1447543487_124_4_5.46.py~"def num_common_letters(goal_word, guess):
+	unique = set(goal_word)
+	return len([match for match in unique if match in guess])"~4.22~auto~35~1114002~124~1447543487~auto
+111703_1447798322_385_5_15.09.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	commons = []
+	for letter1 in goal_word:
+		for letter2 in guess:
+			if letter1 == letter2 and not letter1 in commons:
+				count += 1
+				commons.append(letter1)
+	return count"~10.81~approach~2~111703~385~1447798322~auto
+111311_1447460206_448_4_6.94.py~"def num_common_letters(goal_word, guess):
+	unique_word = set(goal_word)
+	unique_guess = set(guess)
+	return len([x for x in unique_guess if x in unique_word])"~5.67~auto~12~111311~448~1447460206~auto
+1113014_1447462027_274_4_2.68.py~"def num_common_letters(goal_word, guess):
+	return len((set(goal_word)).intersection(set(guess)))"~2.68~auto~36~1113014~274~1447462027~auto
+111311_1447460515_174_4_2.68.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(set(guess)))"~2.68~auto~12~111311~174~1447460515~auto
+1114005_1447541263_83_4_5.27.py~"def num_common_letters(goal_word, guess):
+	1 & 1
+	return len([s for s in set(goal_word) if s in guess])"~3.97~auto~24~1114005~83~1447541263~auto
+1114008_1447540759_241_2_5.46.py~"def num_common_letters(goal_word, guess):
+	a = set([letter for letter in goal_word if letter in guess])
+	return len(a & a)"~4.22~approach~37~1114008~241~1447540759~auto
+111303_1447456589_15_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~38~111303~15~1447456589~auto
+1114010_1447544808_58_2_8.44.py~"def num_common_letters(goal_word, guess):
+	s = set(goal_word)
+	a = set(guess)
+	u = [i for i in a if i in s]
+	return len(u)"~7.16~approach~11~1114010~58~1447544808~auto
+111703_1447798660_333_2_11.05.py~"def num_common_letters(goal_word, guess):
+	first = set(goal_word)
+	second = set(guess)
+	commons = [x for x in first if x in second]
+	return len(commons)"~7.16~approach~2~111703~333~1447798660~auto
+111305_1447459259_25_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~16~111305~25~1447459259~auto
+1114010_1447544418_122_2_8.44.py~"def num_common_letters(goal_word, guess):
+	s = set(goal_word)
+	a = set(guess)
+	u = [i for i in a if i in s]
+	return len(u)"~7.16~approach~11~1114010~122~1447544418~auto
+1114007_1447540945_8_2_8.76.py~"def num_common_letters(goal_word, guess):
+	chars = []
+	for c in goal_word:
+		if c in guess and c not in chars:
+			chars.append(c)
+	return len(chars)"~7.54~approach~39~1114007~8~1447540945~auto
+120718_1449536270_181_2_9.18.py~"def num_common_letters(goal_word, guess):
+	l = list()
+	for g in guess:
+		if g in set(goal_word) and g not in l:
+			l += g
+	return len(l)"~7.5~approach~8~120718~181~1449536270~auto
+120719_1449534050_122_2_10.34.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	goal_word = set(list(goal_word))
+	guess = set(list(guess))
+	for x in goal_word:
+		if x in guess:
+			count += 1
+	return count"~10.34~approach~15~120719~122~1449534050~auto
+111715_1447802164_50_1_14.66.py~"def num_common_letters(goal_word, guess):
+    holder = []
+    holder2 = []
+    count=0
+    for i in range(len(goal_word)):
+        if goal_word[i] not in holder: 
+            holder.append(goal_word[i])
+    for j in range(len(guess)):
+        if guess[j] in holder and guess[j] not in holder2:
+            holder2.append(guess[j])
+            count +=1
+    return count"~15.71~skeleton~22~111715~50~1447802164~auto
+111909_1447989250_81_7_12.21.py~"def num_common_letters(goal_word, guess):
+    goal_word = list(set([ord(i) for i in goal_word]))
+    guess = list(set([ord(i) for i in guess]))
+    total = 0
+    print(goal_word, guess)
+    for i in goal_word:
+        for j in guess:
+            if i == j:
+                total += 1
+    return total"~12.85~skeleton~27~111909~81~1447989250~auto
+1113015_1447460978_77_4_2.41.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~4~1113015~77~1447460978~auto
+1114006_1447541394_191_4_5.46.py~"def num_common_letters(goal_word, guess):
+	lst = [x for x in goal_word if x in guess]
+	return len(set(lst))"~4.22~auto~1~1114006~191~1447541394~auto
+111715_1447803534_70_4_8.44.py~"def num_common_letters(goal_word, guess):
+    x = [letter for letter in goal_word]
+    y= [letter for letter in guess]
+    a = set(x)
+    b = set(y)
+    return len(a.intersection(b))"~9.34~auto~22~111715~70~1447803534~auto
+1114010_1447544030_204_2_8.38.py~"def num_common_letters(goal_word, guess):
+	s = set([i for i in goal_word])
+	a = set([j for j in guess])
+	u = s.intersection(a)
+	return len(u)"~7.89~approach~11~1114010~204~1447544030~auto
+1114008_1447540907_145_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(guess) & set(goal_word))"~2.41~none~37~1114008~145~1447540907~auto
+120720_1449534775_107_4_2.41.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~40~120720~107~1449534775~auto
+111909_1447989700_131_4_3.49.py~"def num_common_letters(goal_word, guess):
+    return len([i for i in list(set(goal_word)) if i in list(set(guess))])"~4.02~auto~27~111909~131~1447989700~auto
+111101_1447285124_793_4.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~33~111101~793~1447285124~auto
+111303_1447456600_7_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~38~111303~7~1447456600~auto
+1113017_1447462796_707_5_14.59.py~"def num_common_letters(goal_word, guess):
+	goal_matrix = list(set(list(goal_word)))
+	guess_matrix = list(set(list(guess)))
+	counter = 0
+	while guess_matrix:
+		if guess_matrix[0] in goal_matrix:
+			counter += 1
+		guess_matrix = guess_matrix[1:len(guess_matrix)]
+	return counter"~12.24~approach~5~1113017~707~1447462796~auto
+1114002_1447543359_381_4_5.59.py~"def num_common_letters(goal_word, guess):
+	unique = list(set(goal_word))
+	return len([match for match in unique if match in guess])"~4.38~auto~35~1114002~381~1447543359~auto
+111302_1447458518_48_2_6.62.py~"def num_common_letters(goal_word, guess):
+	length = len([l for l in goal_word if (l in guess)])
+	if length == 5:
+		return length
+	else:
+		return length - 1"~6.91~approach~34~111302~48~1447458518~auto
+120718_1449535667_68_5_11.91.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	l = []	
+	for g in guess:
+		if g in set(goal_word) and g not in l:
+			l += g
+			count += 1
+	return count"~10.67~approach~8~120718~68~1449535667~auto
+111715_1447803869_43_4_3.9.py~"def num_common_letters(goal_word, guess):
+    a = set([letter for letter in goal_word if letter in list(guess)])
+    return len(a)"~4.38~auto~22~111715~43~1447803869~auto
+120717_1449536481_493_7_9.65.py~"def num_common_letter(goal_word, guess):
+    if len(guess) == 0 or len(goal_word) == 0:
+        return 0
+    elif guess[-1] in set(goal_word):
+        set(goal_word).remove(guess[-1])
+        return 1 + num_common_letter(set(goal_word), guess[:-1])
+    else:
+        return num_common_letter(goal_word, guess[:-1])"~9.65~skeleton~21~120717~493~1449536481~auto
+1114010_1447544463_41_2_8.38.py~"def num_common_letters(goal_word, guess):
+	s = set(goal_word)
+	a = set(guess)
+	u = s.intersection(a)
+	return len(u)"~6.8~approach~11~1114010~41~1447544463~auto
+1114005_1447539676_351_4_4.34.py~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess])"~3.29~auto~24~1114005~351~1447539676~auto
+111705_1447798348_430_0_12.2.py~"def num_common_letters(goal_word, guess):
+	letters = []
+	while goal_word:
+		for i in range(len(guess)):
+			if goal_word[0] == guess[i] and guess[i] not in letters:
+				letters += guess[i]
+		goal_word = goal_word[1:]
+	return len(letters)"~11.52~approach~20~111705~430~1447798348~auto
+111703_1447798935_273_2_10.04.py~"def num_common_letters(goal_word, guess):
+	first = set(goal_word)
+	second = set(guess)
+	commons = first & second
+	return len(commons)"~6.69~approach~2~111703~273~1447798935~auto
+111707_1447802417_38_5_10.33.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	matches = []
+	for x in list(goal_word):
+		if x in list(guess) and x not in matches:
+			count += 1
+			matches += [x]
+	return count"~11.44~approach~17~111707~38~1447802417~auto
+111906_1447991329_375_4_3.58.py~"def num_common_letters(*strings):
+    x =set.intersection(*map(set,strings))
+    return len(x)"~3.58~auto~30~111906~375~1447991329~auto
+120721_1449534242_289_5_9.63.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	elements = set()
+	for letter in guess:
+		if letter in goal_word and letter not in elements:
+			elements.update({letter})
+			count += 1
+	return count"~9.63~approach~19~120721~289~1449534242~auto
+111715_1447803352_80_5_9.71.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    holder = []
+    for i in list(goal_word):
+        if i in list(guess) and i not in holder:
+            count += 1 
+            holder.append(i)
+    return count"~10.11~approach~22~111715~80~1447803352~auto
+120803_1449613444_586_2_8.83.py~"def num_common_letters(goal_word, guess):
+    letters = list(set(goal_word))
+    repeats = 0
+    for l in list(set(guess)):
+        if l in letters:
+            repeats += 1
+    return repeats"~8.83~approach~41~120803~586~1449613444~auto
+111704_1447798213_18_2_8.84.py~"def num_common_letters(goal_word, guess):
+	similar = []
+	for letter in guess:
+		if letter in goal_word and not letter in similar:
+			similar.append(letter)
+	return len(similar)"~7.63~approach~26~111704~18~1447798213~auto
+1114010_1447543256_500_0_14.11.py~"def num_common_letters(goal_word, guess):
+	letterSum = 0
+	wordlst = []
+	for i in range(len(goal_word)):
+		if goal_word[i] in guess and goal_word[i] not in wordlst:
+			wordlst.append(goal_word[i])
+			letterSum += 1
+	return letterSum"~10.11~approach~11~1114010~500~1447543256~auto
+1114004_1447541929_23_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~42~1114004~23~1447541929~auto
+111304_1447459905_408_2_10.78.py~"def num_common_letters(goal_word, guess):
+    uni_common_list = []
+    l1=list(''.join(goal_word.split()))
+    l2=list(''.join(guess.split()))
+    common_list = [x for x in l1 if x in l2]
+    common_set = set(common_list)
+    return len(common_set)"~11.5~approach~13~111304~408~1447459905~auto
+111704_1447798533_305_4_5.59.py~"def num_common_letters(goal_word, guess):
+	guess = list(set(guess))
+	return len([letter for letter in guess if letter in goal_word])"~4.38~auto~26~111704~305~1447798533~auto
+120706_1449527609_334_5_10.68.py~"def num_common_letters(goal_word, guess):
+	total = 0
+	if guess in goal_word:
+		return 1
+	for i in range (0, len(goal_word)):
+		for j in range (0, len(guess)):
+			if guess[j] == goal_word[i]:
+				total += 1
+	return total"~10.68~approach~43~120706~334~1449527609~auto
+111704_1447798812_212_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(guess) & set(goal_word))"~2.41~none~26~111704~212~1447798812~auto
+120721_1449534802_209_2_5.18.py~"def num_common_letters(goal_word, guess):
+	goal_word = set(goal_word)
+	elements = {letter for letter in goal_word if letter in guess}
+	return len(elements)"~5.18~approach~19~120721~209~1449534802~auto
+1113013_1447461217_148_4_6.02.py~"def num_common_letters(goal_word, guess):
+	unique_goal = set(goal_word)
+	unique_guess = set(guess)
+	return len(unique_guess.intersection(unique_goal))"~5.22~auto~44~1113013~148~1447461217~auto
+111909_1447990285_582_4_2.86.py~"def num_common_letters(goal_word, guess):
+    return len([i for i in set(goal_word) if i in set(guess)])"~3.49~auto~27~111909~582~1447990285~auto
+120719_1449535200_197_4_2.61.py~"def num_common_letters(goal_word, guess):
+  	return len(set([x for x in guess if x in goal_word]))"~3.29~auto~15~120719~197~1449535200~auto
+120804_1449615170_457_4_4.0.py~"def num_common_letters(goal_word, guess):
+    goal, check = set(goal_word), set(guess)
+    return len(list(goal.intersection(check)))"~4.0~auto~25~120804~457~1449615170~auto
+111715_1447804480_608_4_2.68.py~"def num_common_letters(goal_word, guess):
+    return len(set(goal_word).intersection(set(guess)))"~2.68~auto~22~111715~608~1447804480~auto
+111307_1447458617_27_4_5.37.py~"def num_common_letters(goal_word, guess):
+	repeated = {character for character in goal_word if character in guess}
+	return len(repeated)"~3.58~auto~3~111307~27~1447458617~auto
+1114004_1447539270_328_4_6.94.py~"def num_common_letters(goal_word, guess):
+	goal_word = set(goal_word)
+	guess = set(guess)
+	return len([c for c in goal_word if c in guess])"~5.67~auto~42~1114004~328~1447539270~auto
+1113016_1447460384_420_5_11.41.py~"def num_common_letters(goal_word, guess):
+    found = []
+    count = 0
+    for i in range(0,len(guess)):
+        if (guess[i] in goal_word and guess[i] not in found):
+            found.append(guess[i])
+            count +=1
+    return count"~10.11~approach~23~1113016~420~1447460384~auto
+111907_1447992902_1171_4_3.0.py~"def num_common_letters(goal_word, guess):
+	return len(set(list(goal_word)).intersection(list(guess)))"~3.0~auto~32~111907~1171~1447992902~auto
+111307_1447457444_254_5_12.05.py~"def num_common_letters(goal_word, guess):
+	total = 0
+	cached = []
+	for first in goal_word:
+		for second in guess:
+			if (first == second) and not (second in cached):
+				total += 1
+				cached += [first]
+	return total"~11.92~approach~3~111307~254~1447457444~auto
+1114006_1447539594_437_0_16.15.py~"def num_common_letters(goal_word, guess):
+	counter = 0
+	cache = []
+	set_goal_word = set(goal_word)
+	set_guess = set(guess)
+	for letter in set_goal_word:
+		for x in set_guess: 
+			if letter == x and letter not in cache:
+				cache.append(letter)
+				counter += 1
+	return counter"~13.78~approach~1~1114006~437~1447539594~auto
+120719_1449534256_49_2_8.73.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	goal_word = set(list(goal_word))
+	guess = set(list(guess))
+	union = [x for x in guess if x in goal_word]
+	return len(union)"~8.96~approach~15~120719~49~1449534256~auto
+120721_1449536002_13_4_3.58.py~"def num_common_letters(goal_word, guess):
+	elements = set(goal_word).intersection(guess)
+	return len(elements)"~3.58~auto~19~120721~13~1449536002~auto
+120719_1449535783_11_4_3.77.py~"def num_common_letters(goal_word, guess):
+	common = list(set(goal_word) & set(guess))
+  	return len(common)"~3.77~auto~15~120719~11~1449535783~auto
+111907_1447989950_277_0_10.4.py~"def num_common_letters(goal_word, guess):
+	i = 0
+	match = []
+	for x in list(goal_word):
+		if guess[i] in list(goal_word) and guess[i] not in match:
+			match += guess[i]
+			i += 1
+	return len(match)"~10.78~approach~32~111907~277~1447989950~auto
+120804_1449615335_162_4_3.58.py~"def num_common_letters(goal_word, guess):
+    intersection = set(goal_word) & set(guess)
+    return len(intersection)"~3.58~none~25~120804~162~1449615335~auto
+111301_1447456476_179_4_3.58.py~"def num_common_letters(goal_word, guess):
+	common = set(goal_word) & set(guess)
+	return len(common)"~3.58~none~45~111301~179~1447456476~auto
+111906_1447991816_9_4_3.58.py~"def num_common_letters(*strings):
+    x =set.intersection(*map(set,strings))
+    return len(x)"~3.58~auto~30~111906~9~1447991816~auto
+111311_1447460655_7_4_5.22.py~"def num_common_letters(goal_word, guess):
+	unique_word = set(goal_word)
+	unique_guess = set(guess)
+	return len(unique_word.intersection(unique_guess))"~5.22~auto~12~111311~7~1447460655~auto
+120721_1449534864_32_4_3.71.py~"def num_common_letters(goal_word, guess):
+	elements = set(letter for letter in goal_word if letter in guess)
+	return len(elements)"~3.71~auto~19~120721~32~1449534864~auto
+1114010_1447544885_71_4_5.18.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~11~1114010~71~1447544885~auto
+111303_1447456556_102_4_4.22.py~"def num_common_letters(goal_word, guess):
+    return len(set(goal_word) & set(guess))"~2.41~none~38~111303~102~1447456556~auto
+120721_1449534589_146_4_3.58.py~"def num_common_letters(goal_word, guess):
+	elements = {letter for letter in goal_word if letter in guess}
+	return len(elements)"~3.58~auto~19~120721~146~1449534589~auto
+120804_1449613414_502_5_10.29.py~"def num_common_letters(goal_word, guess):
+    letters = []
+    count = 0
+    for letter in goal_word:
+        if letter in guess and letter not in letters:
+            count += 1
+            letters += str(letter)
+    return count"~10.67~approach~25~120804~502~1449613414~auto
+1114011_1447543753_228_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(guess) & set(goal_word))"~2.41~none~18~1114011~228~1447543753~auto
+1114007_1447540681_5_2_9.69.py~"def num_common_letters(goal_word, guess):
+	chars = []
+	for c in goal_word:
+		if c in guess and c not in chars:
+			chars.append(c)
+	return len(chars)"~7.54~approach~39~1114007~5~1447540681~auto
+1114004_1447541330_2057_9_11.35.py~"def num_common_letters(goal_word, guess):
+	gw, g = set(goal_word), set(guess)
+	n = 0
+	for c1 in gw:
+		for c2 in g:
+			if c1 == c2:
+				n += 1	
+	return n"~9.63~skeleton~42~1114004~2057~1447541330~auto
+1114005_1447541491_224_4_4.34.py~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess])"~3.29~auto~24~1114005~224~1447541491~auto
+120720_1449533946_20_5_9.58.py~"def num_common_letters(goal_word, guess):
+	i = 0
+	used = []
+	for char in guess:
+		if char not in used and char in goal_word:
+			i+=1
+			used.append(char)
+	return i"~9.99~approach~40~120720~20~1449533946~auto
+1113013_1447460709_496_4_7.22.py~"def num_common_letters(goal_word, guess):
+	unique_goal = list(set(goal_word))
+	unique_guess = list(set(guess))
+	return len([char for char in unique_guess if char in unique_goal])"~6.02~auto~44~1113013~496~1447460709~auto
+1113014_1447460134_426_2_8.76.py~"def num_common_letters(goal_word, guess):
+    common = []
+    for x in goal_word:
+        if x in guess and x not in common:
+            common.append(x)
+    return len(common)"~7.54~approach~36~1113014~426~1447460134~auto
+111715_1447803460_7_4_5.22.py~"def num_common_letters(goal_word, guess):
+    a = set(goal_word)
+    b = set(guess)
+    return len(a.intersection(b))"~5.22~auto~22~111715~7~1447803460~auto
+1113014_1447460543_406_4_4.22.py~"def num_common_letters(goal_word, guess):
+    return len({x:0 for x in goal_word if x in guess})"~2.41~auto~36~1113014~406~1447460543~auto
+111715_1447803266_210_4_5.22.py~"def num_common_letters(goal_word, guess):
+    a = set(goal_word)
+    b = set(guess)
+    return len(a.intersection(b))"~5.22~auto~22~111715~210~1447803266~auto
+111307_1447458586_15_4_6.77.py~"def num_common_letters(goal_word, guess):
+	first = set(goal_word)
+	second = set(guess)
+	return len(first & second)"~5.08~auto~3~111307~15~1447458586~auto
+120717_1449534329_88_5_11.74.py~"def num_common_letter(goal_word, guess):
+	already_viewed, count = [], 0;
+	for w1 in guess:
+		for w2 in goal_work:
+			if w1 == w2:
+				if w2 in already_viewed:
+					break
+				already_viewed.append(w1)					
+				count += 1
+	return count"~11.91~approach~21~120717~88~1449534329~auto
+111715_1447803575_36_4_5.22.py~"def num_common_letters(goal_word, guess):
+    a = set(goal_word)
+    b = set(guess)
+    return len(a.intersection(b))"~5.22~auto~22~111715~36~1447803575~auto
+111308_1447457660_997_7_23.0.py~"""""""Autostyle Study""""""
+def num_common_letters(a, b):
+	letters_a = []
+	letters_b = []
+	count = 0
+	for x in a:
+		if x not in letters_a:
+			letters_a.append(x)
+		else:
+			pass
+	for x in b:
+		if x not in letters_b:
+			letters_b.append(x)
+		else:
+			pass
+	for x in letters_a:
+		if x in letters_b:
+			count += 1
+		else:
+			pass
+	return count"~23.85~skeleton~46~111308~997~1447457660~auto
+111706_1447801860_334_6_23.55.py~"def num_common_letters(a,b):
+	s = list()
+	blist = list()
+	la = len(a)
+	lb = len(b)
+	while not (la==0 and lb==0):
+		if la==0:
+			if(b[0] in s and b[0] not in blist):
+				blist+=b[0]
+			b = b[1:]
+			lb = len(b)
+		else:
+			if(a[0] not in s):
+				s+=a[0]
+			a = a[1:]
+			la = len(a)
+	return len(blist)"~23.55~skeleton~14~111706~334~1447801860~auto
+1114007_1447539508_508_2_9.69.py~"def num_common_letters(goal_word, guess):
+	chars = []
+	for c in goal_word:
+		if c in guess and c not in chars:
+			chars.append(c)
+	return len(chars)"~7.54~approach~39~1114007~508~1447539508~auto
+111104_1447289080_84_5.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	temp = []
+	for char in list(goal_word):
+		if char in list(guess) and char not in temp:
+			count += 1
+			temp += char
+	return count"~10.71~approach~47~111104~84~1447289080~auto
+111707_1447802034_1025_1_15.43.py~"def num_common_letters(goal_word, guess):
+	goal_word_list = []
+	matches = []
+	count = 0 
+	for x in range(0, len(goal_word)):
+		goal_word_list += [goal_word[x]]
+	for x in range(0, len(guess)):
+		if guess[x] in goal_word_list and guess[x] not in matches:
+			count += 1
+			matches += [guess[x]]
+	return count"~17.64~skeleton~17~111707~1025~1447802034~auto
+111707_1447804321_37_4_2.68.py~"def num_common_letters(goal_word, guess):
+	return len(list({x for x in set(goal_word) & set(guess)}))"~2.68~auto~17~111707~37~1447804321~auto
+111706_1447804231_349_2_5.2.py~"def num_common_letters(a,b):
+	blist = set()
+	[blist.add(l) for l in a if l in list(b) and l not in blist]
+	return len(blist)"~5.57~approach~14~111706~349~1447804231~auto
+111104_1447287725_148_7.py~"def num_common_letters(goal_word, guess):
+	count, gw_temp, l_guess = 0, [], list(guess)
+	for char in goal_word:
+		if char not in gw_temp:
+			gw_temp.append(char)
+	for char in gw_temp:
+		if char in l_guess:
+			l_guess.remove(char)
+			count += 1
+	return count"~12.13~skeleton~47~111104~148~1447287725~auto
+1114003_1447542726_474_4_2.68.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(set(guess)))"~2.68~auto~28~1114003~474~1447542726~auto
+1114005_1447541604_45_4_4.34.py~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess]) - (1&0)"~3.29~auto~24~1114005~45~1447541604~auto
+111708_1447802713_313_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~31~111708~313~1447802713~auto
+1113014_1447460847_59_4_3.77.py~"def num_common_letters(goal_word, guess):
+    if guess != """":
+        return len((set(goal_word)).intersection(set(guess)))"~3.77~auto~36~1113014~59~1447460847~auto
+111302_1447458870_18_4_2.68.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(list(guess)))"~2.68~auto~34~111302~18~1447458870~auto
+111707_1447802789_33_5_10.33.py~"def num_common_letters(goal_word, guess):
+	matches = 0
+	match_list = []
+	for x in list(goal_word):
+		if x in list(guess) and x not in match_list:
+			matches += 1
+			match_list += [x]
+	return matches"~11.44~approach~17~111707~33~1447802789~auto
+1114007_1447540762_78_2_8.76.py~"def num_common_letters(goal_word, guess):
+	chars = []
+	for c in goal_word:
+		if c in guess and c not in chars:
+			chars.append(c)
+	return len(chars)"~7.54~approach~39~1114007~78~1447540762~auto
+111715_1447803396_41_4_5.22.py~"def num_common_letters(goal_word, guess):
+    a = set(goal_word)
+    b = set(guess)
+    return len(a.intersection(b))"~5.22~auto~22~111715~41~1447803396~auto
+111701_1447799115_856_4_4.49.py~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in set(goal_word) if letter in set(guess)])"~3.49~auto~29~111701~856~1447799115~auto
+1114007_1447538997_392_5_12.2.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	chars = []
+	for c in goal_word:
+		if c in guess and c not in chars:
+			count += 1
+			chars.append(c)
+	return count"~9.99~approach~39~1114007~392~1447538997~auto
+111706_1447805934_8_2_5.2.py~"def num_common_letters(a,b):
+	blist = set()
+	[blist.add(l) for l in a if l in list(b) and l not in blist]
+	return len(blist)"~5.57~approach~14~111706~8~1447805934~auto
+111307_1447458695_74_4_6.77.py~"def num_common_letters(goal_word, guess):
+	first = set(goal_word)
+	second = set(guess)
+	return len(first & second)"~5.08~auto~3~111307~74~1447458695~auto
+120718_1449535530_159_1_12.01.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	s, l = set(goal_word), []	
+	for i in range(len(guess)):
+		if guess[i] in s and guess[i] not in l:
+			l += guess[i]
+			count += 1
+	return count"~10.78~skeleton~8~120718~159~1449535530~auto
+1114004_1447538938_137_2_11.82.py~"def num_common_letters(goal_word, guess):
+	g_set = set(guess)
+	gw_set = set(goal_word)
+	com = 0
+	for elem in g_set:
+		if elem in gw_set:
+			com += 1
+	return com"~10.19~approach~42~1114004~137~1447538938~auto
+111706_1447803879_95_2_7.21.py~"def num_common_letters(a,b):
+	blist = set()
+	for l in a:
+		if l in list(b) and l not in blist:
+			blist.add(l)
+	return len(blist)"~7.21~approach~14~111706~95~1447803879~auto
+1113013_1447461545_324_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~44~1113013~324~1447461545~auto
+1114005_1447540676_564_4_5.27.py~"def num_common_letters(goal_word, guess):
+	1 & 1
+	return len([s for s in set(goal_word) if s in guess])"~3.97~auto~24~1114005~564~1447540676~auto
+111307_1447458484_518_4_6.77.py~"def num_common_letters(goal_word, guess):
+	first = set(goal_word)
+	second = set(guess)
+	return len(first & second)"~5.08~auto~3~111307~518~1447458484~auto
+1114008_1447539813_545_4_5.46.py~"def num_common_letters(goal_word, guess):
+	a = [letter for letter in goal_word if letter in guess]
+	return len(set(a))"~4.22~auto~37~1114008~545~1447539813~auto
+1114010_1447542752_430_7_15.84.py~"def num_common_letters(goal_word, guess):
+	lst = []
+	lettersum = 0
+	for i in range(len(goal_word)):
+		if not goal_word[i] in lst:
+			lst.append(goal_word[i])
+	for j in range(len(guess)):
+		if guess[j] in lst:
+			lettersum += 1
+			lst.remove(guess[j])
+	return lettersum"~13.7~skeleton~11~1114010~430~1447542752~auto
+111705_1447799059_57_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~20~111705~57~1447799059~auto
+1113016_1447462562_269_2_5.59.py~"def num_common_letters(goal_word, guess):
+    guess = """".join(set(guess))
+    return sum(1 if x in goal_word else 0 for x in guess)"~3.9~approach~23~1113016~269~1447462562~auto
+1114005_1447539321_207_2_8.88.py~"def num_common_letters(goal_word, guess):
+	same = 0
+	for s in set(goal_word):
+		if s in guess:
+			same += 1
+	return same"~7.13~approach~24~1114005~207~1447539321~auto
+120721_1449534828_23_4_3.58.py~"def num_common_letters(goal_word, guess):
+	elements = {letter for letter in goal_word if letter in guess}
+	return len(elements)"~3.58~auto~19~120721~23~1449534828~auto
+1114002_1447543762_272_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~35~1114002~272~1447543762~auto
+120719_1449534969_634_4_3.71.py~"def num_common_letters(goal_word, guess):
+	union = [x for x in guess if x in goal_word]
+	return len(set(union))"~4.22~auto~15~120719~634~1449534969~auto
+1113015_1447460898_368_4_2.68.py~"def num_common_letters(goal_word, guess):
+	return len(list(set(goal_word) & set(guess)))"~2.68~auto~4~1113015~368~1447460898~auto
+111308_1447458610_945_5_9.71.py~"def num_common_letters(a, b):
+	count = 0
+	letters = []
+	for _ in list(a):
+		if _ in list(b) and _ not in letters:
+			letters.append(_)
+			count += 1
+	return count"~10.11~approach~46~111308~945~1447458610~auto
+111305_1447458599_90_2_7.0.py~"def num_common_letters(goal_word, guess):
+	letters = []
+	for letter in set(goal_word):
+		if letter in set(guess):
+			letters.append(letter)
+	return len(letters)"~7.55~approach~16~111305~90~1447458599~auto
+120718_1449535213_37_1_13.54.py~"def num_common_letters(goal_word, guess):
+	s = set(goal_word)
+	l = []	
+	count = 0	
+	for i in range(len(guess)):
+		if guess[i] in s and guess[i] not in l:
+			count += 1
+			l += guess[i]
+	return count"~12.3~skeleton~8~120718~37~1449535213~auto
+111701_1447798255_329_5_13.33.py~"def num_common_letters(goal_word, guess):
+    repeated = []
+    while goal_word != '':
+        letter = goal_word[0]
+        if letter in guess and letter not in repeated:
+            repeated.append(letter)
+        goal_word = goal_word[1:]
+    return len(repeated)"~10.29~approach~29~111701~329~1447798255~auto
+120719_1449535583_28_2_4.56.py~"def num_common_letters(goal_word, guess):
+	common = set([x for x in guess if x in goal_word])
+	3 ^ 2
+  	return len(common)"~4.98~approach~15~120719~28~1449535583~auto
+111715_1447802570_402_5_9.71.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    holder = []
+    for i in list(goal_word):
+        if i in list(guess) and i not in holder:
+            count += 1 
+            holder.append(i)
+    return count"~10.11~approach~22~111715~402~1447802570~auto
+1114005_1447540907_227_4_4.34.py~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess])"~3.29~auto~24~1114005~227~1447540907~auto
+111909_1447989566_313_2_7.42.py~"def num_common_letters(goal_word, guess):
+    total = 0
+    for i in list(set(goal_word)):
+        if i in list(set(guess)):
+            total += 1
+    return total"~7.42~approach~27~111909~313~1447989566~auto
+120719_1449535552_349_4_3.71.py~"def num_common_letters(goal_word, guess):
+	common = set([x for x in guess if x in goal_word])
+  	return len(common)"~4.22~auto~15~120719~349~1449535552~auto
+111908_1447990737_11_9_14.69.py~"def num_common_letters(goal_word, guess):
+	number = 0
+	if guess in goal_word:
+		number += 1
+	while guess in goal_word:
+	    goal_word = goal_word.replace(guess, """")
+	for i in goal_word:
+		for j in guess:
+			if i == j:
+				number += 1
+	return number"~13.89~skeleton~48~111908~11~1447990737~auto
+120718_1449536545_118_4_6.5.py~"def num_common_letters(goal_word, guess):
+	l = set([g for g in guess if g in set(goal_word)])
+	return len(l)"~4.38~auto~8~120718~118~1449536545~auto
+111307_1447458568_43_4_5.37.py~"def num_common_letters(goal_word, guess):
+	repeated = {character for character in goal_word if character in guess}
+	return len(repeated)"~3.58~auto~3~111307~43~1447458568~auto
+1114005_1447541556_62_4_4.34.py~"def num_common_letters(goal_word, guess):
+	return len([s for s in set(goal_word) if s in guess])"~3.29~auto~24~1114005~62~1447541556~auto
+111703_1447799319_103_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~2~111703~103~1447799319~auto
+120718_1449535173_333_1_13.54.py~"def num_common_letters(goal_word, guess):
+	s = set(goal_word)
+	l = []	
+	count = 0	
+	for i in range(len(guess)):
+		if guess[i] in s and guess[i] not in l:
+			count += 1
+			l += guess[i]
+	return count"~12.3~skeleton~8~120718~333~1449535173~auto
+111103_1447286361_25_4.py~"def num_common_letters(goal_word, guess):
+	return len(set([letter for letter in guess if letter in goal_word]))"~3.29~auto~10~111103~25~1447286361~auto
+111103_1447285581_38_4.py~"def num_common_letters(goal_word, guess):
+	return len(set([letter for letter in guess if letter in goal_word]))"~3.29~auto~10~111103~38~1447285581~auto
+1114002_1447542973_795_5_12.4.py~"def num_common_letters(goal_word, guess):
+	repeat = []
+	total = 0
+	for i in goal_word:
+		if i not in repeat:
+	 		if i in guess:
+	 			total += 1
+	 			repeat.append(i)
+	return total"~11.04~approach~35~1114002~795~1447542973~auto
+111103_1447284328_121_2.py~"def num_common_letters(goal_word, guess):
+	commonLetters = []
+	for letter in list(guess):
+		if letter in list(goal_word):
+			if letter not in commonLetters:
+				commonLetters.append(letter)
+	return len(commonLetters)"~8.83~approach~10~111103~121~1447284328~auto
+111305_1447457927_89_4_3.49.py~"def num_common_letters(goal_word, guess):
+	return sum([letter in list(set(guess)) for letter in list(set(goal_word))])"~4.02~auto~16~111305~89~1447457927~auto
+1114004_1447541786_453_4_4.49.py~"def num_common_letters(goal_word, guess):
+	return len([c for c in set(goal_word) if c in set(guess)])"~3.49~auto~42~1114004~453~1447541786~auto
+120721_1449534441_196_2_7.09.py~"def num_common_letters(goal_word, guess):
+	elements = set()
+	for letter in guess:
+		if letter in goal_word and letter not in elements:
+			elements.update({letter})
+	return len(elements)"~7.09~approach~19~120721~196~1449534441~auto
+111707_1447804350_27_4_2.41.py~"def num_common_letters(goal_word, guess):
+	return len({x for x in set(goal_word) & set(guess)})"~2.41~none~17~111707~27~1447804350~auto
+111707_1447803991_49_2_6.8.py~"def num_common_letters(goal_word, guess):
+	goal_set = set(goal_word)
+	guess_set = set(guess)
+	matches = list(goal_set & guess_set)
+	return len(matches)"~6.8~approach~17~111707~49~1447803991~auto
+111102_1447284872_16_0.py~"def num_common_letters(goal_word, guess):
+	word_count = []
+	for word in guess:
+		if word not in word_count:
+			word_count.append(word)
+	total_common = 0
+	letter_count = []
+	for letter in goal_word:
+		if letter in word_count and letter not in letter_count:
+			letter_count.append(letter)
+			total_common += 1
+	return total_common"~15.45~approach~9~111102~16~1447284872~auto
+111312_1447460331_158_4_3.58.py~"def num_common_letters (goal_word, guess):
+    goal, guess = set(goal_word), set(guess)
+    return len(goal & guess)"~3.58~none~49~111312~158~1447460331~auto
+111306_1447457212_68_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word)& set(guess))"~2.41~none~7~111306~68~1447457212~auto
+111302_1447456456_432_2_8.49.py~"def num_common_letters(goal_word, guess):
+	str1 = list(goal_word)
+	str2 = list(guess)
+	num_letters_set = set(str1).intersection(str2)
+	return len(num_letters_set)"~6.93~approach~34~111302~432~1447456456~auto
+111910_1447989339_280_5_10.68.py~"def num_common_letters(goal_word, guess):
+	counter=0
+	if guess in goal_word:
+		return 1
+	for j in range (0,len(goal_word)):
+		for i in range (0,len(guess)):
+			if guess[i] == goal_word[j]:
+				counter+=1
+	return counter"~10.68~approach~50~111910~280~1447989339~auto
+111305_1447457174_27_2_8.05.py~"def num_common_letters(goal_word, guess):
+	common_letters = []
+	for guess_letter in guess:
+		for goal_letter in goal_word:
+			if (guess_letter == goal_letter) & (guess_letter not in common_letters):
+				common_letters.append(guess_letter)
+	return len(common_letters)"~8.29~approach~16~111305~27~1447457174~auto
+111907_1447989669_1037_1_17.99.py~"def num_common_letters(goal_word, guess):
+	i = 0
+	c = 0
+	count = 0
+	match = []
+	letters = []
+	for i in range(0, len(goal_word)):
+		letters.append(goal_word[i])
+		i += 1
+	for c in range(0, len(guess)):
+		if guess[c] in letters and guess[c] not in match:
+			match.append(guess[c])
+			c += 1
+	return len(match)"~18.86~skeleton~32~111907~1037~1447989669~auto
+111102_1447283734_206_0.py~"def num_common_letters(goal_word, guess):
+	word_count = []
+	for word in guess:
+		if word not in word_count:
+			word_count.append(word)
+	total_common = 0
+	letter_count = []
+	for letter in goal_word:
+		if letter in word_count and letter not in letter_count:
+			letter_count.append(letter)
+			total_common += 1
+	return total_common"~15.45~approach~9~111102~206~1447283734~auto
+1114008_1447539264_195_4_5.08.py~"def num_common_letters(goal_word, guess):
+	goal_word = set(goal_word)
+	guess = set(guess)
+	return len(guess & goal_word)"~5.08~auto~37~1114008~195~1447539264~auto
+1114006_1447541199_565_2_8.44.py~"def num_common_letters(goal_word, guess):
+	goal_word = set(goal_word)
+	guess = set(guess)
+	length = {x for x in goal_word if x in guess}
+	return len(length)"~6.87~approach~1~1114006~565~1447541199~auto
+111301_1447455931_67_1_21.54.py~"def num_common_letters(goal_word, guess):
+	goal_word = ''.join(sorted(''.join(set(goal_word))))
+	guess = ''.join(sorted(''.join(set(guess))))
+	print(goal_word, guess)
+	count = 0
+	index1, index2 = 0, 0
+	while index1 < len(goal_word) and index2 < len(guess):
+		if goal_word[index1] < guess[index2]:
+			index1 += 1
+		elif goal_word[index2] > guess[index2]:
+			index2 += 1
+		else:
+			count += 1
+			index1 += 1
+			index2 += 1
+	return count"~21.54~skeleton~45~111301~67~1447455931~auto
+120803_1449613720_274_4_2.41.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~41~120803~274~1449613720~auto
+1113014_1447460726_180_4_4.38.py~"def num_common_letters(goal_word, guess):
+    return len((set(goal_word)).intersection(set(guess)))"~2.68~auto~36~1113014~180~1447460726~auto
+1114006_1447540604_405_2_11.22.py~"def num_common_letters(goal_word, guess):
+	counter = 0 
+	goal_word = list(set(goal_word))
+	for letter in goal_word:
+		if letter in guess:
+			counter += 1
+	return counter"~8.65~approach~1~1114006~405~1447540604~auto
+1114003_1447542249_89_5_10.59.py~"def num_common_letters(goal_word, guess):
+	letters_used = []
+	total = 0
+	for letter in guess:
+		for letter2 in goal_word:
+			if letter == letter2 and letter not in letters_used:
+				letters_used.append(letter)
+				total += 1
+	return total"~10.78~approach~28~1114003~89~1447542249~auto
+120804_1449614710_336_4_3.71.py~"def num_common_letters(goal_word, guess):
+    intersection = set([letter for letter in goal_word if letter in guess])
+    return len(intersection)"~4.22~auto~25~120804~336~1449614710~auto
+111706_1447805879_1355_2_5.2.py~"def num_common_letters(a,b):
+	blist = set()
+	[blist.add(l) for l in a if l in list(b) and l not in blist]
+	return len(blist)"~5.57~approach~14~111706~1355~1447805879~auto
+111715_1447803052_480_2_5.59.py~"def num_common_letters(goal_word, guess):
+    a = set(list(goal_word))
+    b = set(list(guess))
+    return len(a.intersection(b))"~5.59~approach~22~111715~480~1447803052~auto
+120719_1449535798_13_4_3.58.py~"def num_common_letters(goal_word, guess):
+  	return len(set(goal_word) & set(guess))"~2.41~none~15~120719~13~1449535798~auto
+111707_1447804233_69_4_3.58.py~"def num_common_letters(goal_word, guess):
+	matches = {x for x in set(goal_word) & set(guess)}
+	return len(matches)"~3.58~auto~17~111707~69~1447804233~auto
+120804_1449614371_161_4_3.77.py~"def num_common_letters2(goal_word, guess):
+    goal, check = set(goal_word), set(guess)
+    return len(goal.intersection(check))"~3.77~auto~25~120804~161~1449614371~auto
+111102_1447284044_48_5.py~"def num_common_letters(goal_word, guess):
+	total_common = 0
+	word_count = []
+	for each_letter in guess:
+		if each_letter in goal_word and each_letter not in word_count:
+			word_count.append(each_letter)
+			total_common += 1
+	return total_common"~9.99~approach~9~111102~48~1447284044~auto
+1114006_1447539792_176_9_11.82.py~"def num_common_letters(goal_word, guess):
+	counter = 0
+	set_goal_word = set(goal_word)
+	set_guess = set(guess)
+	for letter in set_goal_word:
+		if letter in set_guess:
+			counter += 1
+	return counter"~10.19~skeleton~1~1114006~176~1447539792~auto
+111301_1447456295_162_4_3.9.py~"def num_common_letters(goal_word, guess):
+	common = [l for l in set(goal_word) if l in set(guess)]
+	return len(common)"~4.38~auto~45~111301~162~1447456295~auto
+111305_1447458881_67_4_2.61.py~"def num_common_letters(goal_word, guess):
+	return len([letter for letter in set(goal_word) if letter in guess])"~3.29~auto~16~111305~67~1447458881~auto
+1114011_1447542904_206_5_11.35.py~"def num_common_letters(goal_word, guess):
+    repeats = set()
+    result = 0
+    for letter in guess:
+        if letter in goal_word and letter not in repeats:
+            result += 1
+        repeats.update(letter)
+    return result"~9.63~approach~18~1114011~206~1447542904~auto
+111303_1447456570_11_4_4.22.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~38~111303~11~1447456570~auto
+111301_1447456129_195_5_10.33.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	repeats = []
+	for letter in list(goal_word):
+		if letter in list(guess) and letter not in repeats:
+			count += 1
+			repeats += letter
+	return count"~10.71~approach~45~111301~195~1447456129~auto
+111304_1447460411_164_2_8.73.py~"def num_common_letters(goal_word, guess):
+    uni_common_list = []
+    s1=set(list(goal_word))
+    s2=set(list(guess))
+    common_set = [x for x in s1 if x in s2]
+    return len(common_set)"~9.6~approach~13~111304~164~1447460411~auto
+120719_1449535669_83_4_3.71.py~"def num_common_letters(goal_word, guess):
+	common = [x for x in set(guess) if x in goal_word]
+  	return len(common)"~4.22~auto~15~120719~83~1449535669~auto
+1114001_1447539067_26_4_5.18.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(guess))"~2.41~auto~6~1114001~26~1447539067~auto
+111308_1447459094_481_4_2.68.py~"def num_common_letters(a, b):
+	return len(set(a).intersection(set(b)))"~2.68~auto~46~111308~481~1447459094~auto
+120721_1449536148_143_4_3.58.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~19~120721~143~1449536148~auto
+1114010_1447544748_282_2_8.29.py~"def num_common_letters(goal_word, guess):
+	s = set(goal_word)
+	a = set(guess)
+	u = s & a
+	return len(u)"~6.69~approach~11~1114010~282~1447544748~auto
+111103_1447287326_5_4.py~"def num_common_letters(goal_word, guess):
+    return len(set(goal_word) & set(guess))"~2.41~none~10~111103~5~1447287326~auto
+111707_1447802560_25_1_14.66.py~"def num_common_letters(goal_word, guess):
+	goal_word_list = []
+	matches = []
+	count = 0 
+	for x in range(0, len(goal_word)):
+		goal_word_list += [goal_word[x]]
+	for x in range(0, len(guess)):
+		if (guess[x] in goal_word_list) and (guess[x] not in matches):
+			count += 1
+			matches += [guess[x]]
+	return count"~17.64~skeleton~17~111707~25~1447802560~auto
+120718_1449535596_63_5_12.01.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	l = []	
+	for i in range(len(guess)):
+		if guess[i] in set(goal_word) and guess[i] not in l:
+			l += guess[i]
+			count += 1
+	return count"~10.78~approach~8~120718~63~1449535596~auto
+120718_1449534565_153_1_12.16.py~"def num_common_letters(goal_word, guess):
+	s, l = set(), []	
+	count = 0
+	for i in range(len(goal_word)):
+		s.add(goal_word[i])
+	for i in range(len(guess)):
+		if guess[i] in s and guess[i] not in l:
+			count += 1
+			l.append(guess[i])
+	return count"~12.64~skeleton~8~120718~153~1449534565~auto
+111708_1447801936_573_5_12.5.py~"def num_common_letters(goal_word, guess):
+	letters = [letter for letter in goal_word]
+	common_letters = 0
+	for i in range(len(guess)):
+		if guess[i] in letters:
+			common_letters += 1
+	if guess in goal_word:
+		return 1
+	return common_letters"~11.14~approach~31~111708~573~1447801936~auto
+control_120712_1449531398_77_2.61.py~"def num_common_letters(goal_word, guess):
+	return len(set([character for character in goal_word if character in guess]))"~3.29~none~51~120712~77~1449531398~control
+control_111710_1447804255_205_11.3.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	lst = []
+	for letter in goal_word:
+		if letter in guess:
+			if not letter in lst:
+				count += 1
+				lst += letter
+	return count"~11.65~none~52~111710~205~1447804255~control
+control_111904_1447993076_66_9.71.py~"def num_common_letters(goal_word, guess):
+	goal_word, guess = list(goal_word), list(guess)
+	common = []
+	for char in guess:
+		if char in goal_word and char not in common:
+			common += [char]
+	return len(common)"~10.16~none~53~111904~66~1447993076~control
+control_120722_1449535708_65_3.9.py~"def num_common_letters(goal_word, guess):
+    used = [x for x in goal_word if x in guess]
+    return len(list(set(used)))"~4.38~none~54~120722~65~1449535708~control
+control_1114018_1447544346_19_2.41.py~"def num_common_letters(goal_word, guess):
+	return len([char for char in goal_word if char in guess])"~3.13~none~55~1114018~19~1447544346~control
+control_120709_1449530701_72_12.84.py~"def num_common_letters(goal_word, guess):
+	letters = []
+	count = 0
+	for x in goal_word:
+		if x not in letters:
+			letters.append(x)
+	for g in guess:
+		if g in letters:
+			letters.remove(g)
+			count += 1
+	return count"~13.3~none~56~120709~72~1449530701~control
+control_120805_1449614783_167_10.67.py~"def num_common_letters(goal_word, guess):
+	w1, g2 = list(goal_word), list(guess)
+	total, seen = 0, []
+	for l1 in w1:
+		for l2 in g2:
+			if l1 is l2 and l1 not in seen:
+				total += 1
+				seen.append(l1)
+	return total"~10.85~none~57~120805~167~1449614783~control
+control_1114018_1447544158_198_2.61.py~"def num_common_letters(goal_word, guess):
+	return len(set([char for char in goal_word if char in guess]))"~3.29~none~55~1114018~198~1447544158~control
+control_111915_1447993474_189_6.99.py~"def num_common_letters(goal_word, guess):
+	goal_word_characters = [n for n in goal_word]
+	repeats = []
+	umm = [repeats.append(n) for n in guess if n in goal_word_characters and n not in repeats]	
+	return len(repeats)"~9.21~none~58~111915~189~1447993474~control
+control_111709_1447799517_20_9.23.py~"def num_common_letters(goal_word, guess):
+	answer, letters = 0, []
+	for x in goal_word: 
+		for y in guess:
+			if x==y and x not in letters:  
+				answer += 1
+				letters.append(x)
+	return answer"~9.44~none~59~111709~20~1447799517~control
+control_120714_1449532615_1016_21.84.py~"def num_common_letters(goal_word, guess):
+	goal_word = sorted(list(''.join(set(goal_word))))
+	guess = sorted(list(''.join(set(guess))))
+	word_dict = {}
+	repeat_list = []
+	common_list = []
+	word_dict[len(goal_word)], word_dict[len(guess)] = goal_word, guess
+	shorterString = word_dict[min(len(goal_word),len(guess))]
+	longerString = word_dict[max(len(goal_word),len(guess))]
+	for i in range(min(len(goal_word),len(guess))):
+		if shorterString[i] in longerString and shorterString[i] not in repeat_list:
+			common_list.append(shorterString[i])
+		repeat_list.append(shorterString[i])
+	return len(common_list)"~21.73~none~60~120714~1016~1449532615~control
+control_120723_1449534235_19_3.63.py~"def num_common_letters(goal_word, guess):
+	return sum([bool(l in goal_word) for l in set([l for l in guess])])"~4.92~none~61~120723~19~1449534235~control
+control_120705_1449527020_43_10.68.py~"def num_common_letters(goal_word, guess):
+	counter=0
+	if guess in goal_word:
+		return 1
+	for j in range (0,len(goal_word)):
+		for i in range (0,len(guess)):
+			if guess[i] == goal_word[j]:
+				counter+=1
+	return counter"~10.68~none~62~120705~43~1449527020~control
+control_120709_1449531620_6_12.84.py~"def num_common_letters(goal_word, guess):
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~6~1449531620~control
+control_120710_1449531247_183_7.2.py~"def num_common_letters2(string1, string2):
+    count = 0
+    for letter in set(string1):
+        if letter in set(string2):
+            count += 1
+    return count"~7.2~none~63~120710~183~1449531247~control
+control_120707_1449528446_15_8.73.py~"def num_common_letters(goal_word, guess):
+	count, used_letter = 0, []
+	for letter in goal_word:
+		if letter in guess and letter not in used_letter:
+			count+=1
+		used_letter+=[letter]
+	return count"~10.01~none~64~120707~15~1449528446~control
+control_120713_1449531544_24_3.71.py~"def num_common_letters(goal_word, guess):
+    used = [letter for letter in goal_word if letter in guess]
+    return len(set(used))"~4.22~none~65~120713~24~1449531544~control
+control_120713_1449530798_746_6.99.py~"def num_common_letters(goal_word, guess):
+    used = []
+    for letter in goal_word:
+        if letter not in used and letter in guess:
+            used.append(letter)
+    return len(used)"~7.54~none~65~120713~746~1449530798~control
+control_120805_1449614412_1582_13.61.py~"def num_common_letters(goal_word, guess):
+	w1, g2 = list(goal_word), list(guess)
+	total, seen = 0, []
+	if not w1:
+		return total
+	for l1 in w1:
+		for l2 in g2:
+			if l1 is l2 and l1 not in seen:
+				total += 1
+				seen.append(l1)
+				g2.remove(l2)
+	return total"~13.75~none~57~120805~1582~1449614412~control
+control_120722_1449536330_451_2.61.py~"def num_common_letters(goal_word, guess):
+    return len(set([letter for letter in guess if letter in goal_word]))"~3.29~none~54~120722~451~1449536330~control
+control_120723_1449534768_47_2.86.py~"def num_common_letters(goal_word, guess):
+	return len([l for l in set(goal_word) if l in set(guess)])"~3.49~none~61~120723~47~1449534768~control
+control_111904_1447992871_525_11.19.py~"def num_common_letters(goal_word, guess):
+	goal_word = list(goal_word)
+	guess = list(guess)
+	common = []
+	for char in guess:
+		if char in goal_word and char not in common:
+			common += [char]
+	return len(common)"~11.5~none~53~111904~525~1447992871~control
+control_120722_1449534958_75_9.58.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    list_of_used_letters = []
+    for letter in goal_word:
+        if letter in guess and letter not in list_of_used_letters:
+            count += 1
+            list_of_used_letters.append(letter)
+    return count"~9.99~none~54~120722~75~1449534958~control
+control_120102_1449528822_18_4.1.py~"def num_common_letters(goal_word, guess):
+	checked_letters = []
+	return len([checked_letters.append(letter) for letter in guess if letter in goal_word and letter not in checked_letters])"~5.73~none~66~120102~18~1449528822~control
+control_120709_1449530941_96_16.4.py~"def num_common_letters(goal_word, guess):
+	""""""
+	Returns the number of common letters in the two words.
+	""""""
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~15.87~none~56~120709~96~1449530941~control
+control_120723_1449535598_70_3.71.py~"def num_common_letters(goal_word, guess):
+	goal = set(goal_word)
+	return len([i for i in goal if i in guess])"~4.22~none~61~120723~70~1449535598~control
+control_1114013_1447539359_176_18.13.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    goal_word = set(goal_word)
+    guess = set(guess)
+    for char in goal_word:
+        if char in guess:
+            count += 1
+    return count"~10.19~none~67~1114013~176~1447539359~control
+control_120709_1449531238_192_13.7.py~"def num_common_letters(goal_word, guess):
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~192~1449531238~control
+control_120723_1449534794_8_2.86.py~"def num_common_letters(goal_word, guess):
+	return len([i for i in set(goal_word) if i in set(guess)])"~3.49~none~61~120723~8~1449534794~control
+control_120722_1449535524_183_3.9.py~"def num_common_letters(goal_word, guess):
+    lst = [letter for letter in goal_word if letter in guess]
+    return len(list(set(lst)))"~4.38~none~54~120722~183~1449535524~control
+control_120723_1449536056_184_3.71.py~"def num_common_letters(goal_word, g):
+	letters = [word for word in set(goal_word) if word in g]
+	return len(letters)"~4.22~none~61~120723~184~1449536056~control
+control_120723_1449534215_20_3.9.py~"def num_common_letters(goal_word, guess):
+	s_1 = set([l for l in guess])
+	return sum([bool(l in goal_word) for l in s_1])"~5.59~none~61~120723~20~1449534215~control
+control_120714_1449531597_44_13.86.py~"def num_common_letters(goal_word, guess):
+	goal_word = sorted(list(''.join(set(goal_word))))
+	guess = sorted(list(''.join(set(guess))))
+	repeat_list = []
+	common_list = []
+	for i in range(max(len(goal_word),len(guess))):
+		if goal_word[i] in guess and goal_word[i] not in repeat_list:
+			common_list.append(goal_word[i])
+		repeat_list.append(goal_word[i])
+	return len(common_list)"~14.7~none~60~120714~44~1449531597~control
+control_120723_1449535766_15_2.61.py~"def num_common_letters(goal_word, g):
+	return len([i for i in set(goal_word) if g.find(i) != -1])"~3.29~none~61~120723~15~1449535766~control
+control_1114018_1447545550_13_2.68.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(set(guess)))"~2.68~none~55~1114018~13~1447545550~control
+control_120703_1449527916_1336_12.05.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    word = list(guess)
+    for letter in guess:
+        if word.count(letter) > 1:
+            word.remove(letter)
+    for letter in word:
+        if letter in goal_word:
+            count += 1
+    return count"~12.05~none~68~120703~1336~1449527916~control
+control_120722_1449534560_106_10.29.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    list_of_used_letters = list()
+    for letter in goal_word:
+        if letter in guess and letter not in list_of_used_letters:
+            count += 1
+            list_of_used_letters += letter
+    return count"~10.29~none~54~120722~106~1449534560~control
+control_120723_1449534065_29_2.86.py~"def num_common_letters(goal_word, guess):
+	return sum([bool(l in goal_word) for l in set([l for l in guess])])"~4.92~none~61~120723~29~1449534065~control
+control_111904_1447993528_136_7.5.py~"def num_common_letters(goal_word, guess):
+	common = []
+	for x in list(guess):
+		if x not in common and x in list(goal_word):
+			common += [x]
+	return len(common)"~8.96~none~53~111904~136~1447993528~control
+control_120709_1449531043_20_12.84.py~"def num_common_letters(goal_word, guess):	
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~20~1449531043~control
+control_1114018_1447544326_11_5.37.py~"def num_common_letters(goal_word, guess):
+	if len(goal_word):
+		return (goal_word[0] in guess) + num_common_letters(goal_word[1:],guess)
+	else:
+		return 0"~5.37~none~55~1114018~11~1447544326~control
+control_120703_1449528289_87_10.78.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    word = list(guess)
+    for letter in guess:
+        if word.count(letter) > 1:
+            word.remove(letter)
+        elif letter in goal_word:
+            count += 1
+    return count"~10.78~none~68~120703~87~1449528289~control
+control_120802_1449613833_121_6.87.py~"def num_common_letters(goal_word, guess):
+	cache = set('')
+	for i in goal_word:
+		if i in guess:
+			cache.add(i)
+	return len(cache)"~6.87~none~69~120802~121~1449613833~control
+control_111709_1447799269_14_9.23.py~"def num_common_letters(goal_word, guess):
+	count, letters = 0, []
+	for x in goal_word: 
+		for y in guess:
+			if x==y and x not in letters:  
+				count+=1
+				letters.append(x)
+	return count"~9.44~none~59~111709~14~1447799269~control
+control_120713_1449531519_76_3.71.py~"def num_common_letters(goal_word, guess):
+    used = [a for a in goal_word if a in guess]
+    return len(set(used))"~4.22~none~65~120713~76~1449531519~control
+control_120710_1449530266_678_13.33.py~"def num_common_letters(first, second):
+    lst = []
+    total = 0
+    for a in first:
+        if a not in lst:
+            lst += a
+    for b in second:
+        if b in lst:
+            total += 1
+            lst.remove(b)
+    return total"~13.78~none~63~120710~678~1449530266~control
+control_1114013_1447539718_13_6.02.py~"def num_common_letters(goal_word, guess):
+    goal_word = set(goal_word)
+    guess = set(guess)
+    return len(set.union(goal_word, guess))"~5.22~none~67~1114013~13~1447539718~control
+control_120723_1449536616_57_2.61.py~"def num_common_letters(goal_word, guess):
+	return len([i for i in set(goal_word) if i in guess])"~3.29~none~61~120723~57~1449536616~control
+control_111713_1447799121_132_10.59.py~"def num_common_letters(goal_word, guess):
+	let = []
+	count = 0
+	for l in goal_word:
+		for g in guess:
+			if l == g and l not in let:
+				let.append(l)
+				count += 1
+	return count"~10.78~none~70~111713~132~1447799121~control
+control_111710_1447803949_142_13.5.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	lst = []
+	for letter in goal_word:
+		for second_letter in guess:
+			if letter == second_letter:
+				if not letter in lst:
+					count += 1
+					lst += letter
+					break
+	return count"~13.65~none~52~111710~142~1447803949~control
+control_120805_1449614615_202_14.25.py~"def num_common_letters(goal_word, guess):
+	w1, g2 = list(goal_word), list(guess)
+	total, seen = 0, []
+	for l1 in w1:
+		for l2 in g2:
+			if l1 is l2 and l1 not in seen:
+				total += 1
+				seen.append(l1)
+				g2.remove(l2)
+	return total"~11.76~none~57~120805~202~1449614615~control
+control_120709_1449530960_18_12.84.py~"def num_common_letters(goal_word, guess):
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~18~1449530960~control
+control_120723_1449535312_13_2.61.py~"def num_common_letters(goal_word, guess):
+	return len([i for i in set(goal_word) if i in guess])"~3.29~none~61~120723~13~1449535312~control
+control_1114013_1447539476_3_18.13.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    goal_word = set(goal_word)
+    guess = set(guess)
+    for char in goal_word:
+        if char in guess:
+            count += 1
+    return count"~10.19~none~67~1114013~3~1447539476~control
+control_111713_1447798987_54_10.59.py~"def num_common_letters(goal_word, guess):
+	letts = []
+	count = 0
+	for letter in goal_word:
+		for gletter in guess:
+			if letter == gletter and letter not in letts:
+				letts.append(letter)
+				count += 1
+	return count"~10.78~none~70~111713~54~1447798987~control
+control_120723_1449535526_5_2.61.py~"def num_common_letters(goal_word, guess):
+	return len([i for i in set(goal_word) if i in guess])"~3.29~none~61~120723~5~1449535526~control
+control_120710_1449530644_377_11.28.py~"def num_common_letters(first, second):
+    lst = []
+    total = 0
+    for a in first:
+        if a not in lst:
+            lst += a
+            if a in second:
+                total += 1
+    return total"~11.63~none~63~120710~377~1449530644~control
+control_120709_1449531352_8_12.84.py~"def num_common_letters(goal_word, guess):
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~8~1449531352~control
+control_120722_1449534409_60_10.29.py~"def num_common_letters(goal_word, guess):
+    count_of_common_letters = 0
+    list_of_used_letters = list()
+    for letter in goal_word:
+        if letter in guess and letter not in list_of_used_letters:
+            count_of_common_letters += 1
+            list_of_used_letters += letter
+    return count_of_common_letters"~10.29~none~54~120722~60~1449534409~control
+control_111712_1447799042_470_8.05.py~"def num_common_letters(goal_word, guess):
+	letters = []
+	for char in goal_word:
+		for char2 in guess:
+			if char == char2 and char not in letters:
+				letters.append(char)
+	return len(letters)"~8.29~none~71~111712~470~1447799042~control
+control_120722_1449535339_16_6.99.py~"def num_common_letters(goal_word, guess):
+    list_of_used_letters = []
+    for letter in goal_word:
+        if letter in guess and letter not in list_of_used_letters:
+            list_of_used_letters.append(letter)
+    return len(list_of_used_letters)"~7.54~none~54~120722~16~1449535339~control
+control_111709_1447799253_28_9.23.py~"def num_common_letters(goal_word, guess):
+	count, letters = 0, []
+	for x in goal_word: 
+		for y in guess:
+			if x==y and x not in letters:
+				count+=1
+				letters.append(x)
+	return count"~9.44~none~59~111709~28~1447799253~control
+control_1114018_1447545310_21_2.68.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word).intersection(set(guess)))"~2.68~none~55~1114018~21~1447545310~control
+control_120802_1449613670_19_13.75.py~"def num_common_letters(goal_word, guess):
+	cache = set('')
+	counter = 0
+	for i in goal_word:
+		if i not in cache:
+			cache.add(i)
+	for j in guess:
+		if j in cache:
+			counter += 1
+			cache.remove(j)
+	return counter"~12.89~none~69~120802~19~1449613670~control
+control_120724_1449536111_271_12.12.py~"def num_common_letters(first, second):
+	helper_lst1, helper_lst2 = [], []
+	filtered_first = [helper_lst1.append(letter) for letter in first if letter not in helper_lst1]
+	filtered_second = [helper_lst2.append(letter) for letter in second if letter not in helper_lst2]
+	counter = 0
+	for letter in filtered_second:
+		if letter in filtered_first:
+			counter += 1
+	return counter"~15.06~none~72~120724~271~1449536111~control
+control_120714_1449532644_28_13.86.py~"def num_common_letters(goal_word, guess):
+	goal_word = sorted(list(''.join(set(goal_word))))
+	guess = sorted(list(''.join(set(guess))))
+	repeat_list = []
+	common_list = []
+	for i in range(max(len(goal_word),len(guess))):
+		if goal_word[i] in guess and goal_word[i] not in repeat_list:
+			common_list.append(goal_word[i])
+		repeat_list.append(goal_word[i])
+	return len(common_list)"~14.7~none~60~120714~28~1449532644~control
+control_120723_1449534360_85_2.86.py~"def num_common_letters(goal_word, g):
+	return sum([bool(l in goal_word) for l in set([i for i in g])])"~4.92~none~61~120723~85~1449534360~control
+control_120715_1449532282_110_12.74.py~"def num_common_letters(goal_word, guess):
+    """"""Returns the number of letters two words have in common,
+	taking repetition into account
+	""""""
+    used_letters=[]
+    num_of_same_letters=0
+    for letter in guess:
+	    if letter in goal_word and letter not in used_letters:
+		    num_of_same_letters += 1
+		    used_letters += letter
+    return num_of_same_letters"~13.05~none~73~120715~110~1449532282~control
+control_120723_1449534813_18_2.61.py~"def num_common_letters(goal_word, guess):
+	return len([i for i in set(goal_word) if i in guess])"~3.29~none~61~120723~18~1449534813~control
+control_1114018_1447545252_97_2.61.py~"def num_common_letters(goal_word, guess):
+    return len([char for char in set(goal_word) if char in guess])"~3.29~none~55~1114018~97~1447545252~control
+control_120802_1449613567_14_12.89.py~"def num_common_letters(goal_word, guess):
+	cache = set('')
+	counter = 0
+	for i in goal_word:
+		if i not in cache:
+			cache.add(i)
+	for j in guess:
+		if j in cache:
+			counter += 1
+			cache.remove(j)
+	return counter"~12.89~none~69~120802~14~1449613567~control
+control_1114012_1447543220_6_16.85.py~"def num_common_letters(goal_word, guess):
+    goal_letters = []
+    guess_letters = []
+    count= 0
+    for i in goal_word:
+        if i not in goal_letters:
+            goal_letters.append(i)
+    for i in guess:
+        if i not in guess_letters:
+            guess_letters.append(i)
+    for i in guess_letters:
+        if i in goal_letters:
+            count += 1
+    return count"~17.99~none~74~1114012~6~1447543220~control
+control_1114016_1447544294_689_8.05.py~"def num_common_letters(goal_word, guess):
+	common_letters = []
+	for letter in goal_word:
+		for letters in guess:
+			if letters not in common_letters and letters is letter:
+				common_letters.append(letters)
+	return len(common_letters)"~8.29~none~75~1114016~689~1447544294~control
+control_120703_1449528725_434_10.78.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    word = list(guess)
+    for letter in guess:
+        if word.count(letter) > 1:
+            word.remove(letter)
+        elif letter in goal_word:
+            count += 1
+    return count"~10.78~none~68~120703~434~1449528725~control
+control_120712_1449530733_229_11.3.py~"def num_common_letters(goal_word, guess):
+	similar_letters = []
+	k = 0
+	for character in goal_word:
+		if character in guess and character not in similar_letters:
+			similar_letters.append(character)
+			k += 1
+	return k"~9.99~none~51~120712~229~1449530733~control
+control_111710_1447804524_267_11.3.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	lst = []
+	for letter in goal_word:
+		if not letter in lst:
+			if letter in guess:
+				count += 1
+				lst += letter
+	return count"~11.65~none~52~111710~267~1447804524~control
+control_1114018_1447545022_4_2.61.py~"def num_common_letters(goal_word, guess):
+    return len(set([char for char in goal_word if char in guess]))"~3.29~none~55~1114018~4~1447545022~control
+control_1114013_1447540598_291_2.41.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~67~1114013~291~1447540598~control
+control_1114018_1447544566_53_2.41.py~"def num_common_letters(goal_word, guess):
+    return len([char for char in goal_word if char in guess])"~3.13~none~55~1114018~53~1447544566~control
+control_120709_1449531612_118_13.7.py~"def num_common_letters(goal_word, guess):
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~118~1449531612~control
+control_120709_1449530263_168_13.7.py~"def num_common_letters(goal_word, guess):
+	goal_letters = []
+	count = 0
+	for x in goal_word:
+		if x not in goal_letters:
+			goal_letters.append(x)
+	for x in guess:
+		if x in goal_letters:
+			goal_letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~168~1449530263~control
+control_120722_1449535583_28_3.9.py~"def num_common_letters(goal_word, guess):
+    list_of_used_letters = [letter for letter in goal_word if letter in guess]
+    return len(list(set(list_of_used_letters)))"~4.38~none~54~120722~28~1449535583~control
+control_120723_1449534496_104_2.61.py~"def num_common_letters(goal, g):
+	return len([l in goal for l in set([i for i in g])])"~4.77~none~61~120723~104~1449534496~control
+control_1114016_1447543603_33_8.05.py~"def num_common_letters(goal_word, guess):
+	common_letters = []
+	for letter in goal_word:
+		for letters in guess:
+			if letters is letter and letters not in common_letters:
+				common_letters.append(letters)
+	return len(common_letters)"~8.29~none~75~1114016~33~1447543603~control
+control_120709_1449530315_22_12.84.py~"def num_common_letters(goal_word, guess):
+	lst = []
+	count = 0
+	for x in goal_word:
+		if x not in lst:
+			lst.append(x)
+	for x in guess:
+		if x in lst:
+			lst.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~22~1449530315~control
+control_120723_1449534525_27_2.61.py~"def num_common_letters(goal, g):
+	return len([l in goal for l in set(g)])"~3.29~none~61~120723~27~1449534525~control
+control_1114014_1447541642_94_9.84.py~"def num_common_letters(goal_word, guess):
+	x, y, counter = 0, 0, 0
+	while y < len(guess) and x < len(goal_word):
+		if goal_word[x] == guess[y]:
+			counter, y, x = (counter + 1), (y + 1), 0
+		else:
+			x += 1
+	return counter"~9.84~none~76~1114014~94~1447541642~control
+control_1114012_1447543548_326_12.99.py~"def num_common_letters(goal_word, guess):
+    guess_letters = []
+    count= 0
+    for i in guess:
+        if i in goal_word:
+            if i in guess_letters:
+                count += 0
+            else:
+                count += 1
+                guess_letters.append(i)
+    return count"~13.3~none~74~1114012~326~1447543548~control
+control_120714_1449531361_285_15.21.py~"def num_common_letters(goal_word, guess):
+	goal_word = sorted(list(''.join(set(goal_word))))
+	guess = sorted(list(''.join(set(guess))))
+	repeatList = []
+	commonList = []
+	length = max(len(goal_word),len(guess))
+	for i in range(length):
+		if goal_word[i] in guess and goal_word[i] not in repeatList:
+			commonList.append(goal_word[i])
+		repeatList.append(goal_word[i])
+	return len(commonList)"~15.97~none~60~120714~285~1449531361~control
+control_120723_1449534719_12_4.15.py~"def num_common_letters(goal_word, guess):
+	return len([l for l in set(list(goal_word)) if l in set(list(guess))])"~4.02~none~61~120723~12~1449534719~control
+control_120722_1449535734_24_2.86.py~"def num_common_letters(goal_word, guess):
+    return len(list(set([letter for letter in goal_word if letter in guess])))"~3.49~none~54~120722~24~1449535734~control
+control_1114018_1447543712_14_8.53.py~"def num_common_letters(goal_word, guess):
+	common_letters = """"
+	for character in goal_word:
+		if not character in common_letters:
+			if character in guess:
+				common_letters += character
+	return len(common_letters)"~8.53~none~55~1114018~14~1447543712~control
+control_120802_1449613311_203_12.89.py~"def num_common_letters(goal_word, guess):
+	cache = set('')
+	counter = 0
+	for i in goal_word:
+		if i not in cache:
+			cache.add(i)
+	for i in guess:
+		if i in cache:
+			counter +=1
+			cache.remove(i)
+	return counter"~12.89~none~69~120802~203~1449613311~control
+control_1114013_1447539846_127_2.68.py~"def num_common_letters(goal_word, guess):
+    return len(set.union(set(goal_word), set(guess)))"~2.68~none~67~1114013~127~1447539846~control
+control_120801_1449613555_132_6.99.py~"def num_common_letters(goal_word, guess):
+    common_letters = []
+    for character in guess:
+        if character in goal_word and character not in common_letters:
+            common_letters.append(character)
+    return len(common_letters)"~7.54~none~77~120801~132~1449613555~control
+control_1114013_1447540636_37_2.41.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~67~1114013~37~1447540636~control
+control_120102_1449528380_70_5.46.py~"def num_common_letters(goal_word, guess):
+	checked_letters = []
+	updated_checked_letters = [checked_letters.append(letter) for letter in guess if letter in goal_word and letter not in checked_letters]
+	return len(checked_letters)"~6.77~none~66~120102~70~1449528380~control
+control_1114013_1447539063_262_18.89.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    seen_chars = []
+    for char in goal_word:
+        if char not in seen_chars:
+            if char in guess:
+                count += 1
+            seen_chars.append(char)
+    return count"~11.04~none~67~1114013~262~1447539063~control
+control_1114018_1447545535_7_2.41.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) & set(guess))"~2.41~none~55~1114018~7~1447545535~control
+control_120723_1449534888_74_2.61.py~"def num_common_letters(goal, g):
+	return len([i for i in set(goal) if i in g])"~3.29~none~61~120723~74~1449534888~control
+control_111712_1447799453_409_2.41.py~"def num_common_letters(goal_word, guess):
+	return len(set(goal_word) and set(guess))"~2.41~none~71~111712~409~1447799453~control
+control_120712_1449532224_674_3.44.py~"def num_common_letters(goal_word, guess):
+	return len(set([x for x in goal_word if x in guess]))"~3.29~none~51~120712~674~1449532224~control
+control_120722_1449535877_103_2.61.py~"def num_common_letters(goal_word, guess):
+    return len(set([letter for letter in guess if letter in goal_word]))"~3.29~none~54~120722~103~1449535877~control
+control_120724_1449536521_44_16.95.py~"def num_common_letters(first, second):
+	def unique_list(string):
+		helper_lst = []
+		filtered_lst = [helper_lst.append(item) for item in string if item not in helper_lst]
+		return filtered_lst
+	unique_first, unique_second = unique_list(first), unique_list(second)
+	counter = 0
+	for letter in unique_second:
+		if letter in unique_first:
+			counter += 1
+	return counter"~14.39~none~72~120724~44~1449536521~control
+control_120802_1449613650_24_13.75.py~"def num_common_letters(goal_word, guess):
+	dic = set('')
+	counter = 0
+	for i in goal_word:
+		if i not in dic:
+			dic.add(i)
+	for j in guess:
+		if j in dic:
+			counter += 1
+			dic.remove(j)
+	return counter"~12.89~none~69~120802~24~1449613650~control
+control_1114018_1447545429_117_2.61.py~"def num_common_letters(goal_word, guess):
+	return len([char for char in set(goal_word) if char in guess])"~3.29~none~55~1114018~117~1447545429~control
+control_111710_1447803804_1624_13.5.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	lst = []
+	for letter in goal_word:
+		for second_letter in guess:
+			if(letter == second_letter):
+				if(not letter in lst):
+					count+=1
+					lst+=letter
+					break
+	return count"~13.65~none~52~111710~1624~1447803804~control
+control_120722_1449534232_525_11.08.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    used = list()
+    for letter in goal_word:
+        if letter in guess and letter not in used:
+            count += 1
+            used += letter
+    return count"~10.29~none~54~120722~525~1449534232~control
+control_120712_1449532238_12_2.61.py~"def num_common_letters(goal_word, guess):
+	return len(set([x for x in goal_word if x in guess]))"~3.29~none~51~120712~12~1449532238~control
+control_120102_1449527869_713_6.99.py~"def num_common_letters(goal_word, guess):
+	seen = []
+	for letter in guess:
+		if letter in goal_word and letter not in seen:
+			seen.append(letter)
+	return len(seen)"~7.54~none~66~120102~713~1449527869~control
+control_120722_1449534679_27_10.29.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    list_of_used_letters = list()
+    for letter in goal_word:
+        if letter in guess and letter not in list_of_used_letters:
+            count += 1
+            list_of_used_letters += letter
+    return count"~10.29~none~54~120722~27~1449534679~control
+control_120722_1449534452_42_10.29.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    list_of_used_letters = list()
+    for letter in goal_word:
+        if letter in guess and letter not in list_of_used_letters:
+            count += 1
+            list_of_used_letters += letter
+    return count"~10.29~none~54~120722~42~1449534452~control
+control_120709_1449530843_140_12.84.py~"def num_common_letters(goal_word, guess):
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~140~1449530843~control
+control_1114018_1447543894_29_3.58.py~"def num_common_letters(goal_word, guess):
+	common_letters = [character for character in goal_word if character in guess]
+	return len(common_letters)"~4.1~none~55~1114018~29~1447543894~control
+control_120723_1449535116_8_2.61.py~"def num_common_letters(goal, g):
+	return len([letter for letter in set(goal) if letter in g])"~3.29~none~61~120723~8~1449535116~control
+control_120701_1449528132_20_9.58.py~"def common_letters_second(x, y):
+    i = 0
+    seen_letters = []
+    for letter in x:
+        if (letter in y) and (letter not in seen_letters):
+            i += 1
+            seen_letters.append(letter)
+    return i"~9.99~none~78~120701~20~1449528132~control
+control_120723_1449533946_35_5.31.py~"def num_common_letters(goal_word, guess):
+	num = 0
+	st2 = set([letter for letter in guess])
+	return sum([bool(letter in goal_word) for letter in st2])"~6.65~none~61~120723~35~1449533946~control
+control_111713_1447798426_315_11.22.py~"def num_common_letters(goal_word, guess):
+	letts = []
+	count = 0
+	for letter in goal_word:
+		for gletter in guess:
+			if letter == gletter and letter not in letts:
+				letts += letter
+				count += 1
+	return count"~11.4~none~70~111713~315~1447798426~control
+control_111709_1447799393_16_9.23.py~"def num_common_letters(goal_word, guess):
+	answer, letters = 0, []
+	for x in goal_word: 
+		for y in guess:
+			if x==y and x not in letters:  
+				answer = answer + 1
+				letters.append(x)
+	return answer"~9.44~none~59~111709~16~1447799393~control
+control_120722_1449535642_11_3.9.py~"def num_common_letters(goal_word, guess):
+    used = [letter for letter in goal_word if letter in guess]
+    return len(list(set(used)))"~4.38~none~54~120722~11~1449535642~control
+control_120723_1449535106_11_2.61.py~"def num_common_letters(goal, g):
+	return len([letter for letter in set(goal) if letter in g])"~3.29~none~61~120723~11~1449535106~control
+control_111904_1447993391_148_7.5.py~"def num_common_letters(goal_word, guess):
+	common = []
+	for x in list(guess):
+		if x in list(goal_word) and x not in common:
+			common += [x]
+	return len(common)"~8.96~none~53~111904~148~1447993391~control
+control_111710_1447804583_57_9.84.py~"def num_common_letters(goal_word, guess):
+	count, lst = 0, []
+	for letter in goal_word:
+		if not letter in lst:
+			if letter in guess:
+				count += 1
+				lst += letter
+	return count"~10.24~none~52~111710~57~1447804583~control
+control_120712_1449531512_113_2.61.py~"def num_common_letters(goal_word, guess):
+	return len(set([letter for letter in goal_word if letter in guess]))"~3.29~none~51~120712~113~1449531512~control
+control_120723_1449535749_129_2.61.py~"def num_common_letters(goal_word, guess):
+	return len([i for i in set(goal_word) if guess.find(i) != -1])"~3.29~none~61~120723~129~1449535749~control
+control_120102_1449528654_272_4.1.py~"def num_common_letters(goal_word, guess):
+	checked_letters = []
+	return len([checked_letters.append(letter) for letter in guess if letter in goal_word and letter not in checked_letters])"~5.73~none~66~120102~272~1449528654~control
+control_111902_1447990994_29_3.0.py~"def num_common_letters(goal_word, guess):
+	return len (list(set(goal_word).intersection(set(guess))))"~3.0~none~79~111902~29~1447990994~control
+control_111709_1447799350_80_9.23.py~"def num_common_letters(goal_word, guess):
+	count, letters = 0, []
+	for x in goal_word: 
+		for y in guess:
+			if x==y and x not in letters:  
+				count = count + 1
+				letters.append(x)
+	return count"~9.44~none~59~111709~80~1447799350~control
+control_120722_1449535554_28_3.9.py~"def num_common_letters(goal_word, guess):
+    used = [letter for letter in goal_word if letter in guess]
+    return len(list(set(used)))"~4.38~none~54~120722~28~1449535554~control
+control_120709_1449531407_53_12.84.py~"def num_common_letters(goal_word, guess):
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~53~1449531407~control
+control_1114013_1447539703_225_7.76.py~"def num_common_letters(goal_word, guess):
+    goal_word = set(goal_word)
+    guess = set(guess)
+    return len(set.union(goal_word, guess))"~5.22~none~67~1114013~225~1447539703~control
+control_120724_1449535838_399_12.12.py~"def num_common_letters(first, second):
+	lst1, lst2 = [], []
+	filteredfirst = [lst1.append(letter) for letter in first if letter not in lst1]
+	filteredsecond = [lst2.append(letter) for letter in second if letter not in lst2]
+	counter = 0
+	for letter in filteredsecond:
+		if letter in filteredfirst:
+			counter += 1
+	return counter"~15.06~none~72~120724~399~1449535838~control
+control_120709_1449530093_753_12.84.py~"def num_common_letters(goal_word, guess):
+	lst = []
+	count = 0
+	for x in goal_word:
+		if x not in lst:
+			lst.append(x)
+	for x in guess:
+		if x in lst:
+			lst.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~753~1449530093~control
+control_111904_1447993598_68_7.5.py~"def num_common_letters(goal_word, guess):
+	common = []
+	for x in list(goal_word):
+		if x not in common and x in list(guess):
+			common += [x]
+	return len(common)"~8.96~none~53~111904~68~1447993598~control
+control_111902_1447989912_20_10.82.py~"def num_common_letters(goal_word, guess):
+	common = 0
+	same = []
+	for x in range (0, len(goal_word)):
+		for y in range (0, len(guess)):
+			if guess[y] not in same and goal_word[x] == guess[y]:
+				same.append(guess[y])
+				common += 1
+	return common"~11.0~none~79~111902~20~1447989912~control
+control_111709_1447799203_11_10.59.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	letters = []
+	for x in goal_word:
+		for y in guess:
+			if x==y and x not in letters:
+				count+=1
+				letters.append(x)
+	return count"~10.78~none~59~111709~11~1447799203~control
+control_120723_1449534705_40_4.38.py~"def num_common_letters(goal_word, guess):
+	num = len([l for l in set(list(goal_word)) if l in set(list(guess))])
+	return num"~4.82~none~61~120723~40~1449534705~control
+control_120724_1449536475_362_13.54.py~"def num_common_letters(first, second):
+	def unique_list(string):
+		helper_lst = []
+		filtered_lst = [helper_lst.append(item) for item in string if item not in helper_lst]
+		return filtered_lst
+	unique_first, unique_second = unique_list(first), unique_list(second)
+	counter = 0
+	for letter in unique_second:
+		if letter in unique_first:
+			counter += 1
+	return counter"~14.39~none~72~120724~362~1449536475~control
+control_1114013_1447539159_94_10.67.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    seen_chars = []
+    for char in goal_word:
+        if char not in seen_chars:
+            if char in guess:
+                count += 1
+            seen_chars.append(char)
+    return count"~11.04~none~67~1114013~94~1447539159~control
+control_120723_1449535251_32_2.61.py~"def num_common_letters(goal_word, guess):
+	return len([i for i in set(goal_word) if i in guess])"~3.29~none~61~120723~32~1449535251~control
+control_120723_1449535296_30_3.44.py~"def num_common_letters(goal_word, guess):
+    return len([i for i in set(goal_word) if i in guess])"~3.29~none~61~120723~30~1449535296~control
+control_120801_1449613299_57_9.58.py~"def num_common_letters(goal_word, guess):
+    common_letters = []
+    i = 0
+    for c in guess:
+        if c in goal_word and c not in common_letters:
+            i += 1
+        common_letters.append(c)
+    return i"~9.99~none~77~120801~57~1449613299~control
+control_120723_1449535409_95_4.34.py~"def num_common_letters(goal_word, guess):
+	return len([i for i in set(goal_word) \
+				if i in guess])"~3.97~none~61~120723~95~1449535409~control
+control_120701_1449528383_247_9.58.py~"def num_common_letters_second(x, y):
+    i = 0
+    seen_letters = []
+    for letter in x:
+        if (letter in y) and (letter not in seen_letters):
+            seen_letters.append(letter)
+            i += 1
+    return i"~9.99~none~78~120701~247~1449528383~control
+control_120801_1449613132_264_12.16.py~"def num_common_letters(goal_word, guess):
+    common_letters = []
+    n = 0
+    for c in guess:
+        if c in common_letters:
+            n += 0
+        elif c in goal_word:
+            n += 1
+        common_letters.append(c)
+    return n"~12.48~none~77~120801~264~1449613132~control
+control_111709_1447798869_20_19.57.py~"
+def num_common_letters(goal_word, guess):
+	letters1 = []
+	letters2 = []
+	count = 0
+	for x in goal_word:
+		if x not in letters1:
+			letters1.append(x)
+	for x in guess:
+		if x not in letters2:
+			letters2.append(x)
+	for x in letters1:
+		for y in letters2:
+			if x==y:
+				count+=1
+	return count"~21.14~none~59~111709~20~1447798869~control
+control_120723_1449535829_9_2.61.py~"def num_common_letters(goal_word, g):
+	return len([word for word in set(goal_word) if g.find(word) != -1])"~3.29~none~61~120723~9~1449535829~control
+control_120723_1449535093_44_3.44.py~"def num_common_letters(goal, g):
+	return len([letter for letter in set(goal) if letter in g])"~3.29~none~61~120723~44~1449535093~control
+control_120722_1449534881_134_10.26.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    list_of_used_letters = []
+    for letter in goal_word:
+        if letter in guess and letter not in list_of_used_letters:
+            count += 1
+            list_of_used_letters += letter
+    return count"~10.64~none~54~120722~134~1449534881~control
+control_120723_1449535868_37_2.61.py~"def num_common_letters(goal_word, g):
+	return len([word for word in set(goal_word) if word in g])"~3.29~none~61~120723~37~1449535868~control
+control_120701_1449527492_635_13.52.py~"def num_common_letters(x, y):
+    i = 0
+    seen_letters = []
+    for letter in x:
+        for y_letter in y:
+            if letter == y_letter:
+                if letter in seen_letters:
+                    pass
+                else:
+                    i += 1
+                    seen_letters.append(letter)
+    return i"~13.67~none~78~120701~635~1449527492~control
+control_111901_1447989766_287_13.11.py~"def num_common_letters(goal_word, guess):
+    goal_letters = []
+    checked = []
+    common = 0
+    for letter in goal_word:
+        goal_letters.append(letter)
+    for letter in guess:
+        if letter in goal_letters and letter not in checked:
+            common += 1
+            checked.append(letter)
+    return common"~14.28~none~80~111901~287~1447989766~control
+control_120711_1449531795_141_14.21.py~"def num_common_letters(goal_word, guess):
+    used_letters = []    
+    def common_helper(goal_word, guess):
+        if len(guess) == 0:
+            return 0
+        if guess[0] in used_letters:
+            return common_helper(goal_word, guess[1:])
+        elif guess[0] in goal_word:
+            used_letters.append(guess[0])
+            return 1 + common_helper(goal_word, guess[1:])
+        else:
+            return common_helper(goal_word, guess[1:])
+    return common_helper(goal_word, guess)"~14.35~none~81~120711~141~1449531795~control
+control_120102_1449527154_159_6.99.py~"def num_common_letters(goal_word, guess):
+	checked_letters = []
+	for letter in guess:
+		if letter in goal_word and letter not in checked_letters:
+			checked_letters.append(letter)
+	return len(checked_letters)"~7.54~none~66~120102~159~1449527154~control
+control_1114018_1447543864_55_3.58.py~"def num_common_letters(goal_word, guess):
+	common_letters = [char for char in goal_word if char in guess]
+	return len(common_letters)"~4.1~none~55~1114018~55~1447543864~control
+control_1114018_1447544395_48_2.41.py~"def num_common_letters(goal_word, guess):
+    return len([char for char in goal_word if char in guess])"~3.13~none~55~1114018~48~1447544395~control
+control_120709_1449531492_13_12.84.py~"def num_common_letters(goal_word, guess):	
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~13~1449531492~control
+control_120801_1449613991_27_6.99.py~"def num_common_letters(goal_word, guess):
+    common_letters = []
+    for c in guess:
+        if c in goal_word and c not in common_letters:
+            common_letters.append(c)
+    return len(common_letters)"~7.54~none~77~120801~27~1449613991~control
+control_111710_1447804049_99_12.34.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	lst = []
+	for letter in goal_word:
+		for second_letter in guess:
+			if letter == second_letter:
+				if not letter in lst:
+					count += 1
+					lst += letter
+	return count"~12.5~none~52~111710~99~1447804049~control
+control_1114016_1447544517_221_9.58.py~"def num_common_letters(goal_word, guess):
+	common_letters = []
+	for letter in goal_word:
+		if letter not in common_letters:
+			for letters in guess:
+				if letters not in common_letters and letters is letter:
+					common_letters.append(letters)
+	return len(common_letters)"~9.79~none~75~1114016~221~1447544517~control
+control_120722_1449535773_37_2.61.py~"def num_common_letters(goal_word, guess):
+    return len(set([letter for letter in goal_word if letter in guess]))"~3.29~none~54~120722~37~1449535773~control
+control_120714_1449532685_40_12.62.py~"def num_common_letters(goal_word, guess):
+	goal_word = sorted(list(''.join(set(goal_word))))
+	guess = sorted(list(''.join(set(guess))))
+	repeat_list, common_list = [], []
+	for i in range(max(len(goal_word),len(guess))):
+		if goal_word[i] in guess and goal_word[i] not in repeat_list:
+			common_list.append(goal_word[i])
+		repeat_list.append(goal_word[i])
+	return len(common_list)"~13.54~none~60~120714~40~1449532685~control
+control_120723_1449534274_37_2.86.py~"def num_common_letters(goal_word, guess):
+	return sum([bool(l in goal_word) for l in set([i for i in guess])])"~4.92~none~61~120723~37~1449534274~control
+control_120712_1449531319_585_5.18.py~"def num_common_letters(goal_word, guess):
+	similar_letters = [character for character in goal_word if character in guess]
+	distinct_letters = set(similar_letters)
+	return len(distinct_letters)"~5.55~none~51~120712~585~1449531319~control
+control_120102_1449528308_80_5.46.py~"def num_common_letters(goal_word, guess):
+	seen = []
+	updated_seen = [seen.append(letter) for letter in guess if letter in goal_word and letter not in seen]
+	return len(seen)"~6.77~none~66~120102~80~1449528308~control
+control_120724_1449536585_63_12.01.py~"def num_common_letters(first, second):
+	def unique_list(string):
+		helper_lst = []
+		filtered_lst = [helper_lst.append(item) for item in string if item not in helper_lst]
+		return filtered_lst
+	unique_first, unique_second, counter = unique_list(first), unique_list(second), 0
+	for letter in unique_second:
+		if letter in unique_first:
+			counter += 1
+	return counter"~12.97~none~72~120724~63~1449536585~control
+control_120723_1449533825_68_8.59.py~"def num_common_letters(goal_word, guess):
+	num = 0
+	st2 = set([letter for letter in guess])
+	for letter in st2:
+		if letter in goal_word:
+			num += 1
+	return num"~9.04~none~61~120723~68~1449533825~control
+control_120802_1449613710_39_13.75.py~"
+def num_common_letters(goal_word, guess):
+	cache = set('')
+	counter = 0
+	for i in goal_word:
+		if i not in cache:
+			cache.add(i)
+	for i in guess:
+		if i in cache:
+			counter += 1
+			cache.remove(i)
+	return counter"~13.75~none~69~120802~39~1449613710~control
+control_120801_1449612867_10_12.16.py~"def num_common_letters(goal_word, guess):
+    bank = []
+    n = 0
+    for c in guess:
+        if c in bank:
+            n += 0
+        elif c in goal_word:
+            n += 1
+        bank.append(c)
+    return n"~12.48~none~77~120801~10~1449612867~control
+control_1114013_1447539390_27_11.82.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    goal_word = set(goal_word)
+    guess = set(guess)
+    for char in goal_word:
+        if char in guess:
+            count += 1
+    return count"~10.19~none~67~1114013~27~1447539390~control
+control_120709_1449531413_4_12.84.py~"def num_common_letters(goal_word, guess):
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~4~1449531413~control
+control_120723_1449535792_23_2.61.py~"def num_common_letters(goal_word, g):
+	return len([word for word in set(goal_word) if g.find(word) != -1])"~3.29~none~61~120723~23~1449535792~control
+control_120723_1449536128_10_2.61.py~"def num_common_letters(goal_word, g):
+	return len([word for word in set(g) if word in goal_word])"~3.29~none~61~120723~10~1449536128~control
+control_120712_1449531548_35_2.61.py~"def num_common_letters(goal_word, guess):
+	return len(set([x for x in goal_word if x in guess]))"~3.29~none~51~120712~35~1449531548~control
+control_1114018_1447543584_208_8.53.py~"def num_common_letters(goal_word, guess):
+	common_letters = """"
+	for char in goal_word:
+		if not char in common_letters:
+			if char in guess:
+				common_letters += char
+	return len(common_letters)"~8.53~none~55~1114018~208~1447543584~control
+control_120723_1449536516_19_3.0.py~"def num_common_letters(goal_word, guess):
+	return len(''.join(set(goal_word).intersection(set(guess))))"~3.0~none~61~120723~19~1449536516~control
+control_1114014_1447541141_68_19.47.py~"def num_common_letters(goal_word, guess):
+	goal_word_letters = [goal_word[x] for x in range(0, len(goal_word))]
+	guess = [guess[x] for x in range(0, len(guess))]
+	x = 0
+	y = 0
+	counter = 0
+	while y < len(guess) and x < len(goal_word_letters):
+		if goal_word_letters[x] == guess[y]:
+			counter += 1
+			y += 1
+			x = 0
+		else:
+			x += 1
+	return counter"~20.08~none~76~1114014~68~1447541141~control
+control_120723_1449535619_19_2.61.py~"def num_common_letters(goal_word, guess):
+	return len([i for i in set(goal_word) if i in guess])"~3.29~none~61~120723~19~1449535619~control
+control_120723_1449534194_63_3.9.py~"def num_common_letters(goal_word, guess):
+	set_1 = set([l for l in guess])
+	return sum([bool(l in goal_word) for l in set_1])"~5.59~none~61~120723~63~1449534194~control
+control_1114018_1447545099_7_2.61.py~"def num_common_letters(goal_word, guess):
+    return len(set([char for char in goal_word if char in guess]))"~3.29~none~55~1114018~7~1447545099~control
+control_111709_1447799190_319_18.76.py~"def num_common_letters(goal_word, guess):
+	letters1 = []  
+	letters2 = []
+	count = 0
+	for x in goal_word:
+		if x not in letters1:
+			letters1.append(x)
+	for x in guess:
+		if x not in letters2:
+			letters2.append(x)
+	for x in letters1:
+		for y in letters2:
+			if x==y:
+				count+=1
+	return count"~20.39~none~59~111709~319~1447799190~control
+control_120715_1449532299_16_10.26.py~"def num_common_letters(goal_word, guess):
+    used_letters=[]
+    num_of_same_letters=0
+    for letter in guess:
+	    if letter in goal_word and letter not in used_letters:
+		    num_of_same_letters += 1
+		    used_letters += letter
+    return num_of_same_letters"~10.64~none~73~120715~16~1449532299~control
+control_1114016_1447542994_530_8.05.py~"def num_common_letters(goal_word, guess):
+	common_letters = []
+	for letter in goal_word:
+		for letters in guess:
+			if letters is letter and letters not in common_letters:
+				common_letters.append(letters)
+	return len(common_letters)"~8.29~none~75~1114016~530~1447542994~control
+control_120713_1449531441_115_3.71.py~"def num_common_letters(goal_word, guess):
+    used = [letter for letter in goal_word if letter in guess]
+    return len(set(used))"~4.22~none~65~120713~115~1449531441~control
+control_120707_1449528804_199_8.73.py~"def num_common_letters(goal_word, guess):
+	count, usedLetter = 0, []
+	for letter in goal_word:
+		if letter in guess and letter not in usedLetter:
+			count+=1
+			usedLetter+=[letter]
+	return count"~10.01~none~64~120707~199~1449528804~control
+control_120723_1449535818_9_3.44.py~"def num_common_letters(goal_word, g):
+	return len([word for word in set(goal_word) \
+				if g.find(word) != -1])"~3.97~none~61~120723~9~1449535818~control
+control_120723_1449534903_13_2.61.py~"def num_common_letters(goal, g):
+	return len([letter for letter in set(goal) if letter in g])"~3.29~none~61~120723~13~1449534903~control
+control_120723_1449535048_63_2.61.py~"def num_common_letters(goal, g):
+	return len([letter for letter in set(goal) if letter in g])"~3.29~none~61~120723~63~1449535048~control
+control_120712_1449530502_924_16.61.py~"def num_common_letters(goal_word, guess):
+	letters = []
+	for letter in guess:
+		letters.append(letter)
+	similar_letters = []
+	k = 0
+	for character in goal_word:
+		if character in letters and character not in similar_letters:
+			similar_letters.append(character)
+			k += 1
+	return k"~14.28~none~51~120712~924~1449530502~control
+control_120713_1449531324_524_5.18.py~"def num_common_letters(goal_word, guess):
+    used = [letter for letter in goal_word if letter in guess]
+    used = set(used)
+    return len(used)"~5.55~none~65~120713~524~1449531324~control
+control_111915_1447993653_78_6.99.py~"def num_common_letters(goal_word, guess):
+		goal_word_characters = [n for n in goal_word]
+		repeats = []
+		umm = [repeats.append(n) for n in guess if n in goal_word_characters and n not in repeats]
+		return len(repeats)"~9.21~none~58~111915~78~1447993653~control
+control_120722_1449536449_5_2.61.py~"def num_common_letters(goal_word, guess):
+    return len(set([letter for letter in guess if letter in goal_word]))"~3.29~none~54~120722~5~1449536449~control
+control_111709_1447799223_19_9.23.py~"def num_common_letters(goal_word, guess):
+	count, letters = 0, []
+	for x in goal_word:
+		for y in guess:
+			if x==y and x not in letters:
+				count+=1
+				letters.append(x)
+	return count"~9.44~none~59~111709~19~1447799223~control
+control_1114012_1447544396_845_8.76.py~"def num_common_letters(goal_word, guess):
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    count = 0
+    for i in alphabet:
+        if i in goal_word and i in guess:
+            count += 1
+    return count"~9.21~none~74~1114012~845~1447544396~control
+control_111915_1447992842_165_11.91.py~"def num_common_letters(goal_word, guess):
+	goal_word_characters = [n for n in goal_word]
+	repeats = []
+	count = 0
+	for n in guess:
+		if n in goal_word_characters and n not in repeats:
+			count += 1
+			repeats.append(n)
+	return count"~12.12~none~58~111915~165~1447992842~control
+control_111901_1447989478_508_13.11.py~"def num_common_letters(goal_word, guess):
+    letters_in_goal_word = []
+    letters_already_checked = []
+    common_letters = 0
+    for letter in goal_word:
+        letters_in_goal_word.append(letter)
+    for letter in guess:
+        if letter in letters_in_goal_word and letter not in letters_already_checked:
+            common_letters += 1
+            letters_already_checked.append(letter)
+    return common_letters"~14.28~none~80~111901~508~1447989478~control
+control_120715_1449532008_22_10.26.py~"def num_common_letters(goal_word, guess):
+    used_letters=[]
+    num_of_same_letters=0
+    for letter in guess:
+	    if letter in goal_word and letter not in used_letters:
+		    num_of_same_letters += 1
+		    used_letters += letter
+    return num_of_same_letters"~10.64~none~73~120715~22~1449532008~control
+control_120802_1449613105_355_12.89.py~"def num_common_letters(goal_word, guess):
+	cache = set('')
+	counter = 0
+	for i in goal_word:
+		if i not in cache:
+			cache.add(i)
+	for i in guess:
+		if i in cache:
+			counter = counter + 1
+			cache.remove(i)
+	return counter"~12.89~none~69~120802~355~1449613105~control
+control_120722_1449535032_72_6.99.py~"def num_common_letters(goal_word, guess):
+    list_of_used_letters = []
+    for letter in goal_word:
+        if letter in guess and letter not in list_of_used_letters:
+            list_of_used_letters.append(letter)
+    return len(list_of_used_letters)"~7.54~none~54~120722~72~1449535032~control
+control_120707_1449528603_29_8.73.py~"def num_common_letters(goal_word, guess):
+	count, used_letter = 0, []
+	for letter in goal_word:
+		if letter in guess and letter not in used_letter:
+			count+=1
+			used_letter+=[letter]
+	return count"~10.01~none~64~120707~29~1449528603~control
+control_120715_1449531074_196_14.5.py~"def num_common_letters(goal_word, guess):
+	goal=[]
+	used=[]
+	same=0
+	for letter in goal_word:
+		goal+=letter
+	for letter in guess:
+		if letter in goal and letter not in used:
+			same+=1
+			used+=letter
+	return same"~15.56~none~73~120715~196~1449531074~control
+control_120709_1449530593_276_12.84.py~"def num_common_letters(goal_word, guess):
+	lst = []
+	c = 0
+	for x in goal_word:
+		if x not in lst:
+			lst.append(x)
+	for x in guess:
+		if x in lst:
+			lst.remove(x)
+			c += 1
+	return c"~13.3~none~56~120709~276~1449530593~control
+control_120723_1449536558_41_3.0.py~"def num_common_letters(goal_word, guess):
+	return len(''.join(sorted(set(goal_word) & set(guess))))"~3.0~none~61~120723~41~1449536558~control
+control_120102_1449526994_437_8.17.py~"def num_common_letters(goal_word, guess):
+	counter, checked_letters = 0, []
+	for letter in guess:
+		if letter in goal_word and letter not in checked_letters:
+			counter += 1
+			checked_letters.append(letter)
+	return counter"~8.65~none~66~120102~437~1449526994~control
+control_120709_1449531260_21_12.84.py~"def num_common_letters(goal_word, guess):
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~21~1449531260~control
+control_120707_1449527881_559_11.05.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	used_letter = []
+	for letter in goal_word:
+		if letter in guess and letter not in used_letter:
+			count+=1
+		used_letter+=[letter]
+	return count"~11.37~none~64~120707~559~1449527881~control
+control_1114018_1447543959_35_2.41.py~"def num_common_letters(goal_word, guess):
+	return len([char for char in goal_word if char in guess])"~3.13~none~55~1114018~35~1447543959~control
+control_120801_1449613421_121_6.99.py~"def num_common_letters(goal_word, guess):
+    common_letters = []
+    for c in guess:
+        if c in goal_word and c not in common_letters:
+            common_letters.append(c)
+    return len(common_letters)"~7.54~none~77~120801~121~1449613421~control
+control_1114018_1447544996_33_2.61.py~"def num_common_letters(goal_word, guess):
+    return len(set([char for char in goal_word if char in guess]))"~3.29~none~55~1114018~33~1447544996~control
+control_120710_1449531063_416_7.2.py~"def num_common_letters2(first, second):
+    total = 0
+    for a in set(first):
+        if a in set(second):
+            total += 1
+    return total"~7.2~none~63~120710~416~1449531063~control
+control_120715_1449531549_25_10.26.py~"def num_common_letters(goal_word, guess):
+	used_letters = []
+	num_of_same_letters = 0
+	for letter in guess:
+		if letter in goal_word and letter not in used_letters:
+			num_of_same_letters += 1
+			used_letters += letter
+	return num_of_same_letters"~10.64~none~73~120715~25~1449531549~control
+control_111901_1447989966_198_9.58.py~"def num_common_letters(goal_word, guess):
+    checked = []
+    common = 0
+    for letter in guess:
+        if letter in goal_word and letter not in checked:
+            common += 1
+            checked.append(letter)
+    return common"~9.99~none~80~111901~198~1447989966~control
+control_1114014_1447541462_16_13.08.py~"def num_common_letters(goal_word, guess):
+	goal_word_letters, guess = [goal_word[x] for x in range(0, len(goal_word))], [guess[x] for x in range(0, len(guess))]
+	x, y = 0, 0
+	counter = 0
+	while y < len(guess) and x < len(goal_word_letters):
+		if goal_word_letters[x] == guess[y]:
+			counter, y, x = (counter + 1), (y + 1), 0
+		else:
+			x += 1
+	return counter"~13.97~none~76~1114014~16~1447541462~control
+control_120709_1449531299_38_12.84.py~"def num_common_letters(goal_word, guess):
+	letters = [] 
+	count = 0
+	for x in goal_word: 
+		if x not in letters:
+			letters.append(x)
+	for x in guess: 
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~38~1449531299~control
+control_1114018_1447545084_35_2.61.py~"def num_common_letters(goal_word, guess):
+    return len(set([char for char in goal_word if char in guess]))"~3.29~none~55~1114018~35~1447545084~control
+control_120705_1449527219_197_10.68.py~"def num_common_letters(goal_word, guess):
+	tot=0
+	if guess in goal_word:
+		return 1
+	for i in range (0,len(goal_word)):
+		for j in range (0,len(guess)):
+			if guess[j] == goal_word[i]:
+				tot+=1
+	return tot"~10.68~none~62~120705~197~1449527219~control
+control_111709_1447799496_28_9.23.py~"def num_common_letters(goal_word, guess):
+	answer, letters = 0, []
+	for x in goal_word: 
+		for y in guess:
+			if x==y and x not in letters:  
+				answer += 1
+				letters.append(x)
+	return answer"~9.44~none~59~111709~28~1447799496~control
+control_111709_1447798660_36_10.59.py~"def num_common_letters(goal_word, guess):
+	count = 0
+	letters = []
+	for x in goal_word:
+		for y in guess:
+			if x==y and x not in letters:
+				count+=1
+				letters.append(x)
+	return count"~10.78~none~59~111709~36~1447798660~control
+control_120709_1449530627_32_12.84.py~"def num_common_letters(goal_word, guess):
+	letters = []
+	count = 0
+	for x in goal_word:
+		if x not in letters:
+			letters.append(x)
+	for x in guess:
+		if x in letters:
+			letters.remove(x)
+			count += 1
+	return count"~13.3~none~56~120709~32~1449530627~control
+control_1114014_1447541547_83_11.58.py~"def num_common_letters(goal_word, guess):
+	goal_word_letters, guess = [goal_word[x] for x in range(0, len(goal_word))], [guess[x] for x in range(0, len(guess))]
+	x, y, counter = 0, 0, 0
+	while y < len(guess) and x < len(goal_word_letters):
+		if goal_word_letters[x] == guess[y]:
+			counter, y, x = (counter + 1), (y + 1), 0
+		else:
+			x += 1
+	return counter"~12.58~none~76~1114014~83~1447541547~control
+control_120723_1449535265_12_2.61.py~"def num_common_letters(goal_word, guess):
+    return len([i for i in set(goal_word) if i in guess])"~3.29~none~61~120723~12~1449535265~control
+control_120723_1449534128_61_2.86.py~"def num_common_letters(goal_word, guess):
+	return sum([bool(l in goal_word) for l in set([i for i in guess])])"~4.92~none~61~120723~61~1449534128~control
+control_120714_1449532723_36_11.5.py~"def num_common_letters(goal_word, guess):
+	goal_word, guess = sorted(list(''.join(set(goal_word)))), sorted(list(''.join(set(guess))))
+	repeat_list, common_list = [], []
+	for i in range(max(len(goal_word),len(guess))):
+		if goal_word[i] in guess and goal_word[i] not in repeat_list:
+			common_list.append(goal_word[i])
+		repeat_list.append(goal_word[i])
+	return len(common_list)"~12.5~none~60~120714~36~1449532723~control
+control_111709_1447799465_71_9.23.py~"def num_common_letters(goal_word, guess):
+	answer, letters = 0, [] 
+	for x in goal_word: 
+		for y in guess:
+			if x==y and x not in letters:  
+				answer = answer + 1
+				letters.append(x)
+	return answer"~9.44~none~59~111709~71~1447799465~control
+control_120712_1449532423_183_2.61.py~"def num_common_letters(goal_word, guess):
+	return len(set([character for character in goal_word if character in guess]))"~3.29~none~51~120712~183~1449532423~control
+control_120723_1449534390_29_2.86.py~"def num_common_letters(goal, g):
+	return sum([bool(l in goal) for l in set([i for i in g])])"~4.92~none~61~120723~29~1449534390~control
+control_120723_1449534983_78_4.34.py~"def num_common_letters(goal, g):
+	return len([letter for letter in set(goal) 
+				if letter in g])"~3.97~none~61~120723~78~1449534983~control
+control_111902_1447990664_13_2.61.py~"def num_common_letters(goal_word, guess):
+	return len([1 for g in set(guess) if goal_word.count(g)>0 ])"~3.29~none~79~111902~13~1447990664~control
+control_1114014_1447542037_15_9.84.py~"def num_common_letters(goal_word, guess):
+	x, y, counter = 0, 0, 0
+	while y < len(guess) and x < len(goal_word):
+		if goal_word[x] == guess[y]:
+			counter, y, x = (counter + 1), (y + 1), 0
+		else:
+			x += 1
+	return counter"~9.84~none~76~1114014~15~1447542037~control
+control_120723_1449536117_41_3.44.py~"def num_common_letters(goal_word, g):
+	return len([word for word in set(g) if word in goal_word])"~3.29~none~61~120723~41~1449536117~control
+control_1114018_1447545135_35_2.61.py~"def num_common_letters(goal_word, guess):
+    return len(set([char for char in guess if char in goal_word]))"~3.29~none~55~1114018~35~1447545135~control
+control_111904_1447993241_112_7.5.py~"def num_common_letters(goal_word, guess):
+	common = []
+	for char in list(guess):
+		if char in list(goal_word) and char not in common:
+			common += [char]
+	return len(common)"~8.96~none~53~111904~112~1447993241~control
+control_120723_1449535217_100_2.61.py~"def num_common_letters(goal, g):
+	return len([i for i in set(goal) if i in g])"~3.29~none~61~120723~100~1449535217~control
+control_120723_1449534035_87_3.63.py~"
+def num_common_letters(goal_word, guess):
+	return sum([bool(letter in goal_word) for letter in set([letter for letter in guess])])"~5.4~none~61~120723~87~1449534035~control
+control_120723_1449536074_16_2.61.py~"def num_common_letters(goal_word, g):
+	return len([word for word in set(goal_word) if word in g])"~3.29~none~61~120723~16~1449536074~control
+control_111915_1447993284_125_8.23.py~"def num_common_letters(goal_word, guess):
+	goal_word_characters = [n for n in goal_word]
+	repeats = []
+	for n in guess:
+		if n in goal_word_characters and n not in repeats:
+			repeats.append(n)
+	return len(repeats)"~9.58~none~58~111915~125~1447993284~control
+control_120722_1449534347_112_10.29.py~"def num_common_letters(goal_word, guess):
+    count = 0
+    list_of_used_letters = list()
+    for letter in goal_word:
+        if letter in guess and letter not in list_of_used_letters:
+            count += 1
+            list_of_used_letters += letter
+    return count"~10.29~none~54~120722~112~1449534347~control
+control_120102_1449528098_227_6.23.py~"def num_common_letters(goal_word, guess):
+	seen = []
+	new_seen = [seen.append(x) for x in guess if x in goal_word and x not in seen]
+	return len(seen)"~6.77~none~66~120102~227~1449528098~control
+control_1114013_1447539181_21_18.89.py~"def num_common_letters(goal_word, guess):
+    cnt = 0
+    seen_chars = []
+    for char in goal_word:
+        if char not in seen_chars:
+            if char in guess:
+                cnt += 1
+            seen_chars.append(char)
+    return cnt"~11.04~none~67~1114013~21~1447539181~control
