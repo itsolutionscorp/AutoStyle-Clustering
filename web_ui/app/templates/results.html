@@ -138,8 +138,17 @@ psv("get_results/{{type}}", function(error, data) {
     d.flog = +d.flog_score;
     d.sid = +d.sid;
   });
+  console.log(data)
+  
+  data.sort(function(a, b){
+    var keyA = new Date(a.updated_at),
+        keyB = new Date(b.updated_at);
+    // Compare the 2 dates
+    if(keyA < keyB) return -1;
+    if(keyA > keyB) return 1;
+    return 0;
+    });
 
- 
   // don't want dots overlapping axis, so add in buffer to data domain
   xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
   yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
@@ -153,6 +162,8 @@ psv("get_results/{{type}}", function(error, data) {
       .attr("class", "label")
       .attr("x", width)
       .attr("y", -6)
+      .attr("dy", "3.4em")
+       .attr("dx", "-40em")
       .style("text-anchor", "end")
       .text("Student");
 
@@ -164,9 +175,10 @@ psv("get_results/{{type}}", function(error, data) {
       .attr("class", "label")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
-      .attr("dy", ".71em")
+      .attr("dy", "-3.3em")
+       .attr("dx", "-20em")
       .style("text-anchor", "end")
-      .text("Flog score");
+      .text("Style score");
 
   // draw dots
   svg.selectAll(".dot")
@@ -263,22 +275,22 @@ psv("get_results/{{type}}", function(error, data) {
 
       var done = [];
 
-      for(i = 0; i < data.length - 1; i++){
-          for(j = i + 1; j < data.length; j++){
-              if ([data[i].sid, data[i].flog] in countmap && !([data[i].sid, data[i].flog] in done)){
-                  svg.append("text")
-                    .attr("x", xs[i])
-                    .attr("y", ys[i])
-                    .attr("font-size", "7px")
-                    .attr("dy", "-3px")
-                    .attr("dx", "3px")
-                    .attr("font-family", "sans-serif")
-                    .attr("font-weight", "100")
-                    .text(countmap[[data[i].sid, data[i].flog]].filter(onlyUnique).length);
-              }
+      // for(i = 0; i < data.length - 1; i++){
+      //     for(j = i + 1; j < data.length; j++){
+      //         if ([data[i].sid, data[i].flog] in countmap && !([data[i].sid, data[i].flog] in done)){
+      //             svg.append("text")
+      //               .attr("x", xs[i])
+      //               .attr("y", ys[i])
+      //               .attr("font-size", "7px")
+      //               .attr("dy", "-3px")
+      //               .attr("dx", "3px")
+      //               .attr("font-family", "sans-serif")
+      //               .attr("font-weight", "100")
+      //               .text(countmap[[data[i].sid, data[i].flog]].filter(onlyUnique).length);
+      //         }
 
-          }
-      }
+      //     }
+      // }
 
   // draw legend
   var legend = svg.selectAll(".legend")
