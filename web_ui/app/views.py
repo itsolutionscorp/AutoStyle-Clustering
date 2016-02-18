@@ -23,7 +23,12 @@ hints = None
 
 @app.route('/submit_plot/src/<language>/<assignment>/<num>/')
 def plot_source(language, assignment, num):
-    extension = "" if language != "python" else ".py"
+    if language == "python":
+        extension = ".py"
+    elif language == "ruby":
+        extension = ".rb"
+    else:
+        extension = ""
     with open(os.path.join('..', 'assignments', language, assignment, 'src', str(int(float(num))) + extension)) as f:
         return f.read()
 
@@ -79,6 +84,9 @@ def submit_form():
     start_index = int(float(request.form['start']))
     max_hints = int(request.form['ast_slider'])
     flog = float(request.form['flog_slider'])
+    print "dfalsdfjlaksdjlfkja\n"
+    print flog
+    print "fjlasdjkflasjldfkjlsakjd\n"
     feedback = request.form['feedback']
     feedback = feedback.split(" ")
     try:
