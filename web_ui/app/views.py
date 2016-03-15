@@ -6,6 +6,7 @@ import sys
 import numpy as np
 import subprocess
 import glob
+import json
 sys.path.insert(0, os.path.abspath('../visualization/'))
 sys.path.insert(0, os.path.abspath('../featurization/'))
 sys.path.insert(0, os.path.abspath('../scripts_python/'))
@@ -81,12 +82,16 @@ def submit_form():
     global hints
     global chain
     data_loc = request.form['directory']
+    #print "---------------------------\n"
+    #print data_loc
+    #print "---------------------------\n"
     start_index = int(float(request.form['start']))
+    if (data_loc == "ruby/combine_anagrams"):
+      with open(os.path.join('..', 'assignments', data_loc, 'gen/mapping.json')) as f:
+        mapping = json.load(f)
+      start_index = mapping[str(start_index)] 
     max_hints = int(request.form['ast_slider'])
     flog = float(request.form['flog_slider'])
-    print "dfalsdfjlaksdjlfkja\n"
-    print flog
-    print "fjlasdjkflasjldfkjlsakjd\n"
     feedback = request.form['feedback']
     feedback = feedback.split(" ")
     try:
