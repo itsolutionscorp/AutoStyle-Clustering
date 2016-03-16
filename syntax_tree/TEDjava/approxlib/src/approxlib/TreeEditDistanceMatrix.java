@@ -48,6 +48,9 @@ public class TreeEditDistanceMatrix {
 	 	double[][] distmatrix = new double[listOfFiles.length][listOfFiles.length];
 	 	for (int i = 0; i < listOfFiles.length; i++) 
 	 	{
+	 		if ((i % 50) == 0){
+	 			System.out.println("TED in progress... " + i);
+	 		}
 		 	for (int j = i; j < listOfFiles.length; j++) 
 		 	{
 		 		double dist = new EditDist(true).nonNormalizedTreeDist(trees[i],trees[j]);
